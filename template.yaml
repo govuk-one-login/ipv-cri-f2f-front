@@ -319,67 +319,67 @@ Resources:
   
   # Fargate tasks
   
-  # ECSServiceTaskDefinition:
-  #   Type: 'AWS::ECS::TaskDefinition'
-  #   Properties:
-  #     ContainerDefinitions:
-  #       - Essential: true
-  #         Image: CONTAINER-IMAGE-PLACEHOLDER
-  #         Name: app
-  #         Environment:
-  #           - Name: API_BASE_URL
-  #             Value: !Sub
-  #               - "https://${APIGatewayId}.execute-api.eu-west-2.amazonaws.com/${Environment}"
-  #               - APIGatewayId:
-  #                   # Fn::ImportValue: di-ipv-cri-f2f-PrivateF2FApiGatewayId
-  #                   Fn::ImportValue: f2f-cri-api-F2FApiGatewayId  #Hardcoded , needs to be updated to use a parameter for BE stack name
-  #                 Environment: !Ref Environment
-  #           - Name: EXTERNAL_WEBSITE_HOST
-  #             Value: !GetAtt ApiGwHttpEndpoint.ApiEndpoint
-  #           - Name: SESSION_TABLE_NAME
-  #             Value: !FindInMap [EnvironmentVariables, !Ref Environment, SESSIONTABLENAME ]
-  #           - Name: FRONT_END_URL
-  #             Value: !Sub
-  #               - "https://${Url}"
-  #               - Url: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
+  ECSServiceTaskDefinition:
+    Type: 'AWS::ECS::TaskDefinition'
+    Properties:
+      ContainerDefinitions:
+        - Essential: true
+          Image: CONTAINER-IMAGE-PLACEHOLDER
+          Name: app
+          Environment:
+            - Name: API_BASE_URL
+              Value: !Sub
+                - "https://${APIGatewayId}.execute-api.eu-west-2.amazonaws.com/${Environment}"
+                - APIGatewayId:
+                    # Fn::ImportValue: di-ipv-cri-f2f-PrivateF2FApiGatewayId
+                    Fn::ImportValue: f2f-cri-api-F2FApiGatewayId  #Hardcoded , needs to be updated to use a parameter for BE stack name
+                  Environment: !Ref Environment
+            - Name: EXTERNAL_WEBSITE_HOST
+              Value: !GetAtt ApiGwHttpEndpoint.ApiEndpoint
+            - Name: SESSION_TABLE_NAME
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, SESSIONTABLENAME ]
+            - Name: FRONT_END_URL
+              Value: !Sub
+                - "https://${Url}"
+                - Url: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
 
-  #           #No backend api url available ????
-  #           #            - Name: API_URL
-  #           #              Value: !Sub
-  #           #                - "https://${Url}"
-  #           #                - Url: !ImportValue backend-api-apigateway-url
-  #           - Name: GTM_ID
-  #             Value: !Sub
-  #               - "GTM-${ContainerId}"
-  #               - ContainerId: !FindInMap [EnvironmentVariables, !Ref Environment, GTMID ]
-  #           - Name: ANALYTICS_DOMAIN
-  #             Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
+            #No backend api url available ????
+            #            - Name: API_URL
+            #              Value: !Sub
+            #                - "https://${Url}"
+            #                - Url: !ImportValue backend-api-apigateway-url
+            - Name: GTM_ID
+              Value: !Sub
+                - "GTM-${ContainerId}"
+                - ContainerId: !FindInMap [EnvironmentVariables, !Ref Environment, GTMID ]
+            - Name: ANALYTICS_DOMAIN
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
 
-  #         PortMappings:
-  #           - ContainerPort: 8080
-  #             Protocol: tcp
-  #         LogConfiguration:
-  #           LogDriver: awslogs
-  #           Options:
-  #             awslogs-group : !Ref ECSAccessLogsGroup
-  #             awslogs-region : !Sub ${AWS::Region}
-  #             awslogs-stream-prefix : !Sub f2f-front-${Environment}
-  #     Cpu: '256'
-  #     ExecutionRoleArn: !GetAtt ECSTaskExecutionRole.Arn
-  #     Memory: '512'
-  #     NetworkMode: awsvpc
-  #     RequiresCompatibilities:
-  #       - FARGATE
-  #     TaskRoleArn: !GetAtt ECSTaskRole.Arn
-  #     Tags:
-  #       - Key: Name
-  #         Value: !Sub "${AWS::StackName}-TaskDefinition"
-  #       - Key: Product
-  #         Value: "GOV.UK sign in"
-  #       - Key: System
-  #         Value: "F2F"
-  #       - Key: Environment
-  #         Value: !Sub "${Environment}"
+          PortMappings:
+            - ContainerPort: 8080
+              Protocol: tcp
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group : !Ref ECSAccessLogsGroup
+              awslogs-region : !Sub ${AWS::Region}
+              awslogs-stream-prefix : !Sub f2f-front-${Environment}
+      Cpu: '256'
+      ExecutionRoleArn: !GetAtt ECSTaskExecutionRole.Arn
+      Memory: '512'
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+        - FARGATE
+      TaskRoleArn: !GetAtt ECSTaskRole.Arn
+      Tags:
+        - Key: Name
+          Value: !Sub "${AWS::StackName}-TaskDefinition"
+        - Key: Product
+          Value: "GOV.UK sign in"
+        - Key: System
+          Value: "F2F"
+        - Key: Environment
+          Value: !Sub "${Environment}"
 
   ECSTaskExecutionRole:
     Type: 'AWS::IAM::Role'
@@ -662,4 +662,3 @@ Outputs:
     Export:
       Name: !Sub "${AWS::StackName}-F2FFrontGatewayId"
     Value: !Ref ApiGwHttpEndpoint
-    
