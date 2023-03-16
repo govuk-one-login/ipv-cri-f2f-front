@@ -324,7 +324,7 @@ Resources:
     Properties:
       ContainerDefinitions:
         - Essential: true
-          Image: di-f2f-front:latest 440208678480.dkr.ecr.eu-west-2.amazonaws.com/di-f2f-front:1
+          Image: CONTAINER-IMAGE-PLACEHOLDER
           Name: app
           Environment:
             - Name: API_BASE_URL
