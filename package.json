@@ -1,0 +1,10 @@
+{
+    "name": "di-ipv-cri-f2f-front",
+    "version": "0.0.1",
+    "description": "User interface for the Face 2 Face (F2F) part of the Identity Proofing and Verification (IPV) system within the GDS digital identity platform, GOV.UK Sign In.",
+    "main": "src/server.js",
+    "engines": {
+      "node": "16.*",
+      "yarn": "1.22.*"
+    }
+}
