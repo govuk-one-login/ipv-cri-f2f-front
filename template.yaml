@@ -3,15 +3,15 @@
 # Transform:
 #   - AWS::Serverless-2016-10-31
 # Description: >-
-#   This creates the necessary components to deploy the Claimed Identity (CIC) FE onto ECS
+#   This creates the necessary components to deploy the Face-2-Face (F2F) FE onto ECS
 #   Fargate within an existing VPC and private subnets (imported parameters).
-#   Claimed Identity Front can be invoked via the public API Gateway on the url in the
-#   CICFrontURL output.
+#   Face-2-Face Front can be invoked via the public API Gateway on the url in the
+#   F2FFrontURL output.
 
 #   The ingress route in summary is: API Gateway -> VPC link -> Private ALB ->
-#   CIC Front ECS Service
+#   F2F Front ECS Service
 
-#   CIC Front egress to CIC API's API Gateway is via a NAT Gateway which
+#   F2F Front egress to F2F API's API Gateway is via a NAT Gateway which
 #   should have a route in the provided private subnets' route table.
 
 # Parameters:
@@ -74,31 +74,31 @@
 #     dev:
 #       EXTERNALWEBSITEHOST: "www.review-c.dev.account.gov.uk"
 #       APIBASEURL: "app.review-c.dev.account.gov.uk"
-#       SESSIONTABLENAME: "cic-front-sessions-dev"
+#       SESSIONTABLENAME: "f2f-front-sessions-dev"
 #       GTMID: "TK92W68"
 #       ANALYTICSDOMAIN: "dev.account.gov.uk"
 #     build:
 #       EXTERNALWEBSITEHOST: "www.review-c.build.account.gov.uk"
 #       APIBASEURL: "app.review-c.build.account.gov.uk"
-#       SESSIONTABLENAME: "cic-front-sessions-build"
+#       SESSIONTABLENAME: "f2f-front-sessions-build"
 #       GTMID: "TK92W68"
 #       ANALYTICSDOMAIN: "build.account.gov.uk"
 #     staging:
 #       EXTERNALWEBSITEHOST: "www.review-c.staging.account.gov.uk"
 #       APIBASEURL: "app.review-c.staging.account.gov.uk"
-#       SESSIONTABLENAME: "cic-front-sessions-staging"
+#       SESSIONTABLENAME: "f2f-front-sessions-staging"
 #       GTMID: "TK92W68"
 #       ANALYTICSDOMAIN: "staging.account.gov.uk"
 #     integration:
 #       EXTERNALWEBSITEHOST: "www.review-c.integration.account.gov.uk"
 #       APIBASEURL: "app.review-c.integration.account.gov.uk"
-#       SESSIONTABLENAME: "cic-front-sessions-integration"
+#       SESSIONTABLENAME: "f2f-front-sessions-integration"
 #       GTMID: "TK92W68"
 #       ANALYTICSDOMAIN: "integration.account.gov.uk"
 #     production:
 #       EXTERNALWEBSITEHOST: "www.review-c.account.gov.uk"
 #       APIBASEURL: "app.review-c.account.gov.uk"
-#       SESSIONTABLENAME: "cic-front-sessions-production"
+#       SESSIONTABLENAME: "f2f-front-sessions-production"
 #       GTMID: "TT5HDKV"
 #       ANALYTICSDOMAIN: "account.gov.uk"
 
@@ -108,7 +108,7 @@
 #     Type: 'AWS::EC2::SecurityGroup'
 #     Properties:
 #       GroupDescription: >-
-#         CIC Front LoadBalancer Security Group
+#         F2F Front LoadBalancer Security Group
 #       SecurityGroupIngress:
 #         - CidrIp: 0.0.0.0/0
 #           Description: Allow from anyone on port 80
@@ -125,8 +125,8 @@
 #       GroupId: !GetAtt LoadBalancerSG.GroupId
 #       IpProtocol: tcp
 #       Description: >-
-#         Egress between the CIC Front load balancer and
-#         the CIC Front ECS security group
+#         Egress between the F2F Front load balancer and
+#         the F2F Front ECS security group
 #       DestinationSecurityGroupId: !GetAtt ECSSecurityGroup.GroupId
 #       FromPort: 8080
 #       ToPort: 8080
@@ -135,7 +135,7 @@
 #     Type: 'AWS::EC2::SecurityGroup'
 #     Properties:
 #       GroupDescription: >-
-#         CIC Front ECS Security Group permitting outbound
+#         F2F Front ECS Security Group permitting outbound
 #         to anywhere.
 #       SecurityGroupEgress:
 #         - CidrIp: 0.0.0.0/0
@@ -150,7 +150,7 @@
 #     Properties:
 #       IpProtocol: tcp
 #       Description: >-
-#         CIC Front ECS permits inbound from the CIC Front
+#         F2F Front ECS permits inbound from the F2F Front
 #         load balancer.
 #       FromPort: 8080
 #       ToPort: 8080
@@ -161,7 +161,7 @@
 #     Condition: IsNotDevelopment
 #     Type: AWS::S3::Bucket
 #     Properties:
-#       BucketName: !Sub cic-front-${Environment}-access-logs
+#       BucketName: !Sub f2f-front-${Environment}-access-logs
 #       VersioningConfiguration:
 #         Status: "Enabled"
 #       PublicAccessBlockConfiguration:
@@ -174,7 +174,7 @@
 #           - ServerSideEncryptionByDefault:
 #               SSEAlgorithm: AES256
 
-#   CICFrontAccessLogsBucketPolicy:
+#   F2FFrontAccessLogsBucketPolicy:
 #     Condition: IsNotDevelopment
 #     Type: AWS::S3::BucketPolicy
 #     Properties:
@@ -190,7 +190,7 @@
 #             Action:
 #               - s3:PutObject
 #             Resource:
-#               - !Sub arn:aws:s3:::${AccessLogsBucket}/cic-front-${Environment}/AWSLogs/${AWS::AccountId}/*
+#               - !Sub arn:aws:s3:::${AccessLogsBucket}/f2f-front-${Environment}/AWSLogs/${AWS::AccountId}/*
 
 #   # Private Application Load Balancer
 #   LoadBalancer:
@@ -212,7 +212,7 @@
 #           - Key: access_logs.s3.bucket
 #             Value: !Ref AccessLogsBucket
 #           - Key: access_logs.s3.prefix
-#             Value: !Sub cic-front-${Environment}
+#             Value: !Sub f2f-front-${Environment}
 #         - !Ref AWS::NoValue
 
 #   LoadBalancerListenerTargetGroupECS:
@@ -243,7 +243,7 @@
 #       Protocol: HTTP
 
 #   # ECS cluster, service
-#   CICFrontEcsCluster:
+#   F2FFrontEcsCluster:
 #     Type: 'AWS::ECS::Cluster'
 #     Properties:
 #       ClusterSettings:
@@ -255,14 +255,14 @@
 #         - Key: Product
 #           Value: "GOV.UK sign in"
 #         - Key: System
-#           Value: "CIC"
+#           Value: "F2F"
 #         - Key: Environment
 #           Value: !Sub "${Environment}"
 
-#   CICFrontEcsService:
+#   F2FFrontEcsService:
 #     Type: 'AWS::ECS::Service'
 #     Properties:
-#       Cluster: !Ref CICFrontEcsCluster
+#       Cluster: !Ref F2FFrontEcsCluster
 #       DeploymentConfiguration:
 #         MaximumPercent: 200
 #         MinimumHealthyPercent: 50
@@ -294,7 +294,7 @@
 #         - Key: Product
 #           Value: "GOV.UK sign in"
 #         - Key: System
-#           Value: "CIC"
+#           Value: "F2F"
 #         - Key: Environment
 #           Value: !Sub "${Environment}"
 #     DependsOn:
@@ -303,7 +303,7 @@
 #   ECSAccessLogsGroup:
 #     Type: AWS::Logs::LogGroup
 #     Properties:
-#       LogGroupName: !Sub /aws/ecs/${AWS::StackName}-CICFront-ECS
+#       LogGroupName: !Sub /aws/ecs/${AWS::StackName}-F2FFront-ECS
 #       RetentionInDays: 14
 
 #   #  CSLSECSAccessSubscriptionFilter:
@@ -330,8 +330,8 @@
 #               Value: !Sub
 #                 - "https://${APIGatewayId}.execute-api.eu-west-2.amazonaws.com/${Environment}"
 #                 - APIGatewayId:
-#                     # Fn::ImportValue: di-ipv-cri-cic-PrivateCICApiGatewayId
-#                     Fn::ImportValue: cic-cri-api-CICApiGatewayId  #Hardcoded , needs to be updated to use a parameter for BE stack name
+#                     # Fn::ImportValue: di-ipv-cri-f2f-PrivateF2FApiGatewayId
+#                     Fn::ImportValue: f2f-cri-api-F2FApiGatewayId  #Hardcoded , needs to be updated to use a parameter for BE stack name
 #                   Environment: !Ref Environment
 #             - Name: EXTERNAL_WEBSITE_HOST
 #               Value: !GetAtt ApiGwHttpEndpoint.ApiEndpoint
@@ -362,7 +362,7 @@
 #             Options:
 #               awslogs-group : !Ref ECSAccessLogsGroup
 #               awslogs-region : !Sub ${AWS::Region}
-#               awslogs-stream-prefix : !Sub cic-front-${Environment}
+#               awslogs-stream-prefix : !Sub f2f-front-${Environment}
 #       Cpu: '256'
 #       ExecutionRoleArn: !GetAtt ECSTaskExecutionRole.Arn
 #       Memory: '512'
@@ -376,7 +376,7 @@
 #         - Key: Product
 #           Value: "GOV.UK sign in"
 #         - Key: System
-#           Value: "CIC"
+#           Value: "F2F"
 #         - Key: Environment
 #           Value: !Sub "${Environment}"
 
@@ -391,7 +391,7 @@
 #               Service: ecs-tasks.amazonaws.com
 #         Version: 2012-10-17
 #       Policies:
-#         - PolicyName: PullCICFrontImage
+#         - PolicyName: PullF2FFrontImage
 #           PolicyDocument:
 #             Version: "2012-10-17"
 #             Statement:
@@ -425,7 +425,7 @@
 #               Service: ecs-tasks.amazonaws.com
 #         Version: 2012-10-17
 #       Policies:
-#         - PolicyName: CicFrontDynamoDBSessionAccess
+#         - PolicyName: F2fFrontDynamoDBSessionAccess
 #           PolicyDocument:
 #             Version: "2012-10-17"
 #             Statement:
@@ -441,7 +441,7 @@
 #                   - "dynamodb:UpdateItem"
 #                   - "dynamodb:PutItem"
 #                 Resource:
-#                   - !GetAtt CicFrontSessionsTable.Arn
+#                   - !GetAtt F2fFrontSessionsTable.Arn
 #       PermissionsBoundary: !If
 #         - UsePermissionsBoundary
 #         - !Ref PermissionsBoundary
@@ -455,7 +455,7 @@
 #   ApiGwHttpEndpoint:
 #     Type: 'AWS::ApiGatewayV2::Api'
 #     Properties:
-#       Name: !Sub cic-front-${Environment}
+#       Name: !Sub f2f-front-${Environment}
 #       ProtocolType: HTTP
 
 #   ApiGwHttpEndpointIntegration:
@@ -516,7 +516,7 @@
 #   APIGWAccessLogsGroup:
 #     Type: AWS::Logs::LogGroup
 #     Properties:
-#       LogGroupName: !Sub /aws/apigateway/${AWS::StackName}-CICFront-API-GW-AccessLogs
+#       LogGroupName: !Sub /aws/apigateway/${AWS::StackName}-F2FFront-API-GW-AccessLogs
 #       RetentionInDays: 14
       
 #   #  CSLSAPIGWAccessSubscriptionFilter:
@@ -542,8 +542,8 @@
 #       ResourceId: !Join
 #         - '/'
 #         - - "service"
-#           - !Ref   CICFrontEcsCluster
-#           - !GetAtt CICFrontEcsService.Name
+#           - !Ref   F2FFrontEcsCluster
+#           - !GetAtt F2FFrontEcsService.Name
 #       RoleARN: !Sub "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService"
 #       ScalableDimension: ecs:service:DesiredCount
 #       ServiceNamespace: ecs
@@ -558,8 +558,8 @@
 #       ResourceId: !Join
 #         - '/'
 #         - - "service"
-#           - !Ref   CICFrontEcsCluster
-#           - !GetAtt CICFrontEcsService.Name
+#           - !Ref   F2FFrontEcsCluster
+#           - !GetAtt F2FFrontEcsService.Name
 #       ScalableDimension: ecs:service:DesiredCount
 #       ServiceNamespace: ecs
 #       TargetTrackingScalingPolicyConfiguration:
@@ -629,11 +629,11 @@
 #   #    DependsOn:
 #   #      - AppFrontCustomDomain
 
-#   CicFrontSessionsTable:
+#   F2fFrontSessionsTable:
 #     Type: AWS::DynamoDB::Table
 #     Properties:
 #       # checkov:skip=CKV_AWS_28: Point in time recovery is not necessary for this table.
-#       TableName: !Sub "cic-front-sessions-${Environment}"
+#       TableName: !Sub "f2f-front-sessions-${Environment}"
 #       BillingMode: "PAY_PER_REQUEST"
 #       AttributeDefinitions:
 #         - AttributeName: "id"
@@ -653,12 +653,12 @@
 #   StackName:
 #     Description: "CloudFormation stack name"
 #     Value: !Sub "${AWS::StackName}"
-#   CICFrontUrl:
+#   F2FFrontUrl:
 #     Description: >-
-#       The API Gateway URL which CIC Front can be invoked on.
+#       The API Gateway URL which F2F Front can be invoked on.
 #     Value: !GetAtt  ApiGwHttpEndpoint.ApiEndpoint
-#   CICFrontGatewayId:
-#     Description: CIC Front API Gateway ID
+#   F2FFrontGatewayId:
+#     Description: F2F Front API Gateway ID
 #     Export:
-#       Name: !Sub "${AWS::StackName}-CICFrontGatewayId"
+#       Name: !Sub "${AWS::StackName}-F2FFrontGatewayId"
 #     Value: !Ref ApiGwHttpEndpoint

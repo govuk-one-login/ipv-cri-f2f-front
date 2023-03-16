@@ -105,7 +105,7 @@ setAPIConfig({
   authorizationPath: API.PATHS.AUTHORIZATION,
 });
 
-setOAuthPaths({ app, entryPointPath: APP.PATHS.CIC });
+setOAuthPaths({ app, entryPointPath: APP.PATHS.F2F });
 
 setGTM({
   app,
