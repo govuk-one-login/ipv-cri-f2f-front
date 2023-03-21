@@ -13,10 +13,6 @@
     
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
-    {{ hmpoText(ctx, {
-        id: "locations"
-    })}}
-
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 
     {% endcall %}
