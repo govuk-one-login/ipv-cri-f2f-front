@@ -1,0 +1,31 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoPageKey = "findBranch" %}
+{% set gtmJourney = "f2f - findBranch" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "hmpo-text/macro.njk" import hmpoText %}
+
+{% block header %}
+  {{ govukHeader ({
+    serviceName: "FIX ME"
+  }) }}
+{% endblock %}
+
+{% block mainContent %}
+<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+        "CHANGE ME"
+    </h1>
+    <p> UPDATE ME </p><br>
+    
+    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+
+    {{ hmpoText(ctx, {
+        id: "surname",
+        classes: "govuk-!-width-full"
+    })}}
+
+    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+
+    {% endcall %}
+{% endblock %}

@@ -8,6 +8,10 @@ module.exports = {
     next: "landingPage",
   },
   "/landingPage": {
+    next: "findBranch",
+  },
+  "/findBranch": {
+    // fields: ["findBranch"],
     next: "done",
   }
 }
