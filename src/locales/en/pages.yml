@@ -1,3 +1,10 @@
 landingPage:
   title: "F2F FRONT END"
   body: "We did it!"
+
+findBranch:
+  title: "Find a Post Office where you can prove your identity"
+  body: "Enter a UK postcode"
+
+locations:
+  title: "Choose a Post Office where you can prove your identity"

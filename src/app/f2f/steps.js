@@ -9,5 +9,12 @@ module.exports = {
   },
   "/landingPage": {
     next: "done",
+  },
+  "/findBranch": {
+    fields: ["postcode"],
+    next: "locations",
+  },
+  "/locations": {
+    next: "done"
   }
 }

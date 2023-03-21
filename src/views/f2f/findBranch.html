@@ -1,0 +1,29 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoPageKey = "findBranch" %}
+{% set gtmJourney = "f2f - findBranch" %}
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+
+{% block mainContent %}
+<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+        {{ translate("findBranch.title") }}
+    </h1>
+    <p class="govuk-!-font-weight-bold"> {{ translate("findBranch.body") }} </p><br>
+    
+    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+
+    {{ hmpoText(ctx, {
+        id: "postcode"
+    })}}
+
+    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+
+    {% endcall %}
+{% endblock %}
+
+{% set footerNavItems = translate("govuk.footerNavItems") %}
+
+{% block footer %}
+    {{ govukFooter( footerNavItems ) }}
+{% endblock %}
