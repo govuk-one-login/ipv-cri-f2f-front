@@ -11,7 +11,7 @@ module.exports = {
     next: "findBranch",
   },
   "/findBranch": {
-    // fields: ["findBranch"],
+    fields: ["postcode"],
     next: "done",
   }
 }

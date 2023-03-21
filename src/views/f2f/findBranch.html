@@ -14,8 +14,7 @@
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     {{ hmpoText(ctx, {
-        id: "findBranch",
-        classes: "govuk-input--width-10"
+        id: "postcode"
     })}}
 
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
