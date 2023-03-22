@@ -30,7 +30,11 @@ describe("RootController", () => {
     it("should save the values to the sessionModel", async () => {
 
       req.session.shared_claims = {
-        postcode: "SW1A 2RR"
+        address: [
+          {
+            "postalCode": "SW1A 2RR"
+          }
+        ]
       };
 
       await rootController.saveValues(req, res, next);
@@ -42,7 +46,11 @@ describe("RootController", () => {
     it("should not update sessionModel when shared_claims is empty", async () => {
 
       req.session.shared_claims = {
-        postcode: ""
+        address: [
+          {
+            "postalCode": ""
+          }
+        ]
       };
 
       await rootController.saveValues(req, res, next);
