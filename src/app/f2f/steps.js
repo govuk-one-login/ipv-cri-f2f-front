@@ -1,4 +1,4 @@
-const searchController = require("./controllers/search");
+const resultsController = require("./controllers/results");
 const root = require("./controllers/root");
 
 module.exports = {
@@ -14,11 +14,12 @@ module.exports = {
     next: "findBranch",
   },
   "/findBranch": {
-    controller: searchController,
+    
     fields: ["postcode"],
     next: "locations",
   },
   "/locations": {
+    controller: resultsController,
     next: "done"
   }
 }
