@@ -6,6 +6,7 @@ module.exports = {
     PATHS: {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
+      POSTCODE_LOOKUP: "postcode-search", //CHANGE THIS TO WHATEVER WE NEED
       SAVE_F2FDATA: "/claimedIdentity"
     },
   },

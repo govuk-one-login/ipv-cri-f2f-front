@@ -8,3 +8,5 @@ findBranch:
 
 locations:
   title: "Choose a Post Office where you can prove your identity"
+  body: "Postcode"
+  postcode: {{values.postcode}}
