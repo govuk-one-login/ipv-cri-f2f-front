@@ -10,4 +10,4 @@ Feature: Find Post Office Branch - Unhappy Path
     Scenario: Invalid address entered (Happy path)
         Given the postcode entered is invalid
         When the user clicks the continue button on the find Post Office branch invalid page
-        Then they are shown an on screen error informing them to enter a valid postcode
+        Then they are shown an on screen error asking them to enter a valid postcode

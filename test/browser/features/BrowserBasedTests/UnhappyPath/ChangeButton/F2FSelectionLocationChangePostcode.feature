@@ -10,7 +10,7 @@ Feature: Change Postcode - Unhappy Path
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the next screen in the journey - Select Location
     
-    @test
+    
     Scenario:
         Given the user wants to change their postcode
         When the user clicks the Change button

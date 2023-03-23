@@ -2,7 +2,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { PostOfficeLocations, FindBranchValid } = require("../pages");
+const { PostOfficeLocations, FindBranch } = require("../pages");
 
   Given(/^the user wants to change their postcode$/, async function () {
     const poLocations = new PostOfficeLocations(await this.page);
@@ -23,7 +23,7 @@ const { PostOfficeLocations, FindBranchValid } = require("../pages");
   
 
   Then(/^the user is navigated back to the Find Branch page$/, async function () {
-    const findBranch = new FindBranchValid(await this.page);
+    const findBranch = new FindBranch(await this.page);
 
     expect(await findBranch.isCurrentPage()).to.be.true;
 

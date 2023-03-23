@@ -1,6 +1,6 @@
 const { Given, Then, When } = require("@cucumber/cucumber");
 
-const { RelyingPartyPage, FindBranchValid } = require("../pages");
+const { RelyingPartyPage, FindBranch } = require("../pages");
 
 const { expect } = require("chai");
 
@@ -17,7 +17,7 @@ When("they have provided their details",{
 );
 
 Then("they should be redirected to the Find a Branch page", async function () {
-  const findBranchValid = new FindBranchValid(await this.page);
+  const findBranchValid = new FindBranch(await this.page);
 
   expect(await findBranchValid.isCurrentPage()).to.be.true;
 });
