@@ -2,35 +2,29 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { PostOfficeLocationsEmpty } = require("../pages");
+const { PostOfficeLocations, FindBranchValid } = require("../pages");
 
-  Given(/^no Post Office branch is selected$/, async function () {
-    const poLocations = new PostOfficeLocationsEmpty(await this.page);
+  Given(/^the user wants to change their postcode$/, async function () {
+    const poLocations = new PostOfficeLocations(await this.page);
   
     expect(await poLocations.isCurrentPage()).to.be.true;
 
   });
 
 
-  When(/^the user clicks Continue$/, async function () {
-    const poLocations = new PostOfficeLocationsEmpty(await this.page);
+  When(/^the user clicks the Change button$/, async function () {
+    const poLocations = new PostOfficeLocations(await this.page);
   
     expect(await poLocations.isCurrentPage()).to.be.true;
 
-    await poLocations.continue();
+    await poLocations.changePostcode();
   
   });
   
 
-  Then(/^they are shown an on screen error asking them to select a branch$/, async function () {
-    const poLocations = new PostOfficeLocationsEmpty(await this.page);
+  Then(/^the user is navigated back to the Find Branch page$/, async function () {
+    const findBranch = new FindBranchValid(await this.page);
 
-    expect(await poLocations.isCurrentPage()).to.be.true;
-
-    const inlineError = 'There is a problem';
-
-    const error = await poLocations.checkErrorText();
-      
-    expect(await error).to.equal(inlineError);
+    expect(await findBranch.isCurrentPage()).to.be.true;
 
   });

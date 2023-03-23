@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success
-Feature: Select Post Office Branch - Happy Path
+Feature: Change Postcode - Unhappy Path
 
     Background:
         Given Authenticatable Anita is using the system
@@ -10,8 +10,8 @@ Feature: Select Post Office Branch - Happy Path
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the next screen in the journey - Select Location
     
-    
+    @test
     Scenario:
-        Given no Post Office branch is selected
-        When the user clicks Continue
-        Then they are shown an on screen error asking them to select a branch
+        Given the user wants to change their postcode
+        When the user clicks the Change button
+        Then the user is navigated back to the Find Branch page

@@ -22,4 +22,13 @@ module.exports = class PlaywrightDevPage {
       const trimPC = enteredPostCode.trim()
       await this.page.click("#" + trimPC);
     }
+
+    async checkErrorText(){
+      const errorText = await this.page.locator("#error-summary-title").textContent();
+      return errorText.trim(); 
+    }
+
+    async changePostcode(){
+      await this.page.click("#changePostcode");
+    }
 };
