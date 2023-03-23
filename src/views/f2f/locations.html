@@ -10,13 +10,15 @@
 <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
         {{ translate("locations.title") }}
     </h1>
-    <p class="govuk-!-font-weight-bold"> {{ translate("locations.body") }} </p><br>
-    <p class="govuk-!-font-weight-bold"> {{ postcode }} </p><br>
+    <p class="govuk-!-font-weight-bold govuk-body govuk-!-font-size-24"> {{ translate("locations.body") }} </p><br>
+    <p class="govuk-!-font-weight-bold govuk-body govuk-!-font-size-24"> {{ postcode }} </p><br>
     
     {% call hmpoForm(ctx) %}
         {{ hmpoRadios(ctx, branch) }}
         {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
     {% endcall %}
+
+    {% include "common/confirmIdentityAnotherWay.html" %}
 
 {% endblock %}
 
