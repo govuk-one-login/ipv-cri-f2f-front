@@ -13,11 +13,14 @@ module.exports = {
   },
   "/findBranch": {
     controller: postcodeController,
+    // editable: true,
+    // editBackStep: "locations",
     fields: ["postcode"],
     next: "locations",
   },
   "/locations": {
     controller: resultsController,
+    fields: ["locations"],
     next: "done"
   }
 }

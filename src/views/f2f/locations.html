@@ -11,7 +11,7 @@
         {{ translate("locations.title") }}
     </h1>
     <p class="govuk-!-font-weight-bold govuk-body govuk-!-font-size-24"> {{ translate("locations.body") }} </p><br>
-    <p class="govuk-!-font-weight-bold govuk-body govuk-!-font-size-24"> {{ postcode }} </p><br>
+    <p> {{hmpoHtml(translate("links.changePostcode"))}} </p><br>
     
     {% call hmpoForm(ctx) %}
         {{ hmpoRadios(ctx, branch) }}
