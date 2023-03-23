@@ -1,9 +1,10 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoPageKey = "locations" %}
+{% set hmpoTitle = branch.label %}
 {% set gtmJourney = "f2f - locations" %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
 
 {% block mainContent %}
 <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
@@ -12,11 +13,11 @@
     <p class="govuk-!-font-weight-bold"> {{ translate("locations.body") }} </p><br>
     <p class="govuk-!-font-weight-bold"> {{ translate("locations.postcode") }} </p><br>
     
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
-
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
-
+    {% call hmpoForm(ctx) %}
+        {{ hmpoRadios(ctx, branch) }}
+        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
     {% endcall %}
+
 {% endblock %}
 
 {% set footerNavItems = translate("govuk.footerNavItems") %}
