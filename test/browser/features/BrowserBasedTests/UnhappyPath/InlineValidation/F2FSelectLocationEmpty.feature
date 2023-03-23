@@ -10,7 +10,8 @@ Feature: Select Post Office Branch - Happy Path
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the next screen in the journey - Select Location
     
+    @test
     Scenario:
-        Given a Post Office branch is selected
-        When the user clicks continue
-        Then the user is navigated to the next step in the journey - Confirm Answer
+        Given no Post Office branch is selected
+        When the user clicks Continue
+        Then they are shown an on screen error asking them to select a branch

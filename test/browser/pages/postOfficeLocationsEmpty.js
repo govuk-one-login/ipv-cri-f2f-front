@@ -16,10 +16,9 @@ module.exports = class PlaywrightDevPage {
     async continue() {
       await this.page.click("#continue");
     }
-    
-    async firstChoice(){
-      const enteredPostCode = await this.page.locator("#postcode").textContent();
-      const trimPC = enteredPostCode.trim()
-      await this.page.click("#" + trimPC);
+
+    async checkErrorText(){
+      const errorText = await this.page.locator("#error-summary-title").textContent();
+      return errorText.trim(); 
     }
 };
