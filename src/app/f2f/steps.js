@@ -5,9 +5,13 @@ module.exports = {
     entryPoint: true,
     skip: true,
     // controller: root,
-    next: "landingPage",
+    next: "findBranch",
   },
-  "/landingPage": {
-    next: "done",
+  "/findBranch": {
+    fields: ["postcode"],
+    next: "locations",
+  },
+  "/locations": {
+    next: "done"
   }
 }
