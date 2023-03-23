@@ -4,5 +4,6 @@ module.exports = {
     FindBranchEmpty: require("./findBranchEmpty"),
     PostOfficeLocations: require("./postOfficeLocations"),
     LandingPage: require("./landingPage"),
-    RelyingPartyPage: require("./relying-party")
+    RelyingPartyPage: require("./relying-party"),
+    Done: require("./done")
 }
