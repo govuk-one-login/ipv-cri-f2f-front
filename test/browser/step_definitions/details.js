@@ -1,6 +1,6 @@
 const { Given, Then, When } = require("@cucumber/cucumber");
 
-const { RelyingPartyPage, LandingPage } = require("../pages");
+const { RelyingPartyPage, PostOfficeLocations } = require("../pages");
 
 const { expect } = require("chai");
 
@@ -16,10 +16,10 @@ When("they have provided their details",{
   async function () {}
 );
 
-Then("they should be redirected to the landingPage", async function () {
-  const landingPage = new LandingPage(await this.page);
+Then("they should be redirected to the postOfficeLocations page", async function () {
+  const postOfficeLocations = new PostOfficeLocations(await this.page);
 
-  expect(await landingPage.isCurrentPage()).to.be.true;
+  expect(await postOfficeLocations.isCurrentPage()).to.be.true;
 });
 
 

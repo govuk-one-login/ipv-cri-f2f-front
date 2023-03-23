@@ -5,9 +5,6 @@ module.exports = {
     entryPoint: true,
     skip: true,
     // controller: root,
-    next: "landingPage",
-  },
-  "/landingPage": {
     next: "findBranch",
   },
   "/findBranch": {
