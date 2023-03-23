@@ -1,7 +1,7 @@
 module.exports = {
   postcode: {
     type: "text",
-    journeyKey: "findBranch",
+    journeyKey: "postcode",
     validate: [
       "required",
       { type: "maxlength", arguments: [8] },

@@ -1,5 +1,6 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 
+const { use } = require("chai");
 const {
   API: {
     PATHS: { POSTCODE_LOOKUP },
@@ -14,19 +15,20 @@ class PostcodeSearchController extends BaseController {
         return callback(err, locals);
       }
 
-      const resp = await req.axios.post(`https://locations.pol-platform.co.uk/v1/locations/search`, {
-        "searchString": "SW1 1AA",
+      const userPostcode = req.sessionModel.get("postcode");
+
+      const resp = await req.axios.post(`https://92ljo9w2zf.execute-api.eu-west-2.amazonaws.com/dev/post-office-finder`, {
+        "searchString": userPostcode,
         "productFilter": ["50321"]
       });
-      console.log(resp.data);
-
+      locals.postcode = userPostcode;
       locals.branch = 
       {
-        id: "SW1 1AA",
-        name: "SW1 1AA",
+        id: userPostcode,
+        name: "",
         label: "hello",
         legend: "",
-        hint: "SW1 1AA",
+        hint: "",
         items: [
           {
             value: "Branch address 1",
@@ -48,7 +50,21 @@ class PostcodeSearchController extends BaseController {
             hint: {
               text: resp.data[2].address.address1 + ", " + resp.data[2].address.address4 + ", " + resp.data[2].address.address5 + ", " + resp.data[2].address.postcode
             }
-          }
+          },
+          {
+            value: "Branch address 4",
+            text: resp.data[3].name,
+            hint: {
+              text: resp.data[3].address.address1 + ", " + resp.data[3].address.address4 + ", " + resp.data[3].address.address5 + ", " + resp.data[3].address.postcode
+            }
+          },
+          {
+            value: "Branch address 5",
+            text: resp.data[4].name,
+            hint: {
+              text: resp.data[4].address.address1 + ", " + resp.data[4].address.address4 + ", " + resp.data[4].address.address5 + ", " + resp.data[4].address.postcode
+            }
+          },
         ]
       };
       console.log("HERE " + JSON.stringify(locals.branch));
