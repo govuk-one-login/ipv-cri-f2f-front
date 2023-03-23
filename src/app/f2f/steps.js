@@ -1,5 +1,4 @@
 const resultsController = require("./controllers/results");
-const postcodeController = require("./controllers/search")
 const root = require("./controllers/root");
 
 module.exports = {
@@ -12,7 +11,6 @@ module.exports = {
     next: "findBranch",
   },
   "/findBranch": {
-    controller: postcodeController,
     // editable: true,
     // editBackStep: "locations",
     fields: ["postcode"],
