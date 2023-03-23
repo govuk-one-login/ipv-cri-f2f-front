@@ -1,87 +1,69 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-const PostcodeSearchController = require("./search");
+const PostcodeSearchController = require("./results");
 
-const testData = require("../../../../test/data/testData");
-
-let req;
-let res;
-let next;
-let sandbox;
-let sessionId = "session-id-123";
-
-beforeEach(() => {
-  sandbox = sinon.createSandbox();
-  const setup = setupDefaultMocks();
-  req = setup.req;
-  res = setup.res;
-  next = setup.next;
-  req.session.tokenId = sessionId;
-});
-
-afterEach(() => {
-  sandbox.restore();
-});
+const { expect } = require("chai");
 
 describe("Postcode Search Controller", () => {
+  
+
   let postcodeSearch;
-  const testPath = "postcode-lookup"
+  let req;
+  let res;
+  let next;
+  let sandbox;
 
   beforeEach(() => {
+    sandbox = sinon.createSandbox();
+    const setup = setupDefaultMocks();
+    req = setup.req;
+    res = setup.res;
+    next = setup.next;
     postcodeSearch = new PostcodeSearchController({ route: "/test" });
+  });
+
+  afterEach(() => {
+    sandbox.restore();
   });
 
   it("should be an instance of BaseController", () => {
     expect(postcodeSearch).to.be.an.instanceOf(BaseController);
   });
 
-  describe("saveValues", () => {
-    let testPostcode;
+  describe("locals", () => {
+    let prototypeSpy;
 
-    it("should call api with a postcode", async () => {
-      testPostcode = "A1 1AA";
-
-      req.form.values["postcode"] = testPostcode;
-    
-      await postcodeSearch.saveValues(req, res, next);
-      console.log("SEARCH VALUES FINISHED");
-
-      expect(req.axios.get).to.have.been.calledWith(
-        `${testPath}/A11AA`,
-        {
-          headers: {
-            session_id: sessionId,
-            "session-id": sessionId,
-          },
-        }
-      );
+    beforeEach(() => {
+      prototypeSpy = sinon.stub(BaseController.prototype, "locals");
+      BaseController.prototype.locals.callThrough();
     });
 
-    describe("on api success", () => {
-      let prototypeSpy;
-      let testPostcode;
+    afterEach(() => {
+      prototypeSpy.restore();
+    });
 
-      beforeEach(() => {
-        prototypeSpy = sinon.stub(BaseController.prototype, "saveValues");
-        BaseController.prototype.saveValues.callThrough();
-      });
+    context("with error on callback", () => {
+      let error;
+      let locals;
+      let superLocals;
 
       beforeEach(async () => {
-        req.axios.get = sinon.fake.returns(testData.apiResponse);
+        error = new Error("Help please");
+        superLocals = {
+          superKey: "superValue",
+        };
 
-        testPostcode = "SW1A2RR";
-        req.form.values["postcode"] = testPostcode;
-
-        await postcodeSearch.saveValues(req, res, next);
+        locals = {
+          key: "value",
+        };
+        res.locals = locals;
+        BaseController.prototype.locals.yields(error, superLocals);
+        await postcodeSearch.locals(req, res, next);
       });
 
-      afterEach(() => {
-        prototypeSpy.restore();
-      });
+      it("should call callback with error and existing locals", () => {
 
-      it("should set requestIsSuccessful as true", () => {
-        expect(req.sessionModel.get("requestIsSuccessful")).to.be.true;
+        expect(next).to.have.been.calledWith(error, superLocals);
       });
-    })
-
-  })
+    });
+  });
 });
