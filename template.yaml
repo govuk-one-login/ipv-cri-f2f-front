@@ -74,6 +74,7 @@ Mappings:
     ### Please ensure that any variables defined for an environment are defined for _all_ environments.
     dev:
       EXTERNALWEBSITEHOST: "www.review-o.dev.account.gov.uk"
+      POSTOFFICE_PROXY_URL: "proxy.review-o.dev.account.gov.uk"
       APIBASEURL: "app.review-o.dev.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
       GTMID: "TK92W68"

@@ -16,7 +16,7 @@ class PostcodeSearchController extends BaseController {
 
       const userPostcode = req.sessionModel.get("postcode");
 
-      const resp = await req.axios.post(`https://92ljo9w2zf.execute-api.eu-west-2.amazonaws.com/dev/post-office-finder`, {
+      const resp = await req.axios.post(`${POSTCODE_LOOKUP}`, {
         "searchString": userPostcode,
         "productFilter": ["50321"]
       });
