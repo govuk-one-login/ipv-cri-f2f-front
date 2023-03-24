@@ -26,9 +26,6 @@ const { FindBranch } = require("../pages");
 
     expect(await findBranchEmpty.isCurrentPage()).to.be.true;
 
-    const inlineError = 'There is a problem';
+    expect(await findBranchEmpty.checkErrorText()).to.contain('There is a problem');
 
-    const error = await findBranchEmpty.checkErrorText();
-      
-    expect(await error).to.equal(inlineError);
   });

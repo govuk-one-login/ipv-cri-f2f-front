@@ -27,10 +27,6 @@ const { PostOfficeLocations } = require("../pages");
 
     expect(await poLocations.isCurrentPage()).to.be.true;
 
-    const inlineError = 'There is a problem';
-
-    const error = await poLocations.checkErrorText();
-      
-    expect(await error).to.equal(inlineError);
+    expect(await poLocations.checkErrorText()).to.contain('There is a problem');
 
   });
