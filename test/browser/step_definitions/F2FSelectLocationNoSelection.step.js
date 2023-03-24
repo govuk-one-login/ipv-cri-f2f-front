@@ -6,8 +6,8 @@ const { PostOfficeLocations } = require("../pages");
 
   Given(/^no Post Office branch is selected$/, async function () {
     const poLocations = new PostOfficeLocations(await this.page);
-  
-    await poLocations.firstChoice();
+    
+    expect(await poLocations.isCurrentPage()).to.be.true;
 
   });
 
