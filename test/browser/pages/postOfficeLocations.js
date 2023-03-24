@@ -18,9 +18,7 @@ module.exports = class PlaywrightDevPage {
     }
     
     async firstChoice(){
-      const enteredPostCode = await this.page.locator("#postcode").textContent();
-      const trimPC = enteredPostCode.trim()
-      await this.page.click("#" + trimPC);
+      await this.page.click("#branches");
     }
 
     async checkErrorText(){

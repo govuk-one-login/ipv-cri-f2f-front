@@ -3,5 +3,5 @@ module.exports = {
     PostOfficeLocations: require("./postOfficeLocations"),
     LandingPage: require("./landingPage"),
     RelyingPartyPage: require("./relying-party"),
-    Done: require("./done")
+    CheckDetails: require("./checkDetails")
 }

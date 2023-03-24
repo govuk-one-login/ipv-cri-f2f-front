@@ -2,7 +2,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { PostOfficeLocations, Done } = require("../pages");
+const { PostOfficeLocations, CheckDetails } = require("../pages");
 
   Given(/^a Post Office branch is selected$/, async function () {
     const poLocations = new PostOfficeLocations(await this.page);
@@ -23,7 +23,7 @@ const { PostOfficeLocations, Done } = require("../pages");
   
 
   Then(/^the user is navigated to the next step in the journey - Confirm Answer$/, async function () {
-    const confirmAnswers = new Done(await this.page);
+    const confirmAnswers = new CheckDetails(await this.page);
 
     expect(await confirmAnswers.isCurrentPage()).to.be.true;
 
