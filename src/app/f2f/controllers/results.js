@@ -23,7 +23,7 @@ class PostcodeSearchController extends BaseController {
       locals.postcode = userPostcode;
       locals.branch = 
       {
-        id: userPostcode,
+        id: "branches",
         name: "",
         label: "hello",
         legend: "",

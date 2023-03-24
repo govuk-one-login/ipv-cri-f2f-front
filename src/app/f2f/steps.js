@@ -18,7 +18,10 @@ module.exports = {
   },
   "/locations": {
     controller: resultsController,
-    fields: ["locations"],
-    next: "done"
+    fields: ["branches"],
+    next: "checkDetails"
+  },
+  "/checkDetails": {
+    next: "done",
   }
 }

@@ -4,7 +4,7 @@ postcode:
   validation:
     default: "Enter a valid UK postcode"
 
-locations:
+branches:
   label: Postcode
   validation:
     default: "Select your preferred Post Office branch"

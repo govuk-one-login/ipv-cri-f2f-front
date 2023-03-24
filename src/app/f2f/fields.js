@@ -13,7 +13,7 @@ module.exports = {
     ],
     classes: "govuk-input--width-10",
   },
-  locations: {
+  branches: {
     validate: ["required"]
   }
 }
