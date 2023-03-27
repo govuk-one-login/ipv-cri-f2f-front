@@ -6,7 +6,7 @@ module.exports = {
     PATHS: {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
-      POSTCODE_LOOKUP: "/post-office-finder", 
+      POSTCODE_LOOKUP: "https://locations.pol-platform.co.uk/v1/locations/search", 
       SAVE_F2FDATA: "/claimedIdentity"
     },
   },
