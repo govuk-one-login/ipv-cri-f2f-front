@@ -22,6 +22,10 @@ module.exports = class PlaywrightDevPage {
     async invalidPostCode() {
       await this.page.locator("#postcode").fill("SWWWWWWW");
     }
+  
+    async partialPostCode() {
+      await this.page.locator("#postcode").fill("SW1A");
+    }
 
     async checkErrorText(){
       const errorText = await this.page.locator("#error-summary-title").textContent();
