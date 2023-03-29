@@ -63,16 +63,16 @@ Mappings:
 #   #      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython
 
 #   # see https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html
-  ElasticLoadBalancerAccountIds:
-    eu-west-2:
-      AccountId: 652711504416
+ElasticLoadBalancerAccountIds:
+  eu-west-2:
+    AccountId: 652711504416
 
 # //TODO DOUBLE CHECK WEBSITE URLS ARE CORRECT
 
   EnvironmentVariables:
     ### These environment variables are referenced further down the file.
     ### Please ensure that any variables defined for an environment are defined for _all_ environments.
-       dev:
+    dev:
       EXTERNALWEBSITEHOST: "www.review-o.dev.account.gov.uk"
       APIBASEURL: "app.review-o.dev.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
