@@ -3,10 +3,10 @@ require("dotenv").config();
 module.exports = {
   API: {
     BASE_URL: process.env.API_BASE_URL || "http://localhost:8090",
+    POST_OFFICE_PROXYURL: process.env.POST_OFFICE_PROXYURL,
     PATHS: {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
-      POSTCODE_LOOKUP: "/post-office-finder", 
       SAVE_F2FDATA: "/claimedIdentity"
     },
   },

@@ -103,6 +103,7 @@ setAPIConfig({
   baseUrl: API.BASE_URL,
   sessionPath: API.PATHS.SESSION,
   authorizationPath: API.PATHS.AUTHORIZATION,
+  postOfficeProxyUrl: API.POST_OFFICE_PROXYURL
 });
 
 setOAuthPaths({ app, entryPointPath: APP.PATHS.F2F });

@@ -72,37 +72,41 @@ Mappings:
   EnvironmentVariables:
     ### These environment variables are referenced further down the file.
     ### Please ensure that any variables defined for an environment are defined for _all_ environments.
-    dev:
+       dev:
       EXTERNALWEBSITEHOST: "www.review-o.dev.account.gov.uk"
-      POSTOFFICE_PROXY_URL: "proxy.review-o.dev.account.gov.uk"
       APIBASEURL: "app.review-o.dev.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
+      POSTOFFICEPROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk/postoffice/v1/locations/search"
     build:
       EXTERNALWEBSITEHOST: "www.review-o.build.account.gov.uk"
       APIBASEURL: "app.review-o.build.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-build"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "build.account.gov.uk"
+      POSTOFFICEPROXYURL: "proxy.review-o.build.account-gov.uk/postoffice/v1/locations/search"
     staging:
       EXTERNALWEBSITEHOST: "www.review-o.staging.account.gov.uk"
       APIBASEURL: "app.review-o.staging.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-staging"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
+      POSTOFFICEPROXYURL: "proxy.review-o.staging.account-gov.uk/postoffice/v1/locations/search"
     integration:
       EXTERNALWEBSITEHOST: "www.review-o.integration.account.gov.uk"
       APIBASEURL: "app.review-o.integration.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-integration"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
+      POSTOFFICEPROXYURL: "proxy.review-o.integration.account-gov.uk/postoffice/v1/locations/search"
     production:
       EXTERNALWEBSITEHOST: "www.review-o.account.gov.uk"
       APIBASEURL: "app.review-o.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-production"
       GTMID: "TT5HDKV"
       ANALYTICSDOMAIN: "account.gov.uk"
+      POSTOFFICEPROXYURL: "proxy.review-o.account-gov.uk/postoffice/v1/locations/search"
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -339,6 +343,8 @@ Resources:
               Value: !GetAtt ApiGwHttpEndpoint.ApiEndpoint
             - Name: SESSION_TABLE_NAME
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, SESSIONTABLENAME ]
+            - Name: POST_OFFICE_PROXYURL
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, POSTOFFICEPROXYURL ]
             - Name: FRONT_END_URL
               Value: !Sub
                 - "https://${Url}"

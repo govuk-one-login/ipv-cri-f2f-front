@@ -1,27 +1,23 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-
-const {
-  API: {
-    PATHS: { POSTCODE_LOOKUP },
-  },
-} = require("../../../lib/config");
+const { API } = require("../../../../src/lib/config");
 
 class PostcodeSearchController extends BaseController {
 
   locals(req, res, callback) {
-    super.locals(req, res, async(err, locals) => {
+    super.locals(req, res, async (err, locals) => {
       if (err) {
         return callback(err, locals);
       }
 
       const userPostcode = req.sessionModel.get("postcode");
-
-      const resp = await req.axios.post(`${POSTCODE_LOOKUP}`, {
+      const resp = await req.axios.post(`https://${API.POST_OFFICE_PROXYURL}`, {
         "searchString": userPostcode,
         "productFilter": ["50321"]
       });
+
+      console.log("RESP:", resp);
       locals.postcode = userPostcode;
-      locals.branch = 
+      locals.branch =
       {
         id: "branches",
         name: "",
