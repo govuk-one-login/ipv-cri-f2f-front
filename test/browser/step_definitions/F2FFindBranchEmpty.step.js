@@ -17,10 +17,9 @@ const { FindBranch } = require("../pages");
     expect(await findBranchEmpty.isCurrentPage()).to.be.true;
 
     await findBranchEmpty.continue();
-  
+
   });
   
-
   Then(/^they are shown an on-screen error asking them to enter a valid postcode$/, async function () {
     const findBranchEmpty = new FindBranch(await this.page);
 

@@ -10,6 +10,7 @@ const WizardModel = require("hmpo-form-wizard/lib/wizard-model.js");
 chai.should();
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
+
 const expect = chai.expect;
 
 global.sinon = sinon;
