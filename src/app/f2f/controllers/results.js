@@ -1,5 +1,5 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-const { API } = require("../../../../src/lib/config");
+const { PROXY_API } = require("../../../../src/lib/config");
 
 class PostcodeSearchController extends BaseController {
 
@@ -10,12 +10,11 @@ class PostcodeSearchController extends BaseController {
       }
 
       const userPostcode = req.sessionModel.get("postcode");
-      const resp = await req.axios.post(`https://${API.POST_OFFICE_PROXYURL}`, {
+      const resp = await req.axios.post(`https://${PROXY_API.BASE_URL}${PROXY_API.PATHS.POST_OFFICE}`, {
         "searchString": userPostcode,
         "productFilter": ["50321"]
       });
 
-      console.log("RESP:", resp);
       locals.postcode = userPostcode;
       locals.branch =
       {

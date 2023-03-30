@@ -3,7 +3,10 @@ module.exports = {
     app.set("API.BASE_URL", baseUrl);
     app.set("API.PATHS.SESSION", sessionPath);
     app.set("API.PATHS.AUTHORIZATION", authorizationPath);
-    app.set("API.POST_OFFICE_PROXYURL", postOfficeProxyUrl);
+  },
+
+  setProxyAPIConfig: ({ app, postOfficeProxyUrl }) => {
+    app.set("PROXY_API.PATHS.POST_OFFICE", postOfficeProxyUrl);
   },
 
   setOAuthPaths: ({ app, entryPointPath }) => {
