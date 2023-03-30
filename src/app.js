@@ -104,7 +104,6 @@ setAPIConfig({
   baseUrl: API.BASE_URL,
   sessionPath: API.PATHS.SESSION,
   authorizationPath: API.PATHS.AUTHORIZATION,
-  postOfficeProxyUrl: PROXY_API.PATHS.POST_OFFICE
 });
 
 setProxyAPIConfig({
