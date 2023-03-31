@@ -75,7 +75,7 @@ Mappings:
     dev:
       EXTERNALWEBSITEHOST: "www.review-o.dev.account.gov.uk"
       APIBASEURL: "app.review-o.dev.account.gov.uk"
-      DNSSUFFIX: review-o.dev.account.gov.uk
+      DNSSUFFIX: "review-o.dev.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
@@ -329,7 +329,7 @@ Resources:
     Properties:
       ContainerDefinitions:
         - Essential: true
-          Image: 440208678480.dkr.ecr.eu-west-2.amazonaws.com/f2f-cri-front-ecr-containerrepository-lrazucdwjqvv:a4dafe8174341ab6d42863b029ac5bdf27fb36b4
+          Image: CONTAINER-IMAGE-PLACEHOLDER
           Name: app
           Environment:
             - Name: API_BASE_URL
@@ -344,10 +344,7 @@ Resources:
             - Name: SESSION_TABLE_NAME
               Value: !Ref F2fFrontSessionsTable
             - Name: FRONT_END_URL
-              Value: !Sub
-                - "https://${Url}"
-                - Url: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
-
+              Value: !Ref F2FFrontCustomDomain
             #No backend api url available ????
             #            - Name: API_URL
             #              Value: !Sub
@@ -580,10 +577,10 @@ Resources:
       DomainName: !If
         - IsNotDevelopment
         - !Sub
-          - "${DNSSUFFIX}"
+          - "www.${DNSSUFFIX}"
           - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
         - !Sub
-          - "${DNSSUFFIX}-${AWS::StackName}"
+          - "${AWS::StackName}.${DNSSUFFIX}"
           - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
       EndpointConfiguration:
         Types:
@@ -594,13 +591,13 @@ Resources:
   F2FFrontApiRecord:
     Type: AWS::Route53::RecordSet
     Properties:
-      Name: !Sub
+      Name: !If
         - IsNotDevelopment
         - !Sub
-          - "${DNSSUFFIX}"
+          - "www.${DNSSUFFIX}"
           - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
         - !Sub
-          - "${DNSSUFFIX}-${AWS::StackName}"
+          - "${AWS::StackName}.${DNSSUFFIX}"
           - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
       Type: A
       HostedZoneId: !ImportValue PublicHostedZoneId
@@ -615,10 +612,10 @@ Resources:
       DomainName: !If
         - IsNotDevelopment
         - !Sub
-          - "${DNSSUFFIX}"
+          - "www.${DNSSUFFIX}"
           - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
         - !Sub
-          - "${DNSSUFFIX}-${AWS::StackName}"
+          - "${AWS::StackName}.${DNSSUFFIX}"
           - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
       ApiId:
         Fn::ImportValue:
@@ -637,7 +634,7 @@ Resources:
           - "${SESSIONTABLENAME}"
           - SESSIONTABLENAME: !FindInMap [EnvironmentVariables, !Ref Environment, SESSIONTABLENAME]
         - !Sub
-          - "${SESSIONTABLENAME}-${AWS::StackName}"
+          - "${SESSIONTABLENAME}.${AWS::StackName}"
           - SESSIONTABLENAME: !FindInMap [EnvironmentVariables, !Ref Environment, SESSIONTABLENAME]
       BillingMode: "PAY_PER_REQUEST"
       AttributeDefinitions:
