@@ -108,18 +108,6 @@ Mappings:
       GTMID: "TT5HDKV"
       ANALYTICSDOMAIN: "account.gov.uk"
 
-# Conditions:
-#   CreateProdResources: !Equals [ !Ref Environment, production]
-#   CreateNonProdResources: !Not [!Condition CreateProdResources]
-#   CreateStub:
-#     Fn::Or:
-#       - Fn::Equals:
-#         - !Ref Environment
-#         - "dev"
-#       - Fn::Equals:
-#         - !Ref Environment
-#         - "build"
-
 Resources:
   # Security Groups for the ECS service and load balancer
   LoadBalancerSG:
@@ -341,7 +329,7 @@ Resources:
     Properties:
       ContainerDefinitions:
         - Essential: true
-          Image: 440208678480.dkr.ecr.eu-west-2.amazonaws.com/f2f-cri-front-ecr-containerrepository-lrazucdwjqvv:a4dafe8174341ab6d42863b029ac5bdf27fb36b4
+          Image: CONTAINER-IMAGE-PLACEHOLDER
           Name: app
           Environment:
             - Name: API_BASE_URL
@@ -661,74 +649,12 @@ Resources:
       Stage: "$default"
     DependsOn:
       - ProdF2FFrontCustomDomain
-  
-  ## www domain
-
-  #  FrontCustomDomain:
-  #    Type: AWS::ApiGatewayV2::DomainName
-  #    Properties:
-  #      DomainName: !FindInMap [ EnvironmentVariables, !Ref Environment, FEURL ]
-  #      DomainNameConfigurations:
-  #        - CertificateArn: !Sub "{{resolve:ssm:/${Environment}/Platform/ACM/PrimaryZoneWildcardCertificateARN}}"
-  #          EndpointType: REGIONAL
-  #          SecurityPolicy: TLS_1_2
-  
-  #  FrontApiRecord:
-  #    Type: AWS::Route53::RecordSet
-  #    Properties:
-  #      Name: !FindInMap [EnvironmentVariables, !Ref Environment, FEURL ]
-  #      Type: A
-  #      HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
-  #      AliasTarget:
-  #        DNSName: !GetAtt FrontCustomDomain.RegionalDomainName
-  #        HostedZoneId: !GetAtt FrontCustomDomain.RegionalHostedZoneId
-  #        EvaluateTargetHealth: false
-  
-  #  FrontApiMapping:
-  #    Type: AWS::ApiGatewayV2::ApiMapping
-  #    Properties:
-  #      DomainName: !FindInMap [EnvironmentVariables, !Ref Environment, FEURL ]
-  #      ApiId: !Ref ApiGwHttpEndpoint
-  #      Stage: "$default"
-  #    DependsOn:
-  #      - FrontCustomDomain
-  
-  
-  #  # app domain
-  #  AppFrontCustomDomain:
-  #    Type: AWS::ApiGatewayV2::DomainName
-  #    Properties:
-  #      DomainName: !FindInMap [EnvironmentVariables, !Ref Environment, APPURL ]
-  #      DomainNameConfigurations:
-  #        - CertificateArn: !Sub "{{resolve:ssm:/${Environment}/Platform/ACM/PrimaryZoneWildcardCertificateARN}}"
-  #          EndpointType: REGIONAL
-  #          SecurityPolicy: TLS_1_2
-  
-  #  AppFrontApiRecord:
-  #    Type: AWS::Route53::RecordSet
-  #    Properties:
-  #      Name: !FindInMap [EnvironmentVariables, !Ref Environment, APPURL ]
-  #      Type: A
-  #      HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
-  #      AliasTarget:
-  #        DNSName: !GetAtt AppFrontCustomDomain.RegionalDomainName
-  #        HostedZoneId: !GetAtt AppFrontCustomDomain.RegionalHostedZoneId
-  #        EvaluateTargetHealth: false
-  
-  #  AppFrontApiMapping:
-  #    Type: AWS::ApiGatewayV2::ApiMapping
-  #    Properties:
-  #      DomainName: !FindInMap [EnvironmentVariables, !Ref Environment, APPURL ]
-  #      ApiId: !Ref ApiGwHttpEndpoint
-  #      Stage: "$default"
-  #    DependsOn:
-  #      - AppFrontCustomDomain
 
   F2fFrontSessionsTable:
     Type: AWS::DynamoDB::Table
     Properties:
       # checkov:skip=CKV_AWS_28: Point in time recovery is not necessary for this table.
-      TableName: !Sub "${AWS::StackName}-sessions-${Environment}"
+      TableName: !Sub "f2f-front-sessions-${Environment}"
       BillingMode: "PAY_PER_REQUEST"
       AttributeDefinitions:
         - AttributeName: "id"
@@ -757,3 +683,7 @@ Outputs:
     Export:
       Name: !Sub "${AWS::StackName}-F2FFrontGatewayId"
     Value: !Ref ApiGwHttpEndpoint
+  F2FCustomDomain:
+    Description: F2F Custom Domain API Gateway ID
+    Export:
+      Name: !Sub "${AWS::StackName}.${DNSSUFFIX}"
