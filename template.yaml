@@ -89,7 +89,7 @@ Mappings:
     staging:
       EXTERNALWEBSITEHOST: "www.review-o.staging.account.gov.uk"
       APIBASEURL: "app.review-o.staging.account.gov.uk"
-      DNSSUFFIX: review-o.stanging.account.gov.uk
+      DNSSUFFIX: review-o.staging.account.gov.uk
       SESSIONTABLENAME: "f2f-front-sessions-staging"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
@@ -107,6 +107,18 @@ Mappings:
       SESSIONTABLENAME: "f2f-front-sessions-production"
       GTMID: "TT5HDKV"
       ANALYTICSDOMAIN: "account.gov.uk"
+
+# Conditions:
+#   CreateProdResources: !Equals [ !Ref Environment, production]
+#   CreateNonProdResources: !Not [!Condition CreateProdResources]
+#   CreateStub:
+#     Fn::Or:
+#       - Fn::Equals:
+#         - !Ref Environment
+#         - "dev"
+#       - Fn::Equals:
+#         - !Ref Environment
+#         - "build"
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -614,6 +626,41 @@ Resources:
       Stage: "$default"
     DependsOn:
       - F2FFrontCustomDomain  
+
+  ProdF2FFrontCustomDomain:
+    Type: AWS::ApiGatewayV2::DomainName
+    Condition: IsNotDevelopment
+    Properties:
+      DomainName: "www.review-o.account.gov.uk"
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
+      RegionalCertificateArn: !Sub "{{resolve:ssm:/${Environment}/Platform/ACM/PrimaryZoneWildcardCertificateARN}}"
+      SecurityPolicy: TLS_1_2
+
+  ProdF2FFrontApiRecord:
+    Type: AWS::Route53::RecordSet
+    Condition: IsNotDevelopment
+    Properties:
+      Name: "www.review-o.account.gov.uk"
+      Type: A
+      HostedZoneId: !ImportValue PublicHostedZoneId
+      AliasTarget:
+        DNSName: !GetAtt ProdF2FFrontCustomDomain.RegionalDomainName
+        HostedZoneId: !GetAtt ProdF2FFrontCustomDomain.RegionalHostedZoneId
+        EvaluateTargetHealth: false
+
+  ProdF2FFrontApiMapping:
+    Type: AWS::ApiGatewayV2::ApiMapping
+    Condition: IsNotDevelopment
+    Properties:
+      DomainName: "www.review-o.account.gov.uk"
+      ApiId:
+        Fn::ImportValue:
+          !Sub f2f-cri-front-F2FFrontGatewayId
+      Stage: "$default"
+    DependsOn:
+      - ProdF2FFrontCustomDomain
   
   ## www domain
 
