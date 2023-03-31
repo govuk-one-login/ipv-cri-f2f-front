@@ -78,30 +78,35 @@ Mappings:
       SESSIONTABLENAME: "f2f-front-sessions-dev"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
+      PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
     build:
       APIBASEURL: "app.review-o.build.account.gov.uk"
       DNSSUFFIX: review-o.build.account.gov.uk
       SESSIONTABLENAME: "f2f-front-sessions-build"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "build.account.gov.uk"
+      PROXYURL: "proxy.review-o.build.account-gov.uk"
     staging:
       APIBASEURL: "app.review-o.staging.account.gov.uk"
       DNSSUFFIX: review-o.staging.account.gov.uk
       SESSIONTABLENAME: "f2f-front-sessions-staging"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
+      PROXYURL: "proxy.review-o.staging.account-gov.uk"
     integration:
       APIBASEURL: "app.review-o.integration.account.gov.uk"
       DNSSUFFIX: review-o.integration.account.gov.uk
       SESSIONTABLENAME: "f2f-front-sessions-integration"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
+      PROXYURL: "proxy.review-o.integration.account-gov.uk"
     production:
       APIBASEURL: "app.review-o.account.gov.uk"
       DNSSUFFIX: review-o.account.gov.uk
       SESSIONTABLENAME: "f2f-front-sessions-production"
       GTMID: "TT5HDKV"
       ANALYTICSDOMAIN: "account.gov.uk"
+      PROXYURL: "proxy.review-o.account-gov.uk"
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -285,9 +290,9 @@ Resources:
             - !GetAtt ECSSecurityGroup.GroupId
           Subnets:
             - Fn::ImportValue:
-                !Sub "${VpcStackName}-PrivateSubnetIdA"
+                !Sub "${VpcStackName}-ProtectedSubnetIdA"
             - Fn::ImportValue:
-                !Sub "${VpcStackName}-PrivateSubnetIdB"
+                !Sub "${VpcStackName}-ProtectedSubnetIdB"
       TaskDefinition: !Ref ECSServiceTaskDefinition
       Tags:
         - Key: Name
@@ -316,9 +321,9 @@ Resources:
   #      FilterPattern: ""
   #      LogGroupName: !Ref ECSAccessLogsGroup
 
-  
+
   # Fargate tasks
-  
+
   ECSServiceTaskDefinition:
     Type: 'AWS::ECS::TaskDefinition'
     Properties:
@@ -328,14 +333,9 @@ Resources:
           Name: app
           Environment:
             - Name: API_BASE_URL
-              Value: !Sub
-                - "https://${APIGatewayId}.execute-api.eu-west-2.amazonaws.com/${Environment}"
-                - APIGatewayId:
-                    # Fn::ImportValue: di-ipv-cri-f2f-PrivateF2FApiGatewayId
-                    Fn::ImportValue: f2f-cri-api-F2FApiGatewayId  
-                  Environment: !Ref Environment
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, APIBASEURL ]
             - Name: EXTERNAL_WEBSITE_HOST
-              Value: !GetAtt ApiGwHttpEndpoint.ApiEndpoint
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
             - Name: SESSION_TABLE_NAME
               Value: !Ref F2fFrontSessionsTable
             - Name: FRONT_END_URL
@@ -617,7 +617,7 @@ Resources:
           !Sub f2f-cri-front-F2FFrontGatewayId
       Stage: "$default"
     DependsOn:
-      - F2FFrontCustomDomain 
+      - F2FFrontCustomDomain
 
   F2fFrontSessionsTable:
     Type: AWS::DynamoDB::Table

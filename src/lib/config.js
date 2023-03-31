@@ -6,7 +6,13 @@ module.exports = {
     PATHS: {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
-      SAVE_F2FDATA: "/claimedIdentity"
+      SAVE_F2FDATA: "/claimedIdentity",
+    },
+  },
+  PROXY_API: {
+    BASE_URL: process.env.PROXYURL,
+    PATHS: {
+      POST_OFFICE: "/postoffice/v1/locations/search"
     },
   },
   APP: {

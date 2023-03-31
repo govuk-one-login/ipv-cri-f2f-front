@@ -1,6 +1,10 @@
 postcode:
-  label: " "
+  label: ""
   hint: "For example, SW1A 2AA"
   validation:
     default: "Enter a valid UK postcode"
 
+branches:
+  label: Postcode
+  validation:
+    default: "Select your preferred Post Office branch"

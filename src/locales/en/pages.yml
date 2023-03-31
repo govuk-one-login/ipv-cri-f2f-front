@@ -1,4 +1,7 @@
 findBranch:
   title: "Find a Post Office where you can prove your identity"
   body: "Enter a UK postcode"
-  
+
+locations:
+  title: "Choose a Post Office where you can prove your identity"
+  body: "Postcode"
