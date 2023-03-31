@@ -73,35 +73,30 @@ Mappings:
     ### These environment variables are referenced further down the file.
     ### Please ensure that any variables defined for an environment are defined for _all_ environments.
     dev:
-      EXTERNALWEBSITEHOST: "www.review-o.dev.account.gov.uk"
       APIBASEURL: "app.review-o.dev.account.gov.uk"
       DNSSUFFIX: "review-o.dev.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
     build:
-      EXTERNALWEBSITEHOST: "www.review-o.build.account.gov.uk"
       APIBASEURL: "app.review-o.build.account.gov.uk"
       DNSSUFFIX: review-o.build.account.gov.uk
       SESSIONTABLENAME: "f2f-front-sessions-build"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "build.account.gov.uk"
     staging:
-      EXTERNALWEBSITEHOST: "www.review-o.staging.account.gov.uk"
       APIBASEURL: "app.review-o.staging.account.gov.uk"
       DNSSUFFIX: review-o.staging.account.gov.uk
       SESSIONTABLENAME: "f2f-front-sessions-staging"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
     integration:
-      EXTERNALWEBSITEHOST: "www.review-o.integration.account.gov.uk"
       APIBASEURL: "app.review-o.integration.account.gov.uk"
       DNSSUFFIX: review-o.integration.account.gov.uk
       SESSIONTABLENAME: "f2f-front-sessions-integration"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
     production:
-      EXTERNALWEBSITEHOST: "www.review-o.account.gov.uk"
       APIBASEURL: "app.review-o.account.gov.uk"
       DNSSUFFIX: review-o.account.gov.uk
       SESSIONTABLENAME: "f2f-front-sessions-production"
@@ -634,7 +629,7 @@ Resources:
           - "${SESSIONTABLENAME}"
           - SESSIONTABLENAME: !FindInMap [EnvironmentVariables, !Ref Environment, SESSIONTABLENAME]
         - !Sub
-          - "${SESSIONTABLENAME}.${AWS::StackName}"
+          - "${SESSIONTABLENAME}-${AWS::StackName}"
           - SESSIONTABLENAME: !FindInMap [EnvironmentVariables, !Ref Environment, SESSIONTABLENAME]
       BillingMode: "PAY_PER_REQUEST"
       AttributeDefinitions:
