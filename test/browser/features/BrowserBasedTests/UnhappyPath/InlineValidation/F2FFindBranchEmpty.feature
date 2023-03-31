@@ -6,8 +6,7 @@ Feature: Find Post Office Branch - Unhappy Path
         When they have provided their details
         Then they should be redirected to the Find a Branch page
 
-
-    Scenario: Invalid address entered (Happy path)
+    Scenario: Invalid address entered (Unhappy path)
         Given the postcode entry box is left empty
         When the user clicks the continue button on the find Post Office branch empty page
-        Then they are shown an on screen error asking them to enter a valid postcode
+        Then they are shown an on-screen error asking them to enter a valid postcode

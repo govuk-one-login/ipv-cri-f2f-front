@@ -1,3 +1,5 @@
+const e = require('express');
+
 module.exports = class PlaywrightDevPage {
     /**
      * @param {import('@playwright/test').Page} page
@@ -14,4 +16,17 @@ module.exports = class PlaywrightDevPage {
     async continue() {
       await this.page.click("#continue");
     }
-  };
+    
+    async firstChoice(){
+      await this.page.click("#branches");
+    }
+
+    async checkErrorText(){
+      const errorText = await this.page.locator("#error-summary-title").textContent();
+      return errorText.trim(); 
+    }
+
+    async changePostcode(){
+      await this.page.click("#changePostcode");
+    }
+};

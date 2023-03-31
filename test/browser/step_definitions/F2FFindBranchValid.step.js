@@ -2,10 +2,10 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { FindBranchValid, PostOfficeLocations } = require("../pages");
+const { FindBranch, PostOfficeLocations } = require("../pages");
 
   Given(/^the postcode entered is valid$/, async function () {
-    const findBranchValid = new FindBranchValid(await this.page);
+    const findBranchValid = new FindBranch(await this.page);
   
     await findBranchValid.postCode();
 
@@ -13,7 +13,7 @@ const { FindBranchValid, PostOfficeLocations } = require("../pages");
 
 
   When(/^the user clicks the continue button on the find Post Office branch page$/, async function () {
-    const findBranchValid = new FindBranchValid(await this.page);
+    const findBranchValid = new FindBranch(await this.page);
   
     expect(await findBranchValid.isCurrentPage()).to.be.true;
 

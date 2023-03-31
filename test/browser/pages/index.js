@@ -1,8 +1,7 @@
 module.exports = {
-    FindBranchValid: require("./findBranchValid"),
-    FindBranchInvalid: require("./findBranchInvalid"),
-    FindBranchEmpty: require("./findBranchEmpty"),
+    FindBranch: require("./findBranch"),
     PostOfficeLocations: require("./postOfficeLocations"),
     LandingPage: require("./landingPage"),
-    RelyingPartyPage: require("./relying-party")
+    RelyingPartyPage: require("./relying-party"),
+    CheckDetails: require("./checkDetails")
 }
