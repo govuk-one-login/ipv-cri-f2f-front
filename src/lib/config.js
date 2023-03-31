@@ -10,7 +10,7 @@ module.exports = {
     },
   },
   PROXY_API: {
-    BASE_URL: process.env.PROXY_URL,
+    BASE_URL: process.env.PROXYURL,
     PATHS: {
       POST_OFFICE: "/postoffice/v1/locations/search"
     },

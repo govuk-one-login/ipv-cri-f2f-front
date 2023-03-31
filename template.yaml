@@ -63,9 +63,9 @@ Mappings:
 #   #      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython
 
 #   # see https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html
-ElasticLoadBalancerAccountIds:
-  eu-west-2:
-    AccountId: 652711504416
+  ElasticLoadBalancerAccountIds:
+    eu-west-2:
+      AccountId: 652711504416
 
 # //TODO DOUBLE CHECK WEBSITE URLS ARE CORRECT
 
@@ -78,35 +78,35 @@ ElasticLoadBalancerAccountIds:
       SESSIONTABLENAME: "f2f-front-sessions-dev"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
-      PROXY_URL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
+      PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
     build:
       EXTERNALWEBSITEHOST: "www.review-o.build.account.gov.uk"
       APIBASEURL: "app.review-o.build.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-build"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "build.account.gov.uk"
-      PROXY_URL: "proxy.review-o.build.account-gov.uk"
+      PROXYURL: "proxy.review-o.build.account-gov.uk"
     staging:
       EXTERNALWEBSITEHOST: "www.review-o.staging.account.gov.uk"
       APIBASEURL: "app.review-o.staging.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-staging"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
-      PROXY_URL: "proxy.review-o.staging.account-gov.uk"
+      PROXYURL: "proxy.review-o.staging.account-gov.uk"
     integration:
       EXTERNALWEBSITEHOST: "www.review-o.integration.account.gov.uk"
       APIBASEURL: "app.review-o.integration.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-integration"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
-      PROXY_URL: "proxy.review-o.integration.account-gov.uk"
+      PROXYURL: "proxy.review-o.integration.account-gov.uk"
     production:
       EXTERNALWEBSITEHOST: "www.review-o.account.gov.uk"
       APIBASEURL: "app.review-o.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-production"
       GTMID: "TT5HDKV"
       ANALYTICSDOMAIN: "account.gov.uk"
-      PROXY_URL: "proxy.review-o.account-gov.uk"
+      PROXYURL: "proxy.review-o.account-gov.uk"
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -290,9 +290,9 @@ Resources:
             - !GetAtt ECSSecurityGroup.GroupId
           Subnets:
             - Fn::ImportValue:
-                !Sub "${VpcStackName}-PrivateSubnetIdA"
+                !Sub "${VpcStackName}-ProtectedSubnetIdA"
             - Fn::ImportValue:
-                !Sub "${VpcStackName}-PrivateSubnetIdB"
+                !Sub "${VpcStackName}-ProtectedSubnetIdB"
       TaskDefinition: !Ref ECSServiceTaskDefinition
       Tags:
         - Key: Name
@@ -321,9 +321,9 @@ Resources:
   #      FilterPattern: ""
   #      LogGroupName: !Ref ECSAccessLogsGroup
 
-  
+
   # Fargate tasks
-  
+
   ECSServiceTaskDefinition:
     Type: 'AWS::ECS::TaskDefinition'
     Properties:
@@ -333,22 +333,15 @@ Resources:
           Name: app
           Environment:
             - Name: API_BASE_URL
-              Value: !Sub
-                - "https://${APIGatewayId}.execute-api.eu-west-2.amazonaws.com/${Environment}"
-                - APIGatewayId:
-                    # Fn::ImportValue: di-ipv-cri-f2f-PrivateF2FApiGatewayId
-                    Fn::ImportValue: f2f-cri-api-F2FApiGatewayId  
-                  Environment: !Ref Environment
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, APIBASEURL ]
             - Name: EXTERNAL_WEBSITE_HOST
-              Value: !GetAtt ApiGwHttpEndpoint.ApiEndpoint
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
             - Name: SESSION_TABLE_NAME
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, SESSIONTABLENAME ]
-            - Name: POST_OFFICE_PROXYURL
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, POSTOFFICEPROXYURL ]
             - Name: FRONT_END_URL
-              Value: !Sub
-                - "https://${Url}"
-                - Url: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
+            - Name: PROXYURL
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, PROXYURL ]
 
             #No backend api url available ????
             #            - Name: API_URL
@@ -584,7 +577,7 @@ Resources:
   #        - CertificateArn: !Sub "{{resolve:ssm:/${Environment}/Platform/ACM/PrimaryZoneWildcardCertificateARN}}"
   #          EndpointType: REGIONAL
   #          SecurityPolicy: TLS_1_2
-  
+
   #  FrontApiRecord:
   #    Type: AWS::Route53::RecordSet
   #    Properties:
@@ -595,7 +588,7 @@ Resources:
   #        DNSName: !GetAtt FrontCustomDomain.RegionalDomainName
   #        HostedZoneId: !GetAtt FrontCustomDomain.RegionalHostedZoneId
   #        EvaluateTargetHealth: false
-  
+
   #  FrontApiMapping:
   #    Type: AWS::ApiGatewayV2::ApiMapping
   #    Properties:
@@ -604,8 +597,8 @@ Resources:
   #      Stage: "$default"
   #    DependsOn:
   #      - FrontCustomDomain
-  
-  
+
+
   #  # app domain
   #  AppFrontCustomDomain:
   #    Type: AWS::ApiGatewayV2::DomainName
@@ -615,7 +608,7 @@ Resources:
   #        - CertificateArn: !Sub "{{resolve:ssm:/${Environment}/Platform/ACM/PrimaryZoneWildcardCertificateARN}}"
   #          EndpointType: REGIONAL
   #          SecurityPolicy: TLS_1_2
-  
+
   #  AppFrontApiRecord:
   #    Type: AWS::Route53::RecordSet
   #    Properties:
@@ -626,7 +619,7 @@ Resources:
   #        DNSName: !GetAtt AppFrontCustomDomain.RegionalDomainName
   #        HostedZoneId: !GetAtt AppFrontCustomDomain.RegionalHostedZoneId
   #        EvaluateTargetHealth: false
-  
+
   #  AppFrontApiMapping:
   #    Type: AWS::ApiGatewayV2::ApiMapping
   #    Properties:

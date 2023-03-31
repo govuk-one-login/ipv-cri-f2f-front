@@ -1,13 +1,11 @@
 version = 0.1
-[default]
-[default.deploy]
-[default.deploy.parameters]
-stack_name = "f2f-fe-joe"
-s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-epuw4yrxva44"
-s3_prefix = "f2f-fe-joe"
+[dev]
+[dev.deploy]
+[dev.deploy.parameters]
+stack_name = "frontend-main"
+s3_prefix = "frontend-main"
 region = "eu-west-2"
 capabilities = "CAPABILITY_IAM"
-parameter_overrides = "Environment=\"dev\" VpcStackName=\"vpc-cri\" PermissionsBoundary=\"none\""
+parameter_overrides = "Environment=\"dev\" VpcStackName=\"vpc-cri\""
 image_repositories = []
-confirm_changeset = true
-disable_rollback = true
+confirm_changeset = false
