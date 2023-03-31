@@ -685,5 +685,4 @@ Outputs:
     Value: !Ref ApiGwHttpEndpoint
   F2FCustomDomain:
     Description: F2F Custom Domain API Gateway ID
-    Export:
-      Name: !Sub "${AWS::StackName}.${DNSSUFFIX}"
+    Value: !Ref F2FFrontCustomDomain
