@@ -20,7 +20,7 @@ class PostcodeSearchController extends BaseController {
       {
         id: "branches",
         name: "",
-        label: "hello",
+        label: "",
         legend: "",
         hint: "",
         items: [
@@ -61,7 +61,6 @@ class PostcodeSearchController extends BaseController {
           },
         ]
       };
-      console.log("HERE " + JSON.stringify(locals.branch));
 
       callback(err, locals);
     });
