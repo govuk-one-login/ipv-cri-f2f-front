@@ -18,10 +18,10 @@ yarn install
 
 - 'BASE_URL': Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows
 - `PORT` - Default port to run webserver on. (Default to `5030`)
-- `PROXY_URL` - The url for the HTTP Proxy API (see below to set this)
+- `PROXYURL` - The url for the HTTP Proxy API (see below to set this)
 
 ```bash
-export PROXY_URL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
+export PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
 ```
 
 # Mock Data
