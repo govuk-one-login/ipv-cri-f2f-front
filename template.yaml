@@ -351,7 +351,8 @@ Resources:
                 - ContainerId: !FindInMap [EnvironmentVariables, !Ref Environment, GTMID ]
             - Name: ANALYTICS_DOMAIN
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
-
+            - Name: PROXYURL
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, PROXYURL ]
           PortMappings:
             - ContainerPort: 8080
               Protocol: tcp
