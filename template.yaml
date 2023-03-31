@@ -337,7 +337,7 @@ Resources:
             - Name: EXTERNAL_WEBSITE_HOST
               Value: !GetAtt ApiGwHttpEndpoint.ApiEndpoint
             - Name: SESSION_TABLE_NAME
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, SESSIONTABLENAME ]
+              Value: !Ref F2fFrontSessionsTable
             - Name: FRONT_END_URL
               Value: !Sub
                 - "https://${Url}"
