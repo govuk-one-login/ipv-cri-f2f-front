@@ -23,15 +23,14 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
-# commenting out for time being. To be added when package.json and other file is added
-      # - name: Run lint
-      #   run: yarn lint
-      # - name: Run build
-      #   run: yarn build
-      # - name: Run test and write coverage
-      #   run: yarn test:coverage
-      # - name: Run browser tests
-      #   run: npm run test:browser:ci
+      - name: Run lint
+        run: yarn lint
+      - name: Run build
+        run: yarn build
+      - name: Run test and write coverage
+        run: yarn test:coverage
+      - name: Run browser tests
+        run: npm run test:browser:ci
       # - name: Run sonarcloud scan
       #   if: ${{ github.actor != 'dependabot[bot]' }}
       #   uses: sonarsource/sonarcloud-github-action@master
