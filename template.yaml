@@ -452,7 +452,8 @@ Resources:
   ApiGwHttpEndpoint:
     Type: 'AWS::ApiGatewayV2::Api'
     Properties:
-      Name: !Sub f2f-front-${Environment}
+      Name: !Sub "f2f-front-${Environment} ${AWS::StackName}"
+      Description: !Sub "f2f-front-${Environment} ${AWS::StackName} Server-side rendered Frontend"
       ProtocolType: HTTP
 
   ApiGwHttpEndpointIntegration:
