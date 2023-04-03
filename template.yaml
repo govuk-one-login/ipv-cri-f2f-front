@@ -330,10 +330,11 @@ Resources:
       ContainerDefinitions:
         - Essential: true
           Image: CONTAINER-IMAGE-PLACEHOLDER
+          Name: app
           Environment:
             - Name: API_BASE_URL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, APIBASEURL ]
-            - Name: EXTERNAL_WEBSITE_HOST
+            - Name: FRONT_END_CUSTOM_DOMAIN
               Value: !Ref F2FFrontCustomDomain
             - Name: SESSION_TABLE_NAME
               Value: !Ref F2fFrontSessionsTable
