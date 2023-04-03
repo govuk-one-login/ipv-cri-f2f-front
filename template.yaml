@@ -85,28 +85,28 @@ Mappings:
       SESSIONTABLENAME: "f2f-front-sessions-build"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "build.account.gov.uk"
-      PROXYURL: "proxy.review-o.build.account-gov.uk"
+      PROXYURL: "proxy.review-o.build.account.gov.uk"
     staging:
       APIBASEURL: "app.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-staging"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
-      PROXYURL: "proxy.review-o.staging.account-gov.uk"
+      PROXYURL: "proxy.review-o.staging.account.gov.uk"
     integration:
       APIBASEURL: "app.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-integration"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
-      PROXYURL: "proxy.review-o.integration.account-gov.uk"
+      PROXYURL: "proxy.review-o.integration.account.gov.uk"
     production:
       APIBASEURL: "app.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-production"
       GTMID: "TT5HDKV"
       ANALYTICSDOMAIN: "account.gov.uk"
-      PROXYURL: "proxy.review-o.account-gov.uk"
+      PROXYURL: "proxy.review-o.account.gov.uk"
 
 Resources:
   # Security Groups for the ECS service and load balancer
