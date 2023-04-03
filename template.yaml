@@ -338,8 +338,6 @@ Resources:
               Value: !Ref F2FFrontCustomDomain
             - Name: SESSION_TABLE_NAME
               Value: !Ref F2fFrontSessionsTable
-            - Name: FRONT_END_URL
-              Value: !Ref F2FFrontCustomDomain
             #No backend api url available ????
             #            - Name: API_URL
             #              Value: !Sub
