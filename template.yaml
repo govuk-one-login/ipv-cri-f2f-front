@@ -582,6 +582,10 @@ Resources:
           - REGIONAL
       RegionalCertificateArn: !Sub "{{resolve:ssm:/${Environment}/Platform/ACM/PrimaryZoneWildcardCertificateARN}}"
       SecurityPolicy: TLS_1_2
+    DependsOn:
+      - ApiGwHttpEndpoint
+      - APIStageDefault
+      
 
   F2FFrontApiRecord:
     Type: AWS::Route53::RecordSet
