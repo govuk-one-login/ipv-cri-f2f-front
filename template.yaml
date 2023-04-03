@@ -611,9 +611,7 @@ Resources:
         - !Sub
           - "${AWS::StackName}.${DNSSUFFIX}"
           - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
-      ApiId:
-        Fn::ImportValue:
-          !Sub f2f-cri-front-F2FFrontGatewayId
+      ApiId: !Ref ApiGwHttpEndpoint
       Stage: "$default"
     DependsOn:
       - F2FFrontCustomDomain
