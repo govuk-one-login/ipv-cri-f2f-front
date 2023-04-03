@@ -73,36 +73,36 @@ Mappings:
     ### These environment variables are referenced further down the file.
     ### Please ensure that any variables defined for an environment are defined for _all_ environments.
     dev:
-      EXTERNALWEBSITEHOST: "www.review-o.dev.account.gov.uk"
       APIBASEURL: "app.review-o.dev.account.gov.uk"
+      DNSSUFFIX: "review-o.dev.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
       PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
     build:
-      EXTERNALWEBSITEHOST: "www.review-o.build.account.gov.uk"
       APIBASEURL: "app.review-o.build.account.gov.uk"
+      DNSSUFFIX: "review-o.build.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-build"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "build.account.gov.uk"
       PROXYURL: "proxy.review-o.build.account.gov.uk"
     staging:
-      EXTERNALWEBSITEHOST: "www.review-o.staging.account.gov.uk"
       APIBASEURL: "app.review-o.staging.account.gov.uk"
+      DNSSUFFIX: "review-o.staging.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-staging"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
       PROXYURL: "proxy.review-o.staging.account.gov.uk"
     integration:
-      EXTERNALWEBSITEHOST: "www.review-o.integration.account.gov.uk"
       APIBASEURL: "app.review-o.integration.account.gov.uk"
+      DNSSUFFIX: "review-o.integration.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-integration"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       PROXYURL: "proxy.review-o.integration.account.gov.uk"
     production:
-      EXTERNALWEBSITEHOST: "www.review-o.account.gov.uk"
       APIBASEURL: "app.review-o.account.gov.uk"
+      DNSSUFFIX: "review-o.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-production"
       GTMID: "TT5HDKV"
       ANALYTICSDOMAIN: "account.gov.uk"
@@ -334,15 +334,10 @@ Resources:
           Environment:
             - Name: API_BASE_URL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, APIBASEURL ]
-            - Name: EXTERNAL_WEBSITE_HOST
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
+            - Name: FRONT_END_CUSTOM_DOMAIN
+              Value: !Ref F2FFrontCustomDomain
             - Name: SESSION_TABLE_NAME
               Value: !Ref F2fFrontSessionsTable
-            - Name: FRONT_END_URL
-              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
-            - Name: PROXYURL
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, PROXYURL ]
-
             #No backend api url available ????
             #            - Name: API_URL
             #              Value: !Sub
@@ -354,7 +349,8 @@ Resources:
                 - ContainerId: !FindInMap [EnvironmentVariables, !Ref Environment, GTMID ]
             - Name: ANALYTICS_DOMAIN
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
-
+            - Name: PROXYURL
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, PROXYURL ]
           PortMappings:
             - ContainerPort: 8080
               Protocol: tcp
@@ -456,7 +452,8 @@ Resources:
   ApiGwHttpEndpoint:
     Type: 'AWS::ApiGatewayV2::Api'
     Properties:
-      Name: !Sub f2f-front-${Environment}
+      Name: !Sub "f2f-front-${Environment} ${AWS::StackName}"
+      Description: !Sub "f2f-front-${Environment} ${AWS::StackName} Server-side rendered Frontend"
       ProtocolType: HTTP
 
   ApiGwHttpEndpointIntegration:
@@ -567,67 +564,48 @@ Resources:
           PredefinedMetricType: ECSServiceAverageCPUUtilization
         TargetValue: 70.0
 
-  ## www domain
+### Front End API Gateway Custom Domain definition
 
-  #  FrontCustomDomain:
-  #    Type: AWS::ApiGatewayV2::DomainName
-  #    Properties:
-  #      DomainName: !FindInMap [ EnvironmentVariables, !Ref Environment, FEURL ]
-  #      DomainNameConfigurations:
-  #        - CertificateArn: !Sub "{{resolve:ssm:/${Environment}/Platform/ACM/PrimaryZoneWildcardCertificateARN}}"
-  #          EndpointType: REGIONAL
-  #          SecurityPolicy: TLS_1_2
+  F2FFrontCustomDomain:
+    Type: AWS::ApiGatewayV2::DomainName
+    Properties:
+      DomainName: !If
+        - IsNotDevelopment
+        - !Sub
+          - "www.${DNSSUFFIX}"
+          - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
+        - !Sub
+          - "${AWS::StackName}.${DNSSUFFIX}"
+          - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
+      DomainNameConfigurations:
+        - CertificateArn: !Sub "{{resolve:ssm:/${Environment}/Platform/ACM/PrimaryZoneWildcardCertificateARN}}"
+          EndpointType: REGIONAL
+          SecurityPolicy: TLS_1_2
 
-  #  FrontApiRecord:
-  #    Type: AWS::Route53::RecordSet
-  #    Properties:
-  #      Name: !FindInMap [EnvironmentVariables, !Ref Environment, FEURL ]
-  #      Type: A
-  #      HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
-  #      AliasTarget:
-  #        DNSName: !GetAtt FrontCustomDomain.RegionalDomainName
-  #        HostedZoneId: !GetAtt FrontCustomDomain.RegionalHostedZoneId
-  #        EvaluateTargetHealth: false
+  F2FFrontApiRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      Name: !If
+        - IsNotDevelopment
+        - !Sub
+          - "www.${DNSSUFFIX}"
+          - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
+        - !Sub
+          - "${AWS::StackName}.${DNSSUFFIX}"
+          - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
+      Type: A
+      HostedZoneId: !ImportValue PublicHostedZoneId
+      AliasTarget:
+        DNSName: !GetAtt F2FFrontCustomDomain.RegionalDomainName
+        HostedZoneId: !GetAtt F2FFrontCustomDomain.RegionalHostedZoneId
+        EvaluateTargetHealth: false
 
-  #  FrontApiMapping:
-  #    Type: AWS::ApiGatewayV2::ApiMapping
-  #    Properties:
-  #      DomainName: !FindInMap [EnvironmentVariables, !Ref Environment, FEURL ]
-  #      ApiId: !Ref ApiGwHttpEndpoint
-  #      Stage: "$default"
-  #    DependsOn:
-  #      - FrontCustomDomain
-
-
-  #  # app domain
-  #  AppFrontCustomDomain:
-  #    Type: AWS::ApiGatewayV2::DomainName
-  #    Properties:
-  #      DomainName: !FindInMap [EnvironmentVariables, !Ref Environment, APPURL ]
-  #      DomainNameConfigurations:
-  #        - CertificateArn: !Sub "{{resolve:ssm:/${Environment}/Platform/ACM/PrimaryZoneWildcardCertificateARN}}"
-  #          EndpointType: REGIONAL
-  #          SecurityPolicy: TLS_1_2
-
-  #  AppFrontApiRecord:
-  #    Type: AWS::Route53::RecordSet
-  #    Properties:
-  #      Name: !FindInMap [EnvironmentVariables, !Ref Environment, APPURL ]
-  #      Type: A
-  #      HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
-  #      AliasTarget:
-  #        DNSName: !GetAtt AppFrontCustomDomain.RegionalDomainName
-  #        HostedZoneId: !GetAtt AppFrontCustomDomain.RegionalHostedZoneId
-  #        EvaluateTargetHealth: false
-
-  #  AppFrontApiMapping:
-  #    Type: AWS::ApiGatewayV2::ApiMapping
-  #    Properties:
-  #      DomainName: !FindInMap [EnvironmentVariables, !Ref Environment, APPURL ]
-  #      ApiId: !Ref ApiGwHttpEndpoint
-  #      Stage: "$default"
-  #    DependsOn:
-  #      - AppFrontCustomDomain
+  F2FFrontApiMapping:
+    Type: AWS::ApiGatewayV2::ApiMapping
+    Properties:
+      DomainName: !Ref F2FFrontCustomDomain 
+      ApiId: !Ref ApiGwHttpEndpoint
+      Stage: !Ref APIStageDefault
 
   F2fFrontSessionsTable:
     Type: AWS::DynamoDB::Table
@@ -672,3 +650,6 @@ Outputs:
   F2FFrontSessionsTableName:
     Description: Table name for the FE sessions table
     Value: !Ref F2fFrontSessionsTable
+  F2FCustomDomain:
+    Description: F2F Custom Domain API Gateway ID
+    Value: !Ref F2FFrontCustomDomain
