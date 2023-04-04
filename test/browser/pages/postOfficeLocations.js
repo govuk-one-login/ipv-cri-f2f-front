@@ -1,5 +1,3 @@
-const e = require('express');
-
 module.exports = class PlaywrightDevPage {
     /**
      * @param {import('@playwright/test').Page} page
