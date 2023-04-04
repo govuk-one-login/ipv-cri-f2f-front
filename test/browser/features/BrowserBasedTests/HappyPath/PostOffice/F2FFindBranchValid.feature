@@ -10,5 +10,5 @@ Feature: Find Post Office Branch - Happy Path
     Scenario: Valid address entered (Happy path)
         Given the postcode entered is valid
         When the user clicks the continue button on the find Post Office branch page
-        Then the user is routed to the next screen in the journey - Select Location
+        Then the user is routed to the Select Location page showing 5 nearest POs
         
