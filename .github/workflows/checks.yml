@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Export Proxy URL
-      - run: yarn export-proxyurl
+        run: yarn export-proxyurl
       - name: Run lint
         run: yarn lint
       - name: Run build
