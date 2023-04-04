@@ -1,5 +1,3 @@
-const e = require('express');
-
 module.exports = class PlaywrightDevPage {
     /**
      * @param {import('@playwright/test').Page} page
@@ -28,5 +26,11 @@ module.exports = class PlaywrightDevPage {
 
     async changePostcode(){
       await this.page.click("#changePostcode");
+    }
+
+    async numberOfLocations(){
+      await this.page.locator(".govuk-radios__item").nth(1).waitFor();
+      const count = await this.page.locator(".govuk-radios__item").count();
+      return count
     }
 };

@@ -23,6 +23,8 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
+      - name: Export Proxy URL
+        run: echo "PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk" >> $GITHUB_ENV
       - name: Run lint
         run: yarn lint
       - name: Run build

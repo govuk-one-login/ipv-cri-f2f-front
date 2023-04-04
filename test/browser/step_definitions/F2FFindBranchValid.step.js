@@ -22,9 +22,11 @@ const { FindBranch, PostOfficeLocations } = require("../pages");
   });
   
 
-  Then(/^the user is routed to the next screen in the journey - Select Location$/, async function () {
+  Then(/^the user is routed to the Select Location page showing 5 nearest POs$/, async function () {
     const poLocations = new PostOfficeLocations(await this.page);
 
     expect(await poLocations.isCurrentPage()).to.be.true;
+
+    expect(await poLocations.numberOfLocations()).to.equal(5)
 
   });
