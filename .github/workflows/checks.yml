@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Export Proxy URL
-        run: yarn export-proxyurl
+        run: export PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
       - name: Run lint
         run: yarn lint
       - name: Run build
