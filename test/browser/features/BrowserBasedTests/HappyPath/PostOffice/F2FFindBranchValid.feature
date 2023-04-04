@@ -6,7 +6,7 @@ Feature: Find Post Office Branch - Happy Path
         When they have provided their details
         Then they should be redirected to the Find a Branch page
 
-
+    @test
     Scenario: Valid address entered (Happy path)
         Given the postcode entered is valid
         When the user clicks the continue button on the find Post Office branch page

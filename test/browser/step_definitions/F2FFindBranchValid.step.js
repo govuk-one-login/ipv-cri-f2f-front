@@ -27,4 +27,6 @@ const { FindBranch, PostOfficeLocations } = require("../pages");
 
     expect(await poLocations.isCurrentPage()).to.be.true;
 
+    expect(await poLocations.hasFiveLocations()).to.equal(5)
+
   });
