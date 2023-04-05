@@ -93,6 +93,7 @@ $govuk-assets-path: "/public/";
 }
 
 #circle {
+  display: inline-block;
   border-radius: 50%;
   width: 8px;
   height: 8px;
@@ -102,4 +103,8 @@ $govuk-assets-path: "/public/";
   border: 3px solid #000;
   color: #ffffff;
   text-align: center;
+}
+
+#stepTitle {
+  display: inline-block;
 }

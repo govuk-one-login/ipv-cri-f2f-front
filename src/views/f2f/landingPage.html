@@ -17,9 +17,11 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{ "landingPage.title" | translate }}</h1>
-
-    <div class="govuk-body" id="circle">1</div>
-    <h2 class="govuk-heading-m">{{ "landingPage.firstStepTitle" | translate }}</h2>
+    
+    <div class="parent">
+      <div class="govuk-body" id="circle">1</div>
+      <div class="govuk-heading-m" id="stepTitle">{{ "landingPage.firstStepTitle" | translate }}</div>
+    </div>
 
     <ul class="govuk-list" id="firstStepList">
       <li id="listItem">{{ "landingPage.instructions.firstStep.one" | translate }}</li>
@@ -28,7 +30,7 @@
     </ul>
 
     <div class="govuk-body" id="circle">2</div>
-    <h2 class="govuk-heading-m">{{ "landingPage.secondStepTitle" | translate }}</h2>
+    <h2 class="govuk-heading-m" id="stepTitle">{{ "landingPage.secondStepTitle" | translate }}</h2>
 
     <ul class="govuk-list" id="secondStepList">
       <li id="listItem">{{ "landingPage.instructions.secondStep.one" | translate }}</li>
@@ -46,7 +48,7 @@
     }) }}
 
     <div class="govuk-body" id="circle">3</div>
-    <h2 class="govuk-heading-m">{{ "landingPage.thirdStepTitle" | translate }}</h2>
+    <h2 class="govuk-heading-m" id="stepTitle">{{ "landingPage.thirdStepTitle" | translate }}</h2>
 
     <ul class="govuk-list" id="thirdStepList">
       <li id="listItem">{{ "landingPage.instructions.thirdStep.one" | translate }}</li>
