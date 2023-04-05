@@ -14,7 +14,7 @@
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters">
+  <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{ "landingPage.title" | translate }}</h1>
 
@@ -48,10 +48,6 @@
     <ul class="govuk-list" id="thirdStepList">
       <li id="listItem">{{ "landingPage.instructions.thirdStep.one" | translate }}</li>
     </ul>
-
-
-    
-
 
 
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
