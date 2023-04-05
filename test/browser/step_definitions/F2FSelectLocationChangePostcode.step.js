@@ -28,3 +28,15 @@ const { PostOfficeLocations, FindBranch } = require("../pages");
     expect(await findBranch.isCurrentPage()).to.be.true;
 
   });
+
+  Then(/^the user enters another postcode and is navigated back to the list of nearest POs$/, async function () {
+    const findBranch = new FindBranch(await this.page);
+    const poLocations = new PostOfficeLocations(await this.page);
+
+    await findBranch.postCode();
+
+    await findBranch.continue();
+
+    expect(await poLocations.isCurrentPage()).to.be.true;
+    
+  });
