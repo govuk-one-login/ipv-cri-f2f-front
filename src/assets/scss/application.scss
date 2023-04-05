@@ -91,3 +91,15 @@ $govuk-assets-path: "/public/";
 #listItem {
   margin-bottom: 30px;
 }
+
+#circle {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  line-height: 8px;
+  padding: 10px;
+  background: #000000;
+  border: 3px solid #000;
+  color: #ffffff;
+  text-align: center;
+}
