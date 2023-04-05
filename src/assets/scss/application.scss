@@ -68,7 +68,6 @@ $govuk-assets-path: "/public/";
   padding-top: 0;
 }
 
-
 .govuk-summary-list .govuk-summary-list__key {
   color: #000;
   font-weight: bold;
@@ -87,4 +86,8 @@ $govuk-assets-path: "/public/";
 
 .govuk-radios__label {
   font-weight: bold;
+}
+
+#listItem {
+  margin-bottom: 30px;
 }
