@@ -1,7 +1,10 @@
 landingPage:
   title: "How to prove your identity at a Post Office"
+  firstCircle: "1"
   firstStepTitle: "Get your Post Office customer letter from GOV.UK"
+  secondCircle: "2"
   secondStepTitle: "Go to the Post Office"
+  thirdCircle: "3"
   thirdStepTitle: "Wait for your result"
   instructions:
     firstStep:
