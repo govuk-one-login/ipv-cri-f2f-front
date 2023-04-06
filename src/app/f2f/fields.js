@@ -63,6 +63,44 @@ module.exports = {
       },
     ]
   },
+  euPhotocardDlExpiryDate: {
+    type: "date",
+    journeyKey: "euPhotocardDlDate",
+    validate: ["required", "date",
+    {
+      type: "before",
+      arguments: [
+        new Date(
+          new Date().getFullYear() + 75,
+          new Date().getMonth(),
+          new Date().getDate() + 1,
+        )
+          .toISOString()
+          .split("T")[0],
+      ],
+    },
+    ]
+  },
+  eeaIdCardExpiryDate: {
+    type: "date",
+    journeyKey: "euIdCardExpiryDate",
+    validate: [
+      "required", "date",
+      {
+        type: "before",
+        arguments: [
+          new Date(
+            new Date().getFullYear() + 75,
+            new Date().getMonth(),
+            new Date().getDate() + 1,
+          )
+            .toISOString()
+            .split("T")[0],
+        ],
+      },
+    
+    ]
+  },
   postcode: {
     type: "text",
     journeyKey: "postcode",

@@ -1,8 +1,10 @@
 const resultsController = require("./controllers/results");
 const ukPassportDetails = require("./controllers/ukPassportDetails");
 const ukPhotocardDlDetails = require("./controllers/ukPhotocardDl");
-const brpDetails = require("./controllers/brpDetails")
-const nonUKPassportDetails = require("./controllers/nonUKPassportDetails")
+const brpDetails = require("./controllers/brpDetails");
+const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
+const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
+const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
 const root = require("./controllers/root");
 
 module.exports = {
@@ -12,7 +14,7 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: "nonUKPassportDetails",
+    next: "euPhotocardDlDetails",
   },
   "/ukPassportDetails": {
     fields: ["ukPassportExpiryDate"],
@@ -67,6 +69,36 @@ module.exports = {
     next: [
       {
         field: "brpExpiryDate",
+        op: "before",
+        value: "today",
+        next: "photoIdExpiry",
+      },
+      "nameEntry",
+    ],
+  },
+  "/euPhotocardDlDetails": {
+    fields: ["euPhotocardDlExpiryDate"],
+    controller: euPhotocardDlDetails,
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "euPhotocardDlExpiryDate",
+        op: "before",
+        value: "today",
+        next: "photoIdExpiry",
+      },
+      "nameEntry",
+    ],
+  },
+  "/eeaIdentityCardDetails": {
+    fields: ["eeaIdCardExpiryDate"],
+    controller: eeaIdentityCardDetails,
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "eeaIdCardExpiryDate",
         op: "before",
         value: "today",
         next: "photoIdExpiry",

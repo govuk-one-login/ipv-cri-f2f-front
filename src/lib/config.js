@@ -24,7 +24,7 @@ module.exports = {
       PHOTOCARD_DL_DETAILS: "/ukPhotocardDlDetails",
       BRP_DETAILS: "/brpDetails",
       EU_PHOTOCARD_DL_DETAILS: "/euPhotocardDlDetails",
-      EU_IDENTITY_CARD_DETAILS: "/euIdentityCardDetails",
+      EEA_IDENTITY_CARD_DETAILS: "/eeaIdentityCardDetails",
     },
     ANALYTICS: {
       ID: process.env.GTM_ID,

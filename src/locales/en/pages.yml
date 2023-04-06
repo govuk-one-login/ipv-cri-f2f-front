@@ -14,6 +14,14 @@ brp:
   title: "When does your biometric residence permit (BRP) expire?"
   passportInformationContext: "We need this information to check that your photo ID is valid. "
 
+euPhotocardDl:
+  title: "When does your EU photocard driving licence expire?"
+  euPhotocardDlInformationContext: "We need this information to check that your photo ID is valid."
+
+eeaIdentityCard: 
+  title: "When does your National Identity card from an EEA country expire?" 
+  content: "We need this information to check that your photo ID is valid."
+
 findBranch:
   title: "Find a Post Office where you can prove your identity"
   body: "Enter a UK postcode"
