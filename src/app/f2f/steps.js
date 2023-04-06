@@ -8,7 +8,10 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: "findBranch",
+    next: "landingPage",
+  },
+  "/landingPage": {
+    next: "findBranch"
   },
   "/findBranch": {
     // editable: true,
