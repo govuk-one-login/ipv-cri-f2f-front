@@ -10,12 +10,11 @@
 #     When the user clicks the continue button on the LandingPage
 #     Then the user is routed to the next screen in the journey PhotoId Selection
 
-#     Given the Young Scot NEC option is selected
-#     When the user clicks the PhotoId continue button with Young Scot NEC selected
-#     Then the user is routed to the next screen in the Young Scot NEC journey - Young Scot NEC details
+#     Given the EEA National Identity Card option is selected
+#     When the user clicks the PhotoId continue button with EEA National Identity Card selected
+#     Then the user is routed to the next screen in the EEA National Identity journey - EEA National Identity Card details
 
-# TODO: CHANGE SCENARIO TO EEA Identity Card
 # Scenario: - Missing input value
-# Given the user clicks the continue button only on the YSNECPage
-# Then the user sees an inline error message displayed on the YSNECPage
+# Given the user clicks the continue button only on the EEAPage
+# Then the user sees an inline error message displayed on the EEAPage
 
