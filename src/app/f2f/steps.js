@@ -10,6 +10,21 @@ module.exports = {
     controller: root,
     next: "findBranch",
   },
+  "/ukPassportDetails": {
+    fields: ["ukPassportExpiryDate"],
+    controller: passportDetails,
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "ukPassportExpiryDate",
+        op: "before",
+        value: "18 months ago",
+        next: "photoIdExpiry",
+      },
+      "nameEntry",
+    ],
+  },
   "/findBranch": {
     // editable: true,
     // editBackStep: "locations",

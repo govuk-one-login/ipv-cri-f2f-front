@@ -19,6 +19,12 @@ module.exports = {
     BASE_URL: process.env.EXTERNAL_WEBSITE_HOST || "http://localhost:8000",
     PATHS: {
       F2F: "/",
+      UK_PASSPORT_DETAILS: "/ukPassportDetails",
+      NON_UK_PASSPORT_DETAILS: "/nonUKPassportDetails",
+      PHOTOCARD_DL_DETAILS: "/photocardDlDetails",
+      BRP_DETAILS: "/brpDetails",
+      EU_PHOTOCARD_DL_DETAILS: "/euPhotocardDlDetails",
+      EU_IDENTITY_CARD_DETAILS: "/euIdentityCardDetails",
     },
     ANALYTICS: {
       ID: process.env.GTM_ID,
