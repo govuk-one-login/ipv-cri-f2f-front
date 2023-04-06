@@ -1,6 +1,7 @@
 const resultsController = require("./controllers/results");
 const ukPassportDetails = require("./controllers/ukPassportDetails");
 const ukPhotocardDlDetails = require("./controllers/ukPhotocardDl");
+const brpDetails = require("./controllers/brpDetails");
 const root = require("./controllers/root");
 
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: "ukPhotocardDlDetails",
+    next: "brpDetails",
   },
   "/ukPassportDetails": {
     fields: ["ukPassportExpiryDate"],
@@ -35,6 +36,21 @@ module.exports = {
     next: [
       {
         field: "ukPhotocardDlExpiryDate",
+        op: "before",
+        value: "today",
+        next: "photoIdExpiry",
+      },
+      "nameEntry",
+    ],
+  },
+  "/brpDetails": {
+    fields: ["brpExpiryDate"],
+    controller: brpDetails,
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "brpExpiryDate",
         op: "before",
         value: "today",
         next: "photoIdExpiry",

@@ -6,6 +6,10 @@ ukPhotocardDl:
   title: "When does your UK photocard driving licence expire?"
   photocardDlInformationContext: "We need this information to check that your photo ID is valid. "
 
+brp:
+  title: "When does your biometric residence permit (BRP) expire?"
+  passportInformationContext: "We need this information to check that your photo ID is valid. "
+
 findBranch:
   title: "Find a Post Office where you can prove your identity"
   body: "Enter a UK postcode"
