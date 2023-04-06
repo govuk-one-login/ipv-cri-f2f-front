@@ -1,3 +1,11 @@
+photoIdSelection:
+  title: "Choose a photo ID you can take to a Post Office"
+  h1: "Choose a photo ID you can take to a Post Office"
+  content: "You must take the original photo ID document, not a photocopy.
+            <br><br>
+            Your photo ID must not have expired.
+            <br><br>"
+
 findBranch:
   title: "Find a Post Office where you can prove your identity"
   body: "Enter a UK postcode"
