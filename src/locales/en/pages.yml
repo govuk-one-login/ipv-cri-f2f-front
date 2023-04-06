@@ -2,6 +2,10 @@ ukPassport:
   title: "When does your UK passport expire?"
   passportInformationContext: "We need this information to check that your photo ID is valid."
 
+ukPhotocardDl:
+  title: "When does your UK photocard driving licence expire?"
+  photocardDlInformationContext: "We need this information to check that your photo ID is valid. "
+
 findBranch:
   title: "Find a Post Office where you can prove your identity"
   body: "Enter a UK postcode"
