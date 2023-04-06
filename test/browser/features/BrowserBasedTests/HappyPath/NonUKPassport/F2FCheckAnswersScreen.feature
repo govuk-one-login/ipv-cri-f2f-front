@@ -17,14 +17,6 @@
 
 #         Given the date entered is within accepted Non UK expiration window
 #         When the user clicks the continue button on the Non UK passport page
-#         Then the user is routed to the next screen in the NonUKPassport journey - Name Entry
-
-#         Given there has been an entry into the surname and first name fields
-#         When the user clicks the NameEntry continue button
-#         Then the user is routed to the next screen in the journey DOB Entry
-
-#         Given the DOB fields are populated with valid values
-#         When the user clicks the DoB continue button
 #         Then they are routed to the Check My Answers Screen
 
 #     Scenario: Previously provided information successfully rendered on the page

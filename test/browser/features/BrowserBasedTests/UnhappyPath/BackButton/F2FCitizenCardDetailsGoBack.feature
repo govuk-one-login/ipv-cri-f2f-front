@@ -10,11 +10,11 @@
 #         When the user clicks the continue button on the LandingPage
 #         Then the user is routed to the next screen in the journey PhotoId Selection
 
-#         Given the CitizenCard option is selected
-#         When the user clicks the continue button with CitizenCard selected
-#         Then the user is routed to the next screen in the CitizenCard journey - CitizenCard details
+#         Given the EU driving licence option is selected
+#         When the user clicks the continue button with EU driving licence selected
+#         Then the user is routed to the next screen in the EU driving licence journey - EU driving licenec details
 
 #     Scenario: Successful redirect from Citizen Card Expiry screen back to Document Selection screen
-#     Given the user has navigated to the Citizen Card Expiry page
-#     When the Back link is clicked on the Citizen Card Expiry page
+#     Given the user has navigated to the EU driving licence Expiry page
+#     When the Back link is clicked on the EU driving licence Expiry page
 #     Then the user is navigated back to the Document Selection page
