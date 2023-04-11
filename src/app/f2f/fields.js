@@ -1,4 +1,32 @@
+const { APP } = require("../../lib/config");
+
 module.exports = {
+  photoIdChoice: {
+    type: "radios",
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
+        hint: { text: APP.UK_PASSPORT_HINT }
+      },
+      { value: APP.PHOTO_ID_OPTIONS.OTHER_PASSPORT },
+      { value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL },
+      { value: APP.PHOTO_ID_OPTIONS.BRP },
+      {
+        value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL,
+        hint: { text: APP.EU_PHOTOCARD_DL_HINT }
+      },
+      {
+        value: APP.PHOTO_ID_OPTIONS.EU_IDENTITY_CARD,
+        hint: { text: APP.EU_IDENTITY_CARD_HINT }
+      },
+      { divider: "or" },
+      { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
+    ],
+    validate: ["required"]
+  },
   postcode: {
     type: "text",
     journeyKey: "postcode",

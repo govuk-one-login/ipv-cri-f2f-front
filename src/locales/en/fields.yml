@@ -1,3 +1,23 @@
+photoIdChoice:
+  validation:
+    required: Choose a photo ID you can take to a Post Office
+  content: ""
+  items:
+    ukPassport:
+      label: UK passport
+    ukPhotocardDl:
+      label: UK photocard driving licence
+    brp:
+      label: Biometric residence permit (BRP)
+    otherPassport:
+      label: Non-UK passport
+    euPhotocardDl:
+      label: EU photocard driving licence
+    euIdentityCard:
+      label: National Identity card from an EEA country
+    noPhotoId:
+      label: I do not have any of these documents
+
 postcode:
   label: ""
   hint: "For example, SW1A 2AA"
