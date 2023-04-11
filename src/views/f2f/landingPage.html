@@ -14,11 +14,46 @@
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters">
+  <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">{{ "landingPage.title" | translate }}</h1>
+    
+    <div class="parent">
+      <div class="govuk-body" id="circle1">{{ "landingPage.firstCircle" | translate }}</div>
+      <div class="govuk-heading-m" id="stepTitle">{{ "landingPage.firstStepTitle" | translate }}</div>
+    </div>
 
-    <h2 class="govuk-heading-m">{{ "landingPage.body" | translate }}</h2>
+    <ul class="govuk-list" id="firstStepList">
+      <li id="listItem">{{ "landingPage.instructions.firstStep.one" | translate }}</li>
+      <li id="listItem">{{ "landingPage.instructions.firstStep.two" | translate }}</li>
+      <li id="listItem">{{ "landingPage.instructions.firstStep.three" | translate }}</li>
+    </ul>
+
+    <div class="govuk-body" id="circle2">{{ "landingPage.secondCircle" | translate }}</div>
+    <h2 class="govuk-heading-m" id="stepTitle">{{ "landingPage.secondStepTitle" | translate }}</h2>
+
+    <ul class="govuk-list" id="secondStepList">
+      <li id="listItem">{{ "landingPage.instructions.secondStep.one" | translate }}</li>
+      <li id="listItem">{{ "landingPage.instructions.secondStep.two" | translate }}</li>
+    </ul>
+    
+    {% set insetBody %}
+    <div>
+      <p id="indentedInstruction">{{ "landingPage.instructions.secondStep.three" | translate }}</p>
+    </div>
+    {% endset %}
+
+    {{ govukInsetText({ 
+      html: insetBody
+    }) }}
+
+    <div class="govuk-body" id="circle3">{{ "landingPage.thirdCircle" | translate }}</div>
+    <h2 class="govuk-heading-m" id="stepTitle">{{ "landingPage.thirdStepTitle" | translate }}</h2>
+
+    <ul class="govuk-list" id="thirdStepList">
+      <li id="listItem">{{ "landingPage.instructions.thirdStep.one" | translate }}</li>
+    </ul>
+
 
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
     {% block submitButton %}

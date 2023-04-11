@@ -1,3 +1,4 @@
+const photoIdSelect = require("./controllers/photoIdSelection");
 const resultsController = require("./controllers/results");
 const ukPassportDetails = require("./controllers/ukPassportDetails");
 const ukPhotocardDlDetails = require("./controllers/ukPhotocardDl");
@@ -6,6 +7,7 @@ const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
 const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
 const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
 const root = require("./controllers/root");
+const { APP } = require("../../lib/config");
 
 module.exports = {
   "/": {
@@ -14,7 +16,61 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: "euPhotocardDlDetails",
+    next: "landingPage",
+  },
+  "/landingPage": {
+    next: "photoIdSelection"
+  },
+  "/photoIdSelection": {
+    controller: photoIdSelect,
+    editable: true,
+    editBackStep: "checkDetails",
+    fields: ["photoIdChoice"],
+    invalidates: [
+      "passportExpiryDate",
+      "nonUKPassportExpiryDate",
+      "photocardDlExpiryDate",
+      "brpExpiryDate",
+      "eeaIdCardExpiryDate",
+      "euPhotocardDlExpiryDate",
+    ],
+    next: [
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
+        next: APP.PATHS.UK_PASSPORT_DETAILS,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.BRP,
+        next: APP.PATHS.BRP_DETAILS,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
+        next: APP.PATHS.PHOTOCARD_DL_DETAILS,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.OTHER_PASSPORT,
+        next: APP.PATHS.NON_UK_PASSPORT_DETAILS,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL,
+        next: APP.PATHS.EU_PHOTOCARD_DL_DETAILS,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
+        next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
+        next: APP.PATHS.NO_PHOTO_ID,
+      },
+    ],
   },
   "/ukPassportDetails": {
     fields: ["ukPassportExpiryDate"],
@@ -28,7 +84,7 @@ module.exports = {
         value: "18 months ago",
         next: "photoIdExpiry",
       },
-      "nameEntry",
+      "findBranch",
     ],
   },
   "/nonUKPassportDetails": {
@@ -43,7 +99,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "nameEntry",
+      "findBranch",
     ],
   },
   "/ukPhotocardDlDetails": {
@@ -58,7 +114,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "nameEntry",
+      "findBranch",
     ],
   },
   "/brpDetails": {
@@ -73,7 +129,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "nameEntry",
+      "findBranch",
     ],
   },
   "/euPhotocardDlDetails": {
@@ -88,7 +144,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "nameEntry",
+      "findBranch",
     ],
   },
   "/eeaIdentityCardDetails": {
@@ -103,12 +159,12 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "nameEntry",
+      "findBranch",
     ],
   },
   "/findBranch": {
-    // editable: true,
-    // editBackStep: "locations",
+    editable: true,
+    editBackStep: "locations",
     fields: ["postcode"],
     next: "locations",
   },

@@ -22,7 +22,7 @@ const { BRPDetailsPageValid, NameEntryPage,} = require("../pages");
   });
   
 
-  Then(/^the user is routed to the next screen in the BRP journey - Name Entry$/, async function () {    
+  Then(/^the user is routed to the next screen in the BRP journey - Branch Finder$/, async function () {    
         const nameEntryPage = new NameEntryPage(await this.page);
 
         expect(await nameEntryPage.isCurrentPage()).to.be.true;

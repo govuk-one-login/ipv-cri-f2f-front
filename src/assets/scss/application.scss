@@ -87,3 +87,60 @@ $govuk-assets-path: "/public/";
 .govuk-radios__label {
   font-weight: bold;
 }
+
+#listItem {
+  margin-bottom: 30px;
+}
+
+#circle1 {
+  display: inline-block;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  line-height: 10px;
+  padding: 10px;
+  background: #000000;
+  border: 3px solid #000;
+  color: #ffffff;
+  text-align: center;
+  text-indent: 7%;
+  margin-right: 6px;
+}
+
+#circle2 {
+  display: inline-block;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  line-height: 10px;
+  padding: 10px;
+  background: #000000;
+  border: 3px solid #000;
+  color: #ffffff;
+  text-align: center;
+  text-indent: -17%;
+  margin-right: 6px;
+}
+
+#circle3 {
+  display: inline-block;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  line-height: 10px;
+  padding: 10px;
+  background: #000000;
+  border: 3px solid #000;
+  color: #ffffff;
+  text-align: center;
+  text-indent: -19%;
+  margin-right: 6px;
+}
+
+#stepTitle {
+  display: inline-block;
+}
+
+#indedntedInstruction {
+  margin-bottom: 2px;
+}

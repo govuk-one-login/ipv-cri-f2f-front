@@ -25,7 +25,21 @@ module.exports = {
       BRP_DETAILS: "/brpDetails",
       EU_PHOTOCARD_DL_DETAILS: "/euPhotocardDlDetails",
       EEA_IDENTITY_CARD_DETAILS: "/eeaIdentityCardDetails",
+      NO_PHOTO_ID: "https://signin.account.gov.uk/no-photo-id",
+      EXPIRED_ID: "/photoIdExpiry"
     },
+    PHOTO_ID_OPTIONS: {
+      UK_PASSPORT: "ukPassport",
+      OTHER_PASSPORT: "otherPassport",
+      UK_PHOTOCARD_DL: "ukPhotocardDl",
+      BRP: "brp",
+      EU_PHOTOCARD_DL: "euPhotocardDl",
+      EEA_IDENTITY_CARD: "eeaIdentityCard",
+      NO_PHOTO_ID: "noPhotoId"
+    },
+    UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after the expiry date.",
+    EU_PHOTOCARD_DL_HINT: "This must be a plastic photocard. You cannot use a paper or handwritten license.",
+    EEA_IDENTITY_CARD_HINT: "This must be a plastic photocard. You cannot use a paper or handwritten national identity card.",
     ANALYTICS: {
       ID: process.env.GTM_ID,
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",

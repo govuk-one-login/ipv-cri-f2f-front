@@ -19,14 +19,20 @@
         {{ translate("eeaIdentityCard.title") }}
     </h1>
     <p> {{ translate("eeaIdentityCard.content") }} </p>
+
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
-    {{ hmpoDate(ctx, {
-        id: "eeaIdCardExpiryDate",
-        legend: {
-            classes: "govuk-label"
-        }
-    }) }}
+
+    <div class="hint-with-margin">
+      {{ hmpoDate(ctx, {
+          id: "eeaIdCardExpiryDate",
+          legend: {
+              classes: "govuk-label"
+          }
+      }) }}
+    </div>
+
      {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+     
     {% endcall %}
 {% endblock %}
 
