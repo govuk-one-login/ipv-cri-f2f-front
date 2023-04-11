@@ -3026,10 +3026,10 @@ hmpo-form-wizard@12.0.6:
     moment "^2.29.3"
     underscore "^1.13.4"
 
-hmpo-i18n@5.0.2:
-  version "5.0.2"
-  resolved "https://registry.npmjs.org/hmpo-i18n/-/hmpo-i18n-5.0.2.tgz"
-  integrity sha512-F8RrS5V/Y3YWIeQtqw/Ld4cYVNZXZInsokQPJ9YjRG+3NYYd50CRpvau6FjIKqDXKO2KexKnn9mSvu5ZMyDDlg==
+hmpo-i18n@5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/hmpo-i18n/-/hmpo-i18n-5.0.3.tgz#4236d52a91d3bfd64b933de44562b4b6ff376fc3"
+  integrity sha512-tRjqQ6YEyl5CJiwPlurhrnmU0RwT9SC3XTMZNPkiEscrcUUWjPL3XK4L2w6a8ks5mvVjsY4Qsu53ZihooRHvmw==
   dependencies:
     async "^3.2.4"
     callsites "^3.1.0"
