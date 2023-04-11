@@ -6,7 +6,7 @@ Feature: Happy path
   Background:
     Given Authenticatable Anita is using the system
     When they have provided their details
-    Then they should be redirected to the landingPage
+    Then they should be redirected to the Landing Page
 
 
   Scenario: Continue button redirect successful
