@@ -27,8 +27,6 @@ module.exports = {
       "brpExpiryDate",
       "euIdCardExpiryDate",
       "youngScotNationalEntitlementCardExpiryDate",
-      // "citizenCardExpiryDate",
-      // "euPhotocardDlExpiryDate",
     ],
     next: [
       {

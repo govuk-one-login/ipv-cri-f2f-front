@@ -32,20 +32,12 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#photoIdChoice-otherPassport");
   }
 
-  async youngScotNecChoice() {
-    await this.page.click("#photoIdChoice-youngScotNationalEntitlementCard");
-  }
-
   async nationalIdentityCardEEAChoice() {
     await this.page.click("#photoIdChoice-euIdentityCard");
   }
 
   async euDrivingLicenceChoice() {
     await this.page.click("#photoIdChoice-euPhotocardDl");
-  }
-
-  async citizenCardChoice() {
-    await this.page.click("#photoIdChoice-citizenCard");
   }
 
   async back() {

@@ -22,8 +22,6 @@ module.exports = {
         value: APP.PHOTO_ID_OPTIONS.EU_IDENTITY_CARD,
         hint: { text: APP.EU_IDENTITY_CARD_HINT }
       },
-      // { value: APP.PHOTO_ID_OPTIONS.CITIZEN_CARD },
-      // { value: APP.PHOTO_ID_OPTIONS.YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD },
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
     ],

@@ -73,26 +73,6 @@ class PhotoIdSelectionController extends BaseController {
           req.sessionModel.set("changeUrl", "euPhotocardDlDetails");
           return next();
         }
-        // case APP.PHOTO_ID_OPTIONS.CITIZEN_CARD: {
-        //   logger.info(
-        //     "photo-id-selection: user has selected CitizenCard - redirecting to CitizenCard details page",
-        //     { req, res }
-        //   );
-        //   req.sessionModel.set(APP.PHOTO_ID_OPTIONS.CITIZEN_CARD, true);
-        //   req.sessionModel.set("selectedDocument", "Citizen Card");
-        //   req.sessionModel.set("changeUrl", "citizenCardDetails");
-        //   return next();
-        // }
-        // case APP.PHOTO_ID_OPTIONS.YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD: {
-        //   logger.info(
-        //     "photo-id-selection: user has selected Young Scot NEC - redirecting to NEC details page",
-        //     { req, res }
-        //   );
-        //   req.sessionModel.set(APP.PHOTO_ID_OPTIONS.YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD, true);
-        //   req.sessionModel.set("selectedDocument", "Young Scot National Entitlement Card (NEC)");
-        //   req.sessionModel.set("changeUrl", "youngScotNecDetails");
-        //   return next();
-        // }
         case APP.PHOTO_ID_OPTIONS.EU_IDENTITY_CARD: {
           logger.info(
             "photo-id-selection: user has selected EU ID Card - redirecting to EU ID Card details page",

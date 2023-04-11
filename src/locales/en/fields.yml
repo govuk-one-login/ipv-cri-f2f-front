@@ -15,10 +15,6 @@ photoIdChoice:
       label: EU photocard driving licence
     euIdentityCard:
       label: National Identity card from an EEA country
-    # citizenCard:
-    #   label: CitizenCard
-    # youngScotNationalEntitlementCard:
-    #   label: Young Scot National Entitlement Card (NEC)
     noPhotoId:
       label: I do not have any of these documents
 

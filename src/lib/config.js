@@ -25,8 +25,6 @@ module.exports = {
       BRP_DETAILS: "/brpDetails",
       EU_PHOTOCARD_DL_DETAILS: "/euPhotocardDlDetails",
       EU_IDENTITY_CARD_DETAILS: "/euIdentityCardDetails",
-      // CITIZEN_CARD_DETAILS: "/citizenCardDetails",
-      // YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD_DETAILS: "/youngScotNecDetails",
       NO_PHOTO_ID: "https://signin.account.gov.uk/no-photo-id",
       EXPIRED_ID: "/photoIdExpiry"
     },
@@ -37,8 +35,6 @@ module.exports = {
       BRP: "brp",
       EU_PHOTOCARD_DL: "euPhotocardDl",
       EU_IDENTITY_CARD: "euIdentityCard",
-      // CITIZEN_CARD: "citizenCard",
-      // YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD: "youngScotNationalEntitlementCard",
       NO_PHOTO_ID: "noPhotoId"
     },
     UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after the expiry date.",
