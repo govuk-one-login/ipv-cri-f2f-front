@@ -19,6 +19,7 @@ module.exports = {
     BASE_URL: process.env.EXTERNAL_WEBSITE_HOST || "http://localhost:8000",
     PATHS: {
       F2F: "/",
+      CHECK_DETAILS: "/checkDetails",
     },
     ANALYTICS: {
       ID: process.env.GTM_ID,

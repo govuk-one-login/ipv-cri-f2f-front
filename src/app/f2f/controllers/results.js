@@ -25,35 +25,35 @@ class PostcodeSearchController extends BaseController {
         hint: "",
         items: [
           {
-            value: "Branch address 1",
+            value: "1",
             text: resp.data[0].name,
             hint: {
               text: resp.data[0].address.address1 + ", " + resp.data[0].address.address4 + ", " + resp.data[0].address.address5 + ", " + resp.data[0].address.postcode
             }
           },
           {
-            value: "Branch address 2",
+            value: "2",
             text: resp.data[1].name,
             hint: {
               text: resp.data[1].address.address1 + ", " + resp.data[1].address.address4 + ", " + resp.data[1].address.address5 + ", " + resp.data[1].address.postcode
             }
           },
           {
-            value: "Branch address 3",
+            value: "3",
             text: resp.data[2].name,
             hint: {
               text: resp.data[2].address.address1 + ", " + resp.data[2].address.address4 + ", " + resp.data[2].address.address5 + ", " + resp.data[2].address.postcode
             }
           },
           {
-            value: "Branch address 4",
+            value: "4",
             text: resp.data[3].name,
             hint: {
               text: resp.data[3].address.address1 + ", " + resp.data[3].address.address4 + ", " + resp.data[3].address.address5 + ", " + resp.data[3].address.postcode
             }
           },
           {
-            value: "Branch address 5",
+            value: "5",
             text: resp.data[4].name,
             hint: {
               text: resp.data[4].address.address1 + ", " + resp.data[4].address.address4 + ", " + resp.data[4].address.address5 + ", " + resp.data[4].address.postcode
@@ -61,6 +61,8 @@ class PostcodeSearchController extends BaseController {
           },
         ]
       };
+
+      req.sessionModel.set("postOfficeDetails", branch.items[0]);
 
       callback(err, locals);
     });

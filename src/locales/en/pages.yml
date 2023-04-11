@@ -25,3 +25,10 @@ findBranch:
 locations:
   title: "Choose a Post Office where you can prove your identity"
   body: "Postcode"
+
+checkDetails:
+  title: "Check your details"
+  selectedId: "Chosen photo ID"
+  expiryDate: "Expiry date"
+  changeLink: "Change"
+  buttonText: "I confirm my details are correct"
