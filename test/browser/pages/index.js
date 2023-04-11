@@ -3,5 +3,6 @@ module.exports = {
     PostOfficeLocations: require("./postOfficeLocations"),
     LandingPage: require("./landingPage"),
     RelyingPartyPage: require("./relying-party"),
-    CheckDetails: require("./checkDetails")
+    CheckDetails: require("./checkDetails"),
+    PhotoIdSelection: require("./photoIdSelectionPage")
 }
