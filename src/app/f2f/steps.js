@@ -162,6 +162,9 @@ module.exports = {
       "findBranch",
     ],
   },
+  "/photoIdExpiry": {
+    next: "photoIdSelection",
+  },
   "/findBranch": {
     editable: true,
     editBackStep: "locations",
