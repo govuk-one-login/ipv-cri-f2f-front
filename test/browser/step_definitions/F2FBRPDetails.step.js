@@ -2,7 +2,7 @@ const { Given, When, Then, And} = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { BRPDetailsPageValid, NameEntryPage,} = require("../pages");
+const { BRPDetailsPageValid, FindBranch,} = require("../pages");
 
   Given(/^the date entered is within accepted BRP expiration window$/, async function () {
     const brpDetailsPage = new BRPDetailsPageValid(await this.page);
@@ -23,8 +23,8 @@ const { BRPDetailsPageValid, NameEntryPage,} = require("../pages");
   
 
   Then(/^the user is routed to the next screen in the BRP journey - Branch Finder$/, async function () {    
-        const nameEntryPage = new NameEntryPage(await this.page);
+        const branchFinderPage = new FindBranch(await this.page);
 
-        expect(await nameEntryPage.isCurrentPage()).to.be.true;
+        expect(await branchFinderPage.isCurrentPage()).to.be.true;
 
   });

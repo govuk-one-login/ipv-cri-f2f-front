@@ -2,7 +2,7 @@ const { Given, When, Then, And} = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { NameEntryPage, PhotoDlDetailsPageValid} = require("../pages");
+const { FindBranch, PhotoDlDetailsPageValid} = require("../pages");
 
   Given(/^the date entered is within accepted UKPhotoDL expiration window$/, async function () {
     const ukPhotoDl = new PhotoDlDetailsPageValid(await this.page);
@@ -22,9 +22,9 @@ const { NameEntryPage, PhotoDlDetailsPageValid} = require("../pages");
   });
   
 
-  Then(/^the user is routed to the next screen in the UKPhotoDL journey - Name Entry$/, async function () {
-        const nameEntryPage = new NameEntryPage(await this.page);
+  Then(/^the user is routed to the next screen in the UKPhotoDL journey - Branch Finder$/, async function () {
+        const branchFinderPage = new FindBranch(await this.page);
 
-        expect(await nameEntryPage.isCurrentPage()).to.be.true;
+        expect(await branchFinderPage.isCurrentPage()).to.be.true;
 
   });

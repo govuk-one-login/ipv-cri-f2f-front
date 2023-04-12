@@ -1,4 +1,4 @@
-@mock-api:f2f-cic-success @success
+@mock-api:f2f-f2f-success @success
 Feature: Enter National Identity Card from an EEA country - Happy Path
 
     Background:

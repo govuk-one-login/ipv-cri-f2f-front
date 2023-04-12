@@ -2,7 +2,7 @@ const { Given, When, Then, And} = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { EuDrivingLicenceDetailsPageValid, NameEntryPage } = require("../pages");
+const { EuDrivingLicenceDetailsPageValid, FindBranch } = require("../pages");
 
   Given(/^the EU Driving Licence date entered is within accepted expiration window$/, async function () {
     const euDrivingLicenceDetailsPage = new EuDrivingLicenceDetailsPageValid(await this.page);
@@ -20,10 +20,10 @@ const { EuDrivingLicenceDetailsPageValid, NameEntryPage } = require("../pages");
   });
   
 
-  Then(/^the user is routed from EU DL Details to Name Entry Screen$/, async function () {
-    const nameEntryPage = new NameEntryPage(await this.page);
+  Then(/^the user is routed from EU DL Details to Branch Finder Screen$/, async function () {
+    const branchFinderPage = new FindBranch(await this.page);
 
-    expect(await nameEntryPage.isCurrentPage()).to.be.true;
+    expect(await branchFinderPage.isCurrentPage()).to.be.true;
 
   });
   

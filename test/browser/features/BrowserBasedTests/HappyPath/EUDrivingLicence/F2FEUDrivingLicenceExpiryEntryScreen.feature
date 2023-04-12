@@ -1,4 +1,4 @@
-@mock-api:f2f-cic-success @success
+@mock-api:f2f-f2f-success @success
 Feature: Enter EU Driving Licence Details  - Happy Path
 
 Background:
@@ -18,4 +18,4 @@ Background:
 Scenario: EU Driving Licence not expired (Happy path)
 Given the EU Driving Licence date entered is within accepted expiration window
 When the user clicks the continue button on the EU Driving Licence details page
-Then the user is routed from EU DL Details to Name Entry Screen
+Then the user is routed from EU DL Details to Branch Finder Screen

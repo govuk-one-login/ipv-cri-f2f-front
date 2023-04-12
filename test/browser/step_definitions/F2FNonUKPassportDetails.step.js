@@ -2,7 +2,7 @@ const { Given, When, Then, And} = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { NonUKPassportDetailsPageValid, NameEntryPage} = require("../pages");
+const { NonUKPassportDetailsPageValid, FindBranch} = require("../pages");
 
   Given(/^the date entered is within accepted Non UK expiration window$/, async function () {
     const nonUKPassportDetails = new NonUKPassportDetailsPageValid(await this.page);
@@ -21,9 +21,9 @@ const { NonUKPassportDetailsPageValid, NameEntryPage} = require("../pages");
   });
   
 
-  Then(/^the user is routed to the next screen in the NonUKPassport journey - Name Entry$/, async function () {
-    const nameEntryPage = new NameEntryPage(await this.page);
+  Then(/^the user is routed to the next screen in the NonUKPassport journey - Branch Finder$/, async function () {
+    const branchFinderPage = new FindBranch(await this.page);
 
-    expect(await nameEntryPage.isCurrentPage()).to.be.true;
+    expect(await branchFinderPage.isCurrentPage()).to.be.true;
 
   });

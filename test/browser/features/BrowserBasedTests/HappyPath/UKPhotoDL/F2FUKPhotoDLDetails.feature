@@ -1,4 +1,4 @@
-@mock-api:f2f-cic-success @success
+@mock-api:f2f-f2f-success @success
 Feature: Enter UK driving licence   - Happy Path
 
     Background:
@@ -17,4 +17,4 @@ Feature: Enter UK driving licence   - Happy Path
     Scenario: UK driving licence not expired (Happy path)
         Given the date entered is within accepted UKPhotoDL expiration window
         When the user clicks the continue button on the UKPhotoDL Page
-        Then the user is routed to the next screen in the UKPhotoDL journey - Name Entry
+        Then the user is routed to the next screen in the UKPhotoDL journey - Branch Finder

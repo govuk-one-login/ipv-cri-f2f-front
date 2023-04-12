@@ -1,4 +1,4 @@
-@mock-api:f2f-cic-success @success
+@mock-api:f2f-f2f-success @success
 Feature: Enter UK driving licence   - Happy Path
 
     Background:
@@ -18,3 +18,4 @@ Feature: Enter UK driving licence   - Happy Path
         Given the date entered is within accepted BRP expiration window
         When the user clicks the continue button on the BRP Page
         Then the user is routed to the next screen in the BRP journey - Branch Finder
+        

@@ -1,4 +1,4 @@
-@mock-api:f2f-cic-success @success @ukPass
+@mock-api:f2f-f2f-success @success @ukPass
 Feature: Build Document Selection Screen
 
   Background:

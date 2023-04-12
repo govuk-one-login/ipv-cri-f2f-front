@@ -1,4 +1,4 @@
-@mock-api:f2f-cic-success @success
+@mock-api:f2f-f2f-success @success
 Feature: Enter UK Passport Details  - Happy Path
 
     Background:
@@ -18,4 +18,4 @@ Feature: Enter UK Passport Details  - Happy Path
     Scenario: NonUK passport not expired (Happy path)
         Given the date entered is within accepted Non UK expiration window
         When the user clicks the continue button on the Non UK passport page
-        Then the user is routed to the next screen in the NonUKPassport journey - Name Entry
+        Then the user is routed to the next screen in the NonUKPassport journey - Branch Finder

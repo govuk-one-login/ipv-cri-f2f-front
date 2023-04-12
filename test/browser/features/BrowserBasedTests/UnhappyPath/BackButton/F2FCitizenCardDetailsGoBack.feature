@@ -1,4 +1,4 @@
-# @mock-api:f2f-cic-success @success @nonUK
+# @mock-api:f2f-f2f-success @success @nonUK
 # Feature: Enter CitizenCard Details  - Happy Path
 
 #     Background:
