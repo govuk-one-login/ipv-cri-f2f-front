@@ -19,7 +19,6 @@ module.exports = {
     BRPDetailsPageInvalidFuture: require("./brpDetailsPageInvalidFuture"),
     BRPDetailsPageInvalidPast: require("./brpDetailsPageInvalidPast"),
     PhotoIdExpiryPage: require("./photoIdExpiryPage"),
-    RelyingPartyPage: require("./relying-party.js"),
     ErrorPage: require("./error.js"),
     PassportDetailsPageValid: require("./ukPassportDetailsPageValid"),
     NonPassportDetailsPageValidEdit: require("./nonUKPassportDetailsPageValidEdit"),
