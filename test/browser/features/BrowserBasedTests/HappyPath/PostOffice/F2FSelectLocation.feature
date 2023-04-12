@@ -1,6 +1,3 @@
-@mock-api:f2f-f2f-success
-Feature: Select Post Office Branch - Happy Path
-
     Background:
         Given Authenticatable Anita is using the system
         When they have provided their details

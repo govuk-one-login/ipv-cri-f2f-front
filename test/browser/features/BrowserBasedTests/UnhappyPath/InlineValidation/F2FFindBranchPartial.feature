@@ -18,8 +18,7 @@ Feature: Find Post Office Branch - Unhappy Path
         When the user clicks the continue button on the BRP Page
         Then they should be redirected to the Find a Branch page
 
-
-    Scenario: Invalid address entered (Happy path)
-        Given a partial postcode is entered
-        When the user clicks the continue button on the find Post Office branch partial page
-        Then they are then shown an on screen error asking them to enter a valid postcode
+     Scenario: Invalid address entered (Happy path)
+         Given a partial postcode is entered
+         When the user clicks the continue button on the find Post Office branch partial page
+         Then they are then shown an on screen error asking them to enter a valid postcode

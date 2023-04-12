@@ -9,7 +9,6 @@ module.exports = class PlaywrightDevPage {
 
   async isCurrentPage() {
     return await this.page.url() === this.url;
-   
   }
 
   async continue() {

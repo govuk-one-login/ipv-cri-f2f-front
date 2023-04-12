@@ -72,6 +72,7 @@ class PhotoIdSelectionController extends BaseController {
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
+
           logger.info(
             "photo-id-selection: user has selected EU ID Card - redirecting to EU ID Card details page",
             { req, res }

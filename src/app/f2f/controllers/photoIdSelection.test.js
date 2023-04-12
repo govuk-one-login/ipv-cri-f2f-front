@@ -52,11 +52,9 @@ describe("PhotoIdSelectionController", () => {
         await photoIdSelectionController.saveValues(req, res, next);
         const nextError = next.firstArg;
         const nextErrMessage = ("photo-id-selection: Invalid action " + undefined);
-
         expect(next).to.have.been.calledOnce;
         expect(nextError).to.be.instanceOf(Error);
         expect(nextError.message).to.equal(nextErrMessage);
     });
   });
-
   });
