@@ -23,9 +23,9 @@ module.exports = class PlaywrightDevPage {
       const expMonth = currentMonth.toString()
       const futureYear = new Date().getFullYear() - 16
       const expYear = futureYear.toString()
-      await this.page.locator("#euIdCardExpiryDate-day").fill(expDay);
-      await this.page.locator("#euIdCardExpiryDate-month").fill(expMonth);
-      await this.page.locator("#euIdCardExpiryDate-year").fill(expYear);
+      await this.page.locator("#eeaIdCardExpiryDate-day").fill(expDay);
+      await this.page.locator("#eeaIdCardExpiryDate-month").fill(expMonth);
+      await this.page.locator("#eeaIdCardExpiryDate-year").fill(expYear);
     }
 
     async checkErrorText(){
