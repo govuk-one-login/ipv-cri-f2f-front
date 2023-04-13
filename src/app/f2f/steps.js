@@ -65,6 +65,16 @@ module.exports = {
         value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
         next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS,
       },
+      // {
+      //   field: "photoIdChoice",
+      //   value: APP.PHOTO_ID_OPTIONS.CITIZEN_CARD,
+      //   next: APP.PATHS.CITIZEN_CARD_DETAILS,
+      // },
+      // {
+      //   field: "photoIdChoice",
+      //   value: APP.PHOTO_ID_OPTIONS.YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD,
+      //   next: APP.PATHS.YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD_DETAILS,
+      // },
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
