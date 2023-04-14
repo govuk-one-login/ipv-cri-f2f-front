@@ -42,6 +42,6 @@ checkDetails:
   title: "Check your details"
   selectedId: "Chosen photo ID"
   expiryDate: "Expiry date"
-  postOffice: "Post Office"
+  postOffice: "Post Office address"
   changeLink: "Change"
-  buttonText: "I confirm my details are correct"
+  buttonText: "Confirm and send"

@@ -17,25 +17,31 @@ class CheckDetailsController extends DateController {
       const addressDetails = req.form.values.postOfficeDetails
       console.log("FORM VALUES: ", addressDetails)
       let postOfficeAddress;
+      let postOfficeName;
       switch(req.form.values.branches) {
         case "1": {
           postOfficeAddress = addressDetails[0].hint.text;
+          postOfficeName = addressDetails[0].text;
           break;
         }
         case "2": {
           postOfficeAddress = addressDetails[1].hint.text;
+          postOfficeName = addressDetails[1].text;
           break;
         }
         case "3": {
           postOfficeAddress = addressDetails[2].hint.text;
+          postOfficeName = addressDetails[2].text;
           break;
         }
         case "4": {
           postOfficeAddress = addressDetails[3].hint.text;
+          postOfficeName = addressDetails[3].text;
           break;
         }
         case "5": {
           postOfficeAddress = addressDetails[4].hint.text;
+          postOfficeName = addressDetails[4].text;
           break;
         }
       }
@@ -75,7 +81,8 @@ class CheckDetailsController extends DateController {
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
       locals.changeUrl = `/${changeUrl}`;
-      locals.postOffice = postOfficeAddress;
+      locals.postOfficeAddress = postOfficeAddress.split(", ")
+      locals.postOfficeName = postOfficeName;
 
       callback(err, locals);
     });
