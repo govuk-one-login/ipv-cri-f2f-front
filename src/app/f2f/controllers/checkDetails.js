@@ -1,7 +1,7 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils")
-const { API } = require("../../../lib/config");
+const { API, APP } = require("../../../lib/config");
 
 const DateController = DateControllerMixin(BaseController);
 
@@ -14,27 +14,28 @@ class CheckDetailsController extends DateController {
       }
 
       // Value for selected Post Office depends on selected PO
-      const addressDetails = req.sessionModel.get("postOfficeDetails")
+      const addressDetails = req.form.values.postOfficeDetails
+      console.log("FORM VALUES: ", addressDetails)
       let postOfficeAddress;
-      switch(addressDetails.value) {
+      switch(req.form.values.branches) {
         case "1": {
-          postOfficeAddress = addressDetails.hint;
+          postOfficeAddress = addressDetails[0].hint.text;
           break;
         }
         case "2": {
-          postOfficeAddress = addressDetails.hint;
+          postOfficeAddress = addressDetails[1].hint.text;
           break;
         }
         case "3": {
-          postOfficeAddress = addressDetails.hint;
+          postOfficeAddress = addressDetails[2].hint.text;
           break;
         }
         case "4": {
-          postOfficeAddress = addressDetails.hint;
+          postOfficeAddress = addressDetails[3].hint.text;
           break;
         }
         case "5": {
-          postOfficeAddress = addressDetails.hint;
+          postOfficeAddress = addressDetails[4].hint.text;
           break;
         }
       }
@@ -74,6 +75,7 @@ class CheckDetailsController extends DateController {
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
       locals.changeUrl = `/${changeUrl}`;
+      locals.postOffice = postOfficeAddress;
 
       callback(err, locals);
     });

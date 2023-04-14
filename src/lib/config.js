@@ -19,8 +19,19 @@ module.exports = {
     BASE_URL: process.env.EXTERNAL_WEBSITE_HOST || "http://localhost:8000",
     PATHS: {
       F2F: "/",
+      UK_PASSPORT_DETAILS: "/ukPassportDetails",
       CHECK_DETAILS: "/checkDetails",
     },
+    PHOTO_ID_OPTIONS: {
+      UK_PASSPORT: "ukPassport",
+      OTHER_PASSPORT: "otherPassport",
+      UK_PHOTOCARD_DL: "ukPhotocardDl",
+      BRP: "brp",
+      EU_PHOTOCARD_DL: "euPhotocardDl",
+      EEA_IDENTITY_CARD: "eeaIdentityCard",
+      NO_PHOTO_ID: "noPhotoId"
+    },
+    UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after the expiry date.",
     ANALYTICS: {
       ID: process.env.GTM_ID,
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",

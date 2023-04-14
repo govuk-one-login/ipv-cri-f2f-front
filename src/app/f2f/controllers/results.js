@@ -62,7 +62,7 @@ class PostcodeSearchController extends BaseController {
         ]
       };
 
-      req.sessionModel.set("postOfficeDetails", branch.items[0]);
+      req.sessionModel.set("postOfficeDetails", locals.branch.items);
 
       callback(err, locals);
     });

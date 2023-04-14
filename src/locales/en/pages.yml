@@ -18,6 +18,18 @@ landingPage:
     thirdStep:
       one: "You’ll get an email about the result of your identity check - usually within a day of visiting the Post Office. "
 
+photoIdSelection:
+  title: "Choose a photo ID you can take to a Post Office"
+  h1: "Choose a photo ID you can take to a Post Office"
+  content: "You must take the original photo ID document, not a photocopy.
+            <br><br>
+            Your photo ID must not have expired.
+            <br><br>"
+
+ukPassport:
+  title: "When does your UK passport expire?"
+  passportInformationContext: "We need this information to check that your photo ID is valid."
+
 findBranch:
   title: "Find a Post Office where you can prove your identity"
   body: "Enter a UK postcode"
@@ -30,5 +42,6 @@ checkDetails:
   title: "Check your details"
   selectedId: "Chosen photo ID"
   expiryDate: "Expiry date"
+  postOffice: "Post Office"
   changeLink: "Change"
   buttonText: "I confirm my details are correct"
