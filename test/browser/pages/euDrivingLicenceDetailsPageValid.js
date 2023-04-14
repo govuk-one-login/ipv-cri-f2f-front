@@ -20,7 +20,7 @@ module.exports = class PlaywrightDevPage {
       const currentMonth = new Date().getMonth() + 1
       const expMonth = currentMonth.toString()
       const expYear = new Date().getFullYear().toString()
-      await this.page.locator("#euPhotocardDlExpiryDate-day").type(expDay);
+      await this.page.locator("#euPhotocardDlExpiryDate-day").fill(expDay);
       await this.page.locator("#euPhotocardDlExpiryDate-month").fill(expMonth);
       await this.page.locator("#euPhotocardDlExpiryDate-year").fill(expYear);
     }

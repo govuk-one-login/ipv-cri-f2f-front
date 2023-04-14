@@ -14,8 +14,8 @@ Background:
     When the user clicks the PhotoId continue button
     Then the user is routed to the next screen in the journey Passport Details
 
-
 Scenario: UK passport not expired (Happy path)
     Given the date entered is within accepted UK Passport expiration window
     When the user clicks the continue button on the UKPassportPage
     Then the user is routed to the next screen in the journey Branch Finder Screen
+    Then the user enters a valid postcode

@@ -33,7 +33,7 @@ const { PostOfficeLocations, FindBranch } = require("../pages");
     const findBranch = new FindBranch(await this.page);
     const poLocations = new PostOfficeLocations(await this.page);
 
-    await findBranch.postCode();
+    await findBranch.postCodeChange();
 
     await findBranch.continue();
 

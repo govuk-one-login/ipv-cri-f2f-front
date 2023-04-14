@@ -2,11 +2,11 @@ const { Given, When, Then, And} = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { BRPDetailsPageValid, FindBranch,} = require("../pages");
+const { BRPDetailsPageValid, FindBranch} = require("../pages");
 
   Given(/^the date entered is within accepted BRP expiration window$/, async function () {
     const brpDetailsPage = new BRPDetailsPageValid(await this.page);
-  
+    expect(await brpDetailsPage.isCurrentPage()).to.be.true;
     await brpDetailsPage.expiryDate();
 
   });

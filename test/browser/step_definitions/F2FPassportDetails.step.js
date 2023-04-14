@@ -28,3 +28,11 @@ const { PassportDetailsPageValid, FindBranch} = require("../pages");
     expect(await branchFinderPage.isCurrentPage()).to.be.true;
 
   });
+
+  
+  Then(/^the user enters a valid postcode$/, async function () {
+    const branchFinderPage = new FindBranch(await this.page);
+
+    await branchFinderPage.postCode();
+
+  });
