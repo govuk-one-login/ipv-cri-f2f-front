@@ -13,9 +13,9 @@ class PhotoIdSelectionController extends BaseController {
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.OTHER_PASSPORT, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL, undefined);
+      req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD, undefined);
       // req.sessionModel.set(APP.PHOTO_ID_OPTIONS.CITIZEN_CARD, undefined);
       // req.sessionModel.set(APP.PHOTO_ID_OPTIONS.YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD, undefined);
-      req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_IDENTITY_CARD, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID, undefined)
 
       const action = req.form.values.photoIdChoice;
@@ -73,12 +73,13 @@ class PhotoIdSelectionController extends BaseController {
           req.sessionModel.set("changeUrl", "euPhotocardDlDetails");
           return next();
         }
-        case APP.PHOTO_ID_OPTIONS.EU_IDENTITY_CARD: {
+        case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
+
           logger.info(
             "photo-id-selection: user has selected EU ID Card - redirecting to EU ID Card details page",
             { req, res }
           );
-          req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_IDENTITY_CARD, true);
+          req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD, true);
           req.sessionModel.set("selectedDocument", "National Identity card from an EEA country");
           req.sessionModel.set("changeUrl", "euIdentityCardDetails");
           return next();

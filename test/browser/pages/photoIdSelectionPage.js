@@ -9,38 +9,37 @@ module.exports = class PlaywrightDevPage {
 
   async isCurrentPage() {
     return await this.page.url() === this.url;
-
   }
 
   async continue() {
     await this.page.click("#continue");
   }
 
-  async ukPassportChoice() {
+  async ukPassportChoice(){
     await this.page.click("#photoIdChoice");
   }
 
-  async drivingLicenceChoice() {
+  async drivingLicenceChoice(){
     await this.page.click("#photoIdChoice-ukPhotocardDl");
   }
 
-  async brpChoice() {
+  async brpChoice(){
     await this.page.click("#photoIdChoice-brp");
   }
 
-  async nonUKPassportChoice() {
+  async nonUKPassportChoice(){
     await this.page.click("#photoIdChoice-otherPassport");
   }
-
-  async nationalIdentityCardEEAChoice() {
-    await this.page.click("#photoIdChoice-euIdentityCard");
+  
+  async nationalIdentityCardEEAChoice(){
+    await this.page.click("#photoIdChoice-eeaIdentityCard");
   }
 
-  async euDrivingLicenceChoice() {
+  async euDrivingLicenceChoice(){
     await this.page.click("#photoIdChoice-euPhotocardDl");
   }
 
-  async back() {
+  async back(){
     await this.page.click("#back");
   }
 };
