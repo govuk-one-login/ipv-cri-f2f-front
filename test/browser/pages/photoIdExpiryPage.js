@@ -15,4 +15,12 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#continue");
   }
 
+  async ReEnterDetails() {
+    await this.page.click("#ReEnterDetails");
+  }
+
+  async ProveIdentityAnotherWay() {
+    await this.page.click("#ProveIdentityAnotherWay");
+  }
+
 };
