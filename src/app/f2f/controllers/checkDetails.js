@@ -17,10 +17,13 @@ class CheckDetailsController extends DateController {
       const addressDetails = req.form.values.postOfficeDetails
       let postOfficeAddress;
       let postOfficeName;
+      console.log("HERE")
+      console.log(req.form.values.branches)
       switch(req.form.values.branches) {
         case "1": {
           postOfficeAddress = addressDetails[0].hint.text;
           postOfficeName = addressDetails[0].text;
+          
           break;
         }
         case "2": {
@@ -90,34 +93,35 @@ class CheckDetailsController extends DateController {
   next() {
     return '/done'
   }
+  // TO BE MODIFIED WITH F2F- , /documentSelection endpoint
 
-  async saveValues(req, res, callback) {
+  // async saveValues(req, res, callback) {
 
-    try {
-      const f2fData ={
-        document_selected:  req.sessionModel.get("photoIdChoice"),
-        date_of_expiry: req.sessionModel.get("expiryDate")
-      }
-      await this.saveF2fData(req.axios, f2fData, req);
-      callback();
+  //   try {
+  //     const f2fData ={
+  //       document_selected:  req.sessionModel.get("photoIdChoice"),
+  //       date_of_expiry: req.sessionModel.get("expiryDate")
+  //     }
+  //     await this.saveF2fData(req.axios, f2fData, req);
+  //     callback();
 
-    } catch (err) {
-      callback(err);
-    }
+  //   } catch (err) {
+  //     callback(err);
+  //   }
 
-  }
+  // }
 
-  async saveF2fData(axios, f2fData, req) {
+  // async saveF2fData(axios, f2fData, req) {
 
-    const headers = {
-      "x-govuk-signin-session-id": req.session.tokenId
-    }
+  //   const headers = {
+  //     "x-govuk-signin-session-id": req.session.tokenId
+  //   }
 
-    const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
-      headers,
-    });
-    return resp.data;
-  }
+  //   const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
+  //     headers,
+  //   });
+  //   return resp.data;
+  // }
 }
 
 module.exports = CheckDetailsController;

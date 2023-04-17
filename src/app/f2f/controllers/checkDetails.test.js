@@ -52,8 +52,17 @@ describe("CheckDetails controller", () => {
 
         locals = {
           key: "value",
-          postOfficeAddress: "Name, Line 1, Line 2, Postcode"
         };
+        req.form.values.branches = "1"
+        req.form.values.postOfficeDetails = [
+          {
+            value: "1",
+            text: "BRANCH NAME",
+            hint: {
+              text: "NAME" + ", " + " " + ", " + " " + ", " + "POSTCODE"
+            }
+          },
+        ]
         res.locals = locals;
         BaseController.prototype.locals.yields(error, superLocals);
 
