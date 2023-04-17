@@ -29,7 +29,7 @@ describe("PhotoIdSelectionController", () => {
 
   describe("saveValues", () => {
     it("should save values to sessionModel according to selected document type", async () => {
-      
+
       req.form.values.photoIdChoice = APP.PHOTO_ID_OPTIONS.UK_PASSPORT;
 
         await photoIdSelectionController.saveValues(req, res, next);
@@ -46,17 +46,15 @@ describe("PhotoIdSelectionController", () => {
 
   describe("saveValues when user selects no option", () => {
     it("should call next with error", async () => {
-      
+
       req.form.values.photoIdChoice = undefined;
 
         await photoIdSelectionController.saveValues(req, res, next);
         const nextError = next.firstArg;
         const nextErrMessage = ("photo-id-selection: Invalid action " + undefined);
-        
         expect(next).to.have.been.calledOnce;
         expect(nextError).to.be.instanceOf(Error);
         expect(nextError.message).to.equal(nextErrMessage);
     });
   });
-
   });

@@ -19,12 +19,12 @@ module.exports = {
     BASE_URL: process.env.EXTERNAL_WEBSITE_HOST || "http://localhost:8000",
     PATHS: {
       F2F: "/",
-      PASSPORT_DETAILS: "/passportDetails",
+      UK_PASSPORT_DETAILS: "/ukPassportDetails",
       NON_UK_PASSPORT_DETAILS: "/nonUKPassportDetails",
-      PHOTOCARD_DL_DETAILS: "/photocardDlDetails",
+      PHOTOCARD_DL_DETAILS: "/ukPhotocardDlDetails",
       BRP_DETAILS: "/brpDetails",
       EU_PHOTOCARD_DL_DETAILS: "/euPhotocardDlDetails",
-      EU_IDENTITY_CARD_DETAILS: "/euIdentityCardDetails",
+      EEA_IDENTITY_CARD_DETAILS: "/eeaIdentityCardDetails",
       NO_PHOTO_ID: "https://signin.account.gov.uk/no-photo-id",
       EXPIRED_ID: "/photoIdExpiry"
     },
@@ -34,12 +34,12 @@ module.exports = {
       UK_PHOTOCARD_DL: "ukPhotocardDl",
       BRP: "brp",
       EU_PHOTOCARD_DL: "euPhotocardDl",
-      EU_IDENTITY_CARD: "euIdentityCard",
+      EEA_IDENTITY_CARD: "eeaIdentityCard",
       NO_PHOTO_ID: "noPhotoId"
     },
     UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after the expiry date.",
     EU_PHOTOCARD_DL_HINT: "This must be a plastic photocard. You cannot use a paper or handwritten license.",
-    EU_IDENTITY_CARD_HINT: "This must be a plastic photocard. You cannot use a paper or handwritten national identity card.",
+    EEA_IDENTITY_CARD_HINT: "This must be a plastic photocard. You cannot use a paper or handwritten national identity card.",
     ANALYTICS: {
       ID: process.env.GTM_ID,
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",

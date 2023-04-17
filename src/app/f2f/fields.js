@@ -19,13 +19,115 @@ module.exports = {
         hint: { text: APP.EU_PHOTOCARD_DL_HINT }
       },
       {
-        value: APP.PHOTO_ID_OPTIONS.EU_IDENTITY_CARD,
-        hint: { text: APP.EU_IDENTITY_CARD_HINT }
+        value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
+        hint: { text: APP.EEA_IDENTITY_CARD_HINT }
       },
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
     ],
     validate: ["required"]
+  },
+  ukPassportExpiryDate: {
+    type: "date",
+    journeyKey: "UKPassportExpiryDate",
+    validate: ["required", "date",
+      {
+        type: "before",
+        arguments: [
+          new Date(
+            new Date().getFullYear() + 10,
+            new Date().getMonth(),
+            new Date().getDate() + 1,
+          )
+            .toISOString()
+            .split("T")[0],
+        ],
+      },
+    ]
+  },
+  nonUKPassportExpiryDate: {
+    type: "date",
+    journeyKey: "nonUKPassportExpiryDate",
+    validate: ["required", "date",
+      {
+        type: "before",
+        arguments: [
+          new Date(
+            new Date().getFullYear() + 10,
+            new Date().getMonth(),
+            new Date().getDate() + 1,
+          )
+            .toISOString()
+            .split("T")[0],
+        ],
+      },
+    ]
+  },
+  ukPhotocardDlExpiryDate: {
+    type: "date",
+    journeyKey: "ukPhotocardDlExpiryDate",
+    validate: ["required", "date",
+      {
+        type: "before",
+        arguments: [
+          new Date(
+            new Date().getFullYear() + 10,
+            new Date().getMonth(),
+            new Date().getDate() + 1,
+          )
+            .toISOString()
+            .split("T")[0],
+        ],
+      },
+    ]
+  },
+  brpExpiryDate: {
+    type: "date",
+    journeyKey: "brpExpiryDate",
+    validate: ["required", "date",
+      {
+        type: "before",
+        arguments: ["2025-01-01"]
+      },
+    ]
+  },
+  euPhotocardDlExpiryDate: {
+    type: "date",
+    journeyKey: "euPhotocardDlDate",
+    validate: ["required", "date",
+    {
+      type: "before",
+      arguments: [
+        new Date(
+          new Date().getFullYear() + 75,
+          new Date().getMonth(),
+          new Date().getDate() + 1,
+        )
+          .toISOString()
+          .split("T")[0],
+      ],
+    },
+    ]
+  },
+  eeaIdCardExpiryDate: {
+    type: "date",
+    journeyKey: "euIdCardExpiryDate",
+    validate: [
+      "required", "date",
+      {
+        type: "before",
+        arguments: [
+          new Date(
+            new Date().getFullYear() + 75,
+            new Date().getMonth(),
+            new Date().getDate() + 1,
+          )
+            .toISOString()
+            .split("T")[0],
+        ],
+      },
+    
+    ]
   },
   postcode: {
     type: "text",
