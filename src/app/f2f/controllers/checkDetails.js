@@ -15,7 +15,6 @@ class CheckDetailsController extends DateController {
 
       // Value for selected Post Office depends on selected PO
       const addressDetails = req.form.values.postOfficeDetails
-      console.log("FORM VALUES: ", addressDetails)
       let postOfficeAddress;
       let postOfficeName;
       switch(req.form.values.branches) {
@@ -61,7 +60,7 @@ class CheckDetailsController extends DateController {
           expiryDate = req.form.values.photocardDlExpiryDate;
           break;
         }
-        case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT_DETAILS: {
+        case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           expiryDate = req.form.values.nonUKPassportExpiryDate;
           break;
         }
@@ -108,7 +107,7 @@ class CheckDetailsController extends DateController {
 
   }
 
-  async saveCicData(axios, f2fData, req) {
+  async saveF2fData(axios, f2fData, req) {
 
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId

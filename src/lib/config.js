@@ -6,7 +6,7 @@ module.exports = {
     PATHS: {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
-      SAVE_F2FDATA: "/claimedIdentity",
+      SAVE_F2FDATA: "/documentSelection",
     },
   },
   PROXY_API: {
@@ -30,7 +30,7 @@ module.exports = {
     },
     PHOTO_ID_OPTIONS: {
       UK_PASSPORT: "ukPassport",
-      OTHER_PASSPORT: "otherPassport",
+      NON_UK_PASSPORT: "nonUkPassport",
       UK_PHOTOCARD_DL: "ukPhotocardDl",
       BRP: "brp",
       EU_PHOTOCARD_DL: "euPhotocardDl",
