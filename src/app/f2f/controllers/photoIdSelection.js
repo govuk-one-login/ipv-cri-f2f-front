@@ -29,7 +29,7 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, true);
           req.sessionModel.set("selectedDocument", "UK passport");
-          req.sessionModel.set("changeUrl", "ukPassportDetails");
+          req.sessionModel.set("changeUrl", "passportDetails");
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.BRP: {
@@ -101,5 +101,7 @@ class PhotoIdSelectionController extends BaseController {
   }
 
 }
+
+module.exports = PhotoIdSelectionController;
 
 module.exports = PhotoIdSelectionController;

@@ -45,6 +45,90 @@ module.exports = {
       },
     ]
   },
+  nonUKPassportExpiryDate: {
+    type: "date",
+    journeyKey: "nonUKPassportExpiryDate",
+    validate: ["required", "date",
+      {
+        type: "before",
+        arguments: [
+          new Date(
+            new Date().getFullYear() + 10,
+            new Date().getMonth(),
+            new Date().getDate() + 1,
+          )
+            .toISOString()
+            .split("T")[0],
+        ],
+      },
+    ]
+  },
+  ukPhotocardDlExpiryDate: {
+    type: "date",
+    journeyKey: "ukPhotocardDlExpiryDate",
+    validate: ["required", "date",
+      {
+        type: "before",
+        arguments: [
+          new Date(
+            new Date().getFullYear() + 10,
+            new Date().getMonth(),
+            new Date().getDate() + 1,
+          )
+            .toISOString()
+            .split("T")[0],
+        ],
+      },
+    ]
+  },
+  brpExpiryDate: {
+    type: "date",
+    journeyKey: "brpExpiryDate",
+    validate: ["required", "date",
+      {
+        type: "before",
+        arguments: ["2025-01-01"]
+      },
+    ]
+  },
+  euPhotocardDlExpiryDate: {
+    type: "date",
+    journeyKey: "euPhotocardDlDate",
+    validate: ["required", "date",
+    {
+      type: "before",
+      arguments: [
+        new Date(
+          new Date().getFullYear() + 75,
+          new Date().getMonth(),
+          new Date().getDate() + 1,
+        )
+          .toISOString()
+          .split("T")[0],
+      ],
+    },
+    ]
+  },
+  eeaIdCardExpiryDate: {
+    type: "date",
+    journeyKey: "euIdCardExpiryDate",
+    validate: [
+      "required", "date",
+      {
+        type: "before",
+        arguments: [
+          new Date(
+            new Date().getFullYear() + 75,
+            new Date().getMonth(),
+            new Date().getDate() + 1,
+          )
+            .toISOString()
+            .split("T")[0],
+        ],
+      },
+    
+    ]
+  },
   postcode: {
     type: "text",
     journeyKey: "postcode",

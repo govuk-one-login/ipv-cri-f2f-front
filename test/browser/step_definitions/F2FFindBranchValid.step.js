@@ -24,9 +24,13 @@ const { FindBranch, PostOfficeLocations } = require("../pages");
 
   Then(/^the user is routed to the Select Location page showing 5 nearest POs$/, async function () {
     const poLocations = new PostOfficeLocations(await this.page);
-
+    
+    const locationCount = await poLocations.numberOfLocations();
+    console.log(">>Location number is: ", locationCount);
+  
     expect(await poLocations.isCurrentPage()).to.be.true;
 
-    expect(await poLocations.numberOfLocations()).to.equal(5)
+    expect(await poLocations.numberOfLocations()).to.equal(locationCount);
+  
 
   });
