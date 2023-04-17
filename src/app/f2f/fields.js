@@ -126,7 +126,6 @@ module.exports = {
             .split("T")[0],
         ],
       },
-
     ]
   },
   postcode: {
