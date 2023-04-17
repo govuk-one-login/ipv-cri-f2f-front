@@ -95,18 +95,18 @@ module.exports = {
     type: "date",
     journeyKey: "euPhotocardDlDate",
     validate: ["required", "date",
-    {
-      type: "before",
-      arguments: [
-        new Date(
-          new Date().getFullYear() + 75,
-          new Date().getMonth(),
-          new Date().getDate() + 1,
-        )
-          .toISOString()
-          .split("T")[0],
-      ],
-    },
+      {
+        type: "before",
+        arguments: [
+          new Date(
+            new Date().getFullYear() + 75,
+            new Date().getMonth(),
+            new Date().getDate() + 1,
+          )
+            .toISOString()
+            .split("T")[0],
+        ],
+      },
     ]
   },
   eeaIdCardExpiryDate: {
@@ -126,7 +126,7 @@ module.exports = {
             .split("T")[0],
         ],
       },
-    
+
     ]
   },
   postcode: {
@@ -145,5 +145,18 @@ module.exports = {
   },
   branches: {
     validate: ["required"]
-  }
+  },
+  photoIdExpiryChoice: {
+    type: "radios",
+    legend: "What would you like to do?",
+    label: "",
+    hint: "",
+    items: [
+      { value: APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS },
+      { value: APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID },
+      { divider: "or" },
+      { value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY },
+    ],
+    validate: ["required"]
+  },
 }
