@@ -11,6 +11,6 @@ Feature: Build Document Selection Screen
     Then the user is routed to the next screen in the journey PhotoId Selection
 
 Scenario: Successful redirect from Document Selection screen back to Landing page
-Given the user has navigated to the Document Selection page
-When the Back link is clicked on the Document Selection page
-Then the user is navigated back to the previous screen - the Landing page
+  Given the user has navigated to the Document Selection page
+  When the Back link is clicked on the Document Selection page
+  Then the user is navigated back to the previous screen - the Landing page
