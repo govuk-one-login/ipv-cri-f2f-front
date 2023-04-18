@@ -10,15 +10,15 @@ Feature: Expired Date Error Screen - Unhappy Path
         When the user clicks the continue button on the Landing Page
         Then the user is routed to the next screen in the journey PhotoId Selection
 
-        Given the UK photocard driving licence option is selected
-        When the user clicks the UK DL continue button
-        Then the user is routed to the next screen in the journey UKPhotoDL Expiry Date
+        Given the UK passport option is selected
+        When the user clicks the PhotoId continue button
+        Then the user is routed to the next screen in the journey Passport Details
 
-        Given the date entered is before the accepted UKPhotoDLExpiry expiration window
-        When the user clicks the continue button on the UKPhotoDLExpiryPast Page
-        Then the user is routed to the Expired Date Error Screen from the UK DL screen
+        Given the date entered is more than 18 months in the past
+        When the user clicks the continue button on the UK passport page
+        Then the user is routed to the Expired Date Error Screen from the UK passport screen
 
     Scenario: User chooses to re-enter ID expiry date details (UnHappy path)
-        Given the ReEnterDetails option is selected
+        Given the ReEnterUKPassportDetails option is selected
         When the user clicks Expired Date Error Screen continue button
-        Then the user is routed back to the UKPhotoDL Expiry Date screen
+        Then the user is routed back to the UK passport Expiry Date screen

@@ -4,17 +4,17 @@ const { expect } = require("chai");
 
 const { PhotoIdExpiryPage, PhotoDlDetailsPageValid, } = require("../pages");
 
-Given(/^the ReEnterDetails option is selected$/, async function () {
+Given(/^the ReEnterUKPhotoDLDetails option is selected$/, async function () {
   const photoExpiryPage = new PhotoIdExpiryPage(await this.page);
 
-  await photoExpiryPage.ProveIdentityAnotherWay();
+  await photoExpiryPage.ReEnterDetails();
 
   expect(await photoExpiryPage.isCurrentPage()).to.be.true
 
 });
 
 
-When(/^the user clicks Expired Date Error Screen continue button$/, async function () {
+When(/^the user clicks UKPhotoDL Expired Date Error Screen continue button$/, async function () {
   const photoExpiryPage = new PhotoIdExpiryPage(await this.page);
 
   await photoExpiryPage.continue();

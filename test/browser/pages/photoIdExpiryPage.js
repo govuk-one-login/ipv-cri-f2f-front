@@ -16,11 +16,11 @@ module.exports = class PlaywrightDevPage {
   }
 
   async ReEnterDetails() {
-    await this.page.click("#ReEnterDetails");
+    await this.page.click("#photoIdExpiryChoice");
   }
 
-  async ProveIdentityAnotherWay() {
-    await this.page.click("#ProveIdentityAnotherWay");
+  async ChooseDifferentPhotoId() {
+    await this.page.click("#photoIdExpiryChoice-chooseDifferentPhotoId");
   }
 
 };

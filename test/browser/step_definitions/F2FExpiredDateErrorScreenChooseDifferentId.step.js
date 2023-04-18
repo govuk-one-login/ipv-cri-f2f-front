@@ -4,16 +4,16 @@ const { expect } = require("chai");
 
 const { PhotoIdExpiryPage, PhotoIdSelectionPage, } = require("../pages");
 
-Given(/^the ProveIdentityAnotherWay option is selected$/, async function () {
+Given(/^the ChooseDifferentPhotoId option is selected$/, async function () {
   const photoExpiryPage = new PhotoIdExpiryPage(await this.page);
 
-  await photoExpiryPage.ProveIdentityAnotherWay();
+  await photoExpiryPage.ChooseDifferentPhotoId();
 
   expect(await photoExpiryPage.isCurrentPage()).to.be.true
 
 });
 
-When(/^the user clicks Expired Date Error Screen continue button$/, async function () {
+When(/^the user clicks the Expired Date Error Screen continue button$/, async function () {
   const photoExpiryPage = new PhotoIdExpiryPage(await this.page);
 
   await photoExpiryPage.continue();
