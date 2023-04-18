@@ -12,8 +12,7 @@ landingPage:
       two: "Then select which Post Office you want to take your photo ID to."
       three: "We'll send you a confirmation email with a link to download your Post Office customer letter."
     secondStep:
-      one: "Take your Post Office customer letter and photo ID to your chosen Post Office. Or go to any "
-      oneLink: "Post office that offers ‘in-branch verification’ (opens in new tab)."
+      one: "Take your Post Office customer letter and photo ID to your chosen Post Office. "
       two: "A member of Post Office staff will scan your photo ID and take a photo of you. "
       three: "You must go to the Post Office within 10 days of getting your confirmation email."
     thirdStep:
