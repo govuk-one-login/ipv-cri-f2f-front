@@ -49,7 +49,7 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, true);
           req.sessionModel.set("selectedDocument", "UK photocard driving licence");
-          req.sessionModel.set("changeUrl", "photocardDlDetails");
+          req.sessionModel.set("changeUrl", "ukPhotocardDlDetails");
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {

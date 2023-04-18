@@ -30,7 +30,7 @@ module.exports = {
     invalidates: [
       "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",
-      "photocardDlExpiryDate",
+      "ukPhotocardDlExpiryDate",
       "brpExpiryDate",
       "eeaIdCardExpiryDate",
       "euPhotocardDlExpiryDate",
