@@ -1,11 +1,11 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { expect } = require("chai");
 const CheckDetailsController = require("./checkDetails");
-const {
-  API: {
-    PATHS: { SAVE_F2FDATA },
-  }
-} = require("../../../lib/config");
+// const {
+//   API: {
+//     PATHS: { SAVE_F2FDATA },
+//   }
+// } = require("../../../lib/config");
 
 describe("CheckDetails controller", () => {
   let checkDetailsController;
