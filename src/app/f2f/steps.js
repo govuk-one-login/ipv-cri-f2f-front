@@ -25,7 +25,7 @@ module.exports = {
   "/photoIdSelection": {
     controller: photoIdSelect,
     editable: true,
-    editBackStep: "findBranch",
+    editBackStep: "checkDetails",
     fields: ["photoIdChoice"],
     invalidates: [
       "ukPassportExpiryDate",
@@ -87,7 +87,7 @@ module.exports = {
     fields: ["ukPassportExpiryDate"],
     controller: ukPassportDetails,
     editable: true,
-    editBackStep: "findBranch",
+    editBackStep: "checkDetails",
     next: [
       {
         field: "ukPassportExpiryDate",
@@ -102,7 +102,7 @@ module.exports = {
     fields: ["nonUKPassportExpiryDate"],
     controller: nonUKPassportDetails,
     editable: true,
-    editBackStep: "findBranch",
+    editBackStep: "checkDetails",
     next: [
       {
         field: "nonUKPassportExpiryDate",
@@ -117,7 +117,7 @@ module.exports = {
     fields: ["ukPhotocardDlExpiryDate"],
     controller: ukPhotocardDlDetails,
     editable: true,
-    editBackStep: "findBranch",
+    editBackStep: "checkDetails",
     next: [
       {
         field: "ukPhotocardDlExpiryDate",
@@ -132,7 +132,7 @@ module.exports = {
     fields: ["brpExpiryDate"],
     controller: brpDetails,
     editable: true,
-    editBackStep: "findBranch",
+    editBackStep: "checkDetails",
     next: [
       {
         field: "brpExpiryDate",
@@ -147,7 +147,7 @@ module.exports = {
     fields: ["euPhotocardDlExpiryDate"],
     controller: euPhotocardDlDetails,
     editable: true,
-    editBackStep: "findBranch",
+    editBackStep: "checkDetails",
     next: [
       {
         field: "euPhotocardDlExpiryDate",
@@ -162,7 +162,7 @@ module.exports = {
     fields: ["eeaIdCardExpiryDate"],
     controller: eeaIdentityCardDetails,
     editable: true,
-    editBackStep: "findBranch",
+    editBackStep: "checkDetails",
     next: [
       {
         field: "eeaIdCardExpiryDate",
