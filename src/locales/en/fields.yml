@@ -133,3 +133,17 @@ branches:
   label: Postcode
   validation:
     default: "Select your preferred Post Office branch"
+
+photoIdExpiryChoice:
+  validation:
+    required: Please choose an option
+  content: ""
+  items:
+    reEnterDetails:
+      label: Check the expiry date and try entering it again
+    chooseDifferentPhotoId:
+      label: Choose a different photo ID
+    proveIdentityAnotherWay:
+      label: Prove your identity another way
+
+

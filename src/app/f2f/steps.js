@@ -6,6 +6,7 @@ const brpDetails = require("./controllers/brpDetails");
 const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
 const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
 const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
+const photoIdExpiry = require("./controllers/photoIdExpiry")
 const root = require("./controllers/root");
 const { APP } = require("../../lib/config");
 
@@ -33,6 +34,7 @@ module.exports = {
       "brpExpiryDate",
       "eeaIdCardExpiryDate",
       "euPhotocardDlExpiryDate",
+      "photoIdExpiryChoice"
     ],
     next: [
       {
@@ -173,7 +175,56 @@ module.exports = {
     ],
   },
   "/photoIdExpiry": {
-    next: "photoIdSelection",
+    controller: photoIdExpiry,
+    fields: ["photoIdExpiryChoice"],
+    next: [
+      {
+        field: "photoIdExpiryChoice",
+        value: APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS,
+        next: [
+          {
+            field: "photoIdChoice",
+            value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
+            next: APP.PATHS.UK_PASSPORT_DETAILS,
+          },
+          {
+            field: "photoIdChoice",
+            value: APP.PHOTO_ID_OPTIONS.BRP,
+            next: APP.PATHS.BRP_DETAILS,
+          },
+          {
+            field: "photoIdChoice",
+            value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
+            next: APP.PATHS.PHOTOCARD_DL_DETAILS,
+          },
+          {
+            field: "photoIdChoice",
+            value: APP.PHOTO_ID_OPTIONS.OTHER_PASSPORT,
+            next: APP.PATHS.NON_UK_PASSPORT_DETAILS,
+          },
+          {
+            field: "photoIdChoice",
+            value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL,
+            next: APP.PATHS.EU_PHOTOCARD_DL_DETAILS,
+          },
+          {
+            field: "photoIdChoice",
+            value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
+            next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS,
+          }
+        ],
+      },
+      {
+        field: "photoIdExpiryChoice",
+        value: APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID,
+        next: "photoIdSelection",
+      },
+      {
+        field: "photoIdExpiryChoice",
+        value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY,
+        next: APP.PATHS.NO_PHOTO_ID,
+      },
+    ]
   },
   "/findBranch": {
     editable: true,
