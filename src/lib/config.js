@@ -40,6 +40,11 @@ module.exports = {
     UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after the expiry date.",
     EU_PHOTOCARD_DL_HINT: "This must be a plastic photocard. You cannot use a paper or handwritten license.",
     EEA_IDENTITY_CARD_HINT: "This must be a plastic photocard. You cannot use a paper or handwritten national identity card.",
+    PHOTO_ID_EXPIRY_OPTIONS: {
+      RE_ENTER_DETAILS: "reEnterDetails",
+      CHOOSE_DIFFERENT_PHOTO_ID: "chooseDifferentPhotoId",
+      PROVE_IDENTITY_ANOTHER_WAY: "proveIdentityAnotherWay"
+    },
     ANALYTICS: {
       ID: process.env.GTM_ID,
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",

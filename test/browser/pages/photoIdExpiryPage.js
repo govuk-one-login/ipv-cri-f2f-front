@@ -15,4 +15,12 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#continue");
   }
 
+  async ReEnterDetails() {
+    await this.page.click("#photoIdExpiryChoice");
+  }
+
+  async ChooseDifferentPhotoId() {
+    await this.page.click("#photoIdExpiryChoice-chooseDifferentPhotoId");
+  }
+
 };

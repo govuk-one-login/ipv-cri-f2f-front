@@ -139,3 +139,15 @@ checkDetails:
   legend: ""
   validation:
     default: "Make sure your details are correct before you continue. You will not be able to change them later."
+
+photoIdExpiryChoice:
+  validation:
+    required: Please choose an option
+  content: ""
+  items:
+    reEnterDetails:
+      label: Check the expiry date and try entering it again
+    chooseDifferentPhotoId:
+      label: Choose a different photo ID
+    proveIdentityAnotherWay:
+      label: Prove your identity another way

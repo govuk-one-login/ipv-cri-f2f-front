@@ -67,10 +67,10 @@ common:
     postoffice:
       service: "Not all Post Offices offer this service. You can "
       postofficeLink: "Or go to any Post office that offers 'in branch verification' (opens in new tab)."
-      pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service"
+      pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service#:~:text=Find%20your%20nearest%20branch"
     photoIdSelection:
       noPhotoId: "I do not have any of these documents"
-      linkToNoPhotoId: "https://signin.account.gov.uk/no-photo-id "
+      linkToNoPhotoId: "https://signin.account.gov.uk/no-photo-id"
 
 links:
   changePostcode: <p><span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/findBranch" id="changePostcode" data-id="changePostcode" class="govuk-link">Change<span class="govuk-visually-hidden"> your current postcode</span></a></p>
