@@ -200,7 +200,7 @@ module.exports = {
           },
           {
             field: "photoIdChoice",
-            value: APP.PHOTO_ID_OPTIONS.OTHER_PASSPORT,
+            value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
             next: APP.PATHS.NON_UK_PASSPORT_DETAILS,
           },
           {
