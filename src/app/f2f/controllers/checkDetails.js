@@ -17,13 +17,10 @@ class CheckDetailsController extends DateController {
       const addressDetails = req.form.values.postOfficeDetails
       let postOfficeAddress;
       let postOfficeName;
-      console.log("HERE")
-      console.log(req.form.values.branches)
       switch(req.form.values.branches) {
         case "1": {
           postOfficeAddress = addressDetails[0].hint.text;
           postOfficeName = addressDetails[0].text;
-          
           break;
         }
         case "2": {
