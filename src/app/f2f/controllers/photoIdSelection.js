@@ -11,7 +11,7 @@ class PhotoIdSelectionController extends BaseController {
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.BRP, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, undefined);
-      req.sessionModel.set(APP.PHOTO_ID_OPTIONS.OTHER_PASSPORT, undefined);
+      req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD, undefined);
       // req.sessionModel.set(APP.PHOTO_ID_OPTIONS.CITIZEN_CARD, undefined);
@@ -29,7 +29,7 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, true);
           req.sessionModel.set("selectedDocument", "UK passport");
-          req.sessionModel.set("changeUrl", "passportDetails");
+          req.sessionModel.set("changeUrl", "ukPassportDetails");
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.BRP: {
@@ -49,15 +49,15 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, true);
           req.sessionModel.set("selectedDocument", "UK photocard driving licence");
-          req.sessionModel.set("changeUrl", "photocardDlDetails");
+          req.sessionModel.set("changeUrl", "ukPhotocardDlDetails");
           return next();
         }
-        case APP.PHOTO_ID_OPTIONS.OTHER_PASSPORT: {
+        case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           logger.info(
             "photo-id-selection: user has selected other passport - redirecting to other passport details page",
             { req, res }
           );
-          req.sessionModel.set(APP.PHOTO_ID_OPTIONS.OTHER_PASSPORT, true);
+          req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, true);
           req.sessionModel.set("selectedDocument", "Non-UK passport");
           req.sessionModel.set("changeUrl", "nonUKPassportDetails");
           return next();
@@ -81,7 +81,7 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD, true);
           req.sessionModel.set("selectedDocument", "National Identity card from an EEA country");
-          req.sessionModel.set("changeUrl", "euIdentityCardDetails");
+          req.sessionModel.set("changeUrl", "eeaIdentityCardDetails");
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID: {

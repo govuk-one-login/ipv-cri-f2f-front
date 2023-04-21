@@ -6,6 +6,7 @@ const brpDetails = require("./controllers/brpDetails");
 const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
 const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
 const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
+const checkDetails = require("./controllers/checkDetails");
 const photoIdExpiry = require("./controllers/photoIdExpiry")
 const root = require("./controllers/root");
 const { APP } = require("../../lib/config");
@@ -28,9 +29,9 @@ module.exports = {
     editBackStep: "checkDetails",
     fields: ["photoIdChoice"],
     invalidates: [
-      "passportExpiryDate",
+      "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",
-      "photocardDlExpiryDate",
+      "ukPhotocardDlExpiryDate",
       "brpExpiryDate",
       "eeaIdCardExpiryDate",
       "euPhotocardDlExpiryDate",
@@ -54,7 +55,7 @@ module.exports = {
       },
       {
         field: "photoIdChoice",
-        value: APP.PHOTO_ID_OPTIONS.OTHER_PASSPORT,
+        value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
         next: APP.PATHS.NON_UK_PASSPORT_DETAILS,
       },
       {
@@ -199,7 +200,7 @@ module.exports = {
           },
           {
             field: "photoIdChoice",
-            value: APP.PHOTO_ID_OPTIONS.OTHER_PASSPORT,
+            value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
             next: APP.PATHS.NON_UK_PASSPORT_DETAILS,
           },
           {
@@ -238,6 +239,12 @@ module.exports = {
     next: "checkDetails"
   },
   "/checkDetails": {
+    controller: checkDetails,
     next: "done",
-  }
+  },
+  "/done": {
+    skip: true,
+    noPost: true,
+    next: "/oauth2/callback",
+  },
 }

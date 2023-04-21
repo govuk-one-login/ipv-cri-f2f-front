@@ -19,6 +19,10 @@ module.exports = class PlaywrightDevPage {
       await this.page.click("#branches");
     }
 
+    async back(){
+      await this.page.click("#back");
+    }
+  
     async checkErrorText(){
       const errorText = await this.page.locator("#error-summary-title").textContent();
       return errorText.trim(); 
@@ -31,12 +35,13 @@ module.exports = class PlaywrightDevPage {
     async numberOfLocations(){
     //  await this.page.locator(".govuk-radios__item").nth(1).waitFor();
     //  const count = await this.page.locator(".govuk-radios__item").count();
-    //  return count;
+    //  return await count;
 
-    //  await this.page.locator(".govuk-radios__item");
-      const count = await this.page.locator(".govuk-radios__item").count();
-      return count;
-
+     await this.page.locator(".govuk-radios").first().waitFor();
+     return await this.page.locator(".govuk-radios").count();
     }
+
+
+
 
 };

@@ -29,7 +29,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async nonUKPassportChoice(){
-    await this.page.click("#photoIdChoice-otherPassport");
+    await this.page.click("#photoIdChoice-nonUkPassport");
   }
   
   async nationalIdentityCardEEAChoice(){

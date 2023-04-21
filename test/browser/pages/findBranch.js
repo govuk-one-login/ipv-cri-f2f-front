@@ -15,6 +15,10 @@ module.exports = class PlaywrightDevPage {
       await this.page.click("#continue");
     }
   
+    async back(){
+      await this.page.click("#back");
+    }
+    
     async postCode() {
       await this.page.locator("#postcode").fill("SW1A1AA");
     }

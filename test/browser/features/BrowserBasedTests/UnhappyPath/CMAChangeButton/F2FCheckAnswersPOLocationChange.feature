@@ -21,9 +21,14 @@ Feature: Change Postcode - Unhappy Path
         Given the postcode entered is valid
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
-      
-    Scenario:
-        Given the user wants to change their postcode
-        When the user clicks the Change button
-        Then the user is navigated back to the Find Branch page
-        Then the user enters another postcode and is navigated back to the list of nearest POs
+
+        Given a Post Office branch is selected
+        When the user clicks continue
+        Then the user is navigated to the next step in the journey - Confirm Answer
+
+    Scenario: Successful redirect from CMA screen back to PO Finder then back to CMA screen
+        Given the user has navigated to the Check My Answers Page
+        When the user clicks the PO Location Change button
+        Then the user is navigated back to the FindBranchEdit page
+        Then the user changes the Post Code and is navigated back to the list of nearest POs
+        Then the user selects a record and continues to the CMA page

@@ -11,7 +11,7 @@ module.exports = {
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
         hint: { text: APP.UK_PASSPORT_HINT }
       },
-      { value: APP.PHOTO_ID_OPTIONS.OTHER_PASSPORT },
+      { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
       { value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL },
       { value: APP.PHOTO_ID_OPTIONS.BRP },
       {
@@ -53,7 +53,7 @@ module.exports = {
         type: "before",
         arguments: [
           new Date(
-            new Date().getFullYear() + 10,
+            new Date().getFullYear() + 75,
             new Date().getMonth(),
             new Date().getDate() + 1,
           )

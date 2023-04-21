@@ -63,4 +63,12 @@ photoIdExpiry:
   h1: "Your photo ID has expired"
   content: "You need a valid ID to prove your identity.
             <br><br>"
-            
+
+checkDetails:
+  title: "Check your details"
+  selectedId: "Chosen photo ID"
+  expiryDate: "Expiry date"
+  postOffice: "Post Office address"
+  changeLink: "Change"
+  buttonText: "Confirm and send"
+

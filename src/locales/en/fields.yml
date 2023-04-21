@@ -9,7 +9,7 @@ photoIdChoice:
       label: UK photocard driving licence
     brp:
       label: Biometric residence permit (BRP)
-    otherPassport:
+    nonUkPassport:
       label: Non-UK passport
     euPhotocardDl:
       label: EU photocard driving licence
@@ -134,6 +134,12 @@ branches:
   validation:
     default: "Select your preferred Post Office branch"
 
+checkDetails: 
+  label: ""
+  legend: ""
+  validation:
+    default: "Make sure your details are correct before you continue. You will not be able to change them later."
+
 photoIdExpiryChoice:
   validation:
     required: Please choose an option
@@ -145,5 +151,3 @@ photoIdExpiryChoice:
       label: Choose a different photo ID
     proveIdentityAnotherWay:
       label: Prove your identity another way
-
-

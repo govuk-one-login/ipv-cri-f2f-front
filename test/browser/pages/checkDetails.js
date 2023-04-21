@@ -11,4 +11,20 @@ module.exports = class PlaywrightDevPage {
     return await this.page.url() === this.url;
   }
 
+  async back(){
+    await this.page.click("#back");
+  }
+
+  async changePhotoIDLink(){
+    await this.page.click('[href*="/photoIdSelection/edit"]');
+  }
+
+   async changeExpiryDate() {
+       await this.page.click('[href*="/ukPassportDetails/edit"]');
+   }
+
+   async changePOLocation() {
+    await this.page.click('[href*="/findBranch/edit"]');
+}
+
 };
