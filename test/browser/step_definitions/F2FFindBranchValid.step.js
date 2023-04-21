@@ -2,7 +2,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { FindBranch, PostOfficeLocations } = require("../pages");
+const { FindBranch, PostOfficeLocations, PhotoDlDetailsPageValid } = require("../pages");
 
   Given(/^the postcode entered is valid$/, async function () {
     const findBranchValid = new FindBranch(await this.page);
@@ -11,6 +11,12 @@ const { FindBranch, PostOfficeLocations } = require("../pages");
 
   });
 
+  When(/^the user clicks the FindBranch Back button$/, async function () {
+    const findBranchValid = new FindBranch(await this.page);
+  
+    await findBranchValid.back();
+  });
+  
 
   When(/^the user clicks the continue button on the find Post Office branch page$/, async function () {
     const findBranchValid = new FindBranch(await this.page);
@@ -33,4 +39,12 @@ const { FindBranch, PostOfficeLocations } = require("../pages");
     expect(await poLocations.numberOfLocations()).to.equal(locationCount);
   
 
+  });
+
+
+  Then(/^the user clicks the back button on the UKPhotoDL Page$/, async function () {
+    const ukPhotoDl = new PhotoDlDetailsPageValid(await this.page);
+  
+    expect(await ukPhotoDl.isCurrentPage()).to.be.true;
+  
   });

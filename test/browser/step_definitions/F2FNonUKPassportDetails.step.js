@@ -21,7 +21,7 @@ const { NonUKPassportDetailsPageValid, FindBranch} = require("../pages");
   });
   
 
-  Then(/^the user is routed to the next screen in the NonUKPassport journey - Branch Finder$/, async function () {
+  Then(/^they are routed to the NonUKPassport Branch Finder screen$/, async function () {
     const branchFinderPage = new FindBranch(await this.page);
 
     expect(await branchFinderPage.isCurrentPage()).to.be.true;

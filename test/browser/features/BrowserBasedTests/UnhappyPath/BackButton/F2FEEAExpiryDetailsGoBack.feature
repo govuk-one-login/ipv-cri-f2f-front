@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @ukPass
-Feature: Enter UK Passport Details  - Happy Path
+Feature:  Navigate Back from PhotoID Expiry Details screen - Unhappy Path
 
 Background:
     Given Authenticatable Anita is using the system
@@ -14,8 +14,7 @@ Background:
     When the user clicks the PhotoId continue button with EEA National Identity Card selected
     Then the user is routed to the next screen in the EEA National Identity journey - EEA National Identity Card details
 
-Scenario: National Identity Card EEA not expired (Happy path)
+Scenario:  Successful redirect from the PhotoId Expiry screen to the Document Selectipn screen
 Given the date entered is within accepted National Identity Card EEA expiration window
-When the user clicks the continue button on the National Identity Card EEA Page
-Then the user is routed to the next screen in the National Identity Card EEA journey - Find Branch
-Then the user enters a valid postcode
+When the user clicks the Back button on the National Identity Card EEA Page
+Then the user is routed to the previous screen in the NIC EEA journey

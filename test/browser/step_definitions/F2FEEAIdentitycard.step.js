@@ -2,7 +2,7 @@ const { Given, When, Then, And} = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { FindBranch, EEAIdentityCardDetailsPageValid} = require("../pages");
+const { FindBranch, EEAIdentityCardDetailsPageValid, PhotoIdSelectionPage} = require("../pages");
 
   Given(/^the date entered is within accepted National Identity Card EEA expiration window$/, async function () {
     const nationalIdentityCardEEA = new EEAIdentityCardDetailsPageValid(await this.page);
@@ -18,10 +18,24 @@ const { FindBranch, EEAIdentityCardDetailsPageValid} = require("../pages");
 
   });
 
+  When(/^the user clicks the Back button on the National Identity Card EEA Page$/, async function () {
+    const nationalIdentityCardEEA = new EEAIdentityCardDetailsPageValid(await this.page);
 
-  Then(/^the user is routed to the next screen in the National Identity Card EEA journey - Name Entry$/, async function () {
+    await nationalIdentityCardEEA.back();
+
+  });
+
+  Then(/^the user is routed to the next screen in the National Identity Card EEA journey - Find Branch$/, async function () {
         const branchFinderPage = new FindBranch(await this.page);
 
         expect(await branchFinderPage.isCurrentPage()).to.be.true;
+
+  });
+
+
+  Then(/^the user is routed to the previous screen in the NIC EEA journey$/, async function (){
+    const photoIdPage = new PhotoIdSelectionPage(await this.page);
+
+    expect(await photoIdPage.isCurrentPage()).to.be.true;
 
   });
