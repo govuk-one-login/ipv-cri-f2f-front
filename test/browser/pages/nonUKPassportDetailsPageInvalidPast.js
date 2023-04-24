@@ -23,7 +23,7 @@ module.exports = class PlaywrightDevPage {
     const expMonth = currentMonth.toString()
     const pastYear = new Date().getFullYear() - 75
     const expYear = pastYear.toString()
-    await this.page.locator("#nonUKPassportExpiryDate-day").type(expDay);
+    await this.page.locator("#nonUKPassportExpiryDate-day").fill(expDay);
     await this.page.locator("#nonUKPassportExpiryDate-month").fill(expMonth);
     await this.page.locator("#nonUKPassportExpiryDate-year").fill(expYear);
   }
