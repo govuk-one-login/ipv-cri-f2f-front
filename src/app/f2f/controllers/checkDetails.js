@@ -1,7 +1,7 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils")
-const { APP } = require("../../../lib/config");
+const { APP, API } = require("../../../lib/config");
 
 const DateController = DateControllerMixin(BaseController);
 
@@ -17,7 +17,7 @@ class CheckDetailsController extends DateController {
       const addressDetails = req.form.values.postOfficeDetails
       let postOfficeAddress;
       let postOfficeName;
-      switch(req.form.values.branches) {
+      switch (req.form.values.branches) {
         case "1": {
           postOfficeAddress = addressDetails[0].hint.text;
           postOfficeName = addressDetails[0].text;
@@ -44,10 +44,11 @@ class CheckDetailsController extends DateController {
           break;
         }
       }
+      req.sessionModel.set("postOfficeAddress", postOfficeAddress);
 
       // Value for document expiry date depends on selected document
       let expiryDate
-      switch(req.form.values.photoIdChoice) {
+      switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           expiryDate = req.form.values.ukPassportExpiryDate;
           break;
@@ -73,6 +74,7 @@ class CheckDetailsController extends DateController {
           break;
         }
       }
+      req.sessionModel.set("expiryDate", expiryDate);
 
       const idChoice = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
@@ -90,35 +92,34 @@ class CheckDetailsController extends DateController {
   next() {
     return '/done'
   }
-  // TO BE MODIFIED WITH F2F- , /documentSelection endpoint
 
-  // async saveValues(req, res, callback) {
+  async saveValues(req, res, callback) {
+    try {
+      const f2fData = {
+        document_selected: req.sessionModel.get("photoIdChoice"),
+        date_of_expiry: req.sessionModel.get("expiryDate"),
+        post_office_address: req.sessionModel.get("postOfficeAddress")
+      }
+      await this.saveF2fData(req.axios, f2fData, req);
+      callback();
 
-  //   try {
-  //     const f2fData ={
-  //       document_selected:  req.sessionModel.get("photoIdChoice"),
-  //       date_of_expiry: req.sessionModel.get("expiryDate")
-  //     }
-  //     await this.saveF2fData(req.axios, f2fData, req);
-  //     callback();
+    } catch (err) {
+      callback(err);
+    }
 
-  //   } catch (err) {
-  //     callback(err);
-  //   }
+  }
 
-  // }
+  async saveF2fData(axios, f2fData, req) {
 
-  // async saveF2fData(axios, f2fData, req) {
+    const headers = {
+      "x-govuk-signin-session-id": req.session.tokenId
+    }
 
-  //   const headers = {
-  //     "x-govuk-signin-session-id": req.session.tokenId
-  //   }
-
-  //   const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
-  //     headers,
-  //   });
-  //   return resp.data;
-  // }
+    const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
+      headers,
+    });
+    return resp.data;
+  }
 }
 
 module.exports = CheckDetailsController;
