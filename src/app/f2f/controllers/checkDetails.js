@@ -134,7 +134,6 @@ class CheckDetailsController extends DateController {
           "post_code": req.sessionModel.get("postOfficePostcode")
         }
       }
-      console.log("text", f2fData);
       await this.saveF2fData(req.axios, f2fData, req);
       callback();
 
@@ -147,7 +146,7 @@ class CheckDetailsController extends DateController {
   async saveF2fData(axios, f2fData, req) {
 
     const headers = {
-      "x-govuk-signin-session-id": "1d5cff8e-5103-4349-9b1b-aebd01a60ff3"
+      "x-govuk-signin-session-id": req.session.tokenId
     }
 
     const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {

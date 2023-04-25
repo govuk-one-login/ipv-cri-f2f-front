@@ -90,7 +90,7 @@ class PostcodeSearchController extends BaseController {
           longitude: resp.data[4].address.longitude
         }
       }
-      console.log("text1", locals.payLoadValues);
+
       req.sessionModel.set("postOfficeDetails", locals.branch.items);
       req.sessionModel.set("payLoadValues", locals.payLoadValues);
 
