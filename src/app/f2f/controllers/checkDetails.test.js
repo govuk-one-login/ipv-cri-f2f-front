@@ -63,6 +63,13 @@ describe("CheckDetails controller", () => {
             }
           },
         ]
+        req.form.values.payLoadValues = {
+          location0: {
+            postcode: "G41 1ED",
+            latitude: "100000",
+            longitude: "-100000"
+          }
+        }
         res.locals = locals;
         BaseController.prototype.locals.yields(error, superLocals);
 
@@ -81,9 +88,18 @@ describe("CheckDetails controller", () => {
         req.axios.post = sinon.fake.resolves();
 
         const f2fData = {
-          document_selected: req.sessionModel.get("photoIdChoice"),
-          date_of_expiry: req.sessionModel.get("expiryDate"),
-          post_office_address: req.sessionModel.get("postOfficeAddress")
+          "document_selection": {
+            "document_selected": req.sessionModel.get("photoIdChoice"),
+            "date_of_expiry": req.sessionModel.get("expiryDate"),
+          },
+          "post_office_selection": {
+            "address": req.sessionModel.get("postOfficeAddress"),
+            "location": {
+              "latitude": req.sessionModel.get("postOfficeLatitude"),
+              "longitude": req.sessionModel.get("postOfficeLongitude"),
+            },
+            "post_code": req.sessionModel.get("postOfficePostcode")
+          }
         }
 
         await checkDetailsController.saveValues(req, res, next);
