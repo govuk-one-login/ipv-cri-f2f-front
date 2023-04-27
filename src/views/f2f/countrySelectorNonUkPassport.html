@@ -1,0 +1,45 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoPageKey = "countrySelectorNonUkPassport" %}
+{% set gtmJourney = "f2f - countrySelectorNonUkPassport" %}
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "hmpo-select/macro.njk" import hmpoSelect %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+  {{ govukHeader ({
+    serviceName: translate("govuk.serviceName")
+  }) }}
+{% endblock %}
+
+{% block mainContent %}
+<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+        {{ translate("countrySelectorNonUkPassport.title") }}
+    </h1>
+    <p> {{ translate("countrySelectorNonUkPassport.content") }} </p>
+
+    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+
+    <div class="hint-with-margin">
+    {{ hmpoSelect(ctx, {
+        id: "country",
+        legend: {
+            classes: "govuk-label"
+        }
+    }) }}
+  </div>
+
+     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+
+    {% endcall %}
+
+{% endblock %}
+
+{# generate the specific footer items required for the PYI flows #}
+{% set footerNavItems = translate("govuk.footerNavItems") %}
+
+{% block footer %}
+    {{ govukFooter( footerNavItems ) }}
+{% endblock %}

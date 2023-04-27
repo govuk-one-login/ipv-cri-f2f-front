@@ -112,7 +112,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "countrySelectorNonUkPassport",
     ],
   },
   "/ukPhotocardDlDetails": {
@@ -226,6 +226,9 @@ module.exports = {
         next: APP.PATHS.NO_PHOTO_ID,
       },
     ]
+  },
+  "/countrySelectorNonUkPassport": {
+
   },
   "/findBranch": {
     editable: true,
