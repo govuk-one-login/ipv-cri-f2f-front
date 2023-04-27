@@ -157,7 +157,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "euDrivingLicenseCountrySelector",
     ],
   },
   "/eeaIdentityCardDetails": {
@@ -226,6 +226,12 @@ module.exports = {
         next: APP.PATHS.NO_PHOTO_ID,
       },
     ]
+  },
+  "/euDrivingLicenseCountrySelector": {
+    fields: ["euDrivingLicenseCountrySelector"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: "findBranch"
   },
   "/findBranch": {
     editable: true,

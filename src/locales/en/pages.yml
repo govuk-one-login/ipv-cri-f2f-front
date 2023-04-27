@@ -72,3 +72,8 @@ checkDetails:
   changeLink: "Change"
   buttonText: "Confirm and send"
 
+euDrivingLicenseCountrySelector:
+  title: "What is the country of issue for your EU photocard driving licence?"
+  context: "We need this information to check that your photo ID is valid."
+  content: "If the country of issue for your photo ID is not on the list, you will need to choose a different photo ID."
+  link: "The country of issue for my photo ID is not in the list"
