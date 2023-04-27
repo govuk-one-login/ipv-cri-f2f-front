@@ -47,17 +47,21 @@ class CheckDetailsController extends DateController {
 
       // Value for document expiry date depends on selected document
       let expiryDate
+      let countryCode;
       switch(req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           expiryDate = req.form.values.ukPassportExpiryDate;
+          countryCode = "GBR"
           break;
         }
         case APP.PHOTO_ID_OPTIONS.BRP: {
           expiryDate = req.form.values.brpExpiryDate;
+          countryCode = "GBR"
           break;
         }
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
           expiryDate = req.form.values.ukPhotocardDlExpiryDate;
+          countryCode = "GBR"
           break;
         }
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
@@ -66,6 +70,7 @@ class CheckDetailsController extends DateController {
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
+          countryCode = req.form.values.euDrivingLicenseCountrySelector;
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
@@ -76,13 +81,13 @@ class CheckDetailsController extends DateController {
 
       const idChoice = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
-
+      req.sessionModel.set("countryCode", countryCode);
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
       locals.changeUrl = `/${changeUrl}`;
       locals.postOfficeAddress = postOfficeAddress.split(", ")
       locals.postOfficeName = postOfficeName;
-
+      console.log("sessionModel", req.sessionModel)
       callback(err, locals);
     });
   }
@@ -97,7 +102,8 @@ class CheckDetailsController extends DateController {
   //   try {
   //     const f2fData ={
   //       document_selected:  req.sessionModel.get("photoIdChoice"),
-  //       date_of_expiry: req.sessionModel.get("expiryDate")
+  //       date_of_expiry: req.sessionModel.get("expiryDate"),
+  //       country_code: req.sessionModel.get("countryCode")
   //     }
   //     await this.saveF2fData(req.axios, f2fData, req);
   //     callback();
