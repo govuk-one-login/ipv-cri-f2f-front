@@ -7,6 +7,7 @@
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "hmpo-select/macro.njk" import hmpoSelect %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "components/autocomplete/macro.njk" import xGovukAutocomplete %}
 
 {% block header %}
   {{ govukHeader ({
@@ -24,12 +25,45 @@
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     <div class="hint-with-margin">
-    {{ hmpoSelect(ctx, {
-        id: "euDrivingLicenseCountrySelector",
-        legend: {
-            classes: "govuk-label"
-        }
-    }) }}
+      {{ xGovukAutocomplete({
+        id: "country",
+        name: "country",
+        allowEmpty: false,
+        showAllValues: true,
+        
+        items: [
+          { text: "Austria" },
+          { text: "Belgium" },
+          { text: "Bulgaria" },
+          { text: "Croatia" },
+          { text: "Republic of Cyprus" },
+          { text: "Czech Republic" },
+          { text: "Denmark" },
+          { text: "Estonia" },
+          { text: "Finland" },
+          { text: "France" },
+          { text: "Germany" },
+          { text: "Greece" },
+          { text: "Hungary" },
+          { text: "Iceland" },
+          { text: "Ireland" },
+          { text: "Italy" },
+          { text: "Latvia" },
+          { text: "Liechtenstein" },
+          { text: "Lithuania" },
+          { text: "Luxembourg" },
+          { text: "Malta" },
+          { text: "Netherlands" },
+          { text: "Norway" },
+          { text: "Poland" },
+          { text: "Portugal" },
+          { text: "Romania" },
+          { text: "Slovakia" },
+          { text: "Slovenia" },
+          { text: "Spain" },
+          { text: "Sweden" }
+        ]
+      }) }}
   </div>
 
   <p><a href="/photoIdSelection">{{ translate("euDrivingLicenseCountrySelector.link") }}</a></p>
