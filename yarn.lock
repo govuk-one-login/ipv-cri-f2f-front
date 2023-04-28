@@ -1137,9 +1137,9 @@ anymatch@^3.0.3, anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-app-root-path@^3.0.0:
+app-root-path@^3.1.0:
   version "3.1.0"
-  resolved "https://registry.npmjs.org/app-root-path/-/app-root-path-3.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/app-root-path/-/app-root-path-3.1.0.tgz#5971a2fc12ba170369a7a1ef018c71e6e47c2e86"
   integrity sha512-biN3PwB2gUtjaYy/isrU3aNWI5w+fAfvHkSvCKeQGxhmYpwKFUxudR3Yya+KqVRHBmEDYh+/lTozYCFbmzX4nA==
 
 append-transform@^2.0.0:
@@ -1932,10 +1932,10 @@ dedent@^0.7.0:
   resolved "https://registry.npmjs.org/dedent/-/dedent-0.7.0.tgz"
   integrity sha512-Q6fKUPqnAHAyhiUgFU7BUzLiv0kd8saH9al7tnu5Q/okj6dnupxyTgFIBjVzJATdfIAm9NAsvXNzjaKa+bxVyA==
 
-deep-clone-merge@^1.5.4:
-  version "1.5.4"
-  resolved "https://registry.npmjs.org/deep-clone-merge/-/deep-clone-merge-1.5.4.tgz"
-  integrity sha512-Gb/b8aAFUeX/ZkQwfpYlzVXaUOnHj0jPmh8uwF0eBGhAuFMZA1IxeuSzLGG4B1lzrp0SZsd3UhL6zvhDY7l6ZQ==
+deep-clone-merge@^1.5.4, deep-clone-merge@^1.5.5:
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/deep-clone-merge/-/deep-clone-merge-1.5.5.tgz#1bb2f4df74c52c90223572a869d60e8525ee0dc4"
+  integrity sha512-ldHDqbpMP5VTZ/QrIQ6ikzYy4fWh8WPIfqEwetN/4Pxq/xPnWlnESGN41oam5DEwI+acHznEm1bp5Rn4bp4c0w==
 
 deep-eql@^4.1.2:
   version "4.1.3"
@@ -3001,16 +3001,16 @@ hmpo-components@5.5.2:
     moment "^2.29.3"
     underscore "^1.13.4"
 
-hmpo-config@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/hmpo-config/-/hmpo-config-2.2.1.tgz"
-  integrity sha512-xza3G9NwtVyhljO2IXF+2CbS7BSJgMEmDycyOyYejzP9UzlBooha8LE2jzqGKnU988e6ercp4+d45oFp/96SFQ==
+hmpo-config@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/hmpo-config/-/hmpo-config-3.0.0.tgz#78aa5bf7511f7c3fc734aec9d13e938763a5a226"
+  integrity sha512-pBVwcGhUmqMdc+R89T3tpkmATGuUDWquOD+JovMyxK5KCZJybdS56Xz95C0e6XWY9+dhw04ov2NPy3zwaLRuRg==
   dependencies:
-    app-root-path "^3.0.0"
+    app-root-path "^3.1.0"
     debug "^4.3.4"
-    deep-clone-merge "^1.5.4"
+    deep-clone-merge "^1.5.5"
     js-yaml "^4.1.0"
-    json5 "^2.2.1"
+    json5 "^2.2.3"
 
 hmpo-form-wizard@12.0.6:
   version "12.0.6"
@@ -3992,7 +3992,7 @@ json5@0.5.0:
   resolved "https://registry.npmjs.org/json5/-/json5-0.5.0.tgz"
   integrity sha512-WDgahySBucTVnQuzQHoVh6BKKg3TFBUExSwYOPwA4it9xtspn3erHYkdEx1AXXkHN38L7O6v6lmqLiXh/GnxhA==
 
-json5@^2.2.1, json5@^2.2.2:
+json5@^2.2.1, json5@^2.2.2, json5@^2.2.3:
   version "2.2.3"
   resolved "https://registry.npmjs.org/json5/-/json5-2.2.3.tgz"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
