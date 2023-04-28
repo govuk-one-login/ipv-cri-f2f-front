@@ -99,7 +99,6 @@ class PhotoIdSelectionController extends BaseController {
       return next(err);
     }
   }
-
 }
 
 module.exports = PhotoIdSelectionController;
