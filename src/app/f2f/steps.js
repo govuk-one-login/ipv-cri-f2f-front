@@ -228,7 +228,7 @@ module.exports = {
     ]
   },
   "/euDrivingLicenseCountrySelector": {
-    // fields: ["euDrivingLicenseCountrySelector"],
+    fields: ["euDrivingLicenseCountrySelector"],
     editable: true,
     editBackStep: "checkDetails",
     next: "findBranch"
