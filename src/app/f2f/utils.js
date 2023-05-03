@@ -21,4 +21,24 @@ function formatDate(date, format) {
   }
 }
 
-module.exports = { formatDate };
+function countryListValidator(values) {
+  for (val in values) {
+    if (val === "choose") {
+      console.log("no country selected", value)
+      return true
+    } else {
+      console.log("actual country selected")
+      return false
+  }
+}
+  // if (value === "choose") {
+  //   console.log("no country selected", value)
+  //   return true
+  // } else {
+  //   console.log("actual country selected")
+  //   return false
+  // }
+  
+}
+
+module.exports = { formatDate, countryListValidator };

@@ -1,5 +1,6 @@
 const { APP } = require("../../lib/config");
 const { EU_DL_COUNTRIES } = require("./countryCodes/euDrivingLicence");
+const { countryListValidator } = require("./utils");
 
 module.exports = {
   photoIdChoice: {
@@ -162,10 +163,9 @@ module.exports = {
   euDrivingLicenseCountrySelector: {
     type: "select",
     legend: "",
-    label: "",
+    label: "Select a country:",
     hint: "",
     items: [
-      { value: "choose", text: "Select country"},
       { value: EU_DL_COUNTRIES.AUSTRIA.code, text: EU_DL_COUNTRIES.AUSTRIA.text },
       { value: EU_DL_COUNTRIES.BELGIUM.code, text: EU_DL_COUNTRIES.BELGIUM.text },
       { value: EU_DL_COUNTRIES.BULGARIA.code, text: EU_DL_COUNTRIES.BULGARIA.text },

@@ -123,6 +123,10 @@ eeaIdCardExpiryDate:
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
 
+euDrivingLicenseCountrySelector:
+  validation:
+    countryListValidator: "Please select a country"
+
 postcode:
   label: ""
   hint: "For example, SW1A 2AA"
