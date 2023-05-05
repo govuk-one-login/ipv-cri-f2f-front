@@ -20,9 +20,18 @@
         "bodyPatterns": [
           {
             "equalToJson": {
-              "document_selected": "${json-unit.any-string}",
-              "date_of_expiry": "${json-unit.any-string}",
-              "post_office_address": "${json-unit.any-string}"
+              "document_selection": {
+                "document_selected": "${json-unit.any-string}",
+                "date_of_expiry": "${json-unit.any-string}"
+              },
+              "post_office_selection": {
+                "address": "${json-unit.any-string}",
+                "location": {
+                  "latitude": "${json-unit.any-number}",
+                  "longitude": "${json-unit.any-number}"
+                },
+                "post_code":"${json-unit.any-string}"
+              }
             },
             "ignoreArrayOrder": true
           }
