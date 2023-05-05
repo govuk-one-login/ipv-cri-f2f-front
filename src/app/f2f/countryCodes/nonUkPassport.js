@@ -127,72 +127,71 @@ module.exports = {
     NEW_ZEALAND: { value: "NZ", text: "New Zealand" },
     NICARAGUA: { value: "NI", text: "Nicaragua" },
     NIGER: { value: "NE", text: "Niger" },
-    NG	Nigeria
-    KP	North Korea
-    MK	North Macedonia
-    NO	Norway
-    OM	Oman
-    PK	Pakistan
-    PW	Palau
-    PA	Panama
-    PG	Papua New Guinea
-    PY	Paraguay
-    PE	Peru
-    PH	Philippines
-    PL	Poland
-    PT	Portugal
-    QA	Qatar
-    RO	Romania
-    RU	Russia
-    RW	Rwanda
-    WS	Samoa
-    SM	San Marino
-    ST	Sao Tome and Principe
-    SA	Saudi Arabia
-    SN	Senegal
-    RS	Serbia
-    SC	Seychelles
-    SL	Sierra Leone
-    SG	Singapore
-    SK	Slovakia
-    SI	Slovenia
-    SB	Solomon Islands
-    SO	Somalia
-    ZA	South Africa
-    KR	South Korea
-    SS	South Sudan
-    ES	Spain
-    LK	Sri Lanka
-    KN	St Kitts and Nevis
-    LC	St Lucia
-    VC	St Vincent
-    SD	Sudan
-    SR	Suriname
-    SE	Sweden
-    CH	Switzerland
-    SY	Syria
-    TJ	Tajikistan
-    TZ	Tanzania
-    TH	Thailand
-    GM	The Gambia
-    TG	Togo
-    TO	Tonga
-    TT	Trinidad and Tobago
-    TN	Tunisia
-    TR	Turkey
-    TM	Turkmenistan
-    TV	Tuvalu
-    UG	Uganda
-    UA	Ukraine
-    AE	United Arab Emirates
-    US	United States
-    UY	Uruguay
-    UZ	Uzbekistan
-    VU	Vanuatu
-    VE	Venezuela
-    VN	Vietnam
-    YE	Yemen
-    ZM	Zambia
-    ZW	Zimbabwe
+    NIGERIA: { value: "NG", text: "Nigeria" },
+    NORTH_KOREA: { value: "KP", text: "North Korea" },
+    N_MACEDONIA: { value: "MK", text: "North Macedonia", },
+    NORWAY: { value: "NO", text: "Norway" },
+    OMAN: { value: "OM", text: "Oman"},
+    PAKISTAN: { value: "PK", text: "Pakistan" },
+    PALAU: { value: "PW", text: "Palau" },
+    PANAMA: { value: "PA", text: "Panama" },
+    PAPUA_NEW_GUINEA: { value: "PG", text: "Papua New Guinea" },
+    PARAGUAY: { value: "PY", text: "Paraguay"},
+    PERU: { value: "PE", text: "Peru" },
+    PHILIPPINES: { value: "PH", text: "Philippines" },
+    POLAND: { value: "PL", text: "Poland" },
+    PORTUGAL: { value: "PT", text: "Portugal"},
+    QATAR: { value: "QA", text: "Qatar" },
+    ROMANIA: { value: "RO", text: "Romania" },
+    RUSSIA: { value: "RU", text: "Russia" },
+    RWANDA: { value: "RW", text: "Rwanda" },
+    SAMOA: { value: "WS", text: "Samoa" },
+    SAN_MARINO: { value: "SM", text: "San Marino" },
+    SAO_TOME: { value: "ST", text: "Sao Tome and Principe" },
+    SAUDI_ARABIA: { value: "SA", text: "Saudi Arabia" },
+    SENEGAL: { value: "SN", text: "Senegal" },
+    SERBIA: { value: "RS", text: "Serbia" },
+    SEYCHELLES: { value: "SC", text: "Seychelles" },
+    SIERRA_LEONE: { value: "SL", text: "Sierra Leone" },
+    SINGAPORE: { value: "SG", text: "Singapore" },
+    SLOVAKIA: { value: "SK", text: "Slovakia" },
+    SLOVENIA: { value: "SI", text: "Slovenia"},
+    SOLOMON_ISLANDS: { value: "SB", text: "Solomon Islands" },
+    SOMALIA: { value: "SO", text: "Somalia" },
+    SOUTH_AFRICA: { value: "ZA", text: "South Africa" },
+    SOUTH_KOREA: { value: "KR", text: "South Korea" },
+    SOUTH_SUDAN: { value: "SS", text: "South Sudan" },
+    SPAIN: { value: "ES", text: "Spain" },
+    SRI_LANKA: { value: "LK", text: "Sri Lanka" },
+    ST_KITTS: { value: "KN", text: "St Kitts and Nevis" },
+    ST_LUCIA: { value: "LC", text: "St Lucia" },
+    ST_VINCENT: { value: "VC", text: "St Vincent" },
+    SUDAN: { value: "SD", text: "Sudan" },
+    SURINAME: { value: "SR", text: "Suriname" },
+    SWEDEN: { value: "SE", text: "Sweden" },
+    SWITZERLAND: { value: "CH", text: "Switzerland" },
+    SYRIA: { value: "SY", text: "Syria" },
+    TAJIKISTAN: { value: "TJ", text: "Tajikistan" },
+    TANZANIA: { value: "TZ", text: "Tanzania" },
+    THAILAND: { value: "TH", text: "Thailand" },
+    TOGO: { value: "TG", text: "Togo" },
+    TONGA: { value: "TO", text: "Tonga" },
+    TRINIDAD_TOBAGO: { value: "TT", text: "Trinidad and Tobago" },
+    TUNISIA: { value: "TN", text: "Tunisia" },
+    TURKEY: { value: "TR", text: "Turkey" },
+    TURKMENISTAN: { value: "TM", text: "Turkmenistan" },
+    TUVALU: { value: "TV", text: "Tuvalu" },
+    UGANDA: { value: "UG", text: "Uganda" },
+    UKRAINE: { value: "UA", text: "Ukraine" },
+    UAE: { value: "AE", text: "United Arab Emirates" },
+    US: { value: "US", text: "United States" },
+    URUGUAY: { value: "UY", text: "Uruguay" },
+    UZBEKISTAN: { value: "UZ", text: "Uzbekistan" },
+    VANUATU: { value: "VU", text: "Vanuatu" },
+    VENEZUELA: { value: "VE", text: "Venezuela" },
+    VIETNAM: { value: "VN", text: "Vietnam" },
+    YEMEN: { value: "YE", text: "Yemen" },
+    ZAMBIA: { value: "ZM", text: "Zambia" },
+    ZIMBABWE: { value: "ZW", text: "Zimbabwe" }
   }
 }
