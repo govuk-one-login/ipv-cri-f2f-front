@@ -125,7 +125,7 @@ eeaIdCardExpiryDate:
 
 nonUkPassportcountrySelector:
     validation:
-      countryListValidator: "Please select a country"
+      equal: "Select a country"
 
 postcode:
   label: ""
