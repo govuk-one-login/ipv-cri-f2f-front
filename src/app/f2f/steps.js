@@ -172,7 +172,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "eeaIdentityCardCountrySelector",
     ],
   },
   "/photoIdExpiry": {
@@ -231,7 +231,7 @@ module.exports = {
     fields: ["eeaIdentityCardCountrySelector"],
     editable: true,
     editBackStep: "checkDetails",
-    next: findBranch
+    next: "findBranch"
   },
   "/findBranch": {
     editable: true,
