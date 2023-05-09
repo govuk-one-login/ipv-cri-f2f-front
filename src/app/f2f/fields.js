@@ -162,10 +162,10 @@ module.exports = {
   },
   euDrivingLicenseCountrySelector: {
     legend: "",
-    label: "Select a country:",
+    label: "",
     hint: "",
     items: [
-      { value: "Select", text: "Select a country" },
+      { value: "Select", text: "Select country" },
       { value: EU_DL_COUNTRIES.AUSTRIA.code, text: EU_DL_COUNTRIES.AUSTRIA.text },
       { value: EU_DL_COUNTRIES.BELGIUM.code, text: EU_DL_COUNTRIES.BELGIUM.text },
       { value: EU_DL_COUNTRIES.BULGARIA.code, text: EU_DL_COUNTRIES.BULGARIA.text },

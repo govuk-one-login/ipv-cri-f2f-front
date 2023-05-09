@@ -73,6 +73,6 @@ checkDetails:
   buttonText: "Confirm and send"
 
 euDrivingLicenseCountrySelector:
-  title: "Select which country your EU photocard driving licence is from?"
+  title: "Select which country your EU photocard driving licence is from"
   content: "If the country your driving license is from is not on the list, you'll need to choose a different type of photo ID."
   link: "The country my driving license is from is not on the list"
