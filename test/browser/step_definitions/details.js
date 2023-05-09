@@ -1,6 +1,6 @@
 const { Given, Then, When } = require("@cucumber/cucumber");
 
-const { RelyingPartyPage, FindBranch, LandingPage } = require("../pages");
+const { RelyingPartyPage, FindBranch, LandingPage, CheckDetails } = require("../pages");
 
 const { expect } = require("chai");
 
@@ -36,3 +36,11 @@ Then("they should be redirected as an error", function () {
 
   expect(rpPage.hasErrorQueryParams()).to.be.true;
 });
+
+
+When(/^the user clicks the Check My Answers Submit button$/, async function () {
+  const cmPage = new CheckDetails(await this.page);
+
+  await cmPage.continue();
+
+})

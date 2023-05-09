@@ -1,7 +1,7 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils")
-const { APP } = require("../../../lib/config");
+const { APP, API } = require("../../../lib/config");
 
 const DateController = DateControllerMixin(BaseController);
 
@@ -15,35 +15,59 @@ class CheckDetailsController extends DateController {
 
       // Value for selected Post Office depends on selected PO
       const addressDetails = req.form.values.postOfficeDetails
+      const payLoadDetails = req.form.values.payLoadValues
       let postOfficeAddress;
       let postOfficeName;
-      switch(req.form.values.branches) {
+      let postOfficePostcode;
+      let postOfficeLatitude;
+      let postOfficeLongitude;
+      switch (req.form.values.branches) {
         case "1": {
           postOfficeAddress = addressDetails[0].hint.text;
           postOfficeName = addressDetails[0].text;
+          postOfficePostcode = payLoadDetails.location0.postcode
+          postOfficeLatitude = payLoadDetails.location0.latitude
+          postOfficeLongitude = payLoadDetails.location0.longitude
           break;
         }
         case "2": {
           postOfficeAddress = addressDetails[1].hint.text;
           postOfficeName = addressDetails[1].text;
+          postOfficePostcode = payLoadDetails.location1.postcode
+          postOfficeLatitude = payLoadDetails.location1.latitude
+          postOfficeLongitude = payLoadDetails.location1.longitude
           break;
         }
         case "3": {
           postOfficeAddress = addressDetails[2].hint.text;
           postOfficeName = addressDetails[2].text;
+          postOfficePostcode = payLoadDetails.location2.postcode
+          postOfficeLatitude = payLoadDetails.location2.latitude
+          postOfficeLongitude = payLoadDetails.location2.longitude
           break;
         }
         case "4": {
           postOfficeAddress = addressDetails[3].hint.text;
           postOfficeName = addressDetails[3].text;
+          postOfficePostcode = payLoadDetails.location3.postcode
+          postOfficeLatitude = payLoadDetails.location3.latitude
+          postOfficeLongitude = payLoadDetails.location3.longitude
           break;
         }
         case "5": {
           postOfficeAddress = addressDetails[4].hint.text;
           postOfficeName = addressDetails[4].text;
+          postOfficePostcode = payLoadDetails.location4.postcode
+          postOfficeLatitude = payLoadDetails.location4.latitude
+          postOfficeLongitude = payLoadDetails.location4.longitude
           break;
         }
       }
+      req.sessionModel.set("postOfficeAddress", postOfficeAddress);
+      req.sessionModel.set("postOfficePostcode", postOfficePostcode);
+      req.sessionModel.set("postOfficeLatitude", postOfficeLatitude);
+      req.sessionModel.set("postOfficeLongitude", postOfficeLongitude);
+
 
       // Value for document expiry date depends on selected document
       let expiryDate
@@ -75,7 +99,9 @@ class CheckDetailsController extends DateController {
           break;
         }
       }
+      req.sessionModel.set("expiryDate", expiryDate);
 
+      //Confirmation display values
       const idChoice = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
       req.sessionModel.set("countryCode", countryCode);
@@ -92,36 +118,45 @@ class CheckDetailsController extends DateController {
   next() {
     return '/done'
   }
-  // TO BE MODIFIED WITH F2F- , /documentSelection endpoint
 
-  // async saveValues(req, res, callback) {
+  async saveValues(req, res, callback) {
 
-  //   try {
-  //     const f2fData ={
-  //       document_selected:  req.sessionModel.get("photoIdChoice"),
-  //       date_of_expiry: req.sessionModel.get("expiryDate"),
-  //       country_code: req.sessionModel.get("countryCode")
-  //     }
-  //     await this.saveF2fData(req.axios, f2fData, req);
-  //     callback();
+    try {
+      const f2fData = {
+        "document_selection": {
+          "document_selected": req.sessionModel.get("photoIdChoice"),
+          "date_of_expiry": req.sessionModel.get("expiryDate"),
+          "country_code": req.sessionModel.get("countryCode")
+        },
+        "post_office_selection": {
+          "address": req.sessionModel.get("postOfficeAddress"),
+          "location": {
+            "latitude": req.sessionModel.get("postOfficeLatitude"),
+            "longitude": req.sessionModel.get("postOfficeLongitude"),
+          },
+          "post_code": req.sessionModel.get("postOfficePostcode")
+        }
+      }
+      await this.saveF2fData(req.axios, f2fData, req);
+      callback();
 
-  //   } catch (err) {
-  //     callback(err);
-  //   }
+    } catch (err) {
+      callback(err);
+    }
 
-  // }
+  }
 
-  // async saveF2fData(axios, f2fData, req) {
+  async saveF2fData(axios, f2fData, req) {
 
-  //   const headers = {
-  //     "x-govuk-signin-session-id": req.session.tokenId
-  //   }
+    const headers = {
+      "x-govuk-signin-session-id": req.session.tokenId
+    }
 
-  //   const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
-  //     headers,
-  //   });
-  //   return resp.data;
-  // }
+    const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
+      headers,
+    });
+    return resp.data;
+  }
 }
 
 module.exports = CheckDetailsController;

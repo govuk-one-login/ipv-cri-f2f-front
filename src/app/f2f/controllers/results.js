@@ -15,7 +15,7 @@ class PostcodeSearchController extends BaseController {
         "productFilter": ["50321"]
       });
 
-      locals.postcode = userPostcode;
+      // Values used for radio display
       locals.branch =
       {
         id: "branches",
@@ -29,7 +29,7 @@ class PostcodeSearchController extends BaseController {
             text: resp.data[0].name,
             hint: {
               text: resp.data[0].address.address1 + ", " + resp.data[0].address.address4 + ", " + resp.data[0].address.address5 + ", " + resp.data[0].address.postcode
-            }
+            },
           },
           {
             value: "2",
@@ -62,7 +62,37 @@ class PostcodeSearchController extends BaseController {
         ]
       };
 
+      //Additional values for /documentSelection payload
+      locals.payLoadValues = {
+        location0: {
+          postcode: resp.data[0].address.postcode,
+          latitude: resp.data[0].address.latitude,
+          longitude: resp.data[0].address.longitude
+        },
+        location1: {
+          postcode: resp.data[1].address.postcode,
+          latitude: resp.data[1].address.latitude,
+          longitude: resp.data[1].address.longitude
+        },
+        location2: {
+          postcode: resp.data[2].address.postcode,
+          latitude: resp.data[2].address.latitude,
+          longitude: resp.data[2].address.longitude
+        },
+        location3: {
+          postcode: resp.data[3].address.postcode,
+          latitude: resp.data[3].address.latitude,
+          longitude: resp.data[3].address.longitude
+        },
+        location4: {
+          postcode: resp.data[4].address.postcode,
+          latitude: resp.data[4].address.latitude,
+          longitude: resp.data[4].address.longitude
+        }
+      }
+
       req.sessionModel.set("postOfficeDetails", locals.branch.items);
+      req.sessionModel.set("payLoadValues", locals.payLoadValues);
 
       callback(err, locals);
     });
