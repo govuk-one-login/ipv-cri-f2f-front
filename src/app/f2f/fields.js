@@ -1,6 +1,5 @@
 const { APP } = require("../../lib/config");
 const { EU_DL_COUNTRIES } = require("./countryCodes/euDrivingLicence");
-const { countryListValidator } = require("./utils");
 
 module.exports = {
   photoIdChoice: {

@@ -21,12 +21,4 @@ function formatDate(date, format) {
   }
 }
 
-function countryListValidator(_, value) {
-  if (_.form.values.euDrivingLicenseCountrySelector.match(/Select/)) {
-    return false
-  } else {
-    return true
-  }
-}
-
-module.exports = { formatDate, countryListValidator };
+module.exports = { formatDate };
