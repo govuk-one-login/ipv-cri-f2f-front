@@ -72,3 +72,7 @@ checkDetails:
   changeLink: "Change"
   buttonText: "Confirm and send"
 
+eeaIdentityCardCountrySelector:
+  title: "Select which country your EEA national identity card is from"
+  content: "If the country your national identity card is from is not on the list, you'll need to choose a different type of photo ID."
+  link: "The country my national identity card is from is not on the list"
