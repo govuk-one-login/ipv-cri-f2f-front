@@ -161,11 +161,11 @@ module.exports = {
     validate: ["required"]
   },
   euDrivingLicenseCountrySelector: {
-    type: "select",
     legend: "",
     label: "Select a country:",
     hint: "",
     items: [
+      { value: "Select", text: "Select a country" },
       { value: EU_DL_COUNTRIES.AUSTRIA.code, text: EU_DL_COUNTRIES.AUSTRIA.text },
       { value: EU_DL_COUNTRIES.BELGIUM.code, text: EU_DL_COUNTRIES.BELGIUM.text },
       { value: EU_DL_COUNTRIES.BULGARIA.code, text: EU_DL_COUNTRIES.BULGARIA.text },
@@ -194,6 +194,8 @@ module.exports = {
       { value: EU_DL_COUNTRIES.SPAIN.code, text: EU_DL_COUNTRIES.SPAIN.text },
       { value: EU_DL_COUNTRIES.SWEDEN.code, text: EU_DL_COUNTRIES.SWEDEN.text }
     ],
-    validate: ["required"]
+    validate: ["required", 
+      {type: "equal", fn: (value) => !value.match(/Select/)}
+    ]
   }
 }

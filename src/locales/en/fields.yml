@@ -125,7 +125,7 @@ eeaIdCardExpiryDate:
 
 euDrivingLicenseCountrySelector:
   validation:
-    countryListValidator: "Please select a country"
+    equal: "Please select a country"
 
 postcode:
   label: ""

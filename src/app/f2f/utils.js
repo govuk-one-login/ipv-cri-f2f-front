@@ -21,24 +21,12 @@ function formatDate(date, format) {
   }
 }
 
-function countryListValidator(values) {
-  for (val in values) {
-    if (val === "choose") {
-      console.log("no country selected", value)
-      return true
-    } else {
-      console.log("actual country selected")
-      return false
+function countryListValidator(_, value) {
+  if (_.form.values.euDrivingLicenseCountrySelector.match(/Select/)) {
+    return false
+  } else {
+    return true
   }
-}
-  // if (value === "choose") {
-  //   console.log("no country selected", value)
-  //   return true
-  // } else {
-  //   console.log("actual country selected")
-  //   return false
-  // }
-  
 }
 
 module.exports = { formatDate, countryListValidator };

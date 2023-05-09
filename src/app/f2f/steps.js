@@ -7,7 +7,8 @@ const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
 const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
 const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
 const checkDetails = require("./controllers/checkDetails");
-const photoIdExpiry = require("./controllers/photoIdExpiry")
+const photoIdExpiry = require("./controllers/photoIdExpiry");
+// const countryListController = require("./controllers/countryLists");
 const root = require("./controllers/root");
 const { APP } = require("../../lib/config");
 
@@ -228,6 +229,7 @@ module.exports = {
     ]
   },
   "/euDrivingLicenseCountrySelector": {
+    // controller: countryListController,
     fields: ["euDrivingLicenseCountrySelector"],
     editable: true,
     editBackStep: "checkDetails",
