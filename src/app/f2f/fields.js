@@ -162,7 +162,7 @@ module.exports = {
   nonUkPassportcountrySelector: {
     type: "select",
     legend: "",
-    label: "Select a country:",
+    label: "",
     hint: "",
     items: [
       {value: "Select", text: "Select country"},
