@@ -51,7 +51,7 @@ module.exports = {
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
-        next: APP.PATHS.PHOTOCARD_DL_DETAILS,
+        next: APP.PATHS.PHOTOCARD_DL_ADDRESS,
       },
       {
         field: "photoIdChoice",
@@ -84,6 +84,12 @@ module.exports = {
         next: APP.PATHS.NO_PHOTO_ID,
       },
     ],
+  },
+  "/ukDlAddressCheck": {
+    fields: ["ukDlAddressCheck"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: "ukPassportDetails"
   },
   "/ukPassportDetails": {
     fields: ["ukPassportExpiryDate"],

@@ -27,6 +27,9 @@ photoIdChoice:
 "date-year":
   label: Year
 
+ukDlAddressCheck:
+  legend: ""
+
 ukPassportExpiryDate:
   legend: ""
   label: ""

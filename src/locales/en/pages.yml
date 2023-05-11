@@ -72,3 +72,8 @@ checkDetails:
   changeLink: "Change"
   buttonText: "Confirm and send"
 
+ukDlAddressCheck: 
+  title: "Is the address on your driving licence the same as your current address?"
+  context: "If the address on your driving licence is not the same as your current address, you'll need to choose another type of photo ID."
+  change-how: "How do I change the address on my driving licence?"
+  change-link: <a href="https://www.gov.uk/tell-dvla-changed-address">Tell DVLA you've changed address (opens in a new tab)</a>

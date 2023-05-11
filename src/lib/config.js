@@ -21,7 +21,7 @@ module.exports = {
       F2F: "/",
       UK_PASSPORT_DETAILS: "/ukPassportDetails",
       NON_UK_PASSPORT_DETAILS: "/nonUKPassportDetails",
-      PHOTOCARD_DL_DETAILS: "/ukPhotocardDlDetails",
+      PHOTOCARD_DL_ADDRESS: "/ukDlAddressCheck",
       BRP_DETAILS: "/brpDetails",
       EU_PHOTOCARD_DL_DETAILS: "/euPhotocardDlDetails",
       EEA_IDENTITY_CARD_DETAILS: "/eeaIdentityCardDetails",
