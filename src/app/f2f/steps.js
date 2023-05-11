@@ -89,7 +89,18 @@ module.exports = {
     fields: ["ukDlAddressCheck"],
     editable: true,
     editBackStep: "checkDetails",
-    next: "ukPassportDetails"
+    next: [
+      {
+        field: "ukDlAddressCheck",
+        value: "Yes",
+        next: "ukPhotocardDlDetails"
+      },
+      {
+        field: "ukDlAddressCheck",
+        value: "No",
+        next: "photoIdSelection"
+      }
+    ]
   },
   "/ukPassportDetails": {
     fields: ["ukPassportExpiryDate"],

@@ -29,6 +29,8 @@ photoIdChoice:
 
 ukDlAddressCheck:
   legend: ""
+  validation:
+    default: "Select 'yes' or 'no'"
 
 ukPassportExpiryDate:
   legend: ""
