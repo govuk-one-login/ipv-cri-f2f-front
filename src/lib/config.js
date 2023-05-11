@@ -25,6 +25,7 @@ module.exports = {
       PHOTOCARD_DL_DETAILS: "/ukPhotocardDlDetails",
       BRP_DETAILS: "/brpDetails",
       EU_PHOTOCARD_DL_DETAILS: "/euPhotocardDlDetails",
+      EU_DRIVING_LICENCE_ADDRESS_CHECK: "/euDrivingLicenceAddressCheck",
       EU_DRIVING_LICENCE_COUNTRY_SELECTOR: "/euDrivingLicenceCountrySelector",
       EEA_IDENTITY_CARD_DETAILS: "/eeaIdentityCardDetails",
       NO_PHOTO_ID: "https://signin.account.gov.uk/no-photo-id",
@@ -40,7 +41,9 @@ module.exports = {
       NO_PHOTO_ID: "noPhotoId"
     },
     ADDRESS_OPTIONS: {
-      CURRENT_ADDRESS: "Yes, it has my current address on it"
+      CURRENT_ADDRESS: "Yes, it has my current address on it",
+      DIFFERENT_ADDRESS: "No, it has my previous address on it",
+      NO_ADDRESS: "My driving licence does not have my address on it"
     },
     UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after the expiry date.",
     EU_PHOTOCARD_DL_HINT: "This must be a plastic photocard. You cannot use a paper or handwritten license.",

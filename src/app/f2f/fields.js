@@ -110,14 +110,15 @@ module.exports = {
     ]
   },
   euDrivingLicenceAddressCheck: {
-    type: "radios",
     legend: "",
     label: "",
     hint: "",
-    items:
-      {
-        value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS
-      },
+    items: [
+      { value: "Same address", text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS },
+      { value: "Different address", text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS },
+      { divider: "or" },
+      { value: "No address", text: APP.ADDRESS_OPTIONS.NO_ADDRESS }
+    ],
     validate: ["required"]
   },
   eeaIdCardExpiryDate: {

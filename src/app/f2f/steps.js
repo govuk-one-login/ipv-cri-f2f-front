@@ -68,16 +68,6 @@ module.exports = {
         value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
         next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS,
       },
-      // {
-      //   field: "photoIdChoice",
-      //   value: APP.PHOTO_ID_OPTIONS.CITIZEN_CARD,
-      //   next: APP.PATHS.CITIZEN_CARD_DETAILS,
-      // },
-      // {
-      //   field: "photoIdChoice",
-      //   value: APP.PHOTO_ID_OPTIONS.YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD,
-      //   next: APP.PATHS.YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD_DETAILS,
-      // },
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
@@ -162,26 +152,25 @@ module.exports = {
   },
   "/euDrivingLicenceAddressCheck": {
     fields: ["euDrivingLicenceAddressCheck"],
-    // controller: euDrivingLicenceAddressCheck,
     editable: true,
     editBackStep: "checkDetails",
-    // next: [
-    //   {
-    //     field: "euDrivingLicenceAddressCheck",
-    //     value: APP.ID_ADDRESS_OPTIONS.CURRENT_ADDRESS,
-    //     next: APP.PATHS.EU_DRIVING_LICENSE_COUNTRY_SELECTOR
-    //   },
-    //   {
-    //     field: "euDrivingLicenceAddressCheck",
-    //     value: APP.ID_ADDRESS_OPTIONS.PREVIOUS_ADDRESS,
-    //     next: APP.PATHS.PHOTO_ID_SELECTION
-    //   },
-    //   {
-    //     field: "euDrivingLicenceAddressCheck",
-    //     value: APP.ID_ADDRESS_OPTIONS.NO_ADDRESS,
-    //     next: APP.PATHS.EU_DRIVING_LICENSE_COUNTRY_SELECTOR
-    //   }
-    // ]
+    next: [
+      {
+        field: "euDrivingLicenceAddressCheck",
+        value: "Same address",
+        next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
+      },
+      {
+        field: "euDrivingLicenceAddressCheck",
+        value: "Different address",
+        next: APP.PATHS.PHOTO_ID_SELECTION
+      },
+      {
+        field: "euDrivingLicenceAddressCheck",
+        value: "No address",
+        next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
+      }
+    ]
   },
   "/eeaIdentityCardDetails": {
     fields: ["eeaIdCardExpiryDate"],
