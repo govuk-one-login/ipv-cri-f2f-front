@@ -1,5 +1,5 @@
-@mock-api:f2f-f2f-success @success
-Feature: Enter UK Passport Details  - Happy Path
+@mock-api:f2f-f2f-success
+Feature: Navigate Back from Find Branch screen - Unhappy Path
 
     Background:
         Given Authenticatable Anita is using the system
@@ -14,7 +14,12 @@ Feature: Enter UK Passport Details  - Happy Path
         When the user clicks the continue button with Non UK passport selected
         Then the user is routed to the next screen - OtherPassport Details
 
-    Scenario: NonUK passport not expired (Happy path)
-        Given the date entered is within accepted Non UK expiration window
-        When the user clicks the continue button on the Non UK passport page
-        Then the user is routed to the Country of Issue Selector screen
+        Given the date entered is within accepted UKPhotoDL expiration window
+        When the user clicks the continue button on the UKPhotoDL Page
+        Then they should be redirected to the Find a Branch page
+
+  Scenario: Successful redirect from Find Branch screen back to the PhotoId Expiry Detail Screen
+    Given the postcode entered is valid
+    When the user clicks the FindBranch Back button
+    Then the user clicks the back button on the UKPhotoDL Page
+ 
