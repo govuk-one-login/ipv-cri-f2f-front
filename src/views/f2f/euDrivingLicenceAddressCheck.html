@@ -1,0 +1,60 @@
+{% extends "base-form.njk" %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% set hmpoPageKey = "euDrivingLicenceAddressCheck" %}
+{% set isPageHeading = true %}
+
+{% block header %}
+{{ govukHeader ({
+serviceName: translate("govuk.serviceName")
+}) }}
+{% endblock %}
+
+{% block mainContent %}
+
+<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-xl">
+    {{ translate("addressCheck.euDlTitle") }}
+</h1>
+<p>{{ translate("addressCheck.body") }}</p>
+
+{{ govukRadios({
+  name: "where-do-you-live",
+  fieldset: {
+    legend: {
+      text: "Where do you live?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "england",
+      text: "England"
+    },
+    {
+      value: "scotland",
+      text: "Scotland"
+    },
+    {
+      value: "wales",
+      text: "Wales"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "abroad",
+      text: "I am a British citizen living abroad"
+    }
+  ]
+}) }}
+
+{{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+
+
+{% endblock %}

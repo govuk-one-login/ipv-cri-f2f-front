@@ -109,6 +109,17 @@ module.exports = {
       },
     ]
   },
+  euDrivingLicenceAddressCheck: {
+    type: "radios",
+    legend: "",
+    label: "",
+    hint: "",
+    items:
+      {
+        value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS
+      },
+    validate: ["required"]
+  },
   eeaIdCardExpiryDate: {
     type: "date",
     journeyKey: "euIdCardExpiryDate",
