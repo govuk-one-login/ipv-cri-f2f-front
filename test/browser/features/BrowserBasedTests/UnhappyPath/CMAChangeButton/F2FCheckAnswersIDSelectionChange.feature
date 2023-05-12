@@ -17,6 +17,10 @@ Feature: Change PhotoId - UnHappy Path
 
         Given the date entered is within accepted Non UK expiration window
         When the user clicks the continue button on the Non UK passport page
+        Then the user is routed to the Country of Issue Selector screen
+
+        Given the user is on the Country Code Selection screen
+        When the user selects a country
         Then they are routed to the NonUKPassport Branch Finder screen
 
         Given the postcode entered is valid

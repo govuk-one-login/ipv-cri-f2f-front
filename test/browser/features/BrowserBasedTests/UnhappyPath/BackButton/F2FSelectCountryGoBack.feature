@@ -14,12 +14,13 @@ Feature: Navigate Back from Find Branch screen - Unhappy Path
         When the user clicks the continue button with Non UK passport selected
         Then the user is routed to the next screen - OtherPassport Details
 
-        Given the date entered is within accepted UKPhotoDL expiration window
-        When the user clicks the continue button on the UKPhotoDL Page
-        Then they should be redirected to the Find a Branch page
+        Given the date entered is within accepted Non UK expiration window
+        When the user clicks the continue button on the Non UK passport page
+        Then the user is routed to the Country of Issue Selector screen 
 
-  Scenario: Successful redirect from Find Branch screen back to the PhotoId Expiry Detail Screen
-    Given the postcode entered is valid
-    When the user clicks the FindBranch Back button
-    Then the user clicks the back button on the UKPhotoDL Page
+
+  Scenario: Successful redirect from Country selection screen back to the PhotoId Expiry Detail Screen
+    Given the user is on the Country Code Selection screen
+    When the Back link is clicked on the NonUKPassport Country selection page
+    Then the user is navigated back to the previous screen - the Photo ID Expiry page
  

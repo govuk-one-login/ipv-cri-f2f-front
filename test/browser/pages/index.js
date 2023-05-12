@@ -11,7 +11,7 @@ module.exports = {
     NonUKPassportDetailsPageValid: require("./nonUKPassportDetailsPageValid"),
     NonUKPassportDetailsPageInvalidFuture: require("./nonUKPassportDetailsPageInvalidFuture"),
     NonUKPassportDetailsPageInvalidPast: require("./nonUKPassportDetailsPageInvalidPast"),
-    NonUKPassportCountrySelector: require("./nonUkPassportCountrySelector"),
+    NonUKPassportCountrySelector: require("./nonUkPassportCountrySelectorPage"),
     EEAIdentityCardDetailsPageValid: require("./eeaIdentityCardDetailsPageValid"),
     EEAIdentityCardDetailsPageInvalidPast: require("./eeaIdentityCardDetailsPageInvalidPast"),
     EEAIdentityCardDetailsPageInvalidFuture: require("./eeaIdentityCardDetailsPageInvalidFuture"),

@@ -79,3 +79,18 @@ const { NonUKPassportDetailsPageValid, FindBranch, NonUKPassportCountrySelector}
     expect(await ctrySelector.checkErrorText()).to.contain('There is a problem');
 
   });
+
+  When(/^the Back link is clicked on the NonUKPassport Country selection page$/, async function () {
+    const ctrySelector = new NonUKPassportCountrySelector(await this.page);
+  
+    await ctrySelector.back();
+  
+  });
+
+  Then(/^the user is navigated back to the previous screen - the Photo ID Expiry page$/, async function () {
+    const nonUKPassportDetails = new NonUKPassportDetailsPageValid(await this.page);
+  
+    expect(await nonUKPassportDetails.isCurrentPage()).to.be.true;
+  
+  });
+  
