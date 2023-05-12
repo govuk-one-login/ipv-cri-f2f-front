@@ -76,10 +76,6 @@ checkDetails:
   idCardAddress: Does your identity card have your current address on it?
   country: Country
 
-addressCheck:
-  body: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
-  euDlTitle: "Does your driving licence have your current address on it?"
-
 ukDlAddressCheck: 
   title: "Is the address on your driving licence the same as your current address?"
   context: "If the address on your driving licence is not the same as your current address, you'll need to choose another type of photo ID."
