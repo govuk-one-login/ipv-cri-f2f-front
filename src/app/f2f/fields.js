@@ -137,7 +137,8 @@ module.exports = {
       { value: "Different address", text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS},
       {divider: "or"},
       { value: "No address", text: APP.ADDRESS_OPTIONS.NO_ADDRESS}
-    ]
+    ],
+    validate: ["required"]
   },
   postcode: {
     type: "text",

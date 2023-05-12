@@ -123,6 +123,10 @@ eeaIdCardExpiryDate:
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
 
+eeaIdCardAddressCheck:
+  validation:
+    required: Please choose an option
+
 postcode:
   label: ""
   hint: "For example, SW1A 2AA"
@@ -151,3 +155,4 @@ photoIdExpiryChoice:
       label: Choose a different photo ID
     proveIdentityAnotherWay:
       label: Prove your identity another way
+
