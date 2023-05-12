@@ -104,7 +104,7 @@ module.exports = {
     fields: ["nonUKPassportExpiryDate"],
     controller: nonUKPassportDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: "checkAnswers",
     next: [
       {
         field: "nonUKPassportExpiryDate",

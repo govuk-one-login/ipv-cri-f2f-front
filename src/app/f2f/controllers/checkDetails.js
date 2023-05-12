@@ -106,9 +106,10 @@ class CheckDetailsController extends DateController {
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
       locals.changeUrl = `/${changeUrl}`;
+      locals.country = "New Zealand";
       locals.postOfficeAddress = postOfficeAddress.split(", ")
       locals.postOfficeName = postOfficeName;
-
+      console.log("FORM VALUES", req.form.values)
       callback(err, locals);
     });
   }

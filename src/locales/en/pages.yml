@@ -71,4 +71,8 @@ checkDetails:
   postOffice: "Post Office address"
   changeLink: "Change"
   buttonText: "Confirm and send"
+  ukDlAddress: Is the address on your driving licence the same as your current address?
+  euDlAddress: Does your driving licence have your current address on it?
+  idCardAddress: Does your identity card have your current address on it?
+  country: Country
 

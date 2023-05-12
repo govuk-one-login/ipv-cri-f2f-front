@@ -1,0 +1,90 @@
+{{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-6',
+        rows: [
+          {
+            key: {
+              text: translate("checkDetails.selectedId")
+            },
+            value: {
+              html: translate("{{ idChoice }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "/photoIdSelection/edit",
+                  text: "Change",
+                  visuallyHiddenText: "ID Selection"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: translate("checkDetails.expiryDate")
+            },
+            value: {
+              html: translate("{{ formattedExpiryDate }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: changeUrl + "/edit",
+                  text: "Change",
+                  visuallyHiddenText: "expiryDate"
+                }
+              ]
+            }
+          },
+          { 
+              key: {
+              text: translate("checkDetails.idCardAddress")
+            },
+            value: {
+              html: "Yes, it has my current address on it"
+            },
+            actions: {
+              items: [
+                {
+                  href: "eeaIdCardAddressCheck/edit",
+                  text: "Change",
+                  visuallyHiddenText: "Change current address"
+                }
+              ]
+            }
+          },
+          { 
+              key: {
+              text: "Country"
+            },
+            value: {
+              html: translate("{{ country }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "country/edit",
+                  text: "Change",
+                  visuallyHiddenText: "Change country of origin"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: translate("checkDetails.postOffice")
+            },
+            value: {
+              html: translate("{{ postOfficeName }}<br>{{ postOfficeAddress[0] }}<br>{{ postOfficeAddress[1] }}<br>{{ postOfficeAddress[2] }}<br>{{ postOfficeAddress[3] }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "/findBranch/edit",
+                  text: "Change",
+                  visuallyHiddenText: "post office address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
