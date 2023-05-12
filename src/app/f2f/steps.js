@@ -172,8 +172,30 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "eeaIdCardAddressCheck",
     ],
+  },
+  "/eeaIdCardAddressCheck": {
+    fields: ["eeaIdCardAddressCheck"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "eeaIdCardAddressCheck",
+        value: "Same address",
+        next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
+      },
+      {
+        field: "eeaIdCardAddressCheck",
+        value: "Different address",
+        next: "photoIdSelection"
+      },
+      {
+        field: "eeaIdCardAddressCheck",
+        value: "No address",
+        next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
+      }
+    ]
   },
   "/photoIdExpiry": {
     controller: photoIdExpiry,
