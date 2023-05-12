@@ -1,6 +1,6 @@
 @mock-api:f2f-f2f-success
 Feature: Select Post Office Branch - Happy Path
-    
+
     Background:
         Given Authenticatable Anita is using the system
         When they have provided their details
@@ -21,8 +21,10 @@ Feature: Select Post Office Branch - Happy Path
         Given the postcode entered is valid
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
-    
+
     Scenario:
         Given a Post Office branch is selected
         When the user clicks continue
         Then the user is navigated to the next step in the journey - Confirm Answer
+        When the user clicks the Check My Answers Submit button
+        Then they should be redirected as a success

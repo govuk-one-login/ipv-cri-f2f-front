@@ -30,3 +30,7 @@ Scenario: Find Nearest PO Branch - NonUK Passport (Happy path)
     Given a Post Office branch is selected
     When the user clicks continue
     Then the user is navigated to the next step in the journey - Confirm Answer
+Scenario: Find Nearest PO Branch - NonUK Passport (Happy path)
+    Given a Post Office branch is selected
+    When the user clicks continue
+    Then the user is navigated to the next step in the journey - Confirm Answer

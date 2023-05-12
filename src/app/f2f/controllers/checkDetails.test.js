@@ -1,11 +1,11 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { expect } = require("chai");
 const CheckDetailsController = require("./checkDetails");
-// const {
-//   API: {
-//     PATHS: { SAVE_F2FDATA },
-//   }
-// } = require("../../../lib/config");
+const {
+  API: {
+    PATHS: { SAVE_F2FDATA },
+  }
+} = require("../../../lib/config");
 
 describe("CheckDetails controller", () => {
   let checkDetailsController;
@@ -63,6 +63,13 @@ describe("CheckDetails controller", () => {
             }
           },
         ]
+        req.form.values.payLoadValues = {
+          location0: {
+            postcode: "G41 1ED",
+            latitude: "100000",
+            longitude: "-100000"
+          }
+        }
         res.locals = locals;
         BaseController.prototype.locals.yields(error, superLocals);
 
@@ -75,29 +82,40 @@ describe("CheckDetails controller", () => {
     });
   });
 
-  // describe("#saveValues", () => {
-  //   context("on journey save f2f data", () => {
-  //     it("should call claimedIdentity endpoint", async () => {
-  //       req.axios.post = sinon.fake.resolves();
+  describe("#saveValues", () => {
+    context("on journey save f2f data", () => {
+      it("should call documentSelection endpoint", async () => {
+        req.axios.post = sinon.fake.resolves();
 
-  //       const f2fData ={
-  //         document_selected:  req.sessionModel.get("photoIdChoice"),
-  //         date_of_expiry: req.sessionModel.get("expiryDate")
-  //       }
+        const f2fData = {
+          "document_selection": {
+            "document_selected": req.sessionModel.get("photoIdChoice"),
+            "date_of_expiry": req.sessionModel.get("expiryDate"),
+            "country_code": req.sessionModel.get("countryCode")
+          },
+          "post_office_selection": {
+            "address": req.sessionModel.get("postOfficeAddress"),
+            "location": {
+              "latitude": req.sessionModel.get("postOfficeLatitude"),
+              "longitude": req.sessionModel.get("postOfficeLongitude"),
+            },
+            "post_code": req.sessionModel.get("postOfficePostcode")
+          }
+        }
 
-  //       await checkDetailsController.saveValues(req, res, next);
-  //       expect(next).to.have.been.calledOnce;
-  //       expect(req.axios.post).to.have.been.calledWithExactly(
-  //         SAVE_F2FDATA,
-  //         f2fData,
-  //         {
-  //           headers: {
-  //             "x-govuk-signin-session-id": req.session.tokenId
-  //           },
-  //         }
-  //       );
-  //     });
+        await checkDetailsController.saveValues(req, res, next);
+        expect(next).to.have.been.calledOnce;
+        expect(req.axios.post).to.have.been.calledWithExactly(
+          SAVE_F2FDATA,
+          f2fData,
+          {
+            headers: {
+              "x-govuk-signin-session-id": req.session.tokenId
+            },
+          }
+        );
+      });
 
-  //   });
-  // });
+    });
+  });
 });

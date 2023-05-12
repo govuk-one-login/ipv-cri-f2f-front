@@ -27,4 +27,8 @@ module.exports = class PlaywrightDevPage {
     await this.page.click('[href*="/findBranch/edit"]');
 }
 
+  async continue() {
+    await this.page.click("#continue");
+  }
+
 };
