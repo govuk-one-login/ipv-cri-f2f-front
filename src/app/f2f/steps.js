@@ -51,7 +51,7 @@ module.exports = {
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
-        next: APP.PATHS.PHOTOCARD_DL_ADDRESS,
+        next: APP.PATHS.PHOTOCARD_DL_DETAILS,
       },
       {
         field: "photoIdChoice",
@@ -84,23 +84,6 @@ module.exports = {
         next: APP.PATHS.NO_PHOTO_ID,
       },
     ],
-  },
-  "/ukDlAddressCheck": {
-    fields: ["ukDlAddressCheck"],
-    editable: true,
-    editBackStep: "checkDetails",
-    next: [
-      {
-        field: "ukDlAddressCheck",
-        value: "Yes",
-        next: "ukPhotocardDlDetails"
-      },
-      {
-        field: "ukDlAddressCheck",
-        value: "No",
-        next: "photoIdSelection"
-      }
-    ]
   },
   "/ukPassportDetails": {
     fields: ["ukPassportExpiryDate"],
@@ -144,7 +127,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "ukDlAddressCheck",
     ],
   },
   "/brpDetails": {
@@ -242,6 +225,23 @@ module.exports = {
         value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY,
         next: APP.PATHS.NO_PHOTO_ID,
       },
+    ]
+  },
+  "/ukDlAddressCheck": {
+    fields: ["ukDlAddressCheck"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "ukDlAddressCheck",
+        value: "Yes",
+        next: "findBranch"
+      },
+      {
+        field: "ukDlAddressCheck",
+        value: "No",
+        next: "photoIdSelection"
+      }
     ]
   },
   "/findBranch": {
