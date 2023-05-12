@@ -108,8 +108,8 @@ euPhotocardDlExpiryDate:
     "required-year": "Enter the full expiry date"
   
 euDrivingLicenceAddressCheck:
-  label: "" 
-  legend: "" 
+  validation:
+    default: "Please choose an option"
 
 eeaIdCardExpiryDate: 
   label: "" 
