@@ -22,7 +22,8 @@
             "equalToJson": {
               "document_selection": {
                 "document_selected": "${json-unit.any-string}",
-                "date_of_expiry": "${json-unit.any-string}"
+                "date_of_expiry": "${json-unit.any-string}",
+                "country_code": "${json-unit.any-string}"
               },
               "post_office_selection": {
                 "address": "${json-unit.any-string}",
