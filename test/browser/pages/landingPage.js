@@ -21,7 +21,7 @@ module.exports = class PlaywrightDevPage {
 
   async postOfficeLink() {
     await this.poLink.click();
-    await this.page.locator("#ensCloseBanner").click();
+    await this.page.locator("button#ensCloseBanner").isVisible();
   }
 
 
