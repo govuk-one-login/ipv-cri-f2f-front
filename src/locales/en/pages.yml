@@ -76,3 +76,11 @@ checkDetails:
   idCardAddress: Does your identity card have your current address on it?
   country: Country
 
+addressCheck:
+  body: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
+  euDlTitle: "Does your driving licence have your current address on it?"
+
+euDrivingLicenseCountrySelector:
+  title: "Select which country your EU photocard driving licence is from"
+  content: "If the country your driving licence is from is not on the list, you'll need to choose a different type of photo ID."
+  link: "The country my driving licence is from is not on the list"

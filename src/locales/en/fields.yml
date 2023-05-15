@@ -107,6 +107,10 @@ euPhotocardDlExpiryDate:
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
 
+euDrivingLicenceAddressCheck:
+  label: "" 
+  legend: "" 
+
 eeaIdCardExpiryDate: 
   label: "" 
   legend: "" 
@@ -122,6 +126,10 @@ eeaIdCardExpiryDate:
     "required-day": "Enter the full expiry date"
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
+
+euDrivingLicenseCountrySelector:
+  validation:
+    equal: "Select a country"
 
 postcode:
   label: Enter a UK Postcode

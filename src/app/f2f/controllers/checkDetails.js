@@ -98,17 +98,21 @@ class CheckDetailsController extends DateController {
         }
       }
       req.sessionModel.set("expiryDate", expiryDate);
+      req.sessionModel.set("addressCheck", req.form.values.euDrivingLicenceAddressCheck)
 
       //Confirmation display values
       const idChoice = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
+      const addressCheck = req.sessionModel.get("addressCheck")
 
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
       locals.changeUrl = `/${changeUrl}`;
-      locals.country = "New Zealand";
+      locals.addressCheck = addressCheck;
+      locals.country = "Ireland";
       locals.postOfficeAddress = postOfficeAddress.split(", ")
       locals.postOfficeName = postOfficeName;
+      console.log("FORM VALUES", req.form.values.euDrivingLicenseCountrySelector['value'])
       console.log("FORM VALUES", req.form.values)
       callback(err, locals);
     });
