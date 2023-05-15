@@ -125,9 +125,8 @@ class CheckDetailsController extends DateController {
       //Confirmation display values
       const idChoice = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
-      const addressCheck = req.sessionModel.get("addressCheck");
-      
-      locals.country = req.sessionModel.get("country");
+      const addressCheck = req.sessionModel.get("addressCheck")
+      req.sessionModel.set("countryCode", countryCode);
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
       locals.changeUrl = `/${changeUrl}`;
