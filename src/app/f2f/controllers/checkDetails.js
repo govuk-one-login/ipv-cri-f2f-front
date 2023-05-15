@@ -71,17 +71,22 @@ class CheckDetailsController extends DateController {
 
       // Value for document expiry date depends on selected document
       let expiryDate
+      let countryCode;
+
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           expiryDate = req.form.values.ukPassportExpiryDate;
+          req.sessionModel.set("countryCode", "GBP");
           break;
         }
         case APP.PHOTO_ID_OPTIONS.BRP: {
           expiryDate = req.form.values.brpExpiryDate;
+          req.sessionModel.set("countryCode", "GBP");
           break;
         }
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
           expiryDate = req.form.values.ukPhotocardDlExpiryDate;
+          req.sessionModel.set("countryCode", "GBP");
           break;
         }
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
@@ -103,17 +108,17 @@ class CheckDetailsController extends DateController {
       //Confirmation display values
       const idChoice = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
-      const addressCheck = req.sessionModel.get("addressCheck")
+      const addressCheck = req.sessionModel.get("addressCheck");
+      locals.country = req.sessionModel.get("country");
 
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
       locals.changeUrl = `/${changeUrl}`;
       locals.addressCheck = addressCheck;
-      locals.country = "Ireland";
       locals.postOfficeAddress = postOfficeAddress.split(", ")
       locals.postOfficeName = postOfficeName;
-      console.log("FORM VALUES", req.form.values.euDrivingLicenseCountrySelector['value'])
-      console.log("FORM VALUES", req.form.values)
+      console.log("COUNTRY CODE", req.sessionModel.get("countryCode"))
+      console.log("COUNTRY", req.sessionModel.get("country"))
       callback(err, locals);
     });
   }
