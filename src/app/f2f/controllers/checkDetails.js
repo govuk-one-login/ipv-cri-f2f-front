@@ -110,7 +110,7 @@ class CheckDetailsController extends DateController {
       locals.changeUrl = `/${changeUrl}`;
       locals.postOfficeAddress = postOfficeAddress.split(", ")
       locals.postOfficeName = postOfficeName;
-      console.log("sessionModel", req.sessionModel)
+      
       callback(err, locals);
     });
   }
