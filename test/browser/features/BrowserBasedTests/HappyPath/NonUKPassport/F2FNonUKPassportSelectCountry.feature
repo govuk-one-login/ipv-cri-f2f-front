@@ -1,6 +1,5 @@
 @mock-api:f2f-f2f-success @success
-Feature: Change PhotoId - UnHappy Path
-
+Feature: Enter NonUK Passport Details  - Happy Path
 
     Background:
         Given Authenticatable Anita is using the system
@@ -19,22 +18,7 @@ Feature: Change PhotoId - UnHappy Path
         When the user clicks the continue button on the Non UK passport page
         Then the user is routed to the Country of Issue Selector screen
 
+    Scenario: NonUK passport not expired (Happy path)
         Given the user is on the Country Code Selection screen
         When the user selects a country
         Then they are routed to the NonUKPassport Branch Finder screen
-
-        Given the postcode entered is valid
-        When the user clicks the continue button on the find Post Office branch page
-        Then the user is routed to the Select Location page showing 5 nearest POs
-
-        Given a Post Office branch is selected
-        When the user clicks continue
-        Then the user is navigated to the next step in the journey - Confirm Answer
-
-     Scenario: Successful redirect from CMA screen back to the Doc Selection screen and back to CMA again
-        Given the user has navigated to the Check My Answers Page
-        When the user clicks the PhotoIdChange button
-        Then the user is navigated back to the PhotoIdSelection page
-        Then the user selects a new PhotoId Document 
-        Then the user enters the PhotoId Expiry Date page 
-        Then the user returns to the CMA page

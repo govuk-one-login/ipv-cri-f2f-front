@@ -112,7 +112,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "nonUkPassportcountrySelector",
     ],
   },
   "/ukPhotocardDlDetails": {
@@ -229,6 +229,12 @@ module.exports = {
   },
   "/euDrivingLicenseCountrySelector": {
     fields: ["euDrivingLicenseCountrySelector"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: "findBranch"
+  },
+  "/nonUkPassportcountrySelector": {
+    fields: ["nonUkPassportcountrySelector"],
     editable: true,
     editBackStep: "checkDetails",
     next: "findBranch"
