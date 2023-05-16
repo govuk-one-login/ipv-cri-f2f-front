@@ -7,7 +7,7 @@ const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
 const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
 const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
 const checkDetails = require("./controllers/checkDetails");
-const photoIdExpiry = require("./controllers/photoIdExpiry")
+const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
 const { APP } = require("../../lib/config");
 
@@ -112,7 +112,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "nonUkPassportcountrySelector",
     ],
   },
   "/ukPhotocardDlDetails": {
@@ -157,7 +157,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "euDrivingLicenseCountrySelector",
     ],
   },
   "/eeaIdentityCardDetails": {
@@ -229,6 +229,18 @@ module.exports = {
   },
   "/eeaIdentityCardCountrySelector": {
     fields: ["eeaIdentityCardCountrySelector"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: "findBranch"
+  },
+  "/euDrivingLicenseCountrySelector": {
+    fields: ["euDrivingLicenseCountrySelector"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: "findBranch"
+  },
+  "/nonUkPassportcountrySelector": {
+    fields: ["nonUkPassportcountrySelector"],
     editable: true,
     editBackStep: "checkDetails",
     next: "findBranch"

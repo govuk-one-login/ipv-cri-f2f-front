@@ -127,8 +127,16 @@ eeaIdentityCardCountrySelector:
   validation:
     equal: "Select the country your EEA national identity card is from"
 
+euDrivingLicenseCountrySelector:
+  validation:
+    equal: "Select the country your EU photocard driving licence is from"
+
+nonUkPassportcountrySelector:
+    validation:
+      equal: "Select the country your passport is from"
+
 postcode:
-  label: ""
+  label: Enter a UK Postcode
   hint: "For example, SW1A 2AA"
   validation:
     default: "Enter a valid UK postcode"
