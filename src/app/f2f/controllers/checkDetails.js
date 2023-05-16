@@ -71,16 +71,8 @@ class CheckDetailsController extends DateController {
 
 
       // Value for document expiry date depends on selected document
-      const country = req.form.values.euDrivingLicenseCountrySelector
       let expiryDate
-
-      // Sets country code value and country name
-      Object.values(NON_UK_PASSPORT).forEach(val => {
-        if(val.text == country) {
-          req.sessionModel.set("countryCode", val.code)
-          req.sessionModel.set("country", country)
-        }
-      })
+      let countryCode;
 
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
@@ -114,6 +106,16 @@ class CheckDetailsController extends DateController {
           break;
         }
       }
+
+      // Sets country code value and country name
+        
+      Object.values(NON_UK_PASSPORT).forEach(val => {
+        if(val.code == countryCode) {
+          req.sessionModel.set("countryCode", countryCode)
+          req.sessionModel.set("country", val.text)
+        }
+      })
+
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", req.form.values.euDrivingLicenceAddressCheck)
 
@@ -130,7 +132,7 @@ class CheckDetailsController extends DateController {
       locals.postOfficeAddress = postOfficeAddress.split(", ")
       locals.postOfficeName = postOfficeName;
       console.log("COUNTRY CODE", req.sessionModel.get("countryCode"))
-      console.log("COUNTRY", req.sessionModel.get("country"))
+      console.log("form values", req.form.values)
       callback(err, locals);
     });
   }

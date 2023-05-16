@@ -127,11 +127,6 @@ eeaIdCardExpiryDate:
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
 
-<<<<<<< HEAD
-euDrivingLicenseCountrySelector:
-  validation:
-    equal: "Select a country"
-=======
 eeaIdentityCardCountrySelector:
   validation:
     equal: "Select the country your EEA national identity card is from"
@@ -140,10 +135,9 @@ euDrivingLicenseCountrySelector:
   validation:
     equal: "Select the country your EU photocard driving licence is from"
 
-nonUkPassportcountrySelector:
-    validation:
-      equal: "Select the country your passport is from"
->>>>>>> origin/main
+nonUkPassportCountrySelector:
+  validation:
+    equal: "Select the country your passport is from"
 
 postcode:
   label: Enter a UK Postcode
