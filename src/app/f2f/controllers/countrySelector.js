@@ -167,10 +167,12 @@ class CountrySelectorController extends BaseController {
         }
         case EU_DL_COUNTRIES.CZECH.text: {
           req.sessionModel.set("countryCode", EU_DL_COUNTRIES.CZECH.code);
+          req.sessionModel.set("country", country)
           return next();
         }
         case EU_DL_COUNTRIES.DENMARK.text: {
           req.sessionModel.set("countryCode", EU_DL_COUNTRIES.DENMARK.code);
+          req.sessionModel.set("country", country)
           return next();
         }
         case EU_DL_COUNTRIES.ESTONIA.text: {
