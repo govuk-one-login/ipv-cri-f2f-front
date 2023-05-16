@@ -71,16 +71,8 @@ class CheckDetailsController extends DateController {
 
 
       // Value for document expiry date depends on selected document
-      const country = req.form.values.euDrivingLicenseCountrySelector
       let expiryDate
-
-      // Sets country code value and country name
-      Object.values(NON_UK_PASSPORT).forEach(val => {
-        if(val.text == country) {
-          req.sessionModel.set("countryCode", val.code)
-          req.sessionModel.set("country", country)
-        }
-      })
+      let countryCode;
 
       switch (req.form.values.photoIdChoice) {
       let countryCode = "GBR";
@@ -122,9 +114,9 @@ class CheckDetailsController extends DateController {
       // Sets country code value and country name
         
       Object.values(NON_UK_PASSPORT).forEach(val => {
-        if(val.text == country) {
-          req.sessionModel.set("countryCode", val.code)
-          req.sessionModel.set("country", country)
+        if(val.code == countryCode) {
+          req.sessionModel.set("countryCode", countryCode)
+          req.sessionModel.set("country", val.text)
         }
       })
 
