@@ -155,26 +155,127 @@ class CountrySelectorController extends BaseController {
           req.sessionModel.set("country", country)
           return next();
         }
-        case EU_DL_COUNTRIES.CROATIA.text: {
-          req.sessionModel.set("countryCode", EU_DL_COUNTRIES.CROATIA.code);
+        case NON_UK_PASSPORT.CAMEROON.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CAMEROON.code);
           req.sessionModel.set("country", country)
           return next();
         }
-        case EU_DL_COUNTRIES.CYPRUS.text: {
-          req.sessionModel.set("countryCode", EU_DL_COUNTRIES.CYPRUS.code);
+        case NON_UK_PASSPORT.CANADA.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CANADA.code);
           req.sessionModel.set("country", country)
           return next();
         }
-        case EU_DL_COUNTRIES.CZECH.text: {
-          req.sessionModel.set("countryCode", EU_DL_COUNTRIES.CZECH.code);
+        case NON_UK_PASSPORT.CAPE_VERDE.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CAPE_VERDE.code);
           req.sessionModel.set("country", country)
           return next();
         }
-        case EU_DL_COUNTRIES.DENMARK.text: {
-          req.sessionModel.set("countryCode", EU_DL_COUNTRIES.DENMARK.code);
+        case NON_UK_PASSPORT.CAR.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CAR.code);
           req.sessionModel.set("country", country)
           return next();
         }
+        case NON_UK_PASSPORT.CHAD.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CHAD.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.CHILE.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CHILE.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.CHINA.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CHINA.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.COLOMBIA.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.COLOMBIA.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.COMOROS.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.COMOROS.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.CONGO.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CONGO.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.COSTA_RICA.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.COSTA_RICA.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.CROATIA.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CROATIA.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.CUBA.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CUBA.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.CYPRUS.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CYPRUS.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.CZECH.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.CZECH.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.DRC.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.DRC.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.DENMARK.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.DENMARK.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.DJIBOUTI.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.DJIBOUTI.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.DOMINICA.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.DOMINICA.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.DOMINICAN_REP.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.DOMINICAN_REP.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.EAST_TIMOR.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.EAST_TIMOR.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.ECUADOR.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.ECUADOR.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+        case NON_UK_PASSPORT.EGYPT.text: {
+          req.sessionModel.set("countryCode", NON_UK_PASSPORT.EGYPT.code);
+          req.sessionModel.set("country", country)
+          return next();
+        }
+    
+
+
+   
+  
+        
         case EU_DL_COUNTRIES.ESTONIA.text: {
           req.sessionModel.set("countryCode", EU_DL_COUNTRIES.ESTONIA.code);
           req.sessionModel.set("country", country)
