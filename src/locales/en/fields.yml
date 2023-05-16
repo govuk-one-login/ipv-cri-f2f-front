@@ -125,7 +125,7 @@ eeaIdCardExpiryDate:
 
 eeaIdCardAddressCheck:
   validation:
-    required: Please choose an option
+    required: "Select if your identity card has your current address on it"
 
 postcode:
   label: ""
