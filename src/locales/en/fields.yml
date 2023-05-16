@@ -30,7 +30,7 @@ photoIdChoice:
 ukDlAddressCheck:
   legend: ""
   validation:
-    default: "Select 'yes' or 'no'"
+    default: "Select yes if the address on your driving licence is the same as your current address"
 
 ukPassportExpiryDate:
   legend: ""
