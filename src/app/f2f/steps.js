@@ -249,6 +249,12 @@ module.exports = {
       },
     ]
   },
+  "/eeaIdentityCardCountrySelector": {
+    fields: ["eeaIdentityCardCountrySelector"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: "findBranch"
+  },
   "/euDrivingLicenseCountrySelector": {
     fields: ["euDrivingLicenseCountrySelector"],
     editable: true,

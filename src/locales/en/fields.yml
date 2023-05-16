@@ -127,6 +127,10 @@ eeaIdCardAddressCheck:
   validation:
     required: "Select if your identity card has your current address on it"
 
+eeaIdentityCardCountrySelector:
+  validation:
+    equal: "Select the country your EEA national identity card is from"
+
 euDrivingLicenseCountrySelector:
   validation:
     equal: "Select the country your EU photocard driving licence is from"

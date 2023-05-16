@@ -15,6 +15,7 @@ module.exports = {
     EEAIdentityCardDetailsPageValid: require("./eeaIdentityCardDetailsPageValid"),
     EEAIdentityCardDetailsPageInvalidPast: require("./eeaIdentityCardDetailsPageInvalidPast"),
     EEAIdentityCardDetailsPageInvalidFuture: require("./eeaIdentityCardDetailsPageInvalidFuture"),
+    EEAIdentityCardCountrySelectorPage: require("./eeaIdentityCardCountrySelectorPage"),
     PhotoDlDetailsPageValid: require("./ukPhotoDlDetailsPageValid"),
     PhotoDlDetailsPageInvalidFuture: require("./ukPhotoDlDetailsPageInvalidFuture"),
     PhotoDlDetailsPageInvalidPast: require("./ukPhotoDlDetailsPageInvalidPast"),
