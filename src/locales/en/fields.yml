@@ -127,9 +127,13 @@ eeaIdCardExpiryDate:
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
 
+euDrivingLicenseCountrySelector:
+  validation:
+    equal: "Select the country your EU photocard driving licence is from"
+
 nonUkPassportcountrySelector:
     validation:
-      equal: "Select a country"
+      equal: "Select the country your passport is from"
 
 postcode:
   label: Enter a UK Postcode
