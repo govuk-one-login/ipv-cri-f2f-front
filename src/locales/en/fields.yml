@@ -125,7 +125,7 @@ eeaIdCardExpiryDate:
 
 eeaIdentityCardCountrySelector:
   validation:
-    equal: "Select a country"
+    equal: "Select the country your EEA national identity card is from"
 
 postcode:
   label: ""
