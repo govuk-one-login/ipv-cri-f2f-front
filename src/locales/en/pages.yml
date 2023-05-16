@@ -75,3 +75,9 @@ checkDetails:
 addressCheck:
   body: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
   eeaIdCardTitle: "Does your identity card have your current address on it?"
+  
+  nonUkPassportcountrySelector:
+  title: "Select which country your passport is from"
+  content: "If the country your passport is from is not on the list, you'll need to choose another type of photo ID."
+  link: "The country my passport is from is not on the list"
+
