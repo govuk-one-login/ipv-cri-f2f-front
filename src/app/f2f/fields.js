@@ -257,7 +257,7 @@ eeaIdentityCardCountrySelector: {
     hint: "",
     items: [
       {value: "Select", text: "Select country"},
-      {value: NON_UK_PASSPORT.AFGHANISTAN.code, text: NON_UK_PASSPORT.AFGHANISTAN.text},
+      {value: NON_UK_PASSPORT.AFGHANISTAN.text, text: NON_UK_PASSPORT.AFGHANISTAN.text},
       {value: NON_UK_PASSPORT.ALBANIA.code, text: NON_UK_PASSPORT.ALBANIA.text},
       {value: NON_UK_PASSPORT.ALGERIA.code, text: NON_UK_PASSPORT.ALGERIA.text},
       {value: NON_UK_PASSPORT.ANDORRA.code, text: NON_UK_PASSPORT.ANDORRA.text},
