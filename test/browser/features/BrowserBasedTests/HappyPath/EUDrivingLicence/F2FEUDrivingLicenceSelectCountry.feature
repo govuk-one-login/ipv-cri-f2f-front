@@ -16,9 +16,13 @@ Feature: EU Driving Licence Select Country - Happy Path
 
         Given the EU Driving Licence date entered is within accepted expiration window
         When the user clicks the continue button on the EU Driving Licence details page
-        Then the user is routed from EU DL Details to the Country Code selector page
+        Then the user is routed from EU DL Details to the address check page
+
+        Given the user selects Yes, it has my current address on it
+        When the user clicks continue on the EU Driving Licence address check page
+        Then they are routed to the country code selection screen
 
     Scenario: EU Driving Licence - Select a Country Code (Happy path)
-        Given the user is on the EU Country Code Selection screen
-        When the user selects an EU country code
-        Then the user is routed from EU DL Details to Branch Finder Screen
+        Given the user selects a country from the drop down menu
+        When the user clicks the continue button on the EU country code page
+        Then the user is routed from EU DL country code to Branch Finder Screen

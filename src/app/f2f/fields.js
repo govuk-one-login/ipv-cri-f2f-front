@@ -117,10 +117,10 @@ module.exports = {
     label: "",
     hint: "",
     items: [
-      { value: "Same address", text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS },
-      { value: "Different address", text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS },
+      { value: "sameAddress", text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS },
+      { value: "differentAddress", text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS },
       { divider: "or" },
-      { value: "No address", text: APP.ADDRESS_OPTIONS.NO_ADDRESS }
+      { value: "noAddress", text: APP.ADDRESS_OPTIONS.NO_ADDRESS }
     ],
     validate: ["required"]
   },
@@ -173,7 +173,7 @@ module.exports = {
     ],
     validate: ["required"]
   },
-  euDrivingLicenseCountrySelector: {
+  euDrivingLicenceCountrySelector: {
     legend: "",
     label: "",
     hint: "",

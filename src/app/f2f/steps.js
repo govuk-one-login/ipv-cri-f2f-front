@@ -157,17 +157,17 @@ module.exports = {
     next: [
       {
         field: "euDrivingLicenceAddressCheck",
-        value: "Same address",
+        value: "sameAddress",
         next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
       },
       {
         field: "euDrivingLicenceAddressCheck",
-        value: "Different address",
+        value: "differentAddress",
         next: APP.PATHS.PHOTO_ID_SELECTION
       },
       {
         field: "euDrivingLicenceAddressCheck",
-        value: "No address",
+        value: "noAddress",
         next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
       }
     ]
@@ -239,8 +239,8 @@ module.exports = {
       },
     ]
   },
-  "/euDrivingLicenseCountrySelector": {
-    fields: ["euDrivingLicenseCountrySelector"],
+  "/euDrivingLicenceCountrySelector": {
+    fields: ["euDrivingLicenceCountrySelector"],
     editable: true,
     editBackStep: "checkDetails",
     next: "findBranch"

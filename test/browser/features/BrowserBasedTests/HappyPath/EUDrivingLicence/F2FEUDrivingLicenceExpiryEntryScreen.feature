@@ -14,7 +14,8 @@ Background:
     When the user clicks the EU driving licence button
     Then the user is routed to the EU DL Expiry Entry Screen
  
+
     Scenario: EU Driving Licence not expired (Happy path)
         Given the EU Driving Licence date entered is within accepted expiration window
         When the user clicks the continue button on the EU Driving Licence details page
-        Then the user is routed from EU DL Details to the Country Code selector page
+        Then the user is routed from EU DL Details to the address check page

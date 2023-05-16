@@ -31,5 +31,6 @@ module.exports = {
     EuDrivingLicenceDetailsPageValidEdit: require("./euDrivingLicenceDetailsPageValidEdit"),
     EuDrivingLicenceDetailsPageInvalidFuture: require("./euDrivingLicenceDetailsPageInvalidFuture"),
     EuDrivingLicenceDetailsPageInvalidPast: require("./euDrivingLicenceDetailsPageInvalidPast"),
-    EuDrivingLicenseCountrySelector: require("./euDrivingLicenseCountrySelectorPage")
+    EuDrivingLicenceCountrySelector: require("./euDrivingLicenceCountrySelectorPage"),
+    EuDrivingLicenceAddressCheck: require("./euDrivingLicenceAddressCheck")
 }
