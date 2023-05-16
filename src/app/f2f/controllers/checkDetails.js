@@ -92,6 +92,7 @@ class CheckDetailsController extends DateController {
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
+          countryCode = req.form.values.euDrivingLicenseCountrySelector;
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
@@ -110,7 +111,7 @@ class CheckDetailsController extends DateController {
       locals.changeUrl = `/${changeUrl}`;
       locals.postOfficeAddress = postOfficeAddress.split(", ")
       locals.postOfficeName = postOfficeName;
-
+      
       callback(err, locals);
     });
   }

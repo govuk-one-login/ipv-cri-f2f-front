@@ -1,5 +1,7 @@
 const { APP } = require("../../lib/config");
+const { EU_DL_COUNTRIES } = require("./countryCodes/euDrivingLicence");
 const { NON_UK_PASSPORT } = require("./countryCodes/nonUkPassport");
+
 
 module.exports = {
   photoIdChoice: {
@@ -167,9 +169,47 @@ module.exports = {
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS },
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID },
       { divider: "or" },
-      { value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY },
+      { value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY }, 
     ],
     validate: ["required"]
+  },
+  euDrivingLicenseCountrySelector: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      { value: "Select", text: "Select country" },
+      { value: EU_DL_COUNTRIES.AUSTRIA.code, text: EU_DL_COUNTRIES.AUSTRIA.text },
+      { value: EU_DL_COUNTRIES.BELGIUM.code, text: EU_DL_COUNTRIES.BELGIUM.text },
+      { value: EU_DL_COUNTRIES.BULGARIA.code, text: EU_DL_COUNTRIES.BULGARIA.text },
+      { value: EU_DL_COUNTRIES.CROATIA.code, text: EU_DL_COUNTRIES.CROATIA.text },
+      { value: EU_DL_COUNTRIES.CYPRUS.code, text: EU_DL_COUNTRIES.CYPRUS.text },
+      { value: EU_DL_COUNTRIES.CZECH.code, text: EU_DL_COUNTRIES.CZECH.text },
+      { value: EU_DL_COUNTRIES.DENMARK.code, text: EU_DL_COUNTRIES.DENMARK.text },
+      { value: EU_DL_COUNTRIES.ESTONIA.code, text: EU_DL_COUNTRIES.ESTONIA.text },
+      { value: EU_DL_COUNTRIES.FINLAND.code, text: EU_DL_COUNTRIES.FINLAND.text },
+      { value: EU_DL_COUNTRIES.FRANCE.code, text: EU_DL_COUNTRIES.FRANCE.text },
+      { value: EU_DL_COUNTRIES.GERMANY.code, text: EU_DL_COUNTRIES.GERMANY.text },
+      { value: EU_DL_COUNTRIES.GREECE.code, text: EU_DL_COUNTRIES.GREECE.text },
+      { value: EU_DL_COUNTRIES.HUNGARY.code, text: EU_DL_COUNTRIES.HUNGARY.text },
+      { value: EU_DL_COUNTRIES.ITALY.code, text: EU_DL_COUNTRIES.ITALY.text },
+      { value: EU_DL_COUNTRIES.IRELAND.code, text: EU_DL_COUNTRIES.IRELAND.text },
+      { value: EU_DL_COUNTRIES.LATVIA.code, text: EU_DL_COUNTRIES.LATVIA.text },
+      { value: EU_DL_COUNTRIES.LITHUANIA.code, text: EU_DL_COUNTRIES.LITHUANIA.text },
+      { value: EU_DL_COUNTRIES.LUXEMBOURG.code, text: EU_DL_COUNTRIES.LUXEMBOURG.text },
+      { value: EU_DL_COUNTRIES.MALTA.code, text: EU_DL_COUNTRIES.MALTA.text },
+      { value: EU_DL_COUNTRIES.NETHERLANDS.code, text: EU_DL_COUNTRIES.NETHERLANDS.text },
+      { value: EU_DL_COUNTRIES.POLAND.code, text: EU_DL_COUNTRIES.POLAND.text },
+      { value: EU_DL_COUNTRIES.PORTUGAL.code, text: EU_DL_COUNTRIES.PORTUGAL.text },
+      { value: EU_DL_COUNTRIES.ROMANIA.code, text: EU_DL_COUNTRIES.ROMANIA.text },
+      { value: EU_DL_COUNTRIES.SLOVAKIA.code, text: EU_DL_COUNTRIES.SLOVAKIA.text },
+      { value: EU_DL_COUNTRIES.SLOVENIA.code, text: EU_DL_COUNTRIES.SLOVENIA.text },
+      { value: EU_DL_COUNTRIES.SPAIN.code, text: EU_DL_COUNTRIES.SPAIN.text },
+      { value: EU_DL_COUNTRIES.SWEDEN.code, text: EU_DL_COUNTRIES.SWEDEN.text }
+    ],
+    validate: ["required", 
+      {type: "equal", fn: (value) => !value.match(/Select/)}
+    ]
   },
   nonUkPassportcountrySelector: {
     type: "select",

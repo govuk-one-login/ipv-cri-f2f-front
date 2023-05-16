@@ -127,9 +127,13 @@ eeaIdCardAddressCheck:
   validation:
     required: "Select if your identity card has your current address on it"
 
+euDrivingLicenseCountrySelector:
+  validation:
+    equal: "Select the country your EU photocard driving licence is from"
+
 nonUkPassportcountrySelector:
     validation:
-      equal: "Select a country"
+      equal: "Select the country your passport is from"
 
 postcode:
   label: Enter a UK Postcode
@@ -159,4 +163,3 @@ photoIdExpiryChoice:
       label: Choose a different photo ID
     proveIdentityAnotherWay:
       label: Prove your identity another way
-
