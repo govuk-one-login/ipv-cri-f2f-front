@@ -100,14 +100,17 @@ class CheckDetailsController extends DateController {
         }
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           expiryDate = req.form.values.nonUKPassportExpiryDate;
+          countryCode = req.form.values.nonUkPassportcountrySelector;
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
+          countryCode = req.form.values.euDrivingLicenseCountrySelector;
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
           expiryDate = req.form.values.eeaIdCardExpiryDate;
+          countryCode = req.form.values.eeaIdentityCardCountrySelector;
           break;
         }
       }
@@ -143,6 +146,7 @@ class CheckDetailsController extends DateController {
         "document_selection": {
           "document_selected": req.sessionModel.get("photoIdChoice"),
           "date_of_expiry": req.sessionModel.get("expiryDate"),
+          "country_code": req.sessionModel.get("countryCode")
         },
         "post_office_selection": {
           "address": req.sessionModel.get("postOfficeAddress"),

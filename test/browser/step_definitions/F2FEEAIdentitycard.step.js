@@ -2,7 +2,7 @@ const { Given, When, Then, And} = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { FindBranch, EEAIdentityCardDetailsPageValid, PhotoIdSelectionPage} = require("../pages");
+const { FindBranch, EEAIdentityCardDetailsPageValid, PhotoIdSelectionPage, EEAIdentityCardCountrySelectorPage} = require("../pages");
 
   Given(/^the date entered is within accepted National Identity Card EEA expiration window$/, async function () {
     const nationalIdentityCardEEA = new EEAIdentityCardDetailsPageValid(await this.page);
@@ -31,6 +31,15 @@ const { FindBranch, EEAIdentityCardDetailsPageValid, PhotoIdSelectionPage} = req
         expect(await branchFinderPage.isCurrentPage()).to.be.true;
 
   });
+
+
+  Then(/^the user is routed from NI Card EEA Details to the Country Code selector page$/, async function () {
+    const ctrySelector = new EEAIdentityCardCountrySelectorPage(await this.page);
+
+    expect(await ctrySelector.isCurrentPage()).to.be.true;
+
+  });
+
 
 
   Then(/^the user is routed to the previous screen in the NIC EEA journey$/, async function (){

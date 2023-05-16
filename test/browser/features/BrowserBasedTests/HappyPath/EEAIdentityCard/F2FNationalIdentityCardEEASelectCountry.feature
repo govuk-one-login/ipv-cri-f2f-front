@@ -1,5 +1,5 @@
-@mock-api:f2f-f2f-success @success
-Feature: National Identity Card EEA Find Nearest PO Branch - Happy Path
+@mock-api:f2f-f2f-success @success @ukPass
+Feature: Enter UK Passport Details  - Happy Path
 
 Background:
     Given Authenticatable Anita is using the system
@@ -18,15 +18,7 @@ Background:
     When the user clicks the continue button on the National Identity Card EEA Page
     Then the user is routed from NI Card EEA Details to the Country Code selector page
 
+Scenario: National Identity Card EEA not expired (Happy path)
     Given the user is on the NI Card EEA Country Code Selection screen
     When the user selects an EEA country code
     Then the user is routed from NI Card EEA Country to Branch Finder Screen
-
-    Given the postcode entered is valid
-    When the user clicks the continue button on the find Post Office branch page
-    Then the user is routed to the Select Location page showing 5 nearest POs
-
-Scenario: Find Nearest PO Branch - NI Card EEA (Happy path)
-    Given a Post Office branch is selected
-    When the user clicks continue
-    Then the user is navigated to the next step in the journey - Confirm Answer
