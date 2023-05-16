@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success
-Feature: Enter UK Passport Details  - Happy Path
+Feature: Enter NonUK Passport Details  - Happy Path
 
     Background:
         Given Authenticatable Anita is using the system
@@ -14,7 +14,11 @@ Feature: Enter UK Passport Details  - Happy Path
         When the user clicks the continue button with Non UK passport selected
         Then the user is routed to the next screen - OtherPassport Details
 
-    Scenario: NonUK passport not expired (Happy path)
         Given the date entered is within accepted Non UK expiration window
         When the user clicks the continue button on the Non UK passport page
         Then the user is routed to the Country of Issue Selector screen
+
+    Scenario: NonUK passport not expired (Happy path)
+        Given the user is on the Country Code Selection screen
+        When the user clicks continue without selecting a country
+        Then an inline error message is displayed

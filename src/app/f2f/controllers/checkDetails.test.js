@@ -91,6 +91,7 @@ describe("CheckDetails controller", () => {
           "document_selection": {
             "document_selected": req.sessionModel.get("photoIdChoice"),
             "date_of_expiry": req.sessionModel.get("expiryDate"),
+            "country_code": req.sessionModel.get("countryCode")
           },
           "post_office_selection": {
             "address": req.sessionModel.get("postOfficeAddress"),
