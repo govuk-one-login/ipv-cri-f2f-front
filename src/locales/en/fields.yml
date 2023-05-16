@@ -109,7 +109,7 @@ euPhotocardDlExpiryDate:
   
 euDrivingLicenceAddressCheck:
   validation:
-    default: "Please choose an option"
+    default: "Select if your driving licence has your current address on it"
 
 eeaIdCardExpiryDate: 
   label: "" 
