@@ -2,7 +2,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { FindBranch, PostOfficeLocations, PhotoDlDetailsPageValid, NonUKPassportCountrySelector } = require("../pages");
+const { FindBranch, PostOfficeLocations, PhotoDlDetailsPageValid } = require("../pages");
 
   Given(/^the postcode entered is valid$/, async function () {
     const findBranchValid = new FindBranch(await this.page);
