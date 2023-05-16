@@ -1,4 +1,3 @@
-const { expect } = require('playwright');
 module.exports = class PlaywrightDevPage {
     /**
      * @param {import('@playwright/test').Page} page
@@ -28,11 +27,6 @@ module.exports = class PlaywrightDevPage {
     async selectCountry(){
       const dropdown = await this.page.locator("select.govuk-select");
       await dropdown.selectOption("NL");
-    }
-
-    async checkErrorText(){
-      const errorText = await this.page.locator("#error-summary-title").textContent();
-      return errorText.trim(); 
     }
 
   };
