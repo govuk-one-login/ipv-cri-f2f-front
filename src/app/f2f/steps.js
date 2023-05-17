@@ -273,6 +273,7 @@ module.exports = {
     fields: ["postcode"],
     next: "locations",
   },
+  
   "/locations": {
     controller: resultsController,
     fields: ["branches"],

@@ -106,7 +106,6 @@ class CheckDetailsController extends DateController {
       }
 
       // Sets country code value and country name
-      console.log("country", country)
         
       Object.values(NON_UK_PASSPORT).forEach(val => {
         if(val.text == country) {
@@ -114,6 +113,8 @@ class CheckDetailsController extends DateController {
           req.sessionModel.set("country", country)
         }
       })
+
+      console.log("country", country)
 
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", req.form.values.euDrivingLicenceAddressCheck)
