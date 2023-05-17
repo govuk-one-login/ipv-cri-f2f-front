@@ -17,9 +17,9 @@
 
 {% block mainContent %}
 <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-xl">
-  {{ translate("addressCheck.eeaIdCardTitle") }}
+  {{ translate("eeaIdCardAddressCheck.title") }}
 </h1>
-<p> {{ translate("addressCheck.body") }} </p>
+<p> {{ translate("eeaIdCardAddressCheck.body") }} </p>
 
 {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 

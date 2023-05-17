@@ -72,9 +72,10 @@ checkDetails:
   changeLink: "Change"
   buttonText: "Confirm and send"
 
-addressCheck:
-  body: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
-  eeaIdCardTitle: "Does your identity card have your current address on it?"
+
+eeaIdCardAddressCheck:
+  title: "Does your identity card have your current address on it?"
+  body: "If your identity card has your previous address on it, you'll need to choose another type of photo ID."
   
 eeaIdentityCardCountrySelector:
   title: "Select which country your EEA national identity card is from"
