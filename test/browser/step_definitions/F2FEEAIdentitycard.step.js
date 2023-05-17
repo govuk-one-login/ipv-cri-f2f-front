@@ -2,6 +2,7 @@ const { Given, When, Then, And} = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
+
 const { FindBranch, EEAIdentityCardDetailsPageValid, PhotoIdSelectionPage, EEAIdentityCardCountrySelectorPage, EEAIdentityCardCountryAddressCheck} = require("../pages");
 
   Given(/^the date entered is within accepted National Identity Card EEA expiration window$/, async function () {
@@ -54,10 +55,12 @@ const { FindBranch, EEAIdentityCardDetailsPageValid, PhotoIdSelectionPage, EEAId
   });
 
 
+
   Then(/^the user is routed from NI Card EEA Details to the address check page$/, async function () {
     const addressCheck = new EEAIdentityCardCountryAddressCheck(await this.page);
 
     expect(await addressCheck.isCurrentPage()).to.be.true;
+
 
   });
 
