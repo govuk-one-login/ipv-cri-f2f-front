@@ -73,6 +73,7 @@ class CheckDetailsController extends DateController {
       // Value for document expiry date depends on selected document
       let expiryDate
       let country
+      let address
 
       switch (req.form.values.photoIdChoice) {
       let countryCode = "GBR";
@@ -99,7 +100,7 @@ class CheckDetailsController extends DateController {
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
-          country = req.form.values.euDrivingLicenceCountrySelector;
+          countryCode = req.form.values.euDrivingLicenceCountrySelector;
           address = req.form.values.euDrivingLicenceAddressCheck
           break;
         }
