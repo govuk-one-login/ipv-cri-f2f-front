@@ -11,6 +11,13 @@ const { EuDrivingLicenceAddressCheck, EuDrivingLicenceCountrySelector} = require
     await addressCheck.sameAddress();
 
   });
+  
+  Given(/^the user selects My driving licence does not have my address on it$/, async function () {
+    const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);
+  
+    await addressCheck.sameAddress();
+
+  });
 
 
   When(/^the user clicks continue on the EU Driving Licence address check page$/, async function () {
