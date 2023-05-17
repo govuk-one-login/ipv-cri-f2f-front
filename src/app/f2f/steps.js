@@ -182,17 +182,17 @@ module.exports = {
     next: [
       {
         field: "eeaIdCardAddressCheck",
-        value: "Same address",
+        value: "sameAddress",
         next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
       },
       {
         field: "eeaIdCardAddressCheck",
-        value: "Different address",
+        value: "differentAddress",
         next: "photoIdSelection"
       },
       {
         field: "eeaIdCardAddressCheck",
-        value: "No address",
+        value: "noAddress",
         next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
       }
     ]

@@ -16,8 +16,12 @@ Background:
 
     Given the date entered is within accepted National Identity Card EEA expiration window
     When the user clicks the continue button on the National Identity Card EEA Page
-    Then the user is routed from NI Card EEA Details to the Country Code selector page
+    Then the user is routed from NI Card EEA Details to the address check page
 
+    Given the user selects Yes, it has my current address on it
+    When the user clicks continue on the EEA Identity Card address check page
+    Then they are routed to the country code selection screen
+    
 Scenario: National Identity Card EEA not expired (Happy path)
     Given the user is on the NI Card EEA Country Code Selection screen
     When the user selects an EEA country code
