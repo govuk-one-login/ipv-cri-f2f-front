@@ -73,6 +73,7 @@ class CheckDetailsController extends DateController {
       // Value for document expiry date depends on selected document
       let expiryDate
       let country
+      let address
 
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
@@ -98,6 +99,7 @@ class CheckDetailsController extends DateController {
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
           country = req.form.values.euDrivingLicenseCountrySelector;
+          address = req.form.values.euDrivingLicenceAddressCheck
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
@@ -119,7 +121,7 @@ class CheckDetailsController extends DateController {
       console.log("country", country)
 
       req.sessionModel.set("expiryDate", expiryDate);
-      req.sessionModel.set("addressCheck", req.form.values.euDrivingLicenceAddressCheck)
+      req.sessionModel.set("addressCheck", address);
 
       //Confirmation display values
       const idChoice = req.sessionModel.get("selectedDocument");
