@@ -131,6 +131,18 @@ module.exports = {
       },
     ]
   },
+  eeaIdCardAddressCheck: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      { value: "sameAddress", text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS},
+      { value: "differentAddress", text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS},
+      {divider: "or"},
+      { value: "noAddress", text: APP.ADDRESS_OPTIONS.NO_ADDRESS}
+    ],
+    validate: ["required"]
+  },
   postcode: {
     type: "text",
     journeyKey: "postcode",
