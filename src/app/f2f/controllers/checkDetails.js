@@ -105,6 +105,7 @@ class CheckDetailsController extends DateController {
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
           expiryDate = req.form.values.eeaIdCardExpiryDate;
           country = req.form.values.eeaIdentityCardCountrySelector;
+          address = req.form.values.eeaIdCardAddressCheck;
           break;
         }
       }
@@ -133,7 +134,7 @@ class CheckDetailsController extends DateController {
       locals.addressCheck = addressCheck;
       locals.postOfficeAddress = postOfficeAddress.split(", ")
       locals.postOfficeName = postOfficeName;
-      console.log("CHECK DETAILS SESSION MODEL", req.sessionModel)
+      console.log("SESSION MODEL", req.sessionModel)
       callback(err, locals);
     });
   }

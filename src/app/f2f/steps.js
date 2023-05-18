@@ -28,6 +28,7 @@ module.exports = {
     editable: true,
     editBackStep: "checkDetails",
     fields: ["photoIdChoice"],
+    // checkJourney: false,
     invalidates: [
       "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",
@@ -204,17 +205,17 @@ module.exports = {
     next: [
       {
         field: "eeaIdCardAddressCheck",
-        value: "sameAddress",
+        value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
       },
       {
         field: "eeaIdCardAddressCheck",
-        value: "differentAddress",
+        value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         next: "photoIdSelection"
       },
       {
         field: "eeaIdCardAddressCheck",
-        value: "noAddress",
+        value: APP.ADDRESS_OPTIONS.NO_ADDRESS,
         next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
       }
     ]
