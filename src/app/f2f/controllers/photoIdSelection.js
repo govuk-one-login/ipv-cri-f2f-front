@@ -5,8 +5,10 @@ const logger = require("hmpo-logger").get();
 class PhotoIdSelectionController extends BaseController {
 
   async saveValues(req, res, next) {
+    console.log("SESSION MODEL AT START:", req.sessionModel)
     try {
       logger.info("user submitting photo Id choice", { req, res });
+      req.sessionModel.set("addressCheck", undefined);
       req.sessionModel.set("redirect_url", undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.BRP, undefined);
@@ -70,7 +72,7 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL, true);
           req.sessionModel.set("selectedDocument", "EU photocard driving licence");
-          // req.sessionModel.set("euDrivingLicenceAddressCheck", undefined);
+          req.sessionModel.set("euDrivingLicenceAddressCheck", undefined);
           req.sessionModel.set("changeUrl", "euPhotocardDlDetails");
           return next();
         }
