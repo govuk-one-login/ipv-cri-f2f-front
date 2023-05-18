@@ -35,7 +35,7 @@ module.exports = {
       "brpExpiryDate",
       "eeaIdCardExpiryDate",
       "euPhotocardDlExpiryDate",
-      "photoIdExpiryChoice"
+      "photoIdExpiryChoice",
     ],
     next: [
       {
@@ -260,6 +260,7 @@ module.exports = {
     editable: true,
     editBackStep: "checkDetails",
     next: "findBranch"
+
   },
   "/nonUkPassportCountrySelector": {
     fields: ["nonUkPassportCountrySelector"],
@@ -277,6 +278,10 @@ module.exports = {
   "/locations": {
     controller: resultsController,
     fields: ["branches"],
+    revalidateIf: [
+      "postcode",
+      "branches"
+    ],
     next: "checkDetails"
   },
   "/checkDetails": {

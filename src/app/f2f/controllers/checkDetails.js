@@ -118,8 +118,6 @@ class CheckDetailsController extends DateController {
         }
       })
 
-      console.log("country", country)
-
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
 
@@ -135,8 +133,7 @@ class CheckDetailsController extends DateController {
       locals.addressCheck = addressCheck;
       locals.postOfficeAddress = postOfficeAddress.split(", ")
       locals.postOfficeName = postOfficeName;
-      console.log("COUNTRY CODE", req.sessionModel.get("countryCode"))
-      console.log("form values", req.form.values)
+      console.log("CHECK DETAILS SESSION MODEL", req.sessionModel)
       callback(err, locals);
     });
   }
