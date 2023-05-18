@@ -28,6 +28,7 @@ module.exports = {
       BRP_DETAILS: "/brpDetails",
       EU_PHOTOCARD_DL_DETAILS: "/euPhotocardDlDetails",
       EEA_IDENTITY_CARD_DETAILS: "/eeaIdentityCardDetails",
+      EEA_IDENTITY_CARD_COUNTRY_SELECTOR: "/eeaIdentityCardCountrySelector",
       NO_PHOTO_ID: "https://signin.account.gov.uk/no-photo-id",
       EXPIRED_ID: "/photoIdExpiry"
     },
