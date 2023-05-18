@@ -26,6 +26,7 @@ module.exports = {
   "/photoIdSelection": {
     controller: photoIdSelect,
     fields: ["photoIdChoice"],
+    // checkJourney: false,
     invalidates: [
       "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",
