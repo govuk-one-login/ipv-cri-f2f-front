@@ -12,14 +12,14 @@ const { FindBranch, EEAIdentityCardDetailsPageValid, PhotoIdSelectionPage, EEAId
 
   });
 
-  Given(/^the user selects Yes, it has my current address on it$/, async function () {
+  Given(/^the user selects Yes, it has my current address on it for EEA ID$/, async function () {
     const addressCheck = new EEAIdentityCardCountryAddressCheck(await this.page);
 
     await addressCheck.sameAddress();
 
   });
 
-  Given(/^the user selects My driving licence does not have my address on it$/, async function () {
+  Given(/^the user selects My identity card does not have my address on it$/, async function () {
     const addressCheck = new EEAIdentityCardCountryAddressCheck(await this.page);
 
     await addressCheck.noAddress();
@@ -73,7 +73,7 @@ const { FindBranch, EEAIdentityCardDetailsPageValid, PhotoIdSelectionPage, EEAId
 
   });
   
-  Then(/^they are routed to the country code selection screen$/, async function (){
+  Then(/^they are routed to the EEA ID country code selection screen$/, async function (){
     const countryCode = new EEAIdentityCardCountrySelectorPage(await this.page);
 
     expect(await countryCode.isCurrentPage()).to.be.true;

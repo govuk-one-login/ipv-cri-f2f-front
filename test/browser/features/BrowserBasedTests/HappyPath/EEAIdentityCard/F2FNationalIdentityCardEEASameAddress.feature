@@ -19,7 +19,7 @@ Background:
     Then the user is routed from NI Card EEA Details to the address check page
 
 Scenario: National Identity Card EEA not expired (Happy path)
-    Given the user selects Yes, it has my current address on it
+    Given the user selects Yes, it has my current address on it for EEA ID
     When the user clicks continue on the EEA Identity Card address check page
-    Then they are routed to the country code selection screen
+    Then they are routed to the EEA ID country code selection screen
     

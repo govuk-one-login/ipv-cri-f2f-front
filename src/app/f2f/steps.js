@@ -68,16 +68,6 @@ module.exports = {
         value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
         next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS,
       },
-      // {
-      //   field: "photoIdChoice",
-      //   value: APP.PHOTO_ID_OPTIONS.CITIZEN_CARD,
-      //   next: APP.PATHS.CITIZEN_CARD_DETAILS,
-      // },
-      // {
-      //   field: "photoIdChoice",
-      //   value: APP.PHOTO_ID_OPTIONS.YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD,
-      //   next: APP.PATHS.YOUNG_SCOT_NATIONAL_ENTITLEMENT_CARD_DETAILS,
-      // },
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
@@ -157,8 +147,30 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "euDrivingLicenseCountrySelector",
+      "euDrivingLicenceAddressCheck",
     ],
+  },
+  "/euDrivingLicenceAddressCheck": {
+    fields: ["euDrivingLicenceAddressCheck"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "euDrivingLicenceAddressCheck",
+        value: "sameAddress",
+        next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
+      },
+      {
+        field: "euDrivingLicenceAddressCheck",
+        value: "differentAddress",
+        next: APP.PATHS.PHOTO_ID_SELECTION
+      },
+      {
+        field: "euDrivingLicenceAddressCheck",
+        value: "noAddress",
+        next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
+      }
+    ]
   },
   "/eeaIdentityCardDetails": {
     fields: ["eeaIdCardExpiryDate"],
@@ -255,8 +267,8 @@ module.exports = {
     editBackStep: "checkDetails",
     next: "findBranch"
   },
-  "/euDrivingLicenseCountrySelector": {
-    fields: ["euDrivingLicenseCountrySelector"],
+  "/euDrivingLicenceCountrySelector": {
+    fields: ["euDrivingLicenceCountrySelector"],
     editable: true,
     editBackStep: "checkDetails",
     next: "findBranch"
