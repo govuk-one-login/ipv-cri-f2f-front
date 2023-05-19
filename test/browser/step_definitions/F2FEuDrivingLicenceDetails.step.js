@@ -1,9 +1,8 @@
 const { Given, When, Then, And} = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
-const { add } = require("hmpo-app/middleware/linked-files");
 
-const { EuDrivingLicenceDetailsPageValid, EuDrivingLicenceAddressCheck, EuDrivingLicenceCountrySelector} = require("../pages");
+const { EuDrivingLicenceDetailsPageValid, EuDrivingLicenceAddressCheck } = require("../pages");
 
   Given(/^the EU Driving Licence date entered is within accepted expiration window$/, async function () {
     const euDrivingLicenceDetailsPage = new EuDrivingLicenceDetailsPageValid(await this.page);

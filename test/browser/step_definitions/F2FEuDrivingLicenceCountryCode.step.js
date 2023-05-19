@@ -1,7 +1,6 @@
 const { Given, When, Then, And} = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
-const { add } = require("hmpo-app/middleware/linked-files");
 
 const { FindBranch, EuDrivingLicenceCountrySelector} = require("../pages");
 
