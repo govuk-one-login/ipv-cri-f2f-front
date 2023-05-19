@@ -12,6 +12,10 @@ const { EuDrivingLicenceDetailsPageValid, EuDrivingLicenceAddressCheck, EuDrivin
 
   });
 
+  Given(/^the user is on the EU Country Code Selection screen$/, async function () {
+
+  });
+
 
   When(/^the user clicks the continue button on the EU Driving Licence details page$/, async function () {
     const euDrivingLicenceChoice = new EuDrivingLicenceDetailsPageValid(await this.page);
@@ -20,7 +24,6 @@ const { EuDrivingLicenceDetailsPageValid, EuDrivingLicenceAddressCheck, EuDrivin
   
   });
   
-
 
   Then(/^the user is routed from EU DL Details to the address check page$/, async function () {
     const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);

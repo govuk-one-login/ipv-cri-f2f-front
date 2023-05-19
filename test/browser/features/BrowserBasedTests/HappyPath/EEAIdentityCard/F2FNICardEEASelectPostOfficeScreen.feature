@@ -16,14 +16,21 @@ Background:
 
     Given the date entered is within accepted National Identity Card EEA expiration window
     When the user clicks the continue button on the National Identity Card EEA Page
-    Then the user is routed to the next screen in the National Identity Card EEA journey - Find Branch
-    Then the user enters a valid postcode
+    Then the user is routed from NI Card EEA Details to the address check page
+
+    Given the user selects Yes, it has my current address on it
+    When the user clicks continue on the EEA Identity Card address check page
+    Then they are routed to the country code selection screen
+
+    Given the user is on the NI Card EEA Country Code Selection screen
+    When the user selects an EEA country code
+    Then the user is routed from NI Card EEA Country to Branch Finder Screen
 
     Given the postcode entered is valid
     When the user clicks the continue button on the find Post Office branch page
     Then the user is routed to the Select Location page showing 5 nearest POs
 
 Scenario: Find Nearest PO Branch - NI Card EEA (Happy path)
-        Given a Post Office branch is selected
-        When the user clicks continue
-        Then the user is navigated to the next step in the journey - Confirm Answer
+    Given a Post Office branch is selected
+    When the user clicks continue
+    Then the user is navigated to the next step in the journey - Confirm Answer

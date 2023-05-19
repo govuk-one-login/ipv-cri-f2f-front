@@ -97,6 +97,7 @@ class CheckDetailsController extends DateController {
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
           expiryDate = req.form.values.eeaIdCardExpiryDate;
+          countryCode = req.form.values.eeaIdentityCardCountrySelector;
           break;
         }
       }

@@ -1,7 +1,7 @@
 const { APP } = require("../../lib/config");
+const { EEA_ID_CARD } = require("./countryCodes/eeaNationalIdentityCard");
 const { EU_DL_COUNTRIES } = require("./countryCodes/euDrivingLicence");
 const { NON_UK_PASSPORT } = require("./countryCodes/nonUkPassport");
-
 
 module.exports = {
   photoIdChoice: {
@@ -143,6 +143,18 @@ module.exports = {
       },
     ]
   },
+  eeaIdCardAddressCheck: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      { value: "sameAddress", text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS},
+      { value: "differentAddress", text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS},
+      {divider: "or"},
+      { value: "noAddress", text: APP.ADDRESS_OPTIONS.NO_ADDRESS}
+    ],
+    validate: ["required"]
+  },
   postcode: {
     type: "text",
     journeyKey: "postcode",
@@ -172,6 +184,46 @@ module.exports = {
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY }, 
     ],
     validate: ["required"]
+  },
+eeaIdentityCardCountrySelector: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      { value: "Select", text: "Select country" },
+      { value: EEA_ID_CARD.AUSTRIA.code, text: EEA_ID_CARD.AUSTRIA.text },
+      { value: EEA_ID_CARD.BELGIUM.code, text: EEA_ID_CARD.BELGIUM.text },
+      { value: EEA_ID_CARD.BULGARIA.code, text: EEA_ID_CARD.BULGARIA.text },
+      { value: EEA_ID_CARD.CROATIA.code, text: EEA_ID_CARD.CROATIA.text },
+      { value: EEA_ID_CARD.CYPRUS.code, text: EEA_ID_CARD.CYPRUS.text },
+      { value: EEA_ID_CARD.CZECH.code, text: EEA_ID_CARD.CZECH.text },
+      { value: EEA_ID_CARD.ESTONIA.code, text: EEA_ID_CARD.ESTONIA.text },
+      { value: EEA_ID_CARD.FINLAND.code, text: EEA_ID_CARD.FINLAND.text },
+      { value: EEA_ID_CARD.FRANCE.code, text: EEA_ID_CARD.FRANCE.text },
+      { value: EEA_ID_CARD.GERMANY.code, text: EEA_ID_CARD.GERMANY.text },
+      { value: EEA_ID_CARD.GREECE.code, text: EEA_ID_CARD.GREECE.text },
+      { value: EEA_ID_CARD.HUNGARY.code, text: EEA_ID_CARD.HUNGARY.text },
+      { value: EEA_ID_CARD.IRELAND.code, text: EEA_ID_CARD.IRELAND.text },
+      { value: EEA_ID_CARD.ICELAND.code, text: EEA_ID_CARD.ICELAND.text },
+      { value: EEA_ID_CARD.ITALY.code, text: EEA_ID_CARD.ITALY.text },
+      { value: EEA_ID_CARD.LATVIA.code, text: EEA_ID_CARD.LATVIA.text },
+      { value: EEA_ID_CARD.LIECHTENSTEIN.code, text: EEA_ID_CARD.LIECHTENSTEIN.text },
+      { value: EEA_ID_CARD.LITHUANIA.code, text: EEA_ID_CARD.LITHUANIA.text },
+      { value: EEA_ID_CARD.LUXEMBOURG.code, text: EEA_ID_CARD.LUXEMBOURG.text },
+      { value: EEA_ID_CARD.MALTA.code, text: EEA_ID_CARD.MALTA.text },
+      { value: EEA_ID_CARD.NETHERLANDS.code, text: EEA_ID_CARD.NETHERLANDS.text },
+      { value: EEA_ID_CARD.NORWAY.code, text: EEA_ID_CARD.NORWAY.text },
+      { value: EEA_ID_CARD.POLAND.code, text: EEA_ID_CARD.POLAND.text },
+      { value: EEA_ID_CARD.PORTUGAL.code, text: EEA_ID_CARD.PORTUGAL.text },
+      { value: EEA_ID_CARD.ROMANIA.code, text: EEA_ID_CARD.ROMANIA.text },
+      { value: EEA_ID_CARD.SLOVAKIA.code, text: EEA_ID_CARD.SLOVAKIA.text },
+      { value: EEA_ID_CARD.SLOVENIA.code, text: EEA_ID_CARD.SLOVENIA.text },
+      { value: EEA_ID_CARD.SPAIN.code, text: EEA_ID_CARD.SPAIN.text },
+      { value: EEA_ID_CARD.SWEDEN.code, text: EEA_ID_CARD.SWEDEN.text }
+    ],
+    validate: ["required", 
+      { type: "equal", fn: (value) => !value.match(/Select/)}
+    ]
   },
   euDrivingLicenceCountrySelector: {
     legend: "",

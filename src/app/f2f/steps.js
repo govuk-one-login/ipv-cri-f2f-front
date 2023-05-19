@@ -184,8 +184,30 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "eeaIdCardAddressCheck",
     ],
+  },
+  "/eeaIdCardAddressCheck": {
+    fields: ["eeaIdCardAddressCheck"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "eeaIdCardAddressCheck",
+        value: "sameAddress",
+        next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
+      },
+      {
+        field: "eeaIdCardAddressCheck",
+        value: "differentAddress",
+        next: "photoIdSelection"
+      },
+      {
+        field: "eeaIdCardAddressCheck",
+        value: "noAddress",
+        next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
+      }
+    ]
   },
   "/photoIdExpiry": {
     controller: photoIdExpiry,
@@ -238,6 +260,12 @@ module.exports = {
         next: APP.PATHS.NO_PHOTO_ID,
       },
     ]
+  },
+  "/eeaIdentityCardCountrySelector": {
+    fields: ["eeaIdentityCardCountrySelector"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: "findBranch"
   },
   "/euDrivingLicenceCountrySelector": {
     fields: ["euDrivingLicenceCountrySelector"],

@@ -14,8 +14,8 @@ Background:
     When the user clicks the PhotoId continue button with EEA National Identity Card selected
     Then the user is routed to the next screen in the EEA National Identity journey - EEA National Identity Card details
 
+
 Scenario: National Identity Card EEA not expired (Happy path)
-Given the date entered is within accepted National Identity Card EEA expiration window
-When the user clicks the continue button on the National Identity Card EEA Page
-Then the user is routed to the next screen in the National Identity Card EEA journey - Find Branch
-Then the user enters a valid postcode
+    Given the date entered is within accepted National Identity Card EEA expiration window
+    When the user clicks the continue button on the National Identity Card EEA Page
+    Then the user is routed from NI Card EEA Details to the address check page

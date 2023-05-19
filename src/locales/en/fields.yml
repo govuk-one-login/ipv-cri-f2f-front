@@ -127,6 +127,14 @@ eeaIdCardExpiryDate:
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
 
+eeaIdCardAddressCheck:
+  validation:
+    required: "Select if your identity card has your current address on it"
+
+eeaIdentityCardCountrySelector:
+  validation:
+    equal: "Select the country your EEA national identity card is from"
+
 euDrivingLicenceCountrySelector:
   validation:
     equal: "Select the country your EU photocard driving licence is from"
