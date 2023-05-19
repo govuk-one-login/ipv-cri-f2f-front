@@ -3,7 +3,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 const { expect } = require("chai");
 const { add } = require("hmpo-app/middleware/linked-files");
 
-const { EuDrivingLicenceAddressCheck, EuDrivingLicenceCountrySelector} = require("../pages");
+const { EuDrivingLicenceAddressCheck, EuDrivingLicenceCountrySelector, PhotoIdSelectionPage} = require("../pages");
 
   Given(/^the user selects Yes, it has my current address on it$/, async function () {
     const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);
@@ -15,7 +15,14 @@ const { EuDrivingLicenceAddressCheck, EuDrivingLicenceCountrySelector} = require
   Given(/^the user selects My driving licence does not have my address on it$/, async function () {
     const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);
   
-    await addressCheck.sameAddress();
+    await addressCheck.noAddress();
+
+  });
+
+  Given(/^the user selects No, it has my previous address on it$/, async function () {
+    const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);
+  
+    await addressCheck.differentAddress();
 
   });
 
@@ -36,11 +43,9 @@ const { EuDrivingLicenceAddressCheck, EuDrivingLicenceCountrySelector} = require
 
   });
 
+  Then(/^they are routed back to the Document Selection screen$/, async function () {
+    const documentSelection = new PhotoIdSelectionPage(await this.page);
 
+    expect(await documentSelection.isCurrentPage()).to.be.true;
 
-  // Then(/^the user is routed from EU DL Details to Branch Finder Screen$/, async function () {
-  //   const branchFinderPage = new FindBranch(await this.page);
-
-  //   expect(await branchFinderPage.isCurrentPage()).to.be.true;
-
-  // });
+  });
