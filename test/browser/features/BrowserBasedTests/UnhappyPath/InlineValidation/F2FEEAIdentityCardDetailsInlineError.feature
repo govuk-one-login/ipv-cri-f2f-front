@@ -14,6 +14,7 @@ Background:
     When the user clicks the PhotoId continue button with EEA National Identity Card selected
     Then the user is routed to the next screen in the EEA National Identity journey - EEA National Identity Card details
 
+
 Scenario: - Missing input value
 Given the user clicks the continue button only on the EEAPage
 Then the user sees an inline error message displayed on the EEAPage
