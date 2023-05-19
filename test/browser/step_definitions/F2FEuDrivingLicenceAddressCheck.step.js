@@ -56,7 +56,6 @@ const { EuDrivingLicenceAddressCheck, EuDrivingLicenceCountrySelector, PhotoIdSe
   });
   
 
-
   Then(/^they are routed to the country code selection screen$/, async function () {
     const countryCodes = new EuDrivingLicenceCountrySelector(await this.page);
 
