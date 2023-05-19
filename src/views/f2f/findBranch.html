@@ -6,10 +6,9 @@
 {% from "hmpo-text/macro.njk" import hmpoText %}
 
 {% block mainContent %}
-<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
         {{ translate("findBranch.title") }}
     </h1>
-    <p class="govuk-!-font-weight-bold"> {{ translate("findBranch.body") }} </p><br>
     
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 

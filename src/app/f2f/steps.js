@@ -7,7 +7,7 @@ const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
 const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
 const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
 const checkDetails = require("./controllers/checkDetails");
-const photoIdExpiry = require("./controllers/photoIdExpiry")
+const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
 const { APP } = require("../../lib/config");
 
@@ -112,7 +112,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "nonUkPassportcountrySelector",
     ],
   },
   "/ukPhotocardDlDetails": {
@@ -157,7 +157,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "euDrivingLicenseCountrySelector",
     ],
   },
   "/eeaIdentityCardDetails": {
@@ -172,8 +172,30 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "eeaIdCardAddressCheck",
     ],
+  },
+  "/eeaIdCardAddressCheck": {
+    fields: ["eeaIdCardAddressCheck"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "eeaIdCardAddressCheck",
+        value: "sameAddress",
+        next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
+      },
+      {
+        field: "eeaIdCardAddressCheck",
+        value: "differentAddress",
+        next: "photoIdSelection"
+      },
+      {
+        field: "eeaIdCardAddressCheck",
+        value: "noAddress",
+        next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
+      }
+    ]
   },
   "/photoIdExpiry": {
     controller: photoIdExpiry,
@@ -243,6 +265,24 @@ module.exports = {
         next: "photoIdSelection"
       }
     ]
+  },
+  "/eeaIdentityCardCountrySelector": {
+    fields: ["eeaIdentityCardCountrySelector"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: "findBranch"
+  },
+  "/euDrivingLicenseCountrySelector": {
+    fields: ["euDrivingLicenseCountrySelector"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: "findBranch"
+  },
+  "/nonUkPassportcountrySelector": {
+    fields: ["nonUkPassportcountrySelector"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: "findBranch"
   },
   "/findBranch": {
     editable: true,

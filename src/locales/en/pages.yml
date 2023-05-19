@@ -77,3 +77,22 @@ ukDlAddressCheck:
   context: "If the address on your driving licence is not the same as your current address, you'll need to choose another type of photo ID."
   change-how: "How do I change the address on my driving licence?"
   change-link: <a href="https://www.gov.uk/tell-dvla-changed-address" target="_blank" class="govuk-link">Tell DVLA you've changed address (opens in a new tab)</a>
+
+eeaIdCardAddressCheck:
+  title: "Does your identity card have your current address on it?"
+  body: "If your identity card has your previous address on it, you'll need to choose another type of photo ID."
+  
+eeaIdentityCardCountrySelector:
+  title: "Select which country your EEA national identity card is from"
+  content: "If the country your national identity card is from is not on the list, you'll need to choose a different type of photo ID."
+  link: "The country my national identity card is from is not on the list"
+
+euDrivingLicenseCountrySelector:
+  title: "Select which country your EU photocard driving licence is from"
+  content: "If the country your driving licence is from is not on the list, you'll need to choose a different type of photo ID."
+  link: "The country my driving licence is from is not on the list"
+
+nonUkPassportcountrySelector:
+  title: "Select which country your passport is from"
+  content: "If the country your passport is from is not on the list, you'll need to choose another type of photo ID."
+  link: "The country my passport is from is not on the list"
