@@ -29,6 +29,7 @@ module.exports = {
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
     ],
     validate: ["required"],
+    invalidates: ["eeaIdCardAddressCheck"]
   },
   ukPassportExpiryDate: {
     type: "date",

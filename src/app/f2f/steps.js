@@ -25,10 +25,12 @@ module.exports = {
   },
   "/photoIdSelection": {
     controller: photoIdSelect,
-    editable: true,
-    editBackStep: "checkDetails",
+    // editable: true,
+    // editBackStep: "checkDetails",
+    backLinks: [
+       "/eeaIdentityCardDetails"
+    ],
     fields: ["photoIdChoice"],
-    // checkJourney: false,
     invalidates: [
       "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",
@@ -315,5 +317,5 @@ module.exports = {
     skip: true,
     noPost: true,
     next: "/oauth2/callback",
-  },
+  }
 }

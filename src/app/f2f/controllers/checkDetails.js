@@ -134,7 +134,6 @@ class CheckDetailsController extends DateController {
       locals.addressCheck = addressCheck;
       locals.postOfficeAddress = postOfficeAddress.split(", ")
       locals.postOfficeName = postOfficeName;
-      console.log("SESSION MODEL", req.sessionModel)
       callback(err, locals);
     });
   }
