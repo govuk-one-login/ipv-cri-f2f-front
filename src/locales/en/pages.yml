@@ -72,9 +72,9 @@ checkDetails:
   changeLink: "Change"
   buttonText: "Confirm and send"
 
-addressCheck:
+euDlAddressCheck:
+  title: "Does your driving licence have your current address on it?"
   body: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
-  euDlTitle: "Does your driving licence have your current address on it?"
   
 euDrivingLicenceCountrySelector:
   title: "Select which country your EU photocard driving licence is from"
