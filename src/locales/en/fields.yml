@@ -27,6 +27,11 @@ photoIdChoice:
 "date-year":
   label: Year
 
+ukDlAddressCheck:
+  legend: ""
+  validation:
+    default: "Select yes if the address on your driving licence is the same as your current address"
+
 ukPassportExpiryDate:
   legend: ""
   label: ""

@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @ukPass
-Feature: Enter National Identity Card EEA Details  - Happy Path
+Feature: Enter National Identity Card EEA Details - Unhappy Path
 
 Background:
     Given Authenticatable Anita is using the system
@@ -18,8 +18,8 @@ Background:
     When the user clicks the continue button on the National Identity Card EEA Page
     Then the user is routed from NI Card EEA Details to the address check page
 
-Scenario: National Identity Card EEA not expired (Happy path)
-    Given the user selects Yes, it has my current address on it for EEA ID
-    When the user clicks continue on the EEA Identity Card address check page
-    Then they are routed to the EEA ID country code selection screen
-    
+    @test
+    Scenario: User clicks back button on EEA ID Address Check page
+        Given the user is on the EEA ID address check page
+        When they click the EEA ID address check back button
+        Then they are routed back to the EEA ID expiry date page

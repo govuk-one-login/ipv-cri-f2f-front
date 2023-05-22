@@ -20,6 +20,7 @@ module.exports = {
     PhotoDlDetailsPageValid: require("./ukPhotoDlDetailsPageValid"),
     PhotoDlDetailsPageInvalidFuture: require("./ukPhotoDlDetailsPageInvalidFuture"),
     PhotoDlDetailsPageInvalidPast: require("./ukPhotoDlDetailsPageInvalidPast"),
+    PhotoDlAddressCheckPage: require("./ukPhotoDlAddressCheckPage.js"),
     BRPDetailsPageValid: require("./brpDetailsPageValid"),
     BRPDetailsPageInvalidFuture: require("./brpDetailsPageInvalidFuture"),
     BRPDetailsPageInvalidPast: require("./brpDetailsPageInvalidPast"),
