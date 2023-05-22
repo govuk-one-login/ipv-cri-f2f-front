@@ -28,6 +28,10 @@ module.exports = class PlaywrightDevPage {
       await this.page.click("#eeaIdCardAddressCheck")
     }
 
+    async differentAddress(){
+      await this.page.click("#eeaIdCardAddressCheck-differentAddress")
+    }
+
     async noAddress(){
       await this.page.click("#eeaIdCardAddressCheck-noAddress")
     }
