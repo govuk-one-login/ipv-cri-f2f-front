@@ -111,10 +111,6 @@ euDrivingLicenceAddressCheck:
   validation:
     default: "Select if your driving licence has your current address on it"
 
-euDrivingLicenceAddressCheck:
-  label: "" 
-  legend: "" 
-
 eeaIdCardExpiryDate: 
   label: "" 
   legend: "" 

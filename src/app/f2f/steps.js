@@ -25,11 +25,6 @@ module.exports = {
   },
   "/photoIdSelection": {
     controller: photoIdSelect,
-    // editable: true,
-    // editBackStep: "checkDetails",
-    backLinks: [
-       "/eeaIdentityCardDetails"
-    ],
     fields: ["photoIdChoice"],
     invalidates: [
       "ukPassportExpiryDate",
@@ -150,7 +145,6 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "euDrivingLicenceAddressCheck",
       "euDrivingLicenceAddressCheck",
     ],
   },
