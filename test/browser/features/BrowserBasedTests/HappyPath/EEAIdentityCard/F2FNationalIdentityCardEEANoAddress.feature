@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @ukPass
-Feature: Enter UK Passport Details  - Happy Path
+Feature: Enter National Identity Card EEA Details  - Happy Path
 
 Background:
     Given Authenticatable Anita is using the system
