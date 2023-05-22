@@ -2,7 +2,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { FindBranch, PostOfficeLocations, PhotoDlDetailsPageValid } = require("../pages");
+const { FindBranch, PostOfficeLocations, PhotoDlAddressCheckPage } = require("../pages");
 
   Given(/^the postcode entered is valid$/, async function () {
     const findBranchValid = new FindBranch(await this.page);
@@ -32,7 +32,7 @@ const { FindBranch, PostOfficeLocations, PhotoDlDetailsPageValid } = require("..
     const poLocations = new PostOfficeLocations(await this.page);
     
     const locationCount = await poLocations.numberOfLocations();
-    console.log(">>Location number is: ", locationCount);
+    //console.log(">>Location number is: ", locationCount);
   
     expect(await poLocations.isCurrentPage()).to.be.true;
 
@@ -42,9 +42,17 @@ const { FindBranch, PostOfficeLocations, PhotoDlDetailsPageValid } = require("..
   });
 
 
-  Then(/^the user clicks the back button on the UKPhotoDL Page$/, async function () {
-    const ukPhotoDl = new PhotoDlDetailsPageValid(await this.page);
+  // Then(/^the user clicks the back button on the UKPhotoDL Page$/, async function () {
+  //   const ukPhotoDl = new PhotoDlDetailsPageValid(await this.page);
   
-    expect(await ukPhotoDl.isCurrentPage()).to.be.true;
+  //   expect(await ukPhotoDl.isCurrentPage()).to.be.true;
+  
+  // });
+
+
+  Then(/^the user is navigated back to the UK DL Address Check screen$/, async function () {
+    const phototDlAddress = new PhotoDlAddressCheckPage(await this.page);
+  
+    expect(await phototDlAddress.isCurrentPage()).to.be.true;
   
   });

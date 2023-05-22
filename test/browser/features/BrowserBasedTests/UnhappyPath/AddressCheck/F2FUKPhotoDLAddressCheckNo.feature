@@ -13,9 +13,12 @@ Feature: Enter UK driving licence   - Happy Path
         Given the UK photocard driving licence option is selected
         When the user clicks the UK DL continue button
         Then the user is routed to the next screen in the journey UKPhotoDL Expiry Date
-         
-    Scenario: User routed to UK Driving Permit Address Check screen (Happy path)
+
         Given the date entered is within accepted UKPhotoDL expiration window
         When the user clicks the continue button on the UKPhotoDL Page
         Then the user is successfully routed to the UK DL Address Check screen
-   
+      
+    Scenario: User routed to Document Selection screen when “No” selected
+        Given the user has selected the 'No' option
+        When the Continue button is clicked on the UKPhotoDL Address page
+        Then the user is routed back to the previous screen - Document Selection

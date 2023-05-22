@@ -30,6 +30,16 @@ module.exports = {
     ],
     validate: ["required"]
   },
+  ukDlAddressCheck: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      { value: "Yes", text: "Yes" },
+      { value: "No", text: "No" }
+    ],
+    validate: ["required"]
+  },
   ukPassportExpiryDate: {
     type: "date",
     journeyKey: "UKPassportExpiryDate",

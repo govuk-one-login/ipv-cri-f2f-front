@@ -117,7 +117,7 @@ module.exports = {
         value: "today",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      "ukDlAddressCheck",
     ],
   },
   "/brpDetails": {
@@ -259,6 +259,23 @@ module.exports = {
         value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY,
         next: APP.PATHS.NO_PHOTO_ID,
       },
+    ]
+  },
+  "/ukDlAddressCheck": {
+    fields: ["ukDlAddressCheck"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "ukDlAddressCheck",
+        value: "Yes",
+        next: "findBranch"
+      },
+      {
+        field: "ukDlAddressCheck",
+        value: "No",
+        next: "photoIdSelection"
+      }
     ]
   },
   "/eeaIdentityCardCountrySelector": {
