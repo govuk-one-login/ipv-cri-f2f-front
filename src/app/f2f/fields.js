@@ -226,7 +226,7 @@ eeaIdentityCardCountrySelector: {
       { type: "equal", fn: (value) => !value.match(/Select/)}
     ]
   },
-  euDrivingLicenseCountrySelector: {
+  euDrivingLicenceCountrySelector: {
     legend: "",
     label: "",
     hint: "",

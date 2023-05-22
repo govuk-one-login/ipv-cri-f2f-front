@@ -106,6 +106,10 @@ euPhotocardDlExpiryDate:
     "required-day": "Enter the full expiry date"
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
+  
+euDrivingLicenceAddressCheck:
+  validation:
+    default: "Select if your driving licence has your current address on it"
 
 euDrivingLicenceAddressCheck:
   label: "" 
@@ -127,7 +131,6 @@ eeaIdCardExpiryDate:
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
 
-
 eeaIdCardAddressCheck:
   validation:
     required: "Select if your identity card has your current address on it"
@@ -136,7 +139,7 @@ eeaIdentityCardCountrySelector:
   validation:
     equal: "Select the country your EEA national identity card is from"
 
-euDrivingLicenseCountrySelector:
+euDrivingLicenceCountrySelector:
   validation:
     equal: "Select the country your EU photocard driving licence is from"
 
