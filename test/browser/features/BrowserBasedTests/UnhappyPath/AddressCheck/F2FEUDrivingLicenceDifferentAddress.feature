@@ -1,5 +1,5 @@
-@mock-api:f2f-f2f-success @success
-Feature: EU Driving Licence Find Nearest PO Branch - Happy Path
+@mock-api:f2f-f2f-success @success 
+Feature: Enter EU Driving Licence Details  - Unhappy Path
 
 Background:
     Given Authenticatable Anita is using the system
@@ -13,20 +13,12 @@ Background:
     Given the EU driving licence option is selected
     When the user clicks the EU driving licence button
     Then the user is routed to the EU DL Expiry Entry Screen
-
+ 
     Given the EU Driving Licence date entered is within accepted expiration window
     When the user clicks the continue button on the EU Driving Licence details page
     Then the user is routed from EU DL Details to the address check page
 
-    Given the user selects Yes, it has my current address on it
-    When the user clicks continue on the EU Driving Licence address check page
-    Then they are routed to the country code selection screen
-
-    Given the user selects a country from the drop down menu
-    When the user clicks the continue button on the EU country code page
-    Then the user is routed from EU DL country code to Branch Finder Screen
-
-Scenario: Find Nearest PO Branch - EU Driving Licence (Happy path)
-    Given the postcode entered is valid
-    When the user clicks the continue button on the find Post Office branch page
-    Then the user is routed to the Select Location page showing 5 nearest POs
+    Scenario: EU Driving Licence has different address (Unhappy path)
+        Given the user selects No, it has my previous address on it
+        When the user clicks continue on the EU Driving Licence address check page
+        Then they are routed back to the Document Selection screen

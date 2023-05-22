@@ -122,6 +122,18 @@ module.exports = {
       },
     ]
   },
+  euDrivingLicenceAddressCheck: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      { value: "sameAddress", text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS },
+      { value: "differentAddress", text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS },
+      { divider: "or" },
+      { value: "noAddress", text: APP.ADDRESS_OPTIONS.NO_ADDRESS }
+    ],
+    validate: ["required"]
+  },
   eeaIdCardExpiryDate: {
     type: "date",
     journeyKey: "euIdCardExpiryDate",
@@ -149,7 +161,7 @@ module.exports = {
       { value: "sameAddress", text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS},
       { value: "differentAddress", text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS},
       {divider: "or"},
-      { value: "noAddress", text: APP.ADDRESS_OPTIONS.NO_ADDRESS}
+      { value: "noAddress", text: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS}
     ],
     validate: ["required"]
   },
@@ -223,7 +235,7 @@ eeaIdentityCardCountrySelector: {
       { type: "equal", fn: (value) => !value.match(/Select/)}
     ]
   },
-  euDrivingLicenseCountrySelector: {
+  euDrivingLicenceCountrySelector: {
     legend: "",
     label: "",
     hint: "",
