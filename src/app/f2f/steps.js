@@ -202,7 +202,7 @@ module.exports = {
       },
       {
         field: "eeaIdCardAddressCheck",
-        value: APP.ADDRESS_OPTIONS.NO_ADDRESS,
+        value: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
         next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
       }
     ]

@@ -1,6 +1,7 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
+const { add } = require("hmpo-app/middleware/linked-files");
 
 const {
   CheckDetails,
@@ -9,6 +10,8 @@ const {
   PassportDetailsPageValidEdit,
   FindBranchValidEdit,
   PostOfficeLocations,
+  EEAIdentityCardAddressCheck,
+  EEAIdentityCardAddressCheckEdit
 } = require("../pages");
 
 Given(
@@ -158,5 +161,51 @@ Then(
     expect(await poLocations.isCurrentPage()).to.be.true;
 
     await poLocations.continue();
+  }
+);
+
+/**             ADDRESS CHECK SELECTION CHANGE             */
+
+/** 1. Click the Change button */
+When(/^the user clicks the Address Check Change button$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.isCurrentPage()).to.be.true;
+
+  await cma.changeAddressCheckLocation();
+});
+
+/** 2. Navigate back to the Address Check page for editing */
+Then(
+  /^the user is navigated back to the Address Check Page$/, async function () {
+    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(await this.page);
+
+    expect(await addressCheckEdit.isCurrentPage()).to.be.true;
+  }
+);
+
+/** 3. Change address selction choice to "My identity card does not have my address on it" */
+
+Then(
+  /^the user changes the address selection to "My identity card does not have my address on it"$/, async function () {
+    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(await this.page);
+    
+    await addressCheckEdit.noAddress();
+
+  }
+);
+
+/** 4. Return to the CMA page*/
+Then(
+  /^the user continues to the CMA page from the Address Check page$/, async function () {
+    
+    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(await this.page);
+
+    const checkDetails = new CheckDetails(await this.page);
+
+    await addressCheckEdit.continue();
+
+    expect(await checkDetails.isCurrentPage()).to.be.true;
+
   }
 );
