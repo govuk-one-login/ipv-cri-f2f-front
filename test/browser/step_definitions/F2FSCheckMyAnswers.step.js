@@ -45,8 +45,7 @@ When(/^the user clicks the PhotoIdChange button$/, async function () {
 });
 
 Then(
-  /^the user is navigated back to the PhotoIdSelection page$/,
-  async function () {
+  /^the user is navigated back to the PhotoIdSelection page$/, async function () {
     const pIDEditPage = new PhotoIdSelectionPageEdit(await this.page);
 
     expect(await pIDEditPage.isCurrentPage()).to.be.true;

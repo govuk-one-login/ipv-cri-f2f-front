@@ -21,7 +21,7 @@ Background:
     Given the user selects Yes, it has my current address on it for EEA ID
     When the user clicks continue on the EEA Identity Card address check page
     Then they are routed to the EEA ID country code selection screen
-    
+
 Scenario: National Identity Card EEA not expired (Happy path)
     Given the user is on the NI Card EEA Country Code Selection screen
     When the user selects an EEA country code
