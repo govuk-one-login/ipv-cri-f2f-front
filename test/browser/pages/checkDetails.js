@@ -31,6 +31,10 @@ module.exports = class PlaywrightDevPage {
     await this.page.click('[href*="eeaIdCardAddressCheck/edit"]');
   }
 
+  async changeCountry() {
+    await this.page.click('[href*="eeaIdentityCardCountrySelector/edit"]');
+  }
+
   async continue() {
     await this.page.click("#continue");
   }

@@ -10,8 +10,8 @@ const {
   PassportDetailsPageValidEdit,
   FindBranchValidEdit,
   PostOfficeLocations,
-  EEAIdentityCardAddressCheck,
-  EEAIdentityCardAddressCheckEdit
+  EEAIdentityCardAddressCheckEdit,
+  EEAIdentityCardCountrySelectorPageEdit
 } = require("../pages");
 
 Given(
@@ -204,6 +204,52 @@ Then(
     const checkDetails = new CheckDetails(await this.page);
 
     await addressCheckEdit.continue();
+
+    expect(await checkDetails.isCurrentPage()).to.be.true;
+
+  }
+);
+
+/**             COUNTRY SELECTOR CHANGE             */
+
+/** 1. Click the Change button */
+When(/^the user clicks the Country Change button$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.isCurrentPage()).to.be.true;
+
+  await cma.changeCountry();
+});
+
+/** 2. Navigate back to country selector for editing */
+Then(
+  /^the user is navigated back to the Country Selector Page$/, async function () {
+    const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(await this.page);
+
+    expect(await countrySelector.isCurrentPage()).to.be.true;
+  }
+);
+
+/** 3. Change country of issue */
+
+Then(
+  /^the user changes the country of issue$/, async function () {
+    const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(await this.page);
+    
+    await countrySelector.selectCountry();
+
+  }
+);
+
+/** 4. Return to the CMA page*/
+Then(
+  /^the user continues to the CMA page from the Country Selector page$/, async function () {
+    
+    const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(await this.page);
+
+    const checkDetails = new CheckDetails(await this.page);
+
+    await countrySelector.continue();
 
     expect(await checkDetails.isCurrentPage()).to.be.true;
 

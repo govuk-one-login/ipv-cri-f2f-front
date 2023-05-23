@@ -16,6 +16,7 @@ module.exports = {
     EEAIdentityCardDetailsPageInvalidPast: require("./eeaIdentityCardDetailsPageInvalidPast"),
     EEAIdentityCardDetailsPageInvalidFuture: require("./eeaIdentityCardDetailsPageInvalidFuture"),
     EEAIdentityCardCountrySelectorPage: require("./eeaIdentityCardCountrySelectorPage"),
+    EEAIdentityCardCountrySelectorPageEdit: require("./eeaIdentityCardCountrySelectorPageEdit"),
     EEAIdentityCardAddressCheck: require("./eeaIdentityCardAddressCheck"),
     EEAIdentityCardAddressCheckEdit: require("./eeaIdentityCardAddressCheckEdit"),
     PhotoDlDetailsPageValid: require("./ukPhotoDlDetailsPageValid"),
