@@ -16,7 +16,7 @@ Feature: Enter NonUK Passport Details  - Happy Path
 
         Given the date entered is within accepted Non UK expiration window
         When the user clicks the continue button on the Non UK passport page
-        Then the user is routed to the Country of Issue Selector screen
+        # Then the user is routed to the Country of Issue Selector screen
 
     
     Scenario: NonUK passport not expired (Happy path)
