@@ -16,7 +16,7 @@ Feature: Navigate Back from Find Branch screen - Unhappy Path
 
         Given the date entered is within accepted Non UK expiration window
         When the user clicks the continue button on the Non UK passport page
-        # Then the user is routed to the Country of Issue Selector screen 
+        Then the user is routed to the Country of Issue Selector screen 
 
 
   Scenario: Successful redirect from Country selection screen back to the PhotoId Expiry Detail Screen
