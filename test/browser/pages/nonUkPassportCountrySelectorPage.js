@@ -6,15 +6,17 @@ module.exports = class PlaywrightDevPage {
       this.page = page;
       this.url = "http://localhost:5030/nonUkPassportCountrySelector";
     }
-    
+
     async isCurrentPage() {
+      console.log("This url  "+this.url);
+      console.log("Page url "+this.page.url());
       return await this.page.url() === this.url;
     }
-  
+
     async continue() {
       await this.page.click("#continue");
     }
-  
+
     async back(){
       await this.page.click("#back");
     }
