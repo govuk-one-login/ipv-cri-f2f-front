@@ -1,7 +1,7 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoPageKey = "nonUkPassportcountrySelector" %}
-{% set gtmJourney = "f2f - nonUkPassportcountrySelector" %}
+{% set hmpoPageKey = "nonUkPassportCountrySelector" %}
+{% set gtmJourney = "f2f - nonUkPassportCountrySelector" %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
@@ -16,22 +16,22 @@
 
 {% block mainContent %}
 <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("nonUkPassportcountrySelector.title") }}
+        {{ translate("nonUkPassportCountrySelector.title") }}
     </h1>
-    <p> {{ translate("nonUkPassportcountrySelector.content") }} </p>
+    <p> {{ translate("nonUkPassportCountrySelector.content") }} </p>
 
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     <div class="hint-with-margin">
     {{ hmpoSelect(ctx, {
-        id: "nonUkPassportcountrySelector",
+        id: "nonUkPassportCountrySelector",
         legend: {
             classes: "govuk-label"
         }
     }) }}
   </div>
 
-  <p><a href="/photoIdSelection">{{ translate("nonUkPassportcountrySelector.link") }}</a></p>
+  <p><a href="/photoIdSelection">{{ translate("nonUkPassportCountrySelector.link") }}</a></p>
 
      {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 

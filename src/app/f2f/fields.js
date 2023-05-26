@@ -273,7 +273,7 @@ eeaIdentityCardCountrySelector: {
       {type: "equal", fn: (value) => !value.match(/Select/)}
     ]
   },
-  nonUkPassportcountrySelector: {
+  nonUkPassportCountrySelector: {
     type: "select",
     legend: "",
     label: "",

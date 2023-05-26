@@ -291,7 +291,7 @@ module.exports = {
     next: "findBranch"
   },
   "/nonUkPassportCountrySelector": {
-    fields: ["nonUkPassportcountrySelector"],
+    fields: ["nonUkPassportCountrySelector"],
     editable: true,
     editBackStep: "checkDetails",
     next: "findBranch"
