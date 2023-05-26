@@ -93,7 +93,7 @@ class CheckDetailsController extends DateController {
         }
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           expiryDate = req.form.values.nonUKPassportExpiryDate;
-          country = req.form.values.nonUkPassportCountrySelector
+          countryCode = req.form.values.nonUkPassportCountrySelector;
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {

@@ -275,6 +275,7 @@ eeaIdentityCardCountrySelector: {
     ]
   },
   nonUkPassportCountrySelector: {
+    type: "select",
     legend: "",
     label: "",
     hint: "",
