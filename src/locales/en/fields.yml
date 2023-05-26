@@ -144,7 +144,7 @@ euDrivingLicenceCountrySelector:
   validation:
     equal: "Select the country your EU photocard driving licence is from"
 
-nonUkPassportcountrySelector:
+nonUkPassportCountrySelector:
     validation:
       equal: "Select the country your passport is from"
 
