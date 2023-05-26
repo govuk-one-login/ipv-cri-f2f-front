@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.url = "http://localhost:5030/nonUkPassportcountrySelector";
+      this.url = "http://localhost:5030/nonUkPassportCountrySelector";
     }
     
     async isCurrentPage() {
@@ -26,7 +26,7 @@ module.exports = class PlaywrightDevPage {
 
     async selectCountry(){
       const dropdown = await this.page.locator("select.govuk-select");
-      await dropdown.selectOption("CH");
+      await dropdown.selectOption("CHE");
     }
 
   };
