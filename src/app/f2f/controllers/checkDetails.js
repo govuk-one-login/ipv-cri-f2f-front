@@ -3,17 +3,13 @@ const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils")
 const { APP, API } = require("../../../lib/config");
 const { NON_UK_PASSPORT } = require("../countryCodes/nonUkPassport");
-
 const DateController = DateControllerMixin(BaseController);
-
 class CheckDetailsController extends DateController {
-
   locals(req, res, callback) {
     super.locals(req, res, (err, locals) => {
       if (err) {
         return callback(err, locals);
       }
-
       // Value for selected Post Office depends on selected PO
       const addressDetails = req.form.values.postOfficeDetails
       const payLoadDetails = req.form.values.payLoadValues
@@ -68,13 +64,11 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("postOfficePostcode", postOfficePostcode);
       req.sessionModel.set("postOfficeLatitude", postOfficeLatitude);
       req.sessionModel.set("postOfficeLongitude", postOfficeLongitude);
-
-
+      
       // Value for document expiry date depends on selected document
       let expiryDate
-      let countryCode 
+      let country
       let address
-
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           expiryDate = req.form.values.ukPassportExpiryDate;
@@ -93,12 +87,12 @@ class CheckDetailsController extends DateController {
         }
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           expiryDate = req.form.values.nonUKPassportExpiryDate;
-          countryCode = req.form.values.nonUkPassportCountrySelector;
+          country = req.form.values.nonUkPassportCountrySelector
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
-          countryCode = req.form.values.euDrivingLicenceCountrySelector;
+          country = req.form.values.euDrivingLicenceCountrySelector;
           address = req.form.values.euDrivingLicenceAddressCheck
           break;
         }
@@ -109,25 +103,23 @@ class CheckDetailsController extends DateController {
           break;
         }
       }
-
       // Sets country code value and country name
-      console.log("country", country)
-        
+      
+
       Object.values(NON_UK_PASSPORT).forEach(val => {
         if(val.text == country) {
           req.sessionModel.set("countryCode", val.code)
           req.sessionModel.set("country", country)
         }
       })
-
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
-
       //Confirmation display values
       const idChoice = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
-      const addressCheck = req.sessionModel.get("addressCheck")
-      req.sessionModel.set("countryCode", countryCode);
+      const addressCheck = req.sessionModel.get("addressCheck");
+
+      locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
       locals.changeUrl = `/${changeUrl}`;
@@ -137,13 +129,10 @@ class CheckDetailsController extends DateController {
       callback(err, locals);
     });
   }
-
   next() {
     return '/done'
   }
-
   async saveValues(req, res, callback) {
-
     try {
       const f2fData = {
         "document_selection": {
@@ -162,24 +151,18 @@ class CheckDetailsController extends DateController {
       }
       await this.saveF2fData(req.axios, f2fData, req);
       callback();
-
     } catch (err) {
       callback(err);
     }
-
   }
-
   async saveF2fData(axios, f2fData, req) {
-
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId
     }
-
     const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
       headers,
     });
     return resp.data;
   }
 }
-
 module.exports = CheckDetailsController;

@@ -28,7 +28,7 @@ module.exports = class PlaywrightDevPage {
 
     async selectCountry(){
       const dropdown = await this.page.locator("select.govuk-select");
-      await dropdown.selectOption("France");
+      await dropdown.selectOption("Cambodia");
     }
 
   };

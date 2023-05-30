@@ -24,7 +24,7 @@ module.exports = {
       NON_UK_PASSPORT_DETAILS: "/nonUKPassportDetails",
       PHOTOCARD_DL_DETAILS: "/ukPhotocardDlDetails",
       EU_DRIVING_LICENCE_ADDRESS_CHECK: "/euDrivingLicenceAddressCheck",
-      EU_DRIVING_LICENCE_COUNTRY_SELECTOR: "/euDrivingLicenseCountrySelector",
+      EU_DRIVING_LICENCE_COUNTRY_SELECTOR: "/euDrivingLicenceCountrySelector",
       BRP_DETAILS: "/brpDetails",
       EU_PHOTOCARD_DL_DETAILS: "/euPhotocardDlDetails",
       EEA_IDENTITY_CARD_DETAILS: "/eeaIdentityCardDetails",
