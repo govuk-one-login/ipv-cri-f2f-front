@@ -27,8 +27,6 @@ module.exports = {
       EU_DRIVING_LICENCE_COUNTRY_SELECTOR: "/euDrivingLicenseCountrySelector",
       BRP_DETAILS: "/brpDetails",
       EU_PHOTOCARD_DL_DETAILS: "/euPhotocardDlDetails",
-      EU_DRIVING_LICENCE_ADDRESS_CHECK: "/euDrivingLicenceAddressCheck",
-      EU_DRIVING_LICENCE_COUNTRY_SELECTOR: "/euDrivingLicenceCountrySelector",
       EEA_IDENTITY_CARD_DETAILS: "/eeaIdentityCardDetails",
       EEA_IDENTITY_CARD_COUNTRY_SELECTOR: "/eeaIdentityCardCountrySelector",
       NO_PHOTO_ID: "https://signin.account.gov.uk/no-photo-id",
