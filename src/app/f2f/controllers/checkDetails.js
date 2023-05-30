@@ -76,8 +76,6 @@ class CheckDetailsController extends DateController {
       let address
 
       switch (req.form.values.photoIdChoice) {
-      let countryCode = "GBR";
-      switch(req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           expiryDate = req.form.values.ukPassportExpiryDate;
           req.sessionModel.set("countryCode", "GBP");
