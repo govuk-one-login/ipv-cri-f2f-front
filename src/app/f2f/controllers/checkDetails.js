@@ -72,7 +72,7 @@ class CheckDetailsController extends DateController {
 
       // Value for document expiry date depends on selected document
       let expiryDate
-      let country
+      let countryCode 
       let address
 
       switch (req.form.values.photoIdChoice) {
