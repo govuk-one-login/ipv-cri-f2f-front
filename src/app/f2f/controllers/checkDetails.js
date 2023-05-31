@@ -72,17 +72,17 @@ class CheckDetailsController extends DateController {
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           expiryDate = req.form.values.ukPassportExpiryDate;
-          req.sessionModel.set("countryCode", "GBP");
+          req.sessionModel.set("countryCode", "GBR");
           break;
         }
         case APP.PHOTO_ID_OPTIONS.BRP: {
           expiryDate = req.form.values.brpExpiryDate;
-          req.sessionModel.set("countryCode", "GBP");
+          req.sessionModel.set("countryCode", "GBR");
           break;
         }
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
           expiryDate = req.form.values.ukPhotocardDlExpiryDate;
-          req.sessionModel.set("countryCode", "GBP");
+          req.sessionModel.set("countryCode", "GBR");
           break;
         }
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
