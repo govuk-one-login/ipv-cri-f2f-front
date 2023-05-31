@@ -18,6 +18,7 @@ Feature: Expired Date Error Screen - Unhappy Path
         When the user clicks the continue button on the UKPhotoDLExpiryPast Page
         Then the user is routed to the Expired Date Error Screen from the UK DL screen
 
+    
     Scenario: User chooses to use a different ID (UnHappy path)
         Given the ChooseDifferentPhotoId option is selected
         When the user clicks the Expired Date Error Screen continue button

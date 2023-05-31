@@ -17,8 +17,8 @@ module.exports = class PlaywrightDevPage {
   }
 
   async expiryDate() {
-    const tomorrow = new Date().getDate() + 1
-    const expDay = tomorrow.toString()
+    const today = new Date().getDate()
+    const expDay = today.toString()
     const currentMonth = new Date().getMonth() + 1
     const expMonth = currentMonth.toString()
     const pastYear = new Date().getFullYear() - 3
