@@ -19,13 +19,21 @@ module.exports = class PlaywrightDevPage {
     await this.page.click('[href*="/photoIdSelection/edit"]');
   }
 
-   async changeExpiryDate() {
-       await this.page.click('[href*="/ukPassportDetails/edit"]');
-   }
+  async changeExpiryDate() {
+      await this.page.click('[href*="/ukPassportDetails/edit"]');
+  }
 
-   async changePOLocation() {
+  async changePOLocation() {
     await this.page.click('[href*="/findBranch/edit"]');
-}
+  }
+
+  async changeAddressCheckLocation() {
+    await this.page.click('[href*="eeaIdCardAddressCheck/edit"]');
+  }
+
+  async changeCountry() {
+    await this.page.click('[href*="eeaIdentityCardCountrySelector/edit"]');
+  }
 
   async continue() {
     await this.page.click("#continue");

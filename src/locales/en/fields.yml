@@ -145,8 +145,9 @@ euDrivingLicenceCountrySelector:
     equal: "Select the country your EU photocard driving licence is from"
 
 nonUkPassportCountrySelector:
-    validation:
-      equal: "Select the country your passport is from"
+  validation:
+    equal: "Select the country your passport is from"
+
 
 postcode:
   label: Enter a UK Postcode

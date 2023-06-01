@@ -4,17 +4,17 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.url = "http://localhost:5030/eeaIdentityCardCountrySelector";
+      this.url = "http://localhost:5030/eeaIdCardAddressCheck/edit";
     }
-    
+
     async isCurrentPage() {
       return await this.page.url() === this.url;
     }
-  
+
     async continue() {
       await this.page.click("#continue");
     }
-  
+
     async back(){
       await this.page.click("#back");
     }
@@ -24,9 +24,15 @@ module.exports = class PlaywrightDevPage {
       return errorText.trim()
     }
 
-    async selectCountry(){
-      const dropdown = await this.page.locator("select.govuk-select");
-      await dropdown.selectOption("Spain");
+    async sameAddress(){
+      await this.page.click("#eeaIdCardAddressCheck")
     }
 
-  };
+    async differentAddress(){
+      await this.page.click("#eeaIdCardAddressCheck-Noithasmypreviousaddressonit")
+    }
+
+    async noAddress(){
+      await this.page.click("#eeaIdCardAddressCheck-Myidentitycarddoesnothavemyaddressonit")
+    }
+};

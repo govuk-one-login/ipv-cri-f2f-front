@@ -29,4 +29,3 @@ module.exports = {
     SWEDEN: { text: "Sweden", code: "SWE"},
   }
 }
-

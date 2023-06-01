@@ -7,6 +7,7 @@
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
+
 {% block header %}
   {{ govukHeader ({
     serviceName: translate("govuk.serviceName")
@@ -22,63 +23,18 @@
       text: translate("checkDetails.validation.default"),
       iconFallbackText: "Warning"
     }) }}
-
-      {{ govukSummaryList({
-        classes: 'govuk-!-margin-bottom-6',
-        rows: [
-          {
-            key: {
-              text: translate("checkDetails.selectedId")
-            },
-            value: {
-              html: translate("{{ idChoice }}")
-            },
-            actions: {
-              items: [
-                {
-                  href: "/photoIdSelection/edit",
-                  text: "Change",
-                  visuallyHiddenText: "ID Selection"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: translate("checkDetails.expiryDate")
-            },
-            value: {
-              html: translate("{{ formattedExpiryDate }}")
-            },
-            actions: {
-              items: [
-                {
-                  href: changeUrl + "/edit",
-                  text: "Change",
-                  visuallyHiddenText: "expiryDate"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: translate("checkDetails.postOffice")
-            },
-            value: {
-              html: translate("{{ postOfficeName }}<br>{{ postOfficeAddress[0] }}<br>{{ postOfficeAddress[1] }}<br>{{ postOfficeAddress[2] }}<br>{{ postOfficeAddress[3] }}")
-            },
-            actions: {
-              items: [
-                {
-                  href: "/findBranch/edit",
-                  text: "Change",
-                  visuallyHiddenText: "post office address"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+      
+    {% if (values.photoIdChoice == "nonUkPassport") %}
+      {% include "../components/countrySummaryList.njk" %}
+    {% elif (values.photoIdChoice == "ukPhotocardDl") %}
+      {% include "../components/ukDlSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "euPhotocardDl") %}
+      {% include "../components/euSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "eeaIdentityCard") %}
+      {% include "../components/eeaSummaryList.njk" %}
+    {% else %}
+      {% include "../components/summaryList.njk" %}
+    {% endif %}
 
        {% call hmpoForm(ctx) %}
       {{ hmpoSubmit(ctx, {id: "continue", text: translate("checkDetails.buttonText")}) }}
