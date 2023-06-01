@@ -8,8 +8,6 @@ module.exports = class PlaywrightDevPage {
     }
 
     async isCurrentPage() {
-      console.log("This url  "+this.url);
-      console.log("Page url "+this.page.url());
       return await this.page.url() === this.url;
     }
 
