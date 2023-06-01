@@ -28,8 +28,8 @@ module.exports = {
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
     ],
-    validate: ["required"],
-    invalidates: ["eeaIdCardAddressCheck"]
+    validate: ["required"]
+    // invalidates: ["eeaIdCardAddressCheck"]
   },
   ukDlAddressCheck: {
     legend: "",
