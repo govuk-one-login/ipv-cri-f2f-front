@@ -7,11 +7,7 @@ $govuk-assets-path: "/public/";
   @include govuk-responsive-margin(6, $direction: "bottom", $important: false, $adjustment: false);
 }
 
-.govuk-heading-m,
-.hmpo-auto-submit h1,
-h2 {
-  margin-bottom: 30px;
-}
+
 
 .govuk-list--bullet>li,
 .govuk-list--number>li {
@@ -94,10 +90,6 @@ main p,
 #details-btn {
   margin-top: 0;
   padding-top: 0;
-}
-
-#listItem {
-  margin-bottom: 30px;
 }
 
 #circle1 {
