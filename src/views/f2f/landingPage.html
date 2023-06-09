@@ -19,19 +19,19 @@
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">{{ "landingPage.title" | translate }}</h1>
     
     <div class="parent">
-      <div class="govuk-body" id="circle1">{{ "landingPage.firstCircle" | translate }}</div>
-      <div class="govuk-heading-m govuk-!-margin-bottom-6" id="stepTitle">{{ "landingPage.firstStepTitle" | translate }}</div>
+      <p class="circle">{{ "landingPage.firstCircle" | translate }}</p>
+      <p class="govuk-heading-m">{{ "landingPage.firstStepTitle" | translate }}</p>
     </div>
 
       <ol class="govuk-list--spaced" id="firstStepList"> 
-        <li> <p class="govuk-body govuk-!-margin-bottom-5">{{ "landingPage.instructions.firstStep.one" | translate }}</p> </li>
-        <li> <p class="govuk-body govuk-!-margin-bottom-5">{{ "landingPage.instructions.firstStep.two" | translate }}</p> </li>
-        <li> <p class="govuk-body govuk-!-margin-bottom-5">{{ "landingPage.instructions.firstStep.three" | translate }}</p> </li> 
+        <li> <p class="firstStepListItem">{{ "landingPage.instructions.firstStep.one" | translate }}</p> </li>
+        <li> <p class="firstStepListItem">{{ "landingPage.instructions.firstStep.two" | translate }}</p> </li>
+        <li> <p class="firstStepListItem">{{ "landingPage.instructions.firstStep.three" | translate }}</p> </li> 
       </ol>
       
     <div class="parent">
-      <div class="govuk-body" id="circle2">{{ "landingPage.secondCircle" | translate }}</div>
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-6" id="stepTitle">{{ "landingPage.secondStepTitle" | translate }}</h2>
+      <p class="circle">{{ "landingPage.secondCircle" | translate }}</p>
+      <p class="govuk-heading-m">{{ "landingPage.secondStepTitle" | translate }}</p>
     </div>
 
     <ol class="govuk-list--spaced" id="secondStepList">
@@ -41,7 +41,7 @@
     
     {% set insetBody %}
     <div>
-      <p class="govuk-body govuk-!-margin-bottom-5">{{ "landingPage.instructions.secondStep.three" | translate }}</p>
+      <p id="insetInstruction">{{ "landingPage.instructions.secondStep.three" | translate }}</p>
     </div>
     {% endset %}
 
@@ -49,8 +49,8 @@
       html: insetBody
     }) }}
 
-    <div class="govuk-body" id="circle3">{{ "landingPage.thirdCircle" | translate }}</div>
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-6" id="stepTitle">{{ "landingPage.thirdStepTitle" | translate }}</h2>
+    <p class="circle">{{ "landingPage.thirdCircle" | translate }}</p>
+    <p class="govuk-heading-m">{{ "landingPage.thirdStepTitle" | translate }}</p>
 
     <ul class="govuk-list--spaced" id="thirdStepList">
       <li> <p class="govuk-body govuk-!-margin-bottom-5">{{ "landingPage.instructions.thirdStep.one" | translate }}</li>
