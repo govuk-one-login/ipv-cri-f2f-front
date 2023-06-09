@@ -65,6 +65,10 @@ main p,
   width: 580px;
 }
 
+#landingPageTitle {
+  @include govuk-responsive-margin(5, "bottom")
+}
+
 #details-btn {
   @include govuk-responsive-margin(0, "top");
   @include govuk-responsive-padding(0, "top");
@@ -78,17 +82,10 @@ main p,
   @include govuk-responsive-padding(0, "top");
 }
 
-#listItem {
-  @include govuk-responsive-margin(6, "bottom")
+.listItem {
+  @include govuk-responsive-margin(5, "bottom")
 }
 
-.firstStepListItem {
-  @include govuk-responsive-margin(5, "bottom");
-}
-
-#insetInstruction {
-  @include govuk-responsive-margin(1, "bottom");
-}
 
 .circle {
   display: inline-block;

@@ -8,7 +8,7 @@ module.exports = {
     type: "radios",
     legend: "",
     label: "",
-    hint: "",
+    hint: "HELLO CAN YOU SEE THIS",
     items: [
       {
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
