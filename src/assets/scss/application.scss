@@ -86,6 +86,16 @@ main p,
   @include govuk-responsive-margin(5, "bottom")
 }
 
+.govuk-fieldset__legend {
+  font-size: 19px;
+  font-weight: 400;
+  @include govuk-responsive-padding(4, "top")
+}
+
+.govuk-main-wrapper {
+  @include govuk-responsive-padding(3, "top")
+}
+
 
 .circle {
   display: inline-block;
