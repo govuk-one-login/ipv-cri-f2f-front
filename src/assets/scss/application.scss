@@ -99,8 +99,8 @@ main p,
 .govuk-fieldset__legend--m {
   @include govuk-responsive-padding(6, "top");
   @include govuk-responsive-padding(2, "bottom");
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 19px;
+  font-weight: 400;
 }
 
 
