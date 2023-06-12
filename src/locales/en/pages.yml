@@ -60,8 +60,7 @@ locations:
 photoIdExpiry:
   title: "Your photo ID has expired"
   h1: "Your photo ID has expired"
-  content: "You need a valid ID to prove your identity.
-            <br><br>"
+  content: "You need a valid ID to prove your identity."
 
 checkDetails:
   title: "Check your details"
