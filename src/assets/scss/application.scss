@@ -49,7 +49,8 @@ main p,
 }
 
 .govuk-radios__divider {
-  @include govuk-responsive-margin(3, "bottom")
+  @include govuk-responsive-margin(3, "bottom");
+  margin-top: -15px;
 }
 
 .govuk-summary-list .govuk-summary-list__key {
