@@ -10,8 +10,8 @@
 <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
         {{ translate("locations.title") }}
     </h1>
-    <p class="govuk-!-font-weight-bold govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-6"> {{ translate("locations.body") }} </p>
-    <p class="govuk-!-margin-bottom-6"> {{hmpoHtml(translate("links.changePostcode"))}} </p>
+    <p class="locationBody"> {{ translate("locations.body") }} </p>
+    <p class="changePostcode"> {{hmpoHtml(translate("links.changePostcode"))}} </p>
     
     {% call hmpoForm(ctx) %}
         {{ hmpoRadios(ctx, branch, {id: "branches"}) }}

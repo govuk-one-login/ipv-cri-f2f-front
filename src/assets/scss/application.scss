@@ -104,6 +104,16 @@ main p,
   font-weight: 400;
 }
 
+.locationBody {
+  @include govuk-responsive-margin(6, "bottom");
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.changePostcode {
+  @include govuk-responsive-margin(6, "bottom")
+}
+
 
 .circle {
   display: inline-block;
