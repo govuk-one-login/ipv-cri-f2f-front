@@ -157,3 +157,11 @@ main p,
   font-weight: bold;
   font-size: 24px;
 }
+
+#landingPageContinue {
+  @include govuk-responsive-margin(1, "top")
+}
+
+#photoIdContinue {
+  margin-top: -3px;
+}
