@@ -12,7 +12,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async continue() {
-    await this.page.click("#continue");
+    await this.page.click("#landingPageContinue");
   }
 
   get poLink() {
