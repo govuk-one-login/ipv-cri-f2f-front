@@ -175,8 +175,8 @@ photoIdExpiryChoice:
   content: ""
   items:
     reEnterDetails:
-      label: Check the expiry date and try entering it again
+      label: Check the expiry date and enter it again
     chooseDifferentPhotoId:
-      label: Choose a different photo ID
+      label: Choose a different type of photo ID
     proveIdentityAnotherWay:
       label: Prove your identity another way
