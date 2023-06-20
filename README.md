@@ -2,7 +2,7 @@
 
 # di-ipv-cri-f2f-front
 
-Frontend for the F2F journey. 
+Frontend for the F2F journey.
 
 This is the home for the front end user interface for Face to Face journey as part of the Identity Proofing and Verification (IPV) system within the GDS digital identity platform. Other repositories are used for core services or other credential issuers.
 
@@ -70,3 +70,19 @@ This scenario will be configured to send a `scenario-id` header of `question-err
 ### Code Owners
 
 This repo has a `CODEOWNERS` file in the root and is configured to require PRs to reviewed by Code Owners.
+
+## Create and upload a custom image to ECR
+
+Execute the following commands to create a custom image locally and push it up to ECR.
+You need to have AWS credentials in your shell via `aws-vault` or `gds-cli` or similar.
+`YOUR_REPO` needs to refer to an existing repo in ECR, you can create one in console if you don't have one already.
+
+```shell
+aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 440208678480.dkr.ecr.eu-west-2.amazonaws.com
+docker build -t di-ipv-cri-f2f-front .
+docker tag di-ipv-cri-f2f-front:latest 440208678480.dkr.ecr.eu-west-2.amazonaws.com/YOUR_REPO:YOUR_TAG
+docker images
+docker push 440208678480.dkr.ecr.eu-west-2.amazonaws.com/YOUR_REPO:YOUR_TAG
+```
+
+Then to use this new image update the `Image:` tag in the template.yaml and redeploy your template locally in to your own stack in DEV.
