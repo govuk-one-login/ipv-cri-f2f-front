@@ -33,6 +33,6 @@ module.exports = class PlaywrightDevPage {
     }
 
     async noAddress(){
-      await this.page.click("#eeaIdCardAddressCheck-Myidentitycarddoesnothavemyaddressonit")
+      await this.page.click("#eeaIdCardAddressCheck-Mynationalidentitycarddoesnothavemyaddressonit")
     }
 };
