@@ -25,8 +25,6 @@ module.exports = {
   },
   "/photoIdSelection": {
     controller: photoIdSelect,
-    editable: true,
-    editBackStep: "checkDetails",
     fields: ["photoIdChoice"],
     invalidates: [
       "ukPassportExpiryDate",
@@ -35,7 +33,7 @@ module.exports = {
       "brpExpiryDate",
       "eeaIdCardExpiryDate",
       "euPhotocardDlExpiryDate",
-      "photoIdExpiryChoice"
+      "photoIdExpiryChoice",
     ],
     next: [
       {
@@ -94,7 +92,7 @@ module.exports = {
     fields: ["nonUKPassportExpiryDate"],
     controller: nonUKPassportDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: "checkAnswers",
     next: [
       {
         field: "nonUKPassportExpiryDate",
@@ -157,17 +155,17 @@ module.exports = {
     next: [
       {
         field: "euDrivingLicenceAddressCheck",
-        value: "sameAddress",
+        value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
       },
       {
         field: "euDrivingLicenceAddressCheck",
-        value: "differentAddress",
+        value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         next: APP.PATHS.PHOTO_ID_SELECTION
       },
       {
         field: "euDrivingLicenceAddressCheck",
-        value: "noAddress",
+        value: APP.ADDRESS_OPTIONS.NO_ADDRESS,
         next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
       }
     ]
@@ -194,17 +192,17 @@ module.exports = {
     next: [
       {
         field: "eeaIdCardAddressCheck",
-        value: "sameAddress",
+        value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
       },
       {
         field: "eeaIdCardAddressCheck",
-        value: "differentAddress",
+        value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         next: "photoIdSelection"
       },
       {
         field: "eeaIdCardAddressCheck",
-        value: "noAddress",
+        value: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
         next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
       }
     ]
@@ -289,6 +287,7 @@ module.exports = {
     editable: true,
     editBackStep: "checkDetails",
     next: "findBranch"
+
   },
   "/nonUkPassportCountrySelector": {
     fields: ["nonUkPassportCountrySelector"],
@@ -302,9 +301,14 @@ module.exports = {
     fields: ["postcode"],
     next: "locations",
   },
+  
   "/locations": {
     controller: resultsController,
     fields: ["branches"],
+    revalidateIf: [
+      "postcode",
+      "branches"
+    ],
     next: "checkDetails"
   },
   "/checkDetails": {
@@ -315,5 +319,5 @@ module.exports = {
     skip: true,
     noPost: true,
     next: "/oauth2/callback",
-  },
+  }
 }

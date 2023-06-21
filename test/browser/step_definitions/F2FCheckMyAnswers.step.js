@@ -9,6 +9,8 @@ const {
   PassportDetailsPageValidEdit,
   FindBranchValidEdit,
   PostOfficeLocations,
+  EEAIdentityCardAddressCheckEdit,
+  EEAIdentityCardCountrySelectorPageEdit
 } = require("../pages");
 
 Given(
@@ -45,8 +47,7 @@ When(/^the user clicks the PhotoIdChange button$/, async function () {
 });
 
 Then(
-  /^the user is navigated back to the PhotoIdSelection page$/,
-  async function () {
+  /^the user is navigated back to the PhotoIdSelection page$/, async function () {
     const pIDEditPage = new PhotoIdSelectionPageEdit(await this.page);
 
     expect(await pIDEditPage.isCurrentPage()).to.be.true;
@@ -159,5 +160,97 @@ Then(
     expect(await poLocations.isCurrentPage()).to.be.true;
 
     await poLocations.continue();
+  }
+);
+
+/**             ADDRESS CHECK SELECTION CHANGE             */
+
+/** 1. Click the Change button */
+When(/^the user clicks the Address Check Change button$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.isCurrentPage()).to.be.true;
+
+  await cma.changeAddressCheckLocation();
+});
+
+/** 2. Navigate back to the Address Check page for editing */
+Then(
+  /^the user is navigated back to the Address Check Page$/, async function () {
+    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(await this.page);
+
+    expect(await addressCheckEdit.isCurrentPage()).to.be.true;
+  }
+);
+
+/** 3. Change address selction choice to "My identity card does not have my address on it" */
+
+Then(
+  /^the user changes the address selection to "My identity card does not have my address on it"$/, async function () {
+    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(await this.page);
+    
+    await addressCheckEdit.noAddress();
+
+  }
+);
+
+/** 4. Return to the CMA page*/
+Then(
+  /^the user continues to the CMA page from the Address Check page$/, async function () {
+    
+    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(await this.page);
+
+    const checkDetails = new CheckDetails(await this.page);
+
+    await addressCheckEdit.continue();
+
+    expect(await checkDetails.isCurrentPage()).to.be.true;
+
+  }
+);
+
+/**             COUNTRY SELECTOR CHANGE             */
+
+/** 1. Click the Change button */
+When(/^the user clicks the Country Change button$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.isCurrentPage()).to.be.true;
+
+  await cma.changeCountry();
+});
+
+/** 2. Navigate back to country selector for editing */
+Then(
+  /^the user is navigated back to the Country Selector Page$/, async function () {
+    const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(await this.page);
+
+    expect(await countrySelector.isCurrentPage()).to.be.true;
+  }
+);
+
+/** 3. Change country of issue */
+
+Then(
+  /^the user changes the country of issue$/, async function () {
+    const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(await this.page);
+    
+    await countrySelector.selectCountry();
+
+  }
+);
+
+/** 4. Return to the CMA page*/
+Then(
+  /^the user continues to the CMA page from the Country Selector page$/, async function () {
+    
+    const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(await this.page);
+
+    const checkDetails = new CheckDetails(await this.page);
+
+    await countrySelector.continue();
+
+    expect(await checkDetails.isCurrentPage()).to.be.true;
+
   }
 );

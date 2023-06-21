@@ -18,7 +18,7 @@ Background:
     When the user clicks the continue button on the National Identity Card EEA Page
     Then the user is routed from NI Card EEA Details to the address check page
 
-    @test
+    
     Scenario: User clicks back button on EEA ID Address Check page
         Given the user is on the EEA ID address check page
         When they click the EEA ID address check back button

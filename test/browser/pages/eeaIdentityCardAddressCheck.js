@@ -29,10 +29,10 @@ module.exports = class PlaywrightDevPage {
     }
 
     async differentAddress(){
-      await this.page.click("#eeaIdCardAddressCheck-differentAddress")
+      await this.page.click("#eeaIdCardAddressCheck-Noithasmypreviousaddressonit")
     }
 
     async noAddress(){
-      await this.page.click("#eeaIdCardAddressCheck-noAddress")
+      await this.page.click("#eeaIdCardAddressCheck-Myidentitycarddoesnothavemyaddressonit")
     }
 };

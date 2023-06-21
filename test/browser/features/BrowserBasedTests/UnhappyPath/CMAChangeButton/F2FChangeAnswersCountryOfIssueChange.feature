@@ -1,5 +1,5 @@
-@mock-api:f2f-f2f-success @success @ukPass
-Feature: Enter National Identity Card EEA Details  - Happy Path
+@mock-api:f2f-f2f-success @success
+Feature: National Identity Card EEA change country of issue - Unhappy Path
 
 Background:
     Given Authenticatable Anita is using the system
@@ -22,7 +22,22 @@ Background:
     When the user clicks continue on the EEA Identity Card address check page
     Then they are routed to the EEA ID country code selection screen
 
-Scenario: National Identity Card EEA not expired (Happy path)
     Given the user is on the NI Card EEA Country Code Selection screen
     When the user selects an EEA country code
     Then the user is routed from NI Card EEA Country to Branch Finder Screen
+
+    Given the postcode entered is valid
+    When the user clicks the continue button on the find Post Office branch page
+    Then the user is routed to the Select Location page showing 5 nearest POs
+
+    Given a Post Office branch is selected
+    When the user clicks continue
+    Then the user is navigated to the next step in the journey - Confirm Answer
+
+    Scenario: Successful redirect from CMA screen back to country of issue then back to CMA screen
+        Given the user has navigated to the Check My Answers Page
+        When the user clicks the Country Change button
+        Then the user is navigated back to the Country Selector Page
+        Then the user changes the country of issue
+        Then the user continues to the CMA page from the Country Selector page
+        

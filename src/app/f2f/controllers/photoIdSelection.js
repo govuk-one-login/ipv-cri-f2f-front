@@ -70,6 +70,7 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL, true);
           req.sessionModel.set("selectedDocument", "EU photocard driving licence");
+          // req.sessionModel.set("euDrivingLicenceAddressCheck", undefined);
           req.sessionModel.set("changeUrl", "euPhotocardDlDetails");
           return next();
         }
@@ -81,6 +82,7 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD, true);
           req.sessionModel.set("selectedDocument", "National Identity card from an EEA country");
+          // req.sessionModel.set("eeaIdCardAddressCheck", undefined);
           req.sessionModel.set("changeUrl", "eeaIdentityCardDetails");
           return next();
         }
@@ -103,3 +105,4 @@ class PhotoIdSelectionController extends BaseController {
 }
 
 module.exports = PhotoIdSelectionController;
+

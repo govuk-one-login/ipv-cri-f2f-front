@@ -6,15 +6,15 @@ module.exports = class PlaywrightDevPage {
       this.page = page;
       this.url = "http://localhost:5030/nonUkPassportCountrySelector";
     }
-    
+
     async isCurrentPage() {
       return await this.page.url() === this.url;
     }
-  
+
     async continue() {
       await this.page.click("#continue");
     }
-  
+
     async back(){
       await this.page.click("#back");
     }
@@ -26,7 +26,7 @@ module.exports = class PlaywrightDevPage {
 
     async selectCountry(){
       const dropdown = await this.page.locator("select.govuk-select");
-      await dropdown.selectOption("CHE");
+      await dropdown.selectOption("Cambodia");
     }
 
   };

@@ -1,0 +1,90 @@
+{{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-6',
+        rows: [
+          {
+            key: {
+              text: translate("checkDetails.selectedId")
+            },
+            value: {
+              html: translate("{{ idChoice }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "/photoIdSelection",
+                  text: "Change",
+                  visuallyHiddenText: "ID Selection"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: translate("checkDetails.expiryDate")
+            },
+            value: {
+              html: translate("{{ formattedExpiryDate }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: changeUrl + "/edit",
+                  text: "Change",
+                  visuallyHiddenText: "expiryDate"
+                }
+              ]
+            }
+          },
+          { 
+              key: {
+              text: translate("checkDetails.euDlAddress")
+            },
+            value: {
+              html: translate("{{ addressCheck }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "euDrivingLicenceAddressCheck/edit",
+                  text: "Change",
+                  visuallyHiddenText: "Change current address"
+                }
+              ]
+            }
+          },
+          { 
+              key: {
+              text: "Country"
+            },
+            value: {
+              html: translate("{{ country }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "euDrivingLicenceCountrySelector/edit",
+                  text: "Change",
+                  visuallyHiddenText: "Change country of origin"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: translate("checkDetails.postOffice")
+            },
+            value: {
+              html: translate("{{ postOfficeName }}<br>{{ postOfficeAddress[0] }}<br>{{ postOfficeAddress[1] }}<br>{{ postOfficeAddress[2] }}<br>{{ postOfficeAddress[3] }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "/findBranch/edit",
+                  text: "Change",
+                  visuallyHiddenText: "post office address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}

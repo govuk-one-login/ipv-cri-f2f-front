@@ -61,7 +61,7 @@ locations:
 photoIdExpiry:
   title: "Your photo ID has expired"
   h1: "Your photo ID has expired"
-  content: "You need a valid ID to prove your identity.
+  content: "You need valid photo ID to prove your identity.
             <br><br>"
 
 checkDetails:
@@ -71,6 +71,10 @@ checkDetails:
   postOffice: "Post Office address"
   changeLink: "Change"
   buttonText: "Confirm and send"
+  ukDlAddress: Is the address on your driving licence the same as your current address?
+  euDlAddress: Does your driving licence have your current address on it?
+  idCardAddress: Does your identity card have your current address on it?
+  country: Country
 
 ukDlAddressCheck: 
   title: "Is the address on your driving licence the same as your current address?"

@@ -18,7 +18,7 @@ Background:
     When the user clicks the continue button on the National Identity Card EEA Page
     Then the user is routed from NI Card EEA Details to the address check page
 
-    @test
+    
     Scenario: User cannot progress without selecting an option
         Given no option has been chosen on the National Identity Card EEA Address Check screen
         When the user clicks the continue button on the National Identity Card EEA Page

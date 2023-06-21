@@ -137,16 +137,20 @@ eeaIdCardAddressCheck:
     required: "Select if your identity card has your current address on it"
 
 eeaIdentityCardCountrySelector:
+  label: "Select country"
   validation:
     equal: "Select the country your EEA national identity card is from"
 
 euDrivingLicenceCountrySelector:
+  label: "Select country"
   validation:
     equal: "Select the country your EU photocard driving licence is from"
 
 nonUkPassportCountrySelector:
-    validation:
-      equal: "Select the country your passport is from"
+  label: "Select country"
+  validation:
+    equal: "Select the country your passport is from"
+
 
 postcode:
   label: Enter a UK Postcode
@@ -171,8 +175,8 @@ photoIdExpiryChoice:
   content: ""
   items:
     reEnterDetails:
-      label: Check the expiry date and try entering it again
+      label: Check the expiry date and enter it again
     chooseDifferentPhotoId:
-      label: Choose a different photo ID
+      label: Choose a different type of photo ID
     proveIdentityAnotherWay:
       label: Prove your identity another way

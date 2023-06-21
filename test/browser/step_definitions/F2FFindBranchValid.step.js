@@ -32,7 +32,7 @@ const { FindBranch, PostOfficeLocations, PhotoDlAddressCheckPage } = require("..
     const poLocations = new PostOfficeLocations(await this.page);
     
     const locationCount = await poLocations.numberOfLocations();
-    //console.log(">>Location number is: ", locationCount);
+    
   
     expect(await poLocations.isCurrentPage()).to.be.true;
 
@@ -40,14 +40,6 @@ const { FindBranch, PostOfficeLocations, PhotoDlAddressCheckPage } = require("..
   
 
   });
-
-
-  // Then(/^the user clicks the back button on the UKPhotoDL Page$/, async function () {
-  //   const ukPhotoDl = new PhotoDlDetailsPageValid(await this.page);
-  
-  //   expect(await ukPhotoDl.isCurrentPage()).to.be.true;
-  
-  // });
 
 
   Then(/^the user is navigated back to the UK DL Address Check screen$/, async function () {

@@ -18,7 +18,6 @@ Background:
     When the user clicks the continue button on the National Identity Card EEA Page
     Then the user is routed from NI Card EEA Details to the address check page
 
-@test
 Scenario: National Identity Card EEA has different address (Unhappy path)
     Given the user selects No, it has my previous address on it for EEA ID
     When the user clicks continue on the EEA Identity Card address check page

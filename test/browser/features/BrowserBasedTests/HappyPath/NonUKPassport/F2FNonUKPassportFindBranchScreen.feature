@@ -22,6 +22,7 @@ Background:
     When the user selects a country
     Then they are routed to the NonUKPassport Branch Finder screen
 
+
 Scenario: Find Nearest PO Branch - NonUK Passport (Happy path)
     Given the postcode entered is valid
     When the user clicks the continue button on the find Post Office branch page

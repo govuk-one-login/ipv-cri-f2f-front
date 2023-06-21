@@ -18,6 +18,7 @@ Background:
     When the user clicks the continue button on the EU Driving Licence details page
     Then the user is routed from EU DL Details to the address check page
 
+    
     Scenario: EU Driving Licence has current address (Happy path)
         Given the user selects My driving licence does not have my address on it
         When the user clicks continue on the EU Driving Licence address check page

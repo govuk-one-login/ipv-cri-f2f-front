@@ -29,7 +29,7 @@ Feature: Change Expiry Date - UnHappy Path
 
     Scenario: Successful redirect from CMA screen back to expiry date entry then back to CMA screen
         Given the user has navigated to the Check My Answers Page
-         When the user clicks the ExpiryDate Change button
-         Then the user is navigated back to the Expiry Date Page
-         Then the user changes the Expiry Date
-         Then the user continues to the CMA page
+        When the user clicks the ExpiryDate Change button
+        Then the user is navigated back to the Expiry Date Page
+        Then the user changes the Expiry Date
+        Then the user continues to the CMA page
