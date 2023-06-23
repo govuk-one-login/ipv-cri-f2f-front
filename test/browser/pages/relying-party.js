@@ -7,9 +7,6 @@ module.exports = class PlaywrightDevPage {
   }
   
   async goto() {  
-  //  this.startingUrl =
-  //     "http://localhost:5030/oauth2/authorize?request=lorem&client_id=standalone";
-  
     const axios = require("axios");
     const claim = require("../support/shared_claim")    
     const postRequest = await axios.post("https://ipvstub.review-o.build.account.gov.uk/start", claim);    

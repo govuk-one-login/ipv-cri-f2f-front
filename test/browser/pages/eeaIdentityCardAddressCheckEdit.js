@@ -26,18 +26,15 @@ module.exports = class PlaywrightDevPage {
     }
 
     async sameAddress(){
-     // await this.page.click("#eeaIdCardAddressCheck")
      await this.page.locator(".govuk-radios__item").first().click();
     }
 
     async differentAddress(){
-     // await this.page.click("#eeaIdCardAddressCheck-Noithasmypreviousaddressonit")
      await this.page.locator(".govuk-radios__item").nth(1).click();
 
     }
 
     async noAddress(){
-     // await this.page.click("#eeaIdCardAddressCheck-Myidentitycarddoesnothavemyaddressonit")
      await this.page.locator(".govuk-radios__item").last().click();
     }
 };

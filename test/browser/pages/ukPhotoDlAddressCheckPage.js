@@ -17,12 +17,10 @@ module.exports = class PlaywrightDevPage {
     }
   
     async addressYes(){
-     // await this.page.click("#ukDlAddressCheck");
       await this.page.locator(".govuk-radios__item").first().click();
     }
     
     async addressNo(){
-     // await this.page.click("#ukDlAddressCheck-No");
       await this.page.locator(".govuk-radios__item").last().click();
     }
     
