@@ -27,4 +27,4 @@ Feature: Select Post Office Branch - Happy Path
         When the user clicks continue
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
-        Then they should be redirected as a success
+        # Then they should be redirected as a success

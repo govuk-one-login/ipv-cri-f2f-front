@@ -4,11 +4,12 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.url = "http://localhost:5030/ukDlAddressCheck";
+      this.path = "/ukDlAddressCheck";
     }
-    
+
     async isCurrentPage() {
-      return await this.page.url() === this.url;
+      const { pathname } = new URL(await this.page.url());
+      return pathname === this.path;
     }
   
     async continue() {
@@ -16,11 +17,11 @@ module.exports = class PlaywrightDevPage {
     }
   
     async addressYes(){
-      await this.page.click("#ukDlAddressCheck");
+      await this.page.locator(".govuk-radios__item").first().click();
     }
     
     async addressNo(){
-      await this.page.click("#ukDlAddressCheck-No");
+      await this.page.locator(".govuk-radios__item").last().click();
     }
     
     async changeAddressLink(){

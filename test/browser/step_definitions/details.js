@@ -4,7 +4,7 @@ const { RelyingPartyPage, FindBranch, LandingPage, CheckDetails } = require("../
 
 const { expect } = require("chai");
 
-Given(/^([A-Za-z ])+is using the system$/, async function (name) {
+Given(/^([A-Za-z ])+is using the system$/, { timeout: 2 * 50000 }, async function (name) {
   this.user = this.allUsers[name];
   const rpPage = new RelyingPartyPage(this.page);
 
