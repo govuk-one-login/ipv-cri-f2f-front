@@ -4,11 +4,12 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.url = "http://localhost:5030/eeaIdCardAddressCheck/edit";
+      this.path = "/eeaIdCardAddressCheck/edit";
     }
 
     async isCurrentPage() {
-      return await this.page.url() === this.url;
+      const { pathname } = new URL(this.page.url());
+      return pathname === this.path;
     }
 
     async continue() {
@@ -25,14 +26,15 @@ module.exports = class PlaywrightDevPage {
     }
 
     async sameAddress(){
-      await this.page.click("#eeaIdCardAddressCheck")
+     await this.page.locator(".govuk-radios__item").first().click();
     }
 
     async differentAddress(){
-      await this.page.click("#eeaIdCardAddressCheck-Noithasmypreviousaddressonit")
+     await this.page.locator(".govuk-radios__item").nth(1).click();
+
     }
 
     async noAddress(){
-      await this.page.click("#eeaIdCardAddressCheck-Myidentitycarddoesnothavemyaddressonit")
+     await this.page.locator(".govuk-radios__item").last().click();
     }
 };

@@ -19,36 +19,36 @@ landingPage:
       one: "You'll get an email about the result of your identity check - usually within a day of visiting the Post Office. "
 
 photoIdSelection:
-  title: "Choose a photo ID you can take to a Post Office"
-  h1: "Choose a photo ID you can take to a Post Office"
-  content: "You must take the original photo ID document, not a photocopy.
+  title: "Choose which photo ID you can take to a Post Office"
+  h1: "Choose which photo ID you can take to a Post Office"
+  content: "You cannot use a photocopy or digital copy of your photo ID.
             <br><br>
             Your photo ID must not have expired.
             <br><br>"
 
 ukPassport:
-  title: "When does your UK passport expire?"
-  passportInformationContext: "We need this information to check that your photo ID is valid."
+  title: "When does your passport expire?"
+  passportInformationContext: "We need this information to check your photo ID is valid."
 
 nonUKPassport:
-  title: "When does your non-UK biometric passport expire?"
-  passportInformationContext: "We need this information to check that your photo ID is valid."
+  title: "When does your passport expire?"
+  passportInformationContext: "We need this information to check your photo ID is valid."
 
 ukPhotocardDl:
-  title: "When does your UK photocard driving licence expire?"
-  photocardDlInformationContext: "We need this information to check that your photo ID is valid. "
+  title: "When does your driving licence expire?"
+  photocardDlInformationContext: "We need this information to check your photo ID is valid. "
 
 brp:
   title: "When does your biometric residence permit (BRP) expire?"
-  passportInformationContext: "We need this information to check that your photo ID is valid. "
+  passportInformationContext: "We need this information to check your photo ID is valid. "
 
 euPhotocardDl:
-  title: "When does your EU photocard driving licence expire?"
-  euPhotocardDlInformationContext: "We need this information to check that your photo ID is valid."
+  title: "When does your driving licence expire?"
+  euPhotocardDlInformationContext: "We need this information to check your photo ID is valid."
 
 eeaIdentityCard: 
-  title: "When does your National Identity card from an EEA country expire?" 
-  content: "We need this information to check that your photo ID is valid."
+  title: "When does your national identity card expire?" 
+  content: "We need this information to check your photo ID is valid."
 
 findBranch:
   title: "Find a Post Office where you can prove your identity"
@@ -61,7 +61,7 @@ locations:
 photoIdExpiry:
   title: "Your photo ID has expired"
   h1: "Your photo ID has expired"
-  content: "You need a valid ID to prove your identity.
+  content: "You need valid photo ID to prove your identity.
             <br><br>"
 
 checkDetails:
@@ -73,11 +73,11 @@ checkDetails:
   buttonText: "Confirm and send"
   ukDlAddress: Is the address on your driving licence the same as your current address?
   euDlAddress: Does your driving licence have your current address on it?
-  idCardAddress: Does your identity card have your current address on it?
+  idCardAddress: Does your national identity card have your current address on it?
   country: Country
 
 ukDlAddressCheck: 
-  title: "Is the address on your driving licence the same as your current address?"
+  title: "Does your driving licence have your current address on it?"
   context: "If the address on your driving licence is not the same as your current address, you'll need to choose another type of photo ID."
   change-how: "How do I change the address on my driving licence?"
   change-link: <a href="https://www.gov.uk/tell-dvla-changed-address" target="_blank" class="govuk-link">Tell DVLA you've changed address (opens in a new tab)</a>
@@ -88,17 +88,17 @@ euDlAddressCheck:
   
 
 eeaIdCardAddressCheck:
-  title: "Does your identity card have your current address on it?"
-  body: "If your identity card has your previous address on it, you'll need to choose another type of photo ID."
+  title: "Does your national identity card have your current address on it?"
+  body: "If your national identity card has your previous address on it, you'll need to choose another type of photo ID."
   
 eeaIdentityCardCountrySelector:
-  title: "Select which country your EEA national identity card is from"
+  title: "Select which country your national identity card is from"
   content: "If the country your national identity card is from is not on the list, you'll need to choose a different type of photo ID."
   link: "The country my national identity card is from is not on the list"
 
 euDrivingLicenceCountrySelector:
-  title: "Select which country your EU photocard driving licence is from"
-  content: "If the country your driving licence is from is not on the list, you'll need to choose a different type of photo ID."
+  title: "Select which country driving licence is from"
+  content: "If the country your driving licence is from is not on the list, you'll need to choose another type of photo ID."
   link: "The country my driving licence is from is not on the list"
 
 nonUkPassportCountrySelector:

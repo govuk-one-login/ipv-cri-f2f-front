@@ -15,7 +15,10 @@ module.exports = {
         hint: { text: APP.UK_PASSPORT_HINT }
       },
       { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
-      { value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL },
+      { 
+        value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
+        hint: { text: APP.UK_DL_HINT }
+      },
       { value: APP.PHOTO_ID_OPTIONS.BRP },
       {
         value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL,
@@ -36,8 +39,8 @@ module.exports = {
     label: "",
     hint: "",
     items: [
-      { value: "Yes", text: "Yes" },
-      { value: "No", text: "No" }
+      { value: "Yes", text: "Yes, it has my current address on it" },
+      { value: "No", text: "No, it has my previous address on it" }
     ],
     validate: ["required"]
   },

@@ -91,6 +91,10 @@ main p,
   margin-bottom: 0px;
 }
 
+#branches-1-label, #branches-2-label, #branches-3-label, #branches-4-label, #branches-5-label  {
+  font-weight: bold;
+}
+
 #details-btn {
   margin-top: 0;
   padding-top: 0;
@@ -156,4 +160,12 @@ main p,
 #postcode-label {
   font-weight: bold;
   font-size: 24px;
+}
+
+#landingPageContinue {
+  @include govuk-responsive-margin(1, "top")
+}
+
+#photoIdContinue {
+  margin-top: -3px;
 }

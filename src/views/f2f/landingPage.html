@@ -57,7 +57,7 @@
 
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
     {% block submitButton %}
-      {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+      {{ hmpoSubmit(ctx, {id: "landingPageContinue", text: translate("buttons.next")}) }}
     {% endblock %}
     {% endcall %}
   </div>
