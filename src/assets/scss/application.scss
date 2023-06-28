@@ -113,6 +113,9 @@ main p,
   @include govuk-responsive-margin(6, "bottom");
 }
 
+.govuk-link {
+  font-size: 19px;
+}
 
 .circle {
   display: inline-block;
