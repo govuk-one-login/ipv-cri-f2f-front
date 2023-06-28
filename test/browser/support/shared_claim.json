@@ -1,0 +1,41 @@
+{
+    "yotiMockID": "0000",
+    "shared_claims": {
+        "name": [
+            {
+                "nameParts": [
+                    {
+                        "value": "API",
+                        "type": "Jackson"
+                    },
+                    {
+                        "value": "Automated",
+                        "type": "Jackson"
+                    },
+                    {
+                        "value": "Test",
+                        "type": "FamilyName"
+                    }
+                ]
+            }
+        ],
+        "birthDate": [
+            {
+                "value": "1960-02-02"
+            }
+        ],
+        "address": [
+            {
+                "uprn": "123456789",
+                "buildingNumber": "32",
+                "buildingName": "London",
+                "streetName": "Demo",
+                "addressLocality": "London",
+                "addressCountry": "United Kingdom",
+                "postalCode": "SW19"
+            }
+        ],
+        "emailAddress": "sadie.henry@digital.cabinet-office.gov.uk"   
+    },
+    "target": "https://api.review-o.build.account.gov.uk"
+}

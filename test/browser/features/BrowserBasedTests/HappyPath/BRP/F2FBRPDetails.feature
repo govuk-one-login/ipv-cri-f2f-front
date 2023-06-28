@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success
-Feature: Enter UK driving licence   - Happy Path
+Feature: Enter UK driving licence - Happy Path
 
     Background:
         Given Authenticatable Anita is using the system

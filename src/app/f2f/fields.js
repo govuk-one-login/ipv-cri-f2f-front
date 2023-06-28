@@ -39,8 +39,8 @@ module.exports = {
     label: "",
     hint: "",
     items: [
-      { value: "Yes", text: "Yes" },
-      { value: "No", text: "No" }
+      { value: "Yes", text: "Yes, it has my current address on it" },
+      { value: "No", text: "No, it has my previous address on it" }
     ],
     validate: ["required"]
   },

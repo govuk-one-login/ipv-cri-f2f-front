@@ -5,15 +5,18 @@ module.exports = class PlaywrightDevPage {
   constructor(page) {
     this.page = page;
   }
-
-  async goto() {
-    this.startingUrl =
-      "http://localhost:5030/oauth2/authorize?request=lorem&client_id=standalone";
+  
+  async goto() {  
+    const axios = require("axios");
+    const claim = require("../support/shared_claim")    
+    const postRequest = await axios.post("https://ipvstub.review-o.build.account.gov.uk/start", claim);    
+    let url = postRequest.data.AuthorizeLocation.split("https://");
+    this.startingUrl = "https://" + "www." + url[1];
 
     await this.page.goto(this.startingUrl);
   }
 
- isRelyingPartyServer() {
+  isRelyingPartyServer() {
     return new URL(this.page.url()).origin === "http://example.net";
   }
 
