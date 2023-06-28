@@ -15,17 +15,17 @@ h2 {
 
 .govuk-list--bullet>li,
 .govuk-list--number>li {
-  @include govuk-responsive-margin(3, "bottom")
+  @include govuk-responsive-margin(3, "bottom");
 }
 
 .govuk-inset-text {
-  @include govuk-responsive-margin(6, "bottom")
+  @include govuk-responsive-margin(6, "bottom");
 }
 
 .govuk-body,
 main p,
 .govuk-body-m {
-  @include govuk-responsive-margin(6, "bottom")
+  @include govuk-responsive-margin(6, "bottom");
 }
 
 .govuk-button {
@@ -36,11 +36,11 @@ main p,
 .govuk-body,
 main p,
 .govuk-body-m {
-  @include govuk-responsive-margin(1, "bottom")
+  @include govuk-responsive-margin(1, "bottom");
 }
 
 .hint-with-margin {
-  @include govuk-responsive-margin(6, "top")
+  @include govuk-responsive-margin(6, "top");
 }
 
 .govuk-radios__divider {
@@ -54,7 +54,7 @@ main p,
 }
 
 .govuk-warning-text {
-  @include govuk-responsive-margin(0, "bottom")
+  @include govuk-responsive-margin(0, "bottom");
 }
 
 .govuk-error-summary {
@@ -62,7 +62,7 @@ main p,
 }
 
 #landingPageTitle {
-  @include govuk-responsive-margin(5, "bottom")
+  @include govuk-responsive-margin(5, "bottom");
 }
 
 #details-btn {
@@ -71,7 +71,7 @@ main p,
 }
 
 .govuk-warning-text {
-  @include govuk-responsive-margin(0, "bottom")
+  @include govuk-responsive-margin(0, "bottom");
 }
 #details-btn {
   @include govuk-responsive-margin(0, "top");
@@ -79,20 +79,21 @@ main p,
 }
 
 .listItem {
-  @include govuk-responsive-margin(5, "bottom")
+  @include govuk-responsive-margin(5, "bottom");
 }
 
 .govuk-fieldset__legend {
   font-size: 19px;
   font-weight: 400;
-  @include govuk-responsive-padding(4, "top")
+  @include govuk-responsive-padding(4, "top");
+}
 
 #branches-1-label, #branches-2-label, #branches-3-label, #branches-4-label, #branches-5-label  {
   font-weight: bold;
 }
 
 .govuk-main-wrapper {
-  @include govuk-responsive-padding(3, "top")
+  @include govuk-responsive-padding(3, "top");
 }
 
 .govuk-fieldset__legend--m {
@@ -109,7 +110,7 @@ main p,
 }
 
 .changePostcode {
-  @include govuk-responsive-margin(6, "bottom")
+  @include govuk-responsive-margin(6, "bottom");
 }
 
 
@@ -134,7 +135,7 @@ main p,
 }
 
 #landingPageContinue {
-  @include govuk-responsive-margin(1, "top")
+  @include govuk-responsive-margin(1, "top");
 }
 
 #photoIdContinue {
