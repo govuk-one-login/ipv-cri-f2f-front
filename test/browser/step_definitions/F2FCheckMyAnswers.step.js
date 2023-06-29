@@ -2,6 +2,8 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
+const DynoDBConnection = require("../support/DynmoDBConnection")
+
 const {
   CheckDetails,
   PhotoIdSelectionPageEdit,
@@ -254,3 +256,17 @@ Then(
 
   }
 );
+
+Given(/^I have retrieved the sessionTable data for my F2F session$/, { timeout: 2 * 50000 }, async function () {
+  await new Promise(r => setTimeout(r, 10000));
+  const sessionState = this.state;
+  const dbConnection = new DynoDBConnection(sessionState.replace(/"/g, ""), "session-f2f-cri-ddb");
+  this.sessionId = await dbConnection.getCicSessionId();
+  this.authSessionState = await dbConnection.getCicSessionAuthSessionState();
+})
+
+
+Then(/^session details are correctly stored in DB$/, { timeout: 2 * 50000 }, async function () {
+  expect(this.sessionId).to.not.be.null;
+  expect(this.authSessionState).to.equal("F2F_AUTH_CODE_ISSUED");
+})

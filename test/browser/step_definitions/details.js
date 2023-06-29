@@ -43,4 +43,6 @@ When(/^the user clicks the Check My Answers Submit button$/, async function () {
 
   await cmPage.continue();
 
+  this.state = await cmPage.setSessionState();
+
 })
