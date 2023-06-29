@@ -4,14 +4,14 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.url = "http://localhost:5030/nonUKPassportDetails";
+    this.path = "/nonUKPassportDetails";
   }
-
 
   async isCurrentPage() {
-    return await this.page.url() === this.url;
+    const { pathname } = new URL(await this.page.url());
+    return pathname === this.path;
   }
-
+  
   async continue() {
     await this.page.click("#continue");
   }
