@@ -1,7 +1,6 @@
-@mock-api:f2f-f2f-success @success @only
+@mock-api:f2f-f2f-success @success @only @e2e
 Feature: F2F Journey - E2E
 
-@test
 Scenario: F2F Journey - E2E Happy Path and DB Validation
     Given Authenticatable Anita is using the system
     When they have provided their details
