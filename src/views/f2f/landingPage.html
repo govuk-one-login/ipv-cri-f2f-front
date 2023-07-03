@@ -16,30 +16,32 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">{{ "landingPage.title" | translate }}</h1>
+    <h1 class="govuk-heading-l" id="landingPageTitle">{{ "landingPage.title" | translate }}</h1>
     
     <div class="parent">
-      <div class="govuk-body" id="circle1">{{ "landingPage.firstCircle" | translate }}</div>
-      <div class="govuk-heading-m" id="stepTitle">{{ "landingPage.firstStepTitle" | translate }}</div>
+      <p class="circle">{{ "landingPage.firstCircle" | translate }}</p>
+      <p class="govuk-heading-m">{{ "landingPage.firstStepTitle" | translate }}</p>
     </div>
 
-    <ul class="govuk-list" id="firstStepList">
-      <li id="listItem">{{ "landingPage.instructions.firstStep.one" | translate }}</li>
-      <li id="listItem">{{ "landingPage.instructions.firstStep.two" | translate }}</li>
-      <li id="listItem">{{ "landingPage.instructions.firstStep.three" | translate }}</li>
-    </ul>
+      <ol class="govuk-list--spaced" id="firstStepList"> 
+        <li> <p class="listItem">{{ "landingPage.instructions.firstStep.one" | translate }}</p> </li>
+        <li> <p class="listItem">{{ "landingPage.instructions.firstStep.two" | translate }}</p> </li>
+        <li> <p class="listItem">{{ "landingPage.instructions.firstStep.three" | translate }}</p> </li> 
+      </ol>
+      
+    <div class="parent">
+      <p class="circle">{{ "landingPage.secondCircle" | translate }}</p>
+      <p class="govuk-heading-m">{{ "landingPage.secondStepTitle" | translate }}</p>
+    </div>
 
-    <div class="govuk-body" id="circle2">{{ "landingPage.secondCircle" | translate }}</div>
-    <h2 class="govuk-heading-m" id="stepTitle">{{ "landingPage.secondStepTitle" | translate }}</h2>
-
-    <ul class="govuk-list" id="secondStepList">
-      <li id="listItem">{{ "landingPage.instructions.secondStep.one" | translate }}<a href={{ "common.postoffice.pathToPoBranchSearch" | translate }}> {{ "common.postoffice.postofficeLink" | translate }}</a></li>
-      <li id="listItem">{{ "landingPage.instructions.secondStep.two" | translate }}</li>
-    </ul>
+    <ol class="govuk-list--spaced" id="secondStepList">
+      <li> <p class="listItem">{{ "landingPage.instructions.secondStep.one" | translate }}<a href={{ "common.postoffice.pathToPoBranchSearch" | translate }}> {{ "common.postoffice.postofficeLink" | translate }}</a></p></li>
+      <li> <p>{{ "landingPage.instructions.secondStep.two" | translate }}</p> </li>
+    </ol>
     
     {% set insetBody %}
     <div>
-      <p id="indentedInstruction">{{ "landingPage.instructions.secondStep.three" | translate }}</p>
+      <p id="insetInstruction">{{ "landingPage.instructions.secondStep.three" | translate }}</p>
     </div>
     {% endset %}
 
@@ -47,11 +49,11 @@
       html: insetBody
     }) }}
 
-    <div class="govuk-body" id="circle3">{{ "landingPage.thirdCircle" | translate }}</div>
-    <h2 class="govuk-heading-m" id="stepTitle">{{ "landingPage.thirdStepTitle" | translate }}</h2>
+    <p class="circle">{{ "landingPage.thirdCircle" | translate }}</p>
+    <p class="govuk-heading-m">{{ "landingPage.thirdStepTitle" | translate }}</p>
 
-    <ul class="govuk-list" id="thirdStepList">
-      <li id="listItem">{{ "landingPage.instructions.thirdStep.one" | translate }}</li>
+    <ul class="govuk-list--spaced" id="thirdStepList">
+      <li> <p class="listItem">{{ "landingPage.instructions.thirdStep.one" | translate }}</li>
     </ul>
 
 
