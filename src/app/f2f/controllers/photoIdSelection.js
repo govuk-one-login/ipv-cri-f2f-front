@@ -81,7 +81,7 @@ class PhotoIdSelectionController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD, true);
-          req.sessionModel.set("selectedDocument", "National Identity card from an EEA country");
+          req.sessionModel.set("selectedDocument", "National identity card from an EEA country");
           // req.sessionModel.set("eeaIdCardAddressCheck", undefined);
           req.sessionModel.set("changeUrl", "eeaIdentityCardDetails");
           return next();

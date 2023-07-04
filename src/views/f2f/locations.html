@@ -15,7 +15,7 @@
     
     {% call hmpoForm(ctx) %}
         {{ hmpoRadios(ctx, branch, {id: "branches"}) }}
-        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+        {{ hmpoSubmit(ctx, {id: "spacedContinue", text: translate("buttons.next")}) }}
     {% endcall %}
 
     {% include "common/confirmIdentityAnotherWay.html" %}

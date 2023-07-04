@@ -40,12 +40,13 @@ main p,
 }
 
 .hint-with-margin {
-  @include govuk-responsive-margin(6, "top");
+  @include govuk-responsive-margin(4, "top");
+  margin-bottom: govuk-spacing(-2);
 }
 
 .govuk-radios__divider {
-  @include govuk-responsive-margin(3, "bottom");
-  margin-top: govuk-spacing(-2);
+  @include govuk-responsive-margin(2, "bottom");
+  
 }
 
 .govuk-summary-list .govuk-summary-list__key {
@@ -97,10 +98,10 @@ main p,
 }
 
 .govuk-fieldset__legend--m {
-  @include govuk-responsive-padding(6, "top");
+  @include govuk-responsive-padding(5, "top");
   @include govuk-responsive-padding(2, "bottom");
-  font-size: 19px;
-  font-weight: 400;
+  font-size: 23px;
+  font-weight: bold;
 }
 
 .locationBody {
@@ -134,13 +135,13 @@ main p,
 
 #postcode-label {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 23px;
 }
 
 #landingPageContinue {
   @include govuk-responsive-margin(1, "top");
 }
 
-#photoIdContinue {
-  margin-top: -3px;
+#spacedContinue {
+  margin-top: govuk-spacing(-1);
 }
