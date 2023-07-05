@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success
+@mock-api:f2f-f2f-success @success @browser
 Feature: EU Driving Licence Select Nearest PO Branch from 1 of 5 - Happy Path
 
 Background:

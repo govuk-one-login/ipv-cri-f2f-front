@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @only @e2e
+@mock-api:f2f-f2f-success @success @only
 Feature: F2F Journey - E2E
 
 Scenario: F2F Journey - E2E Happy Path and DB Validation
@@ -28,7 +28,7 @@ Scenario: F2F Journey - E2E Happy Path and DB Validation
     Then the user is navigated to the next step in the journey - Confirm Answer
     When the user clicks the Check My Answers Submit button
     
-    #Given I have retrieved the sessionTable data for my F2F session
-    #Then session details are correctly stored in DB
+    Given I have retrieved the sessionTable data for my F2F session
+    Then session details are correctly stored in DB
 
     
