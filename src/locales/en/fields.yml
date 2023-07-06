@@ -30,7 +30,7 @@ photoIdChoice:
 ukDlAddressCheck:
   legend: ""
   validation:
-    default: "Select yes if the address on your driving licence is the same as your current address"
+    default: "Select if your driving licence has your current address on it"
 
 ukPassportExpiryDate:
   legend: ""
@@ -139,12 +139,12 @@ eeaIdCardAddressCheck:
 eeaIdentityCardCountrySelector:
   label: "Select country"
   validation:
-    equal: "Select the country your EEA national identity card is from"
+    equal: "Select the country your national identity card is from"
 
 euDrivingLicenceCountrySelector:
   label: "Select country"
   validation:
-    equal: "Select the country your EU photocard driving licence is from"
+    equal: "Select the country your driving licence is from"
 
 nonUkPassportCountrySelector:
   label: "Select country"
@@ -156,12 +156,12 @@ postcode:
   label: Enter a UK postcode
   hint: "For example, SW1A 2AA"
   validation:
-    default: "Enter a valid UK postcode"
+    default: "Enter a real UK postcode"
 
 branches:
   label: Postcode
   validation:
-    default: "Select your preferred Post Office branch"
+    default: "Select a Post Office where you can prove your identity"
 
 checkDetails: 
   label: ""
@@ -171,7 +171,7 @@ checkDetails:
 
 photoIdExpiryChoice:
   validation:
-    required: Please choose an option
+    required: You must choose an option to continue
   content: ""
   items:
     reEnterDetails:

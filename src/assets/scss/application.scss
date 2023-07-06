@@ -13,6 +13,7 @@ h2 {
   display: inline-block;
 }
 
+
 .govuk-list--bullet>li,
 .govuk-list--number>li {
   @include govuk-responsive-margin(3, "bottom");
@@ -59,7 +60,7 @@ main p,
 }
 
 .govuk-error-summary {
-  width: 580px;
+  width: 66.6666%;
 }
 
 #landingPageTitle {
@@ -145,3 +146,7 @@ main p,
 #spacedContinue {
   margin-top: govuk-spacing(-1);
 }
+
+// #photoIdExpiryPrompt {
+//   font-size: 23px;
+// }

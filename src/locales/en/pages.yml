@@ -62,6 +62,7 @@ photoIdExpiry:
   title: "Your photo ID has expired"
   h1: "Your photo ID has expired"
   content: "You need valid photo ID to prove your identity."
+  prompt: "What would you like to do?"
 
 checkDetails:
   title: "Check your answers"
