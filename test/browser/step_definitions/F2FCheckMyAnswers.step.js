@@ -261,8 +261,8 @@ Given(/^I have retrieved the sessionTable data for my F2F session$/, { timeout: 
   await new Promise(r => setTimeout(r, 10000));
   const sessionState = this.state;
   const dbConnection = new DynoDBConnection(sessionState.replace(/"/g, ""), "session-f2f-cri-ddb");
-  this.sessionId = await dbConnection.getCicSessionId();
-  this.authSessionState = await dbConnection.getCicSessionAuthSessionState();
+  this.sessionId = await dbConnection.getF2FSessionId();
+  this.authSessionState = await dbConnection.getF2FSessionAuthSessionState();
 })
 
 

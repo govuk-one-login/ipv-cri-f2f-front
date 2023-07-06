@@ -18,7 +18,7 @@ module.exports = class DynamoDBConnection {
     };
   }
 
-  async getCicSessionId() {
+  async getF2FSessionId() {
     try {
       const res = await this.docClient.scan(this.params).promise();
       const sessionId = res.Items[0].sessionId;
@@ -28,7 +28,7 @@ module.exports = class DynamoDBConnection {
     }
   }
 
-  async getCicSessionAuthSessionState() {
+  async getF2FSessionAuthSessionState() {
     try {
       const res = await this.docClient.scan(this.params).promise();
       const authSessionState = res.Items[0].authSessionState;
