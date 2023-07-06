@@ -236,7 +236,7 @@ module.exports = {
       }
     ]
   },
-  "/eeaIdCardAddressCheck": {
+  "/national-identity-card-current-address": {
     fields: ["eeaIdCardAddressCheck"],
     editable: true,
     editBackStep: "checkDetails",
