@@ -25,7 +25,7 @@ module.exports = {
       PHOTOCARD_DL_DETAILS: "/ukPhotocardDlDetails",
       EU_DRIVING_LICENCE_ADDRESS_CHECK: "/euDrivingLicenceAddressCheck",
       EU_DRIVING_LICENCE_COUNTRY_SELECTOR: "/euDrivingLicenceCountrySelector",
-      BRP_DETAILS: "/brpDetails",
+      BRP_DETAILS: "/biometric-residence-permit-expire",
       EU_PHOTOCARD_DL_DETAILS: "/euPhotocardDlDetails",
       EEA_IDENTITY_CARD_DETAILS: "/eeaIdentityCardDetails",
       EEA_IDENTITY_CARD_COUNTRY_SELECTOR: "/eeaIdentityCardCountrySelector",

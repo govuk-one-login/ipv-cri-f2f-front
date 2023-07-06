@@ -118,7 +118,7 @@ module.exports = {
       "ukDlAddressCheck",
     ],
   },
-  "/brpDetails": {
+  "/biometric-residence-permit-expire": {
     fields: ["brpExpiryDate"],
     controller: brpDetails,
     editable: true,
