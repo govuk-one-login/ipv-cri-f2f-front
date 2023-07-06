@@ -1,7 +1,7 @@
-@mock-api:f2f-f2f-success @success @browser
-Feature: UK Passport Find Nearest PO Branch - Happy Path
+@mock-api:f2f-f2f-success @success @only
+Feature: F2F Journey - E2E
 
-Background:
+Scenario: F2F Journey - E2E Happy Path and DB Validation
     Given Authenticatable Anita is using the system
     When they have provided their details
     Then they should be redirected to the Landing Page
@@ -19,7 +19,16 @@ Background:
     Then the user is routed to the next screen in the journey Branch Finder Screen
     Then the user enters a valid postcode
 
-Scenario: Find Nearest PO Branch - UK Passport (Happy path)
     Given the postcode entered is valid
     When the user clicks the continue button on the find Post Office branch page
     Then the user is routed to the Select Location page showing 5 nearest POs
+
+    Given a Post Office branch is selected
+    When the user clicks continue
+    Then the user is navigated to the next step in the journey - Confirm Answer
+    When the user clicks the Check My Answers Submit button
+    
+    Given I have retrieved the sessionTable data for my F2F session
+    Then session details are correctly stored in DB
+
+    
