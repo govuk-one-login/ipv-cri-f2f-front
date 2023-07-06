@@ -26,6 +26,9 @@ class PostcodeSearchController extends BaseController {
         items: [
           {
             value: "1",
+            conditional: {
+              html: ""
+            },
             text: resp.data[0].name,
             hint: {
               text: resp.data[0].address.address1 + ", " + resp.data[0].address.address4 + ", " + resp.data[0].address.address5 + ", " + resp.data[0].address.postcode
@@ -33,6 +36,9 @@ class PostcodeSearchController extends BaseController {
           },
           {
             value: "2",
+            conditional: {
+              html: ""
+            },
             text: resp.data[1].name,
             hint: {
               text: resp.data[1].address.address1 + ", " + resp.data[1].address.address4 + ", " + resp.data[1].address.address5 + ", " + resp.data[1].address.postcode
@@ -40,6 +46,9 @@ class PostcodeSearchController extends BaseController {
           },
           {
             value: "3",
+            conditional: {
+              html: ""
+            },
             text: resp.data[2].name,
             hint: {
               text: resp.data[2].address.address1 + ", " + resp.data[2].address.address4 + ", " + resp.data[2].address.address5 + ", " + resp.data[2].address.postcode
@@ -47,6 +56,9 @@ class PostcodeSearchController extends BaseController {
           },
           {
             value: "4",
+            conditional: {
+              html: ""
+            },
             text: resp.data[3].name,
             hint: {
               text: resp.data[3].address.address1 + ", " + resp.data[3].address.address4 + ", " + resp.data[3].address.address5 + ", " + resp.data[3].address.postcode
@@ -54,6 +66,9 @@ class PostcodeSearchController extends BaseController {
           },
           {
             value: "5",
+            conditional: {
+              html: ""
+            },
             text: resp.data[4].name,
             hint: {
               text: resp.data[4].address.address1 + ", " + resp.data[4].address.address4 + ", " + resp.data[4].address.address5 + ", " + resp.data[4].address.postcode
