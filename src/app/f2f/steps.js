@@ -18,12 +18,12 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: "landingPage",
+    next: "prove-identity-post-office",
   },
-  "/landingPage": {
-    next: "photoIdSelection"
+  "/prove-identity-post-office": {
+    next: "choose-photo-id-post-office"
   },
-  "/photoIdSelection": {
+  "/choose-photo-id-post-office": {
     controller: photoIdSelect,
     fields: ["photoIdChoice"],
     invalidates: [
@@ -33,7 +33,7 @@ module.exports = {
       "brpExpiryDate",
       "eeaIdCardExpiryDate",
       "euPhotocardDlExpiryDate",
-      "photoIdExpiryChoice",
+      "photo-id-expired",
     ],
     next: [
       {
@@ -73,7 +73,7 @@ module.exports = {
       },
     ],
   },
-  "/ukPassportDetails": {
+  "/uk-passport-expire": {
     fields: ["ukPassportExpiryDate"],
     controller: ukPassportDetails,
     editable: true,
@@ -83,12 +83,12 @@ module.exports = {
         field: "ukPassportExpiryDate",
         op: "before",
         value: "18 months ago",
-        next: "photoIdExpiry",
+        next: "photo-id-expired",
       },
-      "findBranch",
+      "find-post-office-prove-identity",
     ],
   },
-  "/nonUKPassportDetails": {
+  "/non-uk-passport-expire": {
     fields: ["nonUKPassportExpiryDate"],
     controller: nonUKPassportDetails,
     editable: true,
@@ -98,12 +98,12 @@ module.exports = {
         field: "nonUKPassportExpiryDate",
         op: "before",
         value: "today",
-        next: "photoIdExpiry",
+        next: "photo-id-expired",
       },
-      "nonUkPassportCountrySelector",
+      "select-country-non-uk-passport",
     ],
   },
-  "/ukPhotocardDlDetails": {
+  "/uk-driving-licence-expire": {
     fields: ["ukPhotocardDlExpiryDate"],
     controller: ukPhotocardDlDetails,
     editable: true,
@@ -113,9 +113,9 @@ module.exports = {
         field: "ukPhotocardDlExpiryDate",
         op: "before",
         value: "today",
-        next: "photoIdExpiry",
+        next: "photo-id-expired",
       },
-      "ukDlAddressCheck",
+      "uk-driving-licence-current-address",
     ],
   },
   "/biometric-residence-permit-expire": {
@@ -128,12 +128,12 @@ module.exports = {
         field: "brpExpiryDate",
         op: "before",
         value: "today",
-        next: "photoIdExpiry",
+        next: "photo-id-expired",
       },
-      "findBranch",
+      "find-post-office-prove-identity",
     ],
   },
-  "/euPhotocardDlDetails": {
+  "/eu-driving-licence-expire": {
     fields: ["euPhotocardDlExpiryDate"],
     controller: euPhotocardDlDetails,
     editable: true,
@@ -143,12 +143,12 @@ module.exports = {
         field: "euPhotocardDlExpiryDate",
         op: "before",
         value: "today",
-        next: "photoIdExpiry",
+        next: "photo-id-expired",
       },
-      "euDrivingLicenceAddressCheck",
+      "eu-driving-licence-current-address",
     ],
   },
-  "/euDrivingLicenceAddressCheck": {
+  "/eu-driving-licence-current-address": {
     fields: ["euDrivingLicenceAddressCheck"],
     editable: true,
     editBackStep: "checkDetails",
@@ -170,7 +170,7 @@ module.exports = {
       }
     ]
   },
-  "/eeaIdentityCardDetails": {
+  "/national-identity-card-expire": {
     fields: ["eeaIdCardExpiryDate"],
     controller: eeaIdentityCardDetails,
     editable: true,
@@ -180,12 +180,12 @@ module.exports = {
         field: "eeaIdCardExpiryDate",
         op: "before",
         value: "today",
-        next: "photoIdExpiry",
+        next: "photo-id-expired",
       },
-      "eeaIdCardAddressCheck",
+      "national-identity-card-current-address",
     ],
   },
-  "/eeaIdCardAddressCheck": {
+  "/national-identity-card-current-address": {
     fields: ["eeaIdCardAddressCheck"],
     editable: true,
     editBackStep: "checkDetails",
@@ -198,7 +198,7 @@ module.exports = {
       {
         field: "eeaIdCardAddressCheck",
         value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        next: "photoIdSelection"
+        next: "choose-photo-id-post-office"
       },
       {
         field: "eeaIdCardAddressCheck",
@@ -207,7 +207,7 @@ module.exports = {
       }
     ]
   },
-  "/photoIdExpiry": {
+  "/photo-id-expired": {
     controller: photoIdExpiry,
     fields: ["photoIdExpiryChoice"],
     next: [
@@ -250,7 +250,7 @@ module.exports = {
       {
         field: "photoIdExpiryChoice",
         value: APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID,
-        next: "photoIdSelection",
+        next: "choose-photo-id-post-office",
       },
       {
         field: "photoIdExpiryChoice",
@@ -259,7 +259,7 @@ module.exports = {
       },
     ]
   },
-  "/ukDlAddressCheck": {
+  "/uk-driving-licence-current-address": {
     fields: ["ukDlAddressCheck"],
     editable: true,
     editBackStep: "checkDetails",
@@ -267,51 +267,51 @@ module.exports = {
       {
         field: "ukDlAddressCheck",
         value: "Yes",
-        next: "findBranch"
+        next: "find-post-office-prove-identity"
       },
       {
         field: "ukDlAddressCheck",
         value: "No",
-        next: "photoIdSelection"
+        next: "choose-photo-id-post-office"
       }
     ]
   },
-  "/eeaIdentityCardCountrySelector": {
+  "/select-country-national-identity-card": {
     fields: ["eeaIdentityCardCountrySelector"],
     editable: true,
     editBackStep: "checkDetails",
-    next: "findBranch"
+    next: "find-post-office-prove-identity"
   },
-  "/euDrivingLicenceCountrySelector": {
+  "/select-country-eu-driving-licence": {
     fields: ["euDrivingLicenceCountrySelector"],
     editable: true,
     editBackStep: "checkDetails",
-    next: "findBranch"
+    next: "find-post-office-prove-identity"
 
   },
-  "/nonUkPassportCountrySelector": {
+  "/select-country-non-uk-passport": {
     fields: ["nonUkPassportCountrySelector"],
     editable: true,
     editBackStep: "checkDetails",
-    next: "findBranch"
+    next: "find-post-office-prove-identity"
   },
-  "/findBranch": {
+  "/find-post-office-prove-identity": {
     editable: true,
-    editBackStep: "locations",
+    editBackStep: "choose-post-office-prove-identity",
     fields: ["postcode"],
-    next: "locations",
+    next: "choose-post-office-prove-identity",
   },
   
-  "/locations": {
+  "/choose-post-office-prove-identity": {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: [
       "postcode",
       "branches"
     ],
-    next: "checkDetails"
+    next: "check-details"
   },
-  "/checkDetails": {
+  "/check-details": {
     controller: checkDetails,
     next: "done",
   },
