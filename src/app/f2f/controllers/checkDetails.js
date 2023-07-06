@@ -15,6 +15,7 @@ class CheckDetailsController extends DateController {
       const payLoadDetails = req.form.values.payLoadValues
       let postOfficeAddress;
       let postOfficeName;
+      let postOfficeAddressWithoutPostCode;
       let postOfficePostcode;
       let postOfficeLatitude;
       let postOfficeLongitude;
@@ -22,6 +23,7 @@ class CheckDetailsController extends DateController {
         case "1": {
           postOfficeAddress = addressDetails[0].hint.text;
           postOfficeName = addressDetails[0].text;
+          postOfficeAddressWithoutPostCode = payLoadDetails.location0.addressWithoutPostCode;
           postOfficePostcode = payLoadDetails.location0.postcode
           postOfficeLatitude = payLoadDetails.location0.latitude
           postOfficeLongitude = payLoadDetails.location0.longitude
@@ -30,6 +32,7 @@ class CheckDetailsController extends DateController {
         case "2": {
           postOfficeAddress = addressDetails[1].hint.text;
           postOfficeName = addressDetails[1].text;
+          postOfficeAddressWithoutPostCode = payLoadDetails.location1.addressWithoutPostCode;
           postOfficePostcode = payLoadDetails.location1.postcode
           postOfficeLatitude = payLoadDetails.location1.latitude
           postOfficeLongitude = payLoadDetails.location1.longitude
@@ -38,6 +41,7 @@ class CheckDetailsController extends DateController {
         case "3": {
           postOfficeAddress = addressDetails[2].hint.text;
           postOfficeName = addressDetails[2].text;
+          postOfficeAddressWithoutPostCode = payLoadDetails.location2.addressWithoutPostCode;
           postOfficePostcode = payLoadDetails.location2.postcode
           postOfficeLatitude = payLoadDetails.location2.latitude
           postOfficeLongitude = payLoadDetails.location2.longitude
@@ -46,6 +50,7 @@ class CheckDetailsController extends DateController {
         case "4": {
           postOfficeAddress = addressDetails[3].hint.text;
           postOfficeName = addressDetails[3].text;
+          postOfficeAddressWithoutPostCode = payLoadDetails.location3.addressWithoutPostCode;
           postOfficePostcode = payLoadDetails.location3.postcode
           postOfficeLatitude = payLoadDetails.location3.latitude
           postOfficeLongitude = payLoadDetails.location3.longitude
@@ -54,13 +59,16 @@ class CheckDetailsController extends DateController {
         case "5": {
           postOfficeAddress = addressDetails[4].hint.text;
           postOfficeName = addressDetails[4].text;
+          postOfficeAddressWithoutPostCode = payLoadDetails.location4.addressWithoutPostCode;
           postOfficePostcode = payLoadDetails.location4.postcode
           postOfficeLatitude = payLoadDetails.location4.latitude
           postOfficeLongitude = payLoadDetails.location4.longitude
           break;
         }
       }
+      req.sessionModel.set("postOfficeName", postOfficeName);
       req.sessionModel.set("postOfficeAddress", postOfficeAddress);
+      req.sessionModel.set("postOfficeAddressWithoutPostCode", postOfficeAddressWithoutPostCode);
       req.sessionModel.set("postOfficePostcode", postOfficePostcode);
       req.sessionModel.set("postOfficeLatitude", postOfficeLatitude);
       req.sessionModel.set("postOfficeLongitude", postOfficeLongitude);
@@ -141,7 +149,8 @@ class CheckDetailsController extends DateController {
           "country_code": req.sessionModel.get("countryCode")
         },
         "post_office_selection": {
-          "address": req.sessionModel.get("postOfficeAddress"),
+          "address": req.sessionModel.get("postOfficeAddressWithoutPostCode"),
+          "name": req.sessionModel.get("postOfficeName"),
           "location": {
             "latitude": req.sessionModel.get("postOfficeLatitude"),
             "longitude": req.sessionModel.get("postOfficeLongitude"),
@@ -149,6 +158,7 @@ class CheckDetailsController extends DateController {
           "post_code": req.sessionModel.get("postOfficePostcode")
         }
       }
+
       await this.saveF2fData(req.axios, f2fData, req);
       callback();
     } catch (err) {

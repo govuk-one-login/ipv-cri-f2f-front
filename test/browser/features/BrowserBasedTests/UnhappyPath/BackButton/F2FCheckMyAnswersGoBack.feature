@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success
+@mock-api:f2f-f2f-success @browser
 Feature: Change Postcode - Unhappy Path
 
   Background:

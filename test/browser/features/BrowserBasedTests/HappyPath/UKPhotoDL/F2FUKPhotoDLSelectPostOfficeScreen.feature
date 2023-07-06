@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success
+@mock-api:f2f-f2f-success @success @browser
 Feature: UK Photo Driving Licence Find Nearest PO Branch - Happy Path
 
     Background:

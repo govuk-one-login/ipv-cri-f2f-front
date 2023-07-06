@@ -40,4 +40,9 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#continue");
   }
 
+  async setSessionState() {
+    const url = JSON.stringify(new URL(await this.page.url())).split("state=")
+    return url[1];
+  }
+
 };

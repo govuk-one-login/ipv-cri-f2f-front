@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success
+@mock-api:f2f-f2f-success @success @browser
 Feature: National Identity Card EEA Find Nearest PO Branch - Happy Path
 
 Background:
