@@ -94,7 +94,8 @@ describe("CheckDetails controller", () => {
             "country_code": req.sessionModel.get("countryCode")
           },
           "post_office_selection": {
-            "address": req.sessionModel.get("postOfficeAddress"),
+            "name": req.sessionModel.get("postOfficeName"),
+            "address": req.sessionModel.get("postOfficeAddressWithoutPostCode"),
             "location": {
               "latitude": req.sessionModel.get("postOfficeLatitude"),
               "longitude": req.sessionModel.get("postOfficeLongitude"),
