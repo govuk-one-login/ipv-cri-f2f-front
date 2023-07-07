@@ -13,7 +13,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async continue() {
-    await this.page.click("#spacedContinue");
+    await this.page.click("#photoIdContinue");
   }
 
   async ukPassportChoice(){
