@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @ukPass
+@mock-api:f2f-f2f-success @success @ukPass @browser
 Feature: Enter National Identity Card EEA Details  - Happy Path
 
 Background:

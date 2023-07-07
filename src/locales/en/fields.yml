@@ -5,18 +5,25 @@ photoIdChoice:
   items:
     ukPassport:
       label: UK passport
+      reveal: ""
     ukPhotocardDl:
       label: UK photocard driving licence
+      reveal: ""
     brp:
       label: Biometric residence permit (BRP)
+      reveal: ""
     nonUkPassport:
       label: Non-UK passport
+      reveal: ""
     euPhotocardDl:
       label: European Union (EU) photocard driving licence
+      reveal: ""
     eeaIdentityCard:
       label: National identity card from a European Economic Area (EEA) country
+      reveal: ""
     noPhotoId:
       label: I do not have any of these documents
+      reveal: ""
 
 "date-day":
   label: Day
@@ -111,14 +118,14 @@ euPhotocardDlExpiryDate:
     "required-day": "Enter the full expiry date"
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
-  
+
 euDrivingLicenceAddressCheck:
   validation:
     default: "Select if your driving licence has your current address on it"
 
-eeaIdCardExpiryDate: 
-  label: "" 
-  legend: "" 
+eeaIdCardExpiryDate:
+  label: ""
+  legend: ""
   hint: "For example, 31 3 2025"
   validation:
     default: "Enter the full expiry date"
@@ -163,7 +170,7 @@ branches:
   validation:
     default: "Select a Post Office where you can prove your identity"
 
-checkDetails: 
+checkDetails:
   label: ""
   legend: ""
   validation:
@@ -176,7 +183,10 @@ photoIdExpiryChoice:
   items:
     reEnterDetails:
       label: Check the expiry date and enter it again
+      reveal: ""
     chooseDifferentPhotoId:
       label: Choose a different type of photo ID
+      reveal: ""
     proveIdentityAnotherWay:
       label: Prove your identity another way
+      reveal: ""

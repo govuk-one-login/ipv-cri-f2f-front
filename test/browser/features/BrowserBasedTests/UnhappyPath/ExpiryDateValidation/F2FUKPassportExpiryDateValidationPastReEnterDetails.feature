@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success
+@mock-api:f2f-f2f-success @success @browser
 Feature: Expired Date Error Screen - Unhappy Path
 
     Background:

@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success
+@mock-api:f2f-f2f-success @success @browser
 Feature: Find Landing Page - Happy Path
 
  E2E journey for Face-to-Face path Landing Page start
