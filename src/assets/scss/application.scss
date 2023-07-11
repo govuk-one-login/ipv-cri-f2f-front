@@ -119,7 +119,20 @@ main p,
   @include govuk-responsive-margin(6, "bottom");
 }
 
-.govuk-link {
+
+#confirmIdentityAnotherWay {
+  font-size: 19px;
+}
+
+#noExpiryDateNonUKPassport {
+  font-size: 19px;
+}
+
+#noExpiryDateEEAID {
+  font-size: 19px;
+}
+
+#noExpiryDateEUDL {
   font-size: 19px;
 }
 
