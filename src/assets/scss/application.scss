@@ -4,7 +4,6 @@ $govuk-assets-path: "/public/";
 
 .govuk-radios {
   margin-bottom: govuk-spacing(-3);
-  margin-top: govuk-spacing(-3);
 }
 
 .govuk-radios__item {
@@ -125,7 +124,7 @@ main p,
 
 .photoIdSelectionExpiryWarning {
   @include govuk-responsive-padding(2, "top");
-  @include govuk-responsive-padding(4, "bottom");
+  @include govuk-responsive-padding(2, "bottom");
 }
 
 .locationBody {
