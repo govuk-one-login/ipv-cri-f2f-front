@@ -105,8 +105,7 @@ main p,
 .govuk-fieldset__legend--m {
   @include govuk-responsive-padding(5, "top");
   @include govuk-responsive-padding(2, "bottom");
-  font-size: 23px;
-  font-weight: bold;
+  font-size: 19px;
 }
 
 .locationBody {
@@ -158,4 +157,12 @@ main p,
 
 #landingPageContinue {
   @include govuk-responsive-margin(1, "top");
+}
+
+#photoIdExpiryChoice-hint {
+  color: govuk-colour("black");
+  font-size: 23px;
+  font-weight: bold;
+  @include govuk-responsive-margin(5, "top");
+  @include govuk-responsive-margin(6, "bottom");
 }

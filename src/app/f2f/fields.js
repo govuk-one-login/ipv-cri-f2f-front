@@ -188,9 +188,9 @@ module.exports = {
   },
   photoIdExpiryChoice: {
     type: "radios",
-    legend: "What would you like to do?",
+    legend: "",
     label: "",
-    hint: "",
+    hint: "What would you like to do?",
     items: [
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS },
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID },
