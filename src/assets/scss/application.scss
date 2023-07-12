@@ -4,9 +4,14 @@ $govuk-assets-path: "/public/";
 
 .govuk-radios {
   margin-bottom: govuk-spacing(-3);
+  margin-top: govuk-spacing(-3);
 }
 
 .govuk-radios__item {
+  @include govuk-responsive-margin(2, "bottom");
+}
+
+.govuk-date-input__label {
   @include govuk-responsive-margin(2, "bottom");
 }
 
@@ -24,7 +29,7 @@ h2 {
 }
 
 .govuk-inset-text {
-  @include govuk-responsive-margin(6, "bottom");
+  @include govuk-responsive-margin(5, "bottom");
 }
 
 .govuk-body,
@@ -42,6 +47,10 @@ main p,
 main p,
 .govuk-body-m {
   @include govuk-responsive-margin(1, "bottom");
+}
+
+.govuk-hint {
+  @include govuk-responsive-margin(2, "top")
 }
 
 .hint-with-margin {
@@ -121,18 +130,6 @@ main p,
 
 
 #confirmIdentityAnotherWay {
-  font-size: 19px;
-}
-
-#noExpiryDateNonUKPassport {
-  font-size: 19px;
-}
-
-#noExpiryDateEEAID {
-  font-size: 19px;
-}
-
-#noExpiryDateEUDL {
   font-size: 19px;
 }
 
