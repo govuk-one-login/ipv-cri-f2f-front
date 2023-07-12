@@ -102,10 +102,20 @@ main p,
   @include govuk-responsive-padding(3, "top");
 }
 
-.govuk-fieldset__legend--m {
-  @include govuk-responsive-padding(5, "top");
+// .govuk-fieldset__legend--m {
+//   @include govuk-responsive-padding(5, "top");
+//   @include govuk-responsive-padding(2, "bottom");
+//   font-size: 19px;
+// }
+
+.photoIdSelectionContent { 
+  @include govuk-responsive-padding(1, "top");
   @include govuk-responsive-padding(2, "bottom");
-  font-size: 19px;
+}
+
+.photoIdSelectionExpiryWarning {
+  @include govuk-responsive-padding(2, "top");
+  @include govuk-responsive-padding(2, "bottom");
 }
 
 .locationBody {
@@ -120,18 +130,6 @@ main p,
 
 
 #confirmIdentityAnotherWay {
-  font-size: 19px;
-}
-
-#noExpiryDateNonUKPassport {
-  font-size: 19px;
-}
-
-#noExpiryDateEEAID {
-  font-size: 19px;
-}
-
-#noExpiryDateEUDL {
   font-size: 19px;
 }
 
@@ -159,10 +157,14 @@ main p,
   @include govuk-responsive-margin(1, "top");
 }
 
-#photoIdExpiryChoice-hint {
+.expiredIdBody {
+  margin-top: govuk-spacing(-4);
+}
+
+.expiredIdPrompt {
   color: govuk-colour("black");
   font-size: 23px;
   font-weight: bold;
   @include govuk-responsive-margin(5, "top");
-  @include govuk-responsive-margin(6, "bottom");
+  @include govuk-responsive-margin(3, "bottom");
 }

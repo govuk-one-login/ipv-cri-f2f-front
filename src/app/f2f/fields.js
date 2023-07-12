@@ -6,7 +6,7 @@ const { NON_UK_PASSPORT } = require("./countryCodes/nonUkPassport");
 module.exports = {
   photoIdChoice: {
     type: "radios",
-    legend: "Your photo ID must not have expired.",
+    legend: "",
     label: "",
     hint: "",
     items: [
@@ -190,7 +190,7 @@ module.exports = {
     type: "radios",
     legend: "",
     label: "",
-    hint: "What would you like to do?",
+    hint: "",
     items: [
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS },
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID },

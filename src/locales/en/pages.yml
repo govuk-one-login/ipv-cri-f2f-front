@@ -22,6 +22,7 @@ photoIdSelection:
   title: "Choose a photo ID you can take to a Post Office"
   h1: "Choose a photo ID you can take to a Post Office"
   content: "You must take the original photo ID document, not a photocopy."
+  expiryWarning: "Your photo ID must not have expired."
 
 ukPassport:
   title: "When does your passport expire?"
@@ -59,6 +60,7 @@ photoIdExpiry:
   title: "Your photo ID has expired"
   h1: "Your photo ID has expired"
   content: "You need a valid ID to prove your identity."
+  prompt: "What would you like to do?"
 
 checkDetails:
   title: "Check your details"
