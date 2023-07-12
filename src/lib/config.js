@@ -7,6 +7,7 @@ module.exports = {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
       SAVE_F2FDATA: "/documentSelection",
+			ABORT: "/abort",
     },
   },
   PROXY_API: {
@@ -33,6 +34,7 @@ module.exports = {
       EEA_IDENTITY_CARD_DETAILS: "/eeaIdentityCardDetails",
       EEA_IDENTITY_CARD_COUNTRY_SELECTOR: "/eeaIdentityCardCountrySelector",
       NO_PHOTO_ID: "https://signin.account.gov.uk/no-photo-id",
+			ABORT: "/abort",
       EXPIRED_ID: "/photoIdExpiry"
     },
     PHOTO_ID_OPTIONS: {
