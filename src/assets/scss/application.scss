@@ -10,6 +10,10 @@ $govuk-assets-path: "/public/";
   @include govuk-responsive-margin(2, "bottom");
 }
 
+.govuk-date-input__label {
+  @include govuk-responsive-margin(2, "bottom");
+}
+
 .govuk-heading-m,
 .hmpo-auto-submit h1,
 h2 {
@@ -24,7 +28,7 @@ h2 {
 }
 
 .govuk-inset-text {
-  @include govuk-responsive-margin(6, "bottom");
+  @include govuk-responsive-margin(5, "bottom");
 }
 
 .govuk-body,
@@ -42,6 +46,10 @@ main p,
 main p,
 .govuk-body-m {
   @include govuk-responsive-margin(1, "bottom");
+}
+
+.govuk-hint {
+  @include govuk-responsive-margin(2, "top")
 }
 
 .hint-with-margin {
@@ -88,12 +96,6 @@ main p,
   @include govuk-responsive-margin(5, "bottom");
 }
 
-.govuk-fieldset__legend {
-  font-size: 19px;
-  font-weight: 400;
-  @include govuk-responsive-padding(4, "top");
-}
-
 #branches-1-label, #branches-2-label, #branches-3-label, #branches-4-label, #branches-5-label  {
   font-weight: bold;
 }
@@ -101,12 +103,6 @@ main p,
 .govuk-main-wrapper {
   @include govuk-responsive-padding(3, "top");
 }
-
-// .govuk-fieldset__legend--m {
-//   @include govuk-responsive-padding(5, "top");
-//   @include govuk-responsive-padding(2, "bottom");
-//   font-size: 19px;
-// }
 
 .photoIdSelectionContent { 
   @include govuk-responsive-padding(1, "top");
@@ -155,6 +151,14 @@ main p,
 
 #landingPageContinue {
   @include govuk-responsive-margin(1, "top");
+}
+
+#spacedContinue {
+  margin-top: govuk-spacing(-1);
+}
+
+#photoIdExpiryPrompt {
+  font-size: 23px;
 }
 
 .expiredIdBody {
