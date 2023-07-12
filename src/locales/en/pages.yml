@@ -21,10 +21,8 @@ landingPage:
 photoIdSelection:
   title: "Choose which photo ID you can take to a Post Office"
   h1: "Choose which photo ID you can take to a Post Office"
-  content: "You cannot use a photocopy or digital copy of your photo ID.
-            <br><br>
-            Your photo ID must not have expired.
-            <br><br>"
+  content: "You cannot use a photocopy or digital copy of your photo ID."
+  expiryWarning: "Your photo ID must not have expired."
 
 ukPassport:
   title: "When does your passport expire?"

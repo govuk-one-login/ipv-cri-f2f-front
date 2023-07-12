@@ -3,6 +3,7 @@
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% set hmpoTitle = photoIdSelection.label %}
 {% set hmpoPageKey = "photoIdSelection" %}
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% set isPageHeading = true %}
 
 {% block header %}
@@ -11,9 +12,18 @@ serviceName: translate("govuk.serviceName")
 }) }}
 {% endblock %}
 
+{% block mainContent %}
+<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+        {{ translate("photoIdChoice.validation.required") }}
+</h1>
+    <p class="photoIdSelectionContent"> {{ translate("photoIdSelection.content") }}</p>
+    <p class="photoIdSelectionExpiryWarning"> {{ translate("photoIdSelection.expiryWarning") }}</p>
 
-{% block submitButton %}
-{{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {% call hmpoForm(ctx) %}
+        {{ hmpoRadios(ctx, {id: "photoIdChoice"}) }}
+        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {% endcall %}
 
+    {% include "common/confirmIdentityAnotherWay.html" %}
 
 {% endblock %}

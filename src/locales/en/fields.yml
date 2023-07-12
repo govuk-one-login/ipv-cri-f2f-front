@@ -1,6 +1,6 @@
 photoIdChoice:
   validation:
-    required: Choose a photo ID you can take to a Post Office
+    required: Choose which photo ID you can take to a Post Office
   content: ""
   items:
     ukPassport:
