@@ -30,7 +30,7 @@ export PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
 
 This can be run by using:
 
-`yarn run mock`
+`yarn run mocks`
 
 The frontend can be configured to use this mock server through two environment variables:
 
