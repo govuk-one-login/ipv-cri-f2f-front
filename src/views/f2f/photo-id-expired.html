@@ -6,6 +6,11 @@
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% set isPageHeading = true %}
 
+{% block header %}
+{{ govukHeader ({
+serviceName: translate("govuk.serviceName")
+}) }}
+{% endblock %}
 
 {% block mainContent %}
 <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
@@ -14,8 +19,10 @@
     <p class="expiredIdBody"> {{ translate("photoIdExpiry.content") }} </p>
     <p class="expiredIdPrompt"> {{ translate("photoIdExpiry.prompt")}} </p>
 
-{% block submitButton %}
-{{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {% call hmpoForm(ctx) %}
+        {{ hmpoRadios(ctx, {id: "photoIdExpiryChoice"}) }}
+        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {% endcall %}
 
 {% endblock %}
 
