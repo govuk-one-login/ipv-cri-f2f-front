@@ -1,7 +1,7 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoTitle = nonUKPassportHasExpiryDate %}
-{% set gtmJourney = "f2f - nonUKPassportHasExpiryDate" %}
+{% set hmpoTitle = euDrivingLicenceHasExpiryDate %}
+{% set gtmJourney = "f2f - euDrivingLicenceHasExpiryDate" %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
@@ -10,10 +10,10 @@
 
 <legend>
   <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-      {{ translate("nonUKPassportHasExpiryDate.title") }}
+      {{ translate("euDrivingLicenceHasExpiryDate.title") }}
   </h1>
 </legend>
-  
+
   {% call hmpoForm(ctx) %}
     {{ hmpoRadios(ctx, {id: "idHasExpiryDate"}) }}
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}

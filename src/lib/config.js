@@ -23,6 +23,7 @@ module.exports = {
       UK_PASSPORT_DETAILS: "/ukPassportDetails",
       NON_UK_PASSPORT_DETAILS: "/nonUKPassportDetails",
       NON_UK_PASSPORT_HAS_EXPIRY_DATE: "/non-uk-passport-has-expiry-date",
+      EU_DRIVING_LICENCE_HAS_EXPIRY_DATE: "/eu-driving-licence-has-expiry-date",
       PHOTOCARD_DL_DETAILS: "/ukPhotocardDlDetails",
       EU_DRIVING_LICENCE_ADDRESS_CHECK: "/euDrivingLicenceAddressCheck",
       EU_DRIVING_LICENCE_COUNTRY_SELECTOR: "/euDrivingLicenceCountrySelector",

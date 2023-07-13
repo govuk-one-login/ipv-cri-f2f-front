@@ -59,7 +59,7 @@ module.exports = {
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL,
-        next: APP.PATHS.EU_PHOTOCARD_DL_DETAILS,
+        next: APP.PATHS.EU_DRIVING_LICENCE_HAS_EXPIRY_DATE,
       },
       {
         field: "photoIdChoice",
@@ -104,17 +104,17 @@ module.exports = {
     ],
   },
   "/non-uk-passport-has-expiry-date": {
-    fields: ["nonUKPassportHasExpiryDate"],
+    fields: ["idHasExpiryDate"],
     editable: true,
     editBackStep: "checkDetails",
     next: [
       {
-        field: "nonUKPassportHasExpiryDate",
+        field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.YES,
         next: "nonUKPassportDetails"
       },
       {
-        field: "nonUKPassportHasExpiryDate",
+        field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.NO,
         next: "nonUkPassportCountrySelector"
       }
@@ -164,6 +164,23 @@ module.exports = {
       },
       "euDrivingLicenceAddressCheck",
     ],
+  },
+  "/eu-driving-licence-has-expiry-date": {
+    fields: ["idHasExpiryDate"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "idHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.YES,
+        next: "euPhotocardDlDetails"
+      },
+      {
+        field: "idHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.NO,
+        next: "euDrivingLicenceAddressCheck"
+      }
+    ]
   },
   "/euDrivingLicenceAddressCheck": {
     fields: ["euDrivingLicenceAddressCheck"],

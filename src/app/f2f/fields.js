@@ -91,7 +91,7 @@ module.exports = {
       },
     ]
   },
-  nonUKPassportHasExpiryDate: {
+  idHasExpiryDate: {
     legend: "",
     label: "",
     hint: "",
