@@ -24,9 +24,9 @@
     </div>
 
       <ol class="govuk-list--spaced" id="firstStepList"> 
-        <li> <p class="listItem">{{ "landingPage.instructions.firstStep.one" | translate }}</p> </li>
-        <li> <p class="listItem">{{ "landingPage.instructions.firstStep.two" | translate }}</p> </li>
-        <li> <p class="listItem">{{ "landingPage.instructions.firstStep.three" | translate }}</p> </li> 
+        <li> <p class="listItem" id="firstStepOne">{{ "landingPage.instructions.firstStep.one" | translate }}</p> </li>
+        <li> <p class="listItem" id="firstStepTwo">{{ "landingPage.instructions.firstStep.two" | translate }}</p> </li>
+        <li> <p class="listItem" id="firstStepThree">{{ "landingPage.instructions.firstStep.three" | translate }}</p> </li> 
       </ol>
       
     <div class="parent">
@@ -35,13 +35,13 @@
     </div>
 
     <ol class="govuk-list--spaced" id="secondStepList">
-      <li> <p class="listItem">{{ "landingPage.instructions.secondStep.one" | translate }}<a href={{ "common.postoffice.pathToPoBranchSearch" | translate }}> {{ "common.postoffice.postofficeLink" | translate }}</a></p></li>
-      <li> <p>{{ "landingPage.instructions.secondStep.two" | translate }}</p> </li>
+      <li> <p class="listItem" id="secondStepOne">{{ "landingPage.instructions.secondStep.one" | translate }}<a href={{ "common.postoffice.pathToPoBranchSearch" | translate }}> {{ "common.postoffice.postofficeLink" | translate }}</a></p></li>
+      <li> <p class="listItem" id="secondStepTwo">{{ "landingPage.instructions.secondStep.two" | translate }}</p> </li>
     </ol>
     
     {% set insetBody %}
     <div>
-      <p id="insetInstruction">{{ "landingPage.instructions.secondStep.three" | translate }}</p>
+      <p id="insetInstruction" id="secondStepThree">{{ "landingPage.instructions.secondStep.three" | translate }}</p>
     </div>
     {% endset %}
 
@@ -53,7 +53,7 @@
     <p class="govuk-heading-m">{{ "landingPage.thirdStepTitle" | translate }}</p>
 
     <ul class="govuk-list--spaced" id="thirdStepList">
-      <li> <p class="listItem">{{ "landingPage.instructions.thirdStep.one" | translate }}</li>
+      <li> <p class="listItem" id="thirdStepOne">{{ "landingPage.instructions.thirdStep.one" | translate }}</li>
     </ul>
 
 
