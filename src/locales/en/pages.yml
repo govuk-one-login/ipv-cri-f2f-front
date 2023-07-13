@@ -56,6 +56,9 @@ nonUKPassportHasExpiryDate:
 euDrivingLicenceHasExpiryDate:
   title: "Does your driving licence have an expiry date?"
 
+nationalIdentityCardHasExpiryDate:
+  title: "Does your national identity card have an expiry date?"
+
 findBranch:
   title: "Find a Post Office where you can prove your identity"
   body: "Enter a UK postcode"

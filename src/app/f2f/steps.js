@@ -64,7 +64,7 @@ module.exports = {
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
-        next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS,
+        next: APP.PATHS.NATIONAL_IDENTITY_CARD_HAS_EXPIRY_DATE,
       },
       {
         field: "photoIdChoice",
@@ -218,6 +218,23 @@ module.exports = {
       },
       "eeaIdCardAddressCheck",
     ],
+  },
+  "/national-identity-card-has-expiry-date": {
+    fields: ["idHasExpiryDate"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "idHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.YES,
+        next: "eeaIdentityCardDetails"
+      },
+      {
+        field: "idHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.NO,
+        next: "eeaIdCardAddressCheck"
+      }
+    ]
   },
   "/eeaIdCardAddressCheck": {
     fields: ["eeaIdCardAddressCheck"],
