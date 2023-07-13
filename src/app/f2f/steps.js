@@ -54,7 +54,7 @@ module.exports = {
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
-        next: APP.PATHS.NON_UK_PASSPORT_DETAILS,
+        next: APP.PATHS.NON_UK_PASSPORT_HAS_EXPIRY_DATE,
       },
       {
         field: "photoIdChoice",
@@ -102,6 +102,23 @@ module.exports = {
       },
       "nonUkPassportCountrySelector",
     ],
+  },
+  "/non-uk-passport-has-expiry-date": {
+    fields: ["nonUKPassportHasExpiryDate"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "nonUKPassportHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.YES,
+        next: "nonUKPassportDetails"
+      },
+      {
+        field: "nonUKPassportHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.NO,
+        next: "nonUkPassportCountrySelector"
+      }
+    ]
   },
   "/ukPhotocardDlDetails": {
     fields: ["ukPhotocardDlExpiryDate"],
