@@ -16,31 +16,34 @@
 
 
 {% block mainContent %}
-<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("ukPassport.title") }}
+  <legend>
+    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+            {{ translate("ukPassport.title") }}
     </h1>
-    <p> {{ translate("ukPassport.passportInformationContext") }} </p>
+  </legend>
+      <p> {{ translate("ukPassport.passportInformationContext") }} </p>
 
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+      {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
-    <div class="hint-with-margin">
-    {{ hmpoDate(ctx, {
-        id: "ukPassportExpiryDate",
-        legend: {
-            classes: "govuk-label"
-        }
-    }) }}
-  </div>
+      <div class="hint-with-margin">
+      {{ hmpoDate(ctx, {
+          id: "ukPassportExpiryDate",
+          legend: {
+              classes: "govuk-label"
+          }
+      }) }}
+    </div>
 
-     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+      {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 
-    {% endcall %}
+      {% endcall %}
 
-{% endblock %}
+  {% endblock %}
 
-{# generate the specific footer items required for the PYI flows #}
-{% set footerNavItems = translate("govuk.footerNavItems") %}
+  {# generate the specific footer items required for the PYI flows #}
+  {% set footerNavItems = translate("govuk.footerNavItems") %}
 
-{% block footer %}
-    {{ govukFooter( footerNavItems ) }}
-{% endblock %}
+  {% block footer %}
+      {{ govukFooter( footerNavItems ) }}
+  {% endblock %}
+  

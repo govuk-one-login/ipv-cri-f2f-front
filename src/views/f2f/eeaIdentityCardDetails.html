@@ -15,9 +15,13 @@
 {% endblock %}
 
 {% block mainContent %}
-<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("eeaIdentityCard.title") }}
+
+  <legend>
+    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+            {{ translate("eeaIdentityCard.title") }}
     </h1>
+  </legend>
+
     <p> {{ translate("eeaIdentityCard.content") }} </p>
 
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
@@ -31,9 +35,10 @@
       }) }}
     </div>
 
-     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
-     
+    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    
     {% endcall %}
+
 {% endblock %}
 
 {# generate the specific footer items required for the PYI flows #}

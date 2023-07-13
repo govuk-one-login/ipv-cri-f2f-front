@@ -15,20 +15,24 @@
 {% endblock %}
 
 {% block mainContent %}
-<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("ukDlAddressCheck.title") }}
+
+  <legend>
+    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+            {{ translate("ukDlAddressCheck.title") }}
     </h1>
+  </legend>
+
     <p> {{ translate("ukDlAddressCheck.context") }} </p>
 
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     <div class="hint-with-margin">
-    {{ hmpoRadios(ctx, {
-        id: "ukDlAddressCheck",
-        legend: {
-            classes: "govuk-label"
-        }
-    }) }}
+      {{ hmpoRadios(ctx, {
+          id: "ukDlAddressCheck",
+          legend: {
+              classes: "govuk-label"
+          }
+      }) }}
     </div>
 
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
