@@ -18,44 +18,53 @@
 
     <h1 class="govuk-heading-xl" id="landingPageTitle">{{ "landingPage.title" | translate }}</h1>
     
-    <div class="parent">
-      <p class="circle">{{ "landingPage.firstCircle" | translate }}</p>
-      <h2 class="govuk-heading-m">{{ "landingPage.firstStepTitle" | translate }}</h2>
-    </div>
+    <ol>
+      <li>
+        <div>
+          <p class="circle">{{ "landingPage.firstCircle" | translate }}</p>
+          <h2 class="govuk-heading-m">{{ "landingPage.firstStepTitle" | translate }}</h2>
+        </div>
+      </li>
 
-      <ol class="govuk-list--spaced" id="firstStepList"> 
-        <li> <p class="listItem" id="firstStepOne">{{ "landingPage.instructions.firstStep.one" | translate }}</p> </li>
-        <li> <p class="listItem" id="firstStepTwo">{{ "landingPage.instructions.firstStep.two" | translate }}</p> </li>
-        <li> <p class="listItem" id="firstStepThree">{{ "landingPage.instructions.firstStep.three" | translate }}</p> </li> 
+        <ol class="govuk-list--spaced" id="firstStepList"> 
+          <li> <p class="listItem" id="firstStepOne">{{ "landingPage.instructions.firstStep.one" | translate }}</p> </li>
+          <li> <p class="listItem" id="firstStepTwo">{{ "landingPage.instructions.firstStep.two" | translate }}</p> </li>
+          <li> <p class="listItem" id="firstStepThree">{{ "landingPage.instructions.firstStep.three" | translate }}</p> </li> 
+        </ol>
+        
+      <li>
+        <div>
+          <p class="circle">{{ "landingPage.secondCircle" | translate }}</p>
+          <h2 class="govuk-heading-m">{{ "landingPage.secondStepTitle" | translate }}</h2>
+        </div>
+      </li>
+
+      <ol class="govuk-list--spaced" id="secondStepList">
+        <li> <p class="listItem" id="secondStepOne">{{ "landingPage.instructions.secondStep.one" | translate }}<a href={{ "common.postoffice.pathToPoBranchSearch" | translate }}> {{ "common.postoffice.postofficeLink" | translate }}</a></p></li>
+        <li> <p class="listItem" id="secondStepTwo">{{ "landingPage.instructions.secondStep.two" | translate }}</p> </li>
       </ol>
       
-    <div class="parent">
-      <p class="circle">{{ "landingPage.secondCircle" | translate }}</p>
-      <h2 class="govuk-heading-m">{{ "landingPage.secondStepTitle" | translate }}</h2>
-    </div>
+      {% set insetBody %}
+      <div>
+        <p id="insetInstruction" id="secondStepThree">{{ "landingPage.instructions.secondStep.three" | translate }}</p>
+      </div>
+      {% endset %}
 
-    <ol class="govuk-list--spaced" id="secondStepList">
-      <li> <p class="listItem" id="secondStepOne">{{ "landingPage.instructions.secondStep.one" | translate }}<a href={{ "common.postoffice.pathToPoBranchSearch" | translate }}> {{ "common.postoffice.postofficeLink" | translate }}</a></p></li>
-      <li> <p class="listItem" id="secondStepTwo">{{ "landingPage.instructions.secondStep.two" | translate }}</p> </li>
+      {{ govukInsetText({ 
+        html: insetBody
+      }) }}
+
+      <li>
+        <div>
+          <p class="circle">{{ "landingPage.thirdCircle" | translate }}</p>
+          <h2 class="govuk-heading-m">{{ "landingPage.thirdStepTitle" | translate }}</h2>
+        </div>
+      </li>
+
+      <ol class="govuk-list--spaced" id="thirdStepList">
+        <li> <p class="listItem" id="thirdStepOne">{{ "landingPage.instructions.thirdStep.one" | translate }}</li>
+      </ol>
     </ol>
-    
-    {% set insetBody %}
-    <div>
-      <p id="insetInstruction" id="secondStepThree">{{ "landingPage.instructions.secondStep.three" | translate }}</p>
-    </div>
-    {% endset %}
-
-    {{ govukInsetText({ 
-      html: insetBody
-    }) }}
-
-    <p class="circle">{{ "landingPage.thirdCircle" | translate }}</p>
-    <h2 class="govuk-heading-m">{{ "landingPage.thirdStepTitle" | translate }}</h2>
-
-    <ul class="govuk-list--spaced" id="thirdStepList">
-      <li> <p class="listItem" id="thirdStepOne">{{ "landingPage.instructions.thirdStep.one" | translate }}</li>
-    </ul>
-
 
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
     {% block submitButton %}
