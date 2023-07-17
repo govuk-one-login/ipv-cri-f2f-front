@@ -12,7 +12,7 @@ const root = require("./controllers/root");
 const { APP } = require("../../lib/config");
 
 module.exports = {
-  "/": {
+  [`${APP.PATHS.F2F}`]: {
     resetJourney: true,
     reset: true,
     entryPoint: true,
@@ -20,10 +20,10 @@ module.exports = {
     controller: root,
     next: APP.PATHS.LANDING_PAGE,
   },
-  "/prove-identity-post-office": {
+  [`${APP.PATHS.LANDING_PAGE}`]: {
     next: APP.PATHS.PHOTO_ID_SELECTION
   },
-  "/choose-photo-id-post-office": {
+  [`${APP.PATHS.PHOTO_ID_SELECTION}`]: {
     controller: photoIdSelect,
     fields: ["photoIdChoice"],
     invalidates: [
@@ -73,7 +73,7 @@ module.exports = {
       },
     ],
   },
-  "/uk-passport-expire": {
+  [`${APP.PATHS.UK_PASSPORT_DETAILS}`]: {
     fields: ["ukPassportExpiryDate"],
     controller: ukPassportDetails,
     editable: true,
@@ -88,7 +88,7 @@ module.exports = {
       APP.PATHS.FIND_POST_OFFICE,
     ],
   },
-  "/non-uk-passport-expire": {
+  [`${APP.PATHS.NON_UK_PASSPORT_DETAILS}`]: {
     fields: ["nonUKPassportExpiryDate"],
     controller: nonUKPassportDetails,
     editable: true,
@@ -103,7 +103,7 @@ module.exports = {
       APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR,
     ],
   },
-  "/uk-driving-licence-expire": {
+  [`${APP.PATHS.PHOTOCARD_DL_DETAILS}`]: {
     fields: ["ukPhotocardDlExpiryDate"],
     controller: ukPhotocardDlDetails,
     editable: true,
@@ -118,7 +118,7 @@ module.exports = {
       APP.PATHS.PHOTOCARD_DL_ADDRESS_CHECK,
     ],
   },
-  "/biometric-residence-permit-expire": {
+  [`${APP.PATHS.BRP_DETAILS}`]: {
     fields: ["brpExpiryDate"],
     controller: brpDetails,
     editable: true,
@@ -133,7 +133,7 @@ module.exports = {
       APP.PATHS.FIND_POST_OFFICE,
     ],
   },
-  "/eu-driving-licence-expire": {
+  [`${APP.PATHS.EU_PHOTOCARD_DL_DETAILS}`]: {
     fields: ["euPhotocardDlExpiryDate"],
     controller: euPhotocardDlDetails,
     editable: true,
@@ -148,7 +148,7 @@ module.exports = {
       APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK,
     ],
   },
-  "/eu-driving-licence-current-address": {
+  [`${APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK}`]: {
     fields: ["euDrivingLicenceAddressCheck"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
@@ -170,7 +170,7 @@ module.exports = {
       }
     ]
   },
-  "/national-identity-card-expire": {
+  [`${APP.PATHS.EEA_IDENTITY_CARD_DETAILS}`]: {
     fields: ["eeaIdCardExpiryDate"],
     controller: eeaIdentityCardDetails,
     editable: true,
@@ -185,7 +185,7 @@ module.exports = {
       APP.PATHS.EEA_IDENTITY_CARD_CURRENT_ADDRESS,
     ],
   },
-  "/national-identity-card-current-address": {
+  [`${APP.PATHS.EEA_IDENTITY_CARD_CURRENT_ADDRESS}`]: {
     fields: ["eeaIdCardAddressCheck"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
@@ -207,7 +207,7 @@ module.exports = {
       }
     ]
   },
-  "/photo-id-expired": {
+  [`${APP.PATHS.EXPIRED_ID}`]: {
     controller: photoIdExpiry,
     fields: ["photoIdExpiryChoice"],
     next: [
@@ -259,7 +259,7 @@ module.exports = {
       },
     ]
   },
-  "/uk-driving-licence-current-address": {
+  [`${APP.PATHS.PHOTOCARD_DL_ADDRESS_CHECK}`]: {
     fields: ["ukDlAddressCheck"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
@@ -276,33 +276,32 @@ module.exports = {
       }
     ]
   },
-  "/select-country-national-identity-card": {
+  [`${APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR}`]: {
     fields: ["eeaIdentityCardCountrySelector"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: APP.PATHS.FIND_POST_OFFICE
   },
-  "/select-country-eu-driving-licence": {
+  [`${APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR}`]: {
     fields: ["euDrivingLicenceCountrySelector"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: APP.PATHS.FIND_POST_OFFICE
 
   },
-  "/select-country-non-uk-passport": {
+  [`${APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR}`]: {
     fields: ["nonUkPassportCountrySelector"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: APP.PATHS.FIND_POST_OFFICE
   },
-  "/find-post-office-prove-identity": {
+  [`${APP.PATHS.FIND_POST_OFFICE}`]: {
     editable: true,
     editBackStep: APP.PATHS.CHOOSE_POST_OFFICE,
     fields: ["postcode"],
     next: APP.PATHS.CHOOSE_POST_OFFICE,
   },
-  
-  "/choose-post-office-prove-identity": {
+  [`${APP.PATHS.CHOOSE_POST_OFFICE}`]: {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: [
@@ -311,13 +310,13 @@ module.exports = {
     ],
     next: APP.PATHS.CHECK_DETAILS
   },
-  "/check-details": {
+  [`${APP.PATHS.CHECK_DETAILS}`]: {
     controller: checkDetails,
-    next: "done",
+    next: APP.PATHS.DONE,
   },
-  "/done": {
+  [`${APP.PATHS.DONE}`]: {
     skip: true,
     noPost: true,
-    next: "/oauth2/callback",
+    next: APP.PATHS.OAUTH2,
   }
 }

@@ -37,7 +37,9 @@ module.exports = {
       EXPIRED_ID: "/photo-id-expired",
       FIND_POST_OFFICE: "/find-post-office-prove-identity",
       CHOOSE_POST_OFFICE: "/choose-post-office-prove-identity",
-      CHECK_DETAILS: "/check-details"
+      CHECK_DETAILS: "/check-details",
+      DONE: "/done",
+      OAUTH2: "/oauth2/callback"
     },
     PHOTO_ID_OPTIONS: {
       UK_PASSPORT: "ukPassport",
