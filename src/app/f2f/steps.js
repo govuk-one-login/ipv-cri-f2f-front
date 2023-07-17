@@ -198,7 +198,7 @@ module.exports = {
       {
         field: "eeaIdCardAddressCheck",
         value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        next: "choose-photo-id-post-office"
+        next: APP.PATHS.PHOTO_ID_SELECTION
       },
       {
         field: "eeaIdCardAddressCheck",
@@ -297,7 +297,7 @@ module.exports = {
   },
   "/find-post-office-prove-identity": {
     editable: true,
-    editBackStep: "choose-post-office-prove-identity",
+    editBackStep: APP.PATHS.CHOOSE_POST_OFFICE,
     fields: ["postcode"],
     next: APP.PATHS.CHOOSE_POST_OFFICE,
   },
