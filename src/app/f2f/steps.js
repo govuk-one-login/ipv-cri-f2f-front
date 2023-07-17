@@ -18,10 +18,10 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: "prove-identity-post-office",
+    next: APP.PATHS.LANDING_PAGE,
   },
   "/prove-identity-post-office": {
-    next: "choose-photo-id-post-office"
+    next: APP.PATHS.PHOTO_ID_SELECTION
   },
   "/choose-photo-id-post-office": {
     controller: photoIdSelect,
@@ -77,81 +77,81 @@ module.exports = {
     fields: ["ukPassportExpiryDate"],
     controller: ukPassportDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "ukPassportExpiryDate",
         op: "before",
         value: "18 months ago",
-        next: "photo-id-expired",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "find-post-office-prove-identity",
+      APP.PATHS.FIND_POST_OFFICE,
     ],
   },
   "/non-uk-passport-expire": {
     fields: ["nonUKPassportExpiryDate"],
     controller: nonUKPassportDetails,
     editable: true,
-    editBackStep: "checkAnswers",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "nonUKPassportExpiryDate",
         op: "before",
         value: "today",
-        next: "photo-id-expired",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "select-country-non-uk-passport",
+      APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR,
     ],
   },
   "/uk-driving-licence-expire": {
     fields: ["ukPhotocardDlExpiryDate"],
     controller: ukPhotocardDlDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "ukPhotocardDlExpiryDate",
         op: "before",
         value: "today",
-        next: "photo-id-expired",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "uk-driving-licence-current-address",
+      APP.PATHS.PHOTOCARD_DL_ADDRESS_CHECK,
     ],
   },
   "/biometric-residence-permit-expire": {
     fields: ["brpExpiryDate"],
     controller: brpDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "brpExpiryDate",
         op: "before",
         value: "today",
-        next: "photo-id-expired",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "find-post-office-prove-identity",
+      APP.PATHS.FIND_POST_OFFICE,
     ],
   },
   "/eu-driving-licence-expire": {
     fields: ["euPhotocardDlExpiryDate"],
     controller: euPhotocardDlDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "euPhotocardDlExpiryDate",
         op: "before",
         value: "today",
-        next: "photo-id-expired",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "eu-driving-licence-current-address",
+      APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK,
     ],
   },
   "/eu-driving-licence-current-address": {
     fields: ["euDrivingLicenceAddressCheck"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "euDrivingLicenceAddressCheck",
@@ -174,21 +174,21 @@ module.exports = {
     fields: ["eeaIdCardExpiryDate"],
     controller: eeaIdentityCardDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "eeaIdCardExpiryDate",
         op: "before",
         value: "today",
-        next: "photo-id-expired",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "national-identity-card-current-address",
+      APP.PATHS.EEA_IDENTITY_CARD_CURRENT_ADDRESS,
     ],
   },
   "/national-identity-card-current-address": {
     fields: ["eeaIdCardAddressCheck"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "eeaIdCardAddressCheck",
@@ -250,7 +250,7 @@ module.exports = {
       {
         field: "photoIdExpiryChoice",
         value: APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID,
-        next: "choose-photo-id-post-office",
+        next: APP.PATHS.PHOTO_ID_SELECTION,
       },
       {
         field: "photoIdExpiryChoice",
@@ -262,44 +262,44 @@ module.exports = {
   "/uk-driving-licence-current-address": {
     fields: ["ukDlAddressCheck"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "ukDlAddressCheck",
         value: "Yes",
-        next: "find-post-office-prove-identity"
+        next: APP.PATHS.FIND_POST_OFFICE
       },
       {
         field: "ukDlAddressCheck",
         value: "No",
-        next: "choose-photo-id-post-office"
+        next: APP.PATHS.PHOTO_ID_SELECTION
       }
     ]
   },
   "/select-country-national-identity-card": {
     fields: ["eeaIdentityCardCountrySelector"],
     editable: true,
-    editBackStep: "checkDetails",
-    next: "find-post-office-prove-identity"
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: APP.PATHS.FIND_POST_OFFICE
   },
   "/select-country-eu-driving-licence": {
     fields: ["euDrivingLicenceCountrySelector"],
     editable: true,
-    editBackStep: "checkDetails",
-    next: "find-post-office-prove-identity"
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: APP.PATHS.FIND_POST_OFFICE
 
   },
   "/select-country-non-uk-passport": {
     fields: ["nonUkPassportCountrySelector"],
     editable: true,
-    editBackStep: "checkDetails",
-    next: "find-post-office-prove-identity"
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: APP.PATHS.FIND_POST_OFFICE
   },
   "/find-post-office-prove-identity": {
     editable: true,
     editBackStep: "choose-post-office-prove-identity",
     fields: ["postcode"],
-    next: "choose-post-office-prove-identity",
+    next: APP.PATHS.CHOOSE_POST_OFFICE,
   },
   
   "/choose-post-office-prove-identity": {
@@ -309,7 +309,7 @@ module.exports = {
       "postcode",
       "branches"
     ],
-    next: "check-details"
+    next: APP.PATHS.CHECK_DETAILS
   },
   "/check-details": {
     controller: checkDetails,
