@@ -1,0 +1,31 @@
+{
+  "mappings": [
+    {
+      "scenarioName": "abort-f2f",
+      "requiredScenarioState": "Started",
+      "request": {
+        "method": "POST",
+        "url": "/abort",
+				"headers": {
+          "session-id": {
+            "equalTo": "ABADCAFE"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "authorizationCode": {
+            "value": "FACEFEED"
+          },
+          "state": {
+            "value": "sT@t3"
+          },
+          "redirect_uri": {
+            "value": "http://example.net"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-const { APP } = require("../../../lib/config");
+const { APP, API } = require("../../../lib/config");
 const BaseController = require("hmpo-form-wizard").Controller;
 const logger = require("hmpo-logger").get();
 
@@ -88,10 +88,21 @@ class PhotoIdSelectionController extends BaseController {
         }
         case APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID: {
           logger.info(
-            "photo-id-selection: user has selected No ID - redirecting to No ID page",
+            "photo-id-selection: user has selected No ID - aborting journey",
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID, true);
+					// console.log("Aborting journey");
+					// const fraudCheck = await req.axios.post(
+					// 	`${API.PATHS.ABORT}`,
+					// 	{
+					// 		headers: {
+					// 			"x-govuk-signin-session-id": req.session.tokenId
+					// 		},
+					// 	}
+					// );
+
+					// console.log('fraudCheck', fraudCheck);
           return next();
         }
       }
