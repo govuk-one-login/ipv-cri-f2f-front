@@ -74,10 +74,6 @@ module.exports = {
       },
     ],
   },
-	"/abort": {
-    controller: abort,
-		next: "done",
-  },
   "/ukPassportDetails": {
     fields: ["ukPassportExpiryDate"],
     controller: ukPassportDetails,
@@ -369,7 +365,11 @@ module.exports = {
   },
   "/checkDetails": {
     controller: checkDetails,
-    next: "done",
+		next: "done",
+  },
+	"/abort": {
+    controller: abort,
+		next: "done",
   },
   "/done": {
     skip: true,
