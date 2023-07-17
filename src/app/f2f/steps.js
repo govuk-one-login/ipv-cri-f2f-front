@@ -236,7 +236,7 @@ module.exports = {
       }
     ]
   },
-  "/national-identity-card-current-address": {
+  [`${APP.PATHS.EEA_IDENTITY_CARD_CURRENT_ADDRESS}`]: {
     fields: ["eeaIdCardAddressCheck"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
