@@ -15,7 +15,7 @@ module.exports = {
         hint: { text: APP.UK_PASSPORT_HINT }
       },
       { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
-      { 
+      {
         value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
         hint: { text: APP.UK_DL_HINT }
       },
@@ -39,8 +39,19 @@ module.exports = {
     label: "",
     hint: "",
     items: [
-      { value: "Yes", text: "Yes, it has my current address on it" },
-      { value: "No", text: "No, it has my previous address on it" }
+      {
+        value: "Yes",
+        text: "Yes, it has my current address on it",
+        conditional: {
+          html: ""
+        }
+      },
+      { value: "No",
+        text: "No, it has my previous address on it",
+        conditional: {
+          html: ""
+        }
+      }
     ],
     validate: ["required"]
   },
@@ -131,10 +142,25 @@ module.exports = {
     label: "",
     hint: "",
     items: [
-      { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS, text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS },
-      { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS, text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS },
+      { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
+        text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      },
+      { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
+        text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      },
       { divider: "or" },
-      { value: APP.ADDRESS_OPTIONS.NO_ADDRESS, text: APP.ADDRESS_OPTIONS.NO_ADDRESS }
+      { value: APP.ADDRESS_OPTIONS.NO_ADDRESS,
+        text: APP.ADDRESS_OPTIONS.NO_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      }
     ],
     validate: ["required"]
   },
@@ -162,10 +188,25 @@ module.exports = {
     label: "",
     hint: "",
     items: [
-      { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS, text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS},
-      { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS, text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS},
+      { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
+        text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      },
+      { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
+        text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      },
       {divider: "or"},
-      { value: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS, text: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS}
+      { value: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
+        text: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      }
     ],
     validate: ["required"]
   },
@@ -195,7 +236,7 @@ module.exports = {
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS },
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID },
       { divider: "or" },
-      { value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY }, 
+      { value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY },
     ],
     validate: ["required"]
   },
@@ -235,7 +276,7 @@ eeaIdentityCardCountrySelector: {
       { value: EEA_ID_CARD.SPAIN.text, text: EEA_ID_CARD.SPAIN.text },
       { value: EEA_ID_CARD.SWEDEN.text, text: EEA_ID_CARD.SWEDEN.text }
     ],
-    validate: ["required", 
+    validate: ["required",
       { type: "equal", fn: (value) => !value.match(/Select/)}
     ]
   },
@@ -273,7 +314,7 @@ eeaIdentityCardCountrySelector: {
       { value: EU_DL_COUNTRIES.SPAIN.text, text: EU_DL_COUNTRIES.SPAIN.text },
       { value: EU_DL_COUNTRIES.SWEDEN.text, text: EU_DL_COUNTRIES.SWEDEN.text }
     ],
-    validate: ["required", 
+    validate: ["required",
       {type: "equal", fn: (value) => !value.match(/Select/)}
     ]
   },
@@ -478,7 +519,7 @@ eeaIdentityCardCountrySelector: {
       {value: NON_UK_PASSPORT.ZAMBIA.text, text: NON_UK_PASSPORT.ZAMBIA.text},
       {value: NON_UK_PASSPORT.ZIMBABWE.text, text: NON_UK_PASSPORT.ZIMBABWE.text},
     ],
-    validate: ["required", 
+    validate: ["required",
       {type: "equal", fn: (value) => !value.match(/Select/)}
     ]
   }

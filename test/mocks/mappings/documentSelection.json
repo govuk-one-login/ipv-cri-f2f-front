@@ -21,7 +21,6 @@
           {
             "equalToJson": {
               "document_selection": {
-                "name": "${json-unit.any-string}",
                 "document_selected": "${json-unit.any-string}",
                 "date_of_expiry": "${json-unit.any-string}",
                 "country_code": "${json-unit.any-string}"
