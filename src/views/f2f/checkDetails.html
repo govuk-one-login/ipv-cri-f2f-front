@@ -24,16 +24,20 @@
       iconFallbackText: "Warning"
     }) }}
     
-    {% if (values.photoIdChoice == "nonUkPassport") %}
-      {% include "../components/countrySummaryListNoExpiry.njk" %}
-    {% if (values.photoIdChoice == "nonUkPassport" and values.hasExpiryDate == "No") %}
+    {% if (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "Yes") %}
+      {% include "../components/countrySummaryList.njk" %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "No") %}
       {% include "../components/countrySummaryListNoExpiry.njk" %}
     {% elif (values.photoIdChoice == "ukPhotocardDl") %}
       {% include "../components/ukDlSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "euPhotocardDl") %}
+    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "Yes") %}
       {% include "../components/euSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "eeaIdentityCard") %}
+    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "No") %}
+      {% include "../components/euSummaryListNoExpiry.njk" %}
+    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "Yes") %}
       {% include "../components/eeaSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "No") %}
+      {% include "../components/eeaSummaryListNoExpiry.njk" %}
     {% else %}
       {% include "../components/summaryList.njk" %}
     {% endif %}
