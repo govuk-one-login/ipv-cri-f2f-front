@@ -34,8 +34,8 @@ This can be run by using:
 
 The frontend can be configured to use this mock server through two environment variables:
 
-- `NODE_ENV = development` - this enables a middleware that passes the `x-scenario-id` header from web requests through to the API
-- `API_BASE_URL = http://localhost:8090` - this points the frontend at the Wiremock instance
+- `NODE_ENV=development` - this enables a middleware that passes the `x-scenario-id` header from web requests through to the API
+- `API_BASE_URL=http://localhost:8090` - this points the frontend at the Wiremock instance
 
 A browser extension, such as [Mod Header](https://modheader.com/), can be used to set the value of this header in a web browser.
 
