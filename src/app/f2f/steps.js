@@ -168,7 +168,7 @@ module.exports = {
   "/eu-driving-licence-has-expiry-date": {
     fields: ["idHasExpiryDate"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "idHasExpiryDate",
@@ -222,7 +222,7 @@ module.exports = {
   "/national-identity-card-has-expiry-date": {
     fields: ["idHasExpiryDate"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "idHasExpiryDate",
