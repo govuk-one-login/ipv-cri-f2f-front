@@ -239,23 +239,6 @@ module.exports = {
   "/national-identity-card-current-address": {
     fields: ["eeaIdCardAddressCheck"],
     editable: true,
-    editBackStep: "checkDetails",
-    next: [
-      {
-        field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.YES,
-        next: "eeaIdentityCardDetails"
-      },
-      {
-        field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.NO,
-        next: "eeaIdCardAddressCheck"
-      }
-    ]
-  },
-  [`${APP.PATHS.EEA_IDENTITY_CARD_CURRENT_ADDRESS}`]: {
-    fields: ["eeaIdCardAddressCheck"],
-    editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
