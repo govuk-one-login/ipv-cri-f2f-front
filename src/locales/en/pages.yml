@@ -84,6 +84,7 @@ checkDetails:
   euDlAddress: Does your driving licence have your current address on it?
   idCardAddress: Does your national identity card have your current address on it?
   country: Country
+  hasExpiryDate: TESTING
 
 ukDlAddressCheck: 
   title: "Does your driving licence have your current address on it?"

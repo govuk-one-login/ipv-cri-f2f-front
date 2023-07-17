@@ -23,9 +23,11 @@
       text: translate("checkDetails.validation.default"),
       iconFallbackText: "Warning"
     }) }}
-      
+    
     {% if (values.photoIdChoice == "nonUkPassport") %}
-      {% include "../components/countrySummaryList.njk" %}
+      {% include "../components/countrySummaryListNoExpiry.njk" %}
+    {% if (values.photoIdChoice == "nonUkPassport" and values.hasExpiryDate == "No") %}
+      {% include "../components/countrySummaryListNoExpiry.njk" %}
     {% elif (values.photoIdChoice == "ukPhotocardDl") %}
       {% include "../components/ukDlSummaryList.njk" %}
     {% elif (values.photoIdChoice == "euPhotocardDl") %}
