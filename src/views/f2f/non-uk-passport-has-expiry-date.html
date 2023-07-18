@@ -1,10 +1,18 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoTitle = nonUKPassportHasExpiryDate %}
+{% set hmpoPageKey = "nonUKPassportHasExpiryDate" %}
 {% set gtmJourney = "f2f - nonUKPassportHasExpiryDate" %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block header %}
+  {{ govukHeader ({
+    serviceName: translate("govuk.serviceName")
+  }) }}
+{% endblock %}
 
 {% block mainContent %}
 
