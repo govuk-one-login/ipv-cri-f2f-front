@@ -172,7 +172,6 @@ class CheckDetailsController extends DateController {
     }
   }
   async saveF2fData(axios, f2fData, req) {
-		console.log('req.session.tokenId', req.session.tokenId);
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId
     }
