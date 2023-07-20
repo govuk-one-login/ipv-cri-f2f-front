@@ -92,17 +92,6 @@ class PhotoIdSelectionController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID, true);
-					// console.log("Aborting journey");
-					// const fraudCheck = await req.axios.post(
-					// 	`${API.PATHS.ABORT}`,
-					// 	{
-					// 		headers: {
-					// 			"x-govuk-signin-session-id": req.session.tokenId
-					// 		},
-					// 	}
-					// );
-
-					// console.log('fraudCheck', fraudCheck);
           return next();
         }
       }
