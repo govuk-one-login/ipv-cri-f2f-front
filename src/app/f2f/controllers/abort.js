@@ -1,5 +1,6 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config");
+
 class AbortController extends BaseController {
   next() {
     return '/done'
@@ -13,15 +14,13 @@ class AbortController extends BaseController {
     }
   }
   async abortJourney(req) {
-    console.log("Aborting journey");
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId
     };
 
-    const resp = await req.axios.post(`${API.PATHS.ABORT}`, {}, {
+		const resp = await req.axios.post(`${API.PATHS.ABORT}`, {}, {
       headers,
     });
-
     return resp.data;
   }
 }
