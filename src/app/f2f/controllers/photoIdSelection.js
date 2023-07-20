@@ -1,4 +1,4 @@
-const { APP, API } = require("../../../lib/config");
+const { APP } = require("../../../lib/config");
 const BaseController = require("hmpo-form-wizard").Controller;
 const logger = require("hmpo-logger").get();
 
