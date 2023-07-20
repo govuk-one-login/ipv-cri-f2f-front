@@ -2,30 +2,29 @@
   "mappings": [
     {
       "scenarioName": "abort-f2f",
-      "requiredScenarioState": "Started",
+      "newScenarioState": "Started",
       "request": {
-        "method": "POST",
-        "url": "/abort",
-				"headers": {
-          "session-id": {
-            "equalTo": "ABADCAFE"
-          }
-        }
+        "method": "GET",
+        "url": "/__reset/abort-f2f"
       },
       "response": {
-        "status": 200,
-        "jsonBody": {
-          "authorizationCode": {
-            "value": "FACEFEED"
-          },
-          "state": {
-            "value": "sT@t3"
-          },
-          "redirect_uri": {
-            "value": "http://example.net"
-          }
-        }
+        "status": 200
       }
-    }
+    },
+		{
+			"scenarioName": "abort-f2f",
+			"request": {
+				"method": "POST",
+				"url": "/abort",
+				"headers": {
+					"x-scenario-id": {
+						"equalTo": "f2f-abort"
+					}
+				}
+			},
+			"response": {
+				"status": 302
+			}
+		}
   ]
 }
