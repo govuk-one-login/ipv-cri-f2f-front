@@ -256,7 +256,7 @@ module.exports = {
       {
         field: "photoIdExpiryChoice",
         value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY,
-        next: APP.PATHS.NO_PHOTO_ID,
+        next: APP.PATHS.ABORT,
       },
     ]
   },
@@ -317,8 +317,10 @@ module.exports = {
 		next: "done",
   },
 	"/abort": {
+    entryPoint: true,
+    skip: true,
     controller: abort,
-		next: "done",
+    next: "done",
   },
   "/done": {
     skip: true,

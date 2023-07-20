@@ -64,7 +64,6 @@ error:
 common:
     confirmIdentityAnotherWay:
       confirmIdentity: "I want to prove my identity another way"
-      pathToAbort: https://www.gov.uk/
     postoffice:
       service: "Not all Post Offices offer this service. You can "
       postofficeLink: "Or go to any Post office that offers 'in branch verification' (opens in new tab)."
