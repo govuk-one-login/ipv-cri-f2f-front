@@ -7,16 +7,18 @@ module.exports = class PlaywrightDevPage {
   }
   
   async goto() {  
-    const axios = require("axios");
-    const claim = require("../support/shared_claim")    
-    const postRequest = await axios.post("https://ipvstub.review-o.build.account.gov.uk/start", claim);    
-		const url = postRequest.data.AuthorizeLocation;
-		if (url.includes("www")) {
-			this.startingUrl = url 
-		} else {
-			const splitUrl = url.split("https://");
-    	this.startingUrl = "https://" + "www." + splitUrl[1];
-		}
+    // const axios = require("axios");
+    // const claim = require("../support/shared_claim")    
+    // const postRequest = await axios.post("https://ipvstub.review-o.build.account.gov.uk/start", claim);    
+		// const url = postRequest.data.AuthorizeLocation;
+		// if (url.includes("www")) {
+		// 	this.startingUrl = url 
+		// } else {
+		// 	const splitUrl = url.split("https://");
+    // 	this.startingUrl = "https://" + "www." + splitUrl[1];
+		// }
+
+    this.startingUrl = "https://8l1k6h5gcd.execute-api.eu-west-2.amazonaws.com"
 
     await this.page.goto(this.startingUrl);
   }
