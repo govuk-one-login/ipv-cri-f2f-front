@@ -28,4 +28,10 @@ module.exports = class PlaywrightDevPage {
       const errorText = await this.page.locator("#error-summary-title").textContent();
       return errorText.trim()
     }
+
+    async checkErrorBodyText(){
+      const errorBodyText = await this.page.locator('[href*="#idHasExpiryDate"]').textContent();
+      return errorBodyText.trim()
+    }
+
   };
