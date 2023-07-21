@@ -6,12 +6,6 @@
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
-{% block header %}
-  {{ govukHeader ({
-    serviceName: translate("govuk.serviceName")
-  }) }}
-{% endblock %}
-
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -35,7 +29,7 @@
     </div>
 
     <ol class="govuk-list--spaced" id="secondStepList">
-      <li> <p class="listItem">{{ "landingPage.instructions.secondStep.one" | translate }}<a href={{ "common.postoffice.pathToPoBranchSearch" | translate }}> {{ "common.postoffice.postofficeLink" | translate }}</a></p></li>
+      <li> <p class="listItem">{{ "landingPage.instructions.secondStep.one" | translate }}<a href={{ "common.postoffice.pathToPoBranchSearch" | translate }} target="_blank"> {{ "common.postoffice.postofficeLink" | translate }}</a></p></li>
       <li> <p>{{ "landingPage.instructions.secondStep.two" | translate }}</p> </li>
     </ol>
     
