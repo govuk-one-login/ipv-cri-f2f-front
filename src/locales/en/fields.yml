@@ -71,6 +71,18 @@ ukPhotocardDlExpiryDate:
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
 
+nonUKPassportHasExpiryDate:
+  validation:
+    default: "Select if your passport has an expiry date"
+
+euDrivingLicenceHasExpiryDate:
+  validation:
+    default: "Select if your driving licence has an expiry date"
+
+eeaIdCardHasExpiryDate:
+  validation:
+    default: "Select if your national identity card has an expiry date"
+
 nonUKPassportExpiryDate:
   legend: ""
   label: ""

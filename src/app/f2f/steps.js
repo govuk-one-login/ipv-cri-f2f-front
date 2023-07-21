@@ -104,18 +104,18 @@ module.exports = {
     ],
   },
   "/non-uk-passport-has-expiry-date": {
-    fields: ["idHasExpiryDate"],
+    fields: ["nonUKPassportHasExpiryDate"],
     editable: true,
     editBackStep: "checkDetails",
     next: [
       {
-        field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.YES,
+        field: "nonUKPassportHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.NON_UK_PASSPORT.YES,
         next: "nonUKPassportDetails"
       },
       {
-        field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.NO,
+        field: "nonUKPassportHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.NON_UK_PASSPORT.NO,
         next: "nonUkPassportCountrySelector"
       }
     ]
@@ -166,18 +166,18 @@ module.exports = {
     ],
   },
   "/eu-driving-licence-has-expiry-date": {
-    fields: ["idHasExpiryDate"],
+    fields: ["euDrivingLicenceHasExpiryDate"],
     editable: true,
     editBackStep: "checkDetails",
     next: [
       {
-        field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.YES,
+        field: "euDrivingLicenceHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.EU_PHOTOCARD_DL.YES,
         next: "euPhotocardDlDetails"
       },
       {
-        field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.NO,
+        field: "euDrivingLicenceHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.EU_PHOTOCARD_DL.NO,
         next: "euDrivingLicenceAddressCheck"
       }
     ]
@@ -220,18 +220,18 @@ module.exports = {
     ],
   },
   "/national-identity-card-has-expiry-date": {
-    fields: ["idHasExpiryDate"],
+    fields: ["eeaIdCardHasExpiryDate"],
     editable: true,
     editBackStep: "checkDetails",
     next: [
       {
-        field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.YES,
+        field: "eeaIdCardHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.EEA_IDENTITY_CARD.YES,
         next: "eeaIdentityCardDetails"
       },
       {
-        field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.NO,
+        field: "eeaIdCardHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.EEA_IDENTITY_CARD.NO,
         next: "eeaIdCardAddressCheck"
       }
     ]

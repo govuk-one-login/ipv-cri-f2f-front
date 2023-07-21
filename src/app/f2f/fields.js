@@ -91,20 +91,62 @@ module.exports = {
       },
     ]
   },
-  idHasExpiryDate: {
+  nonUKPassportHasExpiryDate: {
     legend: "",
     label: "",
     hint: "",
     items: [
       {
-        value: APP.HAS_EXPIRY_DATE.YES,
-        text: APP.HAS_EXPIRY_DATE.YES,
+        value: APP.HAS_EXPIRY_DATE.NON_UK_PASSPORT.YES,
+        text: APP.HAS_EXPIRY_DATE.NON_UK_PASSPORT.YES,
         conditional: {
           html: ""
         }
       },
-      { value: APP.HAS_EXPIRY_DATE.NO,
-        text: APP.HAS_EXPIRY_DATE.NO,
+      { value: APP.HAS_EXPIRY_DATE.NON_UK_PASSPORT.NO,
+        text: APP.HAS_EXPIRY_DATE.NON_UK_PASSPORT.NO,
+        conditional: {
+          html: ""
+        }
+      }
+    ],
+    validate: ["required"]
+  },
+  euDrivingLicenceHasExpiryDate: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: APP.HAS_EXPIRY_DATE.EU_PHOTOCARD_DL.YES,
+        text: APP.HAS_EXPIRY_DATE.EU_PHOTOCARD_DL.YES,
+        conditional: {
+          html: ""
+        }
+      },
+      { value: APP.HAS_EXPIRY_DATE.EU_PHOTOCARD_DL.NO,
+        text: APP.HAS_EXPIRY_DATE.EU_PHOTOCARD_DL.NO,
+        conditional: {
+          html: ""
+        }
+      }
+    ],
+    validate: ["required"]
+  },
+  eeaIdCardHasExpiryDate: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: APP.HAS_EXPIRY_DATE.EEA_IDENTITY_CARD.YES,
+        text: APP.HAS_EXPIRY_DATE.EEA_IDENTITY_CARD.YES,
+        conditional: {
+          html: ""
+        }
+      },
+      { value: APP.HAS_EXPIRY_DATE.EEA_IDENTITY_CARD.NO,
+        text: APP.HAS_EXPIRY_DATE.EEA_IDENTITY_CARD.NO,
         conditional: {
           html: ""
         }

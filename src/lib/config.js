@@ -51,8 +51,18 @@ module.exports = {
       ID_NO_ADDRESS: "My national identity card does not have my address on it",
     },
     HAS_EXPIRY_DATE: {
-      YES: "Yes",
-      NO: "No"
+      NON_UK_PASSPORT: {
+        YES: "Yes",
+        NO: "No"
+    },
+      EU_PHOTOCARD_DL: {
+        YES: "Yes",
+        NO: "No"
+    },
+      EEA_IDENTITY_CARD: {
+        YES: "Yes",
+        NO: "No"
+    }
     },
     UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.",
     UK_DL_HINT: "The address on your driving licence must be the same as your current address.",

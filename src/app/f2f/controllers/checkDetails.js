@@ -95,20 +95,20 @@ class CheckDetailsController extends DateController {
           break;
         }
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
-          idHasExpiryDate = req.form.values.idHasExpiryDate
+          idHasExpiryDate = req.form.values.nonUKPassportHasExpiryDate
           expiryDate = req.form.values.nonUKPassportExpiryDate;
           country = req.form.values.nonUkPassportCountrySelector;
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
-          idHasExpiryDate = req.form.values.idHasExpiryDate
+          idHasExpiryDate = req.form.values.euDrivingLicenceHasExpiryDate
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
           country = req.form.values.euDrivingLicenceCountrySelector;
           address = req.form.values.euDrivingLicenceAddressCheck
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
-          idHasExpiryDate = req.form.values.idHasExpiryDate
+          idHasExpiryDate = req.form.values.eeaIdCardHasExpiryDate
           expiryDate = req.form.values.eeaIdCardExpiryDate;
           country = req.form.values.eeaIdentityCardCountrySelector;
           address = req.form.values.eeaIdCardAddressCheck;
