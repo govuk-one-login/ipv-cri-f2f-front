@@ -31,6 +31,13 @@ const {PhotoIdSelectionPage, EEAIdentityCardDetailsPageValid, EeaIdentityCardHas
   
   });
 
+  Then(/^the user is routed to the EEA edit HAS Expiry Entry Screen$/, async function () {
+    const eeaIdentityCardHasExpiryDatePage = new EeaIdentityCardHasExpiryDatePage(await this.page);
+
+    expect(await eeaIdentityCardHasExpiryDatePage.isCurrentEditPage()).to.be.true;
+  
+  });
+
   When(/^the user selects yes on the EEA identity expiry date page$/, async function () {
     const eeaIdentityCardHasExpiryDatePage = new EeaIdentityCardHasExpiryDatePage(await this.page);
   

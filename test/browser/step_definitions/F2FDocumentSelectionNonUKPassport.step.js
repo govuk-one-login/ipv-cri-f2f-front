@@ -34,6 +34,13 @@ const {PhotoIdSelectionPage, NonUKPassportDetailsPageValid, NonUkPassportHasExpi
 
    });
 
+   Then(/^the user is routed to the edit screen - Non-UKPassportHasExpiryDate$/, async function () {
+    const nonUkPassportHasExpiryDatePage = new NonUkPassportHasExpiryDatePage(await this.page);
+
+     expect(await nonUkPassportHasExpiryDatePage.isCurrentEditPage()).to.be.true;
+
+   });
+   
    When(/^the user selects yes on the passport expiry date page$/, async function () {
     const nonUkPassportHasExpiryDatePage = new NonUkPassportHasExpiryDatePage(await this.page);
 

@@ -12,6 +12,14 @@ module.exports = class PlaywrightDevPage {
       return pathname === this.path;
     }
 
+    async isCurrentEditPage() {
+      const { pathname } = new URL(await this.page.url());
+      console.log("pathname" + pathname);
+      console.log("url" + this.path);
+
+      return pathname === this.path + "/edit";
+    }
+
     async continue() {
       await this.page.click("#continue");
     }

@@ -27,6 +27,13 @@ const {PhotoIdSelectionPage, EuDrivingLicenceDetailsPageValid, EuDrivingLicenceH
   
   });
 
+  Then(/^the user is routed to the EU DL edit Has Expiry Entry Screen$/, async function () {
+    const euDrivingLicenceHasExpiryDatePage = new EuDrivingLicenceHasExpiryDatePage(await this.page);
+  
+    expect(await euDrivingLicenceHasExpiryDatePage.isCurrentEditPage()).to.be.true;
+  
+  });
+
   When(/^the user selects yes on the eu driving licence expiry date page$/, async function () {
     const euDrivingLicenceHasExpiryDatePage = new EuDrivingLicenceHasExpiryDatePage(await this.page);
   
