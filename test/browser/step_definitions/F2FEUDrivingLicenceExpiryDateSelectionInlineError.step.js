@@ -18,7 +18,7 @@ const {EuDrivingLicenceHasExpiryDatePage } = require("../pages");
      
     const inlineError = 'There is a problem';
 
-    const inlineErrorBody = 'validation.default';
+    const inlineErrorBody = 'Select if your photo ID has an expiry date';
    
     const error = await euDrivingLicenceHasExpiryDatePage.checkErrorText();
       
@@ -27,6 +27,10 @@ const {EuDrivingLicenceHasExpiryDatePage } = require("../pages");
     const errorBody = await euDrivingLicenceHasExpiryDatePage.checkErrorBodyText();
   
     expect(await errorBody).to.equal(inlineErrorBody);
+
+    const errorBodyAboveRadioOptions = await euDrivingLicenceHasExpiryDatePage.checkErrorAboveRadioButtonText();
+
+    expect(await errorBodyAboveRadioOptions).to.equal("Error: Select if your photo ID has an expiry date");
        
   });
   

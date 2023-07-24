@@ -18,7 +18,7 @@ const {EeaIdentityCardHasExpiryDatePage } = require("../pages");
      
     const inlineError = 'There is a problem';
 
-    const inlineErrorBody = 'validation.default';
+    const inlineErrorBody = 'Select if your photo ID has an expiry date';
    
     const error = await eeaIdentityCardHasExpiryDatePage.checkErrorText();
       
@@ -27,6 +27,10 @@ const {EeaIdentityCardHasExpiryDatePage } = require("../pages");
     const errorBody = await eeaIdentityCardHasExpiryDatePage.checkErrorBodyText();
   
     expect(await errorBody).to.equal(inlineErrorBody);
+
+    const errorBodyAboveRadioOptions = await eeaIdentityCardHasExpiryDatePage.checkErrorAboveRadioButtonText();
+
+    expect(await errorBodyAboveRadioOptions).to.equal("Error: Select if your photo ID has an expiry date");
        
   });
   

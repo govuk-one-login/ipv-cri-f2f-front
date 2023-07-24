@@ -38,4 +38,9 @@ module.exports = class PlaywrightDevPage {
       const errorBodyText = await this.page.locator('[href*="#idHasExpiryDate"]').textContent();
       return errorBodyText.trim()
     }
+
+    async checkErrorAboveRadioButtonText(){
+      const errorBodyText = await this.page.locator("#idHasExpiryDate-error").textContent();
+      return errorBodyText.trim()
+    }
   };

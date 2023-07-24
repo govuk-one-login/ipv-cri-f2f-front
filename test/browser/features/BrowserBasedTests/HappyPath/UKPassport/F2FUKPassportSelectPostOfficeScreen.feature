@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @browser 
+@mock-api:f2f-f2f-success @success @browser
 Feature: UK Passport Find Nearest PO Branch - Happy Path
 
 Background:

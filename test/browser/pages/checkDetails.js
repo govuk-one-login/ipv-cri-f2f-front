@@ -30,7 +30,6 @@ module.exports = class PlaywrightDevPage {
 
   async changeEEAHASExpiryDate() {
     await this.page.click('[href*="national-identity-card-has-expiry-date/edit"]');
-    await this.page.locator(".govuk-summary-list__value").nth(1).textContent();
   }
 
   async changeEUDLHASExpiryDate() {

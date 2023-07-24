@@ -14,9 +14,7 @@ module.exports = class PlaywrightDevPage {
 
     async isCurrentEditPage() {
       const { pathname } = new URL(await this.page.url());
-      console.log("pathname" + pathname);
-      console.log("url" + this.path);
-
+      
       return pathname === this.path + "/edit";
     }
 
@@ -42,4 +40,8 @@ module.exports = class PlaywrightDevPage {
       return errorBodyText.trim()
     }
 
+    async checkErrorAboveRadioButtonText(){
+      const errorBodyText = await this.page.locator("#idHasExpiryDate-error").textContent();
+      return errorBodyText.trim()
+    }
   };

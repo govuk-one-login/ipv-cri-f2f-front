@@ -181,7 +181,7 @@ When(/^the user clicks the EUDLHASSExpiryDate Change button$/, async function ()
 
   expect(await cma.isCurrentPage()).to.be.true;
 
-  await cma.changeEUDLHASExpiryDate;
+  await cma.changeEUDLHASExpiryDate();
 });
 
 
