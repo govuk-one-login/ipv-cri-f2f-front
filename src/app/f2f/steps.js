@@ -85,7 +85,14 @@ module.exports = {
         value: "18 months ago",
         next: "photoIdExpiry",
       },
-      "findBranch",
+      
+      {
+        field: "ukPassportExpiryDate",
+        op: "<",
+        value: "new Date(new Date().getFullYear() + 10).toISOString().split('T')[0]",
+        next: "findBranch",
+      },
+      "findBranch"
     ],
   },
   "/nonUKPassportDetails": {
