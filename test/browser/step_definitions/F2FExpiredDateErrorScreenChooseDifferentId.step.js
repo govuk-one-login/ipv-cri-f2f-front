@@ -20,6 +20,13 @@ When(/^the user clicks the Expired Date Error Screen continue button$/, async fu
 
 });
 
+When(/^the user select the choose your identity another way option and continue$/, async function () {
+  const photoExpiryPage = new PhotoIdExpiryPage(await this.page);
+  await photoExpiryPage.ChooseIdentityAnotherWay();
+  await photoExpiryPage.continue();
+
+});
+
 Then(/^the user is routed back to the PhotoId Selection screen$/, async function () {
   const photoIdSelectionPage = new PhotoIdSelectionPage(await this.page);
 

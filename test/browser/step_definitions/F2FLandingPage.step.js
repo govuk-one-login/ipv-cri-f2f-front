@@ -25,3 +25,15 @@ Then(/^the user is routed to the next screen in the journey PhotoId Selection$/,
   expect(await photoIdPage.isCurrentPage()).to.be.true;
 
 });
+
+
+Then(/^the user click on I want to prove my identity another way$/, async function () {
+  const landingPage = new LandingPage(await this.page);
+
+  await landingPage.proveIdentityAnotherWay();
+
+});
+
+Then(/^the session is aborted$/, async function () {
+
+});

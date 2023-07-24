@@ -24,4 +24,7 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#photoIdExpiryChoice-chooseDifferentPhotoId");
   }
 
+  async ChooseIdentityAnotherWay() {
+    await this.page.click("#photoIdExpiryChoice-proveIdentityAnotherWay-label");
+  }
 };

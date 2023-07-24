@@ -17,6 +17,10 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#landingPageContinue");
   }
 
+  async proveIdentityAnotherWay() {
+    await this.page.locator('[href*="class="govuk-link""]');
+  }
+
   get poLink() {
     return this.page.locator('[href*="https://www.postoffice.co.uk/identity/in-branch-verification-service"]');
   }
