@@ -139,6 +139,10 @@ eeaIdCardExpiryDate:
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
 
+idHasExpiryDate:
+  validation:
+    required: "Select if your ID has an expiry date"
+
 eeaIdCardAddressCheck:
   validation:
     required: "Select if your identity card has your current address on it"
