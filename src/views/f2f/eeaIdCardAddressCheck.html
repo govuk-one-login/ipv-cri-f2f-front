@@ -8,12 +8,6 @@
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 
-{% block header %}
-  {{ govukHeader ({
-    serviceName: translate("govuk.serviceName")
-  }) }}
-{% endblock %}
-
 
 {% block mainContent %}
 <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-xl">

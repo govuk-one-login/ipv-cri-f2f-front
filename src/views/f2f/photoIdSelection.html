@@ -5,12 +5,6 @@
 {% set hmpoPageKey = "photoIdSelection" %}
 {% set isPageHeading = true %}
 
-{% block header %}
-{{ govukHeader ({
-serviceName: translate("govuk.serviceName")
-}) }}
-{% endblock %}
-
 
 {% block submitButton %}
 {{ hmpoSubmit(ctx, {id: "photoIdContinue", text: translate("buttons.next")}) }}

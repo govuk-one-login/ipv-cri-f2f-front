@@ -141,7 +141,7 @@ eeaIdCardExpiryDate:
 
 idHasExpiryDate:
   validation:
-    required: "Select if your ID has an expiry date"
+    required: "Select if your photo ID has an expiry date"
 
 eeaIdCardAddressCheck:
   validation:
