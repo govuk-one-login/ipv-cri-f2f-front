@@ -13,6 +13,6 @@ export GITHUB_ACTIONS=true
 # shellcheck disable=SC2154
 export IPV_STUB_URL=$(remove_quotes $CFN_F2FIPVStubExecuteURL)start
 
-cd /app; yarn run test:browser:ci
+cd ./app; yarn run test:browser:ci
 
 cp -rf /app/test/reports $TEST_REPORT_ABSOLUTE_DIR
