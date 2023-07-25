@@ -31,11 +31,10 @@
                 "buildingName": "London",
                 "streetName": "Demo",
                 "addressLocality": "London",
-                "addressCountry": "United Kingdom",
+                "addressCountry": "GB",
                 "postalCode": "SW19"
             }
         ],
         "emailAddress": "sadie.henry@digital.cabinet-office.gov.uk"   
-    },
-    "target": "https://api.review-o.build.account.gov.uk"
+    }
 }

@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @browser
+@mock-api:f2f-f2f-success @success @browser 
 Feature: Abort Journey - Landing Page   
     
     Scenario: Abort Journey - DocumentSelection Screen 

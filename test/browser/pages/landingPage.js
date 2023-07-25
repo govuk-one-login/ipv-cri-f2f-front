@@ -18,7 +18,8 @@ module.exports = class PlaywrightDevPage {
   }
 
   async proveIdentityAnotherWay() {
-    await this.page.locator('[href*="class="govuk-link""]');
+    // await this.page.locator('[href*="/abort"]');
+    await this.page.locator('text="I want to prove my identity another way"').click();
   }
 
   get poLink() {

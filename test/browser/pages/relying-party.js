@@ -9,7 +9,7 @@ module.exports = class PlaywrightDevPage {
   async goto() {  
     const axios = require("axios");
     const claim = require("../support/shared_claim")    
-    const postRequest = await axios.post("https://ipvstub.review-o.build.account.gov.uk/start", claim);    
+    const postRequest = await axios.post("https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/start", claim);    
     await this.page.goto(postRequest.data.AuthorizeLocation);
   }
 
