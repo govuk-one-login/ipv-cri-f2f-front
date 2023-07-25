@@ -58,8 +58,7 @@ main p,
 }
 
 .govuk-radios__divider {
-  @include govuk-responsive-margin(2, "bottom");
-  
+  @include govuk-responsive-margin(2, "bottom"); 
 }
 
 .govuk-summary-list .govuk-summary-list__key {
@@ -157,12 +156,20 @@ main p,
   margin-top: govuk-spacing(-1);
 }
 
+#addressContinue {
+  @include govuk-responsive-margin(5, "top")
+}
+
+#expiryContinue {
+  @include govuk-responsive-margin(4, "top") 
+}
+
 #photoIdExpiryPrompt {
   font-size: 23px;
 }
 
 .expiredIdBody {
-  margin-top: govuk-spacing(-4);
+  margin-top: govuk-spacing(-1);
 }
 
 .expiredIdPrompt {
