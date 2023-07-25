@@ -12,10 +12,11 @@
 
 
 {% set title = translate("ukPassport.title") %}
-{% set passportInformationContext = translate("ukPassport.passportInformationContext") %}
+{% set context = translate("ukPassport.passportInformationContext") %}
+{% set hintText = translate("ukPassport.hintText") %}
+{% set formInstructions = "<p class=\"idExpiryContext\">"+context+"</p><p class=\"govuk-hint\">"+hintText+"</p>" %}
 
-
-    {% call hmpoForm(ctx) %}
+  {% call hmpoForm(ctx) %}
           {{ hmpoDate(ctx, {
             id: "ukPassportExpiryDate",
             namePrefix: "ukPassportExpiryDate",
@@ -27,7 +28,7 @@
                 }
             },
             hint: {
-                html: passportInformationContext
+                html: formInstructions
             }
         }) }}
 

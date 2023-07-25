@@ -11,17 +11,24 @@
 
 {% block mainContent %}
 
-<legend>
-  <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-      {{ translate("nationalIdentityCardHasExpiryDate.title") }}
-  </h1>
-</legend>
-
-  {% call hmpoForm(ctx) %}
-    {{ hmpoRadios(ctx, {id: "idHasExpiryDate"}) }}
+{% set title = translate("nationalIdentityCardHasExpiryDate.title") %}
+      
+      {% call hmpoForm(ctx) %}
+              {{ hmpoRadios(ctx, {
+                id: "idHasExpiryDate",
+                namePrefix: "idHasExpiryDate",
+                fieldset: {
+                    legend: {
+                        text: title,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                }
+            }) }}
+    
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
-  {% endcall %}
-
+    
+    {% endcall %}
 
 {% endblock %} 
 

@@ -31,26 +31,32 @@ dateOfBirth:
 ukPassport:
   title: "When does your passport expire?"
   passportInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
 nonUKPassport:
   title: "When does your passport expire?"
   passportInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
 ukPhotocardDl:
   title: "When does your driving licence expire?"
-  photocardDlInformationContext: "We need this information to check your photo ID is valid. "
+  photocardDlInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
 brp:
   title: "When does your biometric residence permit (BRP) expire?"
-  passportInformationContext: "We need this information to check your photo ID is valid. "
+  brpInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
 euPhotocardDl:
   title: "When does your driving licence expire?"
   euPhotocardDlInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
 eeaIdentityCard: 
   title: "When does your national identity card expire?" 
-  content: "We need this information to check your photo ID is valid."
+  eeaIdentityCardInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
 nonUKPassportHasExpiryDate:
   title: "Does your passport have an expiry date?"

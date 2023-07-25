@@ -6,29 +6,30 @@
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "hmpo-date/macro.njk" import hmpoDate %}
-{% from "govuk/components/header/macro.njk" import govukHeader %}
 
 
 {% block mainContent %}
 
-  <legend>
-    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-            {{ translate("brp.title") }}
-    </h1>
-  </legend>
-  
-      <p> {{ translate("brp.passportInformationContext") }} </p>
+{% set title = translate("brp.title") %}
+{% set context = translate("brp.brpInformationContext") %}
+{% set hintText = translate("brp.hintText") %}
+{% set formInstructions = "<p class=\"idExpiryContext\">"+context+"</p><p class=\"govuk-hint\">"+hintText+"</p>" %}
 
-      {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
-
-      <div class="hint-with-margin">
-      {{ hmpoDate(ctx, {
-          id: "brpExpiryDate",
-          legend: {
-              classes: "govuk-label"
-          }
-      }) }}
-    </div>
+    {% call hmpoForm(ctx) %}
+          {{ hmpoDate(ctx, {
+            id: "brpExpiryDate",
+            namePrefix: "brpExpiryDate",
+            fieldset: {
+                legend: {
+                    text: title,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                html: formInstructions
+            }
+        }) }}
 
      {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 

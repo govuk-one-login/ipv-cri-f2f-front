@@ -9,12 +9,12 @@
 
 {% block mainContent %}
 
-
 {% set title = translate("nonUKPassport.title") %}
-{% set passportInformationContext = translate("nonUKPassport.passportInformationContext") %}
+{% set context = translate("nonUKPassport.passportInformationContext") %}
+{% set hintText = translate("nonUKPassport.hintText") %}
+{% set formInstructions = "<p class=\"idExpiryContext\">"+context+"</p><p class=\"govuk-hint\">"+hintText+"</p>" %}
 
-
-    {% call hmpoForm(ctx) %}
+  {% call hmpoForm(ctx) %}
           {{ hmpoDate(ctx, {
             id: "nonUKPassportExpiryDate",
             namePrefix: "nonUKPassportExpiryDate",
@@ -26,7 +26,7 @@
                 }
             },
             hint: {
-                html: passportInformationContext
+                html: formInstructions
             }
         }) }}
 

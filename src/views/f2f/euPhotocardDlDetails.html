@@ -1,7 +1,7 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "euPhotocardDl" %}
-{% set gtmJourney = "cic - euPhotocardDlDetails" %}
+{% set gtmJourney = "f2f - euPhotocardDlDetails" %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
@@ -11,24 +11,26 @@
 
 {% block mainContent %}
 
-  <legend>
-    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-            {{ translate("euPhotocardDl.title") }}
-    </h1>
-  </legend>
-
-      <p> {{ translate("euPhotocardDl.euPhotocardDlInformationContext") }} </p>
-
-      {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
-
-      <div class="hint-with-margin">
-      {{ hmpoDate(ctx, {
-          id: "euPhotocardDlExpiryDate",
-          legend: {
-              classes: "govuk-label"
-          }
-      }) }}
-      </div>
+{% set title = translate("euPhotocardDl.title") %}
+{% set context = translate("euPhotocardDl.euPhotocardDlInformationContext") %}
+{% set hintText = translate("euPhotocardDl.hintText") %}
+{% set formInstructions = "<p class=\"idExpiryContext\">"+context+"</p><p class=\"govuk-hint\">"+hintText+"</p>" %}
+    
+    {% call hmpoForm(ctx) %}
+          {{ hmpoDate(ctx, {
+            id: "euPhotocardDlExpiryDate",
+            namePrefix: "euPhotocardDlExpiryDate",
+            fieldset: {
+                legend: {
+                    text: title,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                html: formInstructions
+            }
+        }) }}
 
      {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 
