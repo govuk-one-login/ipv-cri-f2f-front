@@ -28,7 +28,7 @@ then
     docker images $DockerImageName -q |xargs docker rmi
 
     docker build -f Dockerfile.test -t $DockerImageName .
-    docker run --rm --env-file docker_vars.env -v $(pwd)/app/results:/results $DockerImageName
+    docker run --rm --env-file docker_vars.env -v $(pwd)/test/reports:/results $DockerImageName
 else    
     echo "Please ensure you've got a stack name as the first argument after ./run_tests_locally.sh..."
     echo "E.g. ./run_tests_locally.sh f2f-cri-front"
