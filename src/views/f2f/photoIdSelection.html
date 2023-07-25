@@ -1,5 +1,5 @@
 {% extends "base-form.njk" %}
-{% set gtmJourney = "cic - photoIdSelection" %}
+{% set gtmJourney = "f2f - photoIdSelection" %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% set hmpoTitle = photoIdSelection.label %}
 {% set hmpoPageKey = "photoIdSelection" %}
@@ -7,23 +7,29 @@
 {% set isPageHeading = true %}
 
 
-{% block header %}
-{{ govukHeader ({
-serviceName: translate("govuk.serviceName")
-}) }}
-{% endblock %}
-
 {% block mainContent %}
-  <legend>
-      <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-              {{ translate("photoIdChoice.validation.required") }}
-      </h1>
-  </legend>
-      <p class="photoIdSelectionContent"> {{ translate("photoIdSelection.content") }}</p>
-      <p class="photoIdSelectionExpiryWarning"> {{ translate("photoIdSelection.expiryWarning") }}</p>
+
+{% set legendContent = translate("photoIdSelection.h1") %}
+{% set content = translate("photoIdSelection.content") %}
+{% set expiryWarning = translate("photoIdSelection.expiryWarning") %}
+{% set formInstructions = "<p>"+content+"</p><br><p>"+expiryWarning+"</p>" %}
       
       {% call hmpoForm(ctx) %}
-          {{ hmpoRadios(ctx, {id: "photoIdChoice"}) }}
+          {{ hmpoRadios(ctx, {
+            id: "photoIdChoice",
+            namePrefix: "photoIdSelection",
+            fieldset: {
+                legend: {
+                    text: legendContent,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                html: formInstructions
+            }
+        }) }}
+
           {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
       {% endcall %}
 

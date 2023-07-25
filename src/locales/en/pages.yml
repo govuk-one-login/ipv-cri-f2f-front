@@ -24,6 +24,11 @@ photoIdSelection:
   content: "You must take the original photo ID document, not a photocopy."
   expiryWarning: "Your photo ID must not have expired."
 
+dateOfBirth:
+  title: "Enter your date of birth"
+  formLegend: "Enter your date of birth"
+  hintText: "For example, 22 4 1976"
+
 ukPassport:
   title: "When does your passport expire?"
   passportInformationContext: "We need this information to check your photo ID is valid."
