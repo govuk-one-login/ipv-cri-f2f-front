@@ -1,5 +1,4 @@
 photoIdChoice:
-  content: Choose which photo ID you can take to a Post Office
   validation:
     required: Choose a photo ID you can take to a Post Office
   items:

@@ -20,7 +20,6 @@ landingPage:
 
 photoIdSelection:
   title: "Choose which photo ID you can take to a Post Office"
-  h1: "Choose which photo ID you can take to a Post Office"
   content: "You cannot use a photocopy or digital copy of your photo ID."
   expiryWarning: "Your photo ID must not have expired."
 
@@ -58,7 +57,6 @@ locations:
 
 photoIdExpiry:
   title: "Your photo ID has expired"
-  h1: "Your photo ID has expired"
   content: "You need valid photo ID to prove your identity."
   prompt: "What would you like to do?"
 
