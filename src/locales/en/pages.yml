@@ -102,13 +102,13 @@ ukDlAddressCheck:
 
 euDrivingLicenceAddressCheck:
   title: "Does your driving licence have your current address on it?"
-  body: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
+  context: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
   
 
 
 eeaIdCardAddressCheck:
   title: "Does your national identity card have your current address on it?"
-  body: "If your national identity card has your previous address on it, you'll need to choose another type of photo ID."
+  context: "If your national identity card has your previous address on it, you'll need to choose another type of photo ID."
   
 eeaIdentityCardCountrySelector:
   title: "Select which country your national identity card is from"

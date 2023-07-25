@@ -7,23 +7,27 @@
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
-{% from "govuk/components/header/macro.njk" import govukHeader %}
 
 {% block mainContent %}
 
-{% set title = translate("nationalIdentityCardHasExpiryDate.title") %}
+{% set title = translate("eeaIdCardAddressCheck.title") %}
+{% set context = translate("eeaIdCardAddressCheck.context") %}
+{% set formInstructions = "<p>"+context+"</p>"%}
       
       {% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {
-                id: "idHasExpiryDate",
-                namePrefix: "idHasExpiryDate",
+                id: "eeaIdCardAddressCheck",
+                namePrefix: "eeaIdCardAddressCheck",
                 fieldset: {
                     legend: {
                         text: title,
                         isPageHeading: true,
                         classes: "govuk-fieldset__legend--l"
                     }
-                }
+                },
+                hint: {
+                    html: formInstructions
+            }
             }) }}
   
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}

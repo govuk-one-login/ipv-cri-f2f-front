@@ -11,24 +11,26 @@
 
 {% block mainContent %}
 
-  <legend>
-    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-            {{ translate("ukDlAddressCheck.title") }}
-    </h1>
-  </legend>
+{% set title = translate("ukDlAddressCheck.title") %}
+{% set context = translate("ukDlAddressCheck.context") %}
+{% set formInstructions = "<p>"+context+"</p>"%}
+      
+      {% call hmpoForm(ctx) %}
+              {{ hmpoRadios(ctx, {
+                id: "ukDlAddressCheck",
+                namePrefix: "ukDlAddressCheck",
+                fieldset: {
+                    legend: {
+                        text: title,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    html: formInstructions
+            }
+            }) }}
 
-    <p> {{ translate("ukDlAddressCheck.context") }} </p>
-
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
-
-    <div class="hint-with-margin">
-      {{ hmpoRadios(ctx, {
-          id: "ukDlAddressCheck",
-          legend: {
-              classes: "govuk-label"
-          }
-      }) }}
-    </div>
 
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 
