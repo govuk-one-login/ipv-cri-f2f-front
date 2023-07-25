@@ -106,7 +106,7 @@ module.exports = {
   "/non-uk-passport-has-expiry-date": {
     fields: ["idHasExpiryDate"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "idHasExpiryDate",
