@@ -11,7 +11,7 @@ remove_quotes () {
 # Github actions set to true for tests to run in headless mode
 export GITHUB_ACTIONS=true
 # shellcheck disable=SC2154
-export IPV_STUB_URL=$(remove_quotes $CFN_CICIPVStubExecuteURL)start
+export IPV_STUB_URL=$(remove_quotes $CFN_F2FIPVStubExecuteURL)start
 
 cd /app; yarn run test:browser:ci
 
