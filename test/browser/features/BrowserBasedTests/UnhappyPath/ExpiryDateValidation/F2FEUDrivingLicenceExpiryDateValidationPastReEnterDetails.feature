@@ -12,6 +12,9 @@ Feature: Expired Date Error Screen - Unhappy Path
 
         Given the EU driving licence option is selected
         When the user clicks the EU driving licence button
+        Then the user is routed to the EU DL Has Expiry Entry Screen
+        
+        When the user selects yes on the eu driving licence expiry date page
         Then the user is routed to the EU DL Expiry Entry Screen
 
         Given the date entered is before the accepted EU driving licence expiration window

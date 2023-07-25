@@ -24,6 +24,9 @@ module.exports = {
       UK_PASSPORT_DETAILS: "/uk-passport-expire",
       NON_UK_PASSPORT_DETAILS: "/non-uk-passport-expire",
       NON_UK_PASSPORT_COUNTRY_SELECTOR: "/select-country-non-uk-passport",
+      NON_UK_PASSPORT_HAS_EXPIRY_DATE: "/non-uk-passport-has-expiry-date",
+      EU_DRIVING_LICENCE_HAS_EXPIRY_DATE: "/eu-driving-licence-has-expiry-date",
+      NATIONAL_IDENTITY_CARD_HAS_EXPIRY_DATE: "/national-identity-card-has-expiry-date",
       PHOTOCARD_DL_DETAILS: "/uk-driving-licence-expire",
       PHOTOCARD_DL_ADDRESS_CHECK: "/uk-driving-licence-current-address",
       EU_DRIVING_LICENCE_ADDRESS_CHECK: "/eu-driving-licence-current-address",
@@ -55,6 +58,10 @@ module.exports = {
       DIFFERENT_ADDRESS: "No, it has my previous address on it",
       NO_ADDRESS: "My driving licence does not have my address on it",
       ID_NO_ADDRESS: "My national identity card does not have my address on it",
+    },
+    HAS_EXPIRY_DATE: {
+      YES: "Yes",
+      NO: "No"
     },
     UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.",
     UK_DL_HINT: "The address on your driving licence must be the same as your current address.",

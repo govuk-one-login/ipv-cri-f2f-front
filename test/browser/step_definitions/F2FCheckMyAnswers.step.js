@@ -30,6 +30,48 @@ When(/^the user clicks the CMA Back button$/, async function () {
   await cma.back();
 });
 
+Then(/^Does your photo ID have an expiry date option is displayed as Yes$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.getChangeIDHASExpiryDateSelection()).equal("Yes");
+
+});
+
+Then(/^Does your photo ID have an expiry date option is displayed as No$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.getChangeIDHASExpiryDateSelection()).equal("No");
+
+});
+
+Then(/^Does your photo ID have an expiry date option is not displayed$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.isExpiryDateSelectionDisplayed()).to.be.false;
+
+});
+
+Then(/^Expiry date is not displayed$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.isExpiryDateDisplayed()).not.equal("Expiry date")
+
+});
+
+Then(/^Expiry date is displayed$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.isExpiryDateDisplayed()).equal("Expiry date")
+
+});
+
+Then(/^$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.getChangeIDHASExpiryDateSelection()).equal("No");
+
+});
+
 Then(/^the user is navigated back to the PO Locations page$/, async function () {
   const poLocations = new PostOfficeLocations(await this.page);
 
@@ -117,6 +159,31 @@ Then(/^the user continues to the CMA page$/, async function () {
 
   await ppDEditPage.continue();
 });
+
+When(/^the user clicks the IDHASExpiryDate Change button$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.isCurrentPage()).to.be.true;
+
+  await cma.changeIDHASExpiryDate();
+});
+
+When(/^the user clicks the EEAHASExpiryDate Change button$/, async function () {
+  const cma = new CheckDetails(await this.page);
+  
+  expect(await cma.isCurrentPage()).to.be.true;
+
+  await cma.changeEEAHASExpiryDate();
+});
+
+When(/^the user clicks the EUDLHASSExpiryDate Change button$/, async function () {
+  const cma = new CheckDetails(await this.page);
+
+  expect(await cma.isCurrentPage()).to.be.true;
+
+  await cma.changeEUDLHASExpiryDate();
+});
+
 
 /**             POST OFFICE SELECTION CHANGE             */
 

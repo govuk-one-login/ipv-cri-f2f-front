@@ -10,7 +10,17 @@ Feature: Build Document Selection Screen
     When the user clicks the continue button on the Landing Page
     Then the user is routed to the next screen in the journey PhotoId Selection
 
-  Scenario: Successful redirect on EU driving licence selection (Happy path)
+  Scenario: Successful redirect on EU driving licence selection with an expiry date (Happy path)
     Given the EU driving licence option is selected
     When the user clicks the EU driving licence button
+    Then the user is routed to the EU DL Has Expiry Entry Screen
+    
+    When the user selects yes on the eu driving licence expiry date page
     Then the user is routed to the EU DL Expiry Entry Screen
+
+  Scenario: Successful redirect on EU driving licence selection without an expiry date (Happy path)
+    Given the EU driving licence option is selected
+    When the user clicks the EU driving licence button
+    Then the user is routed to the EU DL Has Expiry Entry Screen
+    When the user selects no on the eu driving licence expiry date page
+    Then the user is routed from EU DL Details to the address check page

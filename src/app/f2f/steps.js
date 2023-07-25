@@ -54,17 +54,17 @@ module.exports = {
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
-        next: APP.PATHS.NON_UK_PASSPORT_DETAILS,
+        next: APP.PATHS.NON_UK_PASSPORT_HAS_EXPIRY_DATE,
       },
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL,
-        next: APP.PATHS.EU_PHOTOCARD_DL_DETAILS,
+        next: APP.PATHS.EU_DRIVING_LICENCE_HAS_EXPIRY_DATE,
       },
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
-        next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS,
+        next: APP.PATHS.NATIONAL_IDENTITY_CARD_HAS_EXPIRY_DATE,
       },
       {
         field: "photoIdChoice",
@@ -102,6 +102,23 @@ module.exports = {
       },
       APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR,
     ],
+  },
+  "/non-uk-passport-has-expiry-date": {
+    fields: ["idHasExpiryDate"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "idHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.YES,
+        next: "nonUKPassportDetails"
+      },
+      {
+        field: "idHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.NO,
+        next: "nonUkPassportCountrySelector"
+      }
+    ]
   },
   [`${APP.PATHS.PHOTOCARD_DL_DETAILS}`]: {
     fields: ["ukPhotocardDlExpiryDate"],
@@ -148,6 +165,23 @@ module.exports = {
       APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK,
     ],
   },
+  "/eu-driving-licence-has-expiry-date": {
+    fields: ["idHasExpiryDate"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "idHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.YES,
+        next: "euPhotocardDlDetails"
+      },
+      {
+        field: "idHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.NO,
+        next: "euDrivingLicenceAddressCheck"
+      }
+    ]
+  },
   [`${APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK}`]: {
     fields: ["euDrivingLicenceAddressCheck"],
     editable: true,
@@ -184,6 +218,23 @@ module.exports = {
       },
       APP.PATHS.EEA_IDENTITY_CARD_CURRENT_ADDRESS,
     ],
+  },
+  "/national-identity-card-has-expiry-date": {
+    fields: ["idHasExpiryDate"],
+    editable: true,
+    editBackStep: "checkDetails",
+    next: [
+      {
+        field: "idHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.YES,
+        next: "eeaIdentityCardDetails"
+      },
+      {
+        field: "idHasExpiryDate",
+        value: APP.HAS_EXPIRY_DATE.NO,
+        next: "eeaIdCardAddressCheck"
+      }
+    ]
   },
   [`${APP.PATHS.EEA_IDENTITY_CARD_CURRENT_ADDRESS}`]: {
     fields: ["eeaIdCardAddressCheck"],

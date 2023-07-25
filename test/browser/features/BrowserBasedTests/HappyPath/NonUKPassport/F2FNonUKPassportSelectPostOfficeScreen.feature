@@ -12,6 +12,9 @@ Background:
 
     Given the Other passport option is selected 
     When the user clicks the continue button with Non UK passport selected
+    Then the user is routed to the next screen - Non-UKPassportHasExpiryDate
+    
+    When the user selects yes on the passport expiry date page
     Then the user is routed to the next screen - OtherPassport Details
 
     Given the date entered is within accepted Non UK expiration window
