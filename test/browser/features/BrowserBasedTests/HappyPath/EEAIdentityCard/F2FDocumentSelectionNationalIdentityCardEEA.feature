@@ -13,4 +13,13 @@ Feature: Build Document Selection Screen
 Scenario: Successful redirect on 'National Identity Card EEA' selection (Happy path)
 Given the EEA National Identity Card option is selected
 When the user clicks the PhotoId continue button with EEA National Identity Card selected
+Then the user is routed to the EEA Has Expiry Entry Screen
+When the user selects yes on the EEA identity expiry date page
 Then the user is routed to the next screen in the EEA National Identity journey - EEA National Identity Card details
+
+Scenario: Successful redirect on 'National Identity Card EEA' selection (Happy path)
+Given the EEA National Identity Card option is selected
+When the user clicks the PhotoId continue button with EEA National Identity Card selected
+Then the user is routed to the EEA Has Expiry Entry Screen
+When the user selects no on the EEA identity expiry date page
+Then the user is routed from NI Card EEA Details to the address check page
