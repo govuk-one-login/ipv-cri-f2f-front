@@ -4,20 +4,29 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.path = "/eeaIdCardAddressCheck";
+      this.path = "/national-identity-card-has-expiry-date";
     }
 
     async isCurrentPage() {
-      const { pathname } = new URL(this.page.url());
+      const { pathname } = new URL(await this.page.url());
       return pathname === this.path;
+    }
+
+    async isCurrentEditPage() {
+      const { pathname } = new URL(await this.page.url());
+      return pathname === this.path + "/edit";
     }
 
     async continue() {
       await this.page.click("#continue");
     }
 
-    async back(){
-      await this.page.click("#back");
+    async yes() {
+      await this.page.click("#idHasExpiryDate");
+    }
+
+    async no() {
+      await this.page.click("#idHasExpiryDate-No");
     }
 
     async checkErrorText(){
@@ -30,15 +39,8 @@ module.exports = class PlaywrightDevPage {
       return errorBodyText.trim()
     }
 
-    async sameAddress(){
-      await this.page.locator(".govuk-radios__item").first().click();
+    async checkErrorAboveRadioButtonText(){
+      const errorBodyText = await this.page.locator("#idHasExpiryDate-error").textContent();
+      return errorBodyText.trim()
     }
-
-    async differentAddress(){
-      await this.page.locator(".govuk-radios__item").nth(1).click();
-    }
-
-    async noAddress(){
-     await this.page.locator(".govuk-radios__item").last().click();
-    }
-};
+  };

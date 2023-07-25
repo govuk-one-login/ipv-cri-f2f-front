@@ -1,5 +1,6 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Enter UK Passport Details  - Happy Path
+
+Feature: Enter NonUK Passport Details  - Expiry Selection Inline Validation
 
     Background:
         Given Authenticatable Anita is using the system
@@ -13,11 +14,7 @@ Feature: Enter UK Passport Details  - Happy Path
         Given the Other passport option is selected
         When the user clicks the continue button with Non UK passport selected
         Then the user is routed to the next screen - Non-UKPassportHasExpiryDate
-        
-        When the user selects yes on the passport expiry date page
-        Then the user is routed to the next screen - OtherPassport Details
 
-    Scenario: NonUK passport not expired (Happy path)
-        Given the date entered is within accepted Non UK expiration window
-        When the user clicks the continue button on the Non UK passport page
-        Then the user is routed to the Country of Issue Selector screen
+    Scenario: NonUK passport- Does your passport have an expiry date - Non Selection
+        Given the user clicks the continue button only on the NonUkPassportHasExpiryDatePage
+        Then the user sees an inline error message displayed on the NonUkPassportHasExpiryDatePage

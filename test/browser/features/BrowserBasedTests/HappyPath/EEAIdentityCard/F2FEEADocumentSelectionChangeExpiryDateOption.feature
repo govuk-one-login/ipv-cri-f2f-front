@@ -1,7 +1,7 @@
-@mock-api:f2f-f2f-success @success @browser
-Feature: National Identity Card EEA change address check - Unhappy Path
+@mock-api:f2f-f2f-success @success @browser 
+Feature: Change Document Expiry Presence option  - Happy Path
 
-Background:
+    Background:
     Given Authenticatable Anita is using the system
     When they have provided their details
     Then they should be redirected to the Landing Page
@@ -13,7 +13,7 @@ Background:
     Given the EEA National Identity Card option is selected
     When the user clicks the PhotoId continue button with EEA National Identity Card selected
     Then the user is routed to the EEA Has Expiry Entry Screen
-
+    
     When the user selects yes on the EEA identity expiry date page
     Then the user is routed to the next screen in the EEA National Identity journey - EEA National Identity Card details
 
@@ -37,9 +37,21 @@ Background:
     When the user clicks continue
     Then the user is navigated to the next step in the journey - Confirm Answer
 
-    Scenario: Successful redirect from CMA screen back to address check then back to CMA screen
+    Scenario: User change the selections on the EEA identity expiry date page
         Given the user has navigated to the Check My Answers Page
-        When the user clicks the Address Check Change button
-        Then the user is navigated back to the Address Check Page
-        Then the user changes the address selection to "My identity card does not have my address on it"
-        Then the user continues to the CMA page from the Address Check page
+        And Does your photo ID have an expiry date option is displayed as Yes
+        And Expiry date is displayed
+
+        When the user clicks the EEAHASExpiryDate Change button
+        Then the user is routed to the EEA edit HAS Expiry Entry Screen
+        And the user selects no on the EEA identity expiry date page
+        Then the user has navigated to the Check My Answers Page
+        And Does your photo ID have an expiry date option is displayed as No
+        And Expiry date is not displayed
+        
+        When the user clicks the EEAHASExpiryDate Change button
+        Then the user is routed to the EEA edit HAS Expiry Entry Screen
+        And the user selects yes on the EEA identity expiry date page
+        Then the user has navigated to the Check My Answers Page
+        And Does your photo ID have an expiry date option is displayed as Yes
+        And Expiry date is displayed

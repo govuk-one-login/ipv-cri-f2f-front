@@ -1,5 +1,6 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Enter National Identity Card from an EEA country - Happy Path
+
+Feature: EEAIdentityCard Page - Expiry Selection Inline Validation
 
     Background:
         Given Authenticatable Anita is using the system
@@ -13,13 +14,8 @@ Feature: Enter National Identity Card from an EEA country - Happy Path
         Given the EEA National Identity Card option is selected
         When the user clicks the PhotoId continue button with EEA National Identity Card selected
         Then the user is routed to the EEA Has Expiry Entry Screen
-    
-        When the user selects yes on the EEA identity expiry date page
-        Then the user is routed to the next screen in the EEA National Identity journey - EEA National Identity Card details
 
-
-    Scenario: National Identity Card from an EEA country expired (UnHappy path)
-        Given the date entered is before the accepted National Identity Card EEA expiration window
-        When the user clicks the continue button on the National Identity Card EEA Past details Page
-        Then the user is routed to the Expired Date Error Screen from the National Identity Card EEA Screen
-
+    Scenario: EEAIdentityCard - Does your national identity card have an expiry date - Non Selection
+        When the user clicks the continue button only on the EEAIdentityCardHasExpiryDatePage
+        Then the user sees an inline error message displayed on the EEAIdentityCardHasExpiryDatePage
+ 

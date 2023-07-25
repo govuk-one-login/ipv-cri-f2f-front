@@ -1,7 +1,7 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: EU Driving Licence Find Nearest PO Branch - Happy Path
+Feature: Change Document Expiry Presence option  - Happy Path
 
-Background:
+    Background:
     Given Authenticatable Anita is using the system
     When they have provided their details
     Then they should be redirected to the Landing Page
@@ -29,7 +29,29 @@ Background:
     When the user clicks the continue button on the EU country code page
     Then the user is routed from EU DL country code to Branch Finder Screen
 
-Scenario: Find Nearest PO Branch - EU Driving Licence (Happy path)
     Given the postcode entered is valid
     When the user clicks the continue button on the find Post Office branch page
     Then the user is routed to the Select Location page showing 5 nearest POs
+
+    Given a Post Office branch is selected
+    When the user clicks continue
+    Then the user is navigated to the next step in the journey - Confirm Answer
+
+    Scenario: User change the selectionson the EEA identity expiry date page
+    Given the user has navigated to the Check My Answers Page
+    And Does your photo ID have an expiry date option is displayed as Yes
+    And Expiry date is displayed
+    And the user clicks the EUDLHASSExpiryDate Change button
+    And the user is routed to the EU DL edit Has Expiry Entry Screen
+
+    When the user selects no on the eu driving licence expiry date page
+    Then the user has navigated to the Check My Answers Page
+    And Does your photo ID have an expiry date option is displayed as No
+    And Expiry date is not displayed
+    And the user clicks the EUDLHASSExpiryDate Change button
+    And the user is routed to the EU DL edit Has Expiry Entry Screen
+    
+    When the user selects yes on the eu driving licence expiry date page
+    Then the user has navigated to the Check My Answers Page
+    And Does your photo ID have an expiry date option is displayed as Yes
+    And Expiry date is displayed
