@@ -12,6 +12,9 @@ Background:
 
     Given the EU driving licence option is selected
     When the user clicks the EU driving licence button
+    Then the user is routed to the EU DL Has Expiry Entry Screen
+    
+    When the user selects yes on the eu driving licence expiry date page
     Then the user is routed to the EU DL Expiry Entry Screen
  
     Given the EU Driving Licence date entered is within accepted expiration window
@@ -22,4 +25,4 @@ Background:
     Scenario: User clicks back button on EU DL Address Check page
         Given the user is on the EU DL address check page
         When they click the EU DL address check back button
-        Then they are routed back to the EU DL expiry date page
+        Then the user is routed to the EU DL Expiry Entry Screen

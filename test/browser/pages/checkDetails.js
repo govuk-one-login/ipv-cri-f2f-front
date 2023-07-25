@@ -24,6 +24,33 @@ module.exports = class PlaywrightDevPage {
       await this.page.click('[href*="/ukPassportDetails/edit"]');
   }
 
+  async changeIDHASExpiryDate() {
+    await this.page.click('[href*="non-uk-passport-has-expiry-date/edit"]');
+  }
+
+  async changeEEAHASExpiryDate() {
+    await this.page.click('[href*="national-identity-card-has-expiry-date/edit"]');
+  }
+
+  async changeEUDLHASExpiryDate() {
+    await this.page.click('[href*="eu-driving-licence-has-expiry-date/edit"]');
+  }
+
+  async getChangeIDHASExpiryDateSelection() {
+    const optionSelected = await this.page.locator(".govuk-summary-list__value").nth(1).textContent();
+    return optionSelected.trim()
+    
+  }
+
+  async isExpiryDateSelectionDisplayed() {
+    return await this.page.isVisible('text= Does your photo ID have an expiry date');
+  }
+
+  async isExpiryDateDisplayed() {
+    const expiryDateLabel = await this.page.locator(".govuk-summary-list__key").nth(2).textContent();
+    return expiryDateLabel.trim();
+  }
+
   async changePOLocation() {
     await this.page.click('[href*="/findBranch/edit"]');
   }

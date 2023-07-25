@@ -1,0 +1,73 @@
+{{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-6',
+        rows: [
+          {
+            key: {
+              text: translate("checkDetails.selectedId")
+            },
+            value: {
+              html: translate("{{ idChoice }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "/photoIdSelection/edit",
+                  text: "Change",
+                  visuallyHiddenText: "ID Selection"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: translate("checkDetails.hasExpiryDate")
+            },
+            value: {
+              html: translate("{{ hasExpiryDate }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "non-uk-passport-has-expiry-date/edit",
+                  text: "Change",
+                  visuallyHiddenText: "Change if passport has expiry date"
+                }
+              ]
+            }
+          },
+          { 
+              key: {
+              text: translate("checkDetails.country")
+            },
+            value: {
+              html: translate("{{ country }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "nonUkPassportCountrySelector/edit",
+                  text: "Change",
+                  visuallyHiddenText: "Change country of origin"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: translate("checkDetails.postOffice")
+            },
+            value: {
+              html: translate("{{ postOfficeName }}<br>{{ postOfficeAddress[0] }}<br>{{ postOfficeAddress[1] }}<br>{{ postOfficeAddress[2] }}<br>{{ postOfficeAddress[3] }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "/findBranch/edit",
+                  text: "Change",
+                  visuallyHiddenText: "post office address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}

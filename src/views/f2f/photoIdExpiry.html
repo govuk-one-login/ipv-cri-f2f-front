@@ -6,6 +6,7 @@
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% set isPageHeading = true %}
 
+
 {% block header %}
 {{ govukHeader ({
 serviceName: translate("govuk.serviceName")
@@ -23,6 +24,7 @@ serviceName: translate("govuk.serviceName")
         {{ hmpoRadios(ctx, {id: "photoIdExpiryChoice"}) }}
         {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
     {% endcall %}
+
 
 {% endblock %}
 

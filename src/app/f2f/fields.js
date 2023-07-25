@@ -91,6 +91,27 @@ module.exports = {
       },
     ]
   },
+  idHasExpiryDate: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: APP.HAS_EXPIRY_DATE.YES,
+        text: APP.HAS_EXPIRY_DATE.YES,
+        conditional: {
+          html: ""
+        }
+      },
+      { value: APP.HAS_EXPIRY_DATE.NO,
+        text: APP.HAS_EXPIRY_DATE.NO,
+        conditional: {
+          html: ""
+        }
+      }
+    ],
+    validate: ["required"]
+  },
   ukPhotocardDlExpiryDate: {
     type: "date",
     journeyKey: "ukPhotocardDlExpiryDate",
