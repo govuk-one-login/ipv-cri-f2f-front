@@ -9,7 +9,7 @@
 
 {% block mainContent %}
 
-{% set legendContent = translate("photoIdSelection.h1") %}
+{% set title = translate("photoIdSelection.h1") %}
 {% set content = translate("photoIdSelection.content") %}
 {% set expiryWarning = translate("photoIdSelection.expiryWarning") %}
 {% set formInstructions = "<p>"+content+"</p><br><p>"+expiryWarning+"</p>" %}
@@ -20,7 +20,7 @@
             namePrefix: "photoIdSelection",
             fieldset: {
                 legend: {
-                    text: legendContent,
+                    text: title,
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--l"
                 }

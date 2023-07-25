@@ -20,7 +20,6 @@ landingPage:
 
 photoIdSelection:
   title: "Choose a photo ID you can take to a Post Office"
-  h1: "Choose a photo ID you can take to a Post Office"
   content: "You must take the original photo ID document, not a photocopy."
   expiryWarning: "Your photo ID must not have expired."
 
