@@ -74,6 +74,7 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("postOfficeLongitude", postOfficeLongitude);
       
       // Value for document expiry date depends on selected document
+      let idHasExpiryDate
       let expiryDate
       let country
       let address
@@ -94,17 +95,20 @@ class CheckDetailsController extends DateController {
           break;
         }
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
+          idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.nonUKPassportExpiryDate;
-          country = req.form.values.nonUkPassportCountrySelector
+          country = req.form.values.nonUkPassportCountrySelector;
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
+          idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
           country = req.form.values.euDrivingLicenceCountrySelector;
           address = req.form.values.euDrivingLicenceAddressCheck
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
+          idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.eeaIdCardExpiryDate;
           country = req.form.values.eeaIdentityCardCountrySelector;
           address = req.form.values.eeaIdCardAddressCheck;
@@ -112,7 +116,6 @@ class CheckDetailsController extends DateController {
         }
       }
       // Sets country code value and country name
-      
 
       Object.values(NON_UK_PASSPORT).forEach(val => {
         if(val.text == country) {
@@ -120,19 +123,22 @@ class CheckDetailsController extends DateController {
           req.sessionModel.set("country", country)
         }
       })
+      req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
       //Confirmation display values
       const idChoice = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
       const addressCheck = req.sessionModel.get("addressCheck");
+      const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
 
       locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
       locals.changeUrl = `/${changeUrl}`;
       locals.addressCheck = addressCheck;
-      locals.postOfficeAddress = postOfficeAddress.split(", ")
+      locals.hasExpiryDate = hasExpiryDate;
+      locals.postOfficeAddress = postOfficeAddress.split(", ");
       locals.postOfficeName = postOfficeName;
       callback(err, locals);
     });

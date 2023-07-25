@@ -30,3 +30,5 @@ Feature: UK Photo Driving Licence Find Nearest PO Branch - Happy Path
         Given a Post Office branch is selected
         When the user clicks continue
         Then the user is navigated to the next step in the journey - Confirm Answer
+        And Does your photo ID have an expiry date option is not displayed
+        And Expiry date is not displayed

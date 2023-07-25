@@ -43,6 +43,10 @@ Parameters:
     Type: Number
     Default: 0
     Description: Set to 1 to enable deployment of scaling infra in dev
+  IPVStubStackName:
+    Type: String
+    Default: "f2f-ipv-stub"
+    Description: The name of the deployed IPV stub stack.
 
 Conditions:
   IsNotDevelopment: !Or
@@ -51,6 +55,12 @@ Conditions:
     - !Equals [ !Ref Environment, integration ]
     - !Equals [ !Ref Environment, production ]
   IsProduction: !Equals [ !Ref Environment, production ]
+  IsProdLikeEnvironment: !Or
+    - !Equals [!Ref Environment, staging]
+    - !Equals [!Ref Environment, integration]
+    - !Equals [!Ref Environment, production]
+  IsNotProdLikeEnvironment: !Not
+    - !Condition IsProdLikeEnvironment
   UsePermissionsBoundary:
     Fn::Not:
       - Fn::Equals:
@@ -1089,3 +1099,8 @@ Outputs:
   F2FCustomDomain:
     Description: F2F Custom Domain API Gateway ID
     Value: !Ref F2FFrontCustomDomain
+  F2FIPVStubExecuteURL:
+    Condition: IsNotProdLikeEnvironment
+    Description: "F2F IPV Stub"
+    Value:
+      Fn::ImportValue: !Sub '${IPVStubStackName}-IPVStubExecuteUrl'

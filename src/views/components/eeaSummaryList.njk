@@ -20,6 +20,23 @@
           },
           {
             key: {
+              text: translate("checkDetails.hasExpiryDate")
+            },
+            value: {
+              html: translate("{{ hasExpiryDate }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "national-identity-card-has-expiry-date/edit",
+                  text: "Change",
+                  visuallyHiddenText: "Change if passport has expiry date"
+                }
+              ]
+            }
+          },
+          {
+            key: {
               text: translate("checkDetails.expiryDate")
             },
             value: {

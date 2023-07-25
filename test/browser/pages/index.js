@@ -12,6 +12,7 @@ module.exports = {
     NonUKPassportDetailsPageInvalidFuture: require("./nonUKPassportDetailsPageInvalidFuture"),
     NonUKPassportDetailsPageInvalidPast: require("./nonUKPassportDetailsPageInvalidPast"),
     NonUKPassportCountrySelector: require("./nonUkPassportCountrySelectorPage"),
+    NonUkPassportHasExpiryDatePage: require("./nonUkPassportHasExpiryDatePage"),
     EEAIdentityCardDetailsPageValid: require("./eeaIdentityCardDetailsPageValid"),
     EEAIdentityCardDetailsPageInvalidPast: require("./eeaIdentityCardDetailsPageInvalidPast"),
     EEAIdentityCardDetailsPageInvalidFuture: require("./eeaIdentityCardDetailsPageInvalidFuture"),
@@ -19,6 +20,7 @@ module.exports = {
     EEAIdentityCardCountrySelectorPageEdit: require("./eeaIdentityCardCountrySelectorPageEdit"),
     EEAIdentityCardAddressCheck: require("./eeaIdentityCardAddressCheck"),
     EEAIdentityCardAddressCheckEdit: require("./eeaIdentityCardAddressCheckEdit"),
+    EeaIdentityCardHasExpiryDatePage: require("./eeaIdentityCardHasExpiryDatePage"),
     PhotoDlDetailsPageValid: require("./ukPhotoDlDetailsPageValid"),
     PhotoDlDetailsPageInvalidFuture: require("./ukPhotoDlDetailsPageInvalidFuture"),
     PhotoDlDetailsPageInvalidPast: require("./ukPhotoDlDetailsPageInvalidPast"),
@@ -37,5 +39,6 @@ module.exports = {
     EuDrivingLicenceDetailsPageInvalidFuture: require("./euDrivingLicenceDetailsPageInvalidFuture"),
     EuDrivingLicenceDetailsPageInvalidPast: require("./euDrivingLicenceDetailsPageInvalidPast"),
     EuDrivingLicenceCountrySelector: require("./euDrivingLicenceCountrySelectorPage"),
-    EuDrivingLicenceAddressCheck: require("./euDrivingLicenceAddressCheck")
+    EuDrivingLicenceAddressCheck: require("./euDrivingLicenceAddressCheck"),
+    EuDrivingLicenceHasExpiryDatePage: require("./euDrivingLicenceHasExpiryDatePage")
 }

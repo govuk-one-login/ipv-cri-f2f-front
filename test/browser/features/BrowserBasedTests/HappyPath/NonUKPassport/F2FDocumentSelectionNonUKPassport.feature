@@ -10,7 +10,15 @@ Feature: Build Document Selection Screen
     When the user clicks the continue button on the Landing Page
     Then the user is routed to the next screen in the journey PhotoId Selection
     
-Scenario: Successful redirect on 'Non UK passport' selection (Happy path)
+Scenario: Successful redirect on 'Non UK passport' selection with an expiry date (Happy path)
 Given the Other passport option is selected
 When the user clicks the continue button with Non UK passport selected
+Then the user is routed to the next screen - Non-UKPassportHasExpiryDate
+When the user selects yes on the passport expiry date page
 Then the user is routed to the next screen - OtherPassport Details
+
+Scenario: Successful redirect on 'Non UK passport' selection without an expiry date (Happy path)
+Given the Other passport option is selected
+When the user clicks the continue button with Non UK passport selected
+When the user selects no on the passport expiry date page
+Then the user is routed to the Country of Issue Selector screen

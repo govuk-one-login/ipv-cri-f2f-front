@@ -2,7 +2,7 @@
 Feature: Expired Date Error Screen - Unhappy Path
 
     Background:
-        Given Authenticatable Anita is using the system
+         Given Authenticatable Anita is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
 
@@ -12,6 +12,9 @@ Feature: Expired Date Error Screen - Unhappy Path
 
         Given the EEA National Identity Card option is selected
         When the user clicks the PhotoId continue button with EEA National Identity Card selected
+        Then the user is routed to the EEA Has Expiry Entry Screen
+    
+        When the user selects yes on the EEA identity expiry date page
         Then the user is routed to the next screen in the EEA National Identity journey - EEA National Identity Card details
 
         Given the date entered is before the accepted National Identity Card EEA expiration window

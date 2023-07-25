@@ -25,6 +25,11 @@ module.exports = class PlaywrightDevPage {
       return errorText.trim()
     }
 
+    async checkErrorBodyText(){
+      const errorBodyText = await this.page.locator('[href*="#idHasExpiryDate"]').textContent();
+      return errorBodyText.trim()
+    }
+
     async sameAddress(){
       await this.page.locator(".govuk-radios__item").first().click();
     }
