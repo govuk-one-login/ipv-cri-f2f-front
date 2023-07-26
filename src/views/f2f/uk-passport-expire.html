@@ -1,40 +1,48 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "ukPassport" %}
-{% set gtmJourney = "cic - ukPassportDetails" %}
+{% set gtmJourney = "f2f - ukPassportDetails" %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "hmpo-date/macro.njk" import hmpoDate %}
-{% from "govuk/components/header/macro.njk" import govukHeader %}
 
 
 {% block mainContent %}
-<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("ukPassport.title") }}
-    </h1>
-    <p> {{ translate("ukPassport.passportInformationContext") }} </p>
 
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
-    <div class="hint-with-margin">
-    {{ hmpoDate(ctx, {
-        id: "ukPassportExpiryDate",
-        legend: {
-            classes: "govuk-label"
-        }
-    }) }}
-  </div>
+{% set title = translate("ukPassport.title") %}
+{% set context = translate("ukPassport.passportInformationContext") %}
+{% set hintText = translate("ukPassport.hintText") %}
+{% set formInstructions = "<p class=\"idExpiryContext\">"+context+"</p><p class=\"govuk-hint\">"+hintText+"</p>" %}
 
-     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+  {% call hmpoForm(ctx) %}
+          {{ hmpoDate(ctx, {
+            id: "ukPassportExpiryDate",
+            namePrefix: "ukPassportExpiryDate",
+            fieldset: {
+                legend: {
+                    text: title,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                html: formInstructions
+            }
+        }) }}
 
-    {% endcall %}
 
-{% endblock %}
+      {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 
-{# generate the specific footer items required for the PYI flows #}
-{% set footerNavItems = translate("govuk.footerNavItems") %}
+      {% endcall %}
 
-{% block footer %}
-    {{ govukFooter( footerNavItems ) }}
-{% endblock %}
+  {% endblock %}
+
+  {# generate the specific footer items required for the PYI flows #}
+  {% set footerNavItems = translate("govuk.footerNavItems") %}
+
+  {% block footer %}
+      {{ govukFooter( footerNavItems ) }}
+  {% endblock %}
+  

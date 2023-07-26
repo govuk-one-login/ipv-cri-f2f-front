@@ -15,6 +15,16 @@ $govuk-assets-path: "/public/";
   @include govuk-responsive-margin(2, "bottom");
 }
 
+.govuk-fieldset__heading {
+  @include govuk-responsive-margin(4, "bottom");
+}
+
+.idExpiryContext {
+  @include govuk-responsive-margin(6, "bottom");
+}
+
+b#postcode {text-transform:uppercase;}
+
 .govuk-heading-m,
 .hmpo-auto-submit h1,
 h2 {
@@ -63,7 +73,7 @@ main p,
 }
 
 .govuk-radios__divider {
-  @include govuk-responsive-margin(2, "bottom"); 
+  @include govuk-responsive-margin(2, "bottom");
 }
 
 .govuk-summary-list .govuk-summary-list__key {
@@ -96,6 +106,15 @@ main p,
   @include govuk-responsive-margin(5, "bottom");
 }
 
+#details-btn {
+  @include govuk-responsive-margin(0, "top");
+  @include govuk-responsive-padding(0, "top");
+}
+
+.instruction {
+  @include govuk-responsive-margin(5, "bottom");
+}
+
 #branches-1-label, #branches-2-label, #branches-3-label, #branches-4-label, #branches-5-label  {
   font-weight: bold;
 }
@@ -104,7 +123,7 @@ main p,
   @include govuk-responsive-padding(3, "top");
 }
 
-.photoIdSelectionContent { 
+.photoIdSelectionContent {
   @include govuk-responsive-padding(1, "top");
   @include govuk-responsive-padding(2, "bottom");
 }
@@ -162,7 +181,7 @@ main p,
 }
 
 #expiryContinue {
-  @include govuk-responsive-margin(4, "top") 
+  @include govuk-responsive-margin(4, "top")
 }
 
 #photoIdExpiryPrompt {

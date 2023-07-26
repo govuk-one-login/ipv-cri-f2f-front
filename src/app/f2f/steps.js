@@ -33,7 +33,7 @@ module.exports = {
       "brpExpiryDate",
       "eeaIdCardExpiryDate",
       "euPhotocardDlExpiryDate",
-      APP.PATHS.EXPIRED_ID,
+      "photoIdExpiryChoice",
     ],
     next: [
       {

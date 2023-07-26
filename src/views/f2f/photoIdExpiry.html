@@ -1,0 +1,35 @@
+{% extends "base-form.njk" %}
+{% set gtmJourney = "cic - photoIdExpiry" %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% set hmpoTitle = photoIdExpiry.pageTitle %}
+{% set hmpoPageKey = "photoIdExpiry" %}
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% set isPageHeading = true %}
+
+
+{% block header %}
+{{ govukHeader ({
+serviceName: translate("govuk.serviceName")
+}) }}
+{% endblock %}
+
+{% block mainContent %}
+<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-xl">
+        {{ translate("photoIdExpiry.h1") }}
+</h1>
+    <p class="expiredIdBody"> {{ translate("photoIdExpiry.content") }} </p>
+    <p class="expiredIdPrompt"> {{ translate("photoIdExpiry.prompt")}} </p>
+    
+    {% call hmpoForm(ctx) %}
+        {{ hmpoRadios(ctx, {id: "photoIdExpiryChoice"}) }}
+        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {% endcall %}
+
+
+{% endblock %}
+
+{% set footerNavItems = translate("govuk.footerNavItems") %}
+
+{% block footer %}
+    {{ govukFooter( footerNavItems ) }}
+{% endblock %}

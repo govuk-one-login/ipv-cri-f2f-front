@@ -19,34 +19,44 @@ landingPage:
       one: "You'll get an email about the result of your identity check - usually within a day of going to the Post Office."
 
 photoIdSelection:
-  title: "Choose which photo ID you can take to a Post Office"
-  h1: "Choose which photo ID you can take to a Post Office"
-  content: "You cannot use a photocopy or digital copy of your photo ID."
+  title: "Choose a photo ID you can take to a Post Office"
+  content: "You must take the original photo ID document, not a photocopy."
   expiryWarning: "Your photo ID must not have expired."
+
+dateOfBirth:
+  title: "Enter your date of birth"
+  formLegend: "Enter your date of birth"
+  hintText: "For example, 22 4 1976"
 
 ukPassport:
   title: "When does your passport expire?"
   passportInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
 nonUKPassport:
   title: "When does your passport expire?"
   passportInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
 ukPhotocardDl:
   title: "When does your driving licence expire?"
-  photocardDlInformationContext: "We need this information to check your photo ID is valid. "
+  photocardDlInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
 brp:
   title: "When does your biometric residence permit (BRP) expire?"
-  passportInformationContext: "We need this information to check your photo ID is valid. "
+  brpInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
 euPhotocardDl:
   title: "When does your driving licence expire?"
   euPhotocardDlInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
-eeaIdentityCard: 
-  title: "When does your national identity card expire?" 
-  content: "We need this information to check your photo ID is valid."
+eeaIdentityCard:
+  title: "When does your national identity card expire?"
+  eeaIdentityCardInformationContext: "We need this information to check your photo ID is valid."
+  hintText: "For example, 31 3 2025"
 
 nonUKPassportHasExpiryDate:
   title: "Does your passport have an expiry date?"
@@ -83,21 +93,22 @@ checkDetails:
   country: Country
   hasExpiryDate: Does your photo ID have an expiry date?
 
-ukDlAddressCheck: 
+ukDlAddressCheck:
   title: "Does your driving licence have your current address on it?"
   context: If your driving licence has your previous address on it, you'll need to choose another type of photo ID.
   change-how: "How do I change the address on my driving licence?"
   change-link: <p>You must update your driving licence when you move. <a href="https://www.gov.uk/tell-dvla-changed-address" target="_blank" class="govuk-link">Tell DVLA you've changed address (opens in a new tab)</a></p>
 
-euDlAddressCheck:
+euDrivingLicenceAddressCheck:
   title: "Does your driving licence have your current address on it?"
-  body: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
-  
+  context: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
+
+
 
 eeaIdCardAddressCheck:
   title: "Does your national identity card have your current address on it?"
-  body: "If your national identity card has your previous address on it, you'll need to choose another type of photo ID."
-  
+  context: "If your national identity card has your previous address on it, you'll need to choose another type of photo ID."
+
 eeaIdentityCardCountrySelector:
   title: "Select which country your national identity card is from"
   content: "If the country your national identity card is from is not on the list, you'll need to choose another type of photo ID."

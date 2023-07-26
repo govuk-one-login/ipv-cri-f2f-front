@@ -4,7 +4,7 @@ buttons:
   continue: Continue
 
 govuk:
-  serviceName: Prove you identity
+  serviceName:
   backLink: Back
   errorSummaryTitle: There is a problem
   error: Error
@@ -71,9 +71,7 @@ common:
     photoIdSelection:
       noPhotoId: "I do not have any of these documents"
       linkToNoPhotoId: "https://signin.account.gov.uk/no-photo-id"
-    noExpiryDateId:
-      noExpiryDateLink: "My photo ID does not have an expiry date"
 
 
 links:
-  changePostcode: <p><span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/findBranch" id="changePostcode" data-id="changePostcode" class="govuk-link">Change<span class="govuk-visually-hidden"> your current postcode</span></a></p>
+  changePostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/findBranch" id="changePostcode" data-id="changePostcode" class="govuk-link"> Change <span class="govuk-visually-hidden">your current postcode</span></a>

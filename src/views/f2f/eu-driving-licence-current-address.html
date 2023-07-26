@@ -1,29 +1,39 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set gtmJourney = "f2f - euDlAddressCheck" %}
-{% set hmpoPageKey = "euDlAddressCheck" %}
+{% set gtmJourney = "f2f - euDrivingLicenceAddressCheck" %}
+{% set hmpoPageKey = "euDrivingLicenceAddressCheck" %}
 
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
 
 
 {% block mainContent %}
-<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("euDlAddressCheck.title") }}
-    </h1>
-    <p> {{ translate("euDlAddressCheck.body") }} </p>
 
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+{% set title = translate("euDrivingLicenceAddressCheck.title") %}
+{% set context = translate("euDrivingLicenceAddressCheck.context") %}
+{% set formInstructions = "<p>"+context+"</p>"%}
+      
+      {% call hmpoForm(ctx) %}
+              {{ hmpoRadios(ctx, {
+                id: "euDrivingLicenceAddressCheck",
+                namePrefix: "euDrivingLicenceAddressCheck",
+                fieldset: {
+                    legend: {
+                        text: title,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    html: formInstructions
+            }
+            }) }}
 
-    <div class="hint-with-margin">
-    {{ hmpoRadios(ctx, {
-        id: "euDrivingLicenceAddressCheck"
-    }) }}
-  </div>
+      {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 
-     {{ hmpoSubmit(ctx, {id: "addressContinue", text: translate("buttons.next")}) }}
-
-    {% endcall %}
+      {% endcall %}
 
 {% endblock %}
 
