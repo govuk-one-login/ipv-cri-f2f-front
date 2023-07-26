@@ -88,7 +88,7 @@ class PhotoIdSelectionController extends BaseController {
         }
         case APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID: {
           logger.info(
-            "photo-id-selection: user has selected No ID - redirecting to No ID page",
+            "photo-id-selection: user has selected No ID - aborting journey",
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID, true);

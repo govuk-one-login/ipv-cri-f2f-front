@@ -7,6 +7,7 @@ const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
 const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
 const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
 const checkDetails = require("./controllers/checkDetails");
+const abort = require("./controllers/abort");
 const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
 const { APP } = require("../../lib/config");
@@ -69,7 +70,7 @@ module.exports = {
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
-        next: APP.PATHS.NO_PHOTO_ID,
+        next: APP.PATHS.ABORT,
       },
     ],
   },
@@ -306,7 +307,7 @@ module.exports = {
       {
         field: "photoIdExpiryChoice",
         value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY,
-        next: APP.PATHS.NO_PHOTO_ID,
+        next: APP.PATHS.ABORT,
       },
     ]
   },
@@ -363,6 +364,12 @@ module.exports = {
   },
   [`${APP.PATHS.CHECK_DETAILS}`]: {
     controller: checkDetails,
+    next: APP.PATHS.DONE,
+  },
+	"/abort": {
+    entryPoint: true,
+    skip: true,
+    controller: abort,
     next: APP.PATHS.DONE,
   },
   [`${APP.PATHS.DONE}`]: {

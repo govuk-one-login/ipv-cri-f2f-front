@@ -7,6 +7,7 @@ module.exports = {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
       SAVE_F2FDATA: "/documentSelection",
+      ABORT: "/abort"
     },
   },
   PROXY_API: {
@@ -37,6 +38,7 @@ module.exports = {
       EEA_IDENTITY_CARD_CURRENT_ADDRESS: "/national-identity-card-current-address",
       EEA_IDENTITY_CARD_COUNTRY_SELECTOR: "/select-country-national-identity-card",
       NO_PHOTO_ID: "https://signin.account.gov.uk/no-photo-id",
+      ABORT: "/abort",
       EXPIRED_ID: "/photo-id-expired",
       FIND_POST_OFFICE: "/find-post-office-prove-identity",
       CHOOSE_POST_OFFICE: "/choose-post-office-prove-identity",
