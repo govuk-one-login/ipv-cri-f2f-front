@@ -140,7 +140,7 @@ eeaIdCardExpiryDate:
 
 eeaIdCardAddressCheck:
   validation:
-    required: "Select if your identity card has your current address on it"
+    required: "Select if your national identity card has your current address on it"
 
 eeaIdentityCardCountrySelector:
   label: "Select country"
