@@ -15,9 +15,6 @@ $govuk-assets-path: "/public/";
   @include govuk-responsive-margin(2, "bottom");
 }
 
-.govuk-fieldset__heading {
-  @include govuk-responsive-margin(4, "bottom");
-}
 
 .idExpiryContext {
   @include govuk-responsive-margin(6, "bottom");
