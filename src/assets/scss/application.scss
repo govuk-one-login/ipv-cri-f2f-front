@@ -21,6 +21,10 @@ h2 {
   display: inline-block;
 }
 
+.govuk-details {
+  @include govuk-responsive-margin(9, "top");
+  @include govuk-responsive-margin(2, "bottom");
+}
 
 .govuk-list--bullet>li,
 .govuk-list--number>li {
@@ -85,10 +89,6 @@ main p,
 
 .govuk-warning-text {
   @include govuk-responsive-margin(0, "bottom");
-}
-#details-btn {
-  @include govuk-responsive-margin(0, "top");
-  @include govuk-responsive-padding(0, "top");
 }
 
 .listItem {

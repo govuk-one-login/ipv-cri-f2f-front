@@ -24,13 +24,14 @@
         }
     }) }}
     </div>
-
-    {{ hmpoSubmit(ctx, {id: "addressContinue", text: translate("buttons.next")}) }}
-
+    
     {{ hmpoDetails({
       summaryText: translate("ukDlAddressCheck.change-how"),
       html: translate("ukDlAddressCheck.change-link")
     }) }}
+
+    {{ hmpoSubmit(ctx, {id: "addressContinue", text: translate("buttons.next")}) }}
+
     
     {% endcall %}
 
