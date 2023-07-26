@@ -10,45 +10,46 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">{{ "landingPage.title" | translate }}</h1>
+    <h1 class="govuk-heading-l" id="landingPageTitle">{{ "landingPage.title" | translate }}</h1>
     
-    <div class="parent">
-      <div class="govuk-body" id="circle1">{{ "landingPage.firstCircle" | translate }}</div>
-      <div class="govuk-heading-m" id="stepTitle">{{ "landingPage.firstStepTitle" | translate }}</div>
-    </div>
+    <ol class="post-office-list">
+      <li>
+        <div>
+          <p class="circle">{{ "landingPage.firstCircle" | translate }}</p>
+          <h2 class="govuk-heading-m" id="firstStepTitle">{{ "landingPage.firstStepTitle" | translate }}</h2>
+        </div>
+        <p class="instruction" id="firstStepOne">{{ "landingPage.instructions.firstStep.one" | translate }}</p>
+        <p class="instruction" id="firstStepTwo">{{ "landingPage.instructions.firstStep.two" | translate }}</p> 
+        <p class="instruction" id="firstStepThree">{{ "landingPage.instructions.firstStep.three" | translate }}</p>  
+      </li>
+        
+      <li>
+        <div>
+          <p class="circle">{{ "landingPage.secondCircle" | translate }}</p>
+          <h2 class="govuk-heading-m" id="secondStepTitle">{{ "landingPage.secondStepTitle" | translate }}</h2>
+        </div>
+        <p class="instruction" id="secondStepOne">{{ "landingPage.instructions.secondStep.one" | translate }}<a href={{ "common.postoffice.pathToPoBranchSearch" | translate }} target="_blank"> {{ "common.postoffice.postofficeLink" | translate }}</a></p>
+        <p class="instruction" id="secondStepTwo">{{ "landingPage.instructions.secondStep.two" | translate }}</p> 
+      </li>
+      
+      {% set insetBody %}
+      <div>
+        <p class="instruction" id="secondStepThree">{{ "landingPage.instructions.secondStep.three" | translate }}</p>
+      </div>
+      {% endset %}
 
-    <ul class="govuk-list" id="firstStepList">
-      <li id="listItem">{{ "landingPage.instructions.firstStep.one" | translate }}</li>
-      <li id="listItem">{{ "landingPage.instructions.firstStep.two" | translate }}</li>
-      <li id="listItem">{{ "landingPage.instructions.firstStep.three" | translate }}</li>
-    </ul>
+      {{ govukInsetText({ 
+        html: insetBody
+      }) }}
 
-    <div class="govuk-body" id="circle2">{{ "landingPage.secondCircle" | translate }}</div>
-    <h2 class="govuk-heading-m" id="stepTitle">{{ "landingPage.secondStepTitle" | translate }}</h2>
-
-    <ul class="govuk-list" id="secondStepList">
-      <li id="listItem">{{ "landingPage.instructions.secondStep.one" | translate }}<a href={{ "common.postoffice.pathToPoBranchSearch" | translate }}> {{ "common.postoffice.postofficeLink" | translate }}</a></li>
-      <li id="listItem">{{ "landingPage.instructions.secondStep.two" | translate }}</li>
-    </ul>
-    
-    {% set insetBody %}
-    <div>
-      <p id="indentedInstruction">{{ "landingPage.instructions.secondStep.three" | translate }}</p>
-    </div>
-    {% endset %}
-
-    {{ govukInsetText({ 
-      html: insetBody
-    }) }}
-
-    <div class="govuk-body" id="circle3">{{ "landingPage.thirdCircle" | translate }}</div>
-    <h2 class="govuk-heading-m" id="stepTitle">{{ "landingPage.thirdStepTitle" | translate }}</h2>
-
-    <ul class="govuk-list" id="thirdStepList">
-      <li id="listItem">{{ "landingPage.instructions.thirdStep.one" | translate }}</li>
-    </ul>
-
-
+      <li>
+        <div>
+          <p class="circle">{{ "landingPage.thirdCircle" | translate }}</p>
+          <h2 class="govuk-heading-m" id="thirdStepTitle">{{ "landingPage.thirdStepTitle" | translate }}</h2>
+        </div>
+        <p class="instruction" id="thirdStepOne">{{ "landingPage.instructions.thirdStep.one" | translate }}</p>
+      </li>
+    </ol>
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
     {% block submitButton %}
       {{ hmpoSubmit(ctx, {id: "landingPageContinue", text: translate("buttons.next")}) }}

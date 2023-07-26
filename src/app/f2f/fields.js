@@ -250,7 +250,7 @@ module.exports = {
   },
   photoIdExpiryChoice: {
     type: "radios",
-    legend: "What would you like to do?",
+    legend: "",
     label: "",
     hint: "",
     items: [

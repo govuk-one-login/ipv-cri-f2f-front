@@ -1,171 +1,176 @@
 $govuk-assets-path: "/public/";
-
 @import "../../../node_modules/govuk-frontend/govuk/all";
 @import "../../../node_modules/hmpo-components/all";
 
-.govuk-radios__item {
-  @include govuk-responsive-margin(6, $direction: "bottom", $important: false, $adjustment: false);
+.govuk-radios {
+  margin-bottom: govuk-spacing(-3);
 }
+
+.govuk-radios__item {
+  @include govuk-responsive-margin(2, "bottom");
+}
+
+.govuk-date-input__label {
+  @include govuk-responsive-margin(2, "bottom");
+}
+
+.govuk-fieldset__heading {
+  @include govuk-responsive-margin(4, "bottom");
+}
+
+.idExpiryContext {
+  @include govuk-responsive-margin(6, "bottom");
+}
+
+b#postcode {text-transform:uppercase;}
 
 .govuk-heading-m,
 .hmpo-auto-submit h1,
 h2 {
-  margin-bottom: 30px;
+  @include govuk-responsive-margin(6, "bottom");
+  display: inline-block;
 }
+
 
 .govuk-list--bullet>li,
 .govuk-list--number>li {
-  margin-bottom: 15px;
+  @include govuk-responsive-margin(3, "bottom");
 }
 
-.govuk-inset-text {
-  margin-bottom: 30px;
-}
-
-.govuk-body,
-main p,
-.govuk-body-m {
-  margin-bottom: 30px;
-}
 
 .govuk-button {
-  margin-bottom: 30px;
-  margin-top: 10px;
-}
-
-.govuk-summary-list .govuk-summary-list__key {
-  color: black;
-  font-weight: bold;
-}
-
-.govuk-link:link,
-main a:link {
-  font-size: 19px;
+  @include govuk-responsive-margin(6, "bottom");
+  @include govuk-responsive-margin(2, "top");
 }
 
 .govuk-body,
 main p,
 .govuk-body-m {
-  margin-bottom: 3px;
+  @include govuk-responsive-margin(1, "bottom");
+}
+
+.govuk-hint {
+  @include govuk-responsive-margin(2, "top")
 }
 
 .hint-with-margin {
-  margin-top: 30px;
+  @include govuk-responsive-margin(4, "top");
+  margin-bottom: govuk-spacing(-2);
 }
 
-
 .govuk-radios__divider {
-  margin-bottom: 15px;
-  margin-top: -15px;
+  @include govuk-responsive-margin(2, "bottom");
+  
 }
 
 .govuk-summary-list .govuk-summary-list__key {
-  color: #000;
-  font-weight: bold;
-  padding-bottom: 30px;
-  padding-top: 40px;
+  @include govuk-responsive-padding(6, "bottom");
+  @include govuk-responsive-padding(7, "top");
 }
 
 .govuk-warning-text {
-  margin-bottom: 0px;
+  @include govuk-responsive-margin(0, "bottom");
 }
 
 .govuk-error-summary {
-  width: 580px;
+  width: 66.6666%;
 }
 
+#landingPageTitle {
+  @include govuk-responsive-margin(5, "bottom");
+}
 
 #details-btn {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.govuk-summary-list .govuk-summary-list__key {
-  color: #000;
-  font-weight: bold;
-  padding-bottom: 30px;
-  padding-top: 40px;
+  @include govuk-responsive-margin(0, "top");
+  @include govuk-responsive-padding(0, "top");
 }
 
 .govuk-warning-text {
-  margin-bottom: 0px;
+  @include govuk-responsive-margin(0, "bottom");
+}
+
+#details-btn {
+  @include govuk-responsive-margin(0, "top");
+  @include govuk-responsive-padding(0, "top");
+}
+
+.instruction {
+  @include govuk-responsive-margin(5, "bottom");
 }
 
 #branches-1-label, #branches-2-label, #branches-3-label, #branches-4-label, #branches-5-label  {
   font-weight: bold;
 }
 
-#details-btn {
-  margin-top: 0;
-  padding-top: 0;
+.govuk-main-wrapper {
+  @include govuk-responsive-padding(3, "top");
 }
 
-#listItem {
-  margin-bottom: 30px;
+.photoIdSelectionContent { 
+  @include govuk-responsive-padding(1, "top");
+  @include govuk-responsive-padding(2, "bottom");
 }
 
-#circle1 {
-  display: inline-block;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
-  line-height: 10px;
-  padding: 10px;
-  background: #000000;
-  border: 3px solid #000;
-  color: #ffffff;
-  text-align: center;
-  text-indent: 7%;
-  margin-right: 6px;
+.photoIdSelectionExpiryWarning {
+  @include govuk-responsive-padding(2, "top");
+  @include govuk-responsive-padding(2, "bottom");
 }
 
-#circle2 {
-  display: inline-block;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
-  line-height: 10px;
-  padding: 10px;
-  background: #000000;
-  border: 3px solid #000;
-  color: #ffffff;
-  text-align: center;
-  text-indent: -17%;
-  margin-right: 6px;
-}
-
-#circle3 {
-  display: inline-block;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
-  line-height: 10px;
-  padding: 10px;
-  background: #000000;
-  border: 3px solid #000;
-  color: #ffffff;
-  text-align: center;
-  text-indent: -19%;
-  margin-right: 6px;
-}
-
-#stepTitle {
-  display: inline-block;
-}
-
-#indentedInstruction {
-  margin-bottom: 2px;
-}
-
-#postcode-label {
+.locationBody {
+  @include govuk-responsive-margin(6, "bottom");
   font-weight: bold;
   font-size: 24px;
 }
 
-#landingPageContinue {
-  @include govuk-responsive-margin(1, "top")
+.changePostcode {
+  @include govuk-responsive-margin(6, "bottom");
 }
 
-#photoIdContinue {
-  margin-top: -3px;
+
+#confirmIdentityAnotherWay {
+  font-size: 19px;
+}
+
+.circle {
+  display: inline-block;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  line-height: 10px;
+  padding: 10px;
+  background: govuk-colour("black");
+  border: 3px solid govuk-colour("black");
+  color: govuk-colour("white");
+  text-align: center;
+  text-indent: -16%;
+  margin-right: 6px;
+}
+
+#postcode-label {
+  font-weight: bold;
+  font-size: 23px;
+}
+
+#landingPageContinue {
+  @include govuk-responsive-margin(1, "top");
+}
+
+#spacedContinue {
+  margin-top: govuk-spacing(-1);
+}
+
+#photoIdExpiryPrompt {
+  font-size: 23px;
+}
+
+.expiredIdBody {
+  margin-top: govuk-spacing(-4);
+}
+
+.expiredIdPrompt {
+  color: govuk-colour("black");
+  font-size: 23px;
+  font-weight: bold;
+  @include govuk-responsive-margin(5, "top");
+  @include govuk-responsive-margin(3, "bottom");
 }
