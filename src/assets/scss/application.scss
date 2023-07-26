@@ -37,15 +37,6 @@ h2 {
   @include govuk-responsive-margin(3, "bottom");
 }
 
-// .govuk-inset-text {
-//   @include govuk-responsive-margin(5, "bottom");
-// }
-
-// .govuk-body,
-// main p,
-// .govuk-body-m {
-//   @include govuk-responsive-margin(6, "bottom");
-// }
 
 .govuk-button {
   @include govuk-responsive-margin(6, "bottom");
