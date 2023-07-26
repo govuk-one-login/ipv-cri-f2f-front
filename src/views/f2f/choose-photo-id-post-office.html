@@ -18,10 +18,7 @@
         {{ hmpoRadios(ctx, {id: "photoIdChoice"}) }}
         {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
     {% endcall %}
-    {% call hmpoForm(ctx) %}
-        {{ hmpoRadios(ctx, {id: "photoIdChoice"}) }}
-        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
-    {% endcall %}
+
 
     {% include "common/confirmIdentityAnotherWay.html" %}
 
