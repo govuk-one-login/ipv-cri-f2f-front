@@ -1,4 +1,7 @@
-@mock-api:f2f-f2f-success @success @only
+@mock-api:f2f-f2f-success @success
+
+#Test Suspended - additional work is required to facilitate the validation of BE systems, designs and US to follow. When designed, reinstate the @browser tag
+
 Feature: F2F Journey - E2E
 
 Scenario: F2F Journey - E2E Happy Path and DB Validation
