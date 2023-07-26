@@ -13,18 +13,18 @@ const root = require("./controllers/root");
 const { APP } = require("../../lib/config");
 
 module.exports = {
-  "/": {
+  [`${APP.PATHS.F2F}`]: {
     resetJourney: true,
     reset: true,
     entryPoint: true,
     skip: true,
     controller: root,
-    next: "landingPage",
+    next: APP.PATHS.LANDING_PAGE,
   },
-  "/landingPage": {
-    next: "photoIdSelection"
+  [`${APP.PATHS.LANDING_PAGE}`]: {
+    next: APP.PATHS.PHOTO_ID_SELECTION
   },
-  "/photoIdSelection": {
+  [`${APP.PATHS.PHOTO_ID_SELECTION}`]: {
     controller: photoIdSelect,
     fields: ["photoIdChoice"],
     invalidates: [
@@ -74,119 +74,119 @@ module.exports = {
       },
     ],
   },
-  "/ukPassportDetails": {
+  [`${APP.PATHS.UK_PASSPORT_DETAILS}`]: {
     fields: ["ukPassportExpiryDate"],
     controller: ukPassportDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "ukPassportExpiryDate",
         op: "before",
         value: "18 months ago",
-        next: "photoIdExpiry",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "findBranch",
+      APP.PATHS.FIND_POST_OFFICE,
     ],
   },
-  "/nonUKPassportDetails": {
+  [`${APP.PATHS.NON_UK_PASSPORT_DETAILS}`]: {
     fields: ["nonUKPassportExpiryDate"],
     controller: nonUKPassportDetails,
     editable: true,
-    editBackStep: "checkAnswers",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "nonUKPassportExpiryDate",
         op: "before",
         value: "today",
-        next: "photoIdExpiry",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "nonUkPassportCountrySelector",
+      APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR,
     ],
   },
   "/non-uk-passport-has-expiry-date": {
     fields: ["idHasExpiryDate"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.YES,
-        next: "nonUKPassportDetails"
+        next: APP.PATHS.NON_UK_PASSPORT_DETAILS
       },
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.NO,
-        next: "nonUkPassportCountrySelector"
+        next: APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR
       }
     ]
   },
-  "/ukPhotocardDlDetails": {
+  [`${APP.PATHS.PHOTOCARD_DL_DETAILS}`]: {
     fields: ["ukPhotocardDlExpiryDate"],
     controller: ukPhotocardDlDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "ukPhotocardDlExpiryDate",
         op: "before",
         value: "today",
-        next: "photoIdExpiry",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "ukDlAddressCheck",
+      APP.PATHS.PHOTOCARD_DL_ADDRESS_CHECK,
     ],
   },
-  "/brpDetails": {
+  [`${APP.PATHS.BRP_DETAILS}`]: {
     fields: ["brpExpiryDate"],
     controller: brpDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "brpExpiryDate",
         op: "before",
         value: "today",
-        next: "photoIdExpiry",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "findBranch",
+      APP.PATHS.FIND_POST_OFFICE,
     ],
   },
-  "/euPhotocardDlDetails": {
+  [`${APP.PATHS.EU_PHOTOCARD_DL_DETAILS}`]: {
     fields: ["euPhotocardDlExpiryDate"],
     controller: euPhotocardDlDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "euPhotocardDlExpiryDate",
         op: "before",
         value: "today",
-        next: "photoIdExpiry",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "euDrivingLicenceAddressCheck",
+      APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK,
     ],
   },
   "/eu-driving-licence-has-expiry-date": {
     fields: ["idHasExpiryDate"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.YES,
-        next: "euPhotocardDlDetails"
+        next: APP.PATHS.EU_PHOTOCARD_DL_DETAILS
       },
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.NO,
-        next: "euDrivingLicenceAddressCheck"
+        next: APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK
       }
     ]
   },
-  "/euDrivingLicenceAddressCheck": {
+  [`${APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK}`]: {
     fields: ["euDrivingLicenceAddressCheck"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "euDrivingLicenceAddressCheck",
@@ -205,42 +205,42 @@ module.exports = {
       }
     ]
   },
-  "/eeaIdentityCardDetails": {
+  [`${APP.PATHS.EEA_IDENTITY_CARD_DETAILS}`]: {
     fields: ["eeaIdCardExpiryDate"],
     controller: eeaIdentityCardDetails,
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "eeaIdCardExpiryDate",
         op: "before",
         value: "today",
-        next: "photoIdExpiry",
+        next: APP.PATHS.EXPIRED_ID,
       },
-      "eeaIdCardAddressCheck",
+      APP.PATHS.EEA_IDENTITY_CARD_CURRENT_ADDRESS,
     ],
   },
   "/national-identity-card-has-expiry-date": {
     fields: ["idHasExpiryDate"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.YES,
-        next: "eeaIdentityCardDetails"
+        next: APP.PATHS.EU_PHOTOCARD_DL_DETAILS
       },
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.NO,
-        next: "eeaIdCardAddressCheck"
+        next: APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK
       }
     ]
   },
-  "/eeaIdCardAddressCheck": {
+  [`${APP.PATHS.EEA_IDENTITY_CARD_CURRENT_ADDRESS}`]: {
     fields: ["eeaIdCardAddressCheck"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "eeaIdCardAddressCheck",
@@ -250,7 +250,7 @@ module.exports = {
       {
         field: "eeaIdCardAddressCheck",
         value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        next: "photoIdSelection"
+        next: APP.PATHS.PHOTO_ID_SELECTION
       },
       {
         field: "eeaIdCardAddressCheck",
@@ -259,7 +259,7 @@ module.exports = {
       }
     ]
   },
-  "/photoIdExpiry": {
+  [`${APP.PATHS.EXPIRED_ID}`]: {
     controller: photoIdExpiry,
     fields: ["photoIdExpiryChoice"],
     next: [
@@ -302,7 +302,7 @@ module.exports = {
       {
         field: "photoIdExpiryChoice",
         value: APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID,
-        next: "photoIdSelection",
+        next: APP.PATHS.PHOTO_ID_SELECTION,
       },
       {
         field: "photoIdExpiryChoice",
@@ -311,71 +311,70 @@ module.exports = {
       },
     ]
   },
-  "/ukDlAddressCheck": {
+  [`${APP.PATHS.PHOTOCARD_DL_ADDRESS_CHECK}`]: {
     fields: ["ukDlAddressCheck"],
     editable: true,
-    editBackStep: "checkDetails",
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
         field: "ukDlAddressCheck",
         value: "Yes",
-        next: "findBranch"
+        next: APP.PATHS.FIND_POST_OFFICE
       },
       {
         field: "ukDlAddressCheck",
         value: "No",
-        next: "photoIdSelection"
+        next: APP.PATHS.PHOTO_ID_SELECTION
       }
     ]
   },
-  "/eeaIdentityCardCountrySelector": {
+  [`${APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR}`]: {
     fields: ["eeaIdentityCardCountrySelector"],
     editable: true,
-    editBackStep: "checkDetails",
-    next: "findBranch"
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: APP.PATHS.FIND_POST_OFFICE
   },
-  "/euDrivingLicenceCountrySelector": {
+  [`${APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR}`]: {
     fields: ["euDrivingLicenceCountrySelector"],
     editable: true,
-    editBackStep: "checkDetails",
-    next: "findBranch"
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: APP.PATHS.FIND_POST_OFFICE
 
   },
-  "/nonUkPassportCountrySelector": {
+  [`${APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR}`]: {
     fields: ["nonUkPassportCountrySelector"],
     editable: true,
-    editBackStep: "checkDetails",
-    next: "findBranch"
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: APP.PATHS.FIND_POST_OFFICE
   },
-  "/findBranch": {
+  [`${APP.PATHS.FIND_POST_OFFICE}`]: {
     editable: true,
-    editBackStep: "locations",
+    editBackStep: APP.PATHS.CHOOSE_POST_OFFICE,
     fields: ["postcode"],
-    next: "locations",
+    next: APP.PATHS.CHOOSE_POST_OFFICE,
   },
-  
-  "/locations": {
+  [`${APP.PATHS.CHOOSE_POST_OFFICE}`]: {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: [
       "postcode",
       "branches"
     ],
-    next: "checkDetails"
+    next: APP.PATHS.CHECK_DETAILS
   },
-  "/checkDetails": {
+  [`${APP.PATHS.CHECK_DETAILS}`]: {
     controller: checkDetails,
-		next: "done",
+    next: APP.PATHS.DONE,
   },
 	"/abort": {
     entryPoint: true,
     skip: true,
     controller: abort,
-    next: "done",
+    next: APP.PATHS.DONE,
   },
-  "/done": {
+  [`${APP.PATHS.DONE}`]: {
     skip: true,
     noPost: true,
-    next: "/oauth2/callback",
+    next: APP.PATHS.OAUTH2,
   }
 }

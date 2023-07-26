@@ -4,6 +4,7 @@ $govuk-assets-path: "/public/";
 
 .govuk-radios {
   margin-bottom: govuk-spacing(-3);
+  @include govuk-responsive-margin(6, "top");
 }
 
 .govuk-radios__item {
@@ -31,12 +32,25 @@ h2 {
   display: inline-block;
 }
 
+.govuk-details {
+  @include govuk-responsive-margin(9, "top");
+  @include govuk-responsive-margin(2, "bottom");
+}
 
 .govuk-list--bullet>li,
 .govuk-list--number>li {
   @include govuk-responsive-margin(3, "bottom");
 }
 
+.govuk-inset-text {
+  @include govuk-responsive-margin(5, "bottom");
+}
+
+.govuk-body,
+main p,
+.govuk-body-m {
+  @include govuk-responsive-margin(6, "bottom");
+}
 
 .govuk-button {
   @include govuk-responsive-margin(6, "bottom");
@@ -60,7 +74,6 @@ main p,
 
 .govuk-radios__divider {
   @include govuk-responsive-margin(2, "bottom");
-  
 }
 
 .govuk-summary-list .govuk-summary-list__key {
@@ -89,6 +102,10 @@ main p,
   @include govuk-responsive-margin(0, "bottom");
 }
 
+.listItem {
+  @include govuk-responsive-margin(5, "bottom");
+}
+
 #details-btn {
   @include govuk-responsive-margin(0, "top");
   @include govuk-responsive-padding(0, "top");
@@ -106,7 +123,7 @@ main p,
   @include govuk-responsive-padding(3, "top");
 }
 
-.photoIdSelectionContent { 
+.photoIdSelectionContent {
   @include govuk-responsive-padding(1, "top");
   @include govuk-responsive-padding(2, "bottom");
 }
@@ -159,12 +176,20 @@ main p,
   margin-top: govuk-spacing(-1);
 }
 
+#addressContinue {
+  @include govuk-responsive-margin(5, "top")
+}
+
+#expiryContinue {
+  @include govuk-responsive-margin(4, "top")
+}
+
 #photoIdExpiryPrompt {
   font-size: 23px;
 }
 
 .expiredIdBody {
-  margin-top: govuk-spacing(-4);
+  margin-top: govuk-spacing(-1);
 }
 
 .expiredIdPrompt {

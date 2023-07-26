@@ -29,7 +29,7 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, true);
           req.sessionModel.set("selectedDocument", "UK passport");
-          req.sessionModel.set("changeUrl", "ukPassportDetails");
+          req.sessionModel.set("changeUrl", "uk-passport-expire");
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.BRP: {
@@ -39,7 +39,7 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.BRP, true);
           req.sessionModel.set("selectedDocument", "Biometric residence permit (BRP)");
-          req.sessionModel.set("changeUrl", "brpDetails");
+          req.sessionModel.set("changeUrl", "biometric-residence-permit-expire");
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
@@ -49,7 +49,7 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, true);
           req.sessionModel.set("selectedDocument", "UK photocard driving licence");
-          req.sessionModel.set("changeUrl", "ukPhotocardDlDetails");
+          req.sessionModel.set("changeUrl", "uk-driving-licence-expire");
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
@@ -59,7 +59,7 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, true);
           req.sessionModel.set("selectedDocument", "Non-UK passport");
-          req.sessionModel.set("changeUrl", "nonUKPassportDetails");
+          req.sessionModel.set("changeUrl", "non-uk-passport-expire");
           return next();
         }
 
@@ -71,7 +71,7 @@ class PhotoIdSelectionController extends BaseController {
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL, true);
           req.sessionModel.set("selectedDocument", "EU photocard driving licence");
           // req.sessionModel.set("euDrivingLicenceAddressCheck", undefined);
-          req.sessionModel.set("changeUrl", "euPhotocardDlDetails");
+          req.sessionModel.set("changeUrl", "eu-driving-licence-expire");
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
@@ -81,9 +81,9 @@ class PhotoIdSelectionController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD, true);
-          req.sessionModel.set("selectedDocument", "National Identity card from an EEA country");
+          req.sessionModel.set("selectedDocument", "National identity card from an EEA country");
           // req.sessionModel.set("eeaIdCardAddressCheck", undefined);
-          req.sessionModel.set("changeUrl", "eeaIdentityCardDetails");
+          req.sessionModel.set("changeUrl", "national-identity-card-expire");
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID: {

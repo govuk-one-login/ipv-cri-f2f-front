@@ -1,23 +1,21 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoPageKey = "eeaIdCardAddressCheck" %}
-{% set gtmJourney = "f2f - eeaNationalIdAddressCheck" %}
-
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% set gtmJourney = "f2f - photoIdExpiry" %}
+{% set hmpoPageKey = "photoIdExpiry" %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
 
 {% block mainContent %}
 
-{% set title = translate("eeaIdCardAddressCheck.title") %}
-{% set context = translate("eeaIdCardAddressCheck.context") %}
-{% set formInstructions = "<p>"+context+"</p>"%}
-      
-      {% call hmpoForm(ctx) %}
+{% set title = translate("photoIdExpiry.title") %}
+{% set content = translate("photoIdExpiry.content") %}
+{% set prompt = translate("photoIdExpiry.prompt") %}
+{% set formInstructions = "<p>"+content+"</p><p class=\"expiredIdPrompt\">"+prompt+"</p>"%}
+
+{% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {
-                id: "eeaIdCardAddressCheck",
-                namePrefix: "eeaIdCardAddressCheck",
+                id: "photoIdExpiryChoice",
+                namePrefix: "photoIdExpiryChoice",
                 fieldset: {
                     legend: {
                         text: title,
@@ -29,9 +27,9 @@
                     html: formInstructions
             }
             }) }}
-  
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
-    
+
+            {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+
     {% endcall %}
 
 {% endblock %}

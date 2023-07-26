@@ -1,7 +1,6 @@
 photoIdChoice:
   validation:
     required: Choose a photo ID you can take to a Post Office
-  content: ""
   items:
     ukPassport:
       label: UK passport
@@ -37,19 +36,19 @@ photoIdChoice:
 ukDlAddressCheck:
   legend: ""
   validation:
-    default: "Select yes if the address on your driving licence is the same as your current address"
+    default: "Select if your driving licence has your current address on it"
 
 ukPassportExpiryDate:
   legend: ""
   label: ""
   hint: "For example, 31 3 2025"
-  validation:
-    default: "Enter the date of expiry"
+  validation: 
+    default: "Enter the full expiry date"
     before: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
-    "date-day": "Enter a valid day"
+    "date-day": "Enter a valid expiry date"
     "date-month": "The expiry date must include a month that is a number between 1 and 12"
     "required-day": "Enter the full expiry date"
     "required-month": "Enter the full expiry date"
@@ -59,13 +58,13 @@ ukPhotocardDlExpiryDate:
   legend: ""
   label: ""
   hint: "For example, 31 3 2025"
-  validation:
-    default: "Enter the date of expiry"
+  validation: 
+    default: "Enter the full expiry date"
     before: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
-    "date-day": "Enter a valid day"
+    "date-day": "Enter a valid expiry date"
     "date-month": "The expiry date must include a month that is a number between 1 and 12"
     "required-day": "Enter the full expiry date"
     "required-month": "Enter the full expiry date"
@@ -75,13 +74,13 @@ nonUKPassportExpiryDate:
   legend: ""
   label: ""
   hint: "For example, 31 3 2025"
-  validation:
-    default: "Enter the date of expiry"
+  validation: 
+    default: "Enter the full expiry date"
     before: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
-    "date-day": "Enter a valid day"
+    "date-day": "Enter a valid expiry date"
     "date-month": "The expiry date must include a month that is a number between 1 and 12"
     "required-day": "Enter the full expiry date"
     "required-month": "Enter the full expiry date"
@@ -91,13 +90,13 @@ brpExpiryDate:
   legend: ""
   label: ""
   hint: "For example, 31 3 2025"
-  validation:
-    default: "Enter the date of expiry"
+  validation: 
+    default: "Enter the full expiry date"
     before: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
-    "date-day": "Enter a valid day"
+    "date-day": "Enter a valid expiry date"
     "date-month": "The expiry date must include a month that is a number between 1 and 12"
     "required-day": "Enter the full expiry date"
     "required-month": "Enter the full expiry date"
@@ -108,12 +107,12 @@ euPhotocardDlExpiryDate:
   label: ""
   hint: "For example, 31 3 2025"
   validation:
-    default: "Enter the date of expiry"
+    default: "Enter the full expiry date"
     before: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
-    "date-day": "Enter a valid day"
+    "date-day": "Enter a valid expiry date"
     "date-month": "The expiry date must include a month that is a number between 1 and 12"
     "required-day": "Enter the full expiry date"
     "required-month": "Enter the full expiry date"
@@ -128,12 +127,12 @@ eeaIdCardExpiryDate:
   legend: ""
   hint: "For example, 31 3 2025"
   validation:
-    default: "Enter the date of expiry"
+    default: "Enter the full expiry date"
     before: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
-    "date-day": "Enter a valid day"
+    "date-day": "Enter a valid expiry date"
     "date-month": "The expiry date must include a month that is a number between 1 and 12"
     "required-day": "Enter the full expiry date"
     "required-month": "Enter the full expiry date"
@@ -145,17 +144,17 @@ idHasExpiryDate:
 
 eeaIdCardAddressCheck:
   validation:
-    required: "Select if your identity card has your current address on it"
+    required: "Select if your national identity card has your current address on it"
 
 eeaIdentityCardCountrySelector:
   label: "Select country"
   validation:
-    equal: "Select the country your EEA national identity card is from"
+    equal: "Select the country your national identity card is from"
 
 euDrivingLicenceCountrySelector:
   label: "Select country"
   validation:
-    equal: "Select the country your EU photocard driving licence is from"
+    equal: "Select the country your driving licence is from"
 
 nonUkPassportCountrySelector:
   label: "Select country"
@@ -164,15 +163,15 @@ nonUkPassportCountrySelector:
 
 
 postcode:
-  label: Enter a UK Postcode
+  label: Enter a UK postcode
   hint: "For example, SW1A 2AA"
   validation:
-    default: "Enter a valid UK postcode"
+    default: "Enter a real UK postcode"
 
 branches:
   label: Postcode
   validation:
-    default: "Select your preferred Post Office branch"
+    default: "Select a Post Office where you can prove your identity"
 
 checkDetails:
   label: ""
@@ -182,7 +181,7 @@ checkDetails:
 
 photoIdExpiryChoice:
   validation:
-    required: Please choose an option
+    required: You must choose an option to continue
   content: ""
   items:
     reEnterDetails:

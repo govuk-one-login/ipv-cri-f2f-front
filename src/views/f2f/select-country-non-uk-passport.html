@@ -1,8 +1,9 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoPageKey = "eeaIdentityCardCountrySelector" %}
-{% set gtmJourney = "f2f - eeaIdentityCardCountrySelector" %}
+{% set hmpoPageKey = "nonUkPassportCountrySelector" %}
+{% set gtmJourney = "f2f - nonUkPassportCountrySelector" %}
 
+{% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "hmpo-select/macro.njk" import hmpoSelect %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
@@ -10,20 +11,20 @@
 
 {% block mainContent %}
 <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("eeaIdentityCardCountrySelector.title") }}
+        {{ translate("nonUkPassportCountrySelector.title") }}
     </h1>
-    <p> {{ translate("eeaIdentityCardCountrySelector.content") }} </p>
+    <p> {{ translate("nonUkPassportCountrySelector.content") }} </p>
 
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     <div class="hint-with-margin">
     {{ hmpoSelect(ctx, {
-        id: "eeaIdentityCardCountrySelector",
-        label: translate("fields.eeaIdentityCardCountrySelector.label")
+        id: "nonUkPassportCountrySelector",
+        label: translate("fields.nonUkPassportCountrySelector.label")
     }) }}
   </div>
 
-  <p><a href="/photoIdSelection">{{ translate("eeaIdentityCardCountrySelector.link") }}</a></p>
+  <p><a href="/choose-photo-id-post-office">{{ translate("nonUkPassportCountrySelector.link") }}</a></p>
 
      {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 

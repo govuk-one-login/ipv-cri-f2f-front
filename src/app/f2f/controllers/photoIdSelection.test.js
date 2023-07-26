@@ -40,7 +40,7 @@ describe("PhotoIdSelectionController", () => {
         expect(next).to.have.been.calledOnce;
         expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.UK_PASSPORT)
         expect(selectedDocument).to.equal("UK passport");
-        expect(changeUrl).to.equal("ukPassportDetails");
+        expect(changeUrl).to.equal("uk-passport-expire");
     });
   });
 

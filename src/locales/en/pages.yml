@@ -12,14 +12,14 @@ landingPage:
       two: "Then select which Post Office you want to take your photo ID to."
       three: "We'll send you a confirmation email with a link to download your Post Office customer letter."
     secondStep:
-      one: "Take your Post Office customer letter and photo ID to your chosen Post Office. "
+      one: "Take your Post Office customer letter and photo ID to your chosen Post Office. Or go to any "
       two: "A member of Post Office staff will scan your photo ID and take a photo of you. "
       three: "You must go to the Post Office within 10 days of getting your confirmation email."
     thirdStep:
-      one: "You'll get an email about the result of your identity check - usually within a day of visiting the Post Office. "
+      one: "You'll get an email about the result of your identity check - usually within a day of going to the Post Office."
 
 photoIdSelection:
-  title: "Choose a photo ID you can take to a Post Office"
+  title: "Choose which photo ID you can take to a Post Office"
   content: "You must take the original photo ID document, not a photocopy."
   expiryWarning: "Your photo ID must not have expired."
 
@@ -53,8 +53,8 @@ euPhotocardDl:
   euPhotocardDlInformationContext: "We need this information to check your photo ID is valid."
   hintText: "For example, 31 3 2025"
 
-eeaIdentityCard: 
-  title: "When does your national identity card expire?" 
+eeaIdentityCard:
+  title: "When does your national identity card expire?"
   eeaIdentityCardInformationContext: "We need this information to check your photo ID is valid."
   hintText: "For example, 31 3 2025"
 
@@ -77,12 +77,11 @@ locations:
 
 photoIdExpiry:
   title: "Your photo ID has expired"
-  h1: "Your photo ID has expired"
-  content: "You need a valid ID to prove your identity."
+  content: "You need valid photo ID to prove your identity."
   prompt: "What would you like to do?"
 
 checkDetails:
-  title: "Check your details"
+  title: "Check your answers"
   selectedId: "Chosen photo ID"
   expiryDate: "Expiry date"
   postOffice: "Post Office address"
@@ -94,29 +93,29 @@ checkDetails:
   country: Country
   hasExpiryDate: Does your photo ID have an expiry date?
 
-ukDlAddressCheck: 
+ukDlAddressCheck:
   title: "Does your driving licence have your current address on it?"
-  context: "If the address on your driving licence is not the same as your current address, you'll need to choose another type of photo ID."
+  context: If your driving licence has your previous address on it, you'll need to choose another type of photo ID.
   change-how: "How do I change the address on my driving licence?"
-  change-link: <a href="https://www.gov.uk/tell-dvla-changed-address" target="_blank" class="govuk-link">Tell DVLA you've changed address (opens in a new tab)</a>
+  change-link: <p>You must update your driving licence when you move. <a href="https://www.gov.uk/tell-dvla-changed-address" target="_blank" class="govuk-link">Tell DVLA you've changed address (opens in a new tab)</a></p>
 
 euDrivingLicenceAddressCheck:
   title: "Does your driving licence have your current address on it?"
   context: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
-  
+
 
 
 eeaIdCardAddressCheck:
   title: "Does your national identity card have your current address on it?"
   context: "If your national identity card has your previous address on it, you'll need to choose another type of photo ID."
-  
+
 eeaIdentityCardCountrySelector:
   title: "Select which country your national identity card is from"
-  content: "If the country your national identity card is from is not on the list, you'll need to choose a different type of photo ID."
+  content: "If the country your national identity card is from is not on the list, you'll need to choose another type of photo ID."
   link: "The country my national identity card is from is not on the list"
 
 euDrivingLicenceCountrySelector:
-  title: "Select which country driving licence is from"
+  title: "Select which country your driving licence is from"
   content: "If the country your driving licence is from is not on the list, you'll need to choose another type of photo ID."
   link: "The country my driving licence is from is not on the list"
 
