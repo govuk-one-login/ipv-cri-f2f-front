@@ -4,6 +4,7 @@ $govuk-assets-path: "/public/";
 
 .govuk-radios {
   margin-bottom: govuk-spacing(-3);
+  @include govuk-responsive-margin(6, "top");
 }
 
 .govuk-radios__item {
