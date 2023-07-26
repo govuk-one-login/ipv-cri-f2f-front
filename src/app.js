@@ -1,3 +1,6 @@
+require("express");
+require("express-async-errors");
+
 const path = require("path");
 const session = require("express-session");
 const AWS = require("aws-sdk");
@@ -10,7 +13,7 @@ const setHeaders = commonExpress.lib.headers;
 const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
 const setAxiosDefaults = commonExpress.lib.axios;
 
-const { setAPIConfig, setProxyAPIConfig, setOAuthPaths } = require("./lib/settings");
+const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
 const { setGTM } = require("di-ipv-cri-common-express/src/lib/settings");
 const { getGTM } = require("di-ipv-cri-common-express/src/lib/locals");
 const { setI18n } = require("di-ipv-cri-common-express/src/lib/i18next");
@@ -104,15 +107,11 @@ setAPIConfig({
   baseUrl: API.BASE_URL,
   sessionPath: API.PATHS.SESSION,
   authorizationPath: API.PATHS.AUTHORIZATION,
-});
-
-setProxyAPIConfig({
-  app,
-  baseUrl: PROXY_API.BASE_URL,
+  proxyUrl: PROXY_API.BASE_URL,
   postOfficeProxyUrl: PROXY_API.PATHS.POST_OFFICE
 });
 
-setOAuthPaths({ app, entryPointPath: APP.PATHS.F2F });
+setOAuthPaths({ app, entryPointPath: APP.PATHS.F2F});
 
 setGTM({
   app,
