@@ -22,6 +22,8 @@ $govuk-assets-path: "/public/";
   @include govuk-responsive-margin(6, "bottom");
 }
 
+b#postcode {text-transform:uppercase;}
+
 .govuk-heading-m,
 .hmpo-auto-submit h1,
 h2 {
@@ -35,9 +37,9 @@ h2 {
   @include govuk-responsive-margin(3, "bottom");
 }
 
-.govuk-inset-text {
-  @include govuk-responsive-margin(5, "bottom");
-}
+// .govuk-inset-text {
+//   @include govuk-responsive-margin(5, "bottom");
+// }
 
 // .govuk-body,
 // main p,
@@ -95,6 +97,7 @@ main p,
 .govuk-warning-text {
   @include govuk-responsive-margin(0, "bottom");
 }
+
 #details-btn {
   @include govuk-responsive-margin(0, "top");
   @include govuk-responsive-padding(0, "top");
