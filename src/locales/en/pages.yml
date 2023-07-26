@@ -19,7 +19,7 @@ landingPage:
       one: "You'll get an email about the result of your identity check - usually within a day of going to the Post Office."
 
 photoIdSelection:
-  title: "Choose a photo ID you can take to a Post Office"
+  title: "Choose which photo ID you can take to a Post Office"
   content: "You must take the original photo ID document, not a photocopy."
   expiryWarning: "Your photo ID must not have expired."
 
