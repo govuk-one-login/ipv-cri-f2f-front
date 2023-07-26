@@ -1,0 +1,48 @@
+{
+  "mappings": [
+    {
+      "scenarioName": "abort-f2f",
+      "newScenarioState": "Started",
+      "request": {
+        "method": "GET",
+        "url": "/__reset/abort-f2f"
+      },
+      "response": {
+        "status": 200
+      }
+    },
+		{
+			"scenarioName": "f2f-abort",
+			"request": {
+				"method": "POST",
+				"url": "/abort",
+				"headers": {
+					"x-scenario-id": {
+						"equalTo": "f2f-abort-success"
+					}
+				}
+			},
+			"response": {
+				"status": 302,
+				"headers": {
+          "Location": "http://example.net/abort"
+        }
+			}
+		},
+		{
+			"scenarioName": "f2f-already-aborted",
+			"request": {
+				"method": "POST",
+				"url": "/abort",
+				"headers": {
+					"x-scenario-id": {
+						"equalTo": "f2f-already-aborted"
+					}
+				}
+			},
+			"response": {
+				"status": 200
+			}
+		}
+  ]
+}
