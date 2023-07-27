@@ -2,6 +2,7 @@ const { APP } = require("../../lib/config");
 const { EEA_ID_CARD } = require("./countryCodes/eeaNationalIdentityCard");
 const { EU_DL_COUNTRIES } = require("./countryCodes/euDrivingLicence");
 const { NON_UK_PASSPORT } = require("./countryCodes/nonUkPassport");
+const { ukPassportExpiryValidator } = require("./fieldsHelper");
 
 module.exports = {
   photoIdChoice: {
@@ -58,19 +59,12 @@ module.exports = {
   ukPassportExpiryDate: {
     type: "date",
     journeyKey: "UKPassportExpiryDate",
-    validate: ["required", "date"
-      // {
-      //   type: "before",
-      //   arguments: [
-      //     new Date(
-      //       new Date().getFullYear() + 10,
-      //       new Date().getMonth(),
-      //       new Date().getDate() + 1,
-      //     )
-      //       .toISOString()
-      //       .split("T")[0],
-      //   ],
-      // },
+    validate: ["required", "date",
+      {
+        type: "custom",
+        method: ukPassportExpiryValidator,
+        error: "Expiry date is 10 years ahead"
+      },
     ]
   },
   nonUKPassportExpiryDate: {

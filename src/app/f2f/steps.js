@@ -11,6 +11,7 @@ const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
 const { APP } = require("../../lib/config");
 
+
 module.exports = {
   "/": {
     resetJourney: true,
@@ -84,13 +85,6 @@ module.exports = {
         op: "before",
         value: "18 months ago",
         next: "photoIdExpiry",
-      },
-      
-      {
-        field: "ukPassportExpiryDate",
-        op: "<",
-        value: "new Date(new Date().getFullYear() + 10).toISOString().split('T')[0]",
-        next: "findBranch",
       },
       "findBranch"
     ],
