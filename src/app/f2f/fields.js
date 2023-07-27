@@ -62,8 +62,7 @@ module.exports = {
     validate: ["required", "date",
       {
         type: "custom",
-        method: ukPassportExpiryValidator,
-        error: "Expiry date is 10 years ahead"
+        fn: ukPassportExpiryValidator
       },
     ]
   },

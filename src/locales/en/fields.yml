@@ -46,7 +46,7 @@ ukPassportExpiryDate:
   validation:
     default: "Enter the date of expiry"
     before: "Enter a valid expiry date"
-    after: "Enter a valid expiry date"
+    custom: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
