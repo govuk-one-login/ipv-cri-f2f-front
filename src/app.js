@@ -134,4 +134,4 @@ const wizardOptions = {
 
 router.use(wizard(steps, fields, wizardOptions));
 
-router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback)
+router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
