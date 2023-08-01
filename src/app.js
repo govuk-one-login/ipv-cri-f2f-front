@@ -1,3 +1,6 @@
+require("express");
+require("express-async-errors");
+
 const path = require("path");
 const session = require("express-session");
 const AWS = require("aws-sdk");
@@ -131,4 +134,4 @@ const wizardOptions = {
 
 router.use(wizard(steps, fields, wizardOptions));
 
-router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
+router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback)
