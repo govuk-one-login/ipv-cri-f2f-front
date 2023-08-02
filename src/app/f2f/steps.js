@@ -217,7 +217,7 @@ module.exports = {
         value: "today",
         next: APP.PATHS.EXPIRED_ID,
       },
-      APP.PATHS.EEA_IDENTITY_CARD_CURRENT_ADDRESS,
+      APP.PATHS.EEA_IDENTITY_CARD_ADDRESS_CHECK,
     ],
   },
   "/national-identity-card-has-expiry-date": {
@@ -228,16 +228,16 @@ module.exports = {
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.YES,
-        next: APP.PATHS.EU_PHOTOCARD_DL_DETAILS
+        next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS
       },
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.NO,
-        next: APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK
+        next: APP.PATHS.EEA_IDENTITY_CARD_ADDRESS_CHECK
       }
     ]
   },
-  [`${APP.PATHS.EEA_IDENTITY_CARD_CURRENT_ADDRESS}`]: {
+  [`${APP.PATHS.EEA_IDENTITY_CARD_ADDRESS_CHECK}`]: {
     fields: ["eeaIdCardAddressCheck"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
