@@ -24,9 +24,35 @@ module.exports = {
   [`${APP.PATHS.LANDING_PAGE}`]: {
     next: APP.PATHS.PHOTO_ID_SELECTION
   },
+  // [`${APP.PATHS.PHOTO_ID_SELECTION_THIN_FILE}`]: {
+  //   controller: photoIdSelect,
+  //   fields: ["photoIdChoiceThinFile"],
+  //   invalidates: [
+  //     "ukPassportExpiryDate",
+  //     "nonUKPassportExpiryDate",
+  //     "photoIdExpiryChoice",
+  //   ],
+  //   next: [
+  //     {
+  //       field: "photoIdChoiceThinFile",
+  //       value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
+  //       next: APP.PATHS.UK_PASSPORT_DETAILS,
+  //     },
+  //     {
+  //       field: "photoIdChoiceThinFile",
+  //       value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
+  //       next: APP.PATHS.NON_UK_PASSPORT_HAS_EXPIRY_DATE,
+  //     },
+  //     {
+  //       field: "photoIdChoiceThinFile",
+  //       value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
+  //       next: APP.PATHS.ABORT,
+  //     },
+  //   ],
+  // },
   [`${APP.PATHS.PHOTO_ID_SELECTION}`]: {
     controller: photoIdSelect,
-    fields: ["photoIdChoice"],
+    fields: ["photoIdChoice", "photoIdChoiceThinFile"],
     invalidates: [
       "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",
@@ -69,6 +95,21 @@ module.exports = {
       },
       {
         field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
+        next: APP.PATHS.ABORT,
+      },
+      {
+        field: "photoIdChoiceThinFile",
+        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
+        next: APP.PATHS.UK_PASSPORT_DETAILS,
+      },
+      {
+        field: "photoIdChoiceThinFile",
+        value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
+        next: APP.PATHS.NON_UK_PASSPORT_HAS_EXPIRY_DATE,
+      },
+      {
+        field: "photoIdChoiceThinFile",
         value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
         next: APP.PATHS.ABORT,
       },

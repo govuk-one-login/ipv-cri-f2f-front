@@ -1,3 +1,17 @@
+photoIdChoiceThinFile:
+  validation:
+    required: Choose a photo ID you can take to a Post Office
+  items:
+    ukPassport:
+      label: UK passport
+      reveal: ""
+    nonUkPassport:
+      label: Non-UK passport
+      reveal: ""
+    noPhotoId:
+      label: I do not have either of these types of photo ID
+      reveal: ""
+
 photoIdChoice:
   validation:
     required: Choose a photo ID you can take to a Post Office
@@ -23,6 +37,7 @@ photoIdChoice:
     noPhotoId:
       label: I do not have any of these documents
       reveal: ""
+
 
 "date-day":
   label: Day
