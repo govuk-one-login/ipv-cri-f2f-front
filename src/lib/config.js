@@ -35,7 +35,7 @@ module.exports = {
       BRP_DETAILS: "/biometric-residence-permit-expire",
       EU_PHOTOCARD_DL_DETAILS: "/eu-driving-licence-expire",
       EEA_IDENTITY_CARD_DETAILS: "/national-identity-card-expire",
-      EEA_IDENTITY_CARD_CURRENT_ADDRESS: "/national-identity-card-current-address",
+      EEA_IDENTITY_CARD_ADDRESS_CHECK: "/national-identity-card-current-address",
       EEA_IDENTITY_CARD_COUNTRY_SELECTOR: "/select-country-national-identity-card",
       NO_PHOTO_ID: "https://signin.account.gov.uk/no-photo-id",
       ABORT: "/abort",
