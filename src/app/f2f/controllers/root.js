@@ -9,8 +9,31 @@ class RootController extends BaseController {
         req.sessionModel.set("postcode", sharedClaims.address[0].postalCode)
       }
     }
-    super.saveValues(req, res, next);
-  }
+		try {
+
+		  const resp = await this.getSessionConfig(req.axios, req);
+		  if(resp && resp.evidence_requested?.strength_score === 4){
+			  //Show thin file user screen
+		  }else{
+			  //Show usual screen
+		  }
+		  callback();
+		} catch (err) {
+		  callback(err);
+		}
+	}
+	  
+	  async getSessionConfig(axios, req) {
+		const headers = {
+		  "x-govuk-signin-session-id": req.session.tokenId
+		}
+		const resp = await axios.get(`${API.PATHS.SESSION_CONFIG}`,null , {
+		  headers,
+		});
+		return resp.data;
+	  }
+	
+  
 }
 
 module.exports = RootController;

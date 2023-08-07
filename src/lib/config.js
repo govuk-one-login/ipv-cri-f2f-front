@@ -7,7 +7,8 @@ module.exports = {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
       SAVE_F2FDATA: "/documentSelection",
-      ABORT: "/abort"
+      ABORT: "/abort",
+      SESSION_CONFIG: "/sessionConfiguration",
     },
   },
   PROXY_API: {
