@@ -13,10 +13,10 @@ class RootController extends BaseController {
     }
 		try {
 
-		  const resp = await this.getSessionConfig(req.axios);
+		  const resp = await this.getSessionConfig(req);
 		  if(resp && resp.evidence_requested?.strengthScore === 4){
 			  //Show thin file user screen
-        console.log("IN THINFILE!!!!")
+        console.log("Setting isThinFileUser to true")
 			  req.sessionModel.set("isThinFileUser", true)
 		  }
 
@@ -27,12 +27,12 @@ class RootController extends BaseController {
 		}
 	}
 
-	  async getSessionConfig(axios) {
+	  async getSessionConfig(req) {
 		const headers = {
-		  "x-govuk-signin-session-id": "d3875751-e64c-44df-bf38-1d1e9d8cf331"
+		  "x-govuk-signin-session-id": req.session.tokenId
 		}
 		try{
-			const resp = await axios.get(`${API.PATHS.SESSION_CONFIG}`, {
+			const resp = await req.axios.get(`${API.PATHS.SESSION_CONFIG}`, {
 				headers,
 			  });
 			  console.log("Returning response from /sessionConfiguration "+JSON.stringify(resp.data));
@@ -40,7 +40,7 @@ class RootController extends BaseController {
 		}catch(error){
       console.log("Error calling /sessionConfiguration "+error);
 		}
-	  }
+  }
 
 }
 
