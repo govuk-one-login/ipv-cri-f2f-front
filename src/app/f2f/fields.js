@@ -89,24 +89,6 @@ module.exports = {
       },
     ]
   },
-  ukPassportExpiryDateTF: {
-    type: "date",
-    journeyKey: "UKPassportExpiryDateTF",
-    validate: ["required", "date",
-      {
-        type: "before",
-        arguments: [
-          new Date(
-            new Date().getFullYear() + 10,
-            new Date().getMonth(),
-            new Date().getDate() + 1,
-          )
-            .toISOString()
-            .split("T")[0],
-        ],
-      },
-    ]
-  },
   nonUKPassportExpiryDate: {
     type: "date",
     journeyKey: "nonUKPassportExpiryDate",
@@ -295,7 +277,7 @@ module.exports = {
     ],
     validate: ["required"]
   },
-  eeaIdentityCardCountrySelector: {
+eeaIdentityCardCountrySelector: {
     legend: "",
     label: "",
     hint: "",

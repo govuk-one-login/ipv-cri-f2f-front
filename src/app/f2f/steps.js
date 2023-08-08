@@ -11,6 +11,7 @@ const checkDetails = require("./controllers/checkDetails");
 const abort = require("./controllers/abort");
 const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
+const landingPage = require("./controllers/landingPage");
 const { APP } = require("../../lib/config");
 
 module.exports = {
@@ -19,11 +20,11 @@ module.exports = {
     reset: true,
     entryPoint: true,
     skip: true,
-
+    controller: root,
     next: APP.PATHS.LANDING_PAGE,
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
-	controller: root,
+	controller: landingPage,
 	next: [
 		{
 		  field: "isThinFileUser",
