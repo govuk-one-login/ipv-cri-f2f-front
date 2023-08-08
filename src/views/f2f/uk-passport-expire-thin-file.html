@@ -1,0 +1,48 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoPageKey = "ukPassportThinFile" %}
+{% set gtmJourney = "f2f - ukPassportDetailsThinFile" %}
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "hmpo-date/macro.njk" import hmpoDate %}
+
+
+{% block mainContent %}
+
+
+{% set title = translate("ukPassport.title") %}
+{% set context = translate("ukPassport.passportInformationContext") %}
+{% set hintText = translate("ukPassport.hintText") %}
+{% set formInstructions = "<p class=\"idExpiryContext\">"+context+"</p><p class=\"govuk-hint\">"+hintText+"</p>" %}
+
+  {% call hmpoForm(ctx) %}
+          {{ hmpoDate(ctx, {
+            id: "ukPassportExpiryDate",
+            namePrefix: "ukPassportExpiryDate",
+            fieldset: {
+                legend: {
+                    text: title,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                html: formInstructions
+            }
+        }) }}
+
+
+      {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+
+      {% endcall %}
+
+  {% endblock %}
+
+  {# generate the specific footer items required for the PYI flows #}
+  {% set footerNavItems = translate("govuk.footerNavItems") %}
+
+  {% block footer %}
+      {{ govukFooter( footerNavItems ) }}
+  {% endblock %}
+  

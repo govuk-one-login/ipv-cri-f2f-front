@@ -22,7 +22,9 @@ module.exports = {
       F2F: "/",
       LANDING_PAGE: "/prove-identity-post-office",
       PHOTO_ID_SELECTION: "/choose-photo-id-post-office",
+      PHOTO_ID_SELECTION_THIN_FILE: "/choose-photo-id-post-office-thin-file",
       UK_PASSPORT_DETAILS: "/uk-passport-expire",
+      UK_PASSPORT_DETAILS_THIN_FILE: "/uk-passport-expire-thin-file",
       NON_UK_PASSPORT_DETAILS: "/non-uk-passport-expire",
       NON_UK_PASSPORT_HAS_EXPIRY_DATE: "/non-uk-passport-has-expiry-date",
       EU_DRIVING_LICENCE_HAS_EXPIRY_DATE: "/eu-driving-licence-has-expiry-date",
@@ -53,6 +55,11 @@ module.exports = {
       BRP: "brp",
       EU_PHOTOCARD_DL: "euPhotocardDl",
       EEA_IDENTITY_CARD: "eeaIdentityCard",
+      NO_PHOTO_ID: "noPhotoId"
+    },
+    PHOTO_ID_OPTIONS_THIN_FILE: {
+      UK_PASSPORT: "ukPassportThinFile",
+      NON_UK_PASSPORT: "nonUkPassport",
       NO_PHOTO_ID: "noPhotoId"
     },
     ADDRESS_OPTIONS: {

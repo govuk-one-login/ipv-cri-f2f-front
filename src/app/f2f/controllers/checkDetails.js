@@ -115,6 +115,20 @@ class CheckDetailsController extends DateController {
           break;
         }
       }
+      
+      switch (req.form.values.photoIdChoiceThinFile) {
+        case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
+          expiryDate = req.form.values.ukPassportExpiryDate;
+          req.sessionModel.set("countryCode", "GBR");
+          break;
+        }
+        case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
+          idHasExpiryDate = req.form.values.idHasExpiryDate
+          expiryDate = req.form.values.nonUKPassportExpiryDate;
+          country = req.form.values.nonUkPassportCountrySelector;
+          break;
+        }
+      }
       // Sets country code value and country name
 
       Object.values(NON_UK_PASSPORT).forEach(val => {

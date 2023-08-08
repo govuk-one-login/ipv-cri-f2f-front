@@ -18,6 +18,7 @@ class PhotoIdSelectionController extends BaseController {
 
       const action = req.form.values.photoIdChoice;
       req.sessionModel.set("photoIdChoice", action);
+      console.log("❗️", req.sessionModel)
 
       switch (action) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
@@ -94,7 +95,6 @@ class PhotoIdSelectionController extends BaseController {
         }
       }
       logger.info("photo-id-selection: Invalid action " + action);
-      console.log("❗️", req.form.values, "❗️")
       return next(new Error("photo-id-selection: Invalid action " + action));
     } catch (err) {
       return next(err);

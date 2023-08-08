@@ -1,4 +1,5 @@
 const photoIdSelect = require("./controllers/photoIdSelection");
+const photoIdSelectThinFile = require("./controllers/photoIdSelectionThinFile");
 const resultsController = require("./controllers/results");
 const ukPassportDetails = require("./controllers/ukPassportDetails");
 const ukPhotocardDlDetails = require("./controllers/ukPhotocardDl");
@@ -22,37 +23,11 @@ module.exports = {
     next: APP.PATHS.LANDING_PAGE,
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
-    next: APP.PATHS.PHOTO_ID_SELECTION
+    next: APP.PATHS.PHOTO_ID_SELECTION_THIN_FILE
   },
-  // [`${APP.PATHS.PHOTO_ID_SELECTION_THIN_FILE}`]: {
-  //   controller: photoIdSelect,
-  //   fields: ["photoIdChoiceThinFile"],
-  //   invalidates: [
-  //     "ukPassportExpiryDate",
-  //     "nonUKPassportExpiryDate",
-  //     "photoIdExpiryChoice",
-  //   ],
-  //   next: [
-  //     {
-  //       field: "photoIdChoiceThinFile",
-  //       value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
-  //       next: APP.PATHS.UK_PASSPORT_DETAILS,
-  //     },
-  //     {
-  //       field: "photoIdChoiceThinFile",
-  //       value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
-  //       next: APP.PATHS.NON_UK_PASSPORT_HAS_EXPIRY_DATE,
-  //     },
-  //     {
-  //       field: "photoIdChoiceThinFile",
-  //       value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
-  //       next: APP.PATHS.ABORT,
-  //     },
-  //   ],
-  // },
   [`${APP.PATHS.PHOTO_ID_SELECTION}`]: {
     controller: photoIdSelect,
-    fields: ["photoIdChoice", "photoIdChoiceThinFile"],
+    fields: ["photoIdChoice"],
     invalidates: [
       "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",
@@ -98,6 +73,21 @@ module.exports = {
         value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
         next: APP.PATHS.ABORT,
       },
+    ],
+  },
+  [`${APP.PATHS.PHOTO_ID_SELECTION_THIN_FILE}`]: {
+    controller: photoIdSelectThinFile,
+    fields: ["photoIdChoiceThinFile"],
+    invalidates: [
+      "ukPassportExpiryDate",
+      "nonUKPassportExpiryDate",
+      "ukPhotocardDlExpiryDate",
+      "brpExpiryDate",
+      "eeaIdCardExpiryDate",
+      "euPhotocardDlExpiryDate",
+      "photoIdExpiryChoice",
+    ],
+    next: [
       {
         field: "photoIdChoiceThinFile",
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
