@@ -2,7 +2,7 @@ const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API } = require("../../../lib/config");
 
 class RootController extends BaseController {
-  async saveValues(req, res, next, callback) {
+  async saveValues(req, res, next) {
 	req.sessionModel.set("isThinFileUser", false);
     const sharedClaims = req.session?.shared_claims;
 
@@ -26,7 +26,7 @@ class RootController extends BaseController {
 		}
 	}
 
-	  async getSessionConfig(axios, req, res) {
+	  async getSessionConfig(axios) {
 		const headers = {
 			"x-govuk-signin-session-id": req.session.tokenId
 		  }
