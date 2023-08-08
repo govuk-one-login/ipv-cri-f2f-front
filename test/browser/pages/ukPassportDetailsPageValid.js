@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/ukPassportDetails";
+    this.path = "/uk-passport-expire";
   }
 
   async isCurrentPage() {

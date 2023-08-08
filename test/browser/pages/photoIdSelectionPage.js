@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/photoIdSelection";
+    this.path = "/choose-photo-id-post-office";
   }
 
   async isCurrentPage() {
@@ -13,7 +13,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async continue() {
-    await this.page.click("#photoIdContinue");
+    await this.page.click("#continue");
   }
 
   async ukPassportChoice(){

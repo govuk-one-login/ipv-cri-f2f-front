@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.path = "/locations";
+      this.path = "/choose-post-office-prove-identity";
     }
 
     async isCurrentPage() {
