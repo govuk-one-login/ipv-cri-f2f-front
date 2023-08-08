@@ -5,7 +5,7 @@ module.exports = class PlaywrightDevPage {
     constructor(page) {
       this.page = page;
       this.baseURL = "https://f2f-cri-front.review-o.dev.account.gov.uk";
-      this.path = "/eu-driving-licence-current-address/edit";
+      this.path = "/national-identity-card-current-address/edit";
     }
   
     async goTo(){
