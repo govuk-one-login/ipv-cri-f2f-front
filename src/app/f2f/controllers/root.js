@@ -22,14 +22,13 @@ class RootController extends BaseController {
 
 		  super.saveValues(req,res, next);
 		} catch (err) {
-      console.log("Error getting session config"+err);
-		  callback(err);
+      return next(new Error("root: Error getting session config"));
 		}
 	}
 
 	  async getSessionConfig(req) {
 		const headers = {
-		  "x-govuk-signin-session-id": "d3875751-e64c-44df-bf38-1d1e9d8cf331"
+		  "x-govuk-signin-session-id": req.session.tokenId
 		}
 		try{
 			const resp = await req.axios.get(`${API.PATHS.SESSION_CONFIG}`, {
