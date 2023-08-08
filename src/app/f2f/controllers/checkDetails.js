@@ -72,49 +72,68 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("postOfficePostcode", postOfficePostcode);
       req.sessionModel.set("postOfficeLatitude", postOfficeLatitude);
       req.sessionModel.set("postOfficeLongitude", postOfficeLongitude);
-      
+
       // Value for document expiry date depends on selected document
       let idHasExpiryDate
       let expiryDate
       let country
       let address
-      switch (req.form.values.photoIdChoice) {
-        case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
-          expiryDate = req.form.values.ukPassportExpiryDate;
-          req.sessionModel.set("countryCode", "GBR");
-          break;
+
+      if(req.sessionModel.get("isThinFileUser")){
+        switch (req.form.values.photoIdChoiceThinFile) {
+          case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
+            expiryDate = req.form.values.ukPassportExpiryDate;
+            req.sessionModel.set("countryCode", "GBR");
+            break;
+          }
+          case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
+            idHasExpiryDate = req.form.values.idHasExpiryDate
+            expiryDate = req.form.values.nonUKPassportExpiryDate;
+            country = req.form.values.nonUkPassportCountrySelector;
+            break;
+          }
         }
-        case APP.PHOTO_ID_OPTIONS.BRP: {
-          expiryDate = req.form.values.brpExpiryDate;
-          req.sessionModel.set("countryCode", "GBR");
-          break;
-        }
-        case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
-          expiryDate = req.form.values.ukPhotocardDlExpiryDate;
-          req.sessionModel.set("countryCode", "GBR");
-          break;
-        }
-        case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
-          idHasExpiryDate = req.form.values.idHasExpiryDate
-          expiryDate = req.form.values.nonUKPassportExpiryDate;
-          country = req.form.values.nonUkPassportCountrySelector;
-          break;
-        }
-        case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
-          idHasExpiryDate = req.form.values.idHasExpiryDate
-          expiryDate = req.form.values.euPhotocardDlExpiryDate;
-          country = req.form.values.euDrivingLicenceCountrySelector;
-          address = req.form.values.euDrivingLicenceAddressCheck
-          break;
-        }
-        case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
-          idHasExpiryDate = req.form.values.idHasExpiryDate
-          expiryDate = req.form.values.eeaIdCardExpiryDate;
-          country = req.form.values.eeaIdentityCardCountrySelector;
-          address = req.form.values.eeaIdCardAddressCheck;
-          break;
+
+      }else{
+        switch (req.form.values.photoIdChoice) {
+          case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
+            expiryDate = req.form.values.ukPassportExpiryDate;
+            req.sessionModel.set("countryCode", "GBR");
+            break;
+          }
+          case APP.PHOTO_ID_OPTIONS.BRP: {
+            expiryDate = req.form.values.brpExpiryDate;
+            req.sessionModel.set("countryCode", "GBR");
+            break;
+          }
+          case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
+            expiryDate = req.form.values.ukPhotocardDlExpiryDate;
+            req.sessionModel.set("countryCode", "GBR");
+            break;
+          }
+          case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
+            idHasExpiryDate = req.form.values.idHasExpiryDate
+            expiryDate = req.form.values.nonUKPassportExpiryDate;
+            country = req.form.values.nonUkPassportCountrySelector;
+            break;
+          }
+          case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
+            idHasExpiryDate = req.form.values.idHasExpiryDate
+            expiryDate = req.form.values.euPhotocardDlExpiryDate;
+            country = req.form.values.euDrivingLicenceCountrySelector;
+            address = req.form.values.euDrivingLicenceAddressCheck
+            break;
+          }
+          case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
+            idHasExpiryDate = req.form.values.idHasExpiryDate
+            expiryDate = req.form.values.eeaIdCardExpiryDate;
+            country = req.form.values.eeaIdentityCardCountrySelector;
+            address = req.form.values.eeaIdCardAddressCheck;
+            break;
+          }
         }
       }
+
       // Sets country code value and country name
 
       Object.values(NON_UK_PASSPORT).forEach(val => {
