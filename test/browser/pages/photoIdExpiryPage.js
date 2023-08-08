@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/photoIdExpiry";
+    this.path = "/photo-id-expired";
   }
 
   async isCurrentPage() {
