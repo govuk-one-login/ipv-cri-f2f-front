@@ -18,6 +18,11 @@ landingPage:
     thirdStep:
       one: "You'll get an email about the result of your identity check - usually within a day of going to the Post Office."
 
+photoIdSelectionThinFile:
+  title: "Choose which photo ID you can take to a Post Office"
+  content: "Based on what you've told us, you’ll need a UK passport or a non-UK passport with a biometric chip to prove your identity at a Post Office."
+  photocopyWarning: "You cannot use a photocopy or digital copy of your passport."
+
 photoIdSelection:
   title: "Choose which photo ID you can take to a Post Office"
   content: "You must take the original photo ID document, not a photocopy."

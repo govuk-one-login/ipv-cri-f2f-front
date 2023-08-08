@@ -2,6 +2,7 @@ const photoIdSelect = require("./controllers/photoIdSelection");
 const resultsController = require("./controllers/results");
 const ukPassportDetails = require("./controllers/ukPassportDetails");
 const ukPhotocardDlDetails = require("./controllers/ukPhotocardDl");
+const photoIdSelectThinFile = require("./controllers/photoIdSelectionThinFile");
 const brpDetails = require("./controllers/brpDetails");
 const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
 const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
@@ -18,11 +19,23 @@ module.exports = {
     reset: true,
     entryPoint: true,
     skip: true,
-    controller: root,
+
     next: APP.PATHS.LANDING_PAGE,
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
-    next: APP.PATHS.PHOTO_ID_SELECTION
+	controller: root,
+	next: [
+		{
+		  field: "isThinFileUser",
+		  value: true,
+		  next: APP.PATHS.PHOTO_ID_SELECTION_THIN_FILE
+		},
+		{
+		  field: "isThinFileUser",
+		  value: false,
+		  next: APP.PATHS.PHOTO_ID_SELECTION,
+		}
+	]
   },
   [`${APP.PATHS.PHOTO_ID_SELECTION}`]: {
     controller: photoIdSelect,
@@ -66,6 +79,36 @@ module.exports = {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
         next: APP.PATHS.NATIONAL_IDENTITY_CARD_HAS_EXPIRY_DATE,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
+        next: APP.PATHS.ABORT,
+      },
+    ],
+  },
+  [`${APP.PATHS.PHOTO_ID_SELECTION_THIN_FILE}`]: {
+    controller: photoIdSelectThinFile,
+    fields: ["photoIdChoiceThinFile"],
+    invalidates: [
+      "ukPassportExpiryDate",
+      "nonUKPassportExpiryDate",
+      "ukPhotocardDlExpiryDate",
+      "brpExpiryDate",
+      "eeaIdCardExpiryDate",
+      "euPhotocardDlExpiryDate",
+      "photoIdExpiryChoice",
+    ],
+    next: [
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
+        next: APP.PATHS.UK_PASSPORT_DETAILS,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
+        next: APP.PATHS.NON_UK_PASSPORT_HAS_EXPIRY_DATE,
       },
       {
         field: "photoIdChoice",

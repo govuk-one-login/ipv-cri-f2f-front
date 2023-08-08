@@ -1,0 +1,36 @@
+{% extends "base-form.njk" %}
+{% set gtmJourney = "f2f - photoIdSelectionThinFile" %}
+{% set hmpoTitle = photoIdSelectionThinFile.label %}
+{% set hmpoPageKey = "photoIdSelectionThinFile" %}
+{% set isPageHeading = true %}
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+
+{% block mainContent %}
+
+{% set title = translate("photoIdSelectionThinFile.title") %}
+{% set content = translate("photoIdSelectionThinFile.content") %}
+{% set photocopyWarning = translate("photoIdSelectionThinFile.photocopyWarning") %}
+{% set formInstructions = "<p>"+content+"</p><br><p>"+photocopyWarning+"</p>" %}
+
+
+      {% call hmpoForm(ctx) %}
+          {{ hmpoRadios(ctx, {
+            id: "photoIdChoiceThinFile",
+            namePrefix: "photoIdChoiceThinFile",
+            fieldset: {
+                legend: {
+                    text: title,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                html: formInstructions
+            }
+        }) }}
+
+          {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+      {% endcall %}
+
+
+{% endblock %}

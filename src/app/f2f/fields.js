@@ -34,6 +34,22 @@ module.exports = {
     validate: ["required"],
     invalidates: ["eeaIdCardAddressCheck"]
   },
+  photoIdChoiceThinFile: {
+    type: "radios",
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
+        hint: { text: APP.UK_PASSPORT_HINT }
+      },
+      { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
+      { divider: "or" },
+      { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
+    ],
+    validate: ["required"]
+  },
   ukDlAddressCheck: {
     legend: "",
     label: "",
@@ -58,6 +74,24 @@ module.exports = {
   ukPassportExpiryDate: {
     type: "date",
     journeyKey: "UKPassportExpiryDate",
+    validate: ["required", "date",
+      {
+        type: "before",
+        arguments: [
+          new Date(
+            new Date().getFullYear() + 10,
+            new Date().getMonth(),
+            new Date().getDate() + 1,
+          )
+            .toISOString()
+            .split("T")[0],
+        ],
+      },
+    ]
+  },
+  ukPassportExpiryDateTF: {
+    type: "date",
+    journeyKey: "UKPassportExpiryDateTF",
     validate: ["required", "date",
       {
         type: "before",
@@ -261,7 +295,7 @@ module.exports = {
     ],
     validate: ["required"]
   },
-eeaIdentityCardCountrySelector: {
+  eeaIdentityCardCountrySelector: {
     legend: "",
     label: "",
     hint: "",
