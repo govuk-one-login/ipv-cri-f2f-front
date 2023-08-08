@@ -89,17 +89,17 @@ module.exports = {
     ],
     next: [
       {
-        field: "photoIdChoiceThinFile",
+        field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
         next: APP.PATHS.UK_PASSPORT_DETAILS,
       },
       {
-        field: "photoIdChoiceThinFile",
+        field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
         next: APP.PATHS.NON_UK_PASSPORT_HAS_EXPIRY_DATE,
       },
       {
-        field: "photoIdChoiceThinFile",
+        field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
         next: APP.PATHS.ABORT,
       },
