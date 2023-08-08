@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/checkDetails";
+    this.path = "/check-details";
   }
 
   async isCurrentPage() {
@@ -17,11 +17,11 @@ module.exports = class PlaywrightDevPage {
   }
 
   async changePhotoIDLink(){
-    await this.page.click('[href*="/photoIdSelection/edit"]');
+    await this.page.click('[href*="/choose-photo-id-post-office/edit"]');
   }
 
   async changeExpiryDate() {
-      await this.page.click('[href*="/ukPassportDetails/edit"]');
+      await this.page.click('[href*="/uk-passport-expire/edit"]');
   }
 
   async changeIDHASExpiryDate() {
@@ -52,15 +52,15 @@ module.exports = class PlaywrightDevPage {
   }
 
   async changePOLocation() {
-    await this.page.click('[href*="/findBranch/edit"]');
+    await this.page.click('[href*="/find-post-office-prove-identity/edit"]');
   }
 
   async changeAddressCheckLocation() {
-    await this.page.click('[href*="eeaIdCardAddressCheck/edit"]');
+    await this.page.click('[href*="national-identity-card-current-address/edit"]');
   }
 
   async changeCountry() {
-    await this.page.click('[href*="eeaIdentityCardCountrySelector/edit"]');
+    await this.page.click('[href*="select-country-national-identity-card/edit"]');
   }
 
   async continue() {
