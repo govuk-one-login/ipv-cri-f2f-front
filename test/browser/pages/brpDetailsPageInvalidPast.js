@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/brpDetails";
+    this.path = "/biometric-residence-permit-expire";
   }
 
   async isCurrentPage() {

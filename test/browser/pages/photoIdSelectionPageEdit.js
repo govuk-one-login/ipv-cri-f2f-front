@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/photoIdSelection/edit";
+    this.path = "/choose-photo-id-post-office/edit";
   }
   
   async isCurrentPage() {

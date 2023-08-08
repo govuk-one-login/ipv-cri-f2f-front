@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.path = "/eeaIdentityCardCountrySelector";
+      this.path = "/select-country-national-identity-card";
     }
     
     async isCurrentPage() {
