@@ -16,7 +16,6 @@ class RootController extends BaseController {
 		  const resp = await this.getSessionConfig(req.axios);
 		  if(resp && resp.evidence_requested?.strengthScore === 4){
 			  //Show thin file user screen
-        console.log("IN THINFILE!!!!")
 			  req.sessionModel.set("isThinFileUser", true)
 		  }
 
