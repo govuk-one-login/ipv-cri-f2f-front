@@ -63,13 +63,13 @@ Then(/^the user sees an error message displayed on the find-branch-valid page$/,
 });
 
 Given(/^the user navigates directly to find-branch-valid-edit page$/, async function () {
-    const findBranchValidEdit = new FindBranch(this.page);
+    const findBranchValidEdit = new FindBranchValidEdit(this.page);
     await findBranchValidEdit.goTo();
 
 });
 
 Then(/^the user sees an error message displayed on the find-branch-valid-edit page$/, async function () {
-    const findBranchValidEdit = new FindBranch(await this.page);
+    const findBranchValidEdit = new FindBranchValidEdit(await this.page);
     expect(await findBranchValidEdit.isCurrentPage()).to.be.true;
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await findBranchValidEdit.checkRedirectionErrorText();
