@@ -4,7 +4,12 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/checkDetails";
+    this.baseURL = "https://f2f-cri-front.review-o.dev.account.gov.uk";
+    this.path = "/check-details";
+  }
+
+  async goTo(){
+    await this.page.goto(this.baseURL+this.path);
   }
 
   async isCurrentPage() {
@@ -70,6 +75,11 @@ module.exports = class PlaywrightDevPage {
   async setSessionState() {
     const url = JSON.stringify(new URL(await this.page.url())).split("state=")
     return url[1];
+  }
+
+  async checkRedirectionErrorText(){
+    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    return errorRedirectionText.trim();
   }
 
 };

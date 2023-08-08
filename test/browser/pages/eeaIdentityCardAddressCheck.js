@@ -4,7 +4,12 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.path = "/eeaIdCardAddressCheck";
+      this.baseURL = "https://f2f-cri-front.review-o.dev.account.gov.uk";
+      this.path = "/national-identity-card-current-address";
+    }
+  
+    async goTo(){
+      await this.page.goto(this.baseURL+this.path);
     }
 
     async isCurrentPage() {
@@ -40,5 +45,10 @@ module.exports = class PlaywrightDevPage {
 
     async noAddress(){
      await this.page.locator(".govuk-radios__item").last().click();
+    }
+
+    async checkRedirectionErrorText(){
+      const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+      return errorRedirectionText.trim();
     }
 };

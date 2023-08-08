@@ -4,7 +4,12 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.path = "/findBranch";
+      this.baseURL = "https://f2f-cri-front.review-o.dev.account.gov.uk";
+      this.path = "/find-post-office-prove-identity";
+    }
+  
+    async goTo(){
+      await this.page.goto(this.baseURL+this.path);
     }
  
     async isCurrentPage() {
@@ -18,5 +23,10 @@ module.exports = class PlaywrightDevPage {
   
     async postCode() {
       await this.page.locator("#postcode").fill("SW1A 1AA");
+    }
+
+    async checkRedirectionErrorText(){
+      const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+      return errorRedirectionText.trim();
     }
   };

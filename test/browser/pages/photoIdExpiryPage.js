@@ -4,7 +4,12 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/photoIdExpiry";
+    this.baseURL = "https://f2f-cri-front.review-o.dev.account.gov.uk";
+    this.path = "/photo-id-expired";
+  }
+
+  async goTo(){
+    await this.page.goto(this.baseURL+this.path);
   }
 
   async isCurrentPage() {
@@ -22,6 +27,11 @@ module.exports = class PlaywrightDevPage {
 
   async ChooseDifferentPhotoId() {
     await this.page.click("#photoIdExpiryChoice-chooseDifferentPhotoId");
+  }
+
+  async checkRedirectionErrorText(){
+    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    return errorRedirectionText.trim();
   }
 
 };

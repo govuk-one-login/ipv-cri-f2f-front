@@ -4,7 +4,12 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.path = "/ukDlAddressCheck";
+      this.baseURL = "https://f2f-cri-front.review-o.dev.account.gov.uk";
+      this.path = "/uk-driving-licence-current-address";
+    }
+  
+    async goTo(){
+      await this.page.goto(this.baseURL+this.path);
     }
 
     async isCurrentPage() {
@@ -40,5 +45,9 @@ module.exports = class PlaywrightDevPage {
       await this.page.click("#back");
     }
 
+    async checkRedirectionErrorText(){
+      const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+      return errorRedirectionText.trim();
+    }
 
   };

@@ -4,9 +4,13 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.path = "/eeaIdCardAddressCheck/edit";
+      this.baseURL = "https://f2f-cri-front.review-o.dev.account.gov.uk";
+      this.path = "/eu-driving-licence-current-address/edit";
     }
-
+  
+    async goTo(){
+      await this.page.goto(this.baseURL+this.path);
+    }
     async isCurrentPage() {
       const { pathname } = new URL(this.page.url());
       return pathname === this.path;
@@ -36,5 +40,10 @@ module.exports = class PlaywrightDevPage {
 
     async noAddress(){
      await this.page.locator(".govuk-radios__item").last().click();
+    }
+
+    async checkRedirectionErrorText(){
+      const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+      return errorRedirectionText.trim();
     }
 };

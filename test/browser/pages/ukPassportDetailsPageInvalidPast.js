@@ -4,7 +4,12 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/ukPassportDetails";
+    this.baseURL = "https://f2f-cri-front.review-o.dev.account.gov.uk";
+    this.path = "/uk-passport-expire";
+  }
+
+  async goTo(){
+    await this.page.goto(this.baseURL+this.path);
   }
 
   async isCurrentPage() {
@@ -30,5 +35,10 @@ module.exports = class PlaywrightDevPage {
     await this.page.locator("#ukPassportExpiryDate-day").fill(expDay);
     await this.page.locator("#ukPassportExpiryDate-month").fill(expMonth);
     await this.page.locator("#ukPassportExpiryDate-year").fill(expYear);
+  }
+
+  async checkRedirectionErrorText(){
+    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    return errorRedirectionText.trim();
   }
 };

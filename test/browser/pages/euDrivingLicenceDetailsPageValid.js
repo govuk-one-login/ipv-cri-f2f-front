@@ -4,7 +4,12 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
-      this.path = "/euPhotocardDlDetails";
+      this.baseURL = "https://f2f-cri-front.review-o.dev.account.gov.uk";
+      this.path = "/eu-driving-licence-expire";
+    }
+  
+    async goTo(){
+      await this.page.goto(this.baseURL+this.path);
     }
 
     async isCurrentPage() {
@@ -24,5 +29,10 @@ module.exports = class PlaywrightDevPage {
       await this.page.locator("#euPhotocardDlExpiryDate-day").fill(expDay);
       await this.page.locator("#euPhotocardDlExpiryDate-month").fill(expMonth);
       await this.page.locator("#euPhotocardDlExpiryDate-year").fill(expYear);
+    }
+
+    async checkRedirectionErrorText(){
+      const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+      return errorRedirectionText.trim();
     }
 };

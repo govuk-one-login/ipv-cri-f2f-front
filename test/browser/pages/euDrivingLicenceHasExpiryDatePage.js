@@ -4,7 +4,12 @@ module.exports = class PlaywrightDevPage {
      */
     constructor(page) {
       this.page = page;
+      this.baseURL = "https://f2f-cri-front.review-o.dev.account.gov.uk";
       this.path = "/eu-driving-licence-has-expiry-date";
+    }
+  
+    async goTo(){
+      await this.page.goto(this.baseURL+this.path);
     }
 
     async isCurrentPage() {
@@ -43,5 +48,10 @@ module.exports = class PlaywrightDevPage {
     async checkErrorAboveRadioButtonText(){
       const errorBodyText = await this.page.locator("#idHasExpiryDate-error").textContent();
       return errorBodyText.trim()
+    }
+
+    async checkRedirectionErrorText(){
+      const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+      return errorRedirectionText.trim();
     }
   };
