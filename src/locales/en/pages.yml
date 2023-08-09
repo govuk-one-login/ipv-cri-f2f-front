@@ -20,10 +20,8 @@ landingPage:
 
 photoIdSelectionThinFile:
   title: "Choose which photo ID you can take to a Post Office"
-  content: "Based on what you've told us, you’ll need a UK passport or a non-UK passport with a biometric chip to prove your identity at a Post Office."
+  content: Based on what you've told us and the checks we've done, you’ll need one of the following types of photo ID to prove your identity at a Post Office. 
   photocopyWarning: "You cannot use a photocopy or digital copy of your passport."
-  informationHeading: "Why is my photo ID not listed?"
-  information: "Based on what you've told us and the checks we've done, you’ll need a UK passport or a non-UK passport with a biometric chip to prove your identity at a Post Office."
 
 photoIdSelection:
   title: "Choose which photo ID you can take to a Post Office"

@@ -4,7 +4,6 @@
 {% set hmpoPageKey = "photoIdSelectionThinFile" %}
 {% set isPageHeading = true %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
-{% from "hmpo-details/macro.njk" import hmpoDetails %}
 
 {% block mainContent %}
 
@@ -30,11 +29,6 @@
         }
     }) }}
     
-    {{ hmpoDetails({
-        summaryText: translate("photoIdSelectionThinFile.informationHeading"),
-        text: translate("photoIdSelectionThinFile.information")
-    })}}
-
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 
     {% endcall %}
