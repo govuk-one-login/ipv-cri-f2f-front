@@ -1,7 +1,7 @@
-const { Given, Then} = require("@cucumber/cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
 const { BRPDetailsPageInvalidFuture, BRPDetailsPageInvalidPast,
-      BRPDetailsPageValid } = require("../pages");
+    BRPDetailsPageValid } = require("../pages");
 const { expect } = require("chai");
 
 Given(/^the user navigates directly to brp-invalid-future-expiry page$/, async function () {
@@ -16,7 +16,7 @@ Then(/^the user sees an error message displayed on the brp-invalid-future-expiry
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await brpDetailsInvalidFuture.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to brp-invalid-past-expiry page$/, async function () {
@@ -31,8 +31,8 @@ Then(/^the user sees an error message displayed on the brp-invalid-past-expiry p
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await brpDetailsInvalidPast.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
-});     
+
+});
 
 Given(/^the user navigates directly to brp-valid page$/, async function () {
     const brpDetailsValid = new BRPDetailsPageValid(this.page);
@@ -46,5 +46,5 @@ Then(/^the user sees an error message displayed on the brp-valid page$/, async f
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await brpDetailsValid.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
