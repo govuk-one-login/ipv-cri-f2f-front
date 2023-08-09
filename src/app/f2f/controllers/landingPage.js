@@ -22,7 +22,7 @@ class LandingPageController extends BaseController {
 
 	  async getSessionConfig(req) {
 		const headers = {
-		  "x-govuk-signin-session-id": req.session.tokenId
+		  "x-govuk-signin-session-id": "d3875751-e64c-44df-bf38-1d1e9d8cf331"
 		}
 		try{
 			const resp = await req.axios.get(`${API.PATHS.SESSION_CONFIG}`, {
