@@ -1,4 +1,4 @@
-const { Given, Then} = require("@cucumber/cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
 const { NonPassportDetailsPageValidEdit, NonUKPassportDetailsPageValid,
     NonUKPassportDetailsPageInvalidFuture, NonUKPassportDetailsPageInvalidPast,
@@ -17,7 +17,7 @@ Then(/^the user sees an error message displayed on the select-country-non-uk-pas
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await nonUKPassportCountrySelectorPage.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to non-uk-passport-expire-invalidpast page$/, async function () {
@@ -47,7 +47,7 @@ Then(/^the user sees an error message displayed on the non-uk-passport-expire-in
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await nonUKPassportInvalidFuturePage.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-    
+
 });
 
 Given(/^the user navigates directly to non-uk-passport-expire page$/, async function () {
@@ -62,7 +62,7 @@ Then(/^the user sees an error message displayed on the non-uk-passport-expire pa
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await nonUKPassportDetailsPageValid.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-    
+
 });
 
 Given(/^the user navigates directly to non-uk-passport-expire-edit page$/, async function () {
@@ -77,7 +77,7 @@ Then(/^the user sees an error message displayed on the non-uk-passport-expire-ed
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await nonUKPassportDetailsPageValidEdit.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-    
+
 });
 
 Given(/^the user navigates directly to non-uk-passport-has-expiry-date page$/, async function () {
@@ -92,5 +92,5 @@ Then(/^the user sees an error message displayed on the non-uk-passport-has-expir
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await nonUKPassportExpiryDatePage.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-    
+
 });

@@ -1,4 +1,4 @@
-const { Given, Then} = require("@cucumber/cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
 const { EuDrivingLicenceAddressCheck, EuDrivingLicenceDetailsPageValid,
     EuDrivingLicenceDetailsPageValidEdit, EuDrivingLicenceDetailsPageInvalidFuture,
@@ -17,7 +17,7 @@ Then(/^the user sees an error message displayed on the eu-driving-licence-curren
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await euDrivingLicenceAddress.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to select-country-eu-driving-licence page$/, async function () {
@@ -32,7 +32,7 @@ Then(/^the user sees an error message displayed on the select-country-eu-driving
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await euDrivingLicenceCountrySelector.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to eu-driving-licence-expire-invalidpast page$/, async function () {
@@ -47,7 +47,7 @@ Then(/^the user sees an error message displayed on the eu-driving-licence-expire
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await euDrivingLicenceInvalidPast.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to eu-driving-licence-expire-invalidfuture page$/, async function () {
@@ -62,7 +62,7 @@ Then(/^the user sees an error message displayed on the eu-driving-licence-expire
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await euDrivingLicenceInvalidFuture.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to eu-driving-licence-expire page$/, async function () {
@@ -77,7 +77,7 @@ Then(/^the user sees an error message displayed on the eu-driving-licence-expire
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await euDrivingLicenceValid.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to eu-driving-licence-expire-edit page$/, async function () {
@@ -92,7 +92,7 @@ Then(/^the user sees an error message displayed on the eu-driving-licence-expire
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await euDrivingLicenceValidEdit.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to eu-driving-licence-has-expiry-date page$/, async function () {
@@ -107,5 +107,5 @@ Then(/^the user sees an error message displayed on the eu-driving-licence-has-ex
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await euDrivingLicenceHasExpiryPage.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });

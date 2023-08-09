@@ -1,4 +1,4 @@
-const { Given, Then} = require("@cucumber/cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
 const { FindBranch, FindBranchValidEdit } = require("../pages");
 const { expect } = require("chai");
@@ -14,7 +14,7 @@ Then(/^the user sees an error message displayed on the find-branch page$/, async
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await findBranch.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to find-branch-empty page$/, async function () {
@@ -29,7 +29,7 @@ Then(/^the user sees an error message displayed on the find-branch-empty page$/,
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await findBranchEmpty.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to find-branch-invalid page$/, async function () {
@@ -44,7 +44,7 @@ Then(/^the user sees an error message displayed on the find-branch-invalid page$
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await findBranchInvalid.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to find-branch-valid page$/, async function () {
@@ -59,7 +59,7 @@ Then(/^the user sees an error message displayed on the find-branch-valid page$/,
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await findBranchValid.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to find-branch-valid-edit page$/, async function () {
@@ -74,5 +74,5 @@ Then(/^the user sees an error message displayed on the find-branch-valid-edit pa
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await findBranchValidEdit.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });

@@ -1,57 +1,57 @@
 module.exports = class PlaywrightDevPage {
-    /**
-     * @param {import('@playwright/test').Page} page
-     */
+  /**
+   * @param {import('@playwright/test').Page} page
+   */
 
-    constructor(page) {
-      this.page = page;
-      this.baseURL = "https://f2f-cri-front." + process.env.IPV_BASE_URL;
-      this.path = "/national-identity-card-has-expiry-date";
-    }
-  
-    async goTo(){
-      await this.page.goto(this.baseURL+this.path);
-    }
-    
-    async isCurrentPage() {
-      const { pathname } = new URL(await this.page.url());
-      return pathname === this.path;
-    }
+  constructor(page) {
+    this.page = page;
+    this.baseURL = process.env.IPV_BASE_URL;
+    this.path = "/national-identity-card-has-expiry-date";
+  }
 
-    async isCurrentEditPage() {
-      const { pathname } = new URL(await this.page.url());
-      return pathname === this.path + "/edit";
-    }
+  async goTo() {
+    await this.page.goto(this.baseURL + this.path);
+  }
 
-    async continue() {
-      await this.page.click("#continue");
-    }
+  async isCurrentPage() {
+    const { pathname } = new URL(await this.page.url());
+    return pathname === this.path;
+  }
 
-    async yes() {
-      await this.page.click("#idHasExpiryDate");
-    }
+  async isCurrentEditPage() {
+    const { pathname } = new URL(await this.page.url());
+    return pathname === this.path + "/edit";
+  }
 
-    async no() {
-      await this.page.click("#idHasExpiryDate-No");
-    }
+  async continue() {
+    await this.page.click("#continue");
+  }
 
-    async checkErrorText(){
-      const errorText = await this.page.locator("#error-summary-title").textContent();
-      return errorText.trim()
-    }
+  async yes() {
+    await this.page.click("#idHasExpiryDate");
+  }
 
-    async checkErrorBodyText(){
-      const errorBodyText = await this.page.locator('[href*="#idHasExpiryDate"]').textContent();
-      return errorBodyText.trim()
-    }
+  async no() {
+    await this.page.click("#idHasExpiryDate-No");
+  }
 
-    async checkErrorAboveRadioButtonText(){
-      const errorBodyText = await this.page.locator("#idHasExpiryDate-error").textContent();
-      return errorBodyText.trim()
-    }
+  async checkErrorText() {
+    const errorText = await this.page.locator("#error-summary-title").textContent();
+    return errorText.trim()
+  }
 
-    async checkRedirectionErrorText(){
-      const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
-      return errorRedirectionText.trim();
-    }
-  };
+  async checkErrorBodyText() {
+    const errorBodyText = await this.page.locator('[href*="#idHasExpiryDate"]').textContent();
+    return errorBodyText.trim()
+  }
+
+  async checkErrorAboveRadioButtonText() {
+    const errorBodyText = await this.page.locator("#idHasExpiryDate-error").textContent();
+    return errorBodyText.trim()
+  }
+
+  async checkRedirectionErrorText() {
+    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    return errorRedirectionText.trim();
+  }
+};

@@ -1,4 +1,4 @@
-const { Given, Then} = require("@cucumber/cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
 const { CheckDetails } = require("../pages");
 const { expect } = require("chai");
@@ -14,5 +14,5 @@ Then(/^the user sees an error message displayed on the check-details page$/, asy
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await checkDetails.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });

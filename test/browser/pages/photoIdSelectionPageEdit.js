@@ -4,14 +4,14 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.baseURL = "https://f2f-cri-front." + process.env.IPV_BASE_URL;
+    this.baseURL = process.env.IPV_BASE_URL;
     this.path = "/choose-photo-id-post-office/edit";
   }
 
-  async goTo(){
-    await this.page.goto(this.baseURL+this.path);
+  async goTo() {
+    await this.page.goto(this.baseURL + this.path);
   }
-  
+
   async isCurrentPage() {
     const { pathname } = new URL(await this.page.url());
     return pathname === this.path;
@@ -21,35 +21,35 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#continue");
   }
 
-  async ukPassportChoice(){
+  async ukPassportChoice() {
     await this.page.click("#photoIdChoice");
   }
 
-  async drivingLicenceChoice(){
+  async drivingLicenceChoice() {
     await this.page.click("#photoIdChoice-ukPhotocardDl");
   }
 
-  async brpChoice(){
+  async brpChoice() {
     await this.page.click("#photoIdChoice-brp");
   }
 
-  async nonUKPassportChoice(){
+  async nonUKPassportChoice() {
     await this.page.click("#photoIdChoice-nonUkPassport");
   }
-  
-  async nationalIdentityCardEEAChoice(){
+
+  async nationalIdentityCardEEAChoice() {
     await this.page.click("#photoIdChoice-eeaIdentityCard");
   }
 
-  async euDrivingLicenceChoice(){
+  async euDrivingLicenceChoice() {
     await this.page.click("#photoIdChoice-euPhotocardDl");
   }
 
-  async back(){
+  async back() {
     await this.page.click("#back");
   }
 
-  async checkRedirectionErrorText(){
+  async checkRedirectionErrorText() {
     const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
     return errorRedirectionText.trim();
   }

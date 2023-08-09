@@ -1,4 +1,4 @@
-const { Given, Then} = require("@cucumber/cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
 const { LandingPage } = require("../pages");
 const { expect } = require("chai");
@@ -14,5 +14,5 @@ Then(/^the user sees an error message displayed on the prove-identity-post-offic
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await landingPage.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });

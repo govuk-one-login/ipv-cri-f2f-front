@@ -1,4 +1,4 @@
-const { Given, Then} = require("@cucumber/cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
 const { EeaIdentityCardHasExpiryDatePage, EEAIdentityCardAddressCheck, EEAIdentityCardCountrySelectorPage,
     EEAIdentityCardDetailsPageValid, EEAIdentityCardDetailsPageInvalidPast,
@@ -18,7 +18,7 @@ Then(/^the user sees an error message displayed on the national-identity-card-ha
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await eeaExpiryDatePage.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to select-country-national-identity-card page$/, async function () {
@@ -33,7 +33,7 @@ Then(/^the user sees an error message displayed on the select-country-national-i
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await eeaCountrySelectPage.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 
@@ -49,7 +49,7 @@ Then(/^the user sees an error message displayed on the national-identity-card-cu
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await eeaAddressCheckPage.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to national-identity-card-expire-invalidpast page$/, async function () {
@@ -64,7 +64,7 @@ Then(/^the user sees an error message displayed on the national-identity-card-ex
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await eeaCardDetailsInvalidPast.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to national-identity-card-expire-invalidfuture page$/, async function () {
@@ -79,7 +79,7 @@ Then(/^the user sees an error message displayed on the national-identity-card-ex
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await eeaCardDetailsInvalidFuture.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to national-identity-card-expire page$/, async function () {
@@ -94,7 +94,7 @@ Then(/^the user sees an error message displayed on the national-identity-card-ex
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await eeaCardDetailsValid.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to eu-driving-licence-current-address-edit page$/, async function () {
@@ -109,7 +109,7 @@ Then(/^the user sees an error message displayed on the eu-driving-licence-curren
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await eeaAddressCheckEditPage.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to euDrivingLicenceCountrySelector-edit page$/, async function () {
@@ -124,5 +124,5 @@ Then(/^the user sees an error message displayed on the euDrivingLicenceCountrySe
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await eeaCountrySelectorEditPage.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });

@@ -4,12 +4,12 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.baseURL = "https://f2f-cri-front." + process.env.IPV_BASE_URL;
+    this.baseURL = process.env.IPV_BASE_URL;
     this.path = "/uk-passport-expire";
   }
 
-  async goTo(){
-    await this.page.goto(this.baseURL+this.path);
+  async goTo() {
+    await this.page.goto(this.baseURL + this.path);
   }
 
   async isCurrentPage() {
@@ -27,7 +27,7 @@ module.exports = class PlaywrightDevPage {
       new Date().getMonth() - 18,
       new Date().getDate() - 2
     )
-    .toISOString();
+      .toISOString();
     const fullDate = lowerUTC.split("T")[0]
     const expDay = fullDate.split("-")[2]
     const expMonth = fullDate.split("-")[1]
@@ -37,7 +37,7 @@ module.exports = class PlaywrightDevPage {
     await this.page.locator("#ukPassportExpiryDate-year").fill(expYear);
   }
 
-  async checkRedirectionErrorText(){
+  async checkRedirectionErrorText() {
     const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
     return errorRedirectionText.trim();
   }

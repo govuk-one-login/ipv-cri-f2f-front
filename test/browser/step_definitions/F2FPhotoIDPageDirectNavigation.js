@@ -1,4 +1,4 @@
-const { Given, Then} = require("@cucumber/cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
 const { PhotoIdSelectionPage, PhotoIdSelectionPageEdit, PhotoIdExpiryPage } = require("../pages");
 const { expect } = require("chai");
@@ -15,7 +15,7 @@ Then(/^the user sees an error message displayed on the photoID- expiry page$/, a
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await photoIDExpiry.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to photoID- selection page$/, async function () {
@@ -30,7 +30,7 @@ Then(/^the user sees an error message displayed on the photoID- selection page$/
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await photoIDSelection.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
 
 Given(/^the user navigates directly to photoID- selection- edit page$/, async function () {
@@ -45,5 +45,5 @@ Then(/^the user sees an error message displayed on the photoID- selection- edit 
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await photoIDSelectionEdit.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });

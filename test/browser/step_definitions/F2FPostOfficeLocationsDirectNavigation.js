@@ -1,4 +1,4 @@
-const { Given, Then} = require("@cucumber/cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
 const { PostOfficeLocations } = require("../pages");
 const { expect } = require("chai");
@@ -15,5 +15,5 @@ Then(/^the user sees an error message displayed on the choose-post-office page$/
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await postOfficeLocationsPage.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);
-        
+
 });
