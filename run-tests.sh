@@ -12,7 +12,7 @@ remove_quotes () {
 export GITHUB_ACTIONS=true
 # shellcheck disable=SC2154
 export IPV_STUB_URL=$(remove_quotes $CFN_F2FIPVStubExecuteURL)start
-export IPV_BASE_URL=$(remove_quotes $CFN_F2FCustomDomain)
+export IPV_BASE_URL=https://$(remove_quotes $CFN_F2FCustomDomain)
 
 cd /app; yarn run test:browser:ci
 
