@@ -1,3 +1,4 @@
+@browser
 Feature: Directly navigating postOfficeLocations page in journey- unhappy path
 
 Scenario: Direct Navigation to postOfficeLocationsPage

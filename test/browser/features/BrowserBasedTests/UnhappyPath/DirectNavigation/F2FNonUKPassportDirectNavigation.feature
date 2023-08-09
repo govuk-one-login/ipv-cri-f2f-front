@@ -1,3 +1,4 @@
+@browser
 Feature: Directly navigating Non- UK passport pages in journey- unhappy path
 
 Scenario: Direct Navigation to nonUKPassportCountrySelector

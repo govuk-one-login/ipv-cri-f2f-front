@@ -1,3 +1,4 @@
+@browser
 Feature: Directly navigating UK Driving Licence pages in journey- unhappy path
 
 Scenario: Direct Navigation to UKDrivingLicenceExpiryPage

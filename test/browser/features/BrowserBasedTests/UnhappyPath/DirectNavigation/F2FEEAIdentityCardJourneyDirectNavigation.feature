@@ -1,4 +1,4 @@
-@test
+@browser
 Feature: Directly navigating EEA Identity Card pages in journey- unhappy path
 
 Scenario: Direct Navigation to EEAIdentityCardHasExpiry
