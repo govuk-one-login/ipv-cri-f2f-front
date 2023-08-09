@@ -5,7 +5,7 @@ module.exports = class PlaywrightDevPage {
     
     constructor(page) {
       this.page = page;
-      this.baseURL = "https://f2f-cri-front." + IPV_BASE_URL;
+      this.baseURL = "https://f2f-cri-front." + process.env.IPV_BASE_URL;
       this.path = "/national-identity-card-expire";
     }
   
