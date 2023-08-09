@@ -1,6 +1,6 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoTitle = locations %}
+{% set hmpoPageKey = "locations" %}
 {% set gtmJourney = "f2f - locations" %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
@@ -10,25 +10,25 @@
 
 {% set userPostCodeLabel = translate("locations.body") %}
 {% set userPostCodeControl = hmpoHtml(translate("links.changePostcode")) %}
-{% set formPageTitle = translate("locations.title") %}
+{% set title = translate("locations.title") %}
 
 {% call hmpoForm(ctx) %}
 
-{%
-set fullBranch = {
-fieldset: {
-legend: {
-html: formPageTitle,
-isPageHeading: true,
-classes: "govuk-fieldset__legend--l"
-}
-},
-hint: {
-html: "<p class=\"govuk-body\">" + userPostCodeLabel + "</p>" + userPostCodeControl
-},
-items: branch.items
-}
-%}
+    {%
+    set fullBranch = {
+      fieldset: {
+          legend: {
+            html: title,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+    },
+    hint: {
+        html: "<p class=\"govuk-body\">" + userPostCodeLabel + "</p>" + userPostCodeControl
+    },
+    items: branch.items
+    }
+    %}
 
         {{ hmpoRadios(ctx, fullBranch, {id: "branches"}) }}
         {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
@@ -36,7 +36,7 @@ items: branch.items
 
 
 
-      {% include "common/confirmIdentityAnotherWay.html" %}
+    {% include "common/confirmIdentityAnotherWay.html" %}
 
 {% endblock %}
 
