@@ -6,11 +6,12 @@ photoIdChoiceThinFile:
       label: UK passport
       reveal: ""
     nonUkPassport:
-      label: Non-UK passport
+      label: Non-UK passport with a biometric chip
       reveal: ""
     noPhotoId:
-      label: I do not have either of these types of photo ID
+      label: I do not have these types of photo ID
       reveal: ""
+
 
 photoIdChoice:
   validation:

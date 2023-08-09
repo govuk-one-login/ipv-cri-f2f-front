@@ -4,6 +4,7 @@
 {% set hmpoPageKey = "photoIdSelectionThinFile" %}
 {% set isPageHeading = true %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "hmpo-details/macro.njk" import hmpoDetails %}
 
 {% block mainContent %}
 
@@ -13,24 +14,30 @@
 {% set formInstructions = "<p>"+content+"</p><br><p>"+photocopyWarning+"</p>" %}
 
 
-      {% call hmpoForm(ctx) %}
-          {{ hmpoRadios(ctx, {
-            id: "photoIdChoiceThinFile",
-            namePrefix: "photoIdChoiceThinFile",
-            fieldset: {
-                legend: {
-                    text: title,
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
-                }
-            },
-            hint: {
-                html: formInstructions
+    {% call hmpoForm(ctx) %}
+        {{ hmpoRadios(ctx, {
+        id: "photoIdChoiceThinFile",
+        namePrefix: "photoIdChoiceThinFile",
+        fieldset: {
+            legend: {
+                text: title,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
             }
-        }) }}
+        },
+        hint: {
+            html: formInstructions
+        }
+    }) }}
+    
+    {{ hmpoDetails({
+        summaryText: translate("photoIdSelectionThinFile.informationHeading"),
+        text: translate("photoIdSelectionThinFile.information")
+    })}}
 
-          {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
-      {% endcall %}
+    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+
+    {% endcall %}
 
 
 {% endblock %}

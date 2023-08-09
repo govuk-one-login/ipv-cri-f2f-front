@@ -44,7 +44,10 @@ module.exports = {
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
         hint: { text: APP.UK_PASSPORT_HINT }
       },
-      { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
+      { 
+        value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
+        hint: { text: APP.NON_UK_PASSPORT_HINT}
+      },
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
     ],

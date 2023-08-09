@@ -68,6 +68,7 @@ module.exports = {
       NO: "No"
     },
     UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.",
+    NON_UK_PASSPORT_HINT: "Your passport must not have expired.",
     UK_DL_HINT: "The address on your driving licence must be the same as your current address.",
     EU_PHOTOCARD_DL_HINT: "This must be a plastic photocard, not a paper or handwritten licence. If it has your address on it, it must be your current address.",
     EEA_IDENTITY_CARD_HINT: "This must be a plastic photocard, not a paper or handwritten card. If it has your address on it, it must be your current address.",
