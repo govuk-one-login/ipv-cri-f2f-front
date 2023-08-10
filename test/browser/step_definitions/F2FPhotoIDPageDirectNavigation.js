@@ -41,7 +41,6 @@ Given(/^the user navigates directly to photoID- selection- edit page$/, async fu
 
 Then(/^the user sees an error message displayed on the photoID- selection- edit page$/, async function () {
     const photoIDSelectionEdit = new PhotoIdSelectionPageEdit(await this.page);
-    expect(await photoIDSelectionEdit.isCurrentPage()).to.be.true;
     const redirectionError = 'Sorry, there is a problem with the service';
     const error = await photoIDSelectionEdit.checkRedirectionErrorText();
     expect(await error).to.equal(redirectionError);

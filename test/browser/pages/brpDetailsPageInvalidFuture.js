@@ -4,7 +4,6 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    console.log("DP: " + process.env.IPV_BASE_URL);
     this.baseURL = process.env.IPV_BASE_URL;
     this.path = "/biometric-residence-permit-expire";
   }
