@@ -1,5 +1,8 @@
 {
     "yotiMockID": "0000",
+    "evidence_requested": {
+    "strengthScore": 3
+   },
     "shared_claims": {
         "name": [
             {
@@ -36,6 +39,5 @@
             }
         ],
         "emailAddress": "sadie.henry@digital.cabinet-office.gov.uk"   
-    },
-    "target": "https://api.review-o.build.account.gov.uk"
+    }
 }
