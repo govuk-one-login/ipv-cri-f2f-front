@@ -6,8 +6,7 @@ module.exports = class PlaywrightDevPage {
     this.page = page;
     this.axios = require("axios");
     this.claim = require("../support/shared_claim");
-    //this.mockURL = "https://ipvstub.review-o.build.account.gov.uk/start";
-    this.mockURL = "https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/start";
+    this.mockURL = "https://ipvstub.review-o.build.account.gov.uk/start";
   }
 
   async goto() {
