@@ -1,44 +1,54 @@
 module.exports = class PlaywrightDevPage {
-    /**
-     * @param {import('@playwright/test').Page} page
-     */
-    constructor(page) {
-      this.page = page;
-      this.path = "/national-identity-card-current-address";
-    }
+  /**
+   * @param {import('@playwright/test').Page} page
+   */
+  constructor(page) {
+    this.page = page;
+    this.baseURL = process.env.IPV_BASE_URL;
+    this.path = "/national-identity-card-current-address";
+  }
 
-    async isCurrentPage() {
-      const { pathname } = new URL(this.page.url());
-      return pathname === this.path;
-    }
+  async goTo() {
+    await this.page.goto(this.baseURL + this.path);
+  }
 
-    async continue() {
-      await this.page.click("#continue");
-    }
+  async isCurrentPage() {
+    const { pathname } = new URL(this.page.url());
+    return pathname === this.path;
+  }
 
-    async back(){
-      await this.page.click("#back");
-    }
+  async continue() {
+    await this.page.click("#continue");
+  }
 
-    async checkErrorText(){
-      const errorText = await this.page.locator("#error-summary-title").textContent();
-      return errorText.trim()
-    }
+  async back() {
+    await this.page.click("#back");
+  }
 
-    async checkErrorBodyText(){
-      const errorBodyText = await this.page.locator('[href*="#idHasExpiryDate"]').textContent();
-      return errorBodyText.trim()
-    }
+  async checkErrorText() {
+    const errorText = await this.page.locator("#error-summary-title").textContent();
+    return errorText.trim()
+  }
 
-    async sameAddress(){
-      await this.page.locator(".govuk-radios__item").first().click();
-    }
+  async checkErrorBodyText() {
+    const errorBodyText = await this.page.locator('[href*="#idHasExpiryDate"]').textContent();
+    return errorBodyText.trim()
+  }
 
-    async differentAddress(){
-      await this.page.locator(".govuk-radios__item").nth(1).click();
-    }
+  async sameAddress() {
+    await this.page.locator(".govuk-radios__item").first().click();
+  }
 
-    async noAddress(){
-     await this.page.locator(".govuk-radios__item").last().click();
-    }
+  async differentAddress() {
+    await this.page.locator(".govuk-radios__item").nth(1).click();
+  }
+
+  async noAddress() {
+    await this.page.locator(".govuk-radios__item").last().click();
+  }
+
+  async checkRedirectionErrorText() {
+    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    return errorRedirectionText.trim();
+  }
 };

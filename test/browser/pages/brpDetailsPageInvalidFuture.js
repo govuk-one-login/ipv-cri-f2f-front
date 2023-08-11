@@ -4,7 +4,12 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
+    this.baseURL = process.env.IPV_BASE_URL;
     this.path = "/biometric-residence-permit-expire";
+  }
+
+  async goTo() {
+    await this.page.goto(this.baseURL + this.path);
   }
 
   async isCurrentPage() {
@@ -28,8 +33,13 @@ module.exports = class PlaywrightDevPage {
     await this.page.locator("#brpExpiryDate-year").fill(expYear);
   }
 
-  async checkErrorText(){
+  async checkErrorText() {
     const errorText = await this.page.locator("#error-summary-title").textContent();
-    return errorText.trim(); 
+    return errorText.trim();
+  }
+
+  async checkRedirectionErrorText() {
+    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    return errorRedirectionText.trim();
   }
 };

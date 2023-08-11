@@ -4,14 +4,18 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
+    this.baseURL = process.env.IPV_BASE_URL;
     this.path = "/eu-driving-licence-expire";
   }
 
+  async goTo() {
+    await this.page.goto(this.baseURL + this.path);
+  }
   async isCurrentPage() {
     const { pathname } = new URL(this.page.url());
     return pathname === this.path;
   }
-  
+
   async continue() {
     await this.page.click("#continue");
   }
@@ -26,5 +30,10 @@ module.exports = class PlaywrightDevPage {
     await this.page.locator("#euPhotocardDlExpiryDate-day").fill(expDay);
     await this.page.locator("#euPhotocardDlExpiryDate-month").fill(expMonth);
     await this.page.locator("#euPhotocardDlExpiryDate-year").fill(expYear);
+  }
+
+  async checkRedirectionErrorText() {
+    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    return errorRedirectionText.trim();
   }
 };

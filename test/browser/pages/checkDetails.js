@@ -4,7 +4,12 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
+    this.baseURL = process.env.IPV_BASE_URL;
     this.path = "/check-details";
+  }
+
+  async goTo() {
+    await this.page.goto(this.baseURL + this.path);
   }
 
   async isCurrentPage() {
@@ -12,16 +17,16 @@ module.exports = class PlaywrightDevPage {
     return pathname === this.path;
   }
 
-  async back(){
+  async back() {
     await this.page.click("#back");
   }
 
-  async changePhotoIDLink(){
+  async changePhotoIDLink() {
     await this.page.click('[href*="/choose-photo-id-post-office/edit"]');
   }
 
   async changeExpiryDate() {
-      await this.page.click('[href*="/uk-passport-expire/edit"]');
+    await this.page.click('[href*="/uk-passport-expire/edit"]');
   }
 
   async changeIDHASExpiryDate() {
@@ -39,7 +44,7 @@ module.exports = class PlaywrightDevPage {
   async getChangeIDHASExpiryDateSelection() {
     const optionSelected = await this.page.locator(".govuk-summary-list__value").nth(1).textContent();
     return optionSelected.trim()
-    
+
   }
 
   async isExpiryDateSelectionDisplayed() {
@@ -70,6 +75,11 @@ module.exports = class PlaywrightDevPage {
   async setSessionState() {
     const url = JSON.stringify(new URL(await this.page.url())).split("state=")
     return url[1];
+  }
+
+  async checkRedirectionErrorText() {
+    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    return errorRedirectionText.trim();
   }
 
 };

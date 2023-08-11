@@ -1,22 +1,32 @@
 module.exports = class PlaywrightDevPage {
-    /**
-     * @param {import('@playwright/test').Page} page
-     */
-    constructor(page) {
-      this.page = page;
-      this.path = "/find-post-office-prove-identity";
-    }
- 
-    async isCurrentPage() {
-      const { pathname } = new URL(this.page.url());
-      return pathname === this.path;
-    }
+  /**
+   * @param {import('@playwright/test').Page} page
+   */
+  constructor(page) {
+    this.page = page;
+    this.baseURL = process.env.IPV_BASE_URL;
+    this.path = "/find-post-office-prove-identity";
+  }
 
-    async continue() {
-      await this.page.click("#continue");
-    }
-  
-    async postCode() {
-      await this.page.locator("#postcode").fill("SW1A 1AA");
-    }
-  };
+  async goTo() {
+    await this.page.goto(this.baseURL + this.path);
+  }
+
+  async isCurrentPage() {
+    const { pathname } = new URL(this.page.url());
+    return pathname === this.path;
+  }
+
+  async continue() {
+    await this.page.click("#continue");
+  }
+
+  async postCode() {
+    await this.page.locator("#postcode").fill("SW1A 1AA");
+  }
+
+  async checkRedirectionErrorText() {
+    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    return errorRedirectionText.trim();
+  }
+};
