@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @browser @test
+@mock-api:f2f-f2f-success @success
 
 #Test Suspended - additional work is required to facilitate the validation of BE systems, designs and US to follow. When designed, reinstate the @browser tag
 
