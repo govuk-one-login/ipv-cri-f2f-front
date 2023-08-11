@@ -1,5 +1,3 @@
-const { expect } = require('chai');
-
 module.exports = class PlaywrightDevPage {
   /**
    * @param {import('@playwright/test').Page} page
