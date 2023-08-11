@@ -8,7 +8,7 @@ Given(/^([A-Za-z ])+is using the system$/, { timeout: 2 * 50000 }, async functio
   this.user = this.allUsers[name];
   const rpPage = new RelyingPartyPage(this.page);
 
-  await rpPage.goto();;
+  await rpPage.goto();
 });
 
 Given(/^([A-Za-z ])+is using the system as a thin file user$/, { timeout: 2 * 50000 }, async function (name) {
