@@ -30,16 +30,10 @@ jobs:
         with:
           node-version: 16
           cache: 'yarn'
-      - name: Build Test F2F Front Image
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install # will run `yarn install` command
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.SH_F2F_ACCESS_TOKEN }} # if needed
-      - name: Build production bundle
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build # will run `yarn build` command
+      - name: Install dependencies
+        run: yarn install
+      - name: Run build
+        run: yarn build
       - name: Run browser tests
         run: npm run test:browser:ci
         env:
