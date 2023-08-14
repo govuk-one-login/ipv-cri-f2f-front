@@ -11,6 +11,9 @@ on:
   workflow_dispatch:
 
 env: # Only adding the variables in that are required for E2E tests
+  IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
+  IPV_BASE_URL: ${{ secrets.IPV_BASE_URL }}
+
 
 jobs:
   run-tests:
@@ -30,14 +33,21 @@ jobs:
         with:
           node-version: 16
           cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install
-      - name: Run build
-        run: yarn build
-      - name: Run browser tests
-        run: npm run test:browser:ci
+      - name: Build Test F2F Front Image
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
         env:
-          IPV_BASE_URL: ${{ secrets.IPV_BASE_URL }}
+          NODE_AUTH_TOKEN: ${{ secrets.SH_F2F_ACCESS_TOKEN }} # if needed
+      - name: Build production bundle
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build # will run `yarn build` command
+      - name: Test the app
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: test:browser:ci # will run `yarn test` command
+
       - name: Get Test Results history
         uses: actions/checkout@v3
         if: always()
