@@ -47,7 +47,9 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: test:browser:ci # will run `yarn test` command
-
+        env:
+          IPV_BASE_URL: ${{ secrets.IPV_BASE_URL }}
+          IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
       - name: Get Test Results history
         uses: actions/checkout@v3
         if: always()
