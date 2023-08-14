@@ -8,23 +8,9 @@ on:
   push:
     branches: [ main ]
 
-  workflow_dispatch:
-
-env: # Only adding the variables in that are required for E2E tests
-  IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
-  IPV_BASE_URL: ${{ secrets.IPV_BASE_URL }}
-
-
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
-    continue-on-error: true
-
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -37,8 +23,12 @@ jobs:
         run: yarn install
       - name: Export Proxy URL
         run: echo "PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk" >> $GITHUB_ENV
+      - name: Run lint
+        run: yarn lint
       - name: Run build
         run: yarn build
+      - name: Run test and write coverage
+        run: yarn test:coverage
       - name: Run browser tests
         run: npm run test:browser:ci
         env:
