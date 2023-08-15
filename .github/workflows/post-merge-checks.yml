@@ -10,9 +10,10 @@ on:
 
   workflow_dispatch:
 
-env: # Only adding the variables in that are required for E2E tests 
+env: # Only adding the variables in that are required for E2E tests
   IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
   IPV_BASE_URL: ${{ secrets.IPV_BASE_URL }}
+
 
 jobs:
   run-tests:
