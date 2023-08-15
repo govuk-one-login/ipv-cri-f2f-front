@@ -79,9 +79,8 @@ You need to have AWS credentials in your shell via `aws-vault` or `gds-cli` or s
 
 ```shell
 aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 440208678480.dkr.ecr.eu-west-2.amazonaws.com
-docker build -t di-ipv-cri-f2f-front .
+docker build -t di-ipv-cri-f2f-front --platform linux/amd64 .
 docker tag di-ipv-cri-f2f-front:latest 440208678480.dkr.ecr.eu-west-2.amazonaws.com/YOUR_REPO:YOUR_TAG
-docker images
 docker push 440208678480.dkr.ecr.eu-west-2.amazonaws.com/YOUR_REPO:YOUR_TAG
 ```
 

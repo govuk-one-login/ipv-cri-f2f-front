@@ -328,18 +328,16 @@ Given(/^I have retrieved the sessionTable data for my F2F session$/, { timeout: 
   await new Promise(r => setTimeout(r, 10000));
 
   const testHarness = new TestHarness();
-  // TODO: remove hardcoded lookup
-  const session = await testHarness.getSession("2f40e373-6cbd-40cf-86a6-5ff75404235b");
+  const authCodeDetails = await testHarness.getSessionByAuthCode(this.authCode);
+  expect(authCodeDetails.authorizationCode).to.equal(this.authCode);
+  this.sessionId = authCodeDetails.sessionId
+  const session = await testHarness.getSession(this.sessionId);
+  this.authSessionState = session.authSessionState;
 
-  // TODO: removed hardcoded assertion
-  expect(session.subject).to.equal("5eba8106-bda4-4277-8ac7-e60676f68ac3");
-
-  // TODO: remove. Test must fail as not yet complete
-  expect(1).to.equal(2);
-})
+});
 
 
 Then(/^session details are correctly stored in DB$/, { timeout: 2 * 50000 }, async function () {
   expect(this.sessionId).to.not.be.null;
   expect(this.authSessionState).to.equal("F2F_AUTH_CODE_ISSUED");
-})
+});
