@@ -2,7 +2,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const DynoDBConnection = require("../support/DynmoDBConnection")
+const TestHarness = require("../support/TestHarness");
 
 const {
   CheckDetails,
@@ -170,7 +170,7 @@ When(/^the user clicks the IDHASExpiryDate Change button$/, async function () {
 
 When(/^the user clicks the EEAHASExpiryDate Change button$/, async function () {
   const cma = new CheckDetails(await this.page);
-  
+
   expect(await cma.isCurrentPage()).to.be.true;
 
   await cma.changeEEAHASExpiryDate();
@@ -257,7 +257,7 @@ Then(
 Then(
   /^the user changes the address selection to "My identity card does not have my address on it"$/, async function () {
     const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(await this.page);
-    
+
     await addressCheckEdit.noAddress();
 
   }
@@ -266,7 +266,7 @@ Then(
 /** 4. Return to the CMA page*/
 Then(
   /^the user continues to the CMA page from the Address Check page$/, async function () {
-    
+
     const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(await this.page);
 
     const checkDetails = new CheckDetails(await this.page);
@@ -303,7 +303,7 @@ Then(
 Then(
   /^the user changes the country of issue$/, async function () {
     const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(await this.page);
-    
+
     await countrySelector.selectCountry();
 
   }
@@ -312,7 +312,7 @@ Then(
 /** 4. Return to the CMA page*/
 Then(
   /^the user continues to the CMA page from the Country Selector page$/, async function () {
-    
+
     const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(await this.page);
 
     const checkDetails = new CheckDetails(await this.page);
@@ -326,10 +326,16 @@ Then(
 
 Given(/^I have retrieved the sessionTable data for my F2F session$/, { timeout: 2 * 50000 }, async function () {
   await new Promise(r => setTimeout(r, 10000));
-  const sessionState = this.state;
-  const dbConnection = new DynoDBConnection(sessionState.replace(/"/g, ""), "session-f2f-cri-ddb");
-  this.sessionId = await dbConnection.getF2FSessionId();
-  this.authSessionState = await dbConnection.getF2FSessionAuthSessionState();
+
+  const testHarness = new TestHarness();
+  // TODO: remove hardcoded lookup
+  const session = await testHarness.getSession("2f40e373-6cbd-40cf-86a6-5ff75404235b");
+
+  // TODO: removed hardcoded assertion
+  expect(session.subject).to.equal("5eba8106-bda4-4277-8ac7-e60676f68ac3");
+
+  // TODO: remove. Test must fail as not yet complete
+  expect(1).to.equal(2);
 })
 
 

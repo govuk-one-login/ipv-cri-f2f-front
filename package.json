@@ -49,6 +49,7 @@
   "homepage": "https://github.com/alphagov/di-ipv-cri-f2f-front#readme",
   "packageManager": "yarn@2.4.3",
   "devDependencies": {
+    "@aws-sdk/util-dynamodb": "^3.391.0",
     "@cucumber/cucumber": "9.2.0",
     "aws4-axios": "^3.2.24",
     "chai": "4.3.7",
