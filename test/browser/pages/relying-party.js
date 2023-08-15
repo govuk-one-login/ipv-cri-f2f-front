@@ -4,19 +4,12 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.axios = require("axios");
-    this.claim = require("../support/shared_claim");
-    this.mockURL = "https://ipvstub.review-o.build.account.gov.uk/start";
   }
-
-  async goto() {
-    const postRequest = await this.axios.post(this.mockURL, this.claim);
-    await this.page.goto(postRequest.data.AuthorizeLocation);
-  }
-
-  async goToAsAThinFileUser() {
-    this.claim.evidence_requested.strengthScore = 4;
-    const postRequest = await this.axios.post(this.mockURL, this.claim);
+  
+  async goto() {  
+    const axios = require("axios");
+    const claim = require("../support/shared_claim")    
+    const postRequest = await axios.post("https://ipvstub.review-o.build.account.gov.uk/start", claim);    
     await this.page.goto(postRequest.data.AuthorizeLocation);
   }
 

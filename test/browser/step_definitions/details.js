@@ -11,17 +11,9 @@ Given(/^([A-Za-z ])+is using the system$/, { timeout: 2 * 50000 }, async functio
   await rpPage.goto();
 });
 
-Given(/^([A-Za-z ])+is using the system as a thin file user$/, { timeout: 2 * 50000 }, async function (name) {
-  this.user = this.allUsers[name];
-  const rpPage = new RelyingPartyPage(this.page);
-
-  await rpPage.goToAsAThinFileUser();
-});
-
-When("they have provided their details", {
-  timeout: 10 * 1000
-},
-  async function () { }
+When("they have provided their details",{
+  timeout: 10 * 1000 },
+  async function () {}
 );
 
 Then("they should be redirected to the Landing Page", async function () {
