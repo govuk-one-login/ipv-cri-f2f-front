@@ -1181,3 +1181,8 @@ Outputs:
     Description: "F2F Test Harness"
     Value:
       Fn::ImportValue: !Sub '${TestHarnessStackName}-TestHarnessExecuteUrl'
+  BackendSessionTableName:
+    Condition: IsNotProdLikeEnvironment
+    Description: "Backend Session Table name for use by Test Harness"
+    Value:
+      Fn::ImportValue: "f2f-cri-api-SessionTable-name"
