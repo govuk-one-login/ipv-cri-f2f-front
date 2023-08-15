@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @browser
+@success @browser @e2e2
 Feature: Enter UK driving licence   - Happy Path
 
     Background:
@@ -17,7 +17,7 @@ Feature: Enter UK driving licence   - Happy Path
         Given the date entered is within accepted UKPhotoDL expiration window
         When the user clicks the continue button on the UKPhotoDL Page
         Then the user is successfully routed to the UK DL Address Check screen
- 
+
     Scenario: User routed to Post Office Finder screen when “Yes” selected (Happy path)
         When the Back button is clicked on the UK Photo DL Address page
         Then the user is navigated back to the UK Photo Dl Expiry page
