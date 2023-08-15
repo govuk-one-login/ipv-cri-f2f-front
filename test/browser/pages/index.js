@@ -2,7 +2,6 @@ module.exports = {
     FindBranch: require("./findBranch"),
     FindBranchValidEdit: require("./findBranchValidEdit"),
     PhotoIdSelectionPage: require("./photoIdSelectionPage"),
-    ThinFilePhotoIdSelectionPage: require("./thinFilePhotoIdSelectionPage"),
     PhotoIdSelectionPageEdit: require("./photoIdSelectionPageEdit"),
     PostOfficeLocations: require("./postOfficeLocations"),
     LandingPage: require("./landingPage"),

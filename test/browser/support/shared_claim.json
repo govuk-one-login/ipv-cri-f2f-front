@@ -1,8 +1,5 @@
 {
     "yotiMockID": "0000",
-    "evidence_requested": {
-    "strengthScore": 3
-   },
     "shared_claims": {
         "name": [
             {
@@ -38,6 +35,6 @@
                 "postalCode": "SW19"
             }
         ],
-        "emailAddress": "test@domain.com"   
+        "emailAddress": "test@domain.com"
     }
 }
