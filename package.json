@@ -33,6 +33,8 @@
     "test:browser1": "wait-on tcp:8090 tcp:5030 && API_BASE_URL=http://127.0.0.1:8090 cucumber-js test/browser/features/**/*.feature --require test/browser/support/env.js --require test/browser/support/setup.js --require test/browser/step_definitions/**/*.js --tags @test",
     "test:browser:ci1": "npm-run-all -p -r start:ci mocks test:browser1",
     "test:browser:report": "node ./test/utils/multiReportGenerator.js",
+    "test:e2e:cd": "yarn run test:e2e && yarn run test:browser:report",
+    "test:e2e": "cucumber-js test/browser/features/**/*.feature --require test/browser/support/env.js  --require test/browser/support/setup.js --require test/browser/step_definitions/**/*.js -f json:./test/reports/cucumber_report.json --tags @e2e",
     "check-translation": "node node_modules/di-ipv-cri-common-express/scripts/checkTranslations.js"
   },
   "repository": {
@@ -48,6 +50,7 @@
   "packageManager": "yarn@2.4.3",
   "devDependencies": {
     "@cucumber/cucumber": "9.2.0",
+    "aws4-axios": "^3.2.24",
     "chai": "4.3.7",
     "chai-as-promised": "7.1.1",
     "eslint": "8.43.0",
