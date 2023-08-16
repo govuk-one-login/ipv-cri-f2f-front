@@ -16,11 +16,17 @@
       text: translate("checkDetails.validation.default"),
       iconFallbackText: "Warning"
     }) }}
-    
-    {% if (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "Yes") %}
+
+    {% if (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "Yes" and values.isThinFileUser == false) %}
       {% include "../components/countrySummaryList.njk" %}
-    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "No") %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "No" and values.isThinFileUser == false) %}
       {% include "../components/countrySummaryListNoExpiry.njk" %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "Yes" and values.isThinFileUser == true) %}
+      {% include "../components/countryThinFileSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "No" and values.isThinFileUser == true) %}
+      {% include "../components/countrySummaryListThinFileNoExpiry.njk" %}
+    {% elif (values.photoIdChoice == "ukPassport" and values.isThinFileUser == true) %}
+      {% include "../components/ukPassportThinFileSummaryList.njk" %}
     {% elif (values.photoIdChoice == "ukPhotocardDl") %}
       {% include "../components/ukDlSummaryList.njk" %}
     {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "Yes") %}

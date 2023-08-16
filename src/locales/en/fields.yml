@@ -1,3 +1,18 @@
+photoIdChoiceThinFile:
+  validation:
+    required: Choose a photo ID you can take to a Post Office
+  items:
+    ukPassport:
+      label: UK passport
+      reveal: ""
+    nonUkPassport:
+      label: Non-UK passport with a biometric chip
+      reveal: ""
+    noPhotoId:
+      label: I do not have these
+      reveal: ""
+
+
 photoIdChoice:
   validation:
     required: Choose a photo ID you can take to a Post Office
@@ -42,7 +57,7 @@ ukPassportExpiryDate:
   legend: ""
   label: ""
   hint: "For example, 31 3 2025"
-  validation: 
+  validation:
     default: "Enter the full expiry date"
     before: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
@@ -58,7 +73,7 @@ ukPhotocardDlExpiryDate:
   legend: ""
   label: ""
   hint: "For example, 31 3 2025"
-  validation: 
+  validation:
     default: "Enter the full expiry date"
     before: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
@@ -74,7 +89,7 @@ nonUKPassportExpiryDate:
   legend: ""
   label: ""
   hint: "For example, 31 3 2025"
-  validation: 
+  validation:
     default: "Enter the full expiry date"
     before: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
@@ -90,7 +105,7 @@ brpExpiryDate:
   legend: ""
   label: ""
   hint: "For example, 31 3 2025"
-  validation: 
+  validation:
     default: "Enter the full expiry date"
     before: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"

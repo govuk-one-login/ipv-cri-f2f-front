@@ -72,7 +72,7 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("postOfficePostcode", postOfficePostcode);
       req.sessionModel.set("postOfficeLatitude", postOfficeLatitude);
       req.sessionModel.set("postOfficeLongitude", postOfficeLongitude);
-      
+
       // Value for document expiry date depends on selected document
       let idHasExpiryDate
       let expiryDate

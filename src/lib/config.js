@@ -7,7 +7,8 @@ module.exports = {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
       SAVE_F2FDATA: "/documentSelection",
-      ABORT: "/abort"
+      ABORT: "/abort",
+      SESSION_CONFIG: "/sessionConfiguration",
     },
   },
   PROXY_API: {
@@ -22,6 +23,7 @@ module.exports = {
       F2F: "/",
       LANDING_PAGE: "/prove-identity-post-office",
       PHOTO_ID_SELECTION: "/choose-photo-id-post-office",
+      PHOTO_ID_SELECTION_THIN_FILE: "/choose-photo-id-post-office-biometric",
       UK_PASSPORT_DETAILS: "/uk-passport-expire",
       NON_UK_PASSPORT_DETAILS: "/non-uk-passport-expire",
       NON_UK_PASSPORT_HAS_EXPIRY_DATE: "/non-uk-passport-has-expiry-date",
@@ -66,6 +68,7 @@ module.exports = {
       NO: "No"
     },
     UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.",
+    NON_UK_PASSPORT_HINT: "Your passport must not have expired.",
     UK_DL_HINT: "The address on your driving licence must be the same as your current address.",
     EU_PHOTOCARD_DL_HINT: "This must be a plastic photocard, not a paper or handwritten licence. If it has your address on it, it must be your current address.",
     EEA_IDENTITY_CARD_HINT: "This must be a plastic photocard, not a paper or handwritten card. If it has your address on it, it must be your current address.",

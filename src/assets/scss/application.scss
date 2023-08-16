@@ -63,7 +63,7 @@ main p,
 }
 
 .govuk-hint {
-  @include govuk-responsive-margin(2, "top")
+  @include govuk-responsive-margin(1, "top")
 }
 
 .hint-with-margin {
