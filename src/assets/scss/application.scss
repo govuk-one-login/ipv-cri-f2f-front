@@ -33,7 +33,6 @@ h2 {
 }
 
 .govuk-details {
-  @include govuk-responsive-margin(9, "top");
   @include govuk-responsive-margin(2, "bottom");
 }
 
@@ -198,4 +197,14 @@ main p,
   font-weight: bold;
   @include govuk-responsive-margin(5, "top");
   @include govuk-responsive-margin(3, "bottom");
+}
+
+.govuk-cookie-banner h2, .govuk-cookie-banner p {
+  margin-top:0; 
+  margin-bottom:20px;
+}
+
+.govuk-cookie-banner .govuk-button {
+  margin-top:0; 
+  margin-bottom:20px;
 }
