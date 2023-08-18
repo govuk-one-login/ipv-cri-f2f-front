@@ -76,8 +76,40 @@ describe("CheckDetails controller", () => {
         await checkDetailsController.locals(req, res, next);
       });
 
-      it("should call callback with error and existing locals", () => {
+      it("should call callback with error and existing locals - first Post Office option", () => {
+        req.sessionModel.set("countryCode", "GBR");
+        req.sessionModel.set("country", "United Kingdom");
+        const postOfficeName = req.sessionModel.get("postOfficeName");
+        const postOfficePostcode = req.sessionModel.get("postOfficePostcode");
+        const postCodeLat = req.sessionModel.get("postOfficeLatitude");
+        const postCodeLong = req.sessionModel.get("postOfficeLongitude");
+        const countryCode = req.sessionModel.get("countryCode");
+        const country = req.sessionModel.get("country");
+
         expect(next).to.have.been.calledWith(error, superLocals);
+        expect(postOfficeName).to.equal("BRANCH NAME");
+        expect(postOfficePostcode).to.equal("G41 1ED");
+        expect(postCodeLat).to.equal("100000");
+        expect(postCodeLong).to.equal("-100000");
+        expect(countryCode).to.equal("GBR");
+        expect(country).to.equal("United Kingdom");
+        
+      });
+
+      it("should call callback with error and existing locals - third Post Office option", () => {
+        req.form.values.branches = "3"
+        req.form.values.postOfficeDetails.value = "3"
+        expect(next).to.have.been.calledWith(error, superLocals);
+        expect(req.form.values.branches).to.equal("3")
+        expect(req.form.values.postOfficeDetails.value).to.equal("3")
+      });
+
+      it("should call callback with error and existing locals - last Post Office option", () => {
+        req.form.values.branches = "5"
+        req.form.values.postOfficeDetails.value = "5"
+        expect(next).to.have.been.calledWith(error, superLocals);
+        expect(req.form.values.branches).to.equal("5")
+        expect(req.form.values.postOfficeDetails.value).to.equal("5")
       });
     });
   });
