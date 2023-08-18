@@ -6,11 +6,11 @@
               "nameParts": [
                   {
                       "value": "API",
-                      "type": "Jackson"
+                      "type": "GivenName"
                   },
                   {
                       "value": "Automated",
-                      "type": "Jackson"
+                      "type": "GivenName"
                   },
                   {
                       "value": "Test",
@@ -29,9 +29,10 @@
               "uprn": "123456789",
               "buildingNumber": "32",
               "buildingName": "London",
+              "subBuildingName": "Flat 20",
               "streetName": "Demo",
               "addressLocality": "London",
-              "addressCountry": "United Kingdom",
+              "addressCountry": "GB",
               "postalCode": "SW19"
           }
       ],
