@@ -1,11 +1,6 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { expect } = require("chai");
 const LandingPageController = require('./landingPage');
-const {
-  API: {
-    PATHS: { SESSION_CONFIG },
-  }
-} = require("../../../lib/config");
 
 describe("LandingPage", () => {
   let landingPageController;
@@ -30,8 +25,6 @@ describe("LandingPage", () => {
   describe("#saveValues", () => {
     it("should save the values to the sessionModel", async () => {
       req.session.tokenId = "123abc"
-      
-      console.log(req.sessionModel)
 
       await landingPageController.saveValues(req, res, next);
       expect(next).to.have.been.calledOnce;
