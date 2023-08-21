@@ -12,6 +12,7 @@ on:
 
 env: # Only adding the variables in that are required for E2E tests
   PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
+  IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
 
 jobs:
   run-tests:
@@ -23,22 +24,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 
-#      - name: Install dependencies
-#        run: yarn install
 #      - name: Export Proxy URL
 #        run: echo "PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk" >> $GITHUB_ENV
 #      - name: Run lint
 #        run: yarn lint
-#      - name: Run build
-#        run: yarn build
 #      - name: Run test and write coverage
 #        run: yarn test:coverage
 #      - name: Run browser tests
 #        run: npm run test:browser:ci
-#        env:
-#          IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
-
-
 
       - name: Checkout Project
         uses: actions/checkout@v3
@@ -49,17 +42,23 @@ jobs:
           node-version: 16
           cache: 'yarn'
 
-      - name: Build Test F2F Front Image
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install # will run `yarn install` command
+#      - name: Build Test F2F Front Image
+#        uses: borales/actions-yarn@v4
+#        with:
+#          cmd: install # will run `yarn install` command
 #        env:
 #          NODE_AUTH_TOKEN: ${{ secrets.SH_F2F_ACCESS_TOKEN }} # if needed
 
-      - name: Build production bundle
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build # will run `yarn build` command
+      - name: Install dependencies
+        run: yarn install
+
+#      - name: Build production bundle
+#        uses: borales/actions-yarn@v4
+#        with:
+#          cmd: build # will run `yarn build` command
+
+      - name: Run build
+        run: yarn build
 
 #      - name: Test the app
 #        uses: borales/actions-yarn@v4
