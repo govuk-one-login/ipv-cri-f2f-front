@@ -40,6 +40,8 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.SH_F2F_ACCESS_TOKEN }} # if needed
       - name: Build production bundle
         uses: borales/actions-yarn@v4
+        env:
+          PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
         with:
           cmd: build # will run `yarn build` command
       - name: Test the app
