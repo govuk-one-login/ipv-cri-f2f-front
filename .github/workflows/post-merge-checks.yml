@@ -11,7 +11,6 @@ on:
   workflow_dispatch:
 
 env: # Only adding the variables in that are required for E2E tests
-  IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
   PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
 
 jobs:
@@ -51,6 +50,8 @@ jobs:
 
       - name: Run browser tests
         run: npm run test:browser:ci
+        env:
+          IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
 
       - name: Get Test Results history
         uses: actions/checkout@v3
