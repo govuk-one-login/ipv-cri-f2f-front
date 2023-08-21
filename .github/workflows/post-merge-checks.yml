@@ -20,8 +20,6 @@ jobs:
     permissions:
       contents: write
       packages: write
-    continue-on-error: true
-
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -46,10 +44,13 @@ jobs:
         with:
           cmd: build # will run `yarn build` command
 
-      - name: Test the app
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: test:browser:ci # will run `yarn test:browser:ci` command
+#      - name: Test the app
+#        uses: borales/actions-yarn@v4
+#        with:
+#          cmd: test:browser:ci # will run `yarn test:browser:ci` command
+
+      - name: Run browser tests
+        run: npm run test:browser:ci
 
       - name: Get Test Results history
         uses: actions/checkout@v3
