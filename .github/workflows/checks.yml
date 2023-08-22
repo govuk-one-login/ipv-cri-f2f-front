@@ -34,5 +34,4 @@ jobs:
       - name: Run browser tests
         run: npm run test:browser:ci
         env:
-          IPV_BASE_URL: ${{ secrets.IPV_BASE_URL }}
           IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
