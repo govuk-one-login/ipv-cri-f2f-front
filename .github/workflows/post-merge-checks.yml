@@ -3,10 +3,17 @@ name: Post-merge Build, Test and Report
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-  pull_request_target:
-    branches: [ main ]
-  push:
-    branches: [ main ]
+
+  # D DUNFORD 2023-08-23
+  #
+  # disabling this workflow as there is a consistent failure due to inability to access the stub, it has already been
+  #marked as optional, and the reporting step is not currently working. A separate ticket will be raised to fix and
+  #re-enable this. In the meantime `npm run test:browser:ci` is covered by the checks.yml workflow as a blocking job.
+  #
+  #  pull_request_target:
+  #    branches: [ main ]
+  #  push:
+  #    branches: [ main ]
 
   workflow_dispatch:
 
@@ -16,6 +23,13 @@ env: # Only adding the variables in that are required for E2E tests
 
 jobs:
   run-tests:
+
+    # D DUNFORD 2023-08-23
+    #
+    # disable workflow - as per comment above
+    #
+    if: ${{ false }}
+
     runs-on: ubuntu-latest
     permissions:
       contents: write
