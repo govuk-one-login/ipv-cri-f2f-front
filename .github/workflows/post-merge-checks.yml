@@ -3,16 +3,21 @@ name: Post-merge Build, Test and Report
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-  pull_request_target:
-    branches: [ main ]
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+      - synchronize
   push:
-    branches: [ main ]
+    branches:
+      - main
 
   workflow_dispatch:
 
-env: # Only adding the variables in that are required for E2E tests 
+env: # Only adding the variables in that are required for E2E tests
   IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
-  IPV_BASE_URL: ${{ secrets.IPV_BASE_URL }}
+  PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
 
 jobs:
   run-tests:
@@ -27,25 +32,29 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
+
       - name: Use Node.js 16.x
         uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: 'yarn'
+
       - name: Build Test F2F Front Image
         uses: borales/actions-yarn@v4
         with:
           cmd: install # will run `yarn install` command
         env:
           NODE_AUTH_TOKEN: ${{ secrets.SH_F2F_ACCESS_TOKEN }} # if needed
+
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
           cmd: build # will run `yarn build` command
+
       - name: Test the app
         uses: borales/actions-yarn@v4
         with:
-          cmd: test:browser:ci # will run `yarn test` command
+          cmd: test:browser:ci # will run `yarn test:browser:ci` command
 
       - name: Get Test Results history
         uses: actions/checkout@v3

@@ -47,6 +47,10 @@ Parameters:
     Type: String
     Default: "f2f-ipv-stub"
     Description: The name of the deployed IPV stub stack.
+  TestHarnessStackName:
+    Type: String
+    Default: "f2f-test-harness"
+    Description: The name of the deployed Test Harness stack
 
 Conditions:
   IsNotDevelopment: !Or
@@ -564,7 +568,7 @@ Resources:
           "protocol":"$context.protocol",
           "responseLength":"$context.responseLength"
           }
-          
+
   WAFv2ACLAssociation:
     Type: AWS::WAFv2::WebACLAssociation
     Properties:
@@ -1172,3 +1176,13 @@ Outputs:
     Description: "F2F IPV Stub"
     Value:
       Fn::ImportValue: !Sub '${IPVStubStackName}-IPVStubExecuteUrl'
+  F2FTestHarnessURL:
+    Condition: IsNotProdLikeEnvironment
+    Description: "F2F Test Harness"
+    Value:
+      Fn::ImportValue: !Sub '${TestHarnessStackName}-TestHarnessExecuteUrl'
+  BackendSessionTableName:
+    Condition: IsNotProdLikeEnvironment
+    Description: "Backend Session Table name for use by Test Harness"
+    Value:
+      Fn::ImportValue: "f2f-cri-api-SessionTable-name"

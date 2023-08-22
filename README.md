@@ -46,13 +46,20 @@ In order to support consistent use of headers for API requests, [middleware](./s
 
 # Browser tests
 
-Browser based tests can be run against the mock server, and should be able to be run against an instance of the API.
+Browser based tests can be run against:
+
+- a local FE and a mock server
+- a local FE pointed to a deployed API
+- a deployed FE pointed to a deployed API
 
 These tests are written using [Cucumber](https://cucumber.io/docs/installation/javascript/) as the test runner and [Playwright](https://playwright.dev/) as the automation tool. They also follow the [Page Object Model](https://playwright.dev/docs/test-pom) for separation of concerns.
 
 They can be run by using:
 
 `yarn run test:browser`
+
+When run against an instance of the FE deployed in the cloud, which in turn connects to a deployed API, however currently the mocks also need to be running (`yarn run mocks`) as the test runner makes calls to a `GET /__reset/{scenario}` endpoint which is not present in a deployed API.
+However the actual test will run against cloud-deployed code and not utilise the mock. In a future PR this needs to be refactored so that the mocks do not need to run when executing browser tests against a deployed FE.
 
 ## Using mocked scenario data
 
@@ -79,9 +86,8 @@ You need to have AWS credentials in your shell via `aws-vault` or `gds-cli` or s
 
 ```shell
 aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 440208678480.dkr.ecr.eu-west-2.amazonaws.com
-docker build -t di-ipv-cri-f2f-front .
+docker build -t di-ipv-cri-f2f-front --platform linux/amd64 .
 docker tag di-ipv-cri-f2f-front:latest 440208678480.dkr.ecr.eu-west-2.amazonaws.com/YOUR_REPO:YOUR_TAG
-docker images
 docker push 440208678480.dkr.ecr.eu-west-2.amazonaws.com/YOUR_REPO:YOUR_TAG
 ```
 
