@@ -23,6 +23,13 @@ env: # Only adding the variables in that are required for E2E tests
 
 jobs:
   run-tests:
+
+    # D DUNFORD 2023-08-23
+    #
+    # disable workflow - as per comment above
+    #
+    if: {{ false }}
+
     runs-on: ubuntu-latest
     permissions:
       contents: write
