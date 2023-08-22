@@ -14,7 +14,6 @@ module.exports = class PlaywrightDevPage {
 
   async isCurrentPage() {
     const { pathname } = new URL(await this.page.url());
-    console.log("Comparing page " + pathname + " with " + this.path);
     return pathname === this.path;
   }
 
