@@ -19,6 +19,7 @@ class CheckDetailsController extends DateController {
       let postOfficePostcode;
       let postOfficeLatitude;
       let postOfficeLongitude;
+
       switch (req.form.values.branches) {
         case "1": {
           postOfficeAddress = addressDetails[0].hint.text;
@@ -167,8 +168,9 @@ class CheckDetailsController extends DateController {
 
       await this.saveF2fData(req.axios, f2fData, req);
       callback();
-    } catch (err) {
-      callback(err);
+    } catch (error) {
+      console.log("Error", error);
+      callback(error);
     }
   }
   async saveF2fData(axios, f2fData, req) {
