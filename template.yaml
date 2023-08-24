@@ -992,13 +992,13 @@ Resources:
             Period: 60
             Stat: Minimum
 
-  FELowContainerTaskCountCritical:
+  FELowContainerTaskCountCriticalAlarm:
     DependsOn:
       - F2FFrontEcsService
       - F2FFrontEcsCluster
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmName: !Sub "${AWS::StackName}-FELowContainerTaskCountCritical"
+      AlarmName: !Sub "${AWS::StackName}-FELowContainerTaskCountCriticalAlarm"
       AlarmDescription: Trigger a critical alert if the running container task count drops below 1
       ActionsEnabled: false  # to be enabled once proved stable in production
       AlarmActions:
@@ -1143,7 +1143,7 @@ Resources:
                 "properties": {
                   "title": "F2F Front Low Container Task Count Critical - ${AWS::StackName}",
                   "annotations": {
-                    "alarms": ["${FELowContainerTaskCountCritical.Arn}"]
+                    "alarms": ["${FELowContainerTaskCountCriticalAlarm.Arn}"]
                   },
                   "view": "timeSeries",
                   "stacked": false
