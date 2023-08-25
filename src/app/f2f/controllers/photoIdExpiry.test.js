@@ -38,10 +38,31 @@ describe("PhotoIdExpiryController", () => {
       expect(next).to.have.been.calledOnce;
       expect(selectedOption).to.equal(APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS)
     });
+
+    it("should save values to sessionModel when needing to select different photo ID", async () => {
+
+      req.form.values.photoIdExpiryChoice = APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID;
+
+      await photoIdExpiryController.saveValues(req, res, next);
+      const selectedOption = req.sessionModel.get("photoIdExpiryChoice")
+
+      expect(next).to.have.been.calledOnce;
+      expect(selectedOption).to.equal(APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID)
+    });
+
+    it("should save values to sessionModel when user wants to prove ID another way", async () => {
+
+      req.form.values.photoIdExpiryChoice = APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY;
+
+      await photoIdExpiryController.saveValues(req, res, next);
+      const selectedOption = req.sessionModel.get("photoIdExpiryChoice")
+
+      expect(next).to.have.been.calledOnce;
+      expect(selectedOption).to.equal(APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY)
+    });
   });
 
-  describe("saveValues when user selects no option", () => {
-    it("should call next with error", async () => {
+    it("should call next with error when no option selected", async () => {
 
       req.form.values.photoIdExpiryChoice = undefined;
 
@@ -52,5 +73,5 @@ describe("PhotoIdExpiryController", () => {
       expect(nextError).to.be.instanceOf(Error);
       expect(nextError.message).to.equal(nextErrMessage);
     });
-  });
+
 });
