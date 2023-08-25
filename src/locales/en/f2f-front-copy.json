@@ -1,0 +1,517 @@
+[
+  {
+    "originalFile": "./pages.yml",
+    "landingPage": {
+      "title": "How to prove your identity at a Post Office",
+      "firstCircle": "1",
+      "firstStepTitle": "Get your Post Office customer letter from GOV.UK",
+      "secondCircle": "2",
+      "secondStepTitle": "Go to the Post Office",
+      "thirdCircle": "3",
+      "thirdStepTitle": "Wait for your result",
+      "instructions": {
+        "firstStep": {
+          "one": "Enter the details from your photo ID on GOV.UK.",
+          "two": "Then select which Post Office you want to take your photo ID to.",
+          "three": "We'll send you a confirmation email with a link to download your Post Office customer letter."
+        },
+        "secondStep": {
+          "one": "Take your Post Office customer letter and photo ID to your chosen Post Office. Or go to any ",
+          "two": "A member of Post Office staff will scan your photo ID and take a photo of you. ",
+          "three": "You must go to the Post Office within 10 days of getting your confirmation email."
+        },
+        "thirdStep": {
+          "one": "You'll get an email about the result of your identity check - usually within a day of going to the Post Office."
+        }
+      }
+    },
+    "photoIdSelectionThinFile": {
+      "title": "Choose which photo ID you can take to a Post Office",
+      "content": "Based on what you've told us and the checks we've done, you’ll need one of the following types of photo ID to prove your identity at a Post Office.",
+      "photocopyWarning": "You cannot use a photocopy or digital copy of your passport."
+    },
+    "photoIdSelection": {
+      "title": "Choose which photo ID you can take to a Post Office",
+      "content": "You must take the original photo ID document, not a photocopy.",
+      "expiryWarning": "Your photo ID must not have expired."
+    },
+    "dateOfBirth": {
+      "title": "Enter your date of birth",
+      "formLegend": "Enter your date of birth",
+      "hintText": "For example, 22 4 1976"
+    },
+    "ukPassport": {
+      "title": "When does your passport expire?",
+      "passportInformationContext": "We need this information to check your photo ID is valid.",
+      "hintText": "For example, 31 3 2025"
+    },
+    "nonUKPassport": {
+      "title": "When does your passport expire?",
+      "passportInformationContext": "We need this information to check your photo ID is valid.",
+      "hintText": "For example, 31 3 2025"
+    },
+    "ukPhotocardDl": {
+      "title": "When does your driving licence expire?",
+      "photocardDlInformationContext": "We need this information to check your photo ID is valid.",
+      "hintText": "For example, 31 3 2025"
+    },
+    "brp": {
+      "title": "When does your biometric residence permit (BRP) expire?",
+      "brpInformationContext": "We need this information to check your photo ID is valid.",
+      "hintText": "For example, 31 3 2025"
+    },
+    "euPhotocardDl": {
+      "title": "When does your driving licence expire?",
+      "euPhotocardDlInformationContext": "We need this information to check your photo ID is valid.",
+      "hintText": "For example, 31 3 2025"
+    },
+    "eeaIdentityCard": {
+      "title": "When does your national identity card expire?",
+      "eeaIdentityCardInformationContext": "We need this information to check your photo ID is valid.",
+      "hintText": "For example, 31 3 2025"
+    },
+    "nonUKPassportHasExpiryDate": {
+      "title": "Does your passport have an expiry date?"
+    },
+    "euDrivingLicenceHasExpiryDate": {
+      "title": "Does your driving licence have an expiry date?"
+    },
+    "nationalIdentityCardHasExpiryDate": {
+      "title": "Does your national identity card have an expiry date?"
+    },
+    "findBranch": {
+      "title": "Find a Post Office where you can prove your identity",
+      "body": "Enter a UK postcode"
+    },
+    "locations": {
+      "title": "Choose a Post Office where you can prove your identity",
+      "body": "Postcode"
+    },
+    "photoIdExpiry": {
+      "title": "Your photo ID has expired",
+      "content": "You need valid photo ID to prove your identity.",
+      "prompt": "What would you like to do?"
+    },
+    "checkDetails": {
+      "title": "Check your answers",
+      "selectedId": "Chosen photo ID",
+      "expiryDate": "Expiry date",
+      "postOffice": "Post Office address",
+      "changeLink": "Change",
+      "buttonText": "Confirm and send",
+      "ukDlAddress": "Is the address on your driving licence the same as your current address?",
+      "euDlAddress":" Does your driving licence have your current address on it?",
+      "idCardAddress": "Does your national identity card have your current address on it?",
+      "country": "Country",
+      "hasExpiryDate": "Does your photo ID have an expiry date?"
+    },
+    "ukDlAddressCheck": {
+      "title": "Does your driving licence have your current address on it?",
+      "context": "If your driving licence has your previous address on it, you'll need to choose another type of photo ID.",
+      "change-how": "How do I change the address on my driving licence?",
+      "change-link": "<p>You must update your driving licence when you move. <a href=\"https://www.gov.uk/tell-dvla-changed-address\" target=\"_blank\" class=\"govuk-link\">Tell DVLA you've changed address (opens in a new tab)</a></p>"
+    },
+    "euDrivingLicenceAddressCheck": {
+      "title": "Does your driving licence have your current address on it?",
+      "context": "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
+    },
+    "eeaIdCardAddressCheck": {
+      "title": "Does your national identity card have your current address on it?",
+      "context": "If your national identity card has your previous address on it, you'll need to choose another type of photo ID."
+    },
+    "eeaIdentityCardCountrySelector": {
+      "title": "Select which country your national identity card is from",
+      "content": "If the country your national identity card is from is not on the list, you'll need to choose another type of photo ID.",
+      "link": "The country my national identity card is from is not on the list"
+    },
+    "euDrivingLicenceCountrySelector": {
+      "title": "Select which country your driving licence is from",
+      "content": "If the country your driving licence is from is not on the list, you'll need to choose another type of photo ID.",
+      "link": "The country my driving licence is from is not on the list"
+    }, 
+    "nonUkPassportCountrySelector": {
+      "title": "Select which country your passport is from",
+      "content": "If the country your passport is from is not on the list, you'll need to choose another type of photo ID.",
+      "link": "The country my passport is from is not on the list"
+    }
+  },
+  {
+    "originalFile": "./pages.errors.yml",
+    "error": {
+      "unrecoverable": {
+          "title": "Sorry, there is a problem with the service",
+          "subTitle": "We cannot prove your identity right now.",
+          "subHeading": "What can you do",
+          "description": "Go back to the service you were trying to use and start again. You can look for the service using your search engine or find it from the GOV.UK homepage.",
+          "contactMeLink": "Contact the GOV.UK One Login team (opens in new tab)",
+          "buttonText": "Go to the GOV.UK homepage",
+          "buttonLink": "https://signin.account.gov.uk/contact-us?supportType=PUBLIC"
+      }
+    },
+    "pageNotFound": {
+        "title": "Page not found",
+        "serviceNameRequired": false,
+        "content": [
+            "If you typed the web address, check it’s correct.",
+            "If you pasted the web address, check you copied the entire address.",
+            "You can also go back to the service you were trying to use and start again. You can look for the service using your search engine or find it from the GOV.UK homepage.",
+            "<a href=\"https://www.gov.uk/\" class=\"govuk-button\" data-module=\"govuk-button\">Go to the GOV.UK homepage</a>",
+            "<a href=\"https://signin.account.gov.uk/contact-us\" target=\"_blank\" class=\"govuk-link\">Contact the GOV.UK account team (opens in a new tab)</a>"
+        ]
+    },
+    "sessionEnded": {
+        "title": "Session expired"
+    }
+  },
+  {
+    "originalFile": "./fields.yml",
+    "photoIdChoiceThinFile": {
+      "validation": {
+          "required": "Choose a photo ID you can take to a Post Office"
+      },
+      "items": {
+          "ukPassport": {
+              "label": "UK passport",
+              "reveal": ""
+          },
+          "nonUkPassport": {
+              "label": "Non-UK passport with a biometric chip",
+              "reveal": ""
+          },
+          "noPhotoId": {
+              "label": "I do not have these",
+              "reveal": ""
+          }
+      }
+    },
+    "photoIdChoice": {
+        "validation": {
+            "required": "Choose a photo ID you can take to a Post Office"
+        },
+        "items": {
+            "ukPassport": {
+                "label": "UK passport",
+                "reveal": ""
+            },
+            "ukPhotocardDl": {
+                "label": "UK photocard driving licence",
+                "reveal": ""
+            },
+            "brp": {
+                "label": "Biometric residence permit (BRP)",
+                "reveal": ""
+            },
+            "nonUkPassport": {
+                "label": "Non-UK passport",
+                "reveal": ""
+            },
+            "euPhotocardDl": {
+                "label": "European Union (EU) photocard driving licence",
+                "reveal": ""
+            },
+            "eeaIdentityCard": {
+                "label": "National identity card from a European Economic Area (EEA) country",
+                "reveal": ""
+            },
+            "noPhotoId": {
+                "label": "I do not have any of these documents",
+                "reveal": ""
+            }
+        }
+    },
+    "date-day": {
+        "label": "Day"
+    },
+    "date-month": {
+        "label": "Month"
+    },
+    "date-year": {
+        "label": "Year"
+    },
+    "ukDlAddressCheck": {
+        "legend": "",
+        "validation": {
+            "default": "Select if your driving licence has your current address on it"
+        }
+    },
+    "ukPassportExpiryDate": {
+        "legend": "",
+        "label": "",
+        "hint": "For example, 31 3 2025",
+        "validation": {
+            "default": "Enter the full expiry date",
+            "before": "Enter a valid expiry date",
+            "numeric-day": "The expiry date must include a day that contains numbers only",
+            "numeric-month": "The expiry date must include a month that contains numbers only",
+            "numeric-year": "The expiry date must include a year that contains numbers only",
+            "date-day": "Enter a valid expiry date",
+            "date-month": "The expiry date must include a month that is a number between 1 and 12",
+            "required-day": "Enter the full expiry date",
+            "required-month": "Enter the full expiry date",
+            "required-year": "Enter the full expiry date"
+        }
+    },
+    "ukPhotocardDlExpiryDate": {
+        "legend": "",
+        "label": "",
+        "hint": "For example, 31 3 2025",
+        "validation": {
+            "default": "Enter the full expiry date",
+            "before": "Enter a valid expiry date",
+            "numeric-day": "The expiry date must include a day that contains numbers only",
+            "numeric-month": "The expiry date must include a month that contains numbers only",
+            "numeric-year": "The expiry date must include a year that contains numbers only",
+            "date-day": "Enter a valid expiry date",
+            "date-month": "The expiry date must include a month that is a number between 1 and 12",
+            "required-day": "Enter the full expiry date",
+            "required-month": "Enter the full expiry date",
+            "required-year": "Enter the full expiry date"
+        }
+    },
+    "nonUKPassportExpiryDate": {
+        "legend": "",
+        "label": "",
+        "hint": "For example, 31 3 2025",
+        "validation": {
+            "default": "Enter the full expiry date",
+            "before": "Enter a valid expiry date",
+            "numeric-day": "The expiry date must include a day that contains numbers only",
+            "numeric-month": "The expiry date must include a month that contains numbers only",
+            "numeric-year": "The expiry date must include a year that contains numbers only",
+            "date-day": "Enter a valid expiry date",
+            "date-month": "The expiry date must include a month that is a number between 1 and 12",
+            "required-day": "Enter the full expiry date",
+            "required-month": "Enter the full expiry date",
+            "required-year": "Enter the full expiry date"
+        }
+    },
+    "brpExpiryDate": {
+        "legend": "",
+        "label": "",
+        "hint": "For example, 31 3 2025",
+        "validation": {
+            "default": "Enter the full expiry date",
+            "before": "Enter a valid expiry date",
+            "numeric-day": "The expiry date must include a day that contains numbers only",
+            "numeric-month": "The expiry date must include a month that contains numbers only",
+            "numeric-year": "The expiry date must include a year that contains numbers only",
+            "date-day": "Enter a valid expiry date",
+            "date-month": "The expiry date must include a month that is a number between 1 and 12",
+            "required-day": "Enter the full expiry date",
+            "required-month": "Enter the full expiry date",
+            "required-year": "Enter the full expiry date"
+        }
+    },
+    "euPhotocardDlExpiryDate": {
+        "legend": "",
+        "label": "",
+        "hint": "For example, 31 3 2025",
+        "validation": {
+            "default": "Enter the full expiry date",
+            "before": "Enter a valid expiry date",
+            "numeric-day": "The expiry date must include a day that contains numbers only",
+            "numeric-month": "The expiry date must include a month that contains numbers only",
+            "numeric-year": "The expiry date must include a year that contains numbers only",
+            "date-day": "Enter a valid expiry date",
+            "date-month": "The expiry date must include a month that is a number between 1 and 12",
+            "required-day": "Enter the full expiry date",
+            "required-month": "Enter the full expiry date",
+            "required-year": "Enter the full expiry date"
+        }
+    },
+    "euDrivingLicenceAddressCheck": {
+        "validation": {
+            "default": "Select if your driving licence has your current address on it"
+        }
+    },
+    "eeaIdCardExpiryDate": {
+        "label": "",
+        "legend": "",
+        "hint": "For example, 31 3 2025",
+        "validation": {
+            "default": "Enter the full expiry date",
+            "before": "Enter a valid expiry date",
+            "numeric-day": "The expiry date must include a day that contains numbers only",
+            "numeric-month": "The expiry date must include a month that contains numbers only",
+            "numeric-year": "The expiry date must include a year that contains numbers only",
+            "date-day": "Enter a valid expiry date",
+            "date-month": "The expiry date must include a month that is a number between 1 and 12",
+            "required-day": "Enter the full expiry date",
+            "required-month": "Enter the full expiry date",
+            "required-year": "Enter the full expiry date"
+        }
+    },
+    "idHasExpiryDate": {
+        "validation": {
+            "required": "Select if your photo ID has an expiry date"
+        }
+    },
+    "eeaIdCardAddressCheck": {
+        "validation": {
+            "required": "Select if your national identity card has your current address on it"
+        }
+    },
+    "eeaIdentityCardCountrySelector": {
+        "label": "Select country",
+        "validation": {
+            "equal": "Select the country your national identity card is from"
+        }
+    },
+    "euDrivingLicenceCountrySelector": {
+        "label": "Select country",
+        "validation": {
+            "equal": "Select the country your driving licence is from"
+        }
+    },
+    "nonUkPassportCountrySelector": {
+        "label": "Select country",
+        "validation": {
+            "equal": "Select the country your passport is from"
+        }
+    },
+    "postcode": {
+        "label": "Enter a UK postcode",
+        "hint": "For example, SW1A 2AA",
+        "validation": {
+            "default": "Enter a real UK postcode"
+        }
+    },
+    "branches": {
+        "label": "Postcode",
+        "validation": {
+            "default": "Select a Post Office where you can prove your identity"
+        }
+    },
+    "checkDetails": {
+        "label": "",
+        "legend": "",
+        "validation": {
+            "default": "Make sure your answers are correct before you continue."
+        }
+    },
+    "photoIdExpiryChoice": {
+        "validation": {
+            "required": "You must choose an option to continue"
+        },
+        "content": "",
+        "items": {
+            "reEnterDetails": {
+                "label": "Check the expiry date and enter it again",
+                "reveal": ""
+            },
+            "chooseDifferentPhotoId": {
+                "label": "Choose a different type of photo ID",
+                "reveal": ""
+            },
+            "proveIdentityAnotherWay": {
+                "label": "Prove your identity another way",
+                "reveal": ""
+            }
+        }
+    }
+  },
+  {
+    "originalFile": "./default.yml",
+    "buttons": {
+      "next": "Continue",
+      "cancel": "Cancel",
+      "continue": "Continue"
+    },
+    "govuk": {
+        "serviceName": null,
+        "backLink": "Back",
+        "errorSummaryTitle": "There is a problem",
+        "error": "Error",
+        "warning": "Warning",
+        "skipLink": "Skip to main content",
+        "cookie": {
+            "cookieBanner": {
+                "title": "Cookies on GOV.UK One Login",
+                "heading": "Cookies on GOV.UK One Login",
+                "paragraph1": "We use some essential cookies to make this service work.",
+                "paragraph2": "We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements.",
+                "buttonAcceptText": "Accept analytics cookies",
+                "buttonRejectText": "Reject analytics cookies",
+                "linkViewCookiesText": "View cookies",
+                "cookieBannerHideLink": "Hide this message",
+                "cookieBannerAccept": {
+                    "paragraph1": "You’ve accepted additional cookies. You can ",
+                    "paragraph2": " at any time."
+                },
+                "cookieBannerReject": {
+                    "paragraph1": "You’ve rejected additional cookies. You can ",
+                    "paragraph2": " at any time."
+                },
+                "changeCookiePreferencesLink": "change your cookie settings"
+            },
+            "cookieText": "GOV.UK uses cookies to make the site simpler.",
+            "cookieLink": "#",
+            "cookieLinkText": "Find out more about cookies"
+        },
+        "phaseBanner": {
+            "tag": "beta",
+            "content": "This is a new service – your <a href=\"https://signin.account.gov.uk/contact-us\" class=\"govuk-link\" rel=\"noopener\" target=\"_blank\">feedback (opens in new tab)</a> will help us to improve it."
+        },
+        "footerNavItems": {
+            "meta": {
+                "items": [
+                    {
+                        "href": "https://signin.account.gov.uk/accessibility-statement",
+                        "text": "Accessibility statement"
+                    },
+                    {
+                        "href": "https://signin.account.gov.uk/cookies",
+                        "text": "Cookies"
+                    },
+                    {
+                        "href": "https://signin.account.gov.uk/terms-and-conditions",
+                        "text": "Terms and conditions"
+                    },
+                    {
+                        "href": "https://signin.account.gov.uk/privacy-notice",
+                        "text": "Privacy notice"
+                    },
+                    {
+                        "href": "https://signin.account.gov.uk/contact-us",
+                        "text": "Support"
+                    }
+                ]
+            }
+        },
+        "copyright": {
+            "text": "© Crown copyright"
+        },
+        "contentLicence": {
+            "html": "All content is available under the <a class=\"govuk-footer__link\" href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\" rel=\"licence\">Open Government Licence v3.0</a>, except where otherwise stated"
+        }
+    },
+    "error": {
+        "unrecoverable": {
+            "title": "Sorry, there is a problem with the service",
+            "subTitle": "We cannot prove your identity right now.",
+            "subHeading": "What can you do",
+            "description": "Go back to the service you were trying to use and start again. You can look for the service using your search engine or find it from the GOV.UK homepage.",
+            "contactMeLink": "Contact the GOV.UK account team (opens in a new tab)",
+            "buttonText": "Go to the GOV.UK homepage",
+            "buttonLink": "https://www.gov.uk/"
+        }
+    },
+    "common": {
+        "confirmIdentityAnotherWay": {
+            "confirmIdentity": "I want to prove my identity another way"
+        },
+        "postoffice": {
+            "service": "Not all Post Offices offer this service. You can ",
+            "postofficeLink": "Post Office that offers in-branch verification (opens in new tab).",
+            "pathToPoBranchSearch": "https://www.postoffice.co.uk/identity/in-branch-verification-service#bf-full-width"
+        },
+        "photoIdSelection": {
+            "noPhotoId": "I do not have any of these documents",
+            "linkToNoPhotoId": "https://signin.account.gov.uk/no-photo-id"
+        }
+    },
+    "links": {
+        "changePostcode": "<span class=\"govuk-body govuk-!-font-size-24\" data-id=\"changePostcodeValue\"><b id=\"postcode\">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href=\"/find-post-office-prove-identity\" id=\"changePostcode\" data-id=\"changePostcode\" class=\"govuk-link\"> Change <span class=\"govuk-visually-hidden\">your current postcode</span></a>"
+    }
+  }
+]
