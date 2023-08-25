@@ -9,7 +9,7 @@ photoIdChoiceThinFile:
       label: Non-UK passport with a biometric chip
       reveal: ""
     noPhotoId:
-      label: I do not have these
+      label: I do not have either of these
       reveal: ""
 
 
