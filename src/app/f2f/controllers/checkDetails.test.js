@@ -23,11 +23,6 @@ describe("CheckDetails controller", () => {
     next = setup.next;
 
     checkDetailsController = new CheckDetailsController({ route: "/test" });
-    sinon.stub(console, "log");
-  });
-
-  afterEach(() => {
-    console.log.restore();
   });
 
   it("should be an instance of BaseController", () => {
@@ -267,7 +262,6 @@ describe("CheckDetails controller", () => {
         req.axios.post = sinon.fake.rejects(error)
         await checkDetailsController.saveValues(req, res, next);
         expect(next).to.have.been.calledWith(error);
-        expect(console.log).to.have.been.calledWith("Error");
       });
     });
   });

@@ -169,7 +169,6 @@ class CheckDetailsController extends DateController {
       await this.saveF2fData(req.axios, f2fData, req);
       callback();
     } catch (error) {
-      console.log("Error", error);
       callback(error);
     }
   }
