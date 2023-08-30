@@ -39,7 +39,7 @@ The frontend can be configured to use this mock server through two environment v
 
 A browser extension, such as [Mod Header](https://modheader.com/), can be used to set the value of this header in a web browser.
 
-# Request properties
+# Request properties 
 
 In order to support consistent use of headers for API requests, [middleware](./src/lib/axios) is applied to add an instance of
 [axios](https://axios-http.com/) on each request onto `req.axios`. This is then reused in any code that uses the API.
