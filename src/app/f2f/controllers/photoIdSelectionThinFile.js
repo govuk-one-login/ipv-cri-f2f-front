@@ -9,11 +9,11 @@ class PhotoIdSelectionThinFileController extends BaseController {
       req.sessionModel.set("redirect_url", undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, undefined);
-      req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID, undefined)
+      req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID, undefined);
 
       const action = req.form.values.photoIdChoiceThinFile;
 
-      //Same field as PhotoIdSelection to ensure same value gets passed in checkDetails /documentSelection
+      // Same field as PhotoIdSelection to ensure same value gets passed in checkDetails /documentSelection
       req.sessionModel.set("photoIdChoice", action);
 
       switch (action) {
@@ -46,6 +46,7 @@ class PhotoIdSelectionThinFileController extends BaseController {
           return next();
         }
       }
+
       logger.info("photo-id-selection: Invalid action 🚀" + action);
       return next(new Error("photo-id-selection: Invalid action " + action));
     } catch (err) {
