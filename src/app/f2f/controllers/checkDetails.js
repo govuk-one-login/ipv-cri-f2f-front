@@ -2,7 +2,7 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils")
 const { APP, API } = require("../../../lib/config");
-const { NON_UK_PASSPORT } = require("../countryCodes/nonUkPassport");
+const { NON_UK_PASSPORT } = require("../data/countryCodes/nonUkPassport");
 const DateController = DateControllerMixin(BaseController);
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
@@ -19,6 +19,7 @@ class CheckDetailsController extends DateController {
       let postOfficePostcode;
       let postOfficeLatitude;
       let postOfficeLongitude;
+
       switch (req.form.values.branches) {
         case "1": {
           postOfficeAddress = addressDetails[0].hint.text;
@@ -167,8 +168,8 @@ class CheckDetailsController extends DateController {
 
       await this.saveF2fData(req.axios, f2fData, req);
       callback();
-    } catch (err) {
-      callback(err);
+    } catch (error) {
+      callback(error);
     }
   }
   async saveF2fData(axios, f2fData, req) {

@@ -1,7 +1,7 @@
 const { APP } = require("../../lib/config");
-const { EEA_ID_CARD } = require("./countryCodes/eeaNationalIdentityCard");
-const { EU_DL_COUNTRIES } = require("./countryCodes/euDrivingLicence");
-const { NON_UK_PASSPORT } = require("./countryCodes/nonUkPassport");
+const { EEA_ID_CARD } = require("./data/countryCodes/eeaNationalIdentityCard");
+const { EU_DL_COUNTRIES } = require("./data/countryCodes/euDrivingLicence");
+const { NON_UK_PASSPORT } = require("./data/countryCodes/nonUkPassport");
 
 module.exports = {
   photoIdChoice: {
