@@ -4,33 +4,32 @@ const { API } = require("../../../lib/config");
 class LandingPageController extends BaseController {
 
   async saveValues(req, res, next) {
-
 	  req.sessionModel.set("isThinFileUser", false);
 
 		try {
-		  const resp = await this.getSessionConfig(req);
-		  if(resp && resp.evidence_requested?.strengthScore === 4){
-			  //Show thin file user screen
-			  req.sessionModel.set("isThinFileUser", true)
+		  const configData = await this.getSessionConfig(req);
+		  if (configData && configData.evidence_requested?.strengthScore === 4) {
+			  // Show thin file user screen
+			  req.sessionModel.set("isThinFileUser", true);
 		  }
 
-		  super.saveValues(req,res, next);
+		  super.saveValues(req, res, next);
 		} catch (err) {
       return next(err);
 		}
 	}
 
-	  async getSessionConfig(req) {
+	async getSessionConfig(req) {
 		const headers = {
-		  "x-govuk-signin-session-id": req.session.tokenId
+			"x-govuk-signin-session-id": req.session.tokenId,
 		}
-		try{
-			const resp = await req.axios.get(`${API.PATHS.SESSION_CONFIG}`, {
+		try {
+			const { data } = await req.axios.get(`${API.PATHS.SESSION_CONFIG}`, {
 				headers,
-			  });
-			  return resp.data;
-		}catch(error){
-      console.log("Error calling /sessionConfiguration ");
+			});
+			return data;
+		} catch (error) {
+			console.log("Error calling /sessionConfiguration");
 		}
   }
 

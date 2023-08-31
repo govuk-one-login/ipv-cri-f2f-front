@@ -10,7 +10,7 @@ class PostcodeSearchController extends BaseController {
       }
 
       const userPostcode = req.sessionModel.get("postcode");
-      const resp = await req.axios.post(`https://${PROXY_API.BASE_URL}${PROXY_API.PATHS.POST_OFFICE}`, {
+      const { data: postOfficeData } = await req.axios.post(`https://${PROXY_API.BASE_URL}${PROXY_API.PATHS.POST_OFFICE}`, {
         "searchString": userPostcode,
         "productFilter": ["50321"]
       });
@@ -29,9 +29,9 @@ class PostcodeSearchController extends BaseController {
             conditional: {
               html: ""
             },
-            text: resp.data[0].name,
+            text: postOfficeData[0].name,
             hint: {
-              text: resp.data[0].address.address1 + ", " + resp.data[0].address.address4 + ", " + resp.data[0].address.address5 + ", " + resp.data[0].address.postcode
+              text: postOfficeData[0].address.address1 + ", " + postOfficeData[0].address.address4 + ", " + postOfficeData[0].address.address5 + ", " + postOfficeData[0].address.postcode
             },
           },
           {
@@ -39,9 +39,9 @@ class PostcodeSearchController extends BaseController {
             conditional: {
               html: ""
             },
-            text: resp.data[1].name,
+            text: postOfficeData[1].name,
             hint: {
-              text: resp.data[1].address.address1 + ", " + resp.data[1].address.address4 + ", " + resp.data[1].address.address5 + ", " + resp.data[1].address.postcode
+              text: postOfficeData[1].address.address1 + ", " + postOfficeData[1].address.address4 + ", " + postOfficeData[1].address.address5 + ", " + postOfficeData[1].address.postcode
             }
           },
           {
@@ -49,9 +49,9 @@ class PostcodeSearchController extends BaseController {
             conditional: {
               html: ""
             },
-            text: resp.data[2].name,
+            text: postOfficeData[2].name,
             hint: {
-              text: resp.data[2].address.address1 + ", " + resp.data[2].address.address4 + ", " + resp.data[2].address.address5 + ", " + resp.data[2].address.postcode
+              text: postOfficeData[2].address.address1 + ", " + postOfficeData[2].address.address4 + ", " + postOfficeData[2].address.address5 + ", " + postOfficeData[2].address.postcode
             }
           },
           {
@@ -59,9 +59,9 @@ class PostcodeSearchController extends BaseController {
             conditional: {
               html: ""
             },
-            text: resp.data[3].name,
+            text: postOfficeData[3].name,
             hint: {
-              text: resp.data[3].address.address1 + ", " + resp.data[3].address.address4 + ", " + resp.data[3].address.address5 + ", " + resp.data[3].address.postcode
+              text: postOfficeData[3].address.address1 + ", " + postOfficeData[3].address.address4 + ", " + postOfficeData[3].address.address5 + ", " + postOfficeData[3].address.postcode
             }
           },
           {
@@ -69,9 +69,9 @@ class PostcodeSearchController extends BaseController {
             conditional: {
               html: ""
             },
-            text: resp.data[4].name,
+            text: postOfficeData[4].name,
             hint: {
-              text: resp.data[4].address.address1 + ", " + resp.data[4].address.address4 + ", " + resp.data[4].address.address5 + ", " + resp.data[4].address.postcode
+              text: postOfficeData[4].address.address1 + ", " + postOfficeData[4].address.address4 + ", " + postOfficeData[4].address.address5 + ", " + postOfficeData[4].address.postcode
             }
           },
         ]
@@ -80,34 +80,34 @@ class PostcodeSearchController extends BaseController {
       //Additional values for /documentSelection payload
       locals.payLoadValues = {
         location0: {
-          addressWithoutPostCode: resp.data[0].address.address1 + ", " + resp.data[0].address.address4 + ", " + resp.data[0].address.address5,
-          postcode: resp.data[0].address.postcode,
-          latitude: resp.data[0].address.latitude,
-          longitude: resp.data[0].address.longitude
+          addressWithoutPostCode: postOfficeData[0].address.address1 + ", " + postOfficeData[0].address.address4 + ", " + postOfficeData[0].address.address5,
+          postcode: postOfficeData[0].address.postcode,
+          latitude: postOfficeData[0].address.latitude,
+          longitude: postOfficeData[0].address.longitude
         },
         location1: {
-          addressWithoutPostCode: resp.data[1].address.address1 + ", " + resp.data[1].address.address4 + ", " + resp.data[1].address.address5,
-          postcode: resp.data[1].address.postcode,
-          latitude: resp.data[1].address.latitude,
-          longitude: resp.data[1].address.longitude
+          addressWithoutPostCode: postOfficeData[1].address.address1 + ", " + postOfficeData[1].address.address4 + ", " + postOfficeData[1].address.address5,
+          postcode: postOfficeData[1].address.postcode,
+          latitude: postOfficeData[1].address.latitude,
+          longitude: postOfficeData[1].address.longitude
         },
         location2: {
-          addressWithoutPostCode: resp.data[2].address.address1 + ", " + resp.data[2].address.address4 + ", " + resp.data[2].address.address5,
-          postcode: resp.data[2].address.postcode,
-          latitude: resp.data[2].address.latitude,
-          longitude: resp.data[2].address.longitude
+          addressWithoutPostCode: postOfficeData[2].address.address1 + ", " + postOfficeData[2].address.address4 + ", " + postOfficeData[2].address.address5,
+          postcode: postOfficeData[2].address.postcode,
+          latitude: postOfficeData[2].address.latitude,
+          longitude: postOfficeData[2].address.longitude
         },
         location3: {
-          addressWithoutPostCode: resp.data[3].address.address1 + ", " + resp.data[3].address.address4 + ", " + resp.data[3].address.address5,
-          postcode: resp.data[3].address.postcode,
-          latitude: resp.data[3].address.latitude,
-          longitude: resp.data[3].address.longitude
+          addressWithoutPostCode: postOfficeData[3].address.address1 + ", " + postOfficeData[3].address.address4 + ", " + postOfficeData[3].address.address5,
+          postcode: postOfficeData[3].address.postcode,
+          latitude: postOfficeData[3].address.latitude,
+          longitude: postOfficeData[3].address.longitude
         },
         location4: {
-          addressWithoutPostCode: resp.data[4].address.address1 + ", " + resp.data[4].address.address4 + ", " + resp.data[4].address.address5,
-          postcode: resp.data[4].address.postcode,
-          latitude: resp.data[4].address.latitude,
-          longitude: resp.data[4].address.longitude
+          addressWithoutPostCode: postOfficeData[4].address.address1 + ", " + postOfficeData[4].address.address4 + ", " + postOfficeData[4].address.address5,
+          postcode: postOfficeData[4].address.postcode,
+          latitude: postOfficeData[4].address.latitude,
+          longitude: postOfficeData[4].address.longitude
         }
       }
 

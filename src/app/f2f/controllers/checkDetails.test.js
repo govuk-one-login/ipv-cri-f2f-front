@@ -4,12 +4,14 @@ const CheckDetailsController = require("./checkDetails");
 const {
   API: {
     PATHS: { SAVE_F2FDATA },
+  },
+  APP: {
+    PHOTO_ID_OPTIONS
   }
 } = require("../../../lib/config");
 
 describe("CheckDetails controller", () => {
   let checkDetailsController;
-
   let req;
   let res;
   let next;
@@ -29,6 +31,9 @@ describe("CheckDetails controller", () => {
 
   describe("#locals", () => {
     let prototypeSpy;
+    let error;
+    let locals;
+    let superLocals;
 
     beforeEach(() => {
       prototypeSpy = sinon.stub(BaseController.prototype, "locals");
@@ -39,85 +44,188 @@ describe("CheckDetails controller", () => {
       prototypeSpy.restore();
     });
 
-    context("with error on callback", () => {
-      let error;
-      let locals;
-      let superLocals;
+    beforeEach(() => {
+      error = new Error("Random error");
+      superLocals = {
+        superKey: "superValue",
+      };
+      locals = {
+        key: "value",
+      };
 
-      beforeEach(async () => {
-        error = new Error("Random error");
-        superLocals = {
-          superKey: "superValue",
-        };
-
-        locals = {
-          key: "value",
-        };
-        req.form.values.branches = "1"
-        req.form.values.postOfficeDetails = [
-          {
-            value: "1",
-            text: "BRANCH NAME",
-            hint: {
-              text: "NAME" + ", " + " " + ", " + " " + ", " + "POSTCODE"
-            }
-          },
-        ]
-        req.form.values.payLoadValues = {
-          location0: {
-            postcode: "G41 1ED",
-            latitude: "100000",
-            longitude: "-100000"
+      req.form.values.postOfficeDetails = [
+        {
+          value: "1",
+          text: "BRANCH NAME 1",
+          hint: {
+            text: "NAME and POSTCODE 1"
           }
-        }
-        res.locals = locals;
-        BaseController.prototype.locals.yields(error, superLocals);
+        },
+        {
+          value: "2",
+          text: "BRANCH NAME 2",
+          hint: {
+            text: "NAME and POSTCODE 2"
+          }
+        },
+        {
+          value: "3",
+          text: "BRANCH NAME 3",
+          hint: {
+            text: "NAME and POSTCODE 3"
+          }
+        },
+        {
+          value: "4",
+          text: "BRANCH NAME 4",
+          hint: {
+            text: "NAME and POSTCODE 4"
+          }
+        },
+        {
+          value: "5",
+          text: "BRANCH NAME 5",
+          hint: {
+            text: "NAME and POSTCODE 5"
+          }
+        },
+      ]
+      req.form.values.payLoadValues = {
+        location0: {
+          addressWithoutPostCode: "Address for location 0",
+          postcode: "G0 0ED",
+          latitude: "100000",
+          longitude: "-100000"
+        },
+        location1: {
+          addressWithoutPostCode: "Address for location 1",
+          postcode: "G1 1ED",
+          latitude: "100000",
+          longitude: "-100000"
+        },
+        location2: {
+          addressWithoutPostCode: "Address for location 2",
+          postcode: "G2 2ED",
+          latitude: "100000",
+          longitude: "-100000"
+        },
+        location3: {
+          addressWithoutPostCode: "Address for location 3",
+          postcode: "G3 3ED",
+          latitude: "100000",
+          longitude: "-100000"
+        },
+        location4: {
+          addressWithoutPostCode: "Address for location 4",
+          postcode: "G4 4ED",
+          latitude: "100000",
+          longitude: "-100000"
+        },
+      }
+      res.locals = locals;
+      BaseController.prototype.locals.yields(error, superLocals);
+    });
+
+    [
+      { branch: "1", detailsIndex: 0 },
+      { branch: "2", detailsIndex: 1 },
+      { branch: "3", detailsIndex: 2 },
+      { branch: "4", detailsIndex: 3 },
+      { branch: "5", detailsIndex: 4 },
+    ].forEach(({ branch, detailsIndex }) => {
+      it(`when the user has selected post office ${branch}, details are updated correctly`, async () => {
+        const postOfficeDetails = req.form.values.postOfficeDetails[detailsIndex];
+        const payLoadValues = req.form.values.payLoadValues[`location${detailsIndex}`];
+        req.form.values.branches = branch;
 
         await checkDetailsController.locals(req, res, next);
-      });
 
-      it("should call callback with error and existing locals - first Post Office option", () => {
-        req.sessionModel.set("countryCode", "GBR");
-        req.sessionModel.set("country", "United Kingdom");
-        const postOfficeName = req.sessionModel.get("postOfficeName");
-        const postOfficePostcode = req.sessionModel.get("postOfficePostcode");
-        const postCodeLat = req.sessionModel.get("postOfficeLatitude");
-        const postCodeLong = req.sessionModel.get("postOfficeLongitude");
-        const countryCode = req.sessionModel.get("countryCode");
-        const country = req.sessionModel.get("country");
-
-        expect(next).to.have.been.calledWith(error, superLocals);
-        expect(postOfficeName).to.equal("BRANCH NAME");
-        expect(postOfficePostcode).to.equal("G41 1ED");
-        expect(postCodeLat).to.equal("100000");
-        expect(postCodeLong).to.equal("-100000");
-        expect(countryCode).to.equal("GBR");
-        expect(country).to.equal("United Kingdom");
-        
+        expect(req.sessionModel.get("postOfficeName")).to.equal(postOfficeDetails.text);
+        expect(req.sessionModel.get("postOfficeAddress")).to.equal(postOfficeDetails.hint.text);
+        expect(req.sessionModel.get("postOfficePostcode")).to.equal(payLoadValues.postcode);
+        expect(req.sessionModel.get("postOfficeAddressWithoutPostCode")).to.equal(payLoadValues.addressWithoutPostCode);
+        expect(req.sessionModel.get("postOfficeLatitude")).to.equal(payLoadValues.latitude);
+        expect(req.sessionModel.get("postOfficeLongitude")).to.equal(payLoadValues.longitude);
       });
+    });
 
-      it("should call callback with error and existing locals - third Post Office option", () => {
-        req.form.values.branches = "3"
-        req.form.values.postOfficeDetails.value = "3"
-        expect(next).to.have.been.calledWith(error, superLocals);
-        expect(req.form.values.branches).to.equal("3")
-        expect(req.form.values.postOfficeDetails.value).to.equal("3")
-      });
+    [
+      { photoIdChoice: PHOTO_ID_OPTIONS.UK_PASSPORT, expiryDateKey: "ukPassportExpiryDate" },
+      { photoIdChoice: PHOTO_ID_OPTIONS.BRP, expiryDateKey: "brpExpiryDate" },
+      { photoIdChoice: PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, expiryDateKey: "ukPhotocardDlExpiryDate" },
+    ].forEach(({ photoIdChoice, expiryDateKey }) => {
+      it(`when photoIdChoice is ${photoIdChoice} countryCode and expiryDate are set correctly`, async () => {
+        req.form.values.branches = "1";
+        req.form.values.photoIdChoice = photoIdChoice;
+        req.form.values[expiryDateKey] = "01/01/2030";
 
-      it("should call callback with error and existing locals - last Post Office option", () => {
-        req.form.values.branches = "5"
-        req.form.values.postOfficeDetails.value = "5"
-        expect(next).to.have.been.calledWith(error, superLocals);
-        expect(req.form.values.branches).to.equal("5")
-        expect(req.form.values.postOfficeDetails.value).to.equal("5")
+        await checkDetailsController.locals(req, res, next);
+
+        expect(req.sessionModel.get("countryCode")).to.equal("GBR");
+        expect(req.sessionModel.get("expiryDate")).to.equal("01/01/2030");
+        expect(req.sessionModel.get("idHasExpiryDate")).to.equal(undefined);
+        expect(req.sessionModel.get("addressCheck")).to.equal(undefined);
+        expect(req.sessionModel.get("country")).to.equal(undefined);
       });
+    });
+
+    it(`when photoIdChoice is ${PHOTO_ID_OPTIONS.NON_UK_PASSPORT} all details are set correctly`, async () => {
+      req.form.values.branches = "1";
+      req.form.values.photoIdChoice = PHOTO_ID_OPTIONS.NON_UK_PASSPORT;
+      req.form.values.nonUKPassportExpiryDate = "01/01/2030";
+      req.form.values.idHasExpiryDate = true;
+      req.form.values.nonUkPassportCountrySelector = "Germany";
+
+      await checkDetailsController.locals(req, res, next);
+
+      expect(req.sessionModel.get("countryCode")).to.equal("DEU");
+      expect(req.sessionModel.get("country")).to.equal("Germany");
+      expect(req.sessionModel.get("expiryDate")).to.equal("01/01/2030");
+      expect(req.sessionModel.get("idHasExpiryDate")).to.equal(true);
+      expect(req.sessionModel.get("addressCheck")).to.equal(undefined);
+    });
+
+    it(`when photoIdChoice is ${PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL} all details are set correctly`, async () => {
+      req.form.values.branches = "1";
+      req.form.values.photoIdChoice = PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL;
+      req.form.values.euPhotocardDlExpiryDate = "01/01/2030";
+      req.form.values.idHasExpiryDate = true;
+      req.form.values.euDrivingLicenceCountrySelector = "Germany";
+      req.form.values.euDrivingLicenceAddressCheck = true;
+
+      await checkDetailsController.locals(req, res, next);
+
+      expect(req.sessionModel.get("countryCode")).to.equal("DEU");
+      expect(req.sessionModel.get("country")).to.equal("Germany");
+      expect(req.sessionModel.get("expiryDate")).to.equal("01/01/2030");
+      expect(req.sessionModel.get("idHasExpiryDate")).to.equal(true);
+      expect(req.sessionModel.get("addressCheck")).to.equal(true);
+    });
+
+    it(`when photoIdChoice is ${PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD} all details are set correctly`, async () => {
+      req.form.values.branches = "1";
+      req.form.values.photoIdChoice = PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD;
+      req.form.values.eeaIdCardExpiryDate = "01/01/2030";
+      req.form.values.idHasExpiryDate = true;
+      req.form.values.eeaIdentityCardCountrySelector = "Germany";
+      req.form.values.eeaIdCardAddressCheck = true;
+
+      await checkDetailsController.locals(req, res, next);
+
+      expect(req.sessionModel.get("countryCode")).to.equal("DEU");
+      expect(req.sessionModel.get("country")).to.equal("Germany");
+      expect(req.sessionModel.get("expiryDate")).to.equal("01/01/2030");
+      expect(req.sessionModel.get("idHasExpiryDate")).to.equal(true);
+      expect(req.sessionModel.get("addressCheck")).to.equal(true);
     });
   });
 
   describe("#saveValues", () => {
     context("on journey save f2f data", () => {
       it("should call documentSelection endpoint", async () => {
-        req.axios.post = sinon.fake.resolves();
+        req.axios.post = sinon.fake.resolves({
+          data: {}
+        });
 
         const f2fData = {
           "document_selection": {
@@ -149,6 +257,18 @@ describe("CheckDetails controller", () => {
         );
       });
 
+      it("if call to documentSelection endpoint fails, callback is called with the error", async () => {
+        const error  = new Error("error");
+        req.axios.post = sinon.fake.rejects(error)
+        await checkDetailsController.saveValues(req, res, next);
+        expect(next).to.have.been.calledWith(error);
+      });
+    });
+  });
+
+  describe("#next", () => {
+    it("returns the next path", () => {
+      expect(checkDetailsController.next()).to.equal("/done");
     });
   });
 });
