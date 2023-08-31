@@ -25,7 +25,7 @@ module.exports = class PlaywrightDevPage {
     const lowerUTC = new Date(
       new Date().getFullYear(),
       new Date().getMonth() - 18,
-      new Date().getDate() - 2
+      new Date().getDate() - 5
     )
       .toISOString();
     const fullDate = lowerUTC.split("T")[0]
