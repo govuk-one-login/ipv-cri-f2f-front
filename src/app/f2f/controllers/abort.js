@@ -2,32 +2,33 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config");
 
 class AbortController extends BaseController {
-  next() {
-    return '/done'
-  }
   async saveValues(req, res, callback) {
     try {
-      await this.abortJourney(req);
-      callback();
+      await this.abortJourney(req, res);
+			callback();
     } catch (err) {
       callback(err);
     }
   }
-  async abortJourney(req) {
+
+	async  abortJourney(req, res) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId
     };
 
-		const resp = await req.axios.post(`${API.PATHS.ABORT}`, {}, {
-      headers,
-    });
+		const response = await req.axios.post(
+			`${API.PATHS.ABORT}`,
+			{ reason: "session_expired" },
+			{
+				headers,
+			}
+		);
 
-		if (resp.status === 200 && resp.headers.location) {
-      return resp.data;
-    } else {
-      return null;
+		if (response.status === 200 && response.headers.location) {
+      const REDIRECT_URL = response.headers.location;
+			res.redirect(REDIRECT_URL)
     }
-		
-  }
+	}
 }
+
 module.exports = AbortController;

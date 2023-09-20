@@ -16,7 +16,7 @@ yarn install
 
 ## Environment Variables
 
-- 'BASE_URL': Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows
+- 'API_BASE_URL': Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows
 - `PORT` - Default port to run webserver on. (Default to `5030`)
 - `PROXYURL` - The url for the HTTP Proxy API (see below to set this)
 
@@ -34,8 +34,8 @@ This can be run by using:
 
 The frontend can be configured to use this mock server through two environment variables:
 
-- `NODE_ENV = development` - this enables a middleware that passes the `x-scenario-id` header from web requests through to the API
-- `API_BASE_URL = http://localhost:8090` - this points the frontend at the Wiremock instance
+- `NODE_ENV=development` - this enables a middleware that passes the `x-scenario-id` header from web requests through to the API
+- `API_BASE_URL=http://localhost:8090` - this points the frontend at the Wiremock instance
 
 A browser extension, such as [Mod Header](https://modheader.com/), can be used to set the value of this header in a web browser.
 
