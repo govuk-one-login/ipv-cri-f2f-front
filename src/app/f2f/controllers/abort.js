@@ -21,7 +21,13 @@ class AbortController extends BaseController {
 		const resp = await req.axios.post(`${API.PATHS.ABORT}`, {}, {
       headers,
     });
-    return resp.data;
+
+		if (resp.status === 200 && resp.headers.location) {
+      return resp.data;
+    } else {
+      return null;
+    }
+		
   }
 }
 module.exports = AbortController;
