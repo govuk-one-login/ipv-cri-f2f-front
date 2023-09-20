@@ -3,9 +3,6 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-// const { axios } = require("axios");
-
-
 const TestHarness = require("../support/TestHarness");
 Given(/^I have retrieved the sessionTable data for my F2F session$/, { timeout: 2 * 50000 }, async function () {
   await new Promise(r => setTimeout(r, 10000));
@@ -32,7 +29,7 @@ When(/^I sent the request to the callback endpoint$/, { timeout: 2 * 50000 }, as
   this.subject = f2fSession.subject;
   console.log(this.yotiSessionId);
   const axios = require("axios");
-  const postRequest = await axios.post("https://api-f2f-cri-api.review-o.dev.account.gov.uk/callback", {
+  const postRequest = await axios.post(`${process.env.F2F_API_URL}/callback`,  {
     "session_id": this.yotiSessionId,
     "topic": "session_completion",
   });
