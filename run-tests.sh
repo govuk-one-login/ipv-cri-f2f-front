@@ -16,6 +16,8 @@ export IPV_STUB_URL=$(remove_quotes $CFN_F2FIPVStubExecuteURL)start
 export IPV_BASE_URL=https://$(remove_quotes $CFN_F2FCustomDomain)
 export TEST_HARNESS_URL=$(remove_quotes $CFN_F2FTestHarnessURL)
 export SESSION_TABLE=$(remove_quotes $CFN_BackendSessionTableName)
+export F2F_API_URL=$(remove_quotes "$CFN_F2FBackendURL")
+
 
 cd /app; yarn run test:e2e:cd
 
