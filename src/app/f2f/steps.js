@@ -414,7 +414,7 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: abort,
-    next: APP.PATHS.DONE,
+		next: APP.PATHS.DONE,
   },
   [`${APP.PATHS.DONE}`]: {
     skip: true,
