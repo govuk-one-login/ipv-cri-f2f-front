@@ -25,7 +25,7 @@ class AbortController extends BaseController {
 		);
 
 		if (response.status === 200 && response.headers.location) {
-      const REDIRECT_URL = response.headers.location;
+      const REDIRECT_URL = decodeURIComponent(response.headers.location);
 			res.redirect(REDIRECT_URL)
     }
 	}
