@@ -31,4 +31,8 @@ Scenario: F2F Journey - E2E Happy Path and DB Validation
 
     Given I have retrieved the sessionTable data for my F2F session
     Then session details are correctly stored in DB
+    When I sent the request to the callback endpoint
+    Then the Verifiable Credential is stored as expected
+    And all TxMA events are recorded as expected
+
 
