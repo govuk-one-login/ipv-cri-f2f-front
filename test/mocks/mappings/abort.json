@@ -23,9 +23,9 @@
 				}
 			},
 			"response": {
-				"status": 302,
+				"status": 200,
 				"headers": {
-          "Location": "http://example.net/abort"
+          "Location": "https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/redirect?error=access_denied&state=6d73b91ade65954308d3dde454dd4565"
         }
 			}
 		},

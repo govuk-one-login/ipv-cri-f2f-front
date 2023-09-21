@@ -36,7 +36,7 @@ describe("AbortController", () => {
         expect(next).to.have.been.calledOnce;
         expect(req.axios.post).to.have.been.calledWithExactly(
           ABORT,
-          {},
+          { reason: "session_expired" },
           {
             headers: {
               "x-govuk-signin-session-id": req.session.tokenId
