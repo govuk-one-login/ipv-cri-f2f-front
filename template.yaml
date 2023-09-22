@@ -1188,3 +1188,8 @@ Outputs:
     Description: "Backend Session Table name for use by Test Harness"
     Value:
       Fn::ImportValue: "f2f-cri-api-SessionTable-name"
+  F2FBackendURL:
+    Condition: IsNotProdLikeEnvironment
+    Description: "Backend Custom Domain for use by Test Harness"
+    Value:
+      Fn::ImportValue: "f2f-cri-api-F2FBackendURL"
