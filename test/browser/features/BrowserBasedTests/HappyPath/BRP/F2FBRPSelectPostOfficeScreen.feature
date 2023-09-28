@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @browser @test
+@mock-api:f2f-f2f-success @success @browser
 Feature: Document Selection - Biometric Residence Permit E2E Journey (Happy Path)
 
 Background:
