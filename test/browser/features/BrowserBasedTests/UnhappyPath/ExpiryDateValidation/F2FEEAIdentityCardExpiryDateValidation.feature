@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Enter National Identity Card from an EEA country - Happy Path
+Feature: National Identity Card Expiry Date Validation - Unhappy Path
 
     Background:
         Given Authenticatable Anita is using the system
@@ -18,8 +18,13 @@ Feature: Enter National Identity Card from an EEA country - Happy Path
         Then the user is routed to the next screen in the EEA National Identity journey - EEA National Identity Card details
 
 
-    Scenario: National Identity Card from an EEA country expired (UnHappy path)
+    Scenario: NIC EEA expired date in the past (UnHappy path)
         Given the date entered is before the accepted National Identity Card EEA expiration window
         When the user clicks the continue button on the National Identity Card EEA Past details Page
         Then the user is routed to the Expired Date Error Screen from the National Identity Card EEA Screen
 
+
+    Scenario: NIC EEA expired date in the future (UnHappy path)
+        Given the date entered is beyond the accepted National Identity Card EEA expiration window
+        When the user clicks the continue button on the National Identity Card EEA Future details Page
+        Then the user sees an inline error on the National Identity Card EEA Screen

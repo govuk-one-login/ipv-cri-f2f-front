@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Expired Date Error Screen - Unhappy Path
+Feature: National Identity Card EEA Re-enter Date In Error Screen - Unhappy Path
 
     Background:
          Given Authenticatable Anita is using the system
@@ -21,7 +21,7 @@ Feature: Expired Date Error Screen - Unhappy Path
         When the user clicks the continue button on the National Identity Card EEA Past details Page
         Then the user is routed to the Expired Date Error Screen from the National Identity Card EEA Screen
 
-    Scenario: User chooses to re-enter ID expiry date details (UnHappy path)
+    Scenario: NIC EEA re-enter ID expiry date details (UnHappy path)
         Given the ReEnterEEAIDDetails option is selected
         When the user clicks Expired Date Error Screen continue button
         Then the user is routed back to the EEAID Expiry Date screen

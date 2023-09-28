@@ -1,5 +1,5 @@
-@mock-api:f2f-f2f-success @success @browser
-Feature: EU Driving Licence Select Nearest PO Branch from 1 of 5 - Happy Path
+@mock-api:f2f-f2f-success @success @browse
+Feature: Document Selection - EU Driving Licence E2E Journey (Happy Path)
 
 Background:
     Given Authenticatable Anita is using the system
@@ -33,7 +33,7 @@ Background:
     When the user clicks the continue button on the find Post Office branch page
     Then the user is routed to the Select Location page showing 5 nearest POs
 
-Scenario: Select Nearest PO Branch - EU DL (Happy path)
+Scenario: EU DL - E2E Journey (Happy Path)
     Given a Post Office branch is selected
     When the user clicks continue
     Then the user is navigated to the next step in the journey - Confirm Answer

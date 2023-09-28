@@ -1,5 +1,5 @@
-@mock-api:f2f-f2f-success @success @browser 
-Feature: UK Passport Find Nearest PO Branch - Happy Path
+@mock-api:f2f-f2f-success @success @browser @test
+Feature: Document Selection - Biometric Residence Permit E2E Journey (Happy Path)
 
 Background:
     Given Authenticatable Anita is using the system
@@ -22,7 +22,7 @@ Background:
     When the user clicks the continue button on the find Post Office branch page
     Then the user is routed to the Select Location page showing 5 nearest POs
 
-Scenario: Find Nearest PO Branch - UK passport (Happy path)
+Scenario: BRP - E2E Journey (Happy Path)
         Given a Post Office branch is selected
         When the user clicks continue
         Then the user is navigated to the next step in the journey - Confirm Answer

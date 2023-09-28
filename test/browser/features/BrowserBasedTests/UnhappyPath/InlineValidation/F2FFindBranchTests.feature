@@ -22,3 +22,13 @@ Feature: Find Post Office Branch - Unhappy Path
         Given the postcode entry box is left empty
         When the user clicks the continue button on the find Post Office branch empty page
         Then they are shown an on-screen error asking them to enter a valid postcode
+
+    Scenario: Invalid address entered (Happy path)
+        Given the postcode entered is invalid
+        When the user clicks the continue button on the find Post Office branch invalid page
+        Then they are shown an on screen error asking them to enter a valid postcode
+
+    Scenario: Invalid address entered (Happy path)
+         Given a partial postcode is entered
+         When the user clicks the continue button on the find Post Office branch partial page
+         Then they are then shown an on screen error asking them to enter a valid postcode
