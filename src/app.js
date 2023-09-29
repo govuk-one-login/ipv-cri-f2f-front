@@ -137,6 +137,10 @@ const wizardOptions = {
 router.use(wizard(steps, fields, wizardOptions));
 
 router.use((err, req, res, next) => {
-  logger.get().error("Error caught by Express handler", {err});
-  commonExpress.lib.errorHandling.redirectAsErrorToCallback(err, req, res, next);
+  logger.get().error("Error caught by Express handler - redirecting to Callback", {err});
+  try {
+    commonExpress.lib.errorHandling.redirectAsErrorToCallback(err, req, res, next);
+  } catch (err) {
+    logger.get().error("Redirect to callback failed", {err});
+  }
 });
