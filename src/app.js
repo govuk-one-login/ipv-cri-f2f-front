@@ -86,6 +86,10 @@ const { app, router } = setup({
   dev: true,
 });
 
+// setting trust proxy since this runs behind an AWS ALB
+// see https://expressjs.com/en/guide/behind-proxies.html
+app.set('trust proxy', 'loopback, linklocal, uniquelocal');
+
 const steps = require("./app/f2f/steps");
 const fields = require("./app/f2f/fields");
 
