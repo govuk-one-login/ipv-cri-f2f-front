@@ -106,35 +106,45 @@ Mappings:
       APIBASEURL: "https://api-f2f-cri-api.review-o.dev.account.gov.uk"
       DNSSUFFIX: "review-o.dev.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
-      GTMID: "TK92W68"
+      GTM_ID_UA: "GTM-TK92W68"
+      GTM_ID_GA4: "GTM-KD86CMZ"
+      GA4ENABLED: "true"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
       PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
     build:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
       DNSSUFFIX: "review-o.build.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-build"
-      GTMID: "TK92W68"
+      GTM_ID_UA: "GTM-TK92W68"
+      GTM_ID_GA4: "GTM-KD86CMZ"
+      GA4ENABLED: "true"
       ANALYTICSDOMAIN: "build.account.gov.uk"
       PROXYURL: "proxy.review-o.build.account.gov.uk"
     staging:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-staging"
-      GTMID: "TK92W68"
+      GTM_ID_UA: "GTM-TK92W68"
+      GTM_ID_GA4: "GTM-KD86CMZ"
+      GA4ENABLED: "true"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
       PROXYURL: "proxy.review-o.staging.account.gov.uk"
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-integration"
-      GTMID: "TK92W68"
+      GTM_ID_UA: "GTM-TK92W68"
+      GTM_ID_GA4: "GTM-KD86CMZ"
+      GA4ENABLED: "false"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       PROXYURL: "proxy.review-o.integration.account.gov.uk"
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-production"
-      GTMID: "TT5HDKV"
+      GTM_ID_UA: "GTM-TK92W68"
+      GTM_ID_GA4: "GTM-KD86CMZ"
+      GA4ENABLED: "false"
       ANALYTICSDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.account.gov.uk"
 
@@ -407,10 +417,12 @@ Resources:
             #              Value: !Sub
             #                - "https://${Url}"
             #                - Url: !ImportValue backend-api-apigateway-url
-            - Name: GTM_ID
-              Value: !Sub
-                - "GTM-${ContainerId}"
-                - ContainerId: !FindInMap [EnvironmentVariables, !Ref Environment, GTMID ]
+            - Name: UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTM_ID_UA ]
+            - Name: GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTM_ID_GA4 ]
+            - Name: GA4_ENABLED
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GA4ENABLED ]
             - Name: ANALYTICS_DOMAIN
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
             - Name: PROXYURL

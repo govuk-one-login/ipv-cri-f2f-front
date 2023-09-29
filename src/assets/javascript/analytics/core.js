@@ -9,7 +9,7 @@ window.DI = window.DI || {};
   var core = {
 
     load: function(containerId) {
-      var gtmScriptTag = document.createElement("script");
+      const gtmScriptTag = document.createElement("script");
       gtmScriptTag.type = "text/javascript";
       gtmScriptTag.setAttribute("async", "true");
       gtmScriptTag.setAttribute(

@@ -22,7 +22,7 @@ window.DI.analyticsGa4.trackers = window.DI.analyticsGa4.trackers || {};
           title: this.getTitle(),
           referrer: this.getReferrer(),
           taxonomy_level1: 'web cri',
-          taxonomy_level2: 'cic'
+          taxonomy_level2: 'f2f'
         }
       }
       window.DI.core.sendData(data)

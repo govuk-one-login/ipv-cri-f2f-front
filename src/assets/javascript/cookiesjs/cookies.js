@@ -82,7 +82,7 @@ const cookies = function (trackingId, analyticsCookieDomain) {
       "src",
       "https://www.googletagmanager.com/gtm.js?id=" + trackingId
     );
-    gtmScriptTag.setAttribute('crossorigin', 'anonymous');
+    gtmScriptTag.setAttribute("crossorigin", "anonymous");
     document.documentElement.firstChild.appendChild(gtmScriptTag);
   }
 
@@ -91,10 +91,15 @@ const cookies = function (trackingId, analyticsCookieDomain) {
       {
         "gtm.allowlist": ["google"],
         "gtm.blocklist": ["adm", "awct", "sp", "gclidw", "gcs", "opt"],
-      }
+      },
     ];
 
+    const gaDataElement = document.getElementById("gaData");
+
     const sessionJourney = getJourneyMapping(window.location.pathname);
+    const criJourney = criDataLayer(
+      gaDataElement ? gaDataElement.value : "undefined"
+    );
 
     function gtag(obj) {
       dataLayer.push(obj);
@@ -102,6 +107,10 @@ const cookies = function (trackingId, analyticsCookieDomain) {
 
     if (sessionJourney) {
       gtag(sessionJourney);
+    }
+
+    if (criJourney) {
+      gtag(criJourney);
     }
 
     gtag({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -149,6 +158,19 @@ const cookies = function (trackingId, analyticsCookieDomain) {
     };
   }
 
+  function criDataLayer(criJourney = "undefined") {
+    // cri_journey is the only field to change at the moment
+    // it is based off the docType cookie bound to a hidden element on specific pages, and so if that element isn't there, it will be 'undefined'. If it is there, the values will be boolean as a string
+    return {
+      event: "page_view",
+      page: {
+        cri_type: "document checking online",
+        cri_journey: criJourney,
+        organisations: "DI",
+      },
+    };
+  }
+
   function getJourneyMapping(url) {
     const JOURNEY_DATA_LAYER_PATHS = {
       "/authorize": generateSessionJourney("authorize", "start"),
@@ -186,18 +208,18 @@ const cookies = function (trackingId, analyticsCookieDomain) {
       options = {};
     }
 
-    let cookieString = `${name}=${encodeURIComponent(JSON.stringify(values))}`
+    let cookieString = `${name}=${encodeURIComponent(JSON.stringify(values))}`;
     if (options.days) {
       const date = new Date();
       date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
-      cookieString = `${cookieString}; Expires=${date.toUTCString()}; Path=/; Domain=${analyticsCookieDomain}`
+      cookieString = `${cookieString}; Expires=${date.toUTCString()}; Path=/; Domain=${analyticsCookieDomain}`;
     }    
 
     if (document.location.protocol === "https:") {
-      cookieString = `${cookieString}; Secure`
+      cookieString = `${cookieString}; Secure`;
     }
 
-    document.cookie = cookieString
+    document.cookie = cookieString;
   }
 
   function hideElement(el) {
