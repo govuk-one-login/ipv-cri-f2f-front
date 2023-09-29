@@ -6,6 +6,7 @@ const session = require("express-session");
 const AWS = require("aws-sdk");
 const DynamoDBStore = require("connect-dynamodb")(session);
 const wizard = require('hmpo-form-wizard');
+const logger = require("hmpo-logger")
 
 const commonExpress = require("di-ipv-cri-common-express");
 
@@ -17,8 +18,6 @@ const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
 const { setGTM } = require("di-ipv-cri-common-express/src/lib/settings");
 const { getGTM } = require("di-ipv-cri-common-express/src/lib/locals");
 const { setI18n } = require("di-ipv-cri-common-express/src/lib/i18next");
-const steps = require("./app/f2f/steps");
-const fields = require("./app/f2f/fields");
 
 const {
   API,
@@ -87,6 +86,9 @@ const { app, router } = setup({
   dev: true,
 });
 
+const steps = require("./app/f2f/steps");
+const fields = require("./app/f2f/fields");
+
 setI18n({
   router,
   config: {
@@ -134,4 +136,7 @@ const wizardOptions = {
 
 router.use(wizard(steps, fields, wizardOptions));
 
-router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
+router.use((err, req, res, next) => {
+  logger.get().error("Error caught by Express handler", {err});
+  commonExpress.lib.errorHandling.redirectAsErrorToCallback(err, req, res, next);
+});
