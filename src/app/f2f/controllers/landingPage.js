@@ -30,6 +30,7 @@ class LandingPageController extends BaseController {
 			});
 			return data;
 		} catch (error) {
+			console.log("Error calling /sessionConfiguration");
 			logger.error("Error calling /sessionConfiguration", error);
 		}
   }
