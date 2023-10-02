@@ -15,7 +15,7 @@
 <!-- List any related ADRs or RFCs -->
 <!-- Delete/copy as appropriate -->
 
-- [KIWI-XXXX](https://govukverify.atlassian.net/browse/KIWI-XXX)
+- [F2F-XXXX](https://govukverify.atlassian.net/browse/F2F-XXX)
 
 ## Checklists
 

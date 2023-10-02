@@ -1,6 +1,5 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API } = require("../../../lib/config");
-const logger = require("hmpo-logger").get();
 
 class LandingPageController extends BaseController {
 
@@ -31,7 +30,6 @@ class LandingPageController extends BaseController {
 			return data;
 		} catch (error) {
 			console.log("Error calling /sessionConfiguration");
-			logger.error("Error calling /sessionConfiguration", error);
 		}
   }
 
