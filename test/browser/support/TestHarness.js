@@ -93,7 +93,6 @@ module.exports = class TestHarness {
     let i;
     for (i = 0; i < keyList.length; i++) {
       const getObjectResponse = await this.HARNESS_API_INSTANCE.get("/object/" + keyList[i], {});
-      console.log(JSON.stringify(getObjectResponse.data, null, 2));
       let valid = true;
       const eventName = getObjectResponse.data.event_name;
       const Ajv = require('ajv').default;
