@@ -1,0 +1,208 @@
+photoIdChoiceThinFile:
+  validation:
+    required: Dewiswch ID gyda llun y gallwch fynd i'r Swyddfa Bost
+  items:
+    ukPassport:
+      label: Pasbort y DU
+      reveal: ""
+    nonUkPassport:
+      label: Pasbort o'r tu allan i'r DU gyda sglodyn biometrig
+      reveal: ""
+    noPhotoId:
+      label: Nid oes gennyf yr un o'r rhain
+      reveal: ""
+
+photoIdChoice:
+  validation:
+    required: Dewiswch ID gyda llun y gallwch fynd i'r Swyddfa Bost
+  items:
+    ukPassport:
+      label: Pasbort y DU
+      reveal: ""
+    ukPhotocardDl:
+      label: Trwydded yrru gyda llun y DU
+      reveal: ""
+    brp:
+      label: Trwydded breswylio biometrig (BRP)
+      reveal: ""
+    nonUkPassport:
+      label: Pasbort o'r tu allan i'r DU
+      reveal: ""
+    euPhotocardDl:
+      label: Trwydded yrru cerdyn gyda llun yr Undeb Ewropeaidd (UE)
+      reveal: ""
+    eeaIdentityCard:
+      label: Cerdyn hunaniaeth genedlaethol o wlad Ardal Economaidd Ewropeaidd (AEE)
+      reveal: ""
+    noPhotoId:
+      label: Nid oes gennyf unrhyw un o'r dogfennau hyn
+      reveal: ""
+
+"date-day":
+  label: Diwrnod
+
+"date-month":
+  label: Mis
+
+"date-year":
+  label: Blwyddyn
+
+ukDlAddressCheck:
+  legend: ""
+  validation:
+    default: "Dewiswch os oes gan eich trwydded yrru eich cyfeiriad cyfredol arno"
+
+ukPassportExpiryDate:
+  legend: ""
+  label: ""
+  hint: "Er enghraifft, 31 3 2025"
+  validation:
+    default: "Rhowch y dyddiad dod i ben yn llawn"
+    before: "Rhowch ddyddiad dod i ben dilys"
+    "numeric-day": "Mae'n rhaid i'r dyddiad dod i ben gynnwys diwrnod sy'n cynnwys rhifau yn unig"
+    "numeric-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n cynnwys rhifau yn unig"
+    "numeric-year": "Mae'n rhaid i'r dyddiad dod i ben gynnwys blwyddyn sy'n cynnwys rhifau yn unig"
+    "date-day": "Rhowch ddyddiad dod i ben dilys"
+    "date-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n rhif rhwng 1 a 12"
+    "required-day": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-month": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-year": "Rhowch y dyddiad dod i ben yn llawn"
+
+ukPhotocardDlExpiryDate:
+  legend: ""
+  label: ""
+  hint: "Er enghraifft, 31 3 2025"
+  validation:
+    default: "Rhowch y dyddiad dod i ben yn llawn"
+    before: "Rhowch ddyddiad dod i ben dilys"
+    "numeric-day": "Mae'n rhaid i'r dyddiad dod i ben gynnwys diwrnod sy'n cynnwys rhifau yn unig"
+    "numeric-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n cynnwys rhifau yn unig"
+    "numeric-year": "Mae'n rhaid i'r dyddiad dod i ben gynnwys blwyddyn sy'n cynnwys rhifau yn unig"
+    "date-day": "Rhowch ddyddiad dod i ben dilys"
+    "date-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n rhif rhwng 1 a 12"
+    "required-day": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-month": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-year": "Rhowch y dyddiad dod i ben yn llawn"
+
+nonUKPassportExpiryDate:
+  legend: ""
+  label: ""
+  hint: "Er enghraifft, 31 3 2025"
+  validation:
+    default: "Rhowch y dyddiad dod i ben yn llawn"
+    before: "Rhowch ddyddiad dod i ben dilys"
+    "numeric-day": "Mae'n rhaid i'r dyddiad dod i ben gynnwys diwrnod sy'n cynnwys rhifau yn unig"
+    "numeric-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n cynnwys rhifau yn unig"
+    "numeric-year": "Mae'n rhaid i'r dyddiad dod i ben gynnwys blwyddyn sy'n cynnwys rhifau yn unig"
+    "date-day": "Rhowch ddyddiad dod i ben dilys"
+    "date-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n rhif rhwng 1 a 12"
+    "required-day": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-month": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-year": "Rhowch y dyddiad dod i ben yn llawn"
+
+brpExpiryDate:
+  legend: ""
+  label: ""
+  hint: "Er enghraifft, 31 3 2025"
+  validation:
+    default: "Rhowch y dyddiad dod i ben yn llawn"
+    before: "Rhowch ddyddiad dod i ben dilys"
+    "numeric-day": "Mae'n rhaid i'r dyddiad dod i ben gynnwys diwrnod sy'n cynnwys rhifau yn unig"
+    "numeric-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n cynnwys rhifau yn unig"
+    "numeric-year": "Mae'n rhaid i'r dyddiad dod i ben gynnwys blwyddyn sy'n cynnwys rhifau yn unig"
+    "date-day": "Rhowch ddyddiad dod i ben dilys"
+    "date-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n rhif rhwng 1 a 12"
+    "required-day": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-month": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-year": "Rhowch y dyddiad dod i ben yn llawn"
+
+euPhotocardDlExpiryDate:
+  legend: ""
+  label: ""
+  hint: "Er enghraifft, 31 3 2025"
+  validation:
+    default: "Rhowch y dyddiad dod i ben yn llawn"
+    before: "Rhowch ddyddiad dod i ben dilys"
+    "numeric-day": "Mae'n rhaid i'r dyddiad dod i ben gynnwys diwrnod sy'n cynnwys rhifau yn unig"
+    "numeric-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n cynnwys rhifau yn unig"
+    "numeric-year": "Mae'n rhaid i'r dyddiad dod i ben gynnwys blwyddyn sy'n cynnwys rhifau yn unig"
+    "date-day": "Rhowch ddyddiad dod i ben dilys"
+    "date-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n rhif rhwng 1 a 12"
+    "required-day": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-month": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-year": "Rhowch y dyddiad dod i ben yn llawn"
+
+euDrivingLicenceAddressCheck:
+  validation:
+    default: "Dewiswch os oes gan eich trwydded yrru eich cyfeiriad cyfredol arno"
+
+eeaIdCardExpiryDate:
+  label: ""
+  legend: ""
+  hint: "Er enghraifft, 31 3 2025"
+  validation:
+    default: "Rhowch y dyddiad dod i ben yn llawn"
+    before: "Rhowch ddyddiad dod i ben dilys"
+    "numeric-day": "Mae'n rhaid i'r dyddiad dod i ben gynnwys diwrnod sy'n cynnwys rhifau yn unig"
+    "numeric-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n cynnwys rhifau yn unig"
+    "numeric-year": "Mae'n rhaid i'r dyddiad dod i ben gynnwys blwyddyn sy'n cynnwys rhifau yn unig"
+    "date-day": "Rhowch ddyddiad dod i ben dilys"
+    "date-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n rhif rhwng 1 a 12"
+    "required-day": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-month": "Rhowch y dyddiad dod i ben yn llawn"
+    "required-year": "Rhowch y dyddiad dod i ben yn llawn"
+
+idHasExpiryDate:
+  validation:
+    required: "Dewiswch os oes gan eich ID gyda llun ddyddiad dod i ben"
+
+eeaIdCardAddressCheck:
+  validation:
+    required: "Dewiswch os oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad cyfredol arno"
+
+eeaIdentityCardCountrySelector:
+  label: "Dewiswch wlad"
+  validation:
+    equal: "Dewiswch y wlad y mae eich cerdyn adnabod cenedlaethol yn dod ohoni"
+
+euDrivingLicenceCountrySelector:
+  label: "Dewiswch wlad"
+  validation:
+    equal: "Dewiswch y wlad y mae eich trwydded yrru yn dod ohoni"
+
+nonUkPassportCountrySelector:
+  label: "Dewiswch wlad"
+  validation:
+    equal: "Dewiswch y wlad y mae eich pasbort yn dod ohoni"
+
+postcode:
+  label: "Rhowch god post yn y DU"
+  hint: "Er enghraifft, SW1A 2AA"
+  validation:
+    default: "Rhowch god post gwirioneddol yn y DU"
+
+branches:
+  label: "Cod post"
+  validation:
+    default: "Dewiswch Swyddfa Bost lle gallwch brofi eich hunaniaeth"
+
+checkDetails:
+  label: ""
+  legend: ""
+  validation:
+    default: "Gwnewch yn siwr bod eich atebion yn gywir cyn i chi barhau."
+
+photoIdExpiryChoice:
+  validation:
+    required: Mae'n rhaid i chi ddewis opsiwn i barhau
+  content: ""
+  items:
+    reEnterDetails:
+      label: Gwiriwch y dyddiad dod i ben a'i roi eto
+      reveal: ""
+    chooseDifferentPhotoId:
+      label: Dewiswch fath gwahanol o ID gyda llun
+      reveal: ""
+    proveIdentityAnotherWay:
+      label: Profi eich hunaniaeth mewn ffordd arall
+      reveal: ""
