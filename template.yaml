@@ -106,8 +106,8 @@ Mappings:
       APIBASEURL: "https://api-f2f-cri-api.review-o.dev.account.gov.uk"
       DNSSUFFIX: "review-o.dev.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
-      GTM_ID_UA: "GTM-TK92W68"
-      GTM_ID_GA4: "GTM-KD86CMZ"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
       GA4ENABLED: "true"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
       PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
@@ -115,8 +115,8 @@ Mappings:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
       DNSSUFFIX: "review-o.build.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-build"
-      GTM_ID_UA: "GTM-TK92W68"
-      GTM_ID_GA4: "GTM-KD86CMZ"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
       GA4ENABLED: "true"
       ANALYTICSDOMAIN: "build.account.gov.uk"
       PROXYURL: "proxy.review-o.build.account.gov.uk"
@@ -124,8 +124,8 @@ Mappings:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-staging"
-      GTM_ID_UA: "GTM-TK92W68"
-      GTM_ID_GA4: "GTM-KD86CMZ"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
       GA4ENABLED: "true"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
       PROXYURL: "proxy.review-o.staging.account.gov.uk"
@@ -133,8 +133,8 @@ Mappings:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-integration"
-      GTM_ID_UA: "GTM-TK92W68"
-      GTM_ID_GA4: "GTM-KD86CMZ"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
       GA4ENABLED: "false"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       PROXYURL: "proxy.review-o.integration.account.gov.uk"
@@ -142,8 +142,8 @@ Mappings:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-production"
-      GTM_ID_UA: "GTM-TK92W68"
-      GTM_ID_GA4: "GTM-KD86CMZ"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
       GA4ENABLED: "false"
       ANALYTICSDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.account.gov.uk"
@@ -403,7 +403,7 @@ Resources:
     Properties:
       ContainerDefinitions:
         - Essential: true
-          Image: CONTAINER-IMAGE-PLACEHOLDER
+          Image: 440208678480.dkr.ecr.eu-west-2.amazonaws.com/f2f-cri-front-ecr-containerrepository-lrazucdwjqvv:ga4-mon
           Name: app
           Environment:
             - Name: API_BASE_URL
@@ -418,9 +418,9 @@ Resources:
             #                - "https://${Url}"
             #                - Url: !ImportValue backend-api-apigateway-url
             - Name: UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID
-              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTM_ID_UA ]
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDUA ]
             - Name: GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID
-              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTM_ID_GA4 ]
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDGA4 ]
             - Name: GA4_ENABLED
               Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GA4ENABLED ]
             - Name: ANALYTICS_DOMAIN
