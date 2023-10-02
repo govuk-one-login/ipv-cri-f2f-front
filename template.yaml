@@ -102,20 +102,22 @@ Mappings:
   EnvironmentVariables:
     ### These environment variables are referenced further down the file.
     ### Please ensure that any variables defined for an environment are defined for _all_ environments.
-    dev:
+      dev:
       APIBASEURL: "https://api-f2f-cri-api.review-o.dev.account.gov.uk"
       DNSSUFFIX: "review-o.dev.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
-      PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
+      ### Using post-office stub
+      PROXYURL: "f2f-post-office-stub-postofficestub.review-o.dev.account.gov.uk"
     build:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
       DNSSUFFIX: "review-o.build.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-build"
       GTMID: "TK92W68"
       ANALYTICSDOMAIN: "build.account.gov.uk"
-      PROXYURL: "proxy.review-o.build.account.gov.uk"
+      ### Using post-office stub
+      PROXYURL: "f2f-post-office-stub-postofficestub.review-o.build.account.gov.uk"
     staging:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
