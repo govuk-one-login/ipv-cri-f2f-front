@@ -402,6 +402,11 @@ Resources:
               Value: !Ref F2FFrontCustomDomain
             - Name: SESSION_TABLE_NAME
               Value: !Ref F2fFrontSessionsTable
+            #No backend api url available ????
+            #            - Name: API_URL
+            #              Value: !Sub
+            #                - "https://${Url}"
+            #                - Url: !ImportValue backend-api-apigateway-url
             - Name: GTM_ID
               Value: !Sub
                 - "GTM-${ContainerId}"
