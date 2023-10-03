@@ -1,4 +1,4 @@
-/* global window document */
+/* global window */
 
 window.DI = window.DI || {}
 window.DI.analyticsGa4 = window.DI.analyticsGa4 || {};
