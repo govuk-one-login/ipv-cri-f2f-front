@@ -1,0 +1,130 @@
+landingPage:
+  title: "Sut i brofi eich hunaniaeth mewn Swyddfa Bost"
+  firstCircle: "1"
+  firstStepTitle: "Cael eich llythyr cwsmer Swyddfa Bost gan GOV.UK"
+  secondCircle: "2"
+  secondStepTitle: "Ewch i'r Swyddfa Bost"
+  thirdCircle: "3"
+  thirdStepTitle: "Arhoswch am eich canlyniad"
+  instructions:
+    firstStep:
+      one: "Rhowch y manylion o'ch ID gyda llun ar GOV.UK."
+      two: "Yna dewiswch pa Swyddfa Bost rydych am fynd â'ch ID gyda llun iddo."
+      three: "Byddwn yn anfon e-bost cadarnhau atoch gyda dolen i lawrlwytho eich llythyr cwsmer Swyddfa Bost."
+    secondStep:
+      one: "Ewch â'ch llythyr cwsmer Swyddfa Bost a'ch ID gyda llun i'ch Swyddfa Bost dewisol. Neu ewch i unrhyw "
+      two: "Bydd aelod o staff y Swyddfa Bost yn sganio'ch ID gyda llun ac yn tynnu llun ohonoch chi. "
+      three: "Mae'n rhaid i chi fynd i'r Swyddfa Bost o fewn 10 diwrnod o gael eich e-bost cadarnhau."
+    thirdStep:
+      one: "Byddwch yn cael e-bost am ganlyniad eich gwiriad hunaniaeth - fel arfer o fewn diwrnod o fynd i'r Swyddfa Bost."
+
+photoIdSelectionThinFile:
+  title: "Dewiswch pa ID gyda llun y gallwch fynd i'r Swyddfa Bost"
+  content: "Yn seiliedig ar beth rydych wedi'i ddweud wrthym a'r gwiriadau rydym wedi'u gwneud, byddwch angen pasbort y DU neu basbort o'r tu allan i'r DU gyda sglodyn biometrig i brofi pwy ydych chi mewn Swyddfa Bost."
+  biometricHint: "I wirio a oes gan eich pasbort o'r tu allan i'r DU sglodyn biometrig, edrychwch am y symbol sglodyn biometrig petryal ar y clawr blaen."
+  biometricChipPhoto: <img src="public/images/biometricChipPhoto.png" alt="Llun Sglodyn Biometrig" width="150" height="100">
+  photocopyWarning: "Ni allwch ddefnyddio llungopi neu gopi digidol o'ch pasbort."
+
+photoIdSelection:
+  title: "Dewiswch pa ID gyda llun y gallwch fynd i'r Swyddfa Bost"
+  content: "Mae'n rhaid i chi fynd a'r ddogfen ID gyda llun gwreiddiol, nid llungopi."
+  expiryWarning: "Mae'n rhaid bod cyfnod eich ID gyda llun heb fod wedi dod i ben."
+
+dateOfBirth:
+  title: "Rhowch eich dyddiad geni"
+  formLegend: "Rhowch eich dyddiad geni"
+  hintText: "Er enghraifft, 22 4 1976"
+
+ukPassport:
+  title: "Pryd mae eich pasbort yn dod i ben?"
+  passportInformationContext: "Rydym angen y wybodaeth hon i wirio bod eich ID gyda llun yn ddilys."
+  hintText: "Er enghraifft, 31 3 2025"
+
+nonUKPassport:
+  title: "Pryd mae eich pasbort yn dod i ben?"
+  passportInformationContext: "Rydym angen y wybodaeth hon i wirio bod eich ID gyda llun yn ddilys."
+  hintText: "Er enghraifft, 31 3 2025"
+
+ukPhotocardDl:
+  title: "Pryd mae eich trwydded yrru yn dod i ben?"
+  photocardDlInformationContext: "Rydym angen y wybodaeth hon i wirio bod eich ID gyda llun yn ddilys."
+  hintText: "Er enghraifft, 31 3 2025"
+
+brp:
+  title: "Pryd mae eich trwydded preswylio biometrig (BRP) yn dod i ben?"
+  brpInformationContext: "Rydym angen y wybodaeth hon i wirio bod eich ID gyda llun yn ddilys."
+  hintText: "Er enghraifft, 31 3 2025"
+
+euPhotocardDl:
+  title: "Pryd mae eich trwydded yrru yn dod i ben?"
+  euPhotocardDlInformationContext: "Rydym angen y wybodaeth hon i wirio bod eich ID gyda llun yn ddilys."
+  hintText: "Er enghraifft, 31 3 2025"
+
+eeaIdentityCard:
+  title: "Pryd mae eich cerdyn adnabod cenedlaethol yn dod i ben?"
+  eeaIdentityCardInformationContext: "Rydym angen y wybodaeth hon i wirio bod eich ID gyda llun yn ddilys."
+  hintText: "Er enghraifft, 31 3 2025"
+
+nonUKPassportHasExpiryDate:
+  title: "Oes gan eich pasbort ddyddiad dod i ben?"
+
+euDrivingLicenceHasExpiryDate:
+  title: "Oes gan eich trwydded yrru ddyddiad dod i ben?"
+
+nationalIdentityCardHasExpiryDate:
+  title: "Oes gan eich cerdyn adnabod cenedlaethol ddyddiad dod i ben?"
+
+findBranch:
+  title: "Dod o hyd i Swyddfa Bost lle gallwch brofi eich hunaniaeth"
+  body: "Rhowch god post yn y DU"
+
+locations:
+  title: "Dewiswch Swyddfa Bost lle gallwch brofi eich hunaniaeth"
+  body: "Cod post"
+
+photoIdExpiry:
+  title: "Mae eich ID gyda llun wedi dod i ben"
+  content: "Rydych angen ID gyda llun dilys i brofi eich hunaniaeth."
+  prompt: "Beth hoffech chi ei wneud?"
+
+checkDetails:
+  title: "Edrychwch dros eich atebion"
+  selectedId: "ID gyda llun a ddewiswyd"
+  expiryDate: "Dyddiad dod i ben"
+  postOffice: "Cyfeiriad Swyddfa Bost"
+  changeLink: "Newid"
+  buttonText: "Cadarnhau ac anfon"
+  ukDlAddress: "A yw'r cyfeiriad ar eich trwydded yrru yr un fath â'ch cyfeiriad presennol?"
+  euDlAddress: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
+  idCardAddress: "A oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad cyfredol arno?"
+  country: "Gwlad"
+  hasExpiryDate: "A oes gan eich ID gyda llun ddyddiad dod i ben?"
+
+ukDlAddressCheck:
+  title: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
+  context: "Os oes gan eich trwydded yrru eich cyfeiriad blaenorol arno, bydd angen i chi ddewis math arall o ID gyda llun."
+  change-how: "Sut ydw i'n newid y cyfeiriad ar fy nhrwydded yrru?"
+  change-link: "<p>Mae'n rhaid i chi ddiweddaru eich trwydded yrru pan fyddwch yn symud. <a href=\"https://www.gov.uk/tell-dvla-changed-address\" target=\"_blank\" class=\"govuk-link\">Dywedwch wrth DVLA eich bod wedi newid cyfeiriad (agor mewn tab newydd)</a></p>"
+
+euDrivingLicenceAddressCheck:
+  title: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
+  context: "Os oes gan eich trwydded yrru eich cyfeiriad blaenorol arno, bydd angen i chi ddewis math arall o ID gyda llun."
+
+eeaIdCardAddressCheck:
+  title: "A oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad cyfredol arno?"
+  context: "Os oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad blaenorol arno, bydd angen i chi ddewis math arall o ID gyda llun."
+
+eeaIdentityCardCountrySelector:
+  title: "Dewiswch o ba wlad mae eich cerdyn adnabod cenedlaethol"
+  content: "Os nad yw'r wlad y mae eich cerdyn adnabod cenedlaethol yn dod ohoni ar y rhestr, bydd angen i chi ddewis math arall o ID gyda llun."
+  link: "Nid yw'r wlad y mae fy ngherdyn adnabod cenedlaethol yn dod ohoni ar y rhestr"
+
+euDrivingLicenceCountrySelector:
+  title: "Dewiswch o ba wlad mae eich trwydded yrru"
+  content: "Os nad yw'r wlad y mae eich trwydded yrru yn dod ohoni ar y rhestr, bydd angen i chi ddewis math arall o ID gyda llun."
+  link: "Nid yw'r wlad y mae fy nhrwydded yrru yn dod ohoni ar y rhestr"
+
+nonUkPassportCountrySelector:
+  title: "Dewiswch o ba wlad mae eich pasbort"
+  content: "Os nad yw'r wlad y mae eich pasbort yn dod ohoni ar y rhestr, bydd angen i chi ddewis math arall o ID gyda llun."
+  link: "Nid yw'r wlad y mae fy mhasport yn dod ohoni ar y rhestr"
