@@ -26,7 +26,7 @@ module.exports = class PlaywrightDevPage {
     const expDay = tomorrow.toString()
     const currentMonth = new Date().getMonth() + 1
     const expMonth = currentMonth.toString()
-    const futureYear = new Date().getFullYear() + 3
+    const futureYear = new Date().getFullYear() + 10
     const expYear = futureYear.toString()
     await this.page.locator("#brpExpiryDate-day").fill(expDay);
     await this.page.locator("#brpExpiryDate-month").fill(expMonth);
