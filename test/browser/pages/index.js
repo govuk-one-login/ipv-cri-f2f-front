@@ -6,6 +6,7 @@ module.exports = {
     PostOfficeLocations: require("./postOfficeLocations"),
     LandingPage: require("./landingPage"),
     RelyingPartyPage: require("./relying-party"),
+    OrchestratorStubPage: require("./orchestratorStub.js"),
     CheckDetails: require("./checkDetails"),
     NonPassportDetailsPageValidEdit: require("./nonUKPassportDetailsPageValidEdit"),
     NonUKPassportDetailsPageValid: require("./nonUKPassportDetailsPageValid"),
