@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @browse
+@mock-api:f2f-f2f-success @success @browser
 Feature: Document Selection - EU Driving Licence E2E Journey (Happy Path)
 
 Background:
