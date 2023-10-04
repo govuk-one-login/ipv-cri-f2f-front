@@ -6,7 +6,6 @@ class AbortController extends BaseController {
   async saveValues(req, res, callback) {
     try {
       await this.abortJourney(req, res);
-			callback();
     } catch (err) {
       callback(err);
     }
@@ -27,9 +26,10 @@ class AbortController extends BaseController {
 
 		if (response.status === 200 && response.headers.location) {
 
-      logger.info("Session aborted successfully - now redirecting", { location: response.headers.location });
+			const REDIRECT_URL = decodeURIComponent(response.headers.location);
 
-      const REDIRECT_URL = decodeURIComponent(response.headers.location);
+      logger.info("Session aborted successfully - now redirecting", { location: REDIRECT_URL });
+
 			res.redirect(REDIRECT_URL)
     }
 	}
