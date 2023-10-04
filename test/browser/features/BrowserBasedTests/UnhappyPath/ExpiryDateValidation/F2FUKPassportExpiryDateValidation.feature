@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Enter UK Passport - Happy Path
+Feature: UK Passport Expiry Date Validation - Unhappy Path
 
     Background:
         Given Authenticatable Anita is using the system
@@ -15,7 +15,13 @@ Feature: Enter UK Passport - Happy Path
         Then the user is routed to the next screen in the journey Passport Details
 
     
-    Scenario: UK Passport expired (UnHappy path)
+    Scenario: UK Passport expired more than 18 months (UnHappy path)
         Given the date entered is more than 18 months in the past
         When the user clicks the continue button on the UK passport page
         Then the user is routed to the Expired Date Error Screen from the UK passport screen
+
+
+    Scenario: UK Passport date entered is more than 10 years from today (UnHappy path)
+        Given the date entered is more than 10 years from today
+        When the user clicks the continue button on the UK Passport page
+        Then the user sees an inline error message displayed on the UK Passport Page

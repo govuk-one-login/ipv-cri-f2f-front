@@ -16,6 +16,6 @@ Feature: EEAIdentityCard Page - Expiry Selection Inline Validation
         Then the user is routed to the EEA Has Expiry Entry Screen
 
     Scenario: EEAIdentityCard - Does your national identity card have an expiry date - Non Selection
-        When the user clicks the continue button only on the EEAIdentityCardHasExpiryDatePage
+        Given the user clicks the continue button only on the EEAIdentityCardHasExpiryDatePage
         Then the user sees an inline error message displayed on the EEAIdentityCardHasExpiryDatePage
  
