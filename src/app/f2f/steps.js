@@ -410,11 +410,10 @@ module.exports = {
     controller: checkDetails,
     next: APP.PATHS.DONE,
   },
-	"/abort": {
+	[`${APP.PATHS.ABORT}`]: {
     entryPoint: true,
     skip: true,
     controller: abort,
-		next: APP.PATHS.DONE,
   },
   [`${APP.PATHS.DONE}`]: {
     skip: true,
