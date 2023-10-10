@@ -419,5 +419,13 @@ module.exports = {
     skip: true,
     noPost: true,
     next: APP.PATHS.OAUTH2,
+  },
+	[`${APP.PATHS.NEWDONE}`]: {
+    resetJourney: true,
+    reset: true,
+    entryPoint: true,
+    skip: true,
+    controller: root,
   }
+
 }
