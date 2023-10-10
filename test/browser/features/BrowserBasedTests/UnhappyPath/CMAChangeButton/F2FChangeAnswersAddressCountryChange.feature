@@ -37,9 +37,16 @@ Background:
     When the user clicks continue
     Then the user is navigated to the next step in the journey - Confirm Answer
 
-    Scenario: Successful redirect from CMA screen back to address check then back to CMA screen
+    Scenario: NIC EEA Successful redirect from CMA screen back to address check then back to CMA screen
         Given the user has navigated to the Check My Answers Page
         When the user clicks the Address Check Change button
         Then the user is navigated back to the Address Check Page
         Then the user changes the address selection to "My identity card does not have my address on it"
         Then the user continues to the CMA page from the Address Check page
+
+    Scenario: NIC EEA Successful redirect from CMA screen back to country of issue then back to CMA screen
+        Given the user has navigated to the Check My Answers Page
+        When the user clicks the Country Change button
+        Then the user is navigated back to the Country Selector Page
+        Then the user changes the country of issue
+        Then the user continues to the CMA page from the Country Selector page

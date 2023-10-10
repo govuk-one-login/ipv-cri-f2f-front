@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Enter EU driving licence - Happy Path
+Feature: European Union Driving Licence Expiry Date Validation - Unhappy Path
 
     Background:
         Given Authenticatable Anita is using the system
@@ -18,8 +18,14 @@ Feature: Enter EU driving licence - Happy Path
         Then the user is routed to the EU DL Expiry Entry Screen
 
     
-    Scenario: EU driving licence expired (UnHappy path)
+    Scenario: EUDL expired date in the past (UnHappy path)
         Given the date entered is before the accepted EU driving licence expiration window
         When the user clicks the continue button on the EU Driving Licence Past page
         Then the user is routed to the Expired Date Error Screen from the EU Driving Licence screen
+
+
+    Scenario: EUDL expired date in the future (UnHappy path)
+        Given the date entered is beyond the accepted EU driving licence expiration window
+        When the user clicks the continue button on the EU driving licence Future page
+        Then the user sees an inline error message displayed on the EU DL Page    
         

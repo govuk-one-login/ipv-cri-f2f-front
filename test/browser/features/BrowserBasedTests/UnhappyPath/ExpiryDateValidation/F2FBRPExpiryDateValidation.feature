@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Enter BRP - Happy Path
+Feature: BRP Expiry Date Validation - Unhappy Path
 
     Background:
         Given Authenticatable Anita is using the system
@@ -15,7 +15,13 @@ Feature: Enter BRP - Happy Path
         Then the user is routed to the next screen in the journey BRP Expiry Date
     
 
-    Scenario: BRP expired (UnHappy path)
+    Scenario: BRP expired date in the past (UnHappy path)
         Given the date entered is before the accepted BRP expiration window
         When the user clicks the continue button on the BRPPast page
         Then the user is routed to the Expired Date Error Screen from the BRP Page
+
+
+    Scenario: BRP expired date in the future (UnHappy path)
+        Given the date entered is beyond the accepted BRP expiration window
+        When the user clicks the continue button on the BRPFuture page
+        Then the user sees an inline error message displayed on the BRP Page

@@ -16,6 +16,6 @@ Feature: EU Driving Licence  - Expiry Selection Inline Validation
         Then the user is routed to the EU DL Has Expiry Entry Screen
 
     Scenario: EU Driving Licence- Does your driving licence have an expiry date - Non Selection
-        When the user clicks the continue button only on the EuDrivingLicenceHasExpiryDatePage
+        Given the user clicks the continue button only on the EuDrivingLicenceHasExpiryDatePage
         Then the user sees an inline error message displayed on the EuDrivingLicenceHasExpiryDatePage
  
