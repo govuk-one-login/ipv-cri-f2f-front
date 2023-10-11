@@ -142,8 +142,8 @@ Mappings:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-production"
-      GTMIDUA: "GTM-TK92W68"
-      GTMIDGA4: "GTM-KD86CMZ"
+      GTMIDUA: "GTM-TT5HDKV"
+      GTMIDGA4: "GTM-K4PBJH3"
       GA4ENABLED: "false"
       ANALYTICSDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.account.gov.uk"
@@ -412,12 +412,6 @@ Resources:
               Value: !Ref F2FFrontCustomDomain
             - Name: SESSION_TABLE_NAME
               Value: !Ref F2fFrontSessionsTable
-
-            #No backend api url available ????
-            #            - Name: API_URL
-            #              Value: !Sub
-            #                - "https://${Url}"
-            #                - Url: !ImportValue backend-api-apigateway-url
             - Name: UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID
               Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDUA ]
             - Name: GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID
