@@ -70,14 +70,16 @@ window.DI.analyticsUa = window.DI.analyticsUa || {};
     }
   }
 
-  function generateSessionJourney(journey, status) {
-    return {
-      sessionjourney: {
-        journey: journey,
-        status: status,
-      },
-    };
-  }
+  // Used for the sessionJourney push described above
+
+  // function generateSessionJourney(journey, status) {
+  //   return {
+  //     sessionjourney: {
+  //       journey: journey,
+  //       status: status,
+  //     },
+  //   };
+  // }
 
   function criDataLayer(criJourney = "undefined") {
     // cri_journey is the only field to change at the moment
