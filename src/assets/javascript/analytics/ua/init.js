@@ -18,18 +18,21 @@ window.DI.analyticsUa = window.DI.analyticsUa || {};
 
     const gaDataElement = document.getElementById("gaData");
 
-    const sessionJourney = getJourneyMapping(window.location.pathname);
     const criJourney = criDataLayer(
       gaDataElement ? gaDataElement.value : "undefined"
     );
 
-    if (sessionJourney) {
-      sendData(sessionJourney);
-    }
-
     if (criJourney) {
       sendData(criJourney);
     }
+
+    //Unused code - see getJourneyMapping definition below
+    // const sessionJourney = getJourneyMapping(window.location.pathname);
+
+    // Pushes info to the dataLayer if any of the paths described in getJourneyMapping are present
+    // if (sessionJourney) {
+    //   sendData(sessionJourney);
+    // }
 
     sendData({ "gtm.start": new Date().getTime(), event: "gtm.js" });
   }
@@ -89,22 +92,24 @@ window.DI.analyticsUa = window.DI.analyticsUa || {};
     };
   }
 
-  function getJourneyMapping(url) {
-    const JOURNEY_DATA_LAYER_PATHS = {
-      "/authorize": generateSessionJourney("authorize", "start"),
-      "/callback": generateSessionJourney("authorize", "end"),
-      "/finishBiometricCheck": generateSessionJourney("authorize", "end"),
-      "/flashingWarning": generateSessionJourney("authorize", "middle"),
-      "/validDrivingLicence": generateSessionJourney("authorize", "middle"),
-      "/workingCamera": generateSessionJourney("authorize", "middle"),
-      "/readyCheck": generateSessionJourney("authorize", "middle"),
-      "/downloadApp": generateSessionJourney("authorize", "middle"),
-      "/abort": generateSessionJourney("authorize", "end"),
-      "/simpleDevice": generateSessionJourney("authorize", "end"),
-    };
+  // Used for the sessionJourney push described above
 
-    return JOURNEY_DATA_LAYER_PATHS[url];
-  }
+  // function getJourneyMapping(url) {
+  //   const JOURNEY_DATA_LAYER_PATHS = {
+  //     "/authorize": generateSessionJourney("authorize", "start"),
+  //     "/callback": generateSessionJourney("authorize", "end"),
+  //     "/finishBiometricCheck": generateSessionJourney("authorize", "end"),
+  //     "/flashingWarning": generateSessionJourney("authorize", "middle"),
+  //     "/validDrivingLicence": generateSessionJourney("authorize", "middle"),
+  //     "/workingCamera": generateSessionJourney("authorize", "middle"),
+  //     "/readyCheck": generateSessionJourney("authorize", "middle"),
+  //     "/downloadApp": generateSessionJourney("authorize", "middle"),
+  //     "/abort": generateSessionJourney("authorize", "end"),
+  //     "/simpleDevice": generateSessionJourney("authorize", "end"),
+  //   };
+
+  //   return JOURNEY_DATA_LAYER_PATHS[url];
+  // }
 
   const init = function() {
 

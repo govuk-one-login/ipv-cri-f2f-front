@@ -7,7 +7,6 @@ window.DI.analyticsGa4 = window.DI.analyticsGa4 || {};
 
   'use strict'
 
-  // container is an optional parameter used for unit tests
   const init = function() {
 
     const consentGiven = window.DI.cookies.hasConsentForAnalytics()
