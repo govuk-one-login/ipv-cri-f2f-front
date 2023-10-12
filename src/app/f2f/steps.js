@@ -422,7 +422,5 @@ module.exports = {
   },
 	[`${APP.PATHS.ERROR}`]: {
     entryPoint: true,
-    skip: true,
   }
-
 }
