@@ -1,4 +1,4 @@
-ught by Express handler - redirectin@mock-api:f2f-f2f-success @success @browser
+@mock-api:f2f-f2f-success @success @browser
 Feature: Change Document Expiry Presence option  - Happy Path
 
     Background:
