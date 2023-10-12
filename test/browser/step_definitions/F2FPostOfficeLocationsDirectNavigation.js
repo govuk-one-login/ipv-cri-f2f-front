@@ -1,6 +1,6 @@
 const { Given, Then } = require("@cucumber/cucumber");
 
-const { PostOfficeLocations } = require("../pages");
+const { PostOfficeLocations, ErrorPage } = require("../pages");
 const { expect } = require("chai");
 
 Given(/^the user navigates directly to choose-post-office page$/, async function () {
@@ -10,10 +10,10 @@ Given(/^the user navigates directly to choose-post-office page$/, async function
 });
 
 Then(/^the user sees an error message displayed on the choose-post-office page$/, async function () {
-    const postOfficeLocationsPage = new PostOfficeLocations(await this.page);
-    expect(await postOfficeLocationsPage.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await postOfficeLocationsPage.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
