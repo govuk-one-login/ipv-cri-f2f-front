@@ -145,17 +145,17 @@ router.use((err, req, res, next) => {
   // next(err);
 
 	console.log('Error caught by Express handler - redirecting to Callback with server_error', {err});
-  logger.get().error("Error caught by Express handler - redirecting to Callback with server_error", {err});
-	console.log('req.session', req.session);
-	const REDIRECT_URI = req.session?.authParams?.redirect_uri;
-	console.log('REDIRECT_URI', REDIRECT_URI);
-	if (REDIRECT_URI) {
-		console.log("CALLING_NEXT");
-		next(err);
-	} else {
-		console.log("CALLING_NEWDONE");
-		res.redirect(APP.PATHS.NEWDONE)
-	}
+  // logger.get().error("Error caught by Express handler - redirecting to Callback with server_error", {err});
+	// console.log('req.session', req.session);
+	// const REDIRECT_URI = req.session?.authParams?.redirect_uri;
+	// console.log('REDIRECT_URI', REDIRECT_URI);
+	// if (REDIRECT_URI) {
+	// 	console.log("CALLING_NEXT");
+	// 	next(err);
+	// } else {
+	// 	console.log("CALLING_NEWDONE");
+	// 	res.redirect(APP.PATHS.ERROR)
+	// }
 });
 
 router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
