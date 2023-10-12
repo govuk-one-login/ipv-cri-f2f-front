@@ -1,9 +1,11 @@
 module.exports = class PlaywrightDevPage {
+	
   /**
    * @param {import('@playwright/test').Page} page
    */
   constructor(page) {
     this.page = page;
+		this.path = "/error";
   }
 
   getErrorTitle() {
@@ -22,7 +24,8 @@ module.exports = class PlaywrightDevPage {
     }
   }
 
-  isCurrentPage() {
-    return this.page.url() === this.url;
+	async isCurrentPage() {
+    const { pathname } = new URL(this.page.url());
+    return pathname === this.path;
   }
 };

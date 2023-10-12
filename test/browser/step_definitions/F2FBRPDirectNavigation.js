@@ -1,7 +1,7 @@
 const { Given, Then } = require("@cucumber/cucumber");
 
 const { BRPDetailsPageInvalidFuture, BRPDetailsPageInvalidPast,
-    BRPDetailsPageValid } = require("../pages");
+    BRPDetailsPageValid, ErrorPage } = require("../pages");
 const { expect } = require("chai");
 
 Given(/^the user navigates directly to brp-invalid-future-expiry page$/, async function () {
@@ -11,11 +11,11 @@ Given(/^the user navigates directly to brp-invalid-future-expiry page$/, async f
 });
 
 Then(/^the user sees an error message displayed on the brp-invalid-future-expiry page$/, async function () {
-    const brpDetailsInvalidFuture = new BRPDetailsPageInvalidFuture(await this.page);
-    expect(await brpDetailsInvalidFuture.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await brpDetailsInvalidFuture.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
 
@@ -26,11 +26,11 @@ Given(/^the user navigates directly to brp-invalid-past-expiry page$/, async fun
 });
 
 Then(/^the user sees an error message displayed on the brp-invalid-past-expiry page$/, async function () {
-    const brpDetailsInvalidPast = new BRPDetailsPageInvalidPast(await this.page);
-    expect(await brpDetailsInvalidPast.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await brpDetailsInvalidPast.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
 
@@ -41,10 +41,10 @@ Given(/^the user navigates directly to brp-valid page$/, async function () {
 });
 
 Then(/^the user sees an error message displayed on the brp-valid page$/, async function () {
-    const brpDetailsValid = new BRPDetailsPageValid(await this.page);
-    expect(await brpDetailsValid.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await brpDetailsValid.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });

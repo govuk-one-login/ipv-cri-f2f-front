@@ -12,4 +12,6 @@ Then("they should see the unrecoverable error page", async function () {
   const errorTitle = await errorPage.getErrorTitle();
 
   expect(errorTitle).to.equal(errorPage.getSomethingWentWrongMessage());
+
+	expect(await errorPage.isCurrentPage()).to.be.true;
 });

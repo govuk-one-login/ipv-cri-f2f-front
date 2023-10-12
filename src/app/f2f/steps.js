@@ -419,5 +419,8 @@ module.exports = {
     skip: true,
     noPost: true,
     next: APP.PATHS.OAUTH2,
+  },
+	[`${APP.PATHS.ERROR}`]: {
+    entryPoint: true,
   }
 }
