@@ -78,8 +78,10 @@ module.exports = {
       PROVE_IDENTITY_ANOTHER_WAY: "proveIdentityAnotherWay"
     },
     ANALYTICS: {
-      ID: process.env.GTM_ID,
+      GTM_ID_UA: process.env.UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID,
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
+      GA4_ENABLED: process.env.GA4_ENABLED,
+      GTM_ID_GA4: process.env.GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID
     },
   },
   PORT: process.env.PORT || 5030,

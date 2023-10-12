@@ -106,35 +106,45 @@ Mappings:
       APIBASEURL: "https://api-f2f-cri-api.review-o.dev.account.gov.uk"
       DNSSUFFIX: "review-o.dev.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
-      GTMID: "TK92W68"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
+      GA4ENABLED: "true"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
       PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
     build:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
       DNSSUFFIX: "review-o.build.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-build"
-      GTMID: "TK92W68"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
+      GA4ENABLED: "true"
       ANALYTICSDOMAIN: "build.account.gov.uk"
       PROXYURL: "proxy.review-o.build.account.gov.uk"
     staging:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-staging"
-      GTMID: "TK92W68"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
+      GA4ENABLED: "true"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
       PROXYURL: "proxy.review-o.staging.account.gov.uk"
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-integration"
-      GTMID: "TK92W68"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
+      GA4ENABLED: "false"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       PROXYURL: "proxy.review-o.integration.account.gov.uk"
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
       SESSIONTABLENAME: "f2f-front-sessions-production"
-      GTMID: "TT5HDKV"
+      GTMIDUA: "GTM-TT5HDKV"
+      GTMIDGA4: "GTM-K4PBJH3"
+      GA4ENABLED: "false"
       ANALYTICSDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.account.gov.uk"
 
@@ -402,10 +412,12 @@ Resources:
               Value: !Ref F2FFrontCustomDomain
             - Name: SESSION_TABLE_NAME
               Value: !Ref F2fFrontSessionsTable
-            - Name: GTM_ID
-              Value: !Sub
-                - "GTM-${ContainerId}"
-                - ContainerId: !FindInMap [EnvironmentVariables, !Ref Environment, GTMID ]
+            - Name: UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDUA ]
+            - Name: GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDGA4 ]
+            - Name: GA4_ENABLED
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GA4ENABLED ]
             - Name: ANALYTICS_DOMAIN
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
             - Name: PROXYURL
