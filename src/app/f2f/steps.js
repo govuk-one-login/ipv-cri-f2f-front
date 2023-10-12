@@ -420,12 +420,9 @@ module.exports = {
     noPost: true,
     next: APP.PATHS.OAUTH2,
   },
-	[`${APP.PATHS.NEWDONE}`]: {
-    resetJourney: true,
-    reset: true,
+	[`${APP.PATHS.ERROR}`]: {
     entryPoint: true,
     skip: true,
-    controller: root,
   }
 
 }
