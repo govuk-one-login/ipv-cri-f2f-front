@@ -83,6 +83,7 @@ module.exports = {
       GA4_ENABLED: process.env.GA4_ENABLED,
       GTM_ID_GA4: process.env.GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID
     },
+    LANGUAGE: process.env.LANGUAGE
   },
   PORT: process.env.PORT || 5030,
   SESSION_SECRET: process.env.SESSION_SECRET,

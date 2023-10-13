@@ -1,5 +1,9 @@
 module.exports = {
 
+    setLanguage: ({ language }) => {
+      app.set("APP.LANGUAGE", language);
+    },
+
     setGTM: ({ app, ga4ContainerId, uaContainerId, analyticsCookieDomain, isGa4Enabled }) => {
       app.set("APP.GTM.GA4_ID", ga4ContainerId);
       app.set("APP.GTM.UA_ID", uaContainerId);

@@ -1,7 +1,10 @@
 const { APP } = require("../../lib/config");
-const { EEA_ID_CARD } = require("./data/countryCodes/eeaNationalIdentityCard");
-const { EU_DL_COUNTRIES } = require("./data/countryCodes/euDrivingLicence");
-const { NON_UK_PASSPORT } = require("./data/countryCodes/nonUkPassport");
+const { EEA_ID_CARD } = require("./data/countryCodes/en/eeaNationalIdentityCard");
+const { EU_DL_COUNTRIES } = require("./data/countryCodes/en/euDrivingLicence");
+const { NON_UK_PASSPORT } = require("./data/countryCodes/en/nonUkPassport");
+const { EEA_ID_CARD_CY } = require("./data/countryCodes/cy/eeaNationalIdentityCard");
+const { EU_DL_COUNTRIES_CY } = require("./data/countryCodes/cy/euDrivingLicence");
+const { NON_UK_PASSPORT_CY } = require("./data/countryCodes/cy/nonUkPassport");
 
 module.exports = {
   photoIdChoice: {
@@ -353,6 +356,44 @@ eeaIdentityCardCountrySelector: {
       { value: EU_DL_COUNTRIES.SLOVENIA.text, text: EU_DL_COUNTRIES.SLOVENIA.text },
       { value: EU_DL_COUNTRIES.SPAIN.text, text: EU_DL_COUNTRIES.SPAIN.text },
       { value: EU_DL_COUNTRIES.SWEDEN.text, text: EU_DL_COUNTRIES.SWEDEN.text }
+    ],
+    validate: ["required",
+      {type: "equal", fn: (value) => !value.match(/Select/)}
+    ]
+  },
+  euDrivingLicenceCountrySelectorCy: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      { value: "Select", text: "Select country" },
+      { value: EU_DL_COUNTRIES_CY.AUSTRIA.text, text: EU_DL_COUNTRIES_CY.AUSTRIA.text },
+      { value: EU_DL_COUNTRIES_CY.BELGIUM.text, text: EU_DL_COUNTRIES_CY.BELGIUM.text },
+      { value: EU_DL_COUNTRIES_CY.BULGARIA.text, text: EU_DL_COUNTRIES_CY.BULGARIA.text },
+      { value: EU_DL_COUNTRIES_CY.CROATIA.text, text: EU_DL_COUNTRIES_CY.CROATIA.text },
+      { value: EU_DL_COUNTRIES_CY.CYPRUS.text, text: EU_DL_COUNTRIES_CY.CYPRUS.text },
+      { value: EU_DL_COUNTRIES_CY.CZECH.text, text: EU_DL_COUNTRIES_CY.CZECH.text },
+      { value: EU_DL_COUNTRIES_CY.DENMARK.text, text: EU_DL_COUNTRIES_CY.DENMARK.text },
+      { value: EU_DL_COUNTRIES_CY.ESTONIA.text, text: EU_DL_COUNTRIES_CY.ESTONIA.text },
+      { value: EU_DL_COUNTRIES_CY.FINLAND.text, text: EU_DL_COUNTRIES_CY.FINLAND.text },
+      { value: EU_DL_COUNTRIES_CY.FRANCE.text, text: EU_DL_COUNTRIES_CY.FRANCE.text },
+      { value: EU_DL_COUNTRIES_CY.GERMANY.text, text: EU_DL_COUNTRIES_CY.GERMANY.text },
+      { value: EU_DL_COUNTRIES_CY.GREECE.text, text: EU_DL_COUNTRIES_CY.GREECE.text },
+      { value: EU_DL_COUNTRIES_CY.HUNGARY.text, text: EU_DL_COUNTRIES_CY.HUNGARY.text },
+      { value: EU_DL_COUNTRIES_CY.ITALY.text, text: EU_DL_COUNTRIES_CY.ITALY.text },
+      { value: EU_DL_COUNTRIES_CY.IRELAND.text, text: EU_DL_COUNTRIES_CY.IRELAND.text },
+      { value: EU_DL_COUNTRIES_CY.LATVIA.text, text: EU_DL_COUNTRIES_CY.LATVIA.text },
+      { value: EU_DL_COUNTRIES_CY.LITHUANIA.text, text: EU_DL_COUNTRIES_CY.LITHUANIA.text },
+      { value: EU_DL_COUNTRIES_CY.LUXEMBOURG.text, text: EU_DL_COUNTRIES_CY.LUXEMBOURG.text },
+      { value: EU_DL_COUNTRIES_CY.MALTA.text, text: EU_DL_COUNTRIES_CY.MALTA.text },
+      { value: EU_DL_COUNTRIES_CY.NETHERLANDS.text, text: EU_DL_COUNTRIES_CY.NETHERLANDS.text },
+      { value: EU_DL_COUNTRIES_CY.POLAND.text, text: EU_DL_COUNTRIES_CY.POLAND.text },
+      { value: EU_DL_COUNTRIES_CY.PORTUGAL.text, text: EU_DL_COUNTRIES_CY.PORTUGAL.text },
+      { value: EU_DL_COUNTRIES_CY.ROMANIA.text, text: EU_DL_COUNTRIES_CY.ROMANIA.text },
+      { value: EU_DL_COUNTRIES_CY.SLOVAKIA.text, text: EU_DL_COUNTRIES_CY.SLOVAKIA.text },
+      { value: EU_DL_COUNTRIES_CY.SLOVENIA.text, text: EU_DL_COUNTRIES_CY.SLOVENIA.text },
+      { value: EU_DL_COUNTRIES_CY.SPAIN.text, text: EU_DL_COUNTRIES_CY.SPAIN.text },
+      { value: EU_DL_COUNTRIES_CY.SWEDEN.text, text: EU_DL_COUNTRIES_CY.SWEDEN.text }
     ],
     validate: ["required",
       {type: "equal", fn: (value) => !value.match(/Select/)}

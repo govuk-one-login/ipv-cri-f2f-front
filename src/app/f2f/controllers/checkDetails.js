@@ -2,7 +2,7 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils")
 const { APP, API } = require("../../../lib/config");
-const { NON_UK_PASSPORT } = require("../data/countryCodes/nonUkPassport");
+const { NON_UK_PASSPORT } = require("../data/countryCodes/en/nonUkPassport");
 const DateController = DateControllerMixin(BaseController);
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {

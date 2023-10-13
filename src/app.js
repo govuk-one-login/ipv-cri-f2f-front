@@ -67,6 +67,11 @@ const { app, router } = setup({
     public: "/public",
   },
   publicDirs: ["../dist/public"],
+  translation: {
+    allowedLangs: ["cy"],
+    fallbackLang: ["cy"],
+    cookie: { name: "lng" },
+  },
   views: [
     path.resolve(
       path.dirname(require.resolve("di-ipv-cri-common-express")),
@@ -74,11 +79,7 @@ const { app, router } = setup({
     ),
     "views",
   ],
-  translation: {
-    allowedLangs: ["en"],
-    fallbackLang: ["en"],
-    cookie: { name: "lng" },
-  },
+
   middlewareSetupFn: (app) => {
     app.use(setHeaders);
   },
