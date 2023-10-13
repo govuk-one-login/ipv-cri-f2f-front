@@ -1,7 +1,12 @@
 module.exports = {
 
-    setLanguage: ({ language }) => {
+    setLanguage: ({app, language }) => {
       app.set("APP.LANGUAGE", language);
+    },
+
+    getLanguage: function (req, res, next) {
+      res.locals.language = req.app.get("APP.LANGUAGE");
+      next();
     },
 
     setGTM: ({ app, ga4ContainerId, uaContainerId, analyticsCookieDomain, isGa4Enabled }) => {

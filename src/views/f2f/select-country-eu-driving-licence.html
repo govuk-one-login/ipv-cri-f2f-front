@@ -17,10 +17,12 @@
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     <div class="hint-with-margin">
-    {{ hmpoSelect(ctx, {
-        id: "euDrivingLicenceCountrySelectorCy",
-        label: translate("fields.euDrivingLicenceCountrySelector.label")
-    }) }}
+    {% if (APP.LANGUAGE == "cy") %}
+      {% include "../components/euDlCountrySelectorCy.njk" %}
+    {% else %}
+      {% include "../components/euDlCountrySelectorEn.njk" %}
+    {% endif %}
+
   </div>
 
   <p><a href="/choose-photo-id-post-office">{{ translate("euDrivingLicenceCountrySelector.link") }}</a></p>
