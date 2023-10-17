@@ -34,13 +34,63 @@ module.exports = {
 		{
 		  field: "isThinFileUser",
 		  value: false,
-		  next: APP.PATHS.PHOTO_ID_SELECTION,
+		  next: APP.PATHS.PHOTO_ID_SELECTION_CY,
 		}
 	]
   },
   [`${APP.PATHS.PHOTO_ID_SELECTION}`]: {
     controller: photoIdSelect,
     fields: ["photoIdChoice"],
+    invalidates: [
+      "ukPassportExpiryDate",
+      "nonUKPassportExpiryDate",
+      "ukPhotocardDlExpiryDate",
+      "brpExpiryDate",
+      "eeaIdCardExpiryDate",
+      "euPhotocardDlExpiryDate",
+      "photoIdExpiryChoice",
+    ],
+    next: [
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
+        next: APP.PATHS.UK_PASSPORT_DETAILS,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.BRP,
+        next: APP.PATHS.BRP_DETAILS,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
+        next: APP.PATHS.PHOTOCARD_DL_DETAILS,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
+        next: APP.PATHS.NON_UK_PASSPORT_HAS_EXPIRY_DATE,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL,
+        next: APP.PATHS.EU_DRIVING_LICENCE_HAS_EXPIRY_DATE,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
+        next: APP.PATHS.NATIONAL_IDENTITY_CARD_HAS_EXPIRY_DATE,
+      },
+      {
+        field: "photoIdChoice",
+        value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
+        next: APP.PATHS.ABORT,
+      },
+    ],
+  },
+  [`${APP.PATHS.PHOTO_ID_SELECTION_CY}`]: {
+    controller: photoIdSelect,
+    fields: ["photoIdChoiceCy"],
     invalidates: [
       "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",

@@ -17,10 +17,16 @@
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     <div class="hint-with-margin">
-    {% if (APP.LANGUAGE == "cy") %}
-      {% include "../components/euDlCountrySelectorCy.njk" %}
+    {% if (values.language == "cy") %}
+    {{ hmpoSelect(ctx, {
+      id: "euDrivingLicenceCountrySelectorCy",
+      label: translate("fields.euDrivingLicenceCountrySelector.label")
+    }) }}
     {% else %}
-      {% include "../components/euDlCountrySelectorEn.njk" %}
+    {{ hmpoSelect(ctx, {
+      id: "euDrivingLicenceCountrySelector",
+      label: translate("fields.euDrivingLicenceCountrySelector.label")
+    }) }}
     {% endif %}
 
   </div>

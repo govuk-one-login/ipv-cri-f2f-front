@@ -23,6 +23,7 @@ module.exports = {
       F2F: "/",
       LANDING_PAGE: "/prove-identity-post-office",
       PHOTO_ID_SELECTION: "/choose-photo-id-post-office",
+      PHOTO_ID_SELECTION_CY: "/choose-photo-id-post-office-cy",
       PHOTO_ID_SELECTION_THIN_FILE: "/choose-photo-id-post-office-biometric",
       UK_PASSPORT_DETAILS: "/uk-passport-expire",
       NON_UK_PASSPORT_DETAILS: "/non-uk-passport-expire",
@@ -67,15 +68,24 @@ module.exports = {
       YES: "Yes",
       NO: "No"
     },
-    UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.",
-    NON_UK_PASSPORT_HINT: "Your passport must not have expired.",
-    UK_DL_HINT: "The address on your driving licence must be the same as your current address.",
-    EU_PHOTOCARD_DL_HINT: "This must be a plastic photocard, not a paper or handwritten licence. If it has your address on it, it must be your current address.",
-    EEA_IDENTITY_CARD_HINT: "This must be a plastic photocard, not a paper or handwritten card. If it has your address on it, it must be your current address.",
+    ID_HINTS_EN: {
+      UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.",
+      NON_UK_PASSPORT_HINT: "Your passport must not have expired.",
+      UK_DL_HINT: "The address on your driving licence must be the same as your current address.",
+      EU_PHOTOCARD_DL_HINT: "This must be a plastic photocard, not a paper or handwritten licence. If it has your address on it, it must be your current address.",
+      EEA_IDENTITY_CARD_HINT: "This must be a plastic photocard, not a paper or handwritten card. If it has your address on it, it must be your current address.",
+    },
+    ID_HINTS_CY: {
+      UK_PASSPORT_HINT: "Os yw'ch pasbort y DU wedi dod i ben, gallwch barhau i’w ddefnyddio i brofi pwy ydych chi hyd at 18 mis ar ôl ei ddyddiad dod i ben.",
+      NON_UK_PASSPORT_HINT: "Ni ddylai'ch pasbort fod wedi dod i ben.",
+      UK_DL_HINT: "Rhaid i'r cyfeiriad ar eich trwydded yrru fod yr un fath â'ch cyfeiriad presennol.",
+      EU_PHOTOCARD_DL_HINT: "Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen. Os oes ganddo eich cyfeiriad arno, rhaid iddo fod eich cyfeiriad presennol.",
+      EEA_IDENTITY_CARD_HINT: " Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen. Os oes ganddo eich cyfeiriad arno, rhaid iddo fod eich cyfeiriad presennol."
+    },
     PHOTO_ID_EXPIRY_OPTIONS: {
-      RE_ENTER_DETAILS: "reEnterDetails",
-      CHOOSE_DIFFERENT_PHOTO_ID: "chooseDifferentPhotoId",
-      PROVE_IDENTITY_ANOTHER_WAY: "proveIdentityAnotherWay"
+    RE_ENTER_DETAILS: "reEnterDetails",
+    CHOOSE_DIFFERENT_PHOTO_ID: "chooseDifferentPhotoId",
+    PROVE_IDENTITY_ANOTHER_WAY: "proveIdentityAnotherWay",
     },
     ANALYTICS: {
       GTM_ID_UA: process.env.UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID,

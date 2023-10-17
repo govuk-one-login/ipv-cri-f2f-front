@@ -6,6 +6,7 @@ class LandingPageController extends BaseController {
 
   async saveValues(req, res, next) {
 	  req.sessionModel.set("isThinFileUser", false);
+	  req.sessionModel.set("language", "cy")
 
 		try {
 		  const configData = await this.getSessionConfig(req);

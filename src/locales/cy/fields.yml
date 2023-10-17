@@ -12,7 +12,7 @@ photoIdChoiceThinFile:
       label: Nid oes gennyf yr un o'r rhain
       reveal: ""
 
-photoIdChoice:
+photoIdChoiceCy:
   validation:
     required: Dewiswch ID gyda llun y gallwch fynd i'r Swyddfa Bost
   items:

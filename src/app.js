@@ -15,7 +15,7 @@ const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
 const setAxiosDefaults = commonExpress.lib.axios;
 
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
-const { setGTM, getGTM, setLanguage, getLanguage } = require("./lib/locals");
+const { setGTM, getGTM } = require("./lib/locals");
 const { setI18n } = require("di-ipv-cri-common-express/src/lib/i18next");
 
 const {
@@ -67,6 +67,11 @@ const { app, router } = setup({
     public: "/public",
   },
   publicDirs: ["../dist/public"],
+  translation: {
+    allowedLangs: ["cy"],
+    fallbackLang: ["cy"],
+    cookie: { name: "lng" },
+  },
   views: [
     path.resolve(
       path.dirname(require.resolve("di-ipv-cri-common-express")),
@@ -74,11 +79,6 @@ const { app, router } = setup({
     ),
     "views",
   ],
-  translation: {
-    allowedLangs: ["cy", "en"],
-    fallbackLang: ["en"],
-    cookie: { name: "lng" },
-  },
   middlewareSetupFn: (app) => {
     app.use(setHeaders);
   },
@@ -126,13 +126,8 @@ setGTM({
   analyticsCookieDomain: APP.ANALYTICS.DOMAIN,
 });
 
-setLanguage({
-  app,
-  language: APP.LANGUAGE
-})
 
 router.use(getGTM);
-router.use(getLanguage)
 
 router.use(setScenarioHeaders);
 router.use(setAxiosDefaults);
