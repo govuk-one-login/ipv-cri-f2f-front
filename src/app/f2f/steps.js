@@ -1,4 +1,5 @@
 const photoIdSelect = require("./controllers/photoIdSelection");
+const photoIdSelectCy = require("./controllers/photoIdSelectionCy");
 const resultsController = require("./controllers/results");
 const ukPassportDetails = require("./controllers/ukPassportDetails");
 const ukPhotocardDlDetails = require("./controllers/ukPhotocardDl");
@@ -34,7 +35,7 @@ module.exports = {
 		{
 		  field: "isThinFileUser",
 		  value: false,
-		  next: APP.PATHS.PHOTO_ID_SELECTION_CY,
+		  next: APP.PATHS.PHOTO_ID_SELECTION,
 		}
 	]
   },
@@ -89,7 +90,7 @@ module.exports = {
     ],
   },
   [`${APP.PATHS.PHOTO_ID_SELECTION_CY}`]: {
-    controller: photoIdSelect,
+    controller: photoIdSelectCy,
     fields: ["photoIdChoiceCy"],
     invalidates: [
       "ukPassportExpiryDate",

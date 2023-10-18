@@ -59,10 +59,10 @@ module.exports = {
       NO_PHOTO_ID: "noPhotoId"
     },
     ADDRESS_OPTIONS: {
-      CURRENT_ADDRESS: "Yes, it has my current address on it",
-      DIFFERENT_ADDRESS: "No, it has my previous address on it",
-      NO_ADDRESS: "My driving licence does not have my address on it",
-      ID_NO_ADDRESS: "My national identity card does not have my address on it",
+      CURRENT_ADDRESS: "Current",
+      DIFFERENT_ADDRESS: "Different",
+      NO_ADDRESS: "DLNoAddress",
+      ID_NO_ADDRESS: "IDNoAddress",
     },
     HAS_EXPIRY_DATE: {
       YES: "Yes",

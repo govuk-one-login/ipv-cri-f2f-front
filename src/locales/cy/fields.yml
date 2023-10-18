@@ -12,7 +12,7 @@ photoIdChoiceThinFile:
       label: Nid oes gennyf yr un o'r rhain
       reveal: ""
 
-photoIdChoiceCy:
+photoIdChoice:
   validation:
     required: Dewiswch ID gyda llun y gallwch fynd i'r Swyddfa Bost
   items:
@@ -51,6 +51,11 @@ ukDlAddressCheck:
   legend: ""
   validation:
     default: "Dewiswch os oes gan eich trwydded yrru eich cyfeiriad cyfredol arno"
+  items:
+    Current:
+      label: Oes, mae ganddo fy nghyfeiriad presennol arno
+    Different:
+      label: Na, mae fy nghyfeiriad blaenorol arno
 
 ukPassportExpiryDate:
   legend: ""
@@ -135,6 +140,13 @@ euPhotocardDlExpiryDate:
 euDrivingLicenceAddressCheck:
   validation:
     default: "Dewiswch os oes gan eich trwydded yrru eich cyfeiriad cyfredol arno"
+  items:
+    Current:
+      label: Oes, mae ganddo fy nghyfeiriad presennol arno
+    Different:
+      label: Na, mae fy nghyfeiriad blaenorol arno
+    DLNoAddress:
+      label: Nid oes gan fy nhrwydded yrru fy nghyfeiriad arno
 
 eeaIdCardExpiryDate:
   label: ""
@@ -159,6 +171,13 @@ idHasExpiryDate:
 eeaIdCardAddressCheck:
   validation:
     required: "Dewiswch os oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad cyfredol arno"
+  items:
+    Current:
+      label: Oes, mae ganddo fy nghyfeiriad presennol arno
+    Different:
+      label: Na, mae fy nghyfeiriad blaenorol arno
+    IDNoAddress:
+      label: Nid oes gan fy ngherdyn hunaniaeth genedlaethol fy nghyfeiriad arno
 
 eeaIdentityCardCountrySelector:
   label: "Dewiswch wlad"

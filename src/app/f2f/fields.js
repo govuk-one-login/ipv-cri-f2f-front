@@ -15,7 +15,7 @@ module.exports = {
     items: [
       {
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
-        hint: { text: APP.ID_HINTS_EN.UK_PASSPORT_HINT }
+        //hint: { text: APP.ID_HINTS_EN.UK_PASSPORT_HINT }
       },
       { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
       {
@@ -46,7 +46,6 @@ module.exports = {
       {
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
         //text: APP.WELSH_ID_NAMES.UK_PASSPORT,
-        hint: { text: APP.ID_HINTS_CY.UK_PASSPORT_HINT }
       },
       { 
         value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
@@ -88,11 +87,11 @@ module.exports = {
     items: [
       {
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
-        hint: { text: APP.UK_PASSPORT_HINT }
+        hint: { text: APP.ID_HINTS_EN.UK_PASSPORT_HINT }
       },
       { 
         value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
-        hint: { text: APP.NON_UK_PASSPORT_HINT}
+        hint: { text: APP.ID_HINTS_EN.NON_UK_PASSPORT_HINT}
       },
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
@@ -105,14 +104,12 @@ module.exports = {
     hint: "",
     items: [
       {
-        value: "Yes",
-        text: "Yes, it has my current address on it",
+        value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
-      { value: "No",
-        text: "No, it has my previous address on it",
+      { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         conditional: {
           html: ""
         }
@@ -229,20 +226,17 @@ module.exports = {
     hint: "",
     items: [
       { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       { divider: "or" },
       { value: APP.ADDRESS_OPTIONS.NO_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.NO_ADDRESS,
         conditional: {
           html: ""
         }
@@ -275,20 +269,17 @@ module.exports = {
     hint: "",
     items: [
       { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       {divider: "or"},
       { value: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
         conditional: {
           html: ""
         }
