@@ -4,9 +4,11 @@ const logger = require("hmpo-logger").get();
 
 class LandingPageController extends BaseController {
 
-  async saveValues(req, res, next) {
+	async saveValues(req, res, next) {
+
 	  req.sessionModel.set("isThinFileUser", false);
-	  req.sessionModel.set("language", "cy")
+	  const language = req.lng
+	  req.sessionModel.set("language", language)
 
 		try {
 		  const configData = await this.getSessionConfig(req);
@@ -25,17 +27,18 @@ class LandingPageController extends BaseController {
 		const headers = {
 			"x-govuk-signin-session-id": req.session.tokenId,
 		}
+		console.log("✅ HEADERS", headers)
 		try {
 			const { data } = await req.axios.get(`${API.PATHS.SESSION_CONFIG}`, {
 				headers,
 			});
 			return data;
 		} catch (error) {
-			console.log("Error calling /sessionConfiguration");
 			logger.error("Error calling /sessionConfiguration", error);
 		}
   }
-
 }
+console.log("❗️")
+
 
 module.exports = LandingPageController;

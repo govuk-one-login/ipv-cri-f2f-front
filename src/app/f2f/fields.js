@@ -400,7 +400,7 @@ eeaIdentityCardCountrySelector: {
     label: "",
     hint: "",
     items: [
-      { value: "Select", text: "Select country" },
+      { value: "Select", text: "Dewiswch wlad" },
       { value: EU_DL_COUNTRIES_CY.AUSTRIA.text, text: EU_DL_COUNTRIES_CY.AUSTRIA.text },
       { value: EU_DL_COUNTRIES_CY.BELGIUM.text, text: EU_DL_COUNTRIES_CY.BELGIUM.text },
       { value: EU_DL_COUNTRIES_CY.BULGARIA.text, text: EU_DL_COUNTRIES_CY.BULGARIA.text },

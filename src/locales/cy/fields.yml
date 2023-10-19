@@ -189,6 +189,11 @@ euDrivingLicenceCountrySelector:
   validation:
     equal: "Dewiswch y wlad y mae eich trwydded yrru yn dod ohoni"
 
+euDrivingLicenceCountrySelectorCy:
+  label: "Dewiswch wlad"
+  validation:
+    equal: "Dewiswch y wlad y mae eich trwydded yrru yn dod ohoni"
+
 nonUkPassportCountrySelector:
   label: "Dewiswch wlad"
   validation:

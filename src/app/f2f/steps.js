@@ -35,7 +35,7 @@ module.exports = {
 		{
 		  field: "isThinFileUser",
 		  value: false,
-		  next: APP.PATHS.PHOTO_ID_SELECTION,
+		  next: APP.PATHS.PHOTO_ID_SELECTION
 		}
 	]
   },
@@ -430,7 +430,7 @@ module.exports = {
     next: APP.PATHS.FIND_POST_OFFICE
   },
   [`${APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR}`]: {
-    fields: ["euDrivingLicenceCountrySelector"],
+    fields: ["euDrivingLicenceCountrySelector", "euDrivingLicenceCountrySelectorCy"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: APP.PATHS.FIND_POST_OFFICE
