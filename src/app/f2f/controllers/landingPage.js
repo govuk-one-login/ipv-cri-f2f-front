@@ -27,7 +27,6 @@ class LandingPageController extends BaseController {
 		const headers = {
 			"x-govuk-signin-session-id": req.session.tokenId,
 		}
-		console.log("✅ HEADERS", headers)
 		try {
 			const { data } = await req.axios.get(`${API.PATHS.SESSION_CONFIG}`, {
 				headers,
@@ -38,7 +37,5 @@ class LandingPageController extends BaseController {
 		}
   }
 }
-console.log("❗️")
-
 
 module.exports = LandingPageController;

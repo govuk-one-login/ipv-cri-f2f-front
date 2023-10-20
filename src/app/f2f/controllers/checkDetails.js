@@ -3,6 +3,7 @@ const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils")
 const { APP, API } = require("../../../lib/config");
 const { NON_UK_PASSPORT } = require("../data/countryCodes/en/nonUkPassport");
+const { NON_UK_PASSPORT_CY } = require("../data/countryCodes/cy/nonUkPassport");
 const DateController = DateControllerMixin(BaseController);
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
@@ -13,6 +14,7 @@ class CheckDetailsController extends DateController {
       // Value for selected Post Office depends on selected PO
       const addressDetails = req.form.values.postOfficeDetails
       const payLoadDetails = req.form.values.payLoadValues
+      const lang = req.sessionModel.get("language")
       let postOfficeAddress;
       let postOfficeName;
       let postOfficeAddressWithoutPostCode;
@@ -104,7 +106,13 @@ class CheckDetailsController extends DateController {
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
-          country = req.form.values.euDrivingLicenceCountrySelector;
+          if (lang == "en") {
+            console.log("🏴󠁧󠁢󠁥󠁮󠁧󠁿inside en")
+            country = req.form.values.euDrivingLicenceCountrySelector;
+          } else if (lang = "cy") {
+            console.log("🏴󠁧󠁢󠁷󠁬󠁳󠁿inside cy")
+            country = req.form.values.euDrivingLicenceCountrySelectorCy;
+          }
           address = req.form.values.euDrivingLicenceAddressCheck
           break;
         }
@@ -117,13 +125,21 @@ class CheckDetailsController extends DateController {
         }
       }
       // Sets country code value and country name
-
-      Object.values(NON_UK_PASSPORT).forEach(val => {
-        if(val.text == country) {
-          req.sessionModel.set("countryCode", val.value)
-          req.sessionModel.set("country", country)
-        }
-      })
+      if (lang == "en") {
+        Object.values(NON_UK_PASSPORT).forEach(val => {
+          if(val.text == country) {
+            req.sessionModel.set("countryCode", val.value)
+            req.sessionModel.set("country", country)
+          }
+        })
+      } else if (lang == "cy") {
+        Object.values(NON_UK_PASSPORT_CY).forEach(val => {
+          if(val.text == country) {
+            req.sessionModel.set("countryCode", val.value)
+            req.sessionModel.set("country", country)
+          }
+        })
+      }
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);

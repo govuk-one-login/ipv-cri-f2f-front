@@ -205,13 +205,9 @@ eeaIdentityCardCountrySelector:
   validation:
     equal: "Dewiswch y wlad y mae eich cerdyn adnabod cenedlaethol yn dod ohoni"
 
-euDrivingLicenceCountrySelector:
-  label: "Dewiswch wlad"
-  validation:
-    equal: "Dewiswch y wlad y mae eich trwydded yrru yn dod ohoni"
-
 euDrivingLicenceCountrySelectorCy:
   label: "Dewiswch wlad"
+  hint: ""
   validation:
     equal: "Dewiswch y wlad y mae eich trwydded yrru yn dod ohoni"
 
