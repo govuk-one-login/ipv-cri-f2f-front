@@ -13,68 +13,14 @@ module.exports = {
     label: "",
     hint: "",
     items: [
-      {
-        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
-        //hint: { text: APP.ID_HINTS_EN.UK_PASSPORT_HINT }
-      },
+      { value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT },
       { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
-      {
-        value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
-        hint: { text: APP.ID_HINTS_EN.UK_DL_HINT }
-      },
+      { value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL },
       { value: APP.PHOTO_ID_OPTIONS.BRP },
-      {
-        value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL,
-        hint: { text: APP.ID_HINTS_EN.EU_PHOTOCARD_DL_HINT }
-      },
-      {
-        value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
-        hint: { text: APP.ID_HINTS_EN.EEA_IDENTITY_CARD_HINT }
-      },
+      { value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL },
+      { value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD },
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
-    ],
-    validate: ["required"],
-    invalidates: ["eeaIdCardAddressCheck"]
-  },
-  photoIdChoiceCy: {
-    type: "radios",
-    legend: "",
-    label: "",
-    hint: "",
-    items: [
-      {
-        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
-        //text: APP.WELSH_ID_NAMES.UK_PASSPORT,
-      },
-      { 
-        value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
-        //text: APP.WELSH_ID_NAMES.NON_UK_PASSPORT
-      },
-      {
-        value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
-        //text: APP.WELSH_ID_NAMES.UK_PHOTOCARD_DL,
-        hint: { text: APP.ID_HINTS_CY.UK_DL_HINT }
-      },
-      { 
-        value: APP.PHOTO_ID_OPTIONS.BRP,
-        //text: APP.WELSH_ID_NAMES.BRP
-      },
-      {
-        value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL,
-        //text: APP.WELSH_ID_NAMES.EU_PHOTOCARD_DL,
-        hint: { text: APP.ID_HINTS_CY.EU_PHOTOCARD_DL_HINT }
-      },
-      {
-        value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
-        //text: APP.WELSH_ID_NAMES.EEA_IDENTITY_CARD,
-        hint: { text: APP.ID_HINTS_CY.EEA_IDENTITY_CARD_HINT }
-      },
-      { divider: "or" },
-      { 
-        value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
-       // text: APP.WELSH_ID_NAMES.NO_PHOTO_ID
-      }
     ],
     validate: ["required"],
     invalidates: ["eeaIdCardAddressCheck"]
@@ -86,12 +32,10 @@ module.exports = {
     hint: "",
     items: [
       {
-        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
-        hint: { text: APP.ID_HINTS_EN.UK_PASSPORT_HINT }
+        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT
       },
       { 
-        value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
-        hint: { text: APP.ID_HINTS_EN.NON_UK_PASSPORT_HINT}
+        value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT
       },
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
@@ -160,13 +104,11 @@ module.exports = {
     items: [
       {
         value: APP.HAS_EXPIRY_DATE.YES,
-        text: APP.HAS_EXPIRY_DATE.YES,
         conditional: {
           html: ""
         }
       },
       { value: APP.HAS_EXPIRY_DATE.NO,
-        text: APP.HAS_EXPIRY_DATE.NO,
         conditional: {
           html: ""
         }

@@ -4,9 +4,11 @@ photoIdChoiceThinFile:
   items:
     ukPassport:
       label: UK passport
+      hint: If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.
       reveal: ""
     nonUkPassport:
       label: Non-UK passport with a biometric chip
+      hint: Your passport must not have expired.
       reveal: ""
     noPhotoId:
       label: I do not have either of these
@@ -19,25 +21,33 @@ photoIdChoice:
   items:
     ukPassport:
       label: UK passport
+      hint: If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.
       reveal: ""
     ukPhotocardDl:
       label: UK photocard driving licence
+      hint: The address on your driving licence must be the same as your current address.
       reveal: ""
     brp:
       label: Biometric residence permit (BRP)
+      hint: ""
       reveal: ""
     nonUkPassport:
       label: Non-UK passport
+      hint: ""
       reveal: ""
     euPhotocardDl:
       label: European Union (EU) photocard driving licence
+      hint: This must be a plastic photocard, not a paper or handwritten licence. If it has your address on it, it must be your current address.
       reveal: ""
     eeaIdentityCard:
       label: National identity card from a European Economic Area (EEA) country
+      hint: This must be a plastic photocard, not a paper or handwritten card. If it has your address on it, it must be your current address.
       reveal: ""
     noPhotoId:
       label: I do not have any of these documents
+      hint: ""
       reveal: ""
+      
 
 "date-day":
   label: Day
@@ -55,8 +65,10 @@ ukDlAddressCheck:
   items:
     Current:
       label: Yes, it has my current address on it
+      hint: ""
     Different:
       label: No, it has my previous address on it
+      hint: ""
 
 ukPassportExpiryDate:
   legend: ""
@@ -144,10 +156,13 @@ euDrivingLicenceAddressCheck:
   items:
     Current:
       label: Yes, it has my current address on it
+      hint: ""
     Different:
       label: No, it has my previous address on it
+      hint: ""
     DLNoAddress:
       label: My driving licence does not have my address on it
+      hint: ""
     
 
 eeaIdCardExpiryDate:
@@ -169,6 +184,13 @@ eeaIdCardExpiryDate:
 idHasExpiryDate:
   validation:
     required: "Select if your photo ID has an expiry date"
+  items:
+    Yes:
+      label: "Yes"
+      hint: ""
+    No:
+      label: "No"
+      hint: ""
 
 eeaIdCardAddressCheck:
   validation:
@@ -176,10 +198,13 @@ eeaIdCardAddressCheck:
   items:
     Current:
       label: Yes, it has my current address on it
+      hint: ""
     Different:
       label: No, it has my previous address on it
+      hint: ""
     IDNoAddress:
       label: My national identity card does not have my address on it
+      hint: ""
 
 eeaIdentityCardCountrySelector:
   label: "Select country"
