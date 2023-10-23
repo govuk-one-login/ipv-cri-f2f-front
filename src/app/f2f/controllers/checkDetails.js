@@ -79,8 +79,10 @@ class CheckDetailsController extends DateController {
       // Value for document expiry date depends on selected document
       let idHasExpiryDate
       let expiryDate
-      let country
+      let countryEn
+      let countryCy
       let address
+      
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           expiryDate = req.form.values.ukPassportExpiryDate;
@@ -106,13 +108,8 @@ class CheckDetailsController extends DateController {
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
-          if (lang == "en") {
-            console.log("🏴󠁧󠁢󠁥󠁮󠁧󠁿inside en")
-            country = req.form.values.euDrivingLicenceCountrySelector;
-          } else if (lang = "cy") {
-            console.log("🏴󠁧󠁢󠁷󠁬󠁳󠁿inside cy")
-            country = req.form.values.euDrivingLicenceCountrySelectorCy;
-          }
+          countryEn = req.form.values.euDrivingLicenceCountrySelector;
+          countryCy = req.form.values.euDrivingLicenceCountrySelectorCy;
           address = req.form.values.euDrivingLicenceAddressCheck
           break;
         }
@@ -127,16 +124,16 @@ class CheckDetailsController extends DateController {
       // Sets country code value and country name
       if (lang == "en") {
         Object.values(NON_UK_PASSPORT).forEach(val => {
-          if(val.text == country) {
+          if(val.text == countryEn) {
             req.sessionModel.set("countryCode", val.value)
-            req.sessionModel.set("country", country)
+            req.sessionModel.set("country", countryEn)
           }
         })
       } else if (lang == "cy") {
         Object.values(NON_UK_PASSPORT_CY).forEach(val => {
-          if(val.text == country) {
+          if(val.text == countryCy) {
             req.sessionModel.set("countryCode", val.value)
-            req.sessionModel.set("country", country)
+            req.sessionModel.set("country", countryCy)
           }
         })
       }

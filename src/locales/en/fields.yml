@@ -213,14 +213,75 @@ eeaIdentityCardCountrySelector:
 
 euDrivingLicenceCountrySelector:
   label: "Select country"
+  hint: ""
   validation:
     equal: "Select the country your driving licence is from"
+  items:
+    Austria:
+      label: "Austria"
+    Belgium:
+      label: "Belgium"
+    Bulgaria:
+      label: "Bulgaria"
+    Croatia:
+      label: "Croatia"
+    Cyprus:
+      label: "Cyprus"
+    Czech Republic:
+      label: "Czech Republic"
+    Denmark:
+      label: "Denmark"
+    Estonia:
+      label: "Estonia"
+    Finland:
+      label: "Finland"
+    France:
+      label: "France"
+    Germany:
+      label: "Germany"
+    Greece: 
+      label: "Greece"
+    Hungary:
+      label: "Hungary"
+    Italy:
+      label: "Italy"
+    Ireland:
+      label: "Ireland"
+    Latvia:
+      label: "Latvia"
+    Lithuania:
+      label: "Lithuania"
+    Luxembourg:
+      label: "Luxembourg"
+    Malta:
+      label: "Malta"
+    Netherlands:
+      label: "Netherlands"
+    Poland:
+      label: "Poland"
+    Portugal:
+      label: "Portugal"
+    Romania:
+      label: "Romania"
+    Slovakia:
+      label: "Slovakia"
+    Slovenia:
+      label: "Slovenia"
+    Spain:
+      label: "Spain"
+    Sweden:
+      label: "Sweden"
 
 nonUkPassportCountrySelector:
   label: "Select country"
   validation:
     equal: "Select the country your passport is from"
 
+testSelector:
+  label: "At last"
+  items:
+    Austria: 
+      label: "Austria!"
 
 postcode:
   label: Enter a UK postcode

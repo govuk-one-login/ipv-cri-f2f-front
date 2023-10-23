@@ -430,7 +430,7 @@ module.exports = {
     next: APP.PATHS.FIND_POST_OFFICE
   },
   [`${APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR}`]: {
-    fields: ["euDrivingLicenceCountrySelector", "euDrivingLicenceCountrySelectorCy"],
+    fields: ["euDrivingLicenceCountrySelector"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: APP.PATHS.FIND_POST_OFFICE
