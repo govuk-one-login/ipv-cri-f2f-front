@@ -73,6 +73,9 @@ module.exports = {
     CHOOSE_DIFFERENT_PHOTO_ID: "chooseDifferentPhotoId",
     PROVE_IDENTITY_ANOTHER_WAY: "proveIdentityAnotherWay",
     },
+    SELECTOR: {
+      TEXT: "Select"
+    },
     ANALYTICS: {
       GTM_ID_UA: process.env.UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID,
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",

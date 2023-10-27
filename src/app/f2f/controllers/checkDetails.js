@@ -79,8 +79,7 @@ class CheckDetailsController extends DateController {
       // Value for document expiry date depends on selected document
       let idHasExpiryDate
       let expiryDate
-      let countryEn
-      let countryCy
+      let country
       let address
       
       switch (req.form.values.photoIdChoice) {
@@ -108,8 +107,7 @@ class CheckDetailsController extends DateController {
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
-          countryEn = req.form.values.euDrivingLicenceCountrySelector;
-          countryCy = req.form.values.euDrivingLicenceCountrySelectorCy;
+          country = req.form.values.euDrivingLicenceCountrySelector;
           address = req.form.values.euDrivingLicenceAddressCheck
           break;
         }
@@ -122,21 +120,22 @@ class CheckDetailsController extends DateController {
         }
       }
       // Sets country code value and country name
-      if (lang == "en") {
-        Object.values(NON_UK_PASSPORT).forEach(val => {
-          if(val.text == countryEn) {
-            req.sessionModel.set("countryCode", val.value)
-            req.sessionModel.set("country", countryEn)
-          }
-        })
-      } else if (lang == "cy") {
-        Object.values(NON_UK_PASSPORT_CY).forEach(val => {
-          if(val.text == countryCy) {
-            req.sessionModel.set("countryCode", val.value)
-            req.sessionModel.set("country", countryCy)
-          }
-        })
-      }
+        if (lang == "en") {
+          Object.values(NON_UK_PASSPORT).forEach(val => {
+            if(val.value == country) {
+              req.sessionModel.set("countryCode", val.value)
+              req.sessionModel.set("country", val.text)
+            }
+          })
+        } else if (lang == "cy") {
+          Object.values(NON_UK_PASSPORT_CY).forEach(val => {
+            if(val.value == country) {
+              req.sessionModel.set("countryCode", val.value)
+              req.sessionModel.set("country", val.text)
+            }
+          })
+        }
+
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
@@ -155,6 +154,9 @@ class CheckDetailsController extends DateController {
       locals.postOfficeAddress = postOfficeAddress.split(", ");
       locals.postOfficeName = postOfficeName;
       callback(err, locals);
+      console.log(lang)
+      console.log(country)
+      console.log(lang)
     });
   }
   next() {
