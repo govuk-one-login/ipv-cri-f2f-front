@@ -147,7 +147,7 @@ module.exports = {
       "Rwanda": "RWA",
       "Samoa": "WSM",
       "San Marino": "SMR",
-      "Sao Tome": "STP",
+      "Sao Tome and Principe": "STP",
       "Saudi Arabia": "SAU",
       "Senegal": "SEN",
       "Serbia": "SRB",

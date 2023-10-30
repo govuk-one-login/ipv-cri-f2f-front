@@ -489,7 +489,7 @@ eeaIdentityCardCountrySelector: {
       {value: NON_UK_PASSPORT.Rwanda},
       {value: NON_UK_PASSPORT.Samoa},
       {value: NON_UK_PASSPORT["San Marino"]},
-      {value: NON_UK_PASSPORT["Sao Tome"]},
+      {value: NON_UK_PASSPORT["Sao Tome and Principe"]},
       {value: NON_UK_PASSPORT["Saudi Arabia"]},
       {value: NON_UK_PASSPORT.Senegal},
       {value: NON_UK_PASSPORT.Serbia},
