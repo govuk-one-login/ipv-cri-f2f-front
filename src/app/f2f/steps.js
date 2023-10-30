@@ -8,6 +8,7 @@ const brpDetails = require("./controllers/brpDetails");
 const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
 const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
 const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
+const euPhotocardDlCountrySelector = require("./controllers/euPhotocardDlCountrySelector");
 const checkDetails = require("./controllers/checkDetails");
 const abort = require("./controllers/abort");
 const photoIdExpiry = require("./controllers/photoIdExpiry");
@@ -430,6 +431,7 @@ module.exports = {
     next: APP.PATHS.FIND_POST_OFFICE
   },
   [`${APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR}`]: {
+    controller: euPhotocardDlCountrySelector,
     fields: ["euDrivingLicenceCountrySelector"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,

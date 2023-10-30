@@ -109,6 +109,7 @@ class CheckDetailsController extends DateController {
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
           country = req.form.values.euDrivingLicenceCountrySelector;
           address = req.form.values.euDrivingLicenceAddressCheck
+          console.log("✅",country)
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
@@ -121,17 +122,19 @@ class CheckDetailsController extends DateController {
       }
       // Sets country code value and country name
         if (lang == "en") {
-          Object.values(NON_UK_PASSPORT).forEach(val => {
-            if(val.value == country) {
-              req.sessionModel.set("countryCode", val.value)
-              req.sessionModel.set("country", val.text)
+          Object.entries(NON_UK_PASSPORT).forEach(entry => {
+            const [key, value] = entry
+            if(value == country) {
+              req.sessionModel.set("country", key)
+              req.sessionModel.set("countryCode", value)
             }
           })
         } else if (lang == "cy") {
-          Object.values(NON_UK_PASSPORT_CY).forEach(val => {
-            if(val.value == country) {
-              req.sessionModel.set("countryCode", val.value)
-              req.sessionModel.set("country", val.text)
+          Object.entries(NON_UK_PASSPORT_CY).forEach(entry => {
+            const [key, value] = entry
+            if(value == country) {
+              req.sessionModel.set("country", key)
+              req.sessionModel.set("countryCode", value)
             }
           })
         }
@@ -156,7 +159,6 @@ class CheckDetailsController extends DateController {
       callback(err, locals);
       console.log(lang)
       console.log(country)
-      console.log(lang)
     });
   }
   next() {
