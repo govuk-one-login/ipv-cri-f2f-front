@@ -78,6 +78,7 @@
     "wiremock": "2.35.0"
   },
   "dependencies": {
+    "@aws-sdk/credential-providers": "^3.438.0",
     "aws-sdk": "^2.1407.0",
     "axios": "1.4.0",
     "cfenv": "1.2.4",
