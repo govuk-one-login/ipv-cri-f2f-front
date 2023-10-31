@@ -47,7 +47,7 @@ class PhotoIdSelectionThinFileController extends BaseController {
         }
       }
 
-      logger.info("photo-id-selection: Invalid action 🚀" + action);
+      logger.warn("photo-id-selection: Invalid action 🚀" + action);
       return next(new Error("photo-id-selection: Invalid action " + action));
     } catch (err) {
       return next(err);

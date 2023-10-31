@@ -28,7 +28,7 @@ class AbortController extends BaseController {
 
 			const REDIRECT_URL = decodeURIComponent(response.headers.location);
 
-      logger.info("Session aborted successfully - now redirecting", { location: REDIRECT_URL });
+      logger.warn("Session aborted successfully - now redirecting", { location: REDIRECT_URL });
 
 			res.redirect(REDIRECT_URL)
     }
