@@ -8,20 +8,29 @@ const F2F_YOTI_START = require("../support/F2F_YOTI_START_SCHEMA.json");
 const axios = require("axios");
 const aws4Interceptor = require("aws4-axios").aws4Interceptor;
 const { unmarshall } = require("@aws-sdk/util-dynamodb");
+const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
 const { XMLParser } = require("fast-xml-parser");
 
 
 module.exports = class TestHarness {
 
   constructor() {
-    this.HARNESS_API_INSTANCE = axios.create({baseURL: process.env['TEST_HARNESS_URL']});
-    this.awsSigv4Interceptor = aws4Interceptor({
+    this.HARNESS_API_INSTANCE = axios.create({ baseURL: process.env['TEST_HARNESS_URL'] });
+    const customCredentialsProvider = {
+      getCredentials: fromNodeProviderChain({
+        timeout: 1000,
+        maxRetries: 0,
+      }),
+    };
+    const awsSigv4Interceptor = aws4Interceptor({
       options: {
         region: "eu-west-2",
         service: "execute-api",
       },
+      credentials: customCredentialsProvider,
     });
-    this.HARNESS_API_INSTANCE.interceptors.request.use(this.awsSigv4Interceptor);
+
+    this.HARNESS_API_INSTANCE.interceptors.request.use(awsSigv4Interceptor);
   }
 
   async getSession(sessionId) {
