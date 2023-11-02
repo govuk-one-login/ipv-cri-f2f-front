@@ -44,7 +44,7 @@ module.exports = {
       "Cuba": "CUB",
       "Cyprus":  "CYP",
       "Czech Republic": "CZE",
-      "Democratic Republic of the Congo":  "COD",
+      "Democratic Republic of the Congo": "COD",
       "Denmark": "DNK",
       "Djibouti": "DJI",
       "Dominica": "DMA",

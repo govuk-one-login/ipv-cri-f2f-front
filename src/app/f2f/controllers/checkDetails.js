@@ -4,6 +4,7 @@ const { formatDate } = require("../utils")
 const { APP, API } = require("../../../lib/config");
 const { COUNTRY_CODES } = require("../data/countryCodes/en/countryCodes");
 const { COUNTRY_CODES_CY } = require("../data/countryCodes/cy/countryCodesCy");
+const countryCodes = require("../data/countryCodes/en/countryCodes");
 const DateController = DateControllerMixin(BaseController);
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
@@ -105,6 +106,7 @@ class CheckDetailsController extends DateController {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.nonUKPassportExpiryDate;
           country = req.form.values.nonUkPassportCountrySelector;
+          console.log("💙",req.form.values.nonUkPassportCountrySelector)
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
@@ -123,24 +125,29 @@ class CheckDetailsController extends DateController {
         }
       }
       // Sets country code value and country name
-        if (lang == "en") {
           Object.entries(COUNTRY_CODES).forEach(entry => {
             const [key, value] = entry
+            console.log("🔑", key)
+            console.log("💽", value)
             if(value == country) {
               req.sessionModel.set("country", key)
+              req.sessionModel.set("displayCountry", key)
               req.sessionModel.set("countryCode", value)
             }
           })
-        } else if (lang == "cy") {
+
+        if (lang == "cy") {
           Object.entries(COUNTRY_CODES_CY).forEach(entry => {
             const [key, value] = entry
-            if(value == country) {
-              req.sessionModel.set("country", key)
-              req.sessionModel.set("countryCode", value)
+            if(value == req.sessionModel.get("countryCode")) {
+              req.sessionModel.set("displayCountry", key)
             }
           })
         }
 
+      console.log(req.sessionModel.get("country"))
+      console.log(req.sessionModel.get("countryCode"))
+      console.log(req.sessionModel.get("displayCountry"))
       
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
@@ -171,7 +178,7 @@ class CheckDetailsController extends DateController {
         addressCheck = req.sessionModel.get("addressCheck");
       }
 
-      locals.country = req.sessionModel.get("country");
+      locals.country = req.sessionModel.get("displayCountry");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
       locals.changeUrl = `/${changeUrl}`;
@@ -203,6 +210,7 @@ class CheckDetailsController extends DateController {
           "post_code": req.sessionModel.get("postOfficePostcode")
         }
       }
+      console.log(f2fData)
 
       await this.saveF2fData(req.axios, f2fData, req);
       callback();
@@ -210,6 +218,7 @@ class CheckDetailsController extends DateController {
       callback(error);
     }
   }
+  
   async saveF2fData(axios, f2fData, req) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId

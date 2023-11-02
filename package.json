@@ -14,7 +14,6 @@
     "start:debug": "DEBUG=* node src/app.js",
     "dev": "nodemon src/app.js",
     "build": "yarn build-sass && yarn build-js && yarn copy-assets",
-    "go": "yarn build && yarn start",
     "build-sass": "rm -rf dist/public/style.css && sass --no-source-map src/assets/scss/application.scss dist/public/stylesheets/application.css --style compressed",
     "copy-assets": "mkdir -p dist && copyfiles -u 1 src/**/*.njk dist/ src/locales/cy/** dist/ && copyfiles -u 3 src/assets/javascripts/*.js dist/public/scripts && copyfiles -u 3 src/assets/images/* dist/public/images",
     "build-js": "yarn build-js:application && yarn build-js:analytics && yarn build-js:all",

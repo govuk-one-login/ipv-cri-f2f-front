@@ -27,9 +27,9 @@ class PhotoIdSelectionController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, true);
-          if(lang == "en") {
-            req.sessionModel.set("selectedDocument", "UK passport");
-          } else if (lang == "cy") {
+          req.sessionModel.set("selectedDocument", "UK passport");
+
+          if (lang == "cy") {
             req.sessionModel.set("selectedDocument", "Pasbort y DU")
           }
           req.sessionModel.set("changeUrl", "uk-passport-expire");
@@ -41,9 +41,9 @@ class PhotoIdSelectionController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.BRP, true);
-          if(lang == "en") {
-            req.sessionModel.set("selectedDocument", "Biometric residence permit (BRP)");
-          } else if (lang == "cy") {
+          req.sessionModel.set("selectedDocument", "Biometric residence permit (BRP)");
+
+          if (lang == "cy") {
             req.sessionModel.set("selectedDocument", "Trwydded breswylio biometrig (BRP)")
           }
           req.sessionModel.set("changeUrl", "biometric-residence-permit-expire");
@@ -55,9 +55,9 @@ class PhotoIdSelectionController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, true);
-          if(lang == "en") {
-            req.sessionModel.set("selectedDocument", "UK photocard driving licence");
-          } else if (lang == "cy") {
+          req.sessionModel.set("selectedDocument", "UK photocard driving licence");
+
+          if (lang == "cy") {
             req.sessionModel.set("selectedDocument", "Trwydded yrru gyda llun y DU")
           }
           req.sessionModel.set("changeUrl", "uk-driving-licence-expire");
@@ -69,9 +69,9 @@ class PhotoIdSelectionController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, true);
-          if(lang == "en") {
-            req.sessionModel.set("selectedDocument", "Non-UK passport");
-          } else if (lang == "cy") {
+          req.sessionModel.set("selectedDocument", "Non-UK passport");
+
+          if (lang == "cy") {
             req.sessionModel.set("selectedDocument", "Pasbort o'r tu allan i'r DU")
           }
           req.sessionModel.set("changeUrl", "non-uk-passport-expire");
@@ -84,9 +84,9 @@ class PhotoIdSelectionController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL, true);
-          if(lang == "en") {
-            req.sessionModel.set("selectedDocument", "EU photocard driving licence");
-          } else if (lang == "cy") {
+          req.sessionModel.set("selectedDocument", "EU photocard driving licence");
+
+          if (lang == "cy") {
             req.sessionModel.set("selectedDocument", "Trwydded yrru cerdyn gyda llun yr Undeb Ewropeaidd (UE)")
           }
           req.sessionModel.set("changeUrl", "eu-driving-licence-expire");
@@ -99,9 +99,9 @@ class PhotoIdSelectionController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD, true);
-          if(lang == "en") {
-            req.sessionModel.set("selectedDocument", "National identity card from an EEA country");
-          } else if (lang == "cy") {
+          req.sessionModel.set("selectedDocument", "National identity card from an EEA country");
+
+          if (lang == "cy") {
             req.sessionModel.set("selectedDocument", "Cerdyn hunaniaeth genedlaethol o wlad Ardal Economaidd Ewropeaidd (AEE)")
           }
           req.sessionModel.set("changeUrl", "national-identity-card-expire");
