@@ -161,7 +161,7 @@ class CheckDetailsController extends DateController {
 
       if (req.sessionModel.get("addressCheck") == "Yes" && lang == "cy") {
         addressCheck = "Oes"
-      } else if (req.sessionModel.get("addressCheck") == "Yes" && lang == "cy") {
+      } else if (req.sessionModel.get("addressCheck") == "No" && lang == "cy") {
         addressCheck = "Na"
       } else if (req.sessionModel.get("addressCheck") == "My driving licence does not have my address on it" && lang == "cy") {
         addressCheck = "Nid oes gan fy nhrwydded yrru fy nghyfeiriad arno"
