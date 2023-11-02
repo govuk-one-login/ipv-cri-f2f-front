@@ -8,6 +8,7 @@
 {% from "hmpo-select/macro.njk" import hmpoSelect %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
+
 {% block mainContent %}
 <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
         {{ translate("nonUkPassportCountrySelector.title") }}
@@ -17,19 +18,10 @@
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     <div class="hint-with-margin">
-      {% if values.language === "en" %}
-        {{ hmpoSelect(ctx, {
-            id: "nonUkPassportCountrySelector",
-            label: translate("fields.nonUkPassportCountrySelector.label")
-        }) }}
-      {% else %}
-
-        {{ hmpoSelect(ctx, {
-            id: "listWelsh",
-            label: translate("fields.nonUkPassportCountrySelector.label")
-        }) }}
-      {% endif %}
-
+    {{ hmpoSelect(ctx, {
+        id: "nonUkPassportCountrySelector",
+        label: translate("fields.nonUkPassportCountrySelector.label")
+    }) }}
   </div>
 
   <p><a href="/choose-photo-id-post-office">{{ translate("nonUkPassportCountrySelector.link") }}</a></p>

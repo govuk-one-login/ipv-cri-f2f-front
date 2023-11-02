@@ -17,9 +17,6 @@ class LandingPageController extends BaseController {
 			  req.sessionModel.set("isThinFileUser", true);
 		  }
 
-			const language = req.lng
-			req.sessionModel.set("language", language)
-
 		  super.saveValues(req, res, next);
 		} catch (err) {
       return next(err);
