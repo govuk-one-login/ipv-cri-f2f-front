@@ -58,10 +58,10 @@ ukDlAddressCheck:
   validation:
     default: "Dewiswch os oes gan eich trwydded yrru eich cyfeiriad cyfredol arno"
   items:
-    Current:
+    Yes:
       label: Oes, mae ganddo fy nghyfeiriad presennol arno
       hint: ""
-    Different:
+    No:
       label: Na, mae fy nghyfeiriad blaenorol arno
       hint: ""
 
@@ -149,13 +149,13 @@ euDrivingLicenceAddressCheck:
   validation:
     default: "Dewiswch os oes gan eich trwydded yrru eich cyfeiriad cyfredol arno"
   items:
-    Current:
+    Yes:
       label: Oes, mae ganddo fy nghyfeiriad presennol arno
       hint: ""
-    Different:
+    No:
       label: Na, mae fy nghyfeiriad blaenorol arno
       hint: ""
-    DLNoAddress:
+    My driving licence does not have my address on it:
       label: Nid oes gan fy nhrwydded yrru fy nghyfeiriad arno
       hint: ""
 
@@ -190,13 +190,13 @@ eeaIdCardAddressCheck:
   validation:
     required: "Dewiswch os oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad cyfredol arno"
   items:
-    Current:
+    Yes:
       label: Oes, mae ganddo fy nghyfeiriad presennol arno
       hint: ""
-    Different:
+    No:
       label: Na, mae fy nghyfeiriad blaenorol arno
       hint: ""
-    IDNoAddress:
+    My national identity card does not have my address on it:
       label: Nid oes gan fy ngherdyn hunaniaeth genedlaethol fy nghyfeiriad arno
       hint: ""
 

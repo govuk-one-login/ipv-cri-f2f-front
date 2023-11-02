@@ -63,10 +63,10 @@ ukDlAddressCheck:
   validation:
     default: "Select if your driving licence has your current address on it"
   items:
-    Current:
+    Yes:
       label: Yes, it has my current address on it
       hint: ""
-    Different:
+    No:
       label: No, it has my previous address on it
       hint: ""
 
@@ -154,13 +154,13 @@ euDrivingLicenceAddressCheck:
   validation:
     default: "Select if your driving licence has your current address on it"
   items:
-    Current:
+    Yes:
       label: Yes, it has my current address on it
       hint: ""
-    Different:
+    No:
       label: No, it has my previous address on it
       hint: ""
-    DLNoAddress:
+    My driving licence does not have my address on it:
       label: My driving licence does not have my address on it
       hint: ""
     
@@ -196,13 +196,13 @@ eeaIdCardAddressCheck:
   validation:
     required: "Select if your national identity card has your current address on it"
   items:
-    Current:
+    Yes:
       label: Yes, it has my current address on it
       hint: ""
-    Different:
+    No:
       label: No, it has my previous address on it
       hint: ""
-    IDNoAddress:
+    My national identity card does not have my address on it:
       label: My national identity card does not have my address on it
       hint: ""
 

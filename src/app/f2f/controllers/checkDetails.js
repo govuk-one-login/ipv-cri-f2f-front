@@ -78,9 +78,11 @@ class CheckDetailsController extends DateController {
 
       // Value for document expiry date depends on selected document
       let idHasExpiryDate
+      let hasExpiryDate
       let expiryDate
       let country
       let address
+      let addressCheck
       
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
@@ -95,6 +97,7 @@ class CheckDetailsController extends DateController {
         }
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
           expiryDate = req.form.values.ukPhotocardDlExpiryDate;
+          address = req.form.values.ukDlAddressCheck
           req.sessionModel.set("countryCode", "GBR");
           break;
         }
@@ -109,7 +112,6 @@ class CheckDetailsController extends DateController {
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
           country = req.form.values.euDrivingLicenceCountrySelector;
           address = req.form.values.euDrivingLicenceAddressCheck
-          console.log("✅",country)
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
@@ -139,14 +141,35 @@ class CheckDetailsController extends DateController {
           })
         }
 
+      
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
       //Confirmation display values
       const idChoice = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
-      const addressCheck = req.sessionModel.get("addressCheck");
-      const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
+
+      //Translation of display values into Welsh
+
+      if(req.sessionModel.get("idHasExpiryDate") == "Yes" && lang == "cy") {
+        hasExpiryDate = "Oes";
+      } else if (req.sessionModel.get("idHasExpiryDate") == "No" && lang == "cy") {
+        hasExpiryDate = "Na"
+      } else {
+        hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
+      }
+
+      if (req.sessionModel.get("addressCheck") == "Yes" && lang == "cy") {
+        addressCheck = "Oes"
+      } else if (req.sessionModel.get("addressCheck") == "Yes" && lang == "cy") {
+        addressCheck = "Na"
+      } else if (req.sessionModel.get("addressCheck") == "My driving licence does not have my address on it" && lang == "cy") {
+        addressCheck = "Nid oes gan fy nhrwydded yrru fy nghyfeiriad arno"
+      } else if (req.sessionModel.get("addressCheck") == "My national identity card does not have my address on it") {
+        addressCheck = "Nid oes gan fy ngherdyn hunaniaeth genedlaethol fy nghyfeiriad arno"
+      } else {
+        addressCheck = req.sessionModel.get("addressCheck");
+      }
 
       locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
@@ -157,8 +180,6 @@ class CheckDetailsController extends DateController {
       locals.postOfficeAddress = postOfficeAddress.split(", ");
       locals.postOfficeName = postOfficeName;
       callback(err, locals);
-      console.log(lang)
-      console.log(country)
     });
   }
   next() {
