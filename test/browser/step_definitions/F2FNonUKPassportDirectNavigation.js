@@ -2,7 +2,7 @@ const { Given, Then } = require("@cucumber/cucumber");
 
 const { NonPassportDetailsPageValidEdit, NonUKPassportDetailsPageValid,
     NonUKPassportDetailsPageInvalidFuture, NonUKPassportDetailsPageInvalidPast,
-    NonUKPassportCountrySelector, NonUkPassportHasExpiryDatePage } = require("../pages");
+    NonUKPassportCountrySelector, NonUkPassportHasExpiryDatePage, ErrorPage } = require("../pages");
 const { expect } = require("chai");
 
 Given(/^the user navigates directly to select-country-non-uk-passport page$/, async function () {
@@ -12,11 +12,11 @@ Given(/^the user navigates directly to select-country-non-uk-passport page$/, as
 });
 
 Then(/^the user sees an error message displayed on the select-country-non-uk-passport page$/, async function () {
-    const nonUKPassportCountrySelectorPage = new NonUKPassportCountrySelector(await this.page);
-    expect(await nonUKPassportCountrySelectorPage.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await nonUKPassportCountrySelectorPage.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
 
@@ -27,11 +27,11 @@ Given(/^the user navigates directly to non-uk-passport-expire-invalidpast page$/
 });
 
 Then(/^the user sees an error message displayed on the non-uk-passport-expire-invalidpast page$/, async function () {
-    const nonUKPassportInvalidPastPage = new NonUKPassportDetailsPageInvalidPast(await this.page);
-    expect(await nonUKPassportInvalidPastPage.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await nonUKPassportInvalidPastPage.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
 
@@ -42,11 +42,11 @@ Given(/^the user navigates directly to non-uk-passport-expire-invalidfuture page
 });
 
 Then(/^the user sees an error message displayed on the non-uk-passport-expire-invalidfuture page$/, async function () {
-    const nonUKPassportInvalidFuturePage = new NonUKPassportDetailsPageInvalidFuture(await this.page);
-    expect(await nonUKPassportInvalidFuturePage.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await nonUKPassportInvalidFuturePage.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
 
@@ -57,11 +57,11 @@ Given(/^the user navigates directly to non-uk-passport-expire page$/, async func
 });
 
 Then(/^the user sees an error message displayed on the non-uk-passport-expire page$/, async function () {
-    const nonUKPassportDetailsPageValid = new NonUKPassportDetailsPageValid(await this.page);
-    expect(await nonUKPassportDetailsPageValid.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await nonUKPassportDetailsPageValid.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
 
@@ -72,11 +72,11 @@ Given(/^the user navigates directly to non-uk-passport-expire-edit page$/, async
 });
 
 Then(/^the user sees an error message displayed on the non-uk-passport-expire-edit page$/, async function () {
-    const nonUKPassportDetailsPageValidEdit = new NonPassportDetailsPageValidEdit(await this.page);
-    expect(await nonUKPassportDetailsPageValidEdit.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await nonUKPassportDetailsPageValidEdit.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
 
@@ -87,10 +87,10 @@ Given(/^the user navigates directly to non-uk-passport-has-expiry-date page$/, a
 });
 
 Then(/^the user sees an error message displayed on the non-uk-passport-has-expiry-date page$/, async function () {
-    const nonUKPassportExpiryDatePage = new NonUkPassportHasExpiryDatePage(await this.page);
-    expect(await nonUKPassportExpiryDatePage.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await nonUKPassportExpiryDatePage.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });

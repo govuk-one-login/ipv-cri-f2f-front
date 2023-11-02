@@ -47,6 +47,7 @@ module.exports = {
       CHOOSE_POST_OFFICE: "/choose-post-office-prove-identity",
       CHECK_DETAILS: "/check-details",
       DONE: "/done",
+			ERROR: "/error",
       OAUTH2: "/oauth2/callback"
     },
     PHOTO_ID_OPTIONS: {

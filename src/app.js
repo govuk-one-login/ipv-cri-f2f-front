@@ -32,7 +32,7 @@ const { setup } = require("hmpo-app");
 
 const loggerConfig = {
   console: true,
-  consoleLevel: 'debug',
+  consoleLevel: process.env.LOG_LEVEL || "warn",
   consoleJSON: true,
   app: false,
 };
@@ -144,7 +144,11 @@ router.use(wizard(steps, fields, wizardOptions));
 
 router.use((err, req, res, next) => {
   logger.get().error("Error caught by Express handler - redirecting to Callback with server_error", {err});
-  next(err);
+	const REDIRECT_URI = req.session?.authParams?.redirect_uri;
+	if (REDIRECT_URI) {
+		next(err);
+		router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
+	} else {
+		res.redirect(APP.PATHS.ERROR)
+	}
 });
-
-router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);

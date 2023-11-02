@@ -1,6 +1,6 @@
 const { Given, Then } = require("@cucumber/cucumber");
 
-const { FindBranch, FindBranchValidEdit } = require("../pages");
+const { FindBranch, FindBranchValidEdit, ErrorPage } = require("../pages");
 const { expect } = require("chai");
 Given(/^the user navigates directly to find-branch page$/, async function () {
     const findBranch = new FindBranch(this.page);
@@ -9,11 +9,11 @@ Given(/^the user navigates directly to find-branch page$/, async function () {
 });
 
 Then(/^the user sees an error message displayed on the find-branch page$/, async function () {
-    const findBranch = new FindBranch(await this.page);
-    expect(await findBranch.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await findBranch.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
 
@@ -24,11 +24,11 @@ Given(/^the user navigates directly to find-branch-empty page$/, async function 
 });
 
 Then(/^the user sees an error message displayed on the find-branch-empty page$/, async function () {
-    const findBranchEmpty = new FindBranch(await this.page);
-    expect(await findBranchEmpty.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await findBranchEmpty.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
 
@@ -39,11 +39,11 @@ Given(/^the user navigates directly to find-branch-invalid page$/, async functio
 });
 
 Then(/^the user sees an error message displayed on the find-branch-invalid page$/, async function () {
-    const findBranchInvalid = new FindBranch(await this.page);
-    expect(await findBranchInvalid.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await findBranchInvalid.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
 
@@ -54,11 +54,11 @@ Given(/^the user navigates directly to find-branch-valid page$/, async function 
 });
 
 Then(/^the user sees an error message displayed on the find-branch-valid page$/, async function () {
-    const findBranchValid = new FindBranch(await this.page);
-    expect(await findBranchValid.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await findBranchValid.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });
 
@@ -69,10 +69,10 @@ Given(/^the user navigates directly to find-branch-valid-edit page$/, async func
 });
 
 Then(/^the user sees an error message displayed on the find-branch-valid-edit page$/, async function () {
-    const findBranchValidEdit = new FindBranchValidEdit(await this.page);
-    expect(await findBranchValidEdit.isCurrentPage()).to.be.true;
-    const redirectionError = 'Sorry, there is a problem with the service';
-    const error = await findBranchValidEdit.checkRedirectionErrorText();
-    expect(await error).to.equal(redirectionError);
+		const errorPage = new ErrorPage(await this.page);
+		expect(await errorPage.isCurrentPage()).to.be.true;
+		const redirectionError = await errorPage.getSomethingWentWrongMessage();
+		const error = await errorPage.getErrorTitle();
+		expect(await error).to.equal(redirectionError);
 
 });

@@ -111,6 +111,7 @@ Mappings:
       GA4ENABLED: "true"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
       PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
+      LOGLEVEL: "debug"
     build:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
       DNSSUFFIX: "review-o.build.account.gov.uk"
@@ -120,6 +121,7 @@ Mappings:
       GA4ENABLED: "true"
       ANALYTICSDOMAIN: "build.account.gov.uk"
       PROXYURL: "proxy.review-o.build.account.gov.uk"
+      LOGLEVEL: "warn"
     staging:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
@@ -129,6 +131,7 @@ Mappings:
       GA4ENABLED: "true"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
       PROXYURL: "proxy.review-o.staging.account.gov.uk"
+      LOGLEVEL: "warn"
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
@@ -138,6 +141,7 @@ Mappings:
       GA4ENABLED: "false"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       PROXYURL: "proxy.review-o.integration.account.gov.uk"
+      LOGLEVEL: "warn"
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
@@ -147,6 +151,7 @@ Mappings:
       GA4ENABLED: "false"
       ANALYTICSDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.account.gov.uk"
+      LOGLEVEL: "warn"
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -422,6 +427,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
             - Name: PROXYURL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, PROXYURL ]
+            - Name: LOG_LEVEL
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
           PortMappings:
             - ContainerPort: 8080
               Protocol: tcp
