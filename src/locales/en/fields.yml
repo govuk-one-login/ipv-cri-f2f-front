@@ -239,12 +239,16 @@ eeaIdentityCardCountrySelector:
       label: "Greece"
     HUN:
       label: "Hungary"
+    ISL:
+      label: "Iceland"
     ITA:
       label: "Italy"
     IRL:
       label: "Ireland"
     LVA:
       label: "Latvia"
+    LIE:
+      label: "Liechtenstein"
     LTU:
       label: "Lithuania"
     LUX:
@@ -253,6 +257,8 @@ eeaIdentityCardCountrySelector:
       label: "Malta"
     NLD:
       label: "Netherlands"
+    NOR:
+      label: "Norway"
     POL:
       label: "Poland"
     PRT:

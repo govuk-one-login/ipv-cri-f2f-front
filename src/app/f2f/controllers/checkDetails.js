@@ -2,8 +2,8 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils")
 const { APP, API } = require("../../../lib/config");
-const { NON_UK_PASSPORT } = require("../data/countryCodes/en/nonUkPassport");
-const { NON_UK_PASSPORT_CY } = require("../data/countryCodes/cy/nonUkPassport");
+const { COUNTRY_CODES } = require("../data/countryCodes/en/countryCodes");
+const { COUNTRY_CODES_CY } = require("../data/countryCodes/cy/countryCodesCy");
 const DateController = DateControllerMixin(BaseController);
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
@@ -122,7 +122,7 @@ class CheckDetailsController extends DateController {
       }
       // Sets country code value and country name
         if (lang == "en") {
-          Object.entries(NON_UK_PASSPORT).forEach(entry => {
+          Object.entries(COUNTRY_CODES).forEach(entry => {
             const [key, value] = entry
             if(value == country) {
               req.sessionModel.set("country", key)
@@ -130,7 +130,7 @@ class CheckDetailsController extends DateController {
             }
           })
         } else if (lang == "cy") {
-          Object.entries(NON_UK_PASSPORT_CY).forEach(entry => {
+          Object.entries(COUNTRY_CODES_CY).forEach(entry => {
             const [key, value] = entry
             if(value == country) {
               req.sessionModel.set("country", key)
