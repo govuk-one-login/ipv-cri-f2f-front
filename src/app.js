@@ -68,8 +68,8 @@ const { app, router } = setup({
   },
   publicDirs: ["../dist/public"],
   translation: {
-    allowedLangs: ["cy"],
-    fallbackLang: ["cy"],
+    allowedLangs: ["en", "cy"],
+    fallbackLang: ["en"],
     cookie: { name: "lng" },
   },
   views: [
