@@ -4,7 +4,6 @@ const { formatDate } = require("../utils")
 const { APP, API } = require("../../../lib/config");
 const { COUNTRY_CODES } = require("../data/countryCodes/en/countryCodes");
 const { COUNTRY_CODES_CY } = require("../data/countryCodes/cy/countryCodesCy");
-const countryCodes = require("../data/countryCodes/en/countryCodes");
 const DateController = DateControllerMixin(BaseController);
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
