@@ -175,8 +175,6 @@ describe("CheckDetails controller", () => {
       req.form.values.nonUKPassportExpiryDate = "01/01/2030";
       req.form.values.idHasExpiryDate = true;
       req.form.values.nonUkPassportCountrySelector = "DEU";
-      console.log("💘", req.form.values.nonUkPassportCountrySelector = "DEU")
-      console.log("🩵",req.sessionModel.get("countryCode"))
       await checkDetailsController.locals(req, res, next);
 
       expect(req.sessionModel.get("countryCode")).to.equal("DEU");

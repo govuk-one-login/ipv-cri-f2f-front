@@ -106,7 +106,6 @@ class CheckDetailsController extends DateController {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.nonUKPassportExpiryDate;
           country = req.form.values.nonUkPassportCountrySelector;
-          console.log("💙",req.form.values.nonUkPassportCountrySelector)
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
@@ -127,8 +126,6 @@ class CheckDetailsController extends DateController {
       // Sets country code value and country name
           Object.entries(COUNTRY_CODES).forEach(entry => {
             const [key, value] = entry
-            console.log("🔑", key)
-            console.log("💽", value)
             if(value == country) {
               req.sessionModel.set("country", key)
               req.sessionModel.set("displayCountry", key)
@@ -144,10 +141,6 @@ class CheckDetailsController extends DateController {
             }
           })
         }
-
-      console.log(req.sessionModel.get("country"))
-      console.log(req.sessionModel.get("countryCode"))
-      console.log(req.sessionModel.get("displayCountry"))
       
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
@@ -210,7 +203,6 @@ class CheckDetailsController extends DateController {
           "post_code": req.sessionModel.get("postOfficePostcode")
         }
       }
-      console.log(f2fData)
 
       await this.saveF2fData(req.axios, f2fData, req);
       callback();
