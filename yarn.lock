@@ -65,6 +65,7 @@
     "@aws-sdk/util-utf8-browser" "^3.0.0"
     tslib "^1.11.1"
 
+<<<<<<< HEAD
 "@aws-sdk/client-cognito-identity@3.450.0":
   version "3.450.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-cognito-identity/-/client-cognito-identity-3.450.0.tgz#551e811d23dcb9f62d8f0dc02e6c7467bbc1bc1f"
@@ -85,6 +86,28 @@
     "@aws-sdk/util-endpoints" "3.449.0"
     "@aws-sdk/util-user-agent-browser" "3.449.0"
     "@aws-sdk/util-user-agent-node" "3.449.0"
+=======
+"@aws-sdk/client-cognito-identity@3.445.0":
+  version "3.445.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cognito-identity/-/client-cognito-identity-3.445.0.tgz#06139ef35bcc2bd7d228915d8438c269db5e4e29"
+  integrity sha512-9+RX5yaSZH1IvzExpI4rmaWxm/BHKoNERmzZDGor7tasi3XH5iz3OPSd9OC+SFcBmxGa6C/hqoJK/xqhr5V16A==
+  dependencies:
+    "@aws-crypto/sha256-browser" "3.0.0"
+    "@aws-crypto/sha256-js" "3.0.0"
+    "@aws-sdk/client-sts" "3.445.0"
+    "@aws-sdk/core" "3.445.0"
+    "@aws-sdk/credential-provider-node" "3.445.0"
+    "@aws-sdk/middleware-host-header" "3.433.0"
+    "@aws-sdk/middleware-logger" "3.433.0"
+    "@aws-sdk/middleware-recursion-detection" "3.433.0"
+    "@aws-sdk/middleware-signing" "3.433.0"
+    "@aws-sdk/middleware-user-agent" "3.438.0"
+    "@aws-sdk/region-config-resolver" "3.433.0"
+    "@aws-sdk/types" "3.433.0"
+    "@aws-sdk/util-endpoints" "3.438.0"
+    "@aws-sdk/util-user-agent-browser" "3.433.0"
+    "@aws-sdk/util-user-agent-node" "3.437.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/config-resolver" "^2.0.16"
     "@smithy/fetch-http-handler" "^2.2.4"
     "@smithy/hash-node" "^2.0.12"
@@ -149,14 +172,22 @@
     "@smithy/util-utf8" "^2.0.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/client-sso@3.450.0":
   version "3.450.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-sso/-/client-sso-3.450.0.tgz#107f4a389f4113bf4440df4db8639c2414ec7b7e"
   integrity sha512-xutima6DhrTLMyBc1nmLhWXarvrqbH1zizrQpG7cLdwfqHEOi3thR3SWu+pUC4XN9kiXQUb2HUMcv/vdqmknkQ==
+=======
+"@aws-sdk/client-sso@3.445.0":
+  version "3.445.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-sso/-/client-sso-3.445.0.tgz#6ab3aeeb75046c94646a0f242d0e0676bd7f6cce"
+  integrity sha512-me4LvqNnu6kxi+sW7t0AgMv1Yi64ikas0x2+5jv23o6Csg32w0S0xOjCTKQYahOA5CMFunWvlkFIfxbqs+Uo7w==
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
     "@aws-sdk/core" "3.445.0"
+<<<<<<< HEAD
     "@aws-sdk/middleware-host-header" "3.449.0"
     "@aws-sdk/middleware-logger" "3.449.0"
     "@aws-sdk/middleware-recursion-detection" "3.449.0"
@@ -166,6 +197,17 @@
     "@aws-sdk/util-endpoints" "3.449.0"
     "@aws-sdk/util-user-agent-browser" "3.449.0"
     "@aws-sdk/util-user-agent-node" "3.449.0"
+=======
+    "@aws-sdk/middleware-host-header" "3.433.0"
+    "@aws-sdk/middleware-logger" "3.433.0"
+    "@aws-sdk/middleware-recursion-detection" "3.433.0"
+    "@aws-sdk/middleware-user-agent" "3.438.0"
+    "@aws-sdk/region-config-resolver" "3.433.0"
+    "@aws-sdk/types" "3.433.0"
+    "@aws-sdk/util-endpoints" "3.438.0"
+    "@aws-sdk/util-user-agent-browser" "3.433.0"
+    "@aws-sdk/util-user-agent-node" "3.437.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/config-resolver" "^2.0.16"
     "@smithy/fetch-http-handler" "^2.2.4"
     "@smithy/hash-node" "^2.0.12"
@@ -191,14 +233,22 @@
     "@smithy/util-utf8" "^2.0.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/client-sts@3.450.0":
   version "3.450.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-sts/-/client-sts-3.450.0.tgz#08aefc9af12b3f74332615869fe644e68952d41b"
   integrity sha512-pHZ/3NHHtK5YbjYrh2jT8eePSYSunyvcIhdASMqYVg3Enw/BxA0IKL8bZ/slolhqR1sAQx4sKRAO7dZK418Q6w==
+=======
+"@aws-sdk/client-sts@3.445.0":
+  version "3.445.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-sts/-/client-sts-3.445.0.tgz#1286ba3702997ae00cb28eca890116c63a451526"
+  integrity sha512-ogbdqrS8x9O5BTot826iLnTQ6i4/F5BSi/74gycneCxYmAnYnyUBNOWVnynv6XZiEWyDJQCU2UtMd52aNGW1GA==
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
     "@aws-sdk/core" "3.445.0"
+<<<<<<< HEAD
     "@aws-sdk/credential-provider-node" "3.450.0"
     "@aws-sdk/middleware-host-header" "3.449.0"
     "@aws-sdk/middleware-logger" "3.449.0"
@@ -211,6 +261,20 @@
     "@aws-sdk/util-endpoints" "3.449.0"
     "@aws-sdk/util-user-agent-browser" "3.449.0"
     "@aws-sdk/util-user-agent-node" "3.449.0"
+=======
+    "@aws-sdk/credential-provider-node" "3.445.0"
+    "@aws-sdk/middleware-host-header" "3.433.0"
+    "@aws-sdk/middleware-logger" "3.433.0"
+    "@aws-sdk/middleware-recursion-detection" "3.433.0"
+    "@aws-sdk/middleware-sdk-sts" "3.433.0"
+    "@aws-sdk/middleware-signing" "3.433.0"
+    "@aws-sdk/middleware-user-agent" "3.438.0"
+    "@aws-sdk/region-config-resolver" "3.433.0"
+    "@aws-sdk/types" "3.433.0"
+    "@aws-sdk/util-endpoints" "3.438.0"
+    "@aws-sdk/util-user-agent-browser" "3.433.0"
+    "@aws-sdk/util-user-agent-node" "3.437.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/config-resolver" "^2.0.16"
     "@smithy/fetch-http-handler" "^2.2.4"
     "@smithy/hash-node" "^2.0.12"
@@ -288,6 +352,7 @@
     "@smithy/smithy-client" "^2.1.12"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/credential-provider-cognito-identity@3.450.0":
   version "3.450.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-cognito-identity/-/credential-provider-cognito-identity-3.450.0.tgz#234a389302044b00f939f9acf83a86cf654f511d"
@@ -295,6 +360,15 @@
   dependencies:
     "@aws-sdk/client-cognito-identity" "3.450.0"
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/credential-provider-cognito-identity@3.445.0":
+  version "3.445.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-cognito-identity/-/credential-provider-cognito-identity-3.445.0.tgz#813dfebf5ff3390da06f3dee322f444d72067179"
+  integrity sha512-IREle9ULafOYK5sjzA+pbxKqn/0G+bnf7mVwRhFPtmz/7/cTLCdbHyw2c1A8DXBwZw1CW30JOA+YUZbZXYJJ/g==
+  dependencies:
+    "@aws-sdk/client-cognito-identity" "3.445.0"
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/property-provider" "^2.0.0"
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
@@ -309,22 +383,40 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/credential-provider-env@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-env/-/credential-provider-env-3.449.0.tgz#37ff1673f83325b746314e6dd6afb1b61ac993d1"
   integrity sha512-SwO9XQcBoyA0XrsSmgnMqCnR99wIyp+BjGhvzDU+Wetib7QPt++E2slJkLM/iCNc6YiqiHZtHsvXapSV7RzBJw==
   dependencies:
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/credential-provider-env@3.433.0":
+  version "3.433.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-env/-/credential-provider-env-3.433.0.tgz#7cceca1002ba2e79e10a9dfb119442bea7b88e7c"
+  integrity sha512-Vl7Qz5qYyxBurMn6hfSiNJeUHSqfVUlMt0C1Bds3tCkl3IzecRWwyBOlxtxO3VCrgVeW3HqswLzCvhAFzPH6nQ==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/property-provider" "^2.0.0"
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/credential-provider-http@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-http/-/credential-provider-http-3.449.0.tgz#a12db5877071ac4566ccbad81e681ce39cf0f08b"
   integrity sha512-oIcww6Xsyux3LZVQr89Ps2FkULwCe3ZDUxzlyQNGD7gsMxJRD/fUBffpv+7ZmXUVoN8ZthlxuPwjpP568JVBJw==
   dependencies:
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/credential-provider-http@3.435.0":
+  version "3.435.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-http/-/credential-provider-http-3.435.0.tgz#07686526082824f49dd3a910c857faba4d9587ed"
+  integrity sha512-i07YSy3+IrXwAzp3goCMo2OYzAwqRGIWPNMUX5ziFgA1eMlRWNC2slnbqJzax6xHrU8HdpNESAfflnQvUVBqYQ==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/fetch-http-handler" "^2.2.4"
     "@smithy/node-http-handler" "^2.1.8"
     "@smithy/property-provider" "^2.0.0"
@@ -350,6 +442,7 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/credential-provider-ini@3.450.0":
   version "3.450.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-ini/-/credential-provider-ini-3.450.0.tgz#139842b36f0bf51b19f80b3670f9644e0b79799f"
@@ -360,6 +453,18 @@
     "@aws-sdk/credential-provider-sso" "3.450.0"
     "@aws-sdk/credential-provider-web-identity" "3.449.0"
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/credential-provider-ini@3.445.0":
+  version "3.445.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-ini/-/credential-provider-ini-3.445.0.tgz#103f4ac144b0b93fc42827093a2654cdd179b925"
+  integrity sha512-R7IYSGjNZ5KKJwQJ2HNPemjpAMWvdce91i8w+/aHfqeGfTXrmYJu99PeGRyyBTKEumBaojyjTRvmO8HzS+/l7g==
+  dependencies:
+    "@aws-sdk/credential-provider-env" "3.433.0"
+    "@aws-sdk/credential-provider-process" "3.433.0"
+    "@aws-sdk/credential-provider-sso" "3.445.0"
+    "@aws-sdk/credential-provider-web-identity" "3.433.0"
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/credential-provider-imds" "^2.0.0"
     "@smithy/property-provider" "^2.0.0"
     "@smithy/shared-ini-file-loader" "^2.0.6"
@@ -383,6 +488,7 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/credential-provider-node@3.450.0":
   version "3.450.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-node/-/credential-provider-node-3.450.0.tgz#44344f9bc534e8073f756e760c64d092811afaca"
@@ -394,6 +500,19 @@
     "@aws-sdk/credential-provider-sso" "3.450.0"
     "@aws-sdk/credential-provider-web-identity" "3.449.0"
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/credential-provider-node@3.445.0":
+  version "3.445.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-node/-/credential-provider-node-3.445.0.tgz#570d0a66c175c2719c417a75fdca4939b7123a4a"
+  integrity sha512-zI4k4foSjQRKNEsouculRcz7IbLfuqdFxypDLYwn+qPNMqJwWJ7VxOOeBSPUpHFcd7CLSfbHN2JAhQ7M02gPTA==
+  dependencies:
+    "@aws-sdk/credential-provider-env" "3.433.0"
+    "@aws-sdk/credential-provider-ini" "3.445.0"
+    "@aws-sdk/credential-provider-process" "3.433.0"
+    "@aws-sdk/credential-provider-sso" "3.445.0"
+    "@aws-sdk/credential-provider-web-identity" "3.433.0"
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/credential-provider-imds" "^2.0.0"
     "@smithy/property-provider" "^2.0.0"
     "@smithy/shared-ini-file-loader" "^2.0.6"
@@ -411,12 +530,21 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/credential-provider-process@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-process/-/credential-provider-process-3.449.0.tgz#031bff93ba3c6910aba851904cf424fcaba5914b"
   integrity sha512-IofhAgpwdSnaEg9H0dhydac07GCQ55Mc5oRzdzp/tm0Rl0MqnGdIvN8wYsxAeVhEi9pBSNla4eRiTu3LY6Z5+A==
   dependencies:
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/credential-provider-process@3.433.0":
+  version "3.433.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-process/-/credential-provider-process-3.433.0.tgz#dd51c92480ed620e4c3f989852ee408ab1209d59"
+  integrity sha512-W7FcGlQjio9Y/PepcZGRyl5Bpwb0uWU7qIUCh+u4+q2mW4D5ZngXg8V/opL9/I/p4tUH9VXZLyLGwyBSkdhL+A==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/property-provider" "^2.0.0"
     "@smithy/shared-ini-file-loader" "^2.0.6"
     "@smithy/types" "^2.4.0"
@@ -435,6 +563,7 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/credential-provider-sso@3.450.0":
   version "3.450.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-sso/-/credential-provider-sso-3.450.0.tgz#a17778067199412cea10479d0b0d0302a5ff8b9d"
@@ -443,6 +572,16 @@
     "@aws-sdk/client-sso" "3.450.0"
     "@aws-sdk/token-providers" "3.449.0"
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/credential-provider-sso@3.445.0":
+  version "3.445.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-sso/-/credential-provider-sso-3.445.0.tgz#1ca6a0ec43b766039d78e5ac91e80fad226b5288"
+  integrity sha512-gJz7kAiDecdhtApgXnxfZsXKsww8BnifDF9MAx9Dr4X6no47qYsCCS3XPuEyRiF9VebXvHOH0H260Zp3bVyniQ==
+  dependencies:
+    "@aws-sdk/client-sso" "3.445.0"
+    "@aws-sdk/token-providers" "3.438.0"
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/property-provider" "^2.0.0"
     "@smithy/shared-ini-file-loader" "^2.0.6"
     "@smithy/types" "^2.4.0"
@@ -458,17 +597,27 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/credential-provider-web-identity@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-web-identity/-/credential-provider-web-identity-3.449.0.tgz#6033ecc7939d08dd2492e3983fd21b0b5a9dfc8a"
   integrity sha512-BdqATzdqg39z2VXnEH7I6dzuX/Di6F/4C8FyiiJYx2+VciYdqt6GPprlpGdpngtWct/f8pA/LxQysNBVuwU/RA==
   dependencies:
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/credential-provider-web-identity@3.433.0":
+  version "3.433.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/credential-provider-web-identity/-/credential-provider-web-identity-3.433.0.tgz#32403ba9cc47d3c46500f3c8e5e0041d20e4dbe8"
+  integrity sha512-RlwjP1I5wO+aPpwyCp23Mk8nmRbRL33hqRASy73c4JA2z2YiRua+ryt6MalIxehhwQU6xvXUKulJnPG9VaMFZg==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/property-provider" "^2.0.0"
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
 
 "@aws-sdk/credential-providers@^3.438.0":
+<<<<<<< HEAD
   version "3.450.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/credential-providers/-/credential-providers-3.450.0.tgz#f10698c85a69b4834be0fb3bf4384c592ae576c5"
   integrity sha512-AWLYcwxNEsTX4hZBqq4cQsVuhVkYIwZP4DDaTAUoK6tR/WqmOFImuNB8DSPRGTEljdg+Q0qIWhMUGDWSKeJffw==
@@ -485,6 +634,24 @@
     "@aws-sdk/credential-provider-sso" "3.450.0"
     "@aws-sdk/credential-provider-web-identity" "3.449.0"
     "@aws-sdk/types" "3.449.0"
+=======
+  version "3.445.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/credential-providers/-/credential-providers-3.445.0.tgz#68bfd69513df1b9df51f83ab86c08e13d5bdb7f4"
+  integrity sha512-EyIlOSfBiDDhXrWfVUcUZjU1kFDRL1ccOiSYnP9aOg/vxtzOhsSGyfU6JVMMLFGhv/tdiqJXjCHiyZj2qddYiA==
+  dependencies:
+    "@aws-sdk/client-cognito-identity" "3.445.0"
+    "@aws-sdk/client-sso" "3.445.0"
+    "@aws-sdk/client-sts" "3.445.0"
+    "@aws-sdk/credential-provider-cognito-identity" "3.445.0"
+    "@aws-sdk/credential-provider-env" "3.433.0"
+    "@aws-sdk/credential-provider-http" "3.435.0"
+    "@aws-sdk/credential-provider-ini" "3.445.0"
+    "@aws-sdk/credential-provider-node" "3.445.0"
+    "@aws-sdk/credential-provider-process" "3.433.0"
+    "@aws-sdk/credential-provider-sso" "3.445.0"
+    "@aws-sdk/credential-provider-web-identity" "3.433.0"
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/credential-provider-imds" "^2.0.0"
     "@smithy/property-provider" "^2.0.0"
     "@smithy/types" "^2.4.0"
@@ -500,12 +667,21 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/middleware-host-header@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-host-header/-/middleware-host-header-3.449.0.tgz#7d5808b2f7972cfa618eb79e9b871f095f92bc67"
   integrity sha512-uO7ao5eFhqEEPk8uqkhNhYqqJPPv/+i2aLchvSYrviDcmcbz9HURc8j+Q9WkmIj3jf0hjAJ9UVMQggBUfoLEgg==
   dependencies:
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/middleware-host-header@3.433.0":
+  version "3.433.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-host-header/-/middleware-host-header-3.433.0.tgz#3b6687ee4021c2b56c96cff61b45a33fb762b1c7"
+  integrity sha512-mBTq3UWv1UzeHG+OfUQ2MB/5GEkt5LTKFaUqzL7ESwzW8XtpBgXnjZvIwu3Vcd3sEetMwijwaGiJhY0ae/YyaA==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/protocol-http" "^3.0.8"
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
@@ -519,12 +695,21 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/middleware-logger@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-logger/-/middleware-logger-3.449.0.tgz#d08821565e160cc8b2ef8189fc0838504e69e224"
   integrity sha512-YwmPLuSx5Zjdnloxr7bArT2KgF+VvlSe5+p5T/woZWEQgINRaCLdvDB37p7x/LlHrxxZRmk20MaFwSKlJU85qQ==
   dependencies:
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/middleware-logger@3.433.0":
+  version "3.433.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-logger/-/middleware-logger-3.433.0.tgz#fcd4e31a8f134861cd519477b959c218a3600186"
+  integrity sha512-We346Fb5xGonTGVZC9Nvqtnqy74VJzYuTLLiuuftA5sbNzftBDy/22QCfvYSTOAl3bvif+dkDUzQY2ihc5PwOQ==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
 
@@ -538,12 +723,21 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/middleware-recursion-detection@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-recursion-detection/-/middleware-recursion-detection-3.449.0.tgz#b9fc2ea6c51a5d8a862c97690ca0cf0916dae554"
   integrity sha512-8kWxxpPBHwFUADf8JaZsUbJ+FtS3K9MGQpMx0AZhh3P9xLaoh602CL0y0+UEEdb2uh6FJJjQiIk4eQXEolhG6Q==
   dependencies:
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/middleware-recursion-detection@3.433.0":
+  version "3.433.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-recursion-detection/-/middleware-recursion-detection-3.433.0.tgz#5b4b7878ea46c70f507c9ea7c30ad0e5ee4ae6bf"
+  integrity sha512-HEvYC9PQlWY/ccUYtLvAlwwf1iCif2TSAmLNr3YTBRVa98x6jKL0hlCrHWYklFeqOGSKy6XhE+NGJMUII0/HaQ==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/protocol-http" "^3.0.8"
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
@@ -558,6 +752,7 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/middleware-sdk-sts@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-sdk-sts/-/middleware-sdk-sts-3.449.0.tgz#5ad8f27ddd22f96a3a5873743b1cad43cb242af1"
@@ -565,6 +760,15 @@
   dependencies:
     "@aws-sdk/middleware-signing" "3.449.0"
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/middleware-sdk-sts@3.433.0":
+  version "3.433.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-sdk-sts/-/middleware-sdk-sts-3.433.0.tgz#9b30f17a922ecc5fd46b93f1edcd20d7146b814f"
+  integrity sha512-ORYbJnBejUyonFl5FwIqhvI3Cq6sAp9j+JpkKZtFNma9tFPdrhmYgfCeNH32H/wGTQV/tUoQ3luh0gA4cuk6DA==
+  dependencies:
+    "@aws-sdk/middleware-signing" "3.433.0"
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
 
@@ -581,12 +785,21 @@
     "@smithy/util-middleware" "^2.0.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/middleware-signing@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-signing/-/middleware-signing-3.449.0.tgz#d6e7e7a380b1b30fe67364b5ed7ee2ecfc5662db"
   integrity sha512-L33efrgdDDY3myjLwraeS2tzUlebaZL6WS7ooACsOwkB9mRs6UQRpSpT90HbcSAjwLaa+xGqaxTA0biAuRjT5A==
   dependencies:
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/middleware-signing@3.433.0":
+  version "3.433.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-signing/-/middleware-signing-3.433.0.tgz#670557ace5b97729dbabb6a991815e44eb0ef03b"
+  integrity sha512-jxPvt59NZo/epMNLNTu47ikmP8v0q217I6bQFGJG7JVFnfl36zDktMwGw+0xZR80qiK47/2BWrNpta61Zd2FxQ==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/property-provider" "^2.0.0"
     "@smithy/protocol-http" "^3.0.8"
     "@smithy/signature-v4" "^2.0.0"
@@ -605,6 +818,7 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/middleware-user-agent@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-user-agent/-/middleware-user-agent-3.449.0.tgz#cee2bb09dd92e34c9d8a5802cb8f695224e8e3ff"
@@ -612,6 +826,15 @@
   dependencies:
     "@aws-sdk/types" "3.449.0"
     "@aws-sdk/util-endpoints" "3.449.0"
+=======
+"@aws-sdk/middleware-user-agent@3.438.0":
+  version "3.438.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-user-agent/-/middleware-user-agent-3.438.0.tgz#a1165134d5b95e1fbeb841740084b3a43dead18a"
+  integrity sha512-a+xHT1wOxT6EA6YyLmrfaroKWOkwwyiktUfXKM0FsUutGzNi4fKhb5NZ2al58NsXzHgHFrasSDp+Lqbd/X2cEw==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+    "@aws-sdk/util-endpoints" "3.438.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/protocol-http" "^3.0.8"
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
@@ -668,6 +891,7 @@
     "@smithy/util-utf8" "^2.0.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/token-providers@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/token-providers/-/token-providers-3.449.0.tgz#538a8888271195e3bd7ace0520a53f82f5610e4b"
@@ -684,6 +908,24 @@
     "@aws-sdk/util-endpoints" "3.449.0"
     "@aws-sdk/util-user-agent-browser" "3.449.0"
     "@aws-sdk/util-user-agent-node" "3.449.0"
+=======
+"@aws-sdk/token-providers@3.438.0":
+  version "3.438.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/token-providers/-/token-providers-3.438.0.tgz#e91baa37c9c78cb5b21cae96a12e7e1705c931d3"
+  integrity sha512-G2fUfTtU6/1ayYRMu0Pd9Ln4qYSvwJOWCqJMdkDgvXSwdgcOSOLsnAIk1AHGJDAvgLikdCzuyOsdJiexr9Vnww==
+  dependencies:
+    "@aws-crypto/sha256-browser" "3.0.0"
+    "@aws-crypto/sha256-js" "3.0.0"
+    "@aws-sdk/middleware-host-header" "3.433.0"
+    "@aws-sdk/middleware-logger" "3.433.0"
+    "@aws-sdk/middleware-recursion-detection" "3.433.0"
+    "@aws-sdk/middleware-user-agent" "3.438.0"
+    "@aws-sdk/region-config-resolver" "3.433.0"
+    "@aws-sdk/types" "3.433.0"
+    "@aws-sdk/util-endpoints" "3.438.0"
+    "@aws-sdk/util-user-agent-browser" "3.433.0"
+    "@aws-sdk/util-user-agent-node" "3.437.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/config-resolver" "^2.0.16"
     "@smithy/fetch-http-handler" "^2.2.4"
     "@smithy/hash-node" "^2.0.12"
@@ -719,10 +961,17 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/types@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-3.449.0.tgz#0da2f8cdb344fbe9846de371a04c6dde1bcaf83f"
   integrity sha512-tSQPAvknheB6XnRoc+AuEgdzn2KhY447hddeVW0Mbg8Yl9es4u4TKVINloKDEyUrCKhB/1f93Hb5uJkPe/e/Ww==
+=======
+"@aws-sdk/types@3.433.0":
+  version "3.433.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-3.433.0.tgz#0f94eae2a4a3525ca872c9ab04e143c01806d755"
+  integrity sha512-0jEE2mSrNDd8VGFjTc1otYrwYPIkzZJEIK90ZxisKvQ/EURGBhNzWn7ejWB9XCMFT6XumYLBR0V9qq5UPisWtA==
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
   dependencies:
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
@@ -742,12 +991,21 @@
     "@aws-sdk/types" "3.391.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/util-endpoints@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/util-endpoints/-/util-endpoints-3.449.0.tgz#bf6427105d25dd612077bc940afea41708c54de3"
   integrity sha512-hWGM/e+BnbCExXLaIEa6gRb0JW3+XGfcHgRqWkAxsKCaxQuXVIPUA3HyifimxTZDKmTbGZcyWfxCnKGS7I19rw==
   dependencies:
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/util-endpoints@3.438.0":
+  version "3.438.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/util-endpoints/-/util-endpoints-3.438.0.tgz#fe79a0ad87fc201c8ecb422f6f040bd300c98df9"
+  integrity sha512-6VyPTq1kN3GWxwFt5DdZfOsr6cJZPLjWh0troY/0uUv3hK74C9o3Y0Xf/z8UAUvQFkVqZse12O0/BgPVMImvfA==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/util-endpoints" "^1.0.2"
     tslib "^2.5.0"
 
@@ -768,12 +1026,21 @@
     bowser "^2.11.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/util-user-agent-browser@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/util-user-agent-browser/-/util-user-agent-browser-3.449.0.tgz#436013796ce49a3f774b14d6d59f327cc0db407c"
   integrity sha512-MUQ8YIVZNZZso5w1qlatHu9c1JKYvdjlAugzKhj7npgV4U8D9RBOJUd2Ct8meXPaH4DTfW1qohPlZu/fWWqNVQ==
   dependencies:
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/util-user-agent-browser@3.433.0":
+  version "3.433.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/util-user-agent-browser/-/util-user-agent-browser-3.433.0.tgz#b5ed0c0cca0db34a2c1c2ffc1b65e7cdd8dc88ff"
+  integrity sha512-2Cf/Lwvxbt5RXvWFXrFr49vXv0IddiUwrZoAiwhDYxvsh+BMnh+NUFot+ZQaTrk/8IPZVDeLPWZRdVy00iaVXQ==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/types" "^2.4.0"
     bowser "^2.11.0"
     tslib "^2.5.0"
@@ -788,12 +1055,21 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@aws-sdk/util-user-agent-node@3.449.0":
   version "3.449.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/util-user-agent-node/-/util-user-agent-node-3.449.0.tgz#04ba6452b855bb2d225358914046b9be54a6c674"
   integrity sha512-PFMnFMSQTdhMAS63anMFFkzz56kWKcjGscgl0bBheEaxo8zgfLf1AAdFuBM+Ob2KYXeMezUbxYu9zOC/0S2hvw==
   dependencies:
     "@aws-sdk/types" "3.449.0"
+=======
+"@aws-sdk/util-user-agent-node@3.437.0":
+  version "3.437.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/util-user-agent-node/-/util-user-agent-node-3.437.0.tgz#f77729854ddf049ccaba8bae3d8fa279812b4716"
+  integrity sha512-JVEcvWaniamtYVPem4UthtCNoTBCfFTwYj7Y3CrWZ2Qic4TqrwLkAfaBGtI2TGrhIClVr77uzLI6exqMTN7orA==
+  dependencies:
+    "@aws-sdk/types" "3.433.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/node-config-provider" "^2.1.3"
     "@smithy/types" "^2.4.0"
     tslib "^2.5.0"
@@ -1062,12 +1338,12 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@babel/runtime@^7.20.6":
-  version "7.22.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.5.tgz#8564dd588182ce0047d55d7a75e93921107b57ec"
-  integrity sha512-ecjvYlnAaZ/KVneE/OdKYBYfgXV3Ptu6zQWmgEF7vwKhQnvVS6bjMD2XYgj+SNvQ1GfK/pjgokfPkC/2CO8CuA==
+"@babel/runtime@^7.22.5":
+  version "7.23.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.2.tgz#062b0ac103261d68a966c4c7baf2ae3e62ec3885"
+  integrity sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==
   dependencies:
-    regenerator-runtime "^0.13.11"
+    regenerator-runtime "^0.14.0"
 
 "@babel/template@^7.20.7", "@babel/template@^7.3.3":
   version "7.20.7"
@@ -1270,6 +1546,18 @@
   version "8.43.0"
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.43.0.tgz#559ca3d9ddbd6bf907ad524320a0d14b85586af0"
   integrity sha512-s2UHCoiXfxMvmfzqoN+vrQ84ahUSYde9qNO1MdxmoEhyHWsfmwOpFlwYV+ePJEVc7gFnATGUi376WowX1N7tFg==
+
+"@govuk-one-login/di-ipv-cri-common-express@3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-3.2.0.tgz#09538fff721c05f53b1dcd66974b4adc5e7f9516"
+  integrity sha512-KA21wGLQ7JvMGabvkfbCl92fvVPHf9rpqg7UmjE/gP+EcCpuGSm7BpGxCLtYMvqeGBENNkNLNxyece0eLLaEaQ==
+  dependencies:
+    hmpo-logger "6.1.1"
+    i18next "23.5.1"
+    i18next-fs-backend "2.1.5"
+    i18next-http-middleware "3.3.2"
+    lodash.differencewith "4.5.0"
+    lodash.frompairs "4.0.1"
 
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
@@ -1723,12 +2011,21 @@
   resolved "https://registry.npmjs.org/@sinonjs/text-encoding/-/text-encoding-0.7.2.tgz"
   integrity sha512-sXXKG+uL9IrKqViTtao2Ws6dy0znu9sOaP1di/jKGW1M6VssO8vlpXCQcpZ+jisQ1tTFAC5Jo/EOzFbggBagFQ==
 
+<<<<<<< HEAD
 "@smithy/abort-controller@^2.0.13":
   version "2.0.13"
   resolved "https://registry.yarnpkg.com/@smithy/abort-controller/-/abort-controller-2.0.13.tgz#d050a969bf1a478e548a323ea0f1b83532cbc136"
   integrity sha512-eeOPD+GF9BzF/Mjy3PICLePx4l0f3rG/nQegQHRLTloN5p1lSJJNZsyn+FzDnW8P2AduragZqJdtKNCxXozB1Q==
   dependencies:
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/abort-controller@^2.0.12":
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@smithy/abort-controller/-/abort-controller-2.0.12.tgz#62cd47c81fa1d7d6c2d6fde0c2f54ea89892fb6a"
+  integrity sha512-YIJyefe1mi3GxKdZxEBEuzYOeQ9xpYfqnFmWzojCssRAuR7ycxwpoRQgp965vuW426xUAQhCV5rCaWElQ7XsaA==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/abort-controller@^2.0.3":
@@ -1739,6 +2036,7 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/config-resolver@^2.0.16", "@smithy/config-resolver@^2.0.18":
   version "2.0.18"
   resolved "https://registry.yarnpkg.com/@smithy/config-resolver/-/config-resolver-2.0.18.tgz#5692b491a423bfb821d12e6eca0eb5f0ca63e789"
@@ -1748,6 +2046,17 @@
     "@smithy/types" "^2.5.0"
     "@smithy/util-config-provider" "^2.0.0"
     "@smithy/util-middleware" "^2.0.6"
+=======
+"@smithy/config-resolver@^2.0.16":
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/@smithy/config-resolver/-/config-resolver-2.0.16.tgz#f2abf65a21f56731fdab2d39d2df2dd0e377c9cc"
+  integrity sha512-1k+FWHQDt2pfpXhJsOmNMmlAZ3NUQ98X5tYsjQhVGq+0X6cOBMhfh6Igd0IX3Ut6lEO6DQAdPMI/blNr3JZfMQ==
+  dependencies:
+    "@smithy/node-config-provider" "^2.1.3"
+    "@smithy/types" "^2.4.0"
+    "@smithy/util-config-provider" "^2.0.0"
+    "@smithy/util-middleware" "^2.0.5"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/config-resolver@^2.0.3":
@@ -1771,6 +2080,7 @@
     "@smithy/url-parser" "^2.0.3"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/credential-provider-imds@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@smithy/credential-provider-imds/-/credential-provider-imds-2.1.1.tgz#18607cbfce633ed81a2832889efb660c33a974e9"
@@ -1780,6 +2090,17 @@
     "@smithy/property-provider" "^2.0.14"
     "@smithy/types" "^2.5.0"
     "@smithy/url-parser" "^2.0.13"
+=======
+"@smithy/credential-provider-imds@^2.0.18":
+  version "2.0.18"
+  resolved "https://registry.yarnpkg.com/@smithy/credential-provider-imds/-/credential-provider-imds-2.0.18.tgz#9a5b8be3f268bb4ac7b7ef321f57b0e9a61e2940"
+  integrity sha512-QnPBi6D2zj6AHJdUTo5zXmk8vwHJ2bNevhcVned1y+TZz/OI5cizz5DsYNkqFUIDn8tBuEyKNgbmKVNhBbuY3g==
+  dependencies:
+    "@smithy/node-config-provider" "^2.1.3"
+    "@smithy/property-provider" "^2.0.13"
+    "@smithy/types" "^2.4.0"
+    "@smithy/url-parser" "^2.0.12"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/eventstream-codec@^2.0.3":
@@ -1803,6 +2124,7 @@
     "@smithy/util-base64" "^2.0.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/fetch-http-handler@^2.2.4", "@smithy/fetch-http-handler@^2.2.6":
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/@smithy/fetch-http-handler/-/fetch-http-handler-2.2.6.tgz#c3390c1c0533d024a5e2b1d1e8e778bcdcb66bf4"
@@ -1822,6 +2144,27 @@
     "@smithy/types" "^2.5.0"
     "@smithy/util-buffer-from" "^2.0.0"
     "@smithy/util-utf8" "^2.0.2"
+=======
+"@smithy/fetch-http-handler@^2.2.4":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@smithy/fetch-http-handler/-/fetch-http-handler-2.2.4.tgz#405716581a5a336f2c162daf4169bff600fc47ce"
+  integrity sha512-gIPRFEGi+c6V52eauGKrjDzPWF2Cu7Z1r5F8A3j2wcwz25sPG/t8kjsbEhli/tS/2zJp/ybCZXe4j4ro3yv/HA==
+  dependencies:
+    "@smithy/protocol-http" "^3.0.8"
+    "@smithy/querystring-builder" "^2.0.12"
+    "@smithy/types" "^2.4.0"
+    "@smithy/util-base64" "^2.0.0"
+    tslib "^2.5.0"
+
+"@smithy/hash-node@^2.0.12":
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@smithy/hash-node/-/hash-node-2.0.12.tgz#514586ca3f54840322273029eef66c41d9001e39"
+  integrity sha512-fDZnTr5j9t5qcbeJ037aMZXxMka13Znqwrgy3PAqYj6Dm3XHXHftTH3q+NWgayUxl1992GFtQt1RuEzRMy3NnQ==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+    "@smithy/util-buffer-from" "^2.0.0"
+    "@smithy/util-utf8" "^2.0.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/hash-node@^2.0.3":
@@ -1835,11 +2178,19 @@
     tslib "^2.5.0"
 
 "@smithy/invalid-dependency@^2.0.12":
+<<<<<<< HEAD
   version "2.0.13"
   resolved "https://registry.yarnpkg.com/@smithy/invalid-dependency/-/invalid-dependency-2.0.13.tgz#6f4c5d809906bbb069074c5c11028a2631abed8d"
   integrity sha512-XsGYhVhvEikX1Yz0kyIoLssJf2Rs6E0U2w2YuKdT4jSra5A/g8V2oLROC1s56NldbgnpesTYB2z55KCHHbKyjw==
   dependencies:
     "@smithy/types" "^2.5.0"
+=======
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@smithy/invalid-dependency/-/invalid-dependency-2.0.12.tgz#de78a5e9457cc397aad0648e18c0260b522fe604"
+  integrity sha512-p5Y+iMHV3SoEpy3VSR7mifbreHQwVSvHSAz/m4GdoXfOzKzaYC8hYv10Ks7Deblkf7lhas8U+lAp9ThbBM+ZXA==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/invalid-dependency@^2.0.3":
@@ -1858,12 +2209,21 @@
     tslib "^2.5.0"
 
 "@smithy/middleware-content-length@^2.0.14":
+<<<<<<< HEAD
   version "2.0.15"
   resolved "https://registry.yarnpkg.com/@smithy/middleware-content-length/-/middleware-content-length-2.0.15.tgz#cd419737202f66eb441a233e9e8c8bc6bbd6a6f0"
   integrity sha512-xH4kRBw01gJgWiU+/mNTrnyFXeozpZHw39gLb3JKGsFDVmSrJZ8/tRqu27tU/ki1gKkxr2wApu+dEYjI3QwV1Q==
   dependencies:
     "@smithy/protocol-http" "^3.0.9"
     "@smithy/types" "^2.5.0"
+=======
+  version "2.0.14"
+  resolved "https://registry.yarnpkg.com/@smithy/middleware-content-length/-/middleware-content-length-2.0.14.tgz#ee1aa842490cee90b6ac208fb13a7d56d3ed84f2"
+  integrity sha512-poUNgKTw9XwPXfX9nEHpVgrMNVpaSMZbshqvPxFVoalF4wp6kRzYKOfdesSVectlQ51VtigoLfbXcdyPwvxgTg==
+  dependencies:
+    "@smithy/protocol-http" "^3.0.8"
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/middleware-content-length@^2.0.3":
@@ -1887,6 +2247,7 @@
     tslib "^2.5.0"
 
 "@smithy/middleware-endpoint@^2.1.3":
+<<<<<<< HEAD
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@smithy/middleware-endpoint/-/middleware-endpoint-2.2.0.tgz#b5d065e8459216502adf3d8ccb7a589cfe1ba147"
   integrity sha512-tddRmaig5URk2106PVMiNX6mc5BnKIKajHHDxb7K0J5MLdcuQluHMGnjkv18iY9s9O0tF+gAcPd/pDXA5L9DZw==
@@ -1910,6 +2271,31 @@
     "@smithy/types" "^2.5.0"
     "@smithy/util-middleware" "^2.0.6"
     "@smithy/util-retry" "^2.0.6"
+=======
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/@smithy/middleware-endpoint/-/middleware-endpoint-2.1.3.tgz#ab7ebff4ecbc9b02ec70dd57179f47c4f16bf03f"
+  integrity sha512-ZrQ0/YX6hNVTxqMEHtEaDbDv6pNeEji/a5Vk3HuFC5R3ZY8lfoATyxmOGxBVYnF3NUvZLNC7umEv1WzWGWvCGQ==
+  dependencies:
+    "@smithy/middleware-serde" "^2.0.12"
+    "@smithy/node-config-provider" "^2.1.3"
+    "@smithy/shared-ini-file-loader" "^2.2.2"
+    "@smithy/types" "^2.4.0"
+    "@smithy/url-parser" "^2.0.12"
+    "@smithy/util-middleware" "^2.0.5"
+    tslib "^2.5.0"
+
+"@smithy/middleware-retry@^2.0.18":
+  version "2.0.18"
+  resolved "https://registry.yarnpkg.com/@smithy/middleware-retry/-/middleware-retry-2.0.18.tgz#37982552a1d3815148797831df025e470423fc5e"
+  integrity sha512-VyrHQRldGSb3v9oFOB5yPxmLT7U2sQic2ytylOnYlnsmVOLlFIaI6sW22c+w2675yq+XZ6HOuzV7x2OBYCWRNA==
+  dependencies:
+    "@smithy/node-config-provider" "^2.1.3"
+    "@smithy/protocol-http" "^3.0.8"
+    "@smithy/service-error-classification" "^2.0.5"
+    "@smithy/types" "^2.4.0"
+    "@smithy/util-middleware" "^2.0.5"
+    "@smithy/util-retry" "^2.0.5"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
     uuid "^8.3.2"
 
@@ -1926,12 +2312,21 @@
     tslib "^2.5.0"
     uuid "^8.3.2"
 
+<<<<<<< HEAD
 "@smithy/middleware-serde@^2.0.12", "@smithy/middleware-serde@^2.0.13":
   version "2.0.13"
   resolved "https://registry.yarnpkg.com/@smithy/middleware-serde/-/middleware-serde-2.0.13.tgz#1d105ff5ffee5563c453a8546480182912cd169b"
   integrity sha512-tBGbeXw+XsE6pPr4UaXOh+UIcXARZeiA8bKJWxk2IjJcD1icVLhBSUQH9myCIZLNNzJIH36SDjUX8Wqk4xJCJg==
   dependencies:
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/middleware-serde@^2.0.12":
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@smithy/middleware-serde/-/middleware-serde-2.0.12.tgz#edc93c400a5ffec6c068419163f9d880bdff5e5b"
+  integrity sha512-IBeco157lIScecq2Z+n0gq56i4MTnfKxS7rbfrAORveDJgnbBAaEQgYqMqp/cYqKrpvEXcyTjwKHrBjCCIZh2A==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/middleware-serde@^2.0.3":
@@ -1949,12 +2344,21 @@
   dependencies:
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/middleware-stack@^2.0.6", "@smithy/middleware-stack@^2.0.7":
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/@smithy/middleware-stack/-/middleware-stack-2.0.7.tgz#e462bb3b33a9d3a29b80e8a7e13b8ba4726967c9"
   integrity sha512-L1KLAAWkXbGx1t2jjCI/mDJ2dDNq+rp4/ifr/HcC6FHngxho5O7A5bQLpKHGlkfATH6fUnOEx0VICEVFA4sUzw==
   dependencies:
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/middleware-stack@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@smithy/middleware-stack/-/middleware-stack-2.0.6.tgz#c58d6e4ffc4498bf47fd27adcddd142395d3ba84"
+  integrity sha512-YSvNZeOKWLJ0M/ycxwDIe2Ztkp6Qixmcml1ggsSv2fdHKGkBPhGrX5tMzPGMI1yyx55UEYBi2OB4s+RriXX48A==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/node-config-provider@^2.0.3":
@@ -1967,6 +2371,7 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/node-config-provider@^2.1.3", "@smithy/node-config-provider@^2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@smithy/node-config-provider/-/node-config-provider-2.1.5.tgz#f4be47e87c55791bf07c86c8e41383016753153f"
@@ -1975,6 +2380,16 @@
     "@smithy/property-provider" "^2.0.14"
     "@smithy/shared-ini-file-loader" "^2.2.4"
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/node-config-provider@^2.1.3":
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/@smithy/node-config-provider/-/node-config-provider-2.1.3.tgz#bf4cee69df08d43618ad4329d234351b14d98ef7"
+  integrity sha512-J6lXvRHGVnSX3n1PYi+e1L5HN73DkkJpUviV3Ebf+8wSaIjAf+eVNbzyvh/S5EQz7nf4KVfwbD5vdoZMAthAEQ==
+  dependencies:
+    "@smithy/property-provider" "^2.0.13"
+    "@smithy/shared-ini-file-loader" "^2.2.2"
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/node-http-handler@^2.0.3":
@@ -1988,6 +2403,7 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/node-http-handler@^2.1.8", "@smithy/node-http-handler@^2.1.9":
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/@smithy/node-http-handler/-/node-http-handler-2.1.9.tgz#903c353dcd58990ea46e2793a10160004e2e09e4"
@@ -1997,6 +2413,17 @@
     "@smithy/protocol-http" "^3.0.9"
     "@smithy/querystring-builder" "^2.0.13"
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/node-http-handler@^2.1.8":
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/@smithy/node-http-handler/-/node-http-handler-2.1.8.tgz#aad989d5445c43a677e7e6161c6fa4abd0e46023"
+  integrity sha512-KZylM7Wff/So5SmCiwg2kQNXJ+RXgz34wkxS7WNwIUXuZrZZpY/jKJCK+ZaGyuESDu3TxcaY+zeYGJmnFKbQsA==
+  dependencies:
+    "@smithy/abort-controller" "^2.0.12"
+    "@smithy/protocol-http" "^3.0.8"
+    "@smithy/querystring-builder" "^2.0.12"
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/property-provider@^2.0.0", "@smithy/property-provider@^2.0.3":
@@ -2007,12 +2434,21 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/property-provider@^2.0.14":
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/@smithy/property-provider/-/property-provider-2.0.14.tgz#142e018ee624ae0c966c72886d4fb5d708f086d6"
   integrity sha512-k3D2qp9o6imTrLaXRj6GdLYEJr1sXqS99nLhzq8fYmJjSVOeMg/G+1KVAAc7Oxpu71rlZ2f8SSZxcSxkevuR0A==
   dependencies:
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/property-provider@^2.0.13":
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/@smithy/property-provider/-/property-provider-2.0.13.tgz#45ee47ad79d638082523f944c49fd2e851312098"
+  integrity sha512-VJqUf2CbsQX6uUiC5dUPuoEATuFjkbkW3lJHbRnpk9EDC9X+iKqhfTK+WP+lve5EQ9TcCI1Q6R7hrg41FyC54w==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/protocol-http@^2.0.3":
@@ -2023,6 +2459,7 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/protocol-http@^3.0.8", "@smithy/protocol-http@^3.0.9":
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/@smithy/protocol-http/-/protocol-http-3.0.9.tgz#a1d973394b6da093bc8fd71556b589190352310d"
@@ -2037,6 +2474,22 @@
   integrity sha512-JhXKwp3JtsFUe96XLHy/nUPEbaXqn6r7xE4sNaH8bxEyytE5q1fwt0ew/Ke6+vIC7gP87HCHgQpJHg1X1jN2Fw==
   dependencies:
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/protocol-http@^3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@smithy/protocol-http/-/protocol-http-3.0.8.tgz#0f7c114f6b8e23a57dff7a275d085bac97b9233c"
+  integrity sha512-SHJvYeWq8q0FK8xHk+xjV9dzDUDjFMT+G1pZbV+XB6OVoac/FSVshlMNPeUJ8AmSkcDKHRu5vASnRqZHgD3qhw==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+    tslib "^2.5.0"
+
+"@smithy/querystring-builder@^2.0.12":
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@smithy/querystring-builder/-/querystring-builder-2.0.12.tgz#d13e0eea08d43596bdbb182206ccdee0956d06fd"
+  integrity sha512-cDbF07IuCjiN8CdGvPzfJjXIrmDSelScRfyJYrYBNBbKl2+k7QD/KqiHhtRyEKgID5mmEVrV6KE6L/iPJ98sFw==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     "@smithy/util-uri-escape" "^2.0.0"
     tslib "^2.5.0"
 
@@ -2049,12 +2502,21 @@
     "@smithy/util-uri-escape" "^2.0.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/querystring-parser@^2.0.13":
   version "2.0.13"
   resolved "https://registry.yarnpkg.com/@smithy/querystring-parser/-/querystring-parser-2.0.13.tgz#9825239eceb2ab6a8906d7a3fa8241d20794b5a7"
   integrity sha512-TEiT6o8CPZVxJ44Rly/rrsATTQsE+b/nyBVzsYn2sa75xAaZcurNxsFd8z1haoUysONiyex24JMHoJY6iCfLdA==
   dependencies:
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/querystring-parser@^2.0.12":
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@smithy/querystring-parser/-/querystring-parser-2.0.12.tgz#d2c234031e266359716a0c62c8c1208a5bd2557e"
+  integrity sha512-fytyTcXaMzPBuNtPlhj5v6dbl4bJAnwKZFyyItAGt4Tgm9HFPZNo7a9r1SKPr/qdxUEBzvL9Rh+B9SkTX3kFxg==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/querystring-parser@^2.0.3":
@@ -2070,12 +2532,21 @@
   resolved "https://registry.yarnpkg.com/@smithy/service-error-classification/-/service-error-classification-2.0.0.tgz#bbce07c9c529d9333d40db881fd4a1795dd84892"
   integrity sha512-2z5Nafy1O0cTf69wKyNjGW/sNVMiqDnb4jgwfMG8ye8KnFJ5qmJpDccwIbJNhXIfbsxTg9SEec2oe1cexhMJvw==
 
+<<<<<<< HEAD
 "@smithy/service-error-classification@^2.0.6":
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/@smithy/service-error-classification/-/service-error-classification-2.0.6.tgz#173c0067c9fce7641c4634e5f2f7e0b6fe11a051"
   integrity sha512-fCQ36frtYra2fqY2/DV8+3/z2d0VB/1D1hXbjRcM5wkxTToxq6xHbIY/NGGY6v4carskMyG8FHACxgxturJ9Pg==
   dependencies:
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/service-error-classification@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@smithy/service-error-classification/-/service-error-classification-2.0.5.tgz#22c84fad456730adfa31cae91d47acd31304c346"
+  integrity sha512-M0SeJnEgD2ywJyV99Fb1yKFzmxDe9JfpJiYTVSRMyRLc467BPU0qsuuDPzMCdB1mU8M8u1rVOdkqdoyFN8UFTw==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
 
 "@smithy/shared-ini-file-loader@^2.0.0", "@smithy/shared-ini-file-loader@^2.0.3":
   version "2.0.3"
@@ -2085,12 +2556,21 @@
     "@smithy/types" "^2.2.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/shared-ini-file-loader@^2.0.6", "@smithy/shared-ini-file-loader@^2.2.4":
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/@smithy/shared-ini-file-loader/-/shared-ini-file-loader-2.2.4.tgz#ed86a5afa76025ef827d84f5e07bb757174fe7c8"
   integrity sha512-9dRknGgvYlRIsoTcmMJXuoR/3ekhGwhRq4un3ns2/byre4Ql5hyUN4iS0x8eITohjU90YOnUCsbRwZRvCkbRfw==
   dependencies:
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/shared-ini-file-loader@^2.0.6", "@smithy/shared-ini-file-loader@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@smithy/shared-ini-file-loader/-/shared-ini-file-loader-2.2.2.tgz#b52064c5254a01f5c98a821207448de439938667"
+  integrity sha512-noyQUPn7b1M8uB0GEXc/Zyxq+5K2b7aaqWnLp+hgJ7+xu/FCvtyWy5eWLDjQEsHnAet2IZhS5QF8872OR69uNg==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/signature-v4@^2.0.0":
@@ -2117,6 +2597,7 @@
     "@smithy/util-stream" "^2.0.3"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/smithy-client@^2.1.12", "@smithy/smithy-client@^2.1.15":
   version "2.1.15"
   resolved "https://registry.yarnpkg.com/@smithy/smithy-client/-/smithy-client-2.1.15.tgz#8a6e142f52fe253fd7f868eedce0e6d308415098"
@@ -2125,6 +2606,16 @@
     "@smithy/middleware-stack" "^2.0.7"
     "@smithy/types" "^2.5.0"
     "@smithy/util-stream" "^2.0.20"
+=======
+"@smithy/smithy-client@^2.1.12":
+  version "2.1.12"
+  resolved "https://registry.yarnpkg.com/@smithy/smithy-client/-/smithy-client-2.1.12.tgz#a7f10ab846d41ce1042eb81f087c4c9eb438b481"
+  integrity sha512-XXqhridfkKnpj+lt8vM6HRlZbqUAqBjVC74JIi13F/AYQd/zTj9SOyGfxnbp4mjY9q28LityxIuV8CTinr9r5w==
+  dependencies:
+    "@smithy/middleware-stack" "^2.0.6"
+    "@smithy/types" "^2.4.0"
+    "@smithy/util-stream" "^2.0.17"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/types@^2.2.0":
@@ -2134,6 +2625,7 @@
   dependencies:
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/types@^2.4.0", "@smithy/types@^2.5.0":
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/@smithy/types/-/types-2.5.0.tgz#f1bd5b906e7d3c6fd559b9b4f05e4707c7039180"
@@ -2148,6 +2640,22 @@
   dependencies:
     "@smithy/querystring-parser" "^2.0.13"
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/types@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@smithy/types/-/types-2.4.0.tgz#ed35e429e3ea3d089c68ed1bf951d0ccbdf2692e"
+  integrity sha512-iH1Xz68FWlmBJ9vvYeHifVMWJf82ONx+OybPW8ZGf5wnEv2S0UXcU4zwlwJkRXuLKpcSLHrraHbn2ucdVXLb4g==
+  dependencies:
+    tslib "^2.5.0"
+
+"@smithy/url-parser@^2.0.12":
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@smithy/url-parser/-/url-parser-2.0.12.tgz#a4cdd1b66176e48f10d119298f8f90b06b7e8a01"
+  integrity sha512-qgkW2mZqRvlNUcBkxYB/gYacRaAdck77Dk3/g2iw0S9F0EYthIS3loGfly8AwoWpIvHKhkTsCXXQfzksgZ4zIA==
+  dependencies:
+    "@smithy/querystring-parser" "^2.0.12"
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/url-parser@^2.0.3":
@@ -2212,6 +2720,7 @@
     tslib "^2.5.0"
 
 "@smithy/util-defaults-mode-browser@^2.0.16":
+<<<<<<< HEAD
   version "2.0.19"
   resolved "https://registry.yarnpkg.com/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.19.tgz#fe437b62e589812cf97b269e689b18f7bcb1d008"
   integrity sha512-VHP8xdFR7/orpiABJwgoTB0t8Zhhwpf93gXhNfUBiwAE9O0rvsv7LwpQYjgvbOUDDO8JfIYQB2GYJNkqqGWsXw==
@@ -2219,6 +2728,15 @@
     "@smithy/property-provider" "^2.0.14"
     "@smithy/smithy-client" "^2.1.15"
     "@smithy/types" "^2.5.0"
+=======
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.16.tgz#7d60c4e1d00ed569f47fd6343b822c4ff3c2c9f8"
+  integrity sha512-Uv5Cu8nVkuvLn0puX+R9zWbSNpLIR3AxUlPoLJ7hC5lvir8B2WVqVEkJLwtixKAncVLasnTVjPDCidtAUTGEQw==
+  dependencies:
+    "@smithy/property-provider" "^2.0.13"
+    "@smithy/smithy-client" "^2.1.12"
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     bowser "^2.11.0"
     tslib "^2.5.0"
 
@@ -2233,6 +2751,7 @@
     tslib "^2.5.0"
 
 "@smithy/util-defaults-mode-node@^2.0.21":
+<<<<<<< HEAD
   version "2.0.25"
   resolved "https://registry.yarnpkg.com/@smithy/util-defaults-mode-node/-/util-defaults-mode-node-2.0.25.tgz#76a62b8a6602b1414a0af5d0ac11fa1dfdadb308"
   integrity sha512-jkmep6/JyWmn2ADw9VULDeGbugR4N/FJCKOt+gYyVswmN1BJOfzF2umaYxQ1HhQDvna3kzm1Dbo1qIfBW4iuHA==
@@ -2243,6 +2762,18 @@
     "@smithy/property-provider" "^2.0.14"
     "@smithy/smithy-client" "^2.1.15"
     "@smithy/types" "^2.5.0"
+=======
+  version "2.0.21"
+  resolved "https://registry.yarnpkg.com/@smithy/util-defaults-mode-node/-/util-defaults-mode-node-2.0.21.tgz#d10c887b3e641c63e235ce95ba32137fd0bd1838"
+  integrity sha512-cUEsttVZ79B7Al2rWK2FW03HBpD9LyuqFtm+1qFty5u9sHSdesr215gS2Ln53fTopNiPgeXpdoM3IgjvIO0rJw==
+  dependencies:
+    "@smithy/config-resolver" "^2.0.16"
+    "@smithy/credential-provider-imds" "^2.0.18"
+    "@smithy/node-config-provider" "^2.1.3"
+    "@smithy/property-provider" "^2.0.13"
+    "@smithy/smithy-client" "^2.1.12"
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/util-defaults-mode-node@^2.0.3":
@@ -2258,12 +2789,21 @@
     tslib "^2.5.0"
 
 "@smithy/util-endpoints@^1.0.2":
+<<<<<<< HEAD
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@smithy/util-endpoints/-/util-endpoints-1.0.4.tgz#2b18aa7175e956e839be7aad5c5f0e0f6016d10d"
   integrity sha512-FPry8j1xye5yzrdnf4xKUXVnkQErxdN7bUIaqC0OFoGsv2NfD9b2UUMuZSSt+pr9a8XWAqj0HoyVNUfPiZ/PvQ==
   dependencies:
     "@smithy/node-config-provider" "^2.1.5"
     "@smithy/types" "^2.5.0"
+=======
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@smithy/util-endpoints/-/util-endpoints-1.0.2.tgz#8be5b840c19661e3830ca10973f775b331bd94cd"
+  integrity sha512-QEdq+sP68IJHAMVB2ugKVVZEWeKQtZLuf+akHzc8eTVElsZ2ZdVLWC6Cp+uKjJ/t4yOj1qu6ZzyxJQEQ8jdEjg==
+  dependencies:
+    "@smithy/node-config-provider" "^2.1.3"
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/util-hex-encoding@^2.0.0":
@@ -2280,12 +2820,21 @@
   dependencies:
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/util-middleware@^2.0.5", "@smithy/util-middleware@^2.0.6":
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/@smithy/util-middleware/-/util-middleware-2.0.6.tgz#fbc23119436baaa1494c11803abaabef8cb3e2c4"
   integrity sha512-7W4uuwBvSLgKoLC1x4LfeArCVcbuHdtVaC4g30kKsD1erfICyQ45+tFhhs/dZNeQg+w392fhunCm/+oCcb6BSA==
   dependencies:
     "@smithy/types" "^2.5.0"
+=======
+"@smithy/util-middleware@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@smithy/util-middleware/-/util-middleware-2.0.5.tgz#c63dc491de81641c99ade9309f30c54ad0e28fbd"
+  integrity sha512-1lyT3TcaMJQe+OFfVI+TlomDkPuVzb27NZYdYtmSTltVmLaUjdCyt4KE+OH1CnhZKsz4/cdCL420Lg9UH5Z2Mw==
+  dependencies:
+    "@smithy/types" "^2.4.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/util-retry@^2.0.0":
@@ -2296,6 +2845,7 @@
     "@smithy/service-error-classification" "^2.0.0"
     tslib "^2.5.0"
 
+<<<<<<< HEAD
 "@smithy/util-retry@^2.0.5", "@smithy/util-retry@^2.0.6":
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/@smithy/util-retry/-/util-retry-2.0.6.tgz#c887c2c3e356661c1336efb3f085e32fce777124"
@@ -2317,6 +2867,29 @@
     "@smithy/util-buffer-from" "^2.0.0"
     "@smithy/util-hex-encoding" "^2.0.0"
     "@smithy/util-utf8" "^2.0.2"
+=======
+"@smithy/util-retry@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@smithy/util-retry/-/util-retry-2.0.5.tgz#1a93721da082301aca61d8b42380369761a7e80d"
+  integrity sha512-x3t1+MQAJ6QONk3GTbJNcugCFDVJ+Bkro5YqQQK1EyVesajNDqxFtCx9WdOFNGm/Cbm7tUdwVEmfKQOJoU2Vtw==
+  dependencies:
+    "@smithy/service-error-classification" "^2.0.5"
+    "@smithy/types" "^2.4.0"
+    tslib "^2.5.0"
+
+"@smithy/util-stream@^2.0.17":
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/@smithy/util-stream/-/util-stream-2.0.17.tgz#4c980891b0943e9e64949d7afcf1ec4a7b510ea8"
+  integrity sha512-fP/ZQ27rRvHsqItds8yB7jerwMpZFTL3QqbQbidUiG0+mttMoKdP0ZqnvM8UK5q0/dfc3/pN7g4XKPXOU7oRWw==
+  dependencies:
+    "@smithy/fetch-http-handler" "^2.2.4"
+    "@smithy/node-http-handler" "^2.1.8"
+    "@smithy/types" "^2.4.0"
+    "@smithy/util-base64" "^2.0.0"
+    "@smithy/util-buffer-from" "^2.0.0"
+    "@smithy/util-hex-encoding" "^2.0.0"
+    "@smithy/util-utf8" "^2.0.0"
+>>>>>>> 034a54b (chore: Update to @govuk-one-login/di-ipv-cri-common-express)
     tslib "^2.5.0"
 
 "@smithy/util-stream@^2.0.3":
@@ -3568,17 +4141,6 @@ detect-newline@^3.0.0:
   resolved "https://registry.npmjs.org/detect-newline/-/detect-newline-3.1.0.tgz"
   integrity sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==
 
-di-ipv-cri-common-express@alphagov/di-ipv-cri-common-express.git#v1.0.0:
-  version "1.0.0"
-  resolved "https://codeload.github.com/alphagov/di-ipv-cri-common-express/tar.gz/7e001d572fe35124425c67642a145b865d481f8f"
-  dependencies:
-    hmpo-logger "6.1.1"
-    i18next "22.4.14"
-    i18next-fs-backend "^2.1.1"
-    i18next-http-middleware "3.3.0"
-    lodash.differencewith "4.5.0"
-    lodash.frompairs "4.0.1"
-
 diff-sequences@^29.4.3:
   version "29.4.3"
   resolved "https://registry.npmjs.org/diff-sequences/-/diff-sequences-29.4.3.tgz"
@@ -3593,7 +4155,7 @@ diff@^3.5.0:
   version "3.5.0"
   resolved "https://registry.npmjs.org/diff/-/diff-3.5.0.tgz"
   integrity sha512-A46qtFgd+g7pDZinpnwiRJtxbC1hpgf0uzP3iG89scHk0AUC7A1TGxf5OiiOUv/JMZR8GOt8hL900hV0bOy5xA==
-
+ 
 diff@^4.0.1:
   version "4.0.2"
   resolved "https://registry.npmjs.org/diff/-/diff-4.0.2.tgz"
@@ -4407,7 +4969,7 @@ glob@^7.0.5, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6:
 
 glob@^8.0.3:
   version "8.1.0"
-  resolved "https://registry.npmjs.org/glob/-/glob-8.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-8.1.0.tgz#d388f656593ef708ee3e34640fdfb99a9fd1c33e"
   integrity sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==
   dependencies:
     fs.realpath "^1.0.0"
@@ -4633,7 +5195,7 @@ hmpo-i18n@6.0.1:
 
 hmpo-logger@6.1.1:
   version "6.1.1"
-  resolved "https://registry.npmjs.org/hmpo-logger/-/hmpo-logger-6.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/hmpo-logger/-/hmpo-logger-6.1.1.tgz#e5b428707cc997355d1a951d6c2f6147da7abeee"
   integrity sha512-QNsH/URylhCGjjWOr5BTasvcBcp9rWRt2iBf6K4VBx4Xb2QCg77H6U+1iuiMz9rOOZrgq7mv2yoMsKdEk6HgdA==
   dependencies:
     chalk "=4"
@@ -4734,22 +5296,22 @@ husky@8.0.3:
   resolved "https://registry.yarnpkg.com/husky/-/husky-8.0.3.tgz#4936d7212e46d1dea28fef29bb3a108872cd9184"
   integrity sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==
 
-i18next-fs-backend@^2.1.1:
+i18next-fs-backend@2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-2.1.5.tgz#03347eacde6a35b599da1889a048ae63bcf0c687"
   integrity sha512-7fgSH8nVhXSBYPHR/W3tEXXhcnwHwNiND4Dfx9knzPzdsWTUTL/TdDVV+DY0dL0asHKLbdoJaXS4LdVW6R8MVQ==
 
-i18next-http-middleware@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/i18next-http-middleware/-/i18next-http-middleware-3.3.0.tgz#f4e504eea68adc5b8e881d9d6eb78f93f7a34dc0"
-  integrity sha512-WX6uqxNwXccdNm/md5VJ+Q47DF2gjqLvygvgNzb2tCJWPM86FCi2LIvKco70EttlpV9IkfkCVNVF07/56EsSEw==
+i18next-http-middleware@3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/i18next-http-middleware/-/i18next-http-middleware-3.3.2.tgz#6a24fee6bde44952a5af24364d43fa32f6c1b9b6"
+  integrity sha512-PSeLXQXr9Qiv9Q3GCWCoIJenKVbxCcVsXb7VMp/mOprV4gu+AMJT7VHw4+QEf6oYW6GU31QSLnfDpLNoSMtx3g==
 
-i18next@22.4.14:
-  version "22.4.14"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.4.14.tgz#18dd94e9adc2618497c7de101a206e1ca3a18727"
-  integrity sha512-VtLPtbdwGn0+DAeE00YkiKKXadkwg+rBUV+0v8v0ikEjwdiJ0gmYChVE4GIa9HXymY6wKapkL93vGT7xpq6aTw==
+i18next@23.5.1:
+  version "23.5.1"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.5.1.tgz#7f7c35ffaa907618d9489f106d5006b09fbca3d3"
+  integrity sha512-JelYzcaCoFDaa+Ysbfz2JsGAKkrHiMG6S61+HLBUEIPaF40WMwW9hCPymlQGrP+wWawKxKPuSuD71WZscCsWHg==
   dependencies:
-    "@babel/runtime" "^7.20.6"
+    "@babel/runtime" "^7.22.5"
 
 iconv-lite@0.4.24:
   version "0.4.24"
@@ -5743,7 +6305,7 @@ lodash-es@^4.17.21:
 
 lodash.differencewith@4.5.0:
   version "4.5.0"
-  resolved "https://registry.npmjs.org/lodash.differencewith/-/lodash.differencewith-4.5.0.tgz"
+  resolved "https://registry.yarnpkg.com/lodash.differencewith/-/lodash.differencewith-4.5.0.tgz#bafafbc918b55154e179176a00bb0aefaac854b7"
   integrity sha512-/8JFjydAS+4bQuo3CpLMBv7WxGFyk7/etOAsrQUCu0a9QVDemxv0YQ0rFyeZvqlUD314SERfNlgnlqqHmaQ0Cg==
 
 lodash.flattendeep@^4.4.0:
@@ -5753,7 +6315,7 @@ lodash.flattendeep@^4.4.0:
 
 lodash.frompairs@4.0.1:
   version "4.0.1"
-  resolved "https://registry.npmjs.org/lodash.frompairs/-/lodash.frompairs-4.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/lodash.frompairs/-/lodash.frompairs-4.0.1.tgz#bc4e5207fa2757c136e573614e9664506b2b1bd2"
   integrity sha512-dvqe2I+cO5MzXCMhUnfYFa9MD+/760yx2aTAN1lqEcEkf896TxgrX373igVdqSJj6tQd0jnSLE1UMuKufqqxFw==
 
 lodash.get@^4.4.2:
@@ -5959,7 +6521,7 @@ minimatch@^3.0.3, minimatch@^3.0.4, minimatch@^3.0.5, minimatch@^3.1.1, minimatc
 
 minimatch@^5.0.1:
   version "5.1.6"
-  resolved "https://registry.npmjs.org/minimatch/-/minimatch-5.1.6.tgz"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-5.1.6.tgz#1cfcb8cf5522ea69952cd2af95ae09477f122a96"
   integrity sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==
   dependencies:
     brace-expansion "^2.0.1"
@@ -6826,6 +7388,11 @@ regenerator-runtime@^0.13.11:
   version "0.13.11"
   resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz"
   integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
+
+regenerator-runtime@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.14.0.tgz#5e19d68eb12d486f797e15a3c6a918f7cec5eb45"
+  integrity sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==
 
 regexp-match-indices@1.0.2:
   version "1.0.2"
