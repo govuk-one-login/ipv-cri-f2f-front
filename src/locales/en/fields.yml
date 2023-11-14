@@ -4,12 +4,15 @@ photoIdChoiceThinFile:
   items:
     ukPassport:
       label: UK passport
+      hint: If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.
       reveal: ""
     nonUkPassport:
       label: Non-UK passport with a biometric chip
+      hint: Your passport must not have expired.
       reveal: ""
     noPhotoId:
       label: I do not have either of these
+      hint: ""
       reveal: ""
 
 
