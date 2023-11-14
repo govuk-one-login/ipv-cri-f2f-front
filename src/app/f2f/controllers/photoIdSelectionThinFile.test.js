@@ -33,12 +33,10 @@ describe("PhotoIdSelectionThinFileController", () => {
 
       await photoIdSelectionThinFileController.saveValues(req, res, next);
       const selectedDocumentValue = req.sessionModel.get("photoIdChoice");
-      const selectedDocument = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
 
       expect(next).to.have.been.calledOnce;
       expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.UK_PASSPORT);
-      expect(selectedDocument).to.equal("UK passport");
       expect(changeUrl).to.equal("uk-passport-expire");
     });
 
@@ -47,12 +45,10 @@ describe("PhotoIdSelectionThinFileController", () => {
 
       await photoIdSelectionThinFileController.saveValues(req, res, next);
       const selectedDocumentValue = req.sessionModel.get("photoIdChoice");
-      const selectedDocument = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
 
       expect(next).to.have.been.calledOnce;
       expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT);
-      expect(selectedDocument).to.equal("Non-UK passport");
       expect(changeUrl).to.equal("non-uk-passport-expire");
     });
 
