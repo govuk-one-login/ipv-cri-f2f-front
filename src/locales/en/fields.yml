@@ -164,8 +164,7 @@ idHasExpiryDate:
       hint: ""
       reveal: ""
 
-ukDlAddressCheck:
-  legend: ""
+ukPhotocardDlAddressCheck:
   validation:
     default: "Select if your driving licence has your current address on it"
   items:
@@ -178,7 +177,7 @@ ukDlAddressCheck:
       hint: ""
       reveal: ""
 
-euDrivingLicenceAddressCheck:
+euPhotocardDlAddressCheck:
   validation:
     default: "Select if your driving licence has your current address on it"
   items:
@@ -195,7 +194,7 @@ euDrivingLicenceAddressCheck:
       hint: ""
       reveal: ""
 
-eeaIdCardAddressCheck:
+eeaIdentityCardAddressCheck:
   validation:
     required: "Select if your national identity card has your current address on it"
   items:
@@ -211,6 +210,13 @@ eeaIdCardAddressCheck:
       label: "My national identity card does not have my address on it"
       hint: ""
       reveal: ""
+
+  addressCheck:
+    current: "Yes, it has my current address on it"
+    previous: "No, it has my previous address on it"
+    euDlNoAddress: "My driving licence does not have my address on it"
+    idNoAddress: "My national identity card does not have my address on it"
+        
 
 eeaIdentityCardCountrySelector:
   label: "Select country"

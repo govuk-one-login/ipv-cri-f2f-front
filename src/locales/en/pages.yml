@@ -100,19 +100,17 @@ checkDetails:
   country: Country
   hasExpiryDate: Does your photo ID have an expiry date?
 
-ukDlAddressCheck:
+ukPhotocardDlAddressCheck:
   title: "Does your driving licence have your current address on it?"
   context: If your driving licence has your previous address on it, you'll need to choose another type of photo ID.
   change-how: "How do I change the address on my driving licence?"
   change-link: <p>You must update your driving licence when you move. <a href="https://www.gov.uk/tell-dvla-changed-address" target="_blank" class="govuk-link">Tell DVLA you've changed address (opens in a new tab)</a></p>
 
-euDrivingLicenceAddressCheck:
+euPhotocardDlAddressCheck:
   title: "Does your driving licence have your current address on it?"
   context: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
 
-
-
-eeaIdCardAddressCheck:
+eeaIdentityCardAddressCheck:
   title: "Does your national identity card have your current address on it?"
   context: "If your national identity card has your previous address on it, you'll need to choose another type of photo ID."
 

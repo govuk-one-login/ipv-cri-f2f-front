@@ -64,7 +64,7 @@ module.exports = {
       {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
-        next: APP.PATHS.PHOTOCARD_DL_DETAILS,
+        next: APP.PATHS.UK_PHOTOCARD_DL_DETAILS,
       },
       {
         field: "photoIdChoice",
@@ -165,7 +165,7 @@ module.exports = {
       }
     ]
   },
-  [`${APP.PATHS.PHOTOCARD_DL_DETAILS}`]: {
+  [`${APP.PATHS.UK_PHOTOCARD_DL_DETAILS}`]: {
     fields: ["ukPhotocardDlExpiryDate"],
     controller: ukPhotocardDlDetails,
     editable: true,
@@ -177,7 +177,7 @@ module.exports = {
         value: "today",
         next: APP.PATHS.EXPIRED_ID,
       },
-      APP.PATHS.PHOTOCARD_DL_ADDRESS_CHECK,
+      APP.PATHS.UK_PHOTOCARD_DL_ADDRESS_CHECK,
     ],
   },
   [`${APP.PATHS.BRP_DETAILS}`]: {
@@ -228,22 +228,22 @@ module.exports = {
     ]
   },
   [`${APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK}`]: {
-    fields: ["euDrivingLicenceAddressCheck"],
+    fields: ["euPhotocardDlAddressCheck"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
-        field: "euDrivingLicenceAddressCheck",
+        field: "euPhotocardDlAddressCheck",
         value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
       },
       {
-        field: "euDrivingLicenceAddressCheck",
+        field: "euPhotocardDlAddressCheck",
         value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         next: APP.PATHS.PHOTO_ID_SELECTION
       },
       {
-        field: "euDrivingLicenceAddressCheck",
+        field: "euPhotocardDlAddressCheck",
         value: APP.ADDRESS_OPTIONS.NO_ADDRESS,
         next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
       }
@@ -282,22 +282,22 @@ module.exports = {
     ]
   },
   [`${APP.PATHS.EEA_IDENTITY_CARD_ADDRESS_CHECK}`]: {
-    fields: ["eeaIdCardAddressCheck"],
+    fields: ["eeaIdentityCardAddressCheck"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
-        field: "eeaIdCardAddressCheck",
+        field: "eeaIdentityCardAddressCheck",
         value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
       },
       {
-        field: "eeaIdCardAddressCheck",
+        field: "eeaIdentityCardAddressCheck",
         value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         next: APP.PATHS.PHOTO_ID_SELECTION
       },
       {
-        field: "eeaIdCardAddressCheck",
+        field: "eeaIdentityCardAddressCheck",
         value: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
         next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
       }
@@ -324,7 +324,7 @@ module.exports = {
           {
             field: "photoIdChoice",
             value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
-            next: APP.PATHS.PHOTOCARD_DL_DETAILS,
+            next: APP.PATHS.UK_PHOTOCARD_DL_DETAILS,
           },
           {
             field: "photoIdChoice",
@@ -355,18 +355,18 @@ module.exports = {
       },
     ]
   },
-  [`${APP.PATHS.PHOTOCARD_DL_ADDRESS_CHECK}`]: {
-    fields: ["ukDlAddressCheck"],
+  [`${APP.PATHS.UK_PHOTOCARD_DL_ADDRESS_CHECK}`]: {
+    fields: ["ukPhotocardDlAddressCheck"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
-        field: "ukDlAddressCheck",
+        field: "ukPhotocardDlAddressCheck",
         value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         next: APP.PATHS.FIND_POST_OFFICE
       },
       {
-        field: "ukDlAddressCheck",
+        field: "ukPhotocardDlAddressCheck",
         value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         next: APP.PATHS.PHOTO_ID_SELECTION
       }

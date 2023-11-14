@@ -32,7 +32,7 @@ module.exports = {
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
     ],
     validate: ["required"],
-    invalidates: ["eeaIdCardAddressCheck"]
+    invalidates: ["eeaIdentityCardAddressCheck"]
   },
   photoIdChoiceThinFile: {
     type: "radios",
@@ -154,7 +154,7 @@ module.exports = {
       },
     ]
   },
-  ukDlAddressCheck: {
+  ukPhotocardDlAddressCheck: {
     legend: "",
     label: "",
     hint: "",
@@ -173,7 +173,7 @@ module.exports = {
     ],
     validate: ["required"]
   },
-  euDrivingLicenceAddressCheck: {
+  euPhotocardDlAddressCheck: {
     legend: "",
     label: "",
     hint: "",
@@ -216,7 +216,7 @@ module.exports = {
       },
     ]
   },
-  eeaIdCardAddressCheck: {
+  eeaIdentityCardAddressCheck: {
     legend: "",
     label: "",
     hint: "",

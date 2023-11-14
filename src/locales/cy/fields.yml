@@ -47,7 +47,7 @@ photoIdChoice:
 "date-year":
   label: Blwyddyn
 
-ukDlAddressCheck:
+ukPhotocardDlAddressCheck:
   legend: ""
   validation:
     default: "Dewiswch os oes gan eich trwydded yrru eich cyfeiriad cyfredol arno"
@@ -132,7 +132,7 @@ euPhotocardDlExpiryDate:
     "required-month": "Rhowch y dyddiad dod i ben yn llawn"
     "required-year": "Rhowch y dyddiad dod i ben yn llawn"
 
-euDrivingLicenceAddressCheck:
+euPhotocardDlAddressCheck:
   validation:
     default: "Dewiswch os oes gan eich trwydded yrru eich cyfeiriad cyfredol arno"
 
@@ -156,7 +156,7 @@ idHasExpiryDate:
   validation:
     required: "Dewiswch os oes gan eich ID gyda llun ddyddiad dod i ben"
 
-eeaIdCardAddressCheck:
+eeaIdentityCardAddressCheck:
   validation:
     required: "Dewiswch os oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad cyfredol arno"
 

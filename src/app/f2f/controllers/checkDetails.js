@@ -92,6 +92,7 @@ class CheckDetailsController extends DateController {
         }
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
           expiryDate = req.form.values.ukPhotocardDlExpiryDate;
+          address = req.form.values.ukPhotocardDlAddressCheck
           req.sessionModel.set("countryCode", "GBR");
           break;
         }
@@ -105,19 +106,18 @@ class CheckDetailsController extends DateController {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
           country = req.form.values.euDrivingLicenceCountrySelector;
-          address = req.form.values.euDrivingLicenceAddressCheck
+          address = req.form.values.euPhotocardDlAddressCheck
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.eeaIdCardExpiryDate;
           country = req.form.values.eeaIdentityCardCountrySelector;
-          address = req.form.values.eeaIdCardAddressCheck;
+          address = req.form.values.eeaIdentityCardAddressCheck;
           break;
         }
       }
       // Sets country code value and country name
-
       Object.values(NON_UK_PASSPORT).forEach(val => {
         if(val.text == country) {
           req.sessionModel.set("countryCode", val.value)
@@ -133,12 +133,14 @@ class CheckDetailsController extends DateController {
       const idTranslationKey = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
       const changeUrl = req.sessionModel.get("changeUrl");
       const addressCheck = req.sessionModel.get("addressCheck");
+      const addressCheckTranslationKey = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
 
       locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
       locals.idTranslationKey = idTranslationKey
+      locals.addressCheckTranslationKey = addressCheckTranslationKey
       locals.changeUrl = `/${changeUrl}`;
       locals.addressCheck = addressCheck;
       locals.hasExpiryDate = hasExpiryDate;
