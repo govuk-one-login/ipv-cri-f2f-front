@@ -79,10 +79,8 @@ class CheckDetailsController extends DateController {
       let expiryDate
       let country
       let address
-      let idChoice
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
-          idChoice = "ukPassport"
           expiryDate = req.form.values.ukPassportExpiryDate;
           req.sessionModel.set("countryCode", "GBR");
           break;
@@ -129,8 +127,10 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
+      
       //Confirmation display values
-      // const idChoice = req.sessionModel.get("photoIdChoice");
+      const idChoice = req.sessionModel.get("photoIdChoice");
+      const idTranslationKey = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
       const changeUrl = req.sessionModel.get("changeUrl");
       const addressCheck = req.sessionModel.get("addressCheck");
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
@@ -138,6 +138,7 @@ class CheckDetailsController extends DateController {
       locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idChoice = idChoice;
+      locals.idTranslationKey = idTranslationKey
       locals.changeUrl = `/${changeUrl}`;
       locals.addressCheck = addressCheck;
       locals.hasExpiryDate = hasExpiryDate;

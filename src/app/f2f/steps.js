@@ -362,12 +362,12 @@ module.exports = {
     next: [
       {
         field: "ukDlAddressCheck",
-        value: "Yes",
+        value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         next: APP.PATHS.FIND_POST_OFFICE
       },
       {
         field: "ukDlAddressCheck",
-        value: "No",
+        value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         next: APP.PATHS.PHOTO_ID_SELECTION
       }
     ]

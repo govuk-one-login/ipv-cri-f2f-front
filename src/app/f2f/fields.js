@@ -53,27 +53,6 @@ module.exports = {
     ],
     validate: ["required"]
   },
-  ukDlAddressCheck: {
-    legend: "",
-    label: "",
-    hint: "",
-    items: [
-      {
-        value: "Yes",
-        text: "Yes, it has my current address on it",
-        conditional: {
-          html: ""
-        }
-      },
-      { value: "No",
-        text: "No, it has my previous address on it",
-        conditional: {
-          html: ""
-        }
-      }
-    ],
-    validate: ["required"]
-  },
   ukPassportExpiryDate: {
     type: "date",
     journeyKey: "UKPassportExpiryDate",
@@ -117,13 +96,11 @@ module.exports = {
     items: [
       {
         value: APP.HAS_EXPIRY_DATE.YES,
-        text: APP.HAS_EXPIRY_DATE.YES,
         conditional: {
           html: ""
         }
       },
       { value: APP.HAS_EXPIRY_DATE.NO,
-        text: APP.HAS_EXPIRY_DATE.NO,
         conditional: {
           html: ""
         }
@@ -177,26 +154,42 @@ module.exports = {
       },
     ]
   },
+  ukDlAddressCheck: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      },
+      { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      }
+    ],
+    validate: ["required"]
+  },
   euDrivingLicenceAddressCheck: {
     legend: "",
     label: "",
     hint: "",
     items: [
       { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       { divider: "or" },
       { value: APP.ADDRESS_OPTIONS.NO_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.NO_ADDRESS,
         conditional: {
           html: ""
         }
@@ -229,20 +222,17 @@ module.exports = {
     hint: "",
     items: [
       { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       {divider: "or"},
       { value: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
         conditional: {
           html: ""
         }

@@ -19,24 +19,31 @@ photoIdChoice:
   items:
     ukPassport:
       label: UK passport
+      hint: If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.
       reveal: ""
     ukPhotocardDl:
       label: UK photocard driving licence
+      hint: The address on your driving licence must be the same as your current address.
       reveal: ""
     brp:
       label: Biometric residence permit (BRP)
+      hint: ""
       reveal: ""
     nonUkPassport:
       label: Non-UK passport
+      hint: ""
       reveal: ""
     euPhotocardDl:
       label: European Union (EU) photocard driving licence
+      hint: This must be a plastic photocard, not a paper or handwritten licence. If it has your address on it, it must be your current address.
       reveal: ""
     eeaIdentityCard:
       label: National identity card from a European Economic Area (EEA) country
+      hint: This must be a plastic photocard, not a paper or handwritten card. If it has your address on it, it must be your current address.
       reveal: ""
     noPhotoId:
       label: I do not have any of these documents
+      hint: ""
       reveal: ""
 
 "date-day":
@@ -47,11 +54,6 @@ photoIdChoice:
 
 "date-year":
   label: Year
-
-ukDlAddressCheck:
-  legend: ""
-  validation:
-    default: "Select if your driving licence has your current address on it"
 
 ukPassportExpiryDate:
   legend: ""
@@ -133,10 +135,6 @@ euPhotocardDlExpiryDate:
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
 
-euDrivingLicenceAddressCheck:
-  validation:
-    default: "Select if your driving licence has your current address on it"
-
 eeaIdCardExpiryDate:
   label: ""
   legend: ""
@@ -156,10 +154,63 @@ eeaIdCardExpiryDate:
 idHasExpiryDate:
   validation:
     required: "Select if your photo ID has an expiry date"
+  items:
+    yes: 
+      label: "Yes"
+      hint: ""
+      reveal: ""
+    no: 
+      label: "No"
+      hint: ""
+      reveal: ""
+
+ukDlAddressCheck:
+  legend: ""
+  validation:
+    default: "Select if your driving licence has your current address on it"
+  items:
+    current:
+      label: "Yes, it has my current address on it"
+      hint: ""
+      reveal: ""
+    previous:
+      label: "No, it has my previous address on it"
+      hint: ""
+      reveal: ""
+
+euDrivingLicenceAddressCheck:
+  validation:
+    default: "Select if your driving licence has your current address on it"
+  items:
+    current:
+      label: "Yes, it has my current address on it"
+      hint: ""
+      reveal: ""
+    previous:
+      label: "No, it has my previous address on it"
+      hint: ""
+      reveal: ""
+    euDlNoAddress:
+      label: "My driving licence does not have my address on it"
+      hint: ""
+      reveal: ""
 
 eeaIdCardAddressCheck:
   validation:
     required: "Select if your national identity card has your current address on it"
+  items:
+    current:
+      label: "Yes, it has my current address on it"
+      hint: ""
+      reveal: ""
+    previous:
+      label: "No, it has my previous address on it"
+      hint: ""
+      reveal: ""
+    idNoAddress:
+      label: "My national identity card does not have my address on it"
+      hint: ""
+      reveal: ""
 
 eeaIdentityCardCountrySelector:
   label: "Select country"
