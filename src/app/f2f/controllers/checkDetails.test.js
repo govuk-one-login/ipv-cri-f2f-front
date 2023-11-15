@@ -51,6 +51,7 @@ describe("CheckDetails controller", () => {
       };
       locals = {
         key: "value",
+        translate: (key) => key
       };
 
       req.form.values.postOfficeDetails = [
