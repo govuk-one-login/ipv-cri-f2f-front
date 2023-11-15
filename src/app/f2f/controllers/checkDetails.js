@@ -135,13 +135,13 @@ class CheckDetailsController extends DateController {
       const addressCheck = req.sessionModel.get("addressCheck");
       const addressCheckTranslationKey = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
-      const hasExpirydateTranslationKey = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`)
+      const hasExpiryDateTranslationKey = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`)
 
       locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idTranslationKey = idTranslationKey
       locals.addressCheckTranslationKey = addressCheckTranslationKey
-      locals.hasExpirydateTranslationKey = hasExpirydateTranslationKey
+      locals.hasExpiryDateTranslationKey = hasExpiryDateTranslationKey
       locals.changeUrl = `/${changeUrl}`;
       locals.hasExpiryDate = hasExpiryDate;
       locals.postOfficeAddress = postOfficeAddress.split(", ");
