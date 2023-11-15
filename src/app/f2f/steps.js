@@ -148,7 +148,7 @@ module.exports = {
       APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR,
     ],
   },
-  "/non-uk-passport-has-expiry-date": {
+  [`${APP.PATHS.NON_UK_PASSPORT_HAS_EXPIRY_DATE}`]: {
     fields: ["idHasExpiryDate"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
@@ -210,7 +210,7 @@ module.exports = {
       APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK,
     ],
   },
-  "/eu-driving-licence-has-expiry-date": {
+  [`${APP.PATHS.EU_DRIVING_LICENCE_HAS_EXPIRY_DATE}`]: {
     fields: ["idHasExpiryDate"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
@@ -264,7 +264,7 @@ module.exports = {
       APP.PATHS.EEA_IDENTITY_CARD_ADDRESS_CHECK,
     ],
   },
-  "/national-identity-card-has-expiry-date": {
+  [`${APP.PATHS.NATIONAL_IDENTITY_CARD_HAS_EXPIRY_DATE}`]: {
     fields: ["idHasExpiryDate"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
