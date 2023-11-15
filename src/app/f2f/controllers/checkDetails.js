@@ -130,18 +130,18 @@ class CheckDetailsController extends DateController {
       
       //Confirmation display values
       const idChoice = req.sessionModel.get("photoIdChoice");
-      const idTranslationKey = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
+      const idTranslatedString = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
       const changeUrl = req.sessionModel.get("changeUrl");
       const addressCheck = req.sessionModel.get("addressCheck");
-      const addressCheckTranslationKey = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
+      const addressCheckTranslatedString = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
-      const hasExpiryDateTranslationKey = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`)
+      const hasExpiryDateTranslatedString = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`)
 
       locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
-      locals.idTranslationKey = idTranslationKey
-      locals.addressCheckTranslationKey = addressCheckTranslationKey
-      locals.hasExpiryDateTranslationKey = hasExpiryDateTranslationKey
+      locals.idTranslatedString = idTranslatedString
+      locals.addressCheckTranslatedString = addressCheckTranslatedString
+      locals.hasExpiryDateTranslatedString = hasExpiryDateTranslatedString
       locals.changeUrl = `/${changeUrl}`;
       locals.hasExpiryDate = hasExpiryDate;
       locals.postOfficeAddress = postOfficeAddress.split(", ");
