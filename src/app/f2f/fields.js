@@ -12,21 +12,17 @@ module.exports = {
     items: [
       {
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
-        hint: { text: APP.UK_PASSPORT_HINT }
       },
       { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
       {
-        value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
-        hint: { text: APP.UK_DL_HINT }
+        value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL
       },
       { value: APP.PHOTO_ID_OPTIONS.BRP },
       {
-        value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL,
-        hint: { text: APP.EU_PHOTOCARD_DL_HINT }
+        value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL
       },
       {
-        value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
-        hint: { text: APP.EEA_IDENTITY_CARD_HINT }
+        value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD
       },
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
