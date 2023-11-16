@@ -1,5 +1,4 @@
 const photoIdSelect = require("./controllers/photoIdSelection");
-const photoIdSelectCy = require("./controllers/photoIdSelectionCy");
 const resultsController = require("./controllers/results");
 const ukPassportDetails = require("./controllers/ukPassportDetails");
 const ukPhotocardDlDetails = require("./controllers/ukPhotocardDl");
