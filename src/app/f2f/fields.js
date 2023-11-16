@@ -10,20 +10,12 @@ module.exports = {
     label: "",
     hint: "",
     items: [
-      {
-        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
-      },
+      { value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT },
       { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
-      {
-        value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL
-      },
+      { value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL },
       { value: APP.PHOTO_ID_OPTIONS.BRP },
-      {
-        value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL
-      },
-      {
-        value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD
-      },
+      { value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL },
+      { value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD },
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
     ],
@@ -36,14 +28,8 @@ module.exports = {
     label: "",
     hint: "",
     items: [
-      {
-        value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
-        hint: { text: APP.UK_PASSPORT_HINT }
-      },
-      { 
-        value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
-        hint: { text: APP.NON_UK_PASSPORT_HINT}
-      },
+      { value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT },
+      { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
     ],

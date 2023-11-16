@@ -1,41 +1,50 @@
-photoIdChoiceThinFile:
-  validation:
-    required: Dewiswch ID gyda llun y gallwch fynd i'r Swyddfa Bost
-  items:
-    ukPassport:
-      label: Pasbort y DU
-      reveal: ""
-    nonUkPassport:
-      label: Pasbort o'r tu allan i'r DU gyda sglodyn biometrig
-      reveal: ""
-    noPhotoId:
-      label: Nid oes gennyf yr un o'r rhain
-      reveal: ""
-
 photoIdChoice:
   validation:
     required: Dewiswch ID gyda llun y gallwch fynd i'r Swyddfa Bost
   items:
     ukPassport:
       label: Pasbort y DU
+      hint: Os yw'ch pasbort y DU wedi dod i ben, gallwch barhau i’w ddefnyddio i brofi pwy ydych chi hyd at 18 mis ar ôl ei ddyddiad dod i ben.
       reveal: ""
     ukPhotocardDl:
       label: Trwydded yrru gyda llun y DU
+      hint: Rhaid i'r cyfeiriad ar eich trwydded yrru fod yr un fath â'ch cyfeiriad presennol.
       reveal: ""
     brp:
       label: Trwydded breswylio biometrig (BRP)
+      hint: ""
       reveal: ""
     nonUkPassport:
       label: Pasbort o'r tu allan i'r DU
+      hint: ""
       reveal: ""
     euPhotocardDl:
       label: Trwydded yrru cerdyn gyda llun yr Undeb Ewropeaidd (UE)
+      hint: Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen. Os oes ganddo eich cyfeiriad arno, rhaid iddo fod eich cyfeiriad presennol.
       reveal: ""
     eeaIdentityCard:
       label: Cerdyn hunaniaeth genedlaethol o wlad Ardal Economaidd Ewropeaidd (AEE)
+      hint: Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen. Os oes ganddo eich cyfeiriad arno, rhaid iddo fod eich cyfeiriad presennol.
       reveal: ""
     noPhotoId:
       label: Nid oes gennyf unrhyw un o'r dogfennau hyn
+      hint: ""
+      reveal: ""
+
+photoIdChoiceThinFile:
+  validation:
+    required: Dewiswch ID gyda llun y gallwch fynd i'r Swyddfa Bost
+  items:
+    ukPassport:
+      label: Pasbort y DU
+      hint: Os yw'ch pasbort y DU wedi dod i ben, gallwch barhau i’w ddefnyddio i brofi pwy ydych chi hyd at 18 mis ar ôl ei ddyddiad dod i ben.
+      reveal: ""
+    nonUkPassport:
+      label: Pasbort o'r tu allan i'r DU gyda sglodyn biometrig
+      hint: Ni ddylai'ch pasbort fod wedi dod i ben.
+      reveal: ""
+    noPhotoId:
+      label: Nid oes gennyf yr un o'r rhain
       reveal: ""
 
 "date-day":
@@ -51,6 +60,15 @@ ukPhotocardDlAddressCheck:
   legend: ""
   validation:
     default: "Dewiswch os oes gan eich trwydded yrru eich cyfeiriad cyfredol arno"
+  items:
+    current:
+      label: Oes, mae ganddo fy nghyfeiriad presennol arno
+      hint: ""
+      reveal: ""
+    previous:
+      label: Na, mae fy nghyfeiriad blaenorol arno
+      hint: ""
+      reveal: ""
 
 ukPassportExpiryDate:
   legend: ""
@@ -135,6 +153,16 @@ euPhotocardDlExpiryDate:
 euPhotocardDlAddressCheck:
   validation:
     default: "Dewiswch os oes gan eich trwydded yrru eich cyfeiriad cyfredol arno"
+  items:
+    current:
+      label: Oes, mae ganddo fy nghyfeiriad presennol arno
+      hint: ""
+    previous:
+      label: Na, mae fy nghyfeiriad blaenorol arno
+      hint: ""
+    euDlNoAddress:
+      label: Nid oes gan fy nhrwydded yrru fy nghyfeiriad arno
+      hint: ""
 
 eeaIdCardExpiryDate:
   label: ""
@@ -155,10 +183,32 @@ eeaIdCardExpiryDate:
 idHasExpiryDate:
   validation:
     required: "Dewiswch os oes gan eich ID gyda llun ddyddiad dod i ben"
+  items:
+    yes: 
+      label: "Oes"
+      hint: ""
+      reveal: ""
+    no: 
+      label: "Na"
+      hint: ""
+      reveal: ""
 
 eeaIdentityCardAddressCheck:
   validation:
     required: "Dewiswch os oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad cyfredol arno"
+  items:
+    current:
+      label: Oes, mae ganddo fy nghyfeiriad presennol arno
+      hint: ""
+      reveal: ""
+    previous:
+      label: Na, mae fy nghyfeiriad blaenorol arno
+      hint: ""
+      reveal: ""
+    idNoAddress:
+      label: Nid oes gan fy ngherdyn hunaniaeth genedlaethol fy nghyfeiriad arno
+      hint: ""
+      reveal: ""
 
 eeaIdentityCardCountrySelector:
   label: "Dewiswch wlad"

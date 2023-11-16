@@ -1,21 +1,3 @@
-photoIdChoiceThinFile:
-  validation:
-    required: Choose a photo ID you can take to a Post Office
-  items:
-    ukPassport:
-      label: UK passport
-      hint: If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.
-      reveal: ""
-    nonUkPassport:
-      label: Non-UK passport with a biometric chip
-      hint: Your passport must not have expired.
-      reveal: ""
-    noPhotoId:
-      label: I do not have either of these
-      hint: ""
-      reveal: ""
-
-
 photoIdChoice:
   validation:
     required: Choose a photo ID you can take to a Post Office
@@ -46,6 +28,23 @@ photoIdChoice:
       reveal: ""
     noPhotoId:
       label: I do not have any of these documents
+      hint: ""
+      reveal: ""
+
+photoIdChoiceThinFile:
+  validation:
+    required: Choose a photo ID you can take to a Post Office
+  items:
+    ukPassport:
+      label: UK passport
+      hint: If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.
+      reveal: ""
+    nonUkPassport:
+      label: Non-UK passport with a biometric chip
+      hint: Your passport must not have expired.
+      reveal: ""
+    noPhotoId:
+      label: I do not have either of these
       hint: ""
       reveal: ""
 
