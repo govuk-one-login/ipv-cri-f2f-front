@@ -171,30 +171,6 @@ describe("CheckDetails controller", () => {
       });
     });
 
-    [
-      { photoIdChoice: PHOTO_ID_OPTIONS.UK_PASSPORT, expiryDateKey: "ukPassportExpiryDate" },
-      { photoIdChoice: PHOTO_ID_OPTIONS.BRP, expiryDateKey: "brpExpiryDate" },
-      { photoIdChoice: PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, expiryDateKey: "ukPhotocardDlExpiryDate" },
-    ].forEach(({ photoIdChoice, expiryDateKey }) => {
-      it.only(`when photoIdChoice is ${photoIdChoice} translation strings are set correctly`, async () => {
-        req.form.values.branches = "1"; // choose branch step
-        req.form.values.photoIdChoice = photoIdChoice; // photoIdSelection step
-        req.sessionModel.set("photoIdChoice", req.form.values.photoIdChoice)
-        req.form.values[expiryDateKey] = "01/01/2030"; // expiry date step
-        //locals.idTranslatedString = res.locals.translate(`photoIdChoice.items.${photoIdChoice}.label`)
-        console.log("📚",locals.idTranslatedString)
-
-        await checkDetailsController.locals(req, res, next);
-        
-        //locals only manipulated manually within test, not by checkDetailsController
-        //expect(locals.idTranslatedString).to.equal(`photoIdChoice.items.${photoIdChoice}.label`)
-
-        //sessionModel value "idTranslatedString" is given its value from locals in the checkDetailsController - roundabout way of testing behaviour?
-        console.log("🤖",req.sessionModel.get("idTranslatedString"))
-        expect(req.sessionModel.get("idTranslatedString")).to.equal(res.locals.translate(`photoIdChoice.items.${photoIdChoice}.label`))
-      });
-    });
-
     it(`when photoIdChoice is ${PHOTO_ID_OPTIONS.NON_UK_PASSPORT} all details are set correctly`, async () => {
       req.form.values.branches = "1";
       req.form.values.photoIdChoice = PHOTO_ID_OPTIONS.NON_UK_PASSPORT;

@@ -128,17 +128,13 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
 
-      
-      
+  
       //Confirmation display values
       const idChoice = req.sessionModel.get("photoIdChoice");
-      
       const changeUrl = req.sessionModel.get("changeUrl");
       const addressCheck = req.sessionModel.get("addressCheck");
-      
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
 
-      console.log("🚀 START OF LOCALS")
       locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idTranslatedString = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
@@ -149,9 +145,7 @@ class CheckDetailsController extends DateController {
       locals.postOfficeAddress = postOfficeAddress.split(", ");
       locals.postOfficeName = postOfficeName;
       callback(err, locals);
-      console.log("🚀", locals)
-      console.log("🚀 END OF LOCALS")
-      req.sessionModel.set("idTranslatedString", locals.idTranslatedString)
+      
     });
   }
   next() {
