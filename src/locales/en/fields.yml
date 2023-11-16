@@ -225,6 +225,69 @@ eeaIdentityCardCountrySelector:
   label: "Select country"
   validation:
     equal: "Select the country your national identity card is from"
+  items:
+    Select:
+      label: "Select country"
+    Austria:
+      label: "Austria yml"
+    # BEL:
+    #   label: "Belgium"
+    # BGR:
+    #   label: "Bulgaria"
+    # HRV:
+    #   label: "Croatia"
+    # CYP:
+    #   label: "Cyprus"
+    # CZE:
+    #   label: "Czech Republic"
+    # DNK:
+    #   label: "Denmark"
+    # EST:
+    #   label: "Estonia"
+    # FIN:
+    #   label: "Finland"
+    # FRA:
+    #   label: "France"
+    # DEU:
+    #   label: "Germany"
+    # GRC: 
+    #   label: "Greece"
+    # HUN:
+    #   label: "Hungary"
+    # ISL:
+    #   label: "Iceland"
+    # ITA:
+    #   label: "Italy"
+    # IRL:
+    #   label: "Ireland"
+    # LVA:
+    #   label: "Latvia"
+    # LIE:
+    #   label: "Liechtenstein"
+    # LTU:
+    #   label: "Lithuania"
+    # LUX:
+    #   label: "Luxembourg"
+    # MLT:
+    #   label: "Malta"
+    # NLD:
+    #   label: "Netherlands"
+    # NOR:
+    #   label: "Norway"
+    # POL:
+    #   label: "Poland"
+    # PRT:
+    #   label: "Portugal"
+    # ROU:
+    #   label: "Romania"
+    # SVK:
+    #   label: "Slovakia"
+    # SVN:
+    #   label: "Slovenia"
+    # ESP:
+    #   label: "Spain"
+    # SWE:
+    #   label: "Sweden"
 
 euDrivingLicenceCountrySelector:
   label: "Select country"

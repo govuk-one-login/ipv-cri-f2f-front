@@ -119,7 +119,7 @@ class CheckDetailsController extends DateController {
       }
       // Sets country code value and country name
       Object.values(NON_UK_PASSPORT).forEach(val => {
-        if(val.text == country) {
+        if(val.key == country) {
           req.sessionModel.set("countryCode", val.value)
           req.sessionModel.set("country", country)
         }

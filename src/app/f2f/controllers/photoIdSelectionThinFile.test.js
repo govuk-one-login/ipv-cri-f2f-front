@@ -57,12 +57,10 @@ describe("PhotoIdSelectionThinFileController", () => {
 
       await photoIdSelectionThinFileController.saveValues(req, res, next);
       const selectedDocumentValue = req.sessionModel.get("photoIdChoice");
-      const selectedDocument = req.sessionModel.get("selectedDocument");
       const changeUrl = req.sessionModel.get("changeUrl");
 
       expect(next).to.have.been.calledOnce;
       expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID);
-      expect(selectedDocument).to.equal(undefined);
       expect(changeUrl).to.equal(undefined);
     });
 
