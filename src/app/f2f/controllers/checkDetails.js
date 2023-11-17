@@ -76,6 +76,7 @@ class CheckDetailsController extends DateController {
       // Value for document expiry date depends on selected document
       let idHasExpiryDate
       let expiryDate
+      let countryCode
       let country
       let address
       switch (req.form.values.photoIdChoice) {
@@ -98,21 +99,27 @@ class CheckDetailsController extends DateController {
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.nonUKPassportExpiryDate;
-          country = req.form.values.nonUkPassportCountrySelector;
+          countryCode = req.form.values.nonUkPassportCountrySelector;
+          req.sessionModel.set("countryCode", countryCode);
+          req.sessionModel.set("country", res.locals.translate(`${APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT}CountrySelector.items.${countryCode}.label`));
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
-          country = req.form.values.euDrivingLicenceCountrySelector;
           address = req.form.values.euPhotocardDlAddressCheck
+          countryCode = req.form.values.euDrivingLicenceCountrySelector;
+          req.sessionModel.set("countryCode", countryCode);
+          req.sessionModel.set("country", res.locals.translate(`${APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL}CountrySelector.items.${countryCode}.label`));
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.eeaIdCardExpiryDate;
-          country = req.form.values.eeaIdentityCardCountrySelector;
           address = req.form.values.eeaIdentityCardAddressCheck;
+          countryCode = req.form.values.eeaIdentityCardCountrySelector;
+          req.sessionModel.set("countryCode", countryCode);
+          req.sessionModel.set("country", res.locals.translate(`${APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD}CountrySelector.items.${countryCode}.label`))
           break;
         }
       }
@@ -120,7 +127,6 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
-      req.sessionModel.set("countryCode", country);
       
       //Confirmation display values
       const idChoice = req.sessionModel.get("photoIdChoice");
@@ -133,7 +139,7 @@ class CheckDetailsController extends DateController {
       locals.idTranslatedString = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
       locals.addressCheckTranslatedString = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
       locals.hasExpiryDateTranslatedString = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`)
-      locals.countryTranslatedString = res.locals.translate(`${idChoice}CountrySelector.items.${country}.label`)
+      locals.countryTranslatedString = req.sessionModel.get("country")
 
       locals.changeUrl = `/${changeUrl}`;
       locals.hasExpiryDate = hasExpiryDate;
