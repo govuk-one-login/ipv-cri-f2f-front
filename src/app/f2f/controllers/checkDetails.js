@@ -117,29 +117,26 @@ class CheckDetailsController extends DateController {
           break;
         }
       }
-      // Sets country code value and country name
-      Object.values(NON_UK_PASSPORT).forEach(val => {
-        if(val.text == country) {
-          req.sessionModel.set("countryCode", val.value)
-          req.sessionModel.set("country", country)
-        }
-      })
+
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
-
-  
+      
       //Confirmation display values
       const idChoice = req.sessionModel.get("photoIdChoice");
       const changeUrl = req.sessionModel.get("changeUrl");
       const addressCheck = req.sessionModel.get("addressCheck");
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
 
+      // req.sessionModel.set("countryCode", res.locals.translate(`${idChoice}CountrySelector.items.${country}.value`))
+      // console.log("COUNTRY CODE", req.sessionModel.get("countryCode"))
+
       locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idTranslatedString = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
       locals.addressCheckTranslatedString = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
       locals.hasExpiryDateTranslatedString = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`)
+      locals.countryTranslatedString = res.locals.translate(`${idChoice}CountrySelector.items.${country}.label`)
       locals.changeUrl = `/${changeUrl}`;
       locals.hasExpiryDate = hasExpiryDate;
       locals.postOfficeAddress = postOfficeAddress.split(", ");

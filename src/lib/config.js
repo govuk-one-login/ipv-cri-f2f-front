@@ -64,10 +64,6 @@ module.exports = {
       NO_ADDRESS: "euDlNoAddress",
       ID_NO_ADDRESS: "idNoAddress",
     },
-    HAS_EXPIRY_DATE: {
-      YES: "yes",
-      NO: "no"
-    },
     PHOTO_ID_EXPIRY_OPTIONS: {
       RE_ENTER_DETAILS: "reEnterDetails",
       CHOOSE_DIFFERENT_PHOTO_ID: "chooseDifferentPhotoId",

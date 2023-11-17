@@ -155,12 +155,12 @@ module.exports = {
     next: [
       {
         field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.YES,
+        value: "yes",
         next: APP.PATHS.NON_UK_PASSPORT_DETAILS
       },
       {
         field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.NO,
+        value: "no",
         next: APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR
       }
     ]
@@ -217,12 +217,12 @@ module.exports = {
     next: [
       {
         field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.YES,
+        value: "yes",
         next: APP.PATHS.EU_PHOTOCARD_DL_DETAILS
       },
       {
         field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.NO,
+        value: "no",
         next: APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK
       }
     ]
@@ -271,12 +271,12 @@ module.exports = {
     next: [
       {
         field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.YES,
+        value: "yes",
         next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS
       },
       {
         field: "idHasExpiryDate",
-        value: APP.HAS_EXPIRY_DATE.NO,
+        value: "no",
         next: APP.PATHS.EEA_IDENTITY_CARD_ADDRESS_CHECK
       }
     ]

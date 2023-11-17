@@ -214,16 +214,526 @@ eeaIdentityCardCountrySelector:
   label: "Dewiswch wlad"
   validation:
     equal: "Dewiswch y wlad y mae eich cerdyn adnabod cenedlaethol yn dod ohoni"
+  items:  
+    Select:
+      label: "Dewiswch wlad"
+    AUT:
+      label: "Awstria"
+    BGR:
+      label: "Bwlgaria"
+    HRV:
+      label: "Croatia"
+    CYP:
+      label: "Cyprus"
+    DNK:
+      label: "Denmarc"
+    EST:
+      label: "Estonia"
+    FRA:
+      label: "Ffrainc"
+    FIN:
+      label: "Ffindir"
+    GRC: 
+      label: "Groeg"
+    CZE:
+      label: "Gweriniaeth Tsiec"
+    BEL:
+      label: "Gwlad Belg"
+    ISL:
+      label: "Gwlad yr Ia"
+    POL:
+      label: "Gwlad Pwyl"
+    HUN:
+      label: "Hwngari"
+    NLD:
+      label: "Iseldiroedd"
+    IRL:
+      label: "Iwerddon"
+    LVA:
+      label: "Latvia"
+    LIE:
+      label: "Liechtenstein"
+    LTU:
+      label: "Lithuania"
+    LUX:
+      label: "Luxembourg"
+    MLT:
+      label: "Malta"
+    NOR:
+      label: "Norwy"
+    PRT:
+      label: "Portiwgal"
+    ROU:
+      label: "Romania"
+    SVK:
+      label: "Slovakia"
+    SVN:
+      label: "Slovenia"
+    ESP:
+      label: "Sbaen"
+    SWE:
+      label: "Sweden"
+    DEU:
+      label: "Yr Almaen"
+    ITA:
+      label: "Yr Eidal"
 
 euDrivingLicenceCountrySelector:
   label: "Dewiswch wlad"
+  hint: ""
   validation:
     equal: "Dewiswch y wlad y mae eich trwydded yrru yn dod ohoni"
+  items:
+    Select:
+      label: "Dewiswch wlad"
+    AUT:
+      label: "Awstria"
+    BGR:
+      label: "Bwlgaria"
+    HRV:
+      label: "Croatia"
+    CYP:
+      label: "Cyprus"
+    DNK:
+      label: "Denmarc"
+    EST:
+      label: "Estonia"
+    FRA:
+      label: "Ffrainc"
+    FIN:
+      label: "Ffindir"
+    GRC: 
+      label: "Groeg"
+    CZE:
+      label: "Gweriniaeth Tsiec"
+    BEL:
+      label: "Gwlad Belg"
+    POL:
+      label: "Gwlad Pwyl"
+    HUN:
+      label: "Hwngari"
+    NLD:
+      label: "Iseldiroedd"
+    IRL:
+      label: "Iwerddon"
+    LVA:
+      label: "Latvia"
+    LTU:
+      label: "Lithuania"
+    LUX:
+      label: "Luxembourg"
+    MLT:
+      label: "Malta"
+    PRT:
+      label: "Portiwgal"
+    ROU:
+      label: "Romania"
+    SVK:
+      label: "Slovakia"
+    SVN:
+      label: "Slovenia"
+    ESP:
+      label: "Sbaen"
+    SWE:
+      label: "Sweden"
+    DEU:
+      label: "Yr Almaen"
+    ITA:
+      label: "Yr Eidal"
 
 nonUkPassportCountrySelector:
   label: "Dewiswch wlad"
   validation:
     equal: "Dewiswch y wlad y mae eich pasbort yn dod ohoni"
+  items:
+    Select:
+      label: "Dewiswch wlad"
+    AFG:
+      label: "Afghanistan"
+    ALB:
+      label: "Albania"
+    DZA:
+      label: "Algeria"
+    AND:
+      label: "Andorra"
+    AGO:
+      label: "Angola"
+    ATG:
+      label: "Antigua and Barbuda"
+    ARG:
+      label: "Ariannin"
+    ARM:
+      label: "Armenia"
+    AUS:
+      label: "Awstralia"
+    AUT:
+      label: "Awstria"
+    AZE:
+      label: "Azerbaijan"
+    BHS:
+      label: "The Bahamas"
+    BHR:
+      label: "Bahrain"
+    BGD:
+      label: "Bangladesh"
+    BRB:
+      label: "Barbados"
+    BLR:
+      label: "Belarws"
+    BEL:
+      label: "Gwlad Belg"
+    BLZ:
+      label: "Belize"
+    BEN:
+      label: "Benin"
+    BTN:
+      label: "Bhutan"
+    BOL:
+      label: "Bolivia"
+    BIH:
+      label: "Bosnia a Herzogovina"
+    BWA:
+      label: "Botswana"
+    BRA:
+      label: "Brazil"
+    BRN:
+      label: "Brunei"
+    BGR:
+      label: "Bwlgaria"
+    BFA:
+      label: "Burkina Faso"
+    BDI:
+      label: "Burundi"
+    KHM:
+      label: "Cambodia"
+    CMR:
+      label: "Cameroon"
+    CAN:
+      label: "Canada"
+    CPV:
+      label: "Cape Verde"
+    CAF:
+      label: "Central African Republic"
+    TCD:
+      label: "Chad"
+    CHL:
+      label: "Chile"
+    CHN:
+      label: "China"
+    COL:
+      label: "Colombia"
+    COM:
+      label: "Comoros"
+    COG:
+      label: "Congo"
+    CRI:
+      label: "Costa Rica"
+    CUB:
+      label: "Cuba"
+    HRV:
+      label: "Croatia"
+    CYP:
+      label: "Cyprus"
+    CZE:
+      label: "Gweriniaeth Tsiec"
+    COD:
+      label: "Democratic Republic of the Congo"
+    DNK:
+      label: "Denmarc"
+    DJI:
+      label: "Djibouti"
+    DMA:
+      label: "Dominica"
+    DOM:
+      label: "Dominican Republic"
+    TLS:
+      label: "East Timor"
+    ECU:
+      label: "Ecuador"
+    EGY:
+      label: "Egypt"
+    SLV:
+      label: "El Salvador"
+    GNQ:
+      label: "Equitorial Guinea"
+    ERI:
+      label: "Eritrea"
+    EST:
+      label: "Estonia"
+    SWZ:
+      label: "Eswatini"
+    ETH:
+      label: "Ethiopia"
+    FJI:
+      label: "Fiji"
+    FIN:
+      label: "Ffindir"
+    FRA:
+      label: "Ffrainc"
+    GAB:
+      label: "Gabon"
+    GMB:
+      label: "The Gambia"
+    GEO:
+      label: "Georgia"
+    DEU:
+      label: "Yr Almaen"
+    GHA:
+      label: "Ghana"
+    GRC: 
+      label: "Groeg"
+    GRD:
+      label: "Grenada"
+    GTM:
+      label: "Guatemala"
+    GIN:
+      label: "Guinea"
+    GNB:
+      label: "Guinea-Bissau"
+    GUY:
+      label: "Guyana"
+    HTI:
+      label: "Haiti"
+    HND:
+      label: "Honduras"
+    HUN:
+      label: "Hwngari"
+    ISL:
+      label: "Gwlad yr Ia"
+    IND:
+      label: "India"
+    IDN:
+      label: "Indonesia"
+    IRN:
+      label: "Iran"
+    IRQ:
+      label: "Iraq"
+    IRL:
+      label: "Iwerddon"
+    ISR:
+      label: "Israel"
+    ITA:
+      label: "Yr Eidal"
+    CIV:
+      label: "Ivory Coast"
+    JAM:
+      label: "Jamaica"
+    JPN:
+      label: "Japan"
+    JOR:
+      label: "Jordan"
+    KAZ:
+      label: "Kazakhstan"
+    KEN:
+      label: "Kenya"
+    KIR:
+      label: "Kiribati"
+    XXK:
+      label: "Kosovo"
+    KWT:
+      label: "Kuwait"
+    KGZ:
+      label: "Kyrgyzstan"
+    LAO:
+      label: "Laos"    
+    LVA:
+      label: "Latvia"
+    LBN:
+      label: "Lebanon"
+    LSO:
+      label: "Lesotho"
+    LBR:
+      label: "Liberia"
+    LBY:
+      label: "Libya"
+    LIE:
+      label: "Liechtenstein"
+    LTU:
+      label: "Lithuania"
+    LUX:
+      label: "Luxembourg"
+    MDG:
+      label: "Madagascar"
+    MWI:
+      label: "Malawi"
+    MYS:
+      label: "Malaysia"
+    MDV:
+      label: "Maldives"
+    MLI:
+      label: "Mali"
+    MLT:
+      label: "Malta"
+    MHL:
+      label: "Marshall Islands"
+    MRT:
+      label: "Mauritania"
+    MUS:
+      label: "Mauritius"
+    MEX:
+      label: "Mexico"
+    FSM:
+      label: "Micronesia"
+    MDA:
+      label: "Moldova"
+    MCO:
+      label: "Monaco"
+    MNG:
+      label: "Mongolia"
+    MNE:
+      label: "Montenegro"
+    MAR:
+      label: "Morocco"
+    MOZ:
+      label: "Mozambique"
+    MMR:
+      label: "Myanmar (Burma)"
+    NAM:
+      label: "Namibia"
+    NRU:
+      label: "Nauru"
+    NPL: 
+      label: "Nepal"
+    NLD:
+      label: "Iseldiroedd"
+    NZL:
+      label: "Seland Newydd"
+    NIC: 
+      label: "Nicaragua"
+    NER:
+      label: "Niger"
+    NGA: 
+      label: "Nigeria"
+    PRK:
+      label: "Gogledd Korea"
+    MKD:
+      label: "Gogledd Macedonia"
+    NOR:
+      label: "Norwy"
+    OMN:
+      label: "Oman"
+    PAK:
+      label: "Pakistan"
+    PLW: 
+      label: "Palau"
+    PAN:
+      label: "Panama"
+    PNG:
+      label: "Papua New Guinea"
+    PRY:
+      label: "Paraguay"
+    PER:
+      label: "Peru"
+    PHL:
+      label: "Philippines"  
+    POL:
+      label: "Gwlad Pwyl"
+    PRT:
+      label: "Portiwgal"
+    QAT:
+      label: "Qatar"
+    ROU:
+      label: "Romania"
+    RUS:
+      label: "Rwsia"
+    RWA:
+      label: "Rwanda"
+    WSM:
+      label: "Samoa"
+    SMR:
+      label: "San Marino"
+    STP:
+      label: "Sao Tome a Principe"
+    SAU:
+      label: "Saudi Arabia"
+    SEN:
+      label: "Senegal"
+    SRB:
+      label: "Serbia"
+    SYC:
+      label: "Seychelles"
+    SLE:
+      label: "Sierra Leone"
+    SGP:
+      label: "Singapore"
+    SVK:
+      label: "Slovakia"
+    SVN:
+      label: "Slovenia"
+    SLB:
+      label: "Solomon Islands"
+    SOM:
+      label: "Somalia"
+    ZAF:
+      label: "De Affrica"
+    KOR:
+      label: "De Korea"
+    SSD:
+      label: "De Sudan"
+    ESP:
+      label: "Sbaen"
+    LKA:
+      label: "Sri Lanka"
+    KNA:
+      label: "St Kitts and Nevis"
+    LCA:
+      label: "St Lucia"
+    VCT:
+      label: "St Vincent"
+    SDN:
+      label: "Sudan"
+    SUR:
+      label: "Suriname"
+    SWE:
+      label: "Sweden"
+    CHE:
+      label: "Swistir"
+    SYR:
+      label: "Syria"
+    TJK:
+      label: "Tajikistan"
+    TZA: 
+      label: "Tanzania"
+    THA:
+      label: "Thailand"
+    TGO:
+      label: "Togo"
+    TON:
+      label: "Tonga"
+    TTO:
+      label: "Trinidad and Tobago"
+    TUN:
+      label: "Tunisia"
+    TUR:
+      label: "Twrci"
+    TKM:
+      label: "Turkmenistan"
+    TUV:
+      label: "Tuvalu"
+    UGA:
+      label: "Uganda"
+    UKR:
+      label: "Ukraine"
+    ARE:
+      label: "United Arab Emirates"
+    USA:
+      label: "Unol Daleithiau"
+    URY:
+      label: "Uruguay"
+    UZB:
+      label: "Uzbekistan"
+    VUT:
+      label: "Vanuatu"
+    VEN:
+      label: "Venezuela"
+    VNM:
+      label: "Vietnam"
+    YEM:
+      label: "Yemen"
+    ZMB:
+      label: "Zambia"
+    ZWE:
+      label: "Zimbabwe"
 
 postcode:
   label: "Rhowch god post yn y DU"

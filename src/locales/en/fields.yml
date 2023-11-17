@@ -219,23 +219,6 @@ eeaIdentityCardAddressCheck:
     euDlNoAddress: "My driving licence does not have my address on it"
     idNoAddress: "My national identity card does not have my address on it"
         
-
-eeaIdentityCardCountrySelector:
-  label: "Select country"
-  validation:
-    equal: "Select the country your national identity card is from"
-
-euDrivingLicenceCountrySelector:
-  label: "Select country"
-  validation:
-    equal: "Select the country your driving licence is from"
-
-nonUkPassportCountrySelector:
-  label: "Select country"
-  validation:
-    equal: "Select the country your passport is from"
-
-
 postcode:
   label: Enter a UK postcode
   hint: "For example, SW1A 2AA"
@@ -267,3 +250,539 @@ photoIdExpiryChoice:
     proveIdentityAnotherWay:
       label: Prove your identity another way
       reveal: ""
+
+eeaIdentityCardCountrySelector:
+  label: "Select country"
+  validation:
+    equal: "Select the country your national identity card is from"
+  items:
+    Select:
+      label: "Select country"
+    AUT:
+      label: "Austria"
+    BEL:
+      label: "Belgium"
+    BGR:
+      label: "Bulgaria"
+    HRV:
+      label: "Croatia"
+    CYP:
+      label: "Cyprus"
+    CZE:
+      label: "Czech Republic"
+    DNK:
+      label: "Denmark"
+    EST:
+      label: "Estonia"
+    FIN:
+      label: "Finland"
+    FRA:
+      label: "France"
+    DEU:
+      label: "Germany"
+    GRC: 
+      label: "Greece"
+    HUN:
+      label: "Hungary"
+    ISL:
+      label: "Iceland"
+    ITA:
+      label: "Italy"
+    IRL:
+      label: "Ireland"
+    LVA:
+      label: "Latvia"
+    LIE:
+      label: "Liechtenstein"
+    LTU:
+      label: "Lithuania"
+    LUX:
+      label: "Luxembourg"
+    MLT:
+      label: "Malta"
+    NLD:
+      label: "Netherlands"
+    NOR:
+      label: "Norway"
+    POL:
+      label: "Poland"
+    PRT:
+      label: "Portugal"
+    ROU:
+      label: "Romania"
+    SVK:
+      label: "Slovakia"
+    SVN:
+      label: "Slovenia"
+    ESP:
+      label: "Spain"
+    SWE:
+      label: "Sweden"
+
+euDrivingLicenceCountrySelector:
+  label: "Select country"
+  hint: ""
+  validation:
+    equal: "Select the country your driving licence is from"
+  items:
+    Select:
+      label: "Select country"
+    AUT:
+      label: "Austria"
+    BEL:
+      label: "Belgium"
+    BGR:
+      label: "Bulgaria"
+    HRV:
+      label: "Croatia"
+    CYP:
+      label: "Cyprus"
+    CZE:
+      label: "Czech Republic"
+    DNK:
+      label: "Denmark"
+    EST:
+      label: "Estonia"
+    FIN:
+      label: "Finland"
+    FRA:
+      label: "France"
+    DEU:
+      label: "Germany"
+    GRC: 
+      label: "Greece"
+    HUN:
+      label: "Hungary"
+    ITA:
+      label: "Italy"
+    IRL:
+      label: "Ireland"
+    LVA:
+      label: "Latvia"
+    LTU:
+      label: "Lithuania"
+    LUX:
+      label: "Luxembourg"
+    MLT:
+      label: "Malta"
+    NLD:
+      label: "Netherlands"
+    POL:
+      label: "Poland"
+    PRT:
+      label: "Portugal"
+    ROU:
+      label: "Romania"
+    SVK:
+      label: "Slovakia"
+    SVN:
+      label: "Slovenia"
+    ESP:
+      label: "Spain"
+    SWE:
+      label: "Sweden"
+
+nonUkPassportCountrySelector:
+  label: "Select country"
+  validation:
+    equal: "Select the country your passport is from"
+  items:
+    Select:
+      label: "Select country"
+    AFG:
+      label: "Afghanistan"
+    ALB:
+      label: "Albania"
+    DZA:
+      label: "Algeria"
+    AND:
+      label: "Andorra"
+    AGO:
+      label: "Angola"
+    ATG:
+      label: "Antigua and Barbuda"
+    ARG:
+      label: "Argentina"
+    ARM:
+      label: "Armenia"
+    AUS:
+      label: "Australia"
+    AUT:
+      label: "Austria"
+    AZE:
+      label: "Azerbaijan"
+    BHS:
+      label: "The Bahamas"
+    BHR:
+      label: "Bahrain"
+    BGD:
+      label: "Bangladesh"
+    BRB:
+      label: "Barbados"
+    BLR:
+      label: "Belarus"
+    BEL:
+      label: "Belgium"
+    BLZ:
+      label: "Belize"
+    BEN:
+      label: "Benin"
+    BTN:
+      label: "Bhutan"
+    BOL:
+      label: "Bolivia"
+    BIH:
+      label: "Bosnia and Herzogovina"
+    BWA:
+      label: "Botswana"
+    BRA:
+      label: "Brazil"
+    BRN:
+      label: "Brunei"
+    BGR:
+      label: "Bulgaria"
+    BFA:
+      label: "Burkina Faso"
+    BDI:
+      label: "Burundi"
+    KHM:
+      label: "Cambodia"
+    CMR:
+      label: "Cameroon"
+    CAN:
+      label: "Canada"
+    CPV:
+      label: "Cape Verde"
+    CAF:
+      label: "Central African Republic"
+    TCD:
+      label: "Chad"
+    CHL:
+      label: "Chile"
+    CHN:
+      label: "China"
+    COL:
+      label: "Colombia"
+    COM:
+      label: "Comoros"
+    COG:
+      label: "Congo"
+    CRI:
+      label: "Costa Rica"
+    CUB:
+      label: "Cuba"
+    HRV:
+      label: "Croatia"
+    CYP:
+      label: "Cyprus"
+    CZE:
+      label: "Czech Republic"
+    COD:
+      label: "Democratic Republic of the Congo"
+    DNK:
+      label: "Denmark"
+    DJI:
+      label: "Djibouti"
+    DMA:
+      label: "Dominica"
+    DOM:
+      label: "Dominican Republic"
+    TLS:
+      label: "East Timor"
+    ECU:
+      label: "Ecuador"
+    EGY:
+      label: "Egypt"
+    SLV:
+      label: "El Salvador"
+    GNQ:
+      label: "Equitorial Guinea"
+    ERI:
+      label: "Eritrea"
+    EST:
+      label: "Estonia"
+    SWZ:
+      label: "Eswatini"
+    ETH:
+      label: "Ethiopia"
+    FJI:
+      label: "Fiji"
+    FIN:
+      label: "Finland"
+    FRA:
+      label: "France"
+    GAB:
+      label: "Gabon"
+    GMB:
+      label: "The Gambia"
+    GEO:
+      label: "Georgia"
+    DEU:
+      label: "Germany"
+    GHA:
+      label: "Ghana"
+    GRC: 
+      label: "Greece"
+    GRD:
+      label: "Grenada"
+    GTM:
+      label: "Guatemala"
+    GIN:
+      label: "Guinea"
+    GNB:
+      label: "Guinea-Bissau"
+    GUY:
+      label: "Guyana"
+    HTI:
+      label: "Haiti"
+    HND:
+      label: "Honduras"
+    HUN:
+      label: "Hungary"
+    ISL:
+      label: "Iceland"
+    IND:
+      label: "India"
+    IDN:
+      label: "Indonesia"
+    IRN:
+      label: "Iran"
+    IRQ:
+      label: "Iraq"
+    IRL:
+      label: "Ireland"
+    ISR:
+      label: "Israel"
+    ITA:
+      label: "Italy"
+    CIV:
+      label: "Ivory Coast"
+    JAM:
+      label: "Jamaica"
+    JPN:
+      label: "Japan"
+    JOR:
+      label: "Jordan"
+    KAZ:
+      label: "Kazakhstan"
+    KEN:
+      label: "Kenya"
+    KIR:
+      label: "Kiribati"
+    XXK:
+      label: "Kosovo"
+    KWT:
+      label: "Kuwait"
+    KGZ:
+      label: "Kyrgyzstan"
+    LAO:
+      label: "Laos"    
+    LVA:
+      label: "Latvia"
+    LBN:
+      label: "Lebanon"
+    LSO:
+      label: "Lesotho"
+    LBR:
+      label: "Liberia"
+    LBY:
+      label: "Libya"
+    LIE:
+      label: "Liechtenstein"
+    LTU:
+      label: "Lithuania"
+    LUX:
+      label: "Luxembourg"
+    MDG:
+      label: "Madagascar"
+    MWI:
+      label: "Malawi"
+    MYS:
+      label: "Malaysia"
+    MDV:
+      label: "Maldives"
+    MLI:
+      label: "Mali"
+    MLT:
+      label: "Malta"
+    MHL:
+      label: "Marshall Islands"
+    MRT:
+      label: "Mauritania"
+    MUS:
+      label: "Mauritius"
+    MEX:
+      label: "Mexico"
+    FSM:
+      label: "Micronesia"
+    MDA:
+      label: "Moldova"
+    MCO:
+      label: "Monaco"
+    MNG:
+      label: "Mongolia"
+    MNE:
+      label: "Montenegro"
+    MAR:
+      label: "Morocco"
+    MOZ:
+      label: "Mozambique"
+    MMR:
+      label: "Myanmar (Burma)"
+    NAM:
+      label: "Namibia"
+    NRU:
+      label: "Nauru"
+    NPL: 
+      label: "Nepal"
+    NLD:
+      label: "Netherlands"
+    NZL:
+      label: "New Zealand"
+    NIC: 
+      label: "Nicaragua"
+    NER:
+      label: "Niger"
+    NGA: 
+      label: "Nigeria"
+    PRK:
+      label: "North Korea"
+    MKD:
+      label: "North Macedonia"
+    NOR:
+      label: "Norway"
+    OMN:
+      label: "Oman"
+    PAK:
+      label: "Pakistan"
+    PLW: 
+      label: "Palau"
+    PAN:
+      label: "Panama"
+    PNG:
+      label: "Papua New Guinea"
+    PRY:
+      label: "Paraguay"
+    PER:
+      label: "Peru"
+    PHL:
+      label: "Philippines"  
+    POL:
+      label: "Poland"
+    PRT:
+      label: "Portugal"
+    QAT:
+      label: "Qatar"
+    ROU:
+      label: "Romania"
+    RUS:
+      label: "Russia"
+    RWA:
+      label: "Rwanda"
+    WSM:
+      label: "Samoa"
+    SMR:
+      label: "San Marino"
+    STP:
+      label: "Sao Tome and Principe"
+    SAU:
+      label: "Saudi Arabia"
+    SEN:
+      label: "Senegal"
+    SRB:
+      label: "Serbia"
+    SYC:
+      label: "Seychelles"
+    SLE:
+      label: "Sierra Leone"
+    SGP:
+      label: "Singapore"
+    SVK:
+      label: "Slovakia"
+    SVN:
+      label: "Slovenia"
+    SLB:
+      label: "Solomon Islands"
+    SOM:
+      label: "Somalia"
+    ZAF:
+      label: "South Africa"
+    KOR:
+      label: "South Korea"
+    SSD:
+      label: "South Sudan"
+    ESP:
+      label: "Spain"
+    LKA:
+      label: "Sri Lanka"
+    KNA:
+      label: "St Kitts and Nevis"
+    LCA:
+      label: "St Lucia"
+    VCT:
+      label: "St Vincent"
+    SDN:
+      label: "Sudan"
+    SUR:
+      label: "Suriname"
+    SWE:
+      label: "Sweden"
+    CHE:
+      label: "Switzerland"
+    SYR:
+      label: "Syria"
+    TJK:
+      label: "Tajikistan"
+    TZA: 
+      label: "Tanzania"
+    THA:
+      label: "Thailand"
+    TGO:
+      label: "Togo"
+    TON:
+      label: "Tonga"
+    TTO:
+      label: "Trinidad and Tobago"
+    TUN:
+      label: "Tunisia"
+    TUR:
+      label: "Turkey"
+    TKM:
+      label: "Turkmenistan"
+    TUV:
+      label: "Tuvalu"
+    UGA:
+      label: "Uganda"
+    UKR:
+      label: "Ukraine"
+    ARE:
+      label: "United Arab Emirates"
+    USA:
+      label: "United States"
+    URY:
+      label: "Uruguay"
+    UZB:
+      label: "Uzbekistan"
+    VUT:
+      label: "Vanuatu"
+    VEN:
+      label: "Venezuela"
+    VNM:
+      label: "Vietnam"
+    YEM:
+      label: "Yemen"
+    ZMB:
+      label: "Zambia"
+    ZWE:
+      label: "Zimbabwe"
+
+# nonUkPassportCountrySelector:
+#   label: "Select country"
+#   validation:
+#     equal: "Select the country your passport is from"
+#   items:
+#     Select:
+#       label: "Select country"
+#     Afghanistan:
+#       label: "Afghanistan"
+#       code: "AFG"
