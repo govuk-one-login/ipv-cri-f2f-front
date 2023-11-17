@@ -775,14 +775,3 @@ nonUkPassportCountrySelector:
       label: "Zambia"
     ZWE:
       label: "Zimbabwe"
-
-# nonUkPassportCountrySelector:
-#   label: "Select country"
-#   validation:
-#     equal: "Select the country your passport is from"
-#   items:
-#     Select:
-#       label: "Select country"
-#     Afghanistan:
-#       label: "Afghanistan"
-#       value: "AFG"
