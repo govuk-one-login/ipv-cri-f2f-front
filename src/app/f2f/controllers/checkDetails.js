@@ -98,27 +98,24 @@ class CheckDetailsController extends DateController {
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.nonUKPassportExpiryDate;
-          countryCode = req.form.values.nonUkPassportCountrySelector;
-          req.sessionModel.set("countryCode", countryCode);
-          req.sessionModel.set("country", res.locals.translate(`countries.${countryCode}`));
+          req.sessionModel.set("countryCode", req.form.values.nonUkPassportCountrySelector);
+          req.sessionModel.set("country", res.locals.translate(`countries.${req.form.values.nonUkPassportCountrySelector}`));
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
           address = req.form.values.euPhotocardDlAddressCheck
-          countryCode = req.form.values.euDrivingLicenceCountrySelector;
-          req.sessionModel.set("countryCode", countryCode);
-          req.sessionModel.set("country", res.locals.translate(`countries.${countryCode}`));
+          req.sessionModel.set("countryCode", req.form.values.euDrivingLicenceCountrySelector);
+          req.sessionModel.set("country", res.locals.translate(`countries.${req.form.values.euDrivingLicenceCountrySelector}`));
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.eeaIdCardExpiryDate;
           address = req.form.values.eeaIdentityCardAddressCheck;
-          countryCode = req.form.values.eeaIdentityCardCountrySelector;
-          req.sessionModel.set("countryCode", countryCode);
-          req.sessionModel.set("country", res.locals.translate(`countries.${countryCode}`))
+          req.sessionModel.set("countryCode", req.form.values.eeaIdentityCardCountrySelector);
+          req.sessionModel.set("country", res.locals.translate(`countries.${req.form.values.eeaIdentityCardCountrySelector}`))
           break;
         }
       }
@@ -133,7 +130,6 @@ class CheckDetailsController extends DateController {
       const addressCheck = req.sessionModel.get("addressCheck");
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
 
-      locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idTranslatedString = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
       locals.addressCheckTranslatedString = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
