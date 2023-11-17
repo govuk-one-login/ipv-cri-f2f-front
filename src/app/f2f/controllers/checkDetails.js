@@ -120,6 +120,7 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
+      req.sessionModel.set("countryCode", country);
       
       //Confirmation display values
       const idChoice = req.sessionModel.get("photoIdChoice");
