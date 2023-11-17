@@ -77,7 +77,6 @@ class CheckDetailsController extends DateController {
       let idHasExpiryDate
       let expiryDate
       let countryCode
-      let country
       let address
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
