@@ -785,4 +785,4 @@ nonUkPassportCountrySelector:
 #       label: "Select country"
 #     Afghanistan:
 #       label: "Afghanistan"
-#       code: "AFG"
+#       value: "AFG"
