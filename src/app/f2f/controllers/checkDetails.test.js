@@ -51,6 +51,7 @@ describe("CheckDetails controller", () => {
       };
       locals = {
         key: "value",
+        translate: (key) => key
       };
 
       req.form.values.postOfficeDetails = [
@@ -191,7 +192,7 @@ describe("CheckDetails controller", () => {
       req.form.values.euPhotocardDlExpiryDate = "01/01/2030";
       req.form.values.idHasExpiryDate = true;
       req.form.values.euDrivingLicenceCountrySelector = "Germany";
-      req.form.values.euDrivingLicenceAddressCheck = true;
+      req.form.values.euPhotocardDlAddressCheck = true;
 
       await checkDetailsController.locals(req, res, next);
 
@@ -208,7 +209,7 @@ describe("CheckDetails controller", () => {
       req.form.values.eeaIdCardExpiryDate = "01/01/2030";
       req.form.values.idHasExpiryDate = true;
       req.form.values.eeaIdentityCardCountrySelector = "Germany";
-      req.form.values.eeaIdCardAddressCheck = true;
+      req.form.values.eeaIdentityCardAddressCheck = true;
 
       await checkDetailsController.locals(req, res, next);
 

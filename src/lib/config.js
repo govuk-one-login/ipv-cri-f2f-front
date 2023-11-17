@@ -30,8 +30,8 @@ module.exports = {
       EU_DRIVING_LICENCE_HAS_EXPIRY_DATE: "/eu-driving-licence-has-expiry-date",
       NATIONAL_IDENTITY_CARD_HAS_EXPIRY_DATE: "/national-identity-card-has-expiry-date",
       NON_UK_PASSPORT_COUNTRY_SELECTOR: "/select-country-non-uk-passport",
-      PHOTOCARD_DL_DETAILS: "/uk-driving-licence-expire",
-      PHOTOCARD_DL_ADDRESS_CHECK: "/uk-driving-licence-current-address",
+      UK_PHOTOCARD_DL_DETAILS: "/uk-driving-licence-expire",
+      UK_PHOTOCARD_DL_ADDRESS_CHECK: "/uk-driving-licence-current-address",
       EU_DRIVING_LICENCE_ADDRESS_CHECK: "/eu-driving-licence-current-address",
       EU_DRIVING_LICENCE_COUNTRY_SELECTOR: "/select-country-eu-driving-licence",
       BRP_DETAILS: "/biometric-residence-permit-expire",
@@ -59,20 +59,15 @@ module.exports = {
       NO_PHOTO_ID: "noPhotoId"
     },
     ADDRESS_OPTIONS: {
-      CURRENT_ADDRESS: "Yes, it has my current address on it",
-      DIFFERENT_ADDRESS: "No, it has my previous address on it",
-      NO_ADDRESS: "My driving licence does not have my address on it",
-      ID_NO_ADDRESS: "My national identity card does not have my address on it",
+      CURRENT_ADDRESS: "current",
+      DIFFERENT_ADDRESS: "previous",
+      NO_ADDRESS: "euDlNoAddress",
+      ID_NO_ADDRESS: "idNoAddress",
     },
     HAS_EXPIRY_DATE: {
-      YES: "Yes",
-      NO: "No"
+      YES: "yes",
+      NO: "no"
     },
-    UK_PASSPORT_HINT: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.",
-    NON_UK_PASSPORT_HINT: "Your passport must not have expired.",
-    UK_DL_HINT: "The address on your driving licence must be the same as your current address.",
-    EU_PHOTOCARD_DL_HINT: "This must be a plastic photocard, not a paper or handwritten licence. If it has your address on it, it must be your current address.",
-    EEA_IDENTITY_CARD_HINT: "This must be a plastic photocard, not a paper or handwritten card. If it has your address on it, it must be your current address.",
     PHOTO_ID_EXPIRY_OPTIONS: {
       RE_ENTER_DETAILS: "reEnterDetails",
       CHOOSE_DIFFERENT_PHOTO_ID: "chooseDifferentPhotoId",

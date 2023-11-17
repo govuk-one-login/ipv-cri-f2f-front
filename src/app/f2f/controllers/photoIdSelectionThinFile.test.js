@@ -32,13 +32,11 @@ describe("PhotoIdSelectionThinFileController", () => {
       req.form.values.photoIdChoiceThinFile = APP.PHOTO_ID_OPTIONS.UK_PASSPORT;
 
       await photoIdSelectionThinFileController.saveValues(req, res, next);
-      const selectedDocumentValue = req.sessionModel.get("photoIdChoice");
-      const selectedDocument = req.sessionModel.get("selectedDocument");
+      const photoIdChoice = req.sessionModel.get("photoIdChoice");
       const changeUrl = req.sessionModel.get("changeUrl");
 
       expect(next).to.have.been.calledOnce;
-      expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.UK_PASSPORT);
-      expect(selectedDocument).to.equal("UK passport");
+      expect(photoIdChoice).to.equal(APP.PHOTO_ID_OPTIONS.UK_PASSPORT);
       expect(changeUrl).to.equal("uk-passport-expire");
     });
 
@@ -46,13 +44,11 @@ describe("PhotoIdSelectionThinFileController", () => {
       req.form.values.photoIdChoiceThinFile = APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT;
 
       await photoIdSelectionThinFileController.saveValues(req, res, next);
-      const selectedDocumentValue = req.sessionModel.get("photoIdChoice");
-      const selectedDocument = req.sessionModel.get("selectedDocument");
+      const photoIdChoice = req.sessionModel.get("photoIdChoice");
       const changeUrl = req.sessionModel.get("changeUrl");
 
       expect(next).to.have.been.calledOnce;
-      expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT);
-      expect(selectedDocument).to.equal("Non-UK passport");
+      expect(photoIdChoice).to.equal(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT);
       expect(changeUrl).to.equal("non-uk-passport-expire");
     });
 
@@ -60,13 +56,11 @@ describe("PhotoIdSelectionThinFileController", () => {
       req.form.values.photoIdChoiceThinFile = APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID;
 
       await photoIdSelectionThinFileController.saveValues(req, res, next);
-      const selectedDocumentValue = req.sessionModel.get("photoIdChoice");
-      const selectedDocument = req.sessionModel.get("selectedDocument");
+      const photoIdChoice = req.sessionModel.get("photoIdChoice");
       const changeUrl = req.sessionModel.get("changeUrl");
 
       expect(next).to.have.been.calledOnce;
-      expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID);
-      expect(selectedDocument).to.equal(undefined);
+      expect(photoIdChoice).to.equal(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID);
       expect(changeUrl).to.equal(undefined);
     });
 

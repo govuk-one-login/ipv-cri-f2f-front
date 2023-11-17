@@ -23,7 +23,6 @@ class PhotoIdSelectionThinFileController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, true);
-          req.sessionModel.set("selectedDocument", "UK passport");
           req.sessionModel.set("changeUrl", "uk-passport-expire");
           return next();
         }
@@ -33,7 +32,6 @@ class PhotoIdSelectionThinFileController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, true);
-          req.sessionModel.set("selectedDocument", "Non-UK passport");
           req.sessionModel.set("changeUrl", "non-uk-passport-expire");
           return next();
         }

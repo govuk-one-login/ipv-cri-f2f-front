@@ -12,27 +12,23 @@ module.exports = {
     items: [
       {
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
-        hint: { text: APP.UK_PASSPORT_HINT }
       },
       { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
       {
-        value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
-        hint: { text: APP.UK_DL_HINT }
+        value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL
       },
       { value: APP.PHOTO_ID_OPTIONS.BRP },
       {
-        value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL,
-        hint: { text: APP.EU_PHOTOCARD_DL_HINT }
+        value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL
       },
       {
-        value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
-        hint: { text: APP.EEA_IDENTITY_CARD_HINT }
+        value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD
       },
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
     ],
     validate: ["required"],
-    invalidates: ["eeaIdCardAddressCheck"]
+    invalidates: ["eeaIdentityCardAddressCheck"]
   },
   photoIdChoiceThinFile: {
     type: "radios",
@@ -50,27 +46,6 @@ module.exports = {
       },
       { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
-    ],
-    validate: ["required"]
-  },
-  ukDlAddressCheck: {
-    legend: "",
-    label: "",
-    hint: "",
-    items: [
-      {
-        value: "Yes",
-        text: "Yes, it has my current address on it",
-        conditional: {
-          html: ""
-        }
-      },
-      { value: "No",
-        text: "No, it has my previous address on it",
-        conditional: {
-          html: ""
-        }
-      }
     ],
     validate: ["required"]
   },
@@ -117,13 +92,11 @@ module.exports = {
     items: [
       {
         value: APP.HAS_EXPIRY_DATE.YES,
-        text: APP.HAS_EXPIRY_DATE.YES,
         conditional: {
           html: ""
         }
       },
       { value: APP.HAS_EXPIRY_DATE.NO,
-        text: APP.HAS_EXPIRY_DATE.NO,
         conditional: {
           html: ""
         }
@@ -177,26 +150,42 @@ module.exports = {
       },
     ]
   },
-  euDrivingLicenceAddressCheck: {
+  ukPhotocardDlAddressCheck: {
     legend: "",
     label: "",
     hint: "",
     items: [
-      { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
+      {
+        value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      }
+    ],
+    validate: ["required"]
+  },
+  euPhotocardDlAddressCheck: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      },
+      { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       { divider: "or" },
       { value: APP.ADDRESS_OPTIONS.NO_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.NO_ADDRESS,
         conditional: {
           html: ""
         }
@@ -223,26 +212,23 @@ module.exports = {
       },
     ]
   },
-  eeaIdCardAddressCheck: {
+  eeaIdentityCardAddressCheck: {
     legend: "",
     label: "",
     hint: "",
     items: [
       { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         conditional: {
           html: ""
         }
       },
       {divider: "or"},
       { value: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
-        text: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
         conditional: {
           html: ""
         }

@@ -33,13 +33,11 @@ describe("PhotoIdSelectionController", () => {
       req.form.values.photoIdChoice = APP.PHOTO_ID_OPTIONS.UK_PASSPORT;
 
         await photoIdSelectionController.saveValues(req, res, next);
-        const selectedDocumentValue = req.sessionModel.get("photoIdChoice")
-        const selectedDocument = req.sessionModel.get("selectedDocument");
+        const photoIdChoice = req.sessionModel.get("photoIdChoice")
         const changeUrl = req.sessionModel.get("changeUrl");
 
         expect(next).to.have.been.calledOnce;
-        expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.UK_PASSPORT)
-        expect(selectedDocument).to.equal("UK passport");
+        expect(photoIdChoice).to.equal(APP.PHOTO_ID_OPTIONS.UK_PASSPORT)
         expect(changeUrl).to.equal("uk-passport-expire");
     });
 
@@ -48,13 +46,11 @@ describe("PhotoIdSelectionController", () => {
       req.form.values.photoIdChoice = APP.PHOTO_ID_OPTIONS.BRP;
 
         await photoIdSelectionController.saveValues(req, res, next);
-        const selectedDocumentValue = req.sessionModel.get("photoIdChoice")
-        const selectedDocument = req.sessionModel.get("selectedDocument");
+        const photoIdChoice = req.sessionModel.get("photoIdChoice")
         const changeUrl = req.sessionModel.get("changeUrl");
 
         expect(next).to.have.been.calledOnce;
-        expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.BRP)
-        expect(selectedDocument).to.equal("Biometric residence permit (BRP)");
+        expect(photoIdChoice).to.equal(APP.PHOTO_ID_OPTIONS.BRP)
         expect(changeUrl).to.equal("biometric-residence-permit-expire");
     });
 
@@ -63,13 +59,11 @@ describe("PhotoIdSelectionController", () => {
       req.form.values.photoIdChoice = APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL;
 
         await photoIdSelectionController.saveValues(req, res, next);
-        const selectedDocumentValue = req.sessionModel.get("photoIdChoice")
-        const selectedDocument = req.sessionModel.get("selectedDocument");
+        const photoIdChoice = req.sessionModel.get("photoIdChoice")
         const changeUrl = req.sessionModel.get("changeUrl");
 
         expect(next).to.have.been.calledOnce;
-        expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL)
-        expect(selectedDocument).to.equal("UK photocard driving licence");
+        expect(photoIdChoice).to.equal(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL)
         expect(changeUrl).to.equal("uk-driving-licence-expire");
     });
 
@@ -78,13 +72,11 @@ describe("PhotoIdSelectionController", () => {
       req.form.values.photoIdChoice = APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT;
 
         await photoIdSelectionController.saveValues(req, res, next);
-        const selectedDocumentValue = req.sessionModel.get("photoIdChoice")
-        const selectedDocument = req.sessionModel.get("selectedDocument");
+        const photoIdChoice = req.sessionModel.get("photoIdChoice")
         const changeUrl = req.sessionModel.get("changeUrl");
 
         expect(next).to.have.been.calledOnce;
-        expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT)
-        expect(selectedDocument).to.equal("Non-UK passport");
+        expect(photoIdChoice).to.equal(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT)
         expect(changeUrl).to.equal("non-uk-passport-expire");
     });
 
@@ -93,13 +85,11 @@ describe("PhotoIdSelectionController", () => {
       req.form.values.photoIdChoice = APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL;
 
         await photoIdSelectionController.saveValues(req, res, next);
-        const selectedDocumentValue = req.sessionModel.get("photoIdChoice")
-        const selectedDocument = req.sessionModel.get("selectedDocument");
+        const photoIdChoice = req.sessionModel.get("photoIdChoice")
         const changeUrl = req.sessionModel.get("changeUrl");
 
         expect(next).to.have.been.calledOnce;
-        expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL)
-        expect(selectedDocument).to.equal("EU photocard driving licence");
+        expect(photoIdChoice).to.equal(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL)
         expect(changeUrl).to.equal("eu-driving-licence-expire");
     });
 
@@ -108,13 +98,11 @@ describe("PhotoIdSelectionController", () => {
       req.form.values.photoIdChoice = APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD;
 
         await photoIdSelectionController.saveValues(req, res, next);
-        const selectedDocumentValue = req.sessionModel.get("photoIdChoice")
-        const selectedDocument = req.sessionModel.get("selectedDocument");
+        const photoIdChoice = req.sessionModel.get("photoIdChoice")
         const changeUrl = req.sessionModel.get("changeUrl");
 
         expect(next).to.have.been.calledOnce;
-        expect(selectedDocumentValue).to.equal(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD)
-        expect(selectedDocument).to.equal("National identity card from an EEA country");
+        expect(photoIdChoice).to.equal(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD)
         expect(changeUrl).to.equal("national-identity-card-expire");
     });
 
@@ -122,10 +110,10 @@ describe("PhotoIdSelectionController", () => {
       req.form.values.photoIdChoice = APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID;
 
       await photoIdSelectionController.saveValues(req, res, next);
-      const selectedDocumentValue = req.sessionModel.get("photoIdChoice");
+      const photoIdChoice = req.sessionModel.get("photoIdChoice");
 
       expect(next).to.have.been.calledOnce;
-      expect(selectedDocumentValue).to.equal("noPhotoId");
+      expect(photoIdChoice).to.equal("noPhotoId");
     })
   });
 

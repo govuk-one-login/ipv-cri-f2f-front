@@ -100,17 +100,17 @@ checkDetails:
   country: "Gwlad"
   hasExpiryDate: "A oes gan eich ID gyda llun ddyddiad dod i ben?"
 
-ukDlAddressCheck:
+ukPhotocardDlAddressCheck:
   title: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
   context: "Os oes gan eich trwydded yrru eich cyfeiriad blaenorol arno, bydd angen i chi ddewis math arall o ID gyda llun."
   change-how: "Sut ydw i'n newid y cyfeiriad ar fy nhrwydded yrru?"
   change-link: "<p>Mae'n rhaid i chi ddiweddaru eich trwydded yrru pan fyddwch yn symud. <a href=\"https://www.gov.uk/tell-dvla-changed-address\" target=\"_blank\" class=\"govuk-link\">Dywedwch wrth DVLA eich bod wedi newid cyfeiriad (agor mewn tab newydd)</a></p>"
 
-euDrivingLicenceAddressCheck:
+euPhotocardDlAddressCheck:
   title: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
   context: "Os oes gan eich trwydded yrru eich cyfeiriad blaenorol arno, bydd angen i chi ddewis math arall o ID gyda llun."
 
-eeaIdCardAddressCheck:
+eeaIdentityCardAddressCheck:
   title: "A oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad cyfredol arno?"
   context: "Os oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad blaenorol arno, bydd angen i chi ddewis math arall o ID gyda llun."
 

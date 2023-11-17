@@ -1,6 +1,6 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoPageKey = "eeaIdCardAddressCheck" %}
+{% set hmpoPageKey = "eeaIdentityCardAddressCheck" %}
 {% set gtmJourney = "f2f - eeaNationalIdAddressCheck" %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
@@ -9,14 +9,14 @@
 
 {% block mainContent %}
 
-{% set title = translate("eeaIdCardAddressCheck.title") %}
-{% set context = translate("eeaIdCardAddressCheck.context") %}
+{% set title = translate("eeaIdentityCardAddressCheck.title") %}
+{% set context = translate("eeaIdentityCardAddressCheck.context") %}
 {% set formInstructions = "<p>"+context+"</p>"%}
       
       {% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {
-                id: "eeaIdCardAddressCheck",
-                namePrefix: "eeaIdCardAddressCheck",
+                id: "eeaIdentityCardAddressCheck",
+                namePrefix: "eeaIdentityCardAddressCheck",
                 fieldset: {
                     legend: {
                         text: title,

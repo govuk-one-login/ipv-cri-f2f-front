@@ -92,6 +92,7 @@ class CheckDetailsController extends DateController {
         }
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
           expiryDate = req.form.values.ukPhotocardDlExpiryDate;
+          address = req.form.values.ukPhotocardDlAddressCheck
           req.sessionModel.set("countryCode", "GBR");
           break;
         }
@@ -105,19 +106,18 @@ class CheckDetailsController extends DateController {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
           country = req.form.values.euDrivingLicenceCountrySelector;
-          address = req.form.values.euDrivingLicenceAddressCheck
+          address = req.form.values.euPhotocardDlAddressCheck
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.eeaIdCardExpiryDate;
           country = req.form.values.eeaIdentityCardCountrySelector;
-          address = req.form.values.eeaIdCardAddressCheck;
+          address = req.form.values.eeaIdentityCardAddressCheck;
           break;
         }
       }
       // Sets country code value and country name
-
       Object.values(NON_UK_PASSPORT).forEach(val => {
         if(val.text == country) {
           req.sessionModel.set("countryCode", val.value)
@@ -127,21 +127,25 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
+
+  
       //Confirmation display values
-      const idChoice = req.sessionModel.get("selectedDocument");
+      const idChoice = req.sessionModel.get("photoIdChoice");
       const changeUrl = req.sessionModel.get("changeUrl");
       const addressCheck = req.sessionModel.get("addressCheck");
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
 
       locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
-      locals.idChoice = idChoice;
+      locals.idTranslatedString = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
+      locals.addressCheckTranslatedString = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
+      locals.hasExpiryDateTranslatedString = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`)
       locals.changeUrl = `/${changeUrl}`;
-      locals.addressCheck = addressCheck;
       locals.hasExpiryDate = hasExpiryDate;
       locals.postOfficeAddress = postOfficeAddress.split(", ");
       locals.postOfficeName = postOfficeName;
       callback(err, locals);
+      
     });
   }
   next() {

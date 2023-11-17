@@ -1,7 +1,7 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoPageKey = "ukDlAddressCheck" %}
-{% set gtmJourney = "f2f - ukDlAddressCheck" %}
+{% set hmpoPageKey = "ukPhotocardDlAddressCheck" %}
+{% set gtmJourney = "f2f - ukPhotocardDlAddressCheck" %}
 
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
@@ -11,14 +11,14 @@
 
 {% block mainContent %}
 
-{% set title = translate("ukDlAddressCheck.title") %}
-{% set context = translate("ukDlAddressCheck.context") %}
+{% set title = translate("ukPhotocardDlAddressCheck.title") %}
+{% set context = translate("ukPhotocardDlAddressCheck.context") %}
 {% set formInstructions = "<p>"+context+"</p>"%}
       
       {% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {
-                id: "ukDlAddressCheck",
-                namePrefix: "ukDlAddressCheck",
+                id: "ukPhotocardDlAddressCheck",
+                namePrefix: "ukPhotocardDlAddressCheck",
                 fieldset: {
                     legend: {
                         text: title,
@@ -35,8 +35,8 @@
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 
     {{ hmpoDetails({
-      summaryText: translate("ukDlAddressCheck.change-how"),
-      html: translate("ukDlAddressCheck.change-link")
+      summaryText: translate("ukPhotocardDlAddressCheck.change-how"),
+      html: translate("ukPhotocardDlAddressCheck.change-link")
     }) }}
     
     {% endcall %}
