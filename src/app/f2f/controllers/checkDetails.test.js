@@ -180,7 +180,7 @@ describe("CheckDetails controller", () => {
       await checkDetailsController.locals(req, res, next);
 
       expect(req.sessionModel.get("countryCode")).to.equal("DEU");
-      expect(req.sessionModel.get("country")).to.equal("nonUkPassportCountrySelector.items.DEU.label");
+      expect(req.sessionModel.get("country")).to.equal("countries.DEU");
       expect(req.sessionModel.get("expiryDate")).to.equal("01/01/2030");
       expect(req.sessionModel.get("idHasExpiryDate")).to.equal(true);
       expect(req.sessionModel.get("addressCheck")).to.equal(undefined);
@@ -193,11 +193,11 @@ describe("CheckDetails controller", () => {
       req.form.values.idHasExpiryDate = true;
       req.form.values.euDrivingLicenceCountrySelector = "DEU";
       req.form.values.euPhotocardDlAddressCheck = true;
-
+      
       await checkDetailsController.locals(req, res, next);
-
+    
       expect(req.sessionModel.get("countryCode")).to.equal("DEU");
-      expect(req.sessionModel.get("country")).to.equal("euPhotocardDlCountrySelector.items.DEU.label");
+      expect(req.sessionModel.get("country")).to.equal("countries.DEU");
       expect(req.sessionModel.get("expiryDate")).to.equal("01/01/2030");
       expect(req.sessionModel.get("idHasExpiryDate")).to.equal(true);
       expect(req.sessionModel.get("addressCheck")).to.equal(true);
@@ -214,7 +214,7 @@ describe("CheckDetails controller", () => {
       await checkDetailsController.locals(req, res, next);
 
       expect(req.sessionModel.get("countryCode")).to.equal("DEU");
-      expect(req.sessionModel.get("country")).to.equal("eeaIdentityCardCountrySelector.items.DEU.label");
+      expect(req.sessionModel.get("country")).to.equal("countries.DEU");
       expect(req.sessionModel.get("expiryDate")).to.equal("01/01/2030");
       expect(req.sessionModel.get("idHasExpiryDate")).to.equal(true);
       expect(req.sessionModel.get("addressCheck")).to.equal(true);

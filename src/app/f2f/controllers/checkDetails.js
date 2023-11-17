@@ -100,7 +100,7 @@ class CheckDetailsController extends DateController {
           expiryDate = req.form.values.nonUKPassportExpiryDate;
           countryCode = req.form.values.nonUkPassportCountrySelector;
           req.sessionModel.set("countryCode", countryCode);
-          req.sessionModel.set("country", res.locals.translate(`${APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT}CountrySelector.items.${countryCode}.label`));
+          req.sessionModel.set("country", res.locals.translate(`countries.${countryCode}`));
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
@@ -109,7 +109,7 @@ class CheckDetailsController extends DateController {
           address = req.form.values.euPhotocardDlAddressCheck
           countryCode = req.form.values.euDrivingLicenceCountrySelector;
           req.sessionModel.set("countryCode", countryCode);
-          req.sessionModel.set("country", res.locals.translate(`${APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL}CountrySelector.items.${countryCode}.label`));
+          req.sessionModel.set("country", res.locals.translate(`countries.${countryCode}`));
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
@@ -118,7 +118,7 @@ class CheckDetailsController extends DateController {
           address = req.form.values.eeaIdentityCardAddressCheck;
           countryCode = req.form.values.eeaIdentityCardCountrySelector;
           req.sessionModel.set("countryCode", countryCode);
-          req.sessionModel.set("country", res.locals.translate(`${APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD}CountrySelector.items.${countryCode}.label`))
+          req.sessionModel.set("country", res.locals.translate(`countries.${countryCode}`))
           break;
         }
       }
