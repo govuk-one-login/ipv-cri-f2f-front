@@ -73,7 +73,19 @@ module.exports = {
     legend: "",
     label: "",
     hint: "",
-    items: ["yes", "no"],
+    items: [
+      {
+        value: APP.HAS_EXPIRY_DATE.YES,
+        conditional: {
+          html: ""
+        }
+      },
+      { value: APP.HAS_EXPIRY_DATE.NO,
+        conditional: {
+          html: ""
+        }
+      }
+    ],
     validate: ["required"]
   },
   ukPhotocardDlExpiryDate: {
