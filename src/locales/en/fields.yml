@@ -212,12 +212,6 @@ eeaIdentityCardAddressCheck:
       label: "My national identity card does not have my address on it"
       hint: ""
       reveal: ""
-
-  addressCheck:
-    current: "Yes, it has my current address on it"
-    previous: "No, it has my previous address on it"
-    euDlNoAddress: "My driving licence does not have my address on it"
-    idNoAddress: "My national identity card does not have my address on it"
         
 postcode:
   label: Enter a UK postcode

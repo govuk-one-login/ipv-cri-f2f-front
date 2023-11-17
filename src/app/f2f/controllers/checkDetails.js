@@ -134,11 +134,13 @@ class CheckDetailsController extends DateController {
       locals.addressCheckTranslatedString = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
       locals.hasExpiryDateTranslatedString = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`)
       locals.countryTranslatedString = res.locals.translate(`${idChoice}CountrySelector.items.${country}.label`)
+
       locals.changeUrl = `/${changeUrl}`;
       locals.hasExpiryDate = hasExpiryDate;
       locals.postOfficeAddress = postOfficeAddress.split(", ");
       locals.postOfficeName = postOfficeName;
       callback(err, locals);
+      
     });
   }
   next() {
