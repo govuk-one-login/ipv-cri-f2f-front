@@ -1,21 +1,3 @@
-photoIdChoiceThinFile:
-  validation:
-    required: Choose a photo ID you can take to a Post Office
-  items:
-    ukPassport:
-      label: UK passport
-      hint: If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.
-      reveal: ""
-    nonUkPassport:
-      label: Non-UK passport with a biometric chip
-      hint: Your passport must not have expired.
-      reveal: ""
-    noPhotoId:
-      label: I do not have either of these
-      hint: ""
-      reveal: ""
-
-
 photoIdChoice:
   validation:
     required: Choose a photo ID you can take to a Post Office
@@ -46,6 +28,23 @@ photoIdChoice:
       reveal: ""
     noPhotoId:
       label: I do not have any of these documents
+      hint: ""
+      reveal: ""
+
+photoIdChoiceThinFile:
+  validation:
+    required: Choose a photo ID you can take to a Post Office
+  items:
+    ukPassport:
+      label: UK passport
+      hint: If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date.
+      reveal: ""
+    nonUkPassport:
+      label: Non-UK passport with a biometric chip
+      hint: Your passport must not have expired.
+      reveal: ""
+    noPhotoId:
+      label: I do not have either of these
       hint: ""
       reveal: ""
 
@@ -213,30 +212,7 @@ eeaIdentityCardAddressCheck:
       label: "My national identity card does not have my address on it"
       hint: ""
       reveal: ""
-
-  addressCheck:
-    current: "Yes, it has my current address on it"
-    previous: "No, it has my previous address on it"
-    euDlNoAddress: "My driving licence does not have my address on it"
-    idNoAddress: "My national identity card does not have my address on it"
         
-
-eeaIdentityCardCountrySelector:
-  label: "Select country"
-  validation:
-    equal: "Select the country your national identity card is from"
-
-euDrivingLicenceCountrySelector:
-  label: "Select country"
-  validation:
-    equal: "Select the country your driving licence is from"
-
-nonUkPassportCountrySelector:
-  label: "Select country"
-  validation:
-    equal: "Select the country your passport is from"
-
-
 postcode:
   label: Enter a UK postcode
   hint: "For example, SW1A 2AA"
@@ -268,3 +244,215 @@ photoIdExpiryChoice:
     proveIdentityAnotherWay:
       label: Prove your identity another way
       reveal: ""
+
+eeaIdentityCardCountrySelector:
+  label: "Select country"
+  validation:
+    equal: "Select the country your national identity card is from"
+
+euDrivingLicenceCountrySelector:
+  label: "Select country"
+  hint: ""
+  validation:
+    equal: "Select the country your driving licence is from"
+
+nonUkPassportCountrySelector:
+  label: "Select country"
+  validation:
+    equal: "Select the country your passport is from"
+
+countries:
+    Select: "Select country"
+    AFG: "Afghanistan"
+    ALB: "Albania"
+    DZA: "Algeria"
+    AND: "Andorra"
+    AGO: "Angola"
+    ATG: "Antigua and Barbuda"
+    ARG: "Argentina"
+    ARM: "Armenia"
+    AUS: "Australia"
+    AUT: "Austria"
+    AZE: "Azerbaijan"
+    BHS: "The Bahamas"
+    BHR: "Bahrain"
+    BGD: "Bangladesh"
+    BRB: "Barbados"
+    BLR: "Belarus"
+    BEL: "Belgium"
+    BLZ: "Belize"
+    BEN: "Benin"
+    BTN: "Bhutan"
+    BOL: "Bolivia"
+    BIH: "Bosnia and Herzogovina"
+    BWA: "Botswana"
+    BRA: "Brazil"
+    BRN: "Brunei"
+    BGR: "Bulgaria"
+    BFA: "Burkina Faso"
+    BDI: "Burundi"
+    KHM: "Cambodia"
+    CMR: "Cameroon"
+    CAN: "Canada"
+    CPV: "Cape Verde"
+    CAF: "Central African Republic"
+    TCD: "Chad"
+    CHL: "Chile"
+    CHN: "China"
+    COL: "Colombia"
+    COM: "Comoros"
+    COG: "Congo"
+    CRI: "Costa Rica"
+    CUB: "Cuba"
+    HRV: "Croatia"
+    CYP: "Cyprus"
+    CZE: "Czech Republic"
+    COD: "Democratic Republic of the Congo"
+    DNK: "Denmark"
+    DJI: "Djibouti"
+    DMA: "Dominica"
+    DOM: "Dominican Republic"
+    TLS: "East Timor"
+    ECU: "Ecuador"
+    EGY: "Egypt"
+    SLV: "El Salvador"
+    GNQ: "Equitorial Guinea"
+    ERI: "Eritrea"
+    EST: "Estonia"
+    SWZ: "Eswatini"
+    ETH: "Ethiopia"
+    FJI: "Fiji"
+    FIN: "Finland"
+    FRA: "France"
+    GAB: "Gabon"
+    GMB: "The Gambia"
+    GEO: "Georgia"
+    DEU: "Germany"
+    GHA: "Ghana"
+    GRC:  "Greece"
+    GRD: "Grenada"
+    GTM: "Guatemala"
+    GIN: "Guinea"
+    GNB: "Guinea-Bissau"
+    GUY: "Guyana"
+    HTI: "Haiti"
+    HND: "Honduras"
+    HUN: "Hungary"
+    ISL: "Iceland"
+    IND: "India"
+    IDN: "Indonesia"
+    IRN: "Iran"
+    IRQ: "Iraq"
+    IRL: "Ireland"
+    ISR: "Israel"
+    ITA: "Italy"
+    CIV: "Ivory Coast"
+    JAM: "Jamaica"
+    JPN: "Japan"
+    JOR: "Jordan"
+    KAZ: "Kazakhstan"
+    KEN: "Kenya"
+    KIR: "Kiribati"
+    XXK: "Kosovo"
+    KWT: "Kuwait"
+    KGZ: "Kyrgyzstan"
+    LAO: "Laos"    
+    LVA: "Latvia"
+    LBN: "Lebanon"
+    LSO: "Lesotho"
+    LBR: "Liberia"
+    LBY: "Libya"
+    LIE: "Liechtenstein"
+    LTU: "Lithuania"
+    LUX: "Luxembourg"
+    MDG: "Madagascar"
+    MWI: "Malawi"
+    MYS: "Malaysia"
+    MDV: "Maldives"
+    MLI: "Mali"
+    MLT: "Malta"
+    MHL: "Marshall Islands"
+    MRT: "Mauritania"
+    MUS: "Mauritius"
+    MEX: "Mexico"
+    FSM: "Micronesia"
+    MDA: "Moldova"
+    MCO: "Monaco"
+    MNG: "Mongolia"
+    MNE: "Montenegro"
+    MAR: "Morocco"
+    MOZ: "Mozambique"
+    MMR: "Myanmar (Burma)"
+    NAM: "Namibia"
+    NRU: "Nauru"
+    NPL:  "Nepal"
+    NLD: "Netherlands"
+    NZL: "New Zealand"
+    NIC:  "Nicaragua"
+    NER: "Niger"
+    NGA:  "Nigeria"
+    PRK: "North Korea"
+    MKD: "North Macedonia"
+    NOR: "Norway"
+    OMN: "Oman"
+    PAK: "Pakistan"
+    PLW:  "Palau"
+    PAN: "Panama"
+    PNG: "Papua New Guinea"
+    PRY: "Paraguay"
+    PER: "Peru"
+    PHL: "Philippines"  
+    POL: "Poland"
+    PRT: "Portugal"
+    QAT: "Qatar"
+    ROU: "Romania"
+    RUS: "Russia"
+    RWA: "Rwanda"
+    WSM: "Samoa"
+    SMR: "San Marino"
+    STP: "Sao Tome and Principe"
+    SAU: "Saudi Arabia"
+    SEN: "Senegal"
+    SRB: "Serbia"
+    SYC: "Seychelles"
+    SLE: "Sierra Leone"
+    SGP: "Singapore"
+    SVK: "Slovakia"
+    SVN: "Slovenia"
+    SLB: "Solomon Islands"
+    SOM: "Somalia"
+    ZAF: "South Africa"
+    KOR: "South Korea"
+    SSD: "South Sudan"
+    ESP: "Spain"
+    LKA: "Sri Lanka"
+    KNA: "St Kitts and Nevis"
+    LCA: "St Lucia"
+    VCT: "St Vincent"
+    SDN: "Sudan"
+    SUR: "Suriname"
+    SWE: "Sweden"
+    CHE: "Switzerland"
+    SYR: "Syria"
+    TJK: "Tajikistan"
+    TZA:  "Tanzania"
+    THA: "Thailand"
+    TGO: "Togo"
+    TON: "Tonga"
+    TTO: "Trinidad and Tobago"
+    TUN: "Tunisia"
+    TUR: "Turkey"
+    TKM: "Turkmenistan"
+    TUV: "Tuvalu"
+    UGA: "Uganda"
+    UKR: "Ukraine"
+    ARE: "United Arab Emirates"
+    USA: "United States"
+    URY: "Uruguay"
+    UZB: "Uzbekistan"
+    VUT: "Vanuatu"
+    VEN: "Venezuela"
+    VNM: "Vietnam"
+    YEM: "Yemen"
+    ZMB: "Zambia"
+    ZWE: "Zimbabwe"

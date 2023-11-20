@@ -175,12 +175,12 @@ describe("CheckDetails controller", () => {
       req.form.values.photoIdChoice = PHOTO_ID_OPTIONS.NON_UK_PASSPORT;
       req.form.values.nonUKPassportExpiryDate = "01/01/2030";
       req.form.values.idHasExpiryDate = true;
-      req.form.values.nonUkPassportCountrySelector = "Germany";
+      req.form.values.nonUkPassportCountrySelector = "DEU";
 
       await checkDetailsController.locals(req, res, next);
 
       expect(req.sessionModel.get("countryCode")).to.equal("DEU");
-      expect(req.sessionModel.get("country")).to.equal("Germany");
+      expect(req.sessionModel.get("country")).to.equal("countries.DEU");
       expect(req.sessionModel.get("expiryDate")).to.equal("01/01/2030");
       expect(req.sessionModel.get("idHasExpiryDate")).to.equal(true);
       expect(req.sessionModel.get("addressCheck")).to.equal(undefined);
@@ -191,13 +191,13 @@ describe("CheckDetails controller", () => {
       req.form.values.photoIdChoice = PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL;
       req.form.values.euPhotocardDlExpiryDate = "01/01/2030";
       req.form.values.idHasExpiryDate = true;
-      req.form.values.euDrivingLicenceCountrySelector = "Germany";
+      req.form.values.euDrivingLicenceCountrySelector = "DEU";
       req.form.values.euPhotocardDlAddressCheck = true;
-
+      
       await checkDetailsController.locals(req, res, next);
-
+    
       expect(req.sessionModel.get("countryCode")).to.equal("DEU");
-      expect(req.sessionModel.get("country")).to.equal("Germany");
+      expect(req.sessionModel.get("country")).to.equal("countries.DEU");
       expect(req.sessionModel.get("expiryDate")).to.equal("01/01/2030");
       expect(req.sessionModel.get("idHasExpiryDate")).to.equal(true);
       expect(req.sessionModel.get("addressCheck")).to.equal(true);
@@ -208,13 +208,13 @@ describe("CheckDetails controller", () => {
       req.form.values.photoIdChoice = PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD;
       req.form.values.eeaIdCardExpiryDate = "01/01/2030";
       req.form.values.idHasExpiryDate = true;
-      req.form.values.eeaIdentityCardCountrySelector = "Germany";
+      req.form.values.eeaIdentityCardCountrySelector = "DEU";
       req.form.values.eeaIdentityCardAddressCheck = true;
 
       await checkDetailsController.locals(req, res, next);
 
       expect(req.sessionModel.get("countryCode")).to.equal("DEU");
-      expect(req.sessionModel.get("country")).to.equal("Germany");
+      expect(req.sessionModel.get("country")).to.equal("countries.DEU");
       expect(req.sessionModel.get("expiryDate")).to.equal("01/01/2030");
       expect(req.sessionModel.get("idHasExpiryDate")).to.equal(true);
       expect(req.sessionModel.get("addressCheck")).to.equal(true);

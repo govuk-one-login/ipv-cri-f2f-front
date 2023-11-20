@@ -2,7 +2,6 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils")
 const { APP, API } = require("../../../lib/config");
-const { NON_UK_PASSPORT } = require("../data/countryCodes/nonUkPassport");
 const DateController = DateControllerMixin(BaseController);
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
@@ -77,7 +76,6 @@ class CheckDetailsController extends DateController {
       // Value for document expiry date depends on selected document
       let idHasExpiryDate
       let expiryDate
-      let country
       let address
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
@@ -99,47 +97,44 @@ class CheckDetailsController extends DateController {
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.nonUKPassportExpiryDate;
-          country = req.form.values.nonUkPassportCountrySelector;
+          req.sessionModel.set("countryCode", req.form.values.nonUkPassportCountrySelector);
+          req.sessionModel.set("country", res.locals.translate(`countries.${req.form.values.nonUkPassportCountrySelector}`));
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.euPhotocardDlExpiryDate;
-          country = req.form.values.euDrivingLicenceCountrySelector;
           address = req.form.values.euPhotocardDlAddressCheck
+          req.sessionModel.set("countryCode", req.form.values.euDrivingLicenceCountrySelector);
+          req.sessionModel.set("country", res.locals.translate(`countries.${req.form.values.euDrivingLicenceCountrySelector}`));
           break;
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
           idHasExpiryDate = req.form.values.idHasExpiryDate
           expiryDate = req.form.values.eeaIdCardExpiryDate;
-          country = req.form.values.eeaIdentityCardCountrySelector;
           address = req.form.values.eeaIdentityCardAddressCheck;
+          req.sessionModel.set("countryCode", req.form.values.eeaIdentityCardCountrySelector);
+          req.sessionModel.set("country", res.locals.translate(`countries.${req.form.values.eeaIdentityCardCountrySelector}`))
           break;
         }
       }
-      // Sets country code value and country name
-      Object.values(NON_UK_PASSPORT).forEach(val => {
-        if(val.text == country) {
-          req.sessionModel.set("countryCode", val.value)
-          req.sessionModel.set("country", country)
-        }
-      })
+
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
-
-  
+      
       //Confirmation display values
       const idChoice = req.sessionModel.get("photoIdChoice");
       const changeUrl = req.sessionModel.get("changeUrl");
       const addressCheck = req.sessionModel.get("addressCheck");
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
 
-      locals.country = req.sessionModel.get("country");
       locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
       locals.idTranslatedString = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
       locals.addressCheckTranslatedString = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
       locals.hasExpiryDateTranslatedString = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`)
+      locals.countryTranslatedString = req.sessionModel.get("country")
+
       locals.changeUrl = `/${changeUrl}`;
       locals.hasExpiryDate = hasExpiryDate;
       locals.postOfficeAddress = postOfficeAddress.split(", ");
