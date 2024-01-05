@@ -34,8 +34,3 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build docker image
-        run: |
-          cd ${GITHUB_WORKSPACE} || exit 1
-          docker build -t "core-front-build:test" .
-
