@@ -29,13 +29,8 @@ jobs:
       - name: Run test and write coverage
         run: yarn nyc --reporter=lcov --reporter=text-summary yarn mocha
       - name: "Run SonarCloud Scan"
-        if: ${{ success() }}
+        if: ${{ success() && github.actor != 'dependabot[bot]' }}
         uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build docker image
-        run: |
-          cd ${GITHUB_WORKSPACE} || exit 1
-          docker build -t "core-front-build:test" .
-
