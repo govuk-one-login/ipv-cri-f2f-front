@@ -27,7 +27,7 @@ photoIdSelectionThinFile:
 
 photoIdSelection:
   title: "Choose which photo ID you can take to a Post Office"
-  content: "You must take the original photo ID document, not a photocopy."
+  content: "You cannot use a photocopy or digital copy of your photo ID."
   expiryWarning: "Your photo ID must not have expired."
 
 dateOfBirth:

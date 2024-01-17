@@ -11,8 +11,8 @@ photoIdChoice:
       hint: Rhaid i'r cyfeiriad ar eich trwydded yrru fod yr un fath â'ch cyfeiriad presennol.
       reveal: ""
     brp:
-      label: Trwydded breswylio biometrig (BRP)
-      hint: ""
+      label: Trwydded breswylio biometrig y DU
+      hint: Efallai y bydd gennych BRP os oes gennych fisa am fwy na 6 mis neu ganiatâd amhenodol i aros. Ni allwch ddefnyddio Trwydded Gweithwyr Ffiniol y DU (FWP) na cherdyn preswylio biometrig y DU (BRC), a elwir hefyd yn gerdyn preswylio yn y DU.
       reveal: ""
     nonUkPassport:
       label: Pasbort o'r tu allan i'r DU
