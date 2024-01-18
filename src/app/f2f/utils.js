@@ -1,4 +1,5 @@
 const moment = require("moment");
+const { validators } = require("hmpo-form-wizard/lib/validation");
 
 /**
  * formatDate takes a date (e.g. '1994-05-26') and the format it is in (e.g. 'YYYY-MM-DD)
@@ -21,4 +22,16 @@ function formatDate(date, format) {
   }
 }
 
-module.exports = { formatDate };
+function beforeNow(_value, timePeriod, timeUnit) {
+  let dateFormat = "YYYY-MM-DD";
+  let test = moment(_value, dateFormat);
+  let comparator;
+  // One additional day added so that the check is inclusive of the current date minus X time
+  comparator = moment().add(timePeriod, timeUnit).add(1, 'day').format(dateFormat);
+
+  return (
+    _value === "" || (validators.date(_value) && test.isBefore(comparator))
+  );
+}
+
+module.exports = { formatDate, beforeNow };
