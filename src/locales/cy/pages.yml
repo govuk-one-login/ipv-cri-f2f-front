@@ -27,7 +27,7 @@ photoIdSelectionThinFile:
 
 photoIdSelection:
   title: "Dewiswch pa ID gyda llun y gallwch fynd i'r Swyddfa Bost"
-  content: "Mae'n rhaid i chi fynd a'r ddogfen ID gyda llun gwreiddiol, nid llungopi."
+  content: "Ni allwch ddefnyddio llungopi neu gopi digidol o'ch ID gyda llun."
   expiryWarning: "Mae'n rhaid bod cyfnod eich ID gyda llun heb fod wedi dod i ben."
 
 dateOfBirth:

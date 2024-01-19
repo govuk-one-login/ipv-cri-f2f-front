@@ -11,8 +11,8 @@ photoIdChoice:
       hint: The address on your driving licence must be the same as your current address.
       reveal: ""
     brp:
-      label: Biometric residence permit (BRP)
-      hint: ""
+      label: UK biometric residence permit (BRP)
+      hint: You might have a BRP if you have a visa for longer than 6 months or indefinite leave to remain. You cannot use a UK Frontier Worker permit (FWP) or a UK biometric residence card (BRC), also called a UK residence card.
       reveal: ""
     nonUkPassport:
       label: Non-UK passport
