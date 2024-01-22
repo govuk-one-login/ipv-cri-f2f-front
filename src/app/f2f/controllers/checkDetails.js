@@ -18,6 +18,7 @@ class CheckDetailsController extends DateController {
       let postOfficePostcode;
       let postOfficeLatitude;
       let postOfficeLongitude;
+      let postOfficeFadCode;
 
       switch (req.form.values.branches) {
         case "1": {
@@ -27,6 +28,7 @@ class CheckDetailsController extends DateController {
           postOfficePostcode = payLoadDetails.location0.postcode
           postOfficeLatitude = payLoadDetails.location0.latitude
           postOfficeLongitude = payLoadDetails.location0.longitude
+          postOfficeFadCode = payLoadDetails.location0.fadCode
           break;
         }
         case "2": {
@@ -36,6 +38,7 @@ class CheckDetailsController extends DateController {
           postOfficePostcode = payLoadDetails.location1.postcode
           postOfficeLatitude = payLoadDetails.location1.latitude
           postOfficeLongitude = payLoadDetails.location1.longitude
+          postOfficeFadCode = payLoadDetails.location1.fadCode
           break;
         }
         case "3": {
@@ -45,6 +48,7 @@ class CheckDetailsController extends DateController {
           postOfficePostcode = payLoadDetails.location2.postcode
           postOfficeLatitude = payLoadDetails.location2.latitude
           postOfficeLongitude = payLoadDetails.location2.longitude
+          postOfficeFadCode = payLoadDetails.location2.fadCode
           break;
         }
         case "4": {
@@ -54,6 +58,7 @@ class CheckDetailsController extends DateController {
           postOfficePostcode = payLoadDetails.location3.postcode
           postOfficeLatitude = payLoadDetails.location3.latitude
           postOfficeLongitude = payLoadDetails.location3.longitude
+          postOfficeFadCode = payLoadDetails.location3.fadCode
           break;
         }
         case "5": {
@@ -63,6 +68,7 @@ class CheckDetailsController extends DateController {
           postOfficePostcode = payLoadDetails.location4.postcode
           postOfficeLatitude = payLoadDetails.location4.latitude
           postOfficeLongitude = payLoadDetails.location4.longitude
+          postOfficeFadCode = payLoadDetails.location4.fadCode
           break;
         }
       }
@@ -72,6 +78,7 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("postOfficePostcode", postOfficePostcode);
       req.sessionModel.set("postOfficeLatitude", postOfficeLatitude);
       req.sessionModel.set("postOfficeLongitude", postOfficeLongitude);
+      req.sessionModel.set("postOfficeFadCode", postOfficeFadCode);
 
       // Value for document expiry date depends on selected document
       let idHasExpiryDate
@@ -161,7 +168,8 @@ class CheckDetailsController extends DateController {
             "latitude": req.sessionModel.get("postOfficeLatitude"),
             "longitude": req.sessionModel.get("postOfficeLongitude"),
           },
-          "post_code": req.sessionModel.get("postOfficePostcode")
+          "post_code": req.sessionModel.get("postOfficePostcode"),
+          "fad_code": req.sessionModel.get("postOfficeFadCode")
         }
       }
 
