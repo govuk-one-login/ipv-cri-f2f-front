@@ -63,7 +63,7 @@ ukPassportExpiryDate:
   hint: "For example, 31 3 2025"
   validation:
     default: "Enter the full expiry date"
-    before: "Enter a valid expiry date"
+    beforeNow: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
@@ -79,7 +79,7 @@ ukPhotocardDlExpiryDate:
   hint: "For example, 31 3 2025"
   validation:
     default: "Enter the full expiry date"
-    before: "Enter a valid expiry date"
+    beforeNow: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
@@ -95,7 +95,7 @@ nonUKPassportExpiryDate:
   hint: "For example, 31 3 2025"
   validation:
     default: "Enter the full expiry date"
-    before: "Enter a valid expiry date"
+    beforeNow: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
@@ -127,7 +127,7 @@ euPhotocardDlExpiryDate:
   hint: "For example, 31 3 2025"
   validation:
     default: "Enter the full expiry date"
-    before: "Enter a valid expiry date"
+    beforeNow: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
@@ -143,7 +143,7 @@ eeaIdCardExpiryDate:
   hint: "For example, 31 3 2025"
   validation:
     default: "Enter the full expiry date"
-    before: "Enter a valid expiry date"
+    beforeNow: "Enter a valid expiry date"
     "numeric-day": "The expiry date must include a day that contains numbers only"
     "numeric-month": "The expiry date must include a month that contains numbers only"
     "numeric-year": "The expiry date must include a year that contains numbers only"
