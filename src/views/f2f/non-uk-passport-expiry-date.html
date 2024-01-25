@@ -1,15 +1,16 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoPageKey = "euDrivingLicenceHasExpiryDate" %}
-{% set gtmJourney = "f2f - euDrivingLicenceHasExpiryDate" %}
+{% set hmpoPageKey = "nonUKPassportHasExpiryDate" %}
+{% set gtmJourney = "f2f - nonUKPassportHasExpiryDate" %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
 
 {% block mainContent %}
 
-{% set title = translate("euDrivingLicenceHasExpiryDate.title") %}
+{% set title = translate("nonUKPassportHasExpiryDate.title") %}
       
       {% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {
@@ -19,14 +20,15 @@
                     legend: {
                         text: title,
                         isPageHeading: true,
-                        classes: "govuk-fieldset__legend--l"
+                        classes: "govuk-fieldset__legend--l idHasExpiryDate-radios"
                     }
                 }
             }) }}
 
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {{ hmpoSubmit(ctx, {id: "idHasExpiryContinue", text: translate("buttons.next")}) }}
   
     {% endcall %}
+
 
 {% endblock %} 
 

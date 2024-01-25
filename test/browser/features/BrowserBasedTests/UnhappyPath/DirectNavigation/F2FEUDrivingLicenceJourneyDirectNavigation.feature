@@ -26,5 +26,5 @@ Feature: Directly navigating EU Driving Licence pages in journey- unhappy path
         Then they should see the unrecoverable error page
 
     Scenario: Direct Navigation to EUDrivingLicenceHasExpiry
-        Given the user navigates directly to eu-driving-licence-has-expiry-date page
+        Given the user navigates directly to eu-driving-licence-expiry-date page
         Then they should see the unrecoverable error page

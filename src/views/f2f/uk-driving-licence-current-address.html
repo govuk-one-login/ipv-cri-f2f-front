@@ -23,7 +23,7 @@
                     legend: {
                         text: title,
                         isPageHeading: true,
-                        classes: "govuk-fieldset__legend--l"
+                        classes: "govuk-fieldset__legend--l currentAddress-radios"
                     }
                 },
                 hint: {
@@ -32,7 +32,7 @@
             }) }}
 
 
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {{ hmpoSubmit(ctx, {id: "currentAddressContinue", text: translate("buttons.next")}) }}
 
     {{ hmpoDetails({
       summaryText: translate("ukPhotocardDlAddressCheck.change-how"),

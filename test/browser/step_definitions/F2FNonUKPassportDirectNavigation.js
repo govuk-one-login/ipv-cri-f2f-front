@@ -80,13 +80,13 @@ Then(/^the user sees an error message displayed on the non-uk-passport-expire-ed
 
 });
 
-Given(/^the user navigates directly to non-uk-passport-has-expiry-date page$/, async function () {
+Given(/^the user navigates directly to non-uk-passport-expiry-date page$/, async function () {
     const nonUKPassportExpiryDatePage = new NonUkPassportHasExpiryDatePage(this.page);
     await nonUKPassportExpiryDatePage.goTo();
 
 });
 
-Then(/^the user sees an error message displayed on the non-uk-passport-has-expiry-date page$/, async function () {
+Then(/^the user sees an error message displayed on the non-uk-passport-expiry-date page$/, async function () {
 		const errorPage = new ErrorPage(await this.page);
 		expect(await errorPage.isCurrentPage()).to.be.true;
 		const redirectionError = await errorPage.getSomethingWentWrongMessage();

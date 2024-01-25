@@ -6,13 +6,13 @@ const { EeaIdentityCardHasExpiryDatePage, EEAIdentityCardAddressCheck, EEAIdenti
     EEAIdentityCardCountrySelectorPageEdit, ErrorPage } = require("../pages");
 const { expect } = require("chai");
 
-Given(/^the user navigates directly to national-identity-card-has-expiry-date page$/, async function () {
+Given(/^the user navigates directly to national-identity-card-expiry-date page$/, async function () {
     const eeaExpiryDatePage = new EeaIdentityCardHasExpiryDatePage(this.page);
     await eeaExpiryDatePage.goTo();
 
 });
 
-Then(/^the user sees an error message displayed on the national-identity-card-has-expiry-date page$/, async function () {
+Then(/^the user sees an error message displayed on the national-identity-card-expiry-date page$/, async function () {
 		const errorPage = new ErrorPage(await this.page);
 		expect(await errorPage.isCurrentPage()).to.be.true;
 		const redirectionError = await errorPage.getSomethingWentWrongMessage();
