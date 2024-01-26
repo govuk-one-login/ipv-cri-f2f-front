@@ -31,15 +31,15 @@
             }
             }) }}
 
+        {{ hmpoDetails({
+          id: "ukPhotocardDlAddressCheckChange",
+          summaryText: translate("ukPhotocardDlAddressCheck.change-how"),
+          html: translate("ukPhotocardDlAddressCheck.change-link")
+        }) }}
 
-    {{ hmpoSubmit(ctx, {id: "currentAddressContinue", text: translate("buttons.next")}) }}
-
-    {{ hmpoDetails({
-      summaryText: translate("ukPhotocardDlAddressCheck.change-how"),
-      html: translate("ukPhotocardDlAddressCheck.change-link")
-    }) }}
+        {{ hmpoSubmit(ctx, {id: "currentAddressContinue", text: translate("buttons.next")}) }}
     
-    {% endcall %}
+      {% endcall %}
 
 {% endblock %}
 

@@ -116,6 +116,7 @@ main p,
   font-weight: bold;
 }
 
+
 .govuk-main-wrapper {
   @include govuk-responsive-padding(3, "top");
 }
@@ -163,6 +164,7 @@ main p,
 #postcode-label {
   font-weight: bold;
   font-size: 23px;
+  @include govuk-responsive-margin(3, "bottom");
 }
 
 #landingPageContinue {
@@ -235,8 +237,9 @@ main p,
   @include govuk-responsive-margin(0, "top");
 }
 
-#poContinue {
+#branchesContinue {
   @include govuk-responsive-margin(0, "top"); //WIP
+  @include govuk-responsive-margin(7, "bottom"); //WIP
 }
 
 #ukPhotocardDlAddressCheck-hint {
@@ -253,11 +256,72 @@ main p,
 
 #userPostCodeLabel {
   font-weight: bold;
-  @include govuk-responsive-margin(2, "top");
+  font-size: 24px;
+  @include govuk-responsive-margin(3, "top");
   @include govuk-responsive-margin(4, "bottom");
 }
 
 .govuk-summary-list .govuk-summary-list__key { // same classes as line 75 but edited content
   font-weight: bold;
   color: govuk-colour("black");
+}
+
+#ukPhotocardDlAddressCheckChange {
+  @include govuk-responsive-margin(6, "bottom");
+}
+
+#nonUkPassportCountrySelector-label {
+  @include govuk-responsive-margin(6, "top");
+}
+
+#euDrivingLicenceCountrySelector-label {
+  @include govuk-responsive-margin(6, "top");
+}
+
+#eeaIdentityCardCountrySelector-label {
+  @include govuk-responsive-margin(6, "top");
+}
+
+#nonUkPassportCountrySelector {
+  @include govuk-responsive-margin(2, "bottom");
+}
+
+#euDrivingLicenceCountrySelector {
+  @include govuk-responsive-margin(2, "bottom");
+}
+
+#eeaIdentityCardCountrySelector {
+  @include govuk-responsive-margin(2, "bottom");
+}
+
+#nonUkPassportCountrySelectorContinue {
+  @include govuk-responsive-margin(5, "top");
+}
+
+#euDrivingLicenceCountryContinue {
+  @include govuk-responsive-margin(5, "top");
+}
+
+#eeaIdentityCardCountrySelectorContinue {
+  @include govuk-responsive-margin(5, "top");
+}
+
+#branches-hint {
+  @include govuk-responsive-margin(6, "bottom");
+}
+
+#branches-item-hint, #branches-2-item-hint, #branches-3-item-hint, #branches-4-item-hint, #branches-5-item-hint {
+  color: govuk-colour("black");
+}
+
+#branches-fieldset {
+  @include govuk-responsive-margin(0, "bottom");
+}
+
+#postcode-hint {
+  @include govuk-responsive-margin(4, "bottom");
+}
+
+.govuk-summary-list__key, .govuk-summary-list__value, .govuk-summary-list__actions {
+  @include govuk-responsive-padding(0)
 }
