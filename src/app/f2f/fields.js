@@ -1,4 +1,5 @@
 const { APP } = require("../../lib/config");
+const utils = require("./utils");
 
 module.exports = {
   photoIdChoice: {
@@ -36,38 +37,24 @@ module.exports = {
     type: "date",
     journeyKey: "UKPassportExpiryDate",
     validate: ["required", "date",
-      {
-        type: "before",
-        arguments: [
-          new Date(
-            new Date().getFullYear() + 10,
-            new Date().getMonth(),
-            new Date().getDate() + 1,
-          )
-            .toISOString()
-            .split("T")[0],
+          {
+            type: "beforeNow",
+            fn: utils.beforeNow,
+            arguments: [10, "years"]
+          }
         ],
       },
-    ]
-  },
   nonUKPassportExpiryDate: {
     type: "date",
     journeyKey: "nonUKPassportExpiryDate",
     validate: ["required", "date",
-      {
-        type: "before",
-        arguments: [
-          new Date(
-            new Date().getFullYear() + 75,
-            new Date().getMonth(),
-            new Date().getDate() + 1,
-          )
-            .toISOString()
-            .split("T")[0],
+          {
+            type: "beforeNow",
+            fn: utils.beforeNow,
+            arguments: [75, "years"]
+          }
         ],
       },
-    ]
-  },
   idHasExpiryDate: {
     type: "radios",
     legend: "",
@@ -92,18 +79,11 @@ module.exports = {
     type: "date",
     journeyKey: "ukPhotocardDlExpiryDate",
     validate: ["required", "date",
-      {
-        type: "before",
-        arguments: [
-          new Date(
-            new Date().getFullYear() + 10,
-            new Date().getMonth(),
-            new Date().getDate() + 1,
-          )
-            .toISOString()
-            .split("T")[0],
-        ],
-      },
+    {
+      type: "beforeNow",
+      fn: utils.beforeNow,
+      arguments: [10, "years"]
+    }
     ]
   },
   brpExpiryDate: {
@@ -120,20 +100,13 @@ module.exports = {
     type: "date",
     journeyKey: "euPhotocardDlDate",
     validate: ["required", "date",
-      {
-        type: "before",
-        arguments: [
-          new Date(
-            new Date().getFullYear() + 75,
-            new Date().getMonth(),
-            new Date().getDate() + 1,
-          )
-            .toISOString()
-            .split("T")[0],
+          {
+            type: "beforeNow",
+            fn: utils.beforeNow,
+            arguments: [75, "years"]
+          }
         ],
       },
-    ]
-  },
   ukPhotocardDlAddressCheck: {
     legend: "",
     label: "",
@@ -183,19 +156,12 @@ module.exports = {
     validate: [
       "required", "date",
       {
-        type: "before",
-        arguments: [
-          new Date(
-            new Date().getFullYear() + 75,
-            new Date().getMonth(),
-            new Date().getDate() + 1,
-          )
-            .toISOString()
-            .split("T")[0],
+            type: "beforeNow",
+            fn: utils.beforeNow,
+            arguments: [75, "years"]
+          }
         ],
       },
-    ]
-  },
   eeaIdentityCardAddressCheck: {
     legend: "",
     label: "",
