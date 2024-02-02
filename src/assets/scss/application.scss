@@ -322,6 +322,10 @@ main p,
   @include govuk-responsive-margin(4, "bottom");
 }
 
-.govuk-summary-list__key, .govuk-summary-list__value, .govuk-summary-list__actions {
-  @include govuk-responsive-padding(0)
+// .govuk-summary-list__key, .govuk-summary-list__value, .govuk-summary-list__actions {
+//   @include govuk-responsive-padding(0)
+// }
+
+.govuk-warning-text {
+  @include govuk-responsive-margin(4, "bottom");
 }
