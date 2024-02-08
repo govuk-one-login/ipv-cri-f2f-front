@@ -2,23 +2,9 @@ $govuk-assets-path: "/public/";
 @import "../../../node_modules/govuk-frontend/govuk/all";
 @import "../../../node_modules/hmpo-components/all";
 
-// .govuk-radios { REMOVED IN FAVOUR OF SPACES ON HINT AND CONTINUE BUTTON
-//   margin-bottom: govuk-spacing(-3);
-//   @include govuk-responsive-margin(6, "top");
-// }
-
-// .govuk-radios__item {
-//   @include govuk-responsive-margin(2, "bottom");
-// }
-
 .govuk-date-input__label {
   @include govuk-responsive-margin(2, "bottom");
 }
-
-// .govuk-fieldset__heading { // rermains to be seen if this can be replaced with page specific classes/ids
-//   @include govuk-responsive-margin(4, "bottom");
-// }
-
 
 b#postcode {text-transform:uppercase;}
 
@@ -71,12 +57,6 @@ main p,
 .govuk-radios__divider {
   @include govuk-responsive-margin(2, "bottom");
 }
-
-// .govuk-summary-list .govuk-summary-list__key {
-//   @include govuk-responsive-padding(0, "bottom");
-//   @include govuk-responsive-padding(0, "top");
-// }
-
 
 .govuk-warning-text {
   @include govuk-responsive-margin(0, "bottom");
@@ -221,11 +201,11 @@ main p,
   @include govuk-responsive-margin(6, "bottom");
 }
 
-.idHasExpiryDate-radios { // margin beneath heading
+.idHasExpiryDate-radios { 
   @include govuk-responsive-margin(5, "bottom");
 }
 
-.currentAddress-radios { // margin beneath heading
+.currentAddress-radios {
   @include govuk-responsive-margin(7, "bottom");
 }
 
@@ -238,8 +218,8 @@ main p,
 }
 
 #branchesContinue {
-  @include govuk-responsive-margin(0, "top"); //WIP
-  @include govuk-responsive-margin(7, "bottom"); //WIP
+  @include govuk-responsive-margin(0, "top");
+  @include govuk-responsive-margin(7, "bottom"); 
 }
 
 #ukPhotocardDlAddressCheck-hint {
@@ -261,7 +241,7 @@ main p,
   @include govuk-responsive-margin(4, "bottom");
 }
 
-.govuk-summary-list .govuk-summary-list__key { // same classes as line 75 but edited content
+.govuk-summary-list .govuk-summary-list__key { 
   font-weight: bold;
   color: govuk-colour("black");
 }
@@ -322,9 +302,10 @@ main p,
   @include govuk-responsive-margin(4, "bottom");
 }
 
-// .govuk-summary-list__key, .govuk-summary-list__value, .govuk-summary-list__actions {
-//   @include govuk-responsive-padding(0)
-// }
+#photoIdExpiryChoice-hint {
+  @include govuk-responsive-margin(4, "bottom");
+  @include govuk-responsive-margin(3, "top");
+}
 
 .govuk-warning-text {
   @include govuk-responsive-margin(4, "bottom");
