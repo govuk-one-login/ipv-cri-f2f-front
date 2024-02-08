@@ -239,17 +239,13 @@ photoIdExpiryChoice:
       label: Check the expiry date and enter it again
       hint: ""
       reveal: ""
-      hint: ""
     chooseDifferentPhotoId:
       label: Choose a different type of photo ID
       hint: ""
       reveal: ""
-      hint: ""
     proveIdentityAnotherWay:
       label: Prove your identity another way
-      hint: ""
       reveal: ""
-      hint: ""
 
 eeaIdentityCardCountrySelector:
   label: "Select country"
