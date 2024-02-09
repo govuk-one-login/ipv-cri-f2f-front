@@ -31,7 +31,7 @@
     %}
 
         {{ hmpoRadios(ctx, fullBranch, {id: "branches"}) }}
-        {{ hmpoSubmit(ctx, {id: "branchesContinue", text: translate("buttons.next")}) }}
+        {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
     {% endcall %}
 
 

@@ -151,14 +151,6 @@ main p,
   @include govuk-responsive-margin(1, "top");
 }
 
-#addressContinue {
-  @include govuk-responsive-margin(5, "top")
-}
-
-#expiryContinue {
-  @include govuk-responsive-margin(4, "top")
-}
-
 #photoIdExpiryPrompt {
   font-size: 23px;
 }
@@ -205,17 +197,8 @@ main p,
   @include govuk-responsive-margin(7, "bottom");
 }
 
-#idHasExpiryContinue {
+.radioButtonsContinue {
   @include govuk-responsive-margin(0, "top");
-}
-
-#currentAddressContinue {
-  @include govuk-responsive-margin(0, "top");
-}
-
-#branchesContinue {
-  @include govuk-responsive-margin(0, "top");
-  @include govuk-responsive-margin(7, "bottom"); 
 }
 
 #ukPhotocardDlAddressCheck-hint {
@@ -268,18 +251,6 @@ main p,
 
 #eeaIdentityCardCountrySelector {
   @include govuk-responsive-margin(2, "bottom");
-}
-
-#nonUkPassportCountrySelectorContinue {
-  @include govuk-responsive-margin(5, "top");
-}
-
-#euDrivingLicenceCountryContinue {
-  @include govuk-responsive-margin(5, "top");
-}
-
-#eeaIdentityCardCountrySelectorContinue {
-  @include govuk-responsive-margin(5, "top");
 }
 
 #branches-hint {
