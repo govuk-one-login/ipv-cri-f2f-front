@@ -192,10 +192,6 @@ main p,
   @include govuk-responsive-margin(6, "bottom");
 }
 
-#idChoiceContinue {
-  @include govuk-responsive-margin(0, "top");
-}
-
 .idExpiryContext {
   @include govuk-responsive-margin(5, "top");
   @include govuk-responsive-margin(6, "bottom");
