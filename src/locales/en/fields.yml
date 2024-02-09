@@ -245,6 +245,7 @@ photoIdExpiryChoice:
       reveal: ""
     proveIdentityAnotherWay:
       label: Prove your identity another way
+      hint: ""
       reveal: ""
 
 eeaIdentityCardCountrySelector:
