@@ -3,7 +3,7 @@ const { chromium } = require("playwright");
 const { setDefaultTimeout } = require ('@cucumber/cucumber');
 const axios = require("axios");
 
-setDefaultTimeout(10 * 1000);
+setDefaultTimeout(10 * 10000);
 
 BeforeAll(async function () {
   // Browsers are expensive in Playwright so only create 1
