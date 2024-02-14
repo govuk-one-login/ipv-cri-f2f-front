@@ -45,9 +45,9 @@ jobs:
       - name: Deploy SAM app to ECR
         uses: govuk-one-login/devplatform-upload-action-ecr@1.2.0
         with:
-          artifact-bucket-name: ${{ secrets.secrets.BUILD_ARTIFACT_BUCKET }}
+          artifact-bucket-name: ${{ secrets.BUILD_ARTIFACT_BUCKET }}
           container-sign-kms-key-arn: ${{ secrets.BUILD_CONTAINER_SIGN_KMS_KEY }}
-          working-directory: ./deploy
+          working-directory: .
           docker-build-path: .
           template-file: template.yaml
           role-to-assume-arn: ${{ secrets.BUILD_ROLE_TO_ASSUME }}
