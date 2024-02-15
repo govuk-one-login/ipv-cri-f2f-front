@@ -95,13 +95,13 @@ Then(/^the user sees an error message displayed on the eu-driving-licence-expire
 
 });
 
-Given(/^the user navigates directly to eu-driving-licence-has-expiry-date page$/, async function () {
+Given(/^the user navigates directly to eu-driving-licence-expiry-date page$/, async function () {
     const euDrivingLicenceHasExpiryPage = new EuDrivingLicenceHasExpiryDatePage(this.page);
     await euDrivingLicenceHasExpiryPage.goTo();
 
 });
 
-Then(/^the user sees an error message displayed on the eu-driving-licence-has-expiry-date page$/, async function () {
+Then(/^the user sees an error message displayed on the eu-driving-licence-expiry-date page$/, async function () {
 		const errorPage = new ErrorPage(await this.page);
 		expect(await errorPage.isCurrentPage()).to.be.true;
 		const redirectionError = await errorPage.getSomethingWentWrongMessage();

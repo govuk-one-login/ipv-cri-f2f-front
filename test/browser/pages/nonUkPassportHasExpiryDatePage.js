@@ -5,7 +5,7 @@ module.exports = class PlaywrightDevPage {
   constructor(page) {
     this.page = page;
     this.baseURL = process.env.IPV_BASE_URL;
-    this.path = "/non-uk-passport-has-expiry-date";
+    this.path = "/non-uk-passport-expiry-date";
   }
 
   async goTo() {
