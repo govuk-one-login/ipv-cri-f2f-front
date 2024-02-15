@@ -41,9 +41,10 @@
       {% include "../components/summaryList.njk" %}
     {% endif %}
 
-       {% call hmpoForm(ctx) %}
-      {{ hmpoSubmit(ctx, {id: "continue", text: translate("checkDetails.buttonText")}) }}
-         {% endcall %}
+    {% call hmpoForm(ctx) %}
+      {{ hmpoSubmit(ctx, {id: "continue", text: translate("checkDetails.buttonText"), attributes: {"data-nav": true,"data-link": "/undefined"}
+      }) }}
+    {% endcall %}
     </div>
   </div>
 

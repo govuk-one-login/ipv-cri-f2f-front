@@ -30,15 +30,15 @@ module.exports = class PlaywrightDevPage {
   }
 
   async changeIDHASExpiryDate() {
-    await this.page.click('[href*="non-uk-passport-has-expiry-date/edit"]');
+    await this.page.click('[href*="non-uk-passport-expiry-date/edit"]');
   }
 
   async changeEEAHASExpiryDate() {
-    await this.page.click('[href*="national-identity-card-has-expiry-date/edit"]');
+    await this.page.click('[href*="national-identity-card-expiry-date/edit"]');
   }
 
   async changeEUDLHASExpiryDate() {
-    await this.page.click('[href*="eu-driving-licence-has-expiry-date/edit"]');
+    await this.page.click('[href*="eu-driving-licence-expiry-date/edit"]');
   }
 
   async getChangeIDHASExpiryDateSelection() {

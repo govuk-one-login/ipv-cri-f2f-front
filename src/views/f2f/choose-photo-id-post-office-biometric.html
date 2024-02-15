@@ -29,8 +29,8 @@
             html: formInstructions
         }
     }) }}
-
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    
+    {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
 
     {% endcall %}
     <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>

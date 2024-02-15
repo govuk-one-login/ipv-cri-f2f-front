@@ -49,7 +49,8 @@
     </ol>
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
     {% block submitButton %}
-      {{ hmpoSubmit(ctx, {id: "landingPageContinue", text: translate("buttons.next")}) }}
+      {{ hmpoSubmit(ctx, {id: "landingPageContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/choose-photo-id-post-office"}
+      }) }}
     {% endblock %}
     {% endcall %}
   </div>

@@ -1,16 +1,15 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoPageKey = "nonUKPassportHasExpiryDate" %}
-{% set gtmJourney = "f2f - nonUKPassportHasExpiryDate" %}
+{% set hmpoPageKey = "euDrivingLicenceHasExpiryDate" %}
+{% set gtmJourney = "f2f - euDrivingLicenceHasExpiryDate" %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "govuk/components/header/macro.njk" import govukHeader %}
 
 {% block mainContent %}
 
-{% set title = translate("nonUKPassportHasExpiryDate.title") %}
+{% set title = translate("euDrivingLicenceHasExpiryDate.title") %}
       
       {% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {
@@ -20,15 +19,14 @@
                     legend: {
                         text: title,
                         isPageHeading: true,
-                        classes: "govuk-fieldset__legend--l"
+                        classes: "govuk-fieldset__legend--l idHasExpiryDate-radios"
                     }
                 }
             }) }}
 
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
   
     {% endcall %}
-
 
 {% endblock %} 
 
@@ -44,7 +42,7 @@
                 .pageViewTracker
                 .trackOnPageLoad({
                     statusCode: '200', // Access status code
-                    englishPageTitle: '{{translate("nonUKPassportHasExpiryDate.title")}}',
+                    englishPageTitle: '{{translate("euDrivingLicenceHasExpiryDate.title")}}',
                     taxonomy_level1: 'web cri', // Access taxonomy level 1
                     taxonomy_level2: 'f2f', // Access taxonomy level 2
                     content_id: '001',

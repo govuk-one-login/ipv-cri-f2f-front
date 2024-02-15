@@ -16,7 +16,6 @@ const setAxiosDefaults = commonExpress.lib.axios;
 const { setGTM } = commonExpress.lib.settings;
 const { getGTM } = commonExpress.lib.locals;
 
-
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
 const { setI18n } = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next");
 
