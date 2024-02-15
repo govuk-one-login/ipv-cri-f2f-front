@@ -22,5 +22,5 @@ Feature: Directly navigating Non- UK passport pages in journey- unhappy path
         Then they should see the unrecoverable error page
 
     Scenario: Direct Navigation to nonUKPassportHasExpiry
-        Given the user navigates directly to non-uk-passport-has-expiry-date page
+        Given the user navigates directly to non-uk-passport-expiry-date page
         Then they should see the unrecoverable error page

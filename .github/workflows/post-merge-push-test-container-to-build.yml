@@ -16,11 +16,11 @@ env: # Only adding the variables in that are required for
 
 jobs:
   deploy-test-container-to-build-ecr:
-    name: Validate & Deploy Test Container to Build Envrionment ECR
+    name: Validate & Deploy Test Container to Build Environment ECR
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Assume temporary AWS role
         uses: aws-actions/configure-aws-credentials@v1-node16
@@ -32,7 +32,7 @@ jobs:
 
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: aws-actions/amazon-ecr-login@v2
 
       - name: Install Cosign
         uses: sigstore/cosign-installer@main
