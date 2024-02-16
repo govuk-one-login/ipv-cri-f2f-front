@@ -26,7 +26,7 @@ const {PhotoIdSelectionPage, EEAIdentityCardDetailsPageValid, EeaIdentityCardHas
 
   Then(/^the user is routed to the EEA Has Expiry Entry Screen$/, async function () {
     const eeaIdentityCardHasExpiryDatePage = new EeaIdentityCardHasExpiryDatePage(await this.page);
-  
+    console.log("£££££" + await this.page.url())
     expect(await eeaIdentityCardHasExpiryDatePage.isCurrentPage()).to.be.true;
   
   });

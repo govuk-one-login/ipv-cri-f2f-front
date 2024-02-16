@@ -22,7 +22,7 @@ const {PhotoIdSelectionPage, EuDrivingLicenceDetailsPageValid, EuDrivingLicenceH
 
   Then(/^the user is routed to the EU DL Has Expiry Entry Screen$/, async function () {
     const euDrivingLicenceHasExpiryDatePage = new EuDrivingLicenceHasExpiryDatePage(await this.page);
-  
+
     expect(await euDrivingLicenceHasExpiryDatePage.isCurrentPage()).to.be.true;
   
   });

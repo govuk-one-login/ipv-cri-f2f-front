@@ -29,7 +29,7 @@ const {PhotoIdSelectionPage, NonUKPassportDetailsPageValid, NonUkPassportHasExpi
 
    Then(/^the user is routed to the next screen - Non-UKPassportHasExpiryDate$/, async function () {
     const nonUkPassportHasExpiryDatePage = new NonUkPassportHasExpiryDatePage(await this.page);
-
+  
      expect(await nonUkPassportHasExpiryDatePage.isCurrentPage()).to.be.true;
 
    });
