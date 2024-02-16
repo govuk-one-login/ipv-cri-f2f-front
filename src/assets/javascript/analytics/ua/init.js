@@ -118,7 +118,6 @@ window.DI.analyticsUa = window.DI.analyticsUa || {};
     const consentGiven = window.DI.analyticsGa4.cookie.hasConsentForAnalytics();
 
     if (consentGiven) {
-      console.log("load UA script");
       window.DI.analyticsGa4.loadGtmScript(
         window.DI.analyticsGa4.uaContainerId
       );
