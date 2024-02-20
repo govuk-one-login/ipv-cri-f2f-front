@@ -42,7 +42,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async checkErrorText() {
-    const errorText = await this.page.locator("#error-summary-title").textContent();
+    const errorText = await this.page.locator(".govuk-error-summary__title").textContent();
     return errorText.trim()
   }
 
