@@ -29,7 +29,7 @@ When(/^I sent the request to the callback endpoint$/, { timeout: 2 * 50000 }, as
   this.subject = f2fSession.subject;
   console.log(this.yotiSessionId);
   const axios = require("axios");
-  const postRequest = await axios.post(`${process.env.F2F_API_URL}/callback`,  {
+  const postRequest = await axios.post(`${process.env.API_BASE_URL}/callback`,  {
     "session_id": this.yotiSessionId,
     "topic": "session_completion",
   });

@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.baseURL = process.env.IPV_BASE_URL;
+    this.baseURL = process.env.F2F_FE_BASE_URL;
     this.path = "/eu-driving-licence-expire/edit";
   }
 
