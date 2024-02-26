@@ -121,12 +121,12 @@ class CheckDetailsController extends DateController {
           expiryDate = req.form.values.eeaIdCardExpiryDate;
           address = req.form.values.eeaIdentityCardAddressCheck;
           req.sessionModel.set("countryCode", req.form.values.eeaIdentityCardCountrySelector);
-          req.sessionModel.set("country", res.locals.translate(`countries.${req.form.values.eeaIdentityCardCountrySelector}`))
+          req.sessionModel.set("country", res.locals.translate(`countries.${req.form.values.eeaIdentityCardCountrySelector}`));
           break;
         }
       }
 
-      req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
+      req.sessionModel.set("idHasExpiryDate", idHasExpiryDate);
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
       
@@ -135,12 +135,14 @@ class CheckDetailsController extends DateController {
       const changeUrl = req.sessionModel.get("changeUrl");
       const addressCheck = req.sessionModel.get("addressCheck");
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
+      const format = "YYYY-MM-DD";
+      const language = req.lng;
 
-      locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
-      locals.idTranslatedString = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
-      locals.addressCheckTranslatedString = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
-      locals.hasExpiryDateTranslatedString = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`)
-      locals.countryTranslatedString = req.sessionModel.get("country")
+      locals.formattedExpiryDate = formatDate(expiryDate, format, language);
+      locals.idTranslatedString = res.locals.translate(`photoIdChoice.items.${idChoice}.label`);
+      locals.addressCheckTranslatedString = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`);
+      locals.hasExpiryDateTranslatedString = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`);
+      locals.countryTranslatedString = req.sessionModel.get("country");
 
       locals.changeUrl = `/${changeUrl}`;
       locals.hasExpiryDate = hasExpiryDate;
@@ -151,7 +153,7 @@ class CheckDetailsController extends DateController {
     });
   }
   next() {
-    return '/done'
+    return '/done';
   }
   async saveValues(req, res, callback) {
     try {
