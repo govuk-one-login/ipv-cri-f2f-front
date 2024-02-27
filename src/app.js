@@ -13,9 +13,10 @@ const commonExpress = require("@govuk-one-login/di-ipv-cri-common-express");
 const setHeaders = commonExpress.lib.headers;
 const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
 const setAxiosDefaults = commonExpress.lib.axios;
+const { setGTM } = commonExpress.lib.settings;
+const { getGTM } = commonExpress.lib.locals;
 
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
-const { setGTM, getGTM } = require("./lib/locals");
 const { setI18n } = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next");
 
 const {
@@ -96,7 +97,7 @@ setI18n({
   router,
   config: {
     secure: true,
-    cookieDomain: APP.ANALYTICS.DOMAIN,
+    cookieDomain: APP.GTM.DOMAIN,
   },
 });
 
@@ -120,10 +121,11 @@ setOAuthPaths({ app, entryPointPath: APP.PATHS.F2F});
 
 setGTM({
   app,
-  ga4ContainerId: APP.ANALYTICS.GTM_ID_GA4,
-  uaContainerId: APP.ANALYTICS.GTM_ID_UA,
-  isGa4Enabled: APP.ANALYTICS.GA4_ENABLED,
-  analyticsCookieDomain: APP.ANALYTICS.DOMAIN,
+  ga4ContainerId: APP.GTM.GA4_ID,
+  uaContainerId: APP.GTM.UA_ID,
+  analyticsCookieDomain: APP.GTM.ANALYTICS_COOKIE_DOMAIN,
+  ga4Disabled: APP.GTM.GA4_DISABLED,
+  uaDisabled: APP.GTM.UA_DISABLED,
 });
 
 router.use(getGTM);
