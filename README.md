@@ -17,13 +17,20 @@ yarn build
 
 ## Environment Variables
 
-- 'API_BASE_URL': Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows
+- `API_BASE_URL`: Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows. See below to set this.
 - `PORT` - Default port to run webserver on. (Default to `5030`)
-- `PROXYURL` - The url for the HTTP Proxy API (see below to set this)
+- `PROXYURL` - The url for the HTTP Proxy API. See below to set this.
 
 ```bash
+export API_BASE_URL=https://api-f2f-cri-api.review-o.dev.account.gov.uk
 export PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
 ```
+
+## Run front-end locally against deployed back-end
+
+- Set `API_BASE_URL` as described above.
+- Replace all instances of `x-govuk-signin-session-id` with a valid session ID from the dev environment
+- Run `yarn build` followed by `yarn start`
 
 # Mock Data
 

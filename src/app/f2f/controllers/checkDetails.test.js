@@ -96,31 +96,36 @@ describe("CheckDetails controller", () => {
           addressWithoutPostCode: "Address for location 0",
           postcode: "G0 0ED",
           latitude: "100000",
-          longitude: "-100000"
+          longitude: "-100000",
+          fadCode: "0100110",
         },
         location1: {
           addressWithoutPostCode: "Address for location 1",
           postcode: "G1 1ED",
           latitude: "100000",
-          longitude: "-100000"
+          longitude: "-100000",
+          fadCode: "0540110",
         },
         location2: {
           addressWithoutPostCode: "Address for location 2",
           postcode: "G2 2ED",
           latitude: "100000",
-          longitude: "-100000"
+          longitude: "-100000",
+          fadCode: "0550108",
         },
         location3: {
           addressWithoutPostCode: "Address for location 3",
           postcode: "G3 3ED",
           latitude: "100000",
-          longitude: "-100000"
+          longitude: "-100000",
+          fadCode: "2350076",
         },
         location4: {
           addressWithoutPostCode: "Address for location 4",
           postcode: "G4 4ED",
           latitude: "100000",
-          longitude: "-100000"
+          longitude: "-100000",
+          fadCode: "0080101",
         },
       }
       res.locals = locals;
@@ -147,6 +152,7 @@ describe("CheckDetails controller", () => {
         expect(req.sessionModel.get("postOfficeAddressWithoutPostCode")).to.equal(payLoadValues.addressWithoutPostCode);
         expect(req.sessionModel.get("postOfficeLatitude")).to.equal(payLoadValues.latitude);
         expect(req.sessionModel.get("postOfficeLongitude")).to.equal(payLoadValues.longitude);
+        expect(req.sessionModel.get("postOfficeFadCode")).to.equal(payLoadValues.fadCode);
       });
     });
 
@@ -241,7 +247,8 @@ describe("CheckDetails controller", () => {
               "latitude": req.sessionModel.get("postOfficeLatitude"),
               "longitude": req.sessionModel.get("postOfficeLongitude"),
             },
-            "post_code": req.sessionModel.get("postOfficePostcode")
+            "post_code": req.sessionModel.get("postOfficePostcode"),
+            "fad_code": req.sessionModel.get("postOfficeFadCode")
           }
         }
 
