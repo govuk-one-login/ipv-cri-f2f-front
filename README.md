@@ -8,29 +8,28 @@ This is the home for the front end user interface for Face to Face journey as pa
 
 # Installation
 
-Clone this repository and then run:
+Clone this repository and then run
 
 ```bash
 yarn install
-yarn build
 ```
 
 ## Environment Variables
 
-- `API_BASE_URL`: Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows. See below to set this.
-- `PORT` - Default port to run webserver on. (Default to `5030`)
-- `PROXYURL` - The url for the HTTP Proxy API. See below to set this.
-
-```bash
-export API_BASE_URL=https://api-f2f-cri-api.review-o.dev.account.gov.uk
-export PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
-```
+All the required Environment Variables can be found in the `.env.sample` file. 
+Create a `.env` file in the same location assinging values to all the fields before starting your local FE server
 
 ## Run front-end locally against deployed back-end
 
-- Set `API_BASE_URL` as described above.
-- Replace all instances of `x-govuk-signin-session-id` with a valid session ID from the dev environment
+- Setup `.env` file as mentioned above
 - Run `yarn build` followed by `yarn start`
+- Make a `POST` call to the IPV_STUB_URL with the following body payload 
+```
+{
+"frontendURL": "http://localhost:5030"
+}
+```
+- Start the journey from the but navigating to the `AuthorizeLocation` in the Stub response
 
 # Mock Data
 
