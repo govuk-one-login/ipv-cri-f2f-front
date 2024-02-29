@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.baseURL = process.env.IPV_BASE_URL;
+    this.baseURL = process.env.F2F_FE_BASE_URL;
     this.path = "/uk-passport-expire";
   }
 
@@ -34,7 +34,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async checkErrorText() {
-    const errorText = await this.page.locator("#error-summary-title").textContent();
+    const errorText = await this.page.locator(".govuk-error-summary__title").textContent();
     return errorText.trim();
   }
 

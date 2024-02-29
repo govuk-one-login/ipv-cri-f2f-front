@@ -35,3 +35,5 @@ jobs:
         run: npm run test:browser:ci
         env:
           IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
+          F2F_FE_BASE_URL: ${{ secrets.F2F_FE_BASE_URL }}
+

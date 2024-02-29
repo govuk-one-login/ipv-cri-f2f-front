@@ -2,25 +2,8 @@ $govuk-assets-path: "/public/";
 @import "../../../node_modules/govuk-frontend/govuk/all";
 @import "../../../node_modules/hmpo-components/all";
 
-.govuk-radios {
-  margin-bottom: govuk-spacing(-3);
-  @include govuk-responsive-margin(6, "top");
-}
-
-.govuk-radios__item {
-  @include govuk-responsive-margin(2, "bottom");
-}
-
 .govuk-date-input__label {
   @include govuk-responsive-margin(2, "bottom");
-}
-
-.govuk-fieldset__heading {
-  @include govuk-responsive-margin(4, "bottom");
-}
-
-.idExpiryContext {
-  @include govuk-responsive-margin(6, "bottom");
 }
 
 b#postcode {text-transform:uppercase;}
@@ -75,11 +58,6 @@ main p,
   @include govuk-responsive-margin(2, "bottom");
 }
 
-.govuk-summary-list .govuk-summary-list__key {
-  @include govuk-responsive-padding(6, "bottom");
-  @include govuk-responsive-padding(7, "top");
-}
-
 .govuk-warning-text {
   @include govuk-responsive-margin(0, "bottom");
 }
@@ -117,6 +95,7 @@ main p,
 #branches-1-label, #branches-2-label, #branches-3-label, #branches-4-label, #branches-5-label  {
   font-weight: bold;
 }
+
 
 .govuk-main-wrapper {
   @include govuk-responsive-padding(3, "top");
@@ -165,22 +144,11 @@ main p,
 #postcode-label {
   font-weight: bold;
   font-size: 23px;
+  @include govuk-responsive-margin(3, "bottom");
 }
 
 #landingPageContinue {
   @include govuk-responsive-margin(1, "top");
-}
-
-#spacedContinue {
-  margin-top: govuk-spacing(-1);
-}
-
-#addressContinue {
-  @include govuk-responsive-margin(5, "top")
-}
-
-#expiryContinue {
-  @include govuk-responsive-margin(4, "top")
 }
 
 #photoIdExpiryPrompt {
@@ -207,4 +175,105 @@ main p,
 .govuk-cookie-banner .govuk-button {
   margin-top:0; 
   margin-bottom:20px;
+}
+
+////////////////////////
+
+#photoIdChoice-hint {
+  @include govuk-responsive-margin(4, "top");
+  @include govuk-responsive-margin(6, "bottom");
+}
+
+.idExpiryContext {
+  @include govuk-responsive-margin(5, "top");
+  @include govuk-responsive-margin(6, "bottom");
+}
+
+.idHasExpiryDate-radios { 
+  @include govuk-responsive-margin(5, "bottom");
+}
+
+.currentAddress-radios {
+  @include govuk-responsive-margin(7, "bottom");
+}
+
+.radioButtonsContinue {
+  @include govuk-responsive-margin(0, "top");
+}
+
+#ukPhotocardDlAddressCheck-hint {
+  @include govuk-responsive-margin(7, "bottom");
+}
+
+#euPhotocardDlAddressCheck-hint {
+  @include govuk-responsive-margin(7, "bottom");
+}
+
+#eeaIdentityCardAddressCheck-hint {
+  @include govuk-responsive-margin(7, "bottom");
+}
+
+#userPostCodeLabel {
+  font-weight: bold;
+  font-size: 24px;
+  @include govuk-responsive-margin(3, "top");
+  @include govuk-responsive-margin(4, "bottom");
+}
+
+.govuk-summary-list .govuk-summary-list__key { 
+  font-weight: bold;
+  color: govuk-colour("black");
+}
+
+#ukPhotocardDlAddressCheckChange {
+  @include govuk-responsive-margin(6, "bottom");
+}
+
+#nonUkPassportCountrySelector-label {
+  @include govuk-responsive-margin(6, "top");
+}
+
+#euDrivingLicenceCountrySelector-label {
+  @include govuk-responsive-margin(6, "top");
+}
+
+#eeaIdentityCardCountrySelector-label {
+  @include govuk-responsive-margin(6, "top");
+}
+
+#nonUkPassportCountrySelector {
+  @include govuk-responsive-margin(2, "bottom");
+}
+
+#euDrivingLicenceCountrySelector {
+  @include govuk-responsive-margin(2, "bottom");
+}
+
+#eeaIdentityCardCountrySelector {
+  @include govuk-responsive-margin(2, "bottom");
+}
+
+#branches-hint {
+  @include govuk-responsive-margin(6, "bottom");
+}
+
+#branches-item-hint, #branches-2-item-hint, #branches-3-item-hint, #branches-4-item-hint, #branches-5-item-hint {
+  color: govuk-colour("black");
+}
+
+#branches-fieldset {
+  @include govuk-responsive-margin(0, "bottom");
+}
+
+#postcode-hint {
+  @include govuk-responsive-margin(4, "bottom");
+}
+
+#photoIdExpiryChoice-hint {
+  @include govuk-responsive-margin(4, "bottom");
+  @include govuk-responsive-margin(3, "top");
+}
+
+.govuk-warning-text {
+  @include govuk-responsive-margin(4, "bottom");
 }

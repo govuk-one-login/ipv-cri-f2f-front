@@ -83,31 +83,36 @@ class PostcodeSearchController extends BaseController {
           addressWithoutPostCode: postOfficeData[0].address.address1 + ", " + postOfficeData[0].address.address4 + ", " + postOfficeData[0].address.address5,
           postcode: postOfficeData[0].address.postcode,
           latitude: postOfficeData[0].address.latitude,
-          longitude: postOfficeData[0].address.longitude
+          longitude: postOfficeData[0].address.longitude,
+          fadCode: postOfficeData[0].locationBusinessId
         },
         location1: {
           addressWithoutPostCode: postOfficeData[1].address.address1 + ", " + postOfficeData[1].address.address4 + ", " + postOfficeData[1].address.address5,
           postcode: postOfficeData[1].address.postcode,
           latitude: postOfficeData[1].address.latitude,
-          longitude: postOfficeData[1].address.longitude
+          longitude: postOfficeData[1].address.longitude,
+          fadCode: postOfficeData[1].locationBusinessId
         },
         location2: {
           addressWithoutPostCode: postOfficeData[2].address.address1 + ", " + postOfficeData[2].address.address4 + ", " + postOfficeData[2].address.address5,
           postcode: postOfficeData[2].address.postcode,
           latitude: postOfficeData[2].address.latitude,
-          longitude: postOfficeData[2].address.longitude
+          longitude: postOfficeData[2].address.longitude,
+          fadCode: postOfficeData[2].locationBusinessId
         },
         location3: {
           addressWithoutPostCode: postOfficeData[3].address.address1 + ", " + postOfficeData[3].address.address4 + ", " + postOfficeData[3].address.address5,
           postcode: postOfficeData[3].address.postcode,
           latitude: postOfficeData[3].address.latitude,
-          longitude: postOfficeData[3].address.longitude
+          longitude: postOfficeData[3].address.longitude,
+          fadCode: postOfficeData[3].locationBusinessId
         },
         location4: {
           addressWithoutPostCode: postOfficeData[4].address.address1 + ", " + postOfficeData[4].address.address4 + ", " + postOfficeData[4].address.address5,
           postcode: postOfficeData[4].address.postcode,
           latitude: postOfficeData[4].address.latitude,
-          longitude: postOfficeData[4].address.longitude
+          longitude: postOfficeData[4].address.longitude,
+          fadCode: postOfficeData[4].locationBusinessId
         }
       }
 
