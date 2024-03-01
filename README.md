@@ -17,70 +17,29 @@ yarn build
 
 ## Environment Variables
 
-- `API_BASE_URL`: Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows. See below to set this.
-- `PORT` - Default port to run webserver on. (Default to `5030`)
-- `PROXYURL` - The url for the HTTP Proxy API. See below to set this.
+All the required Environment Variables are inside the .env.sample file. Copy the contents on this file to a .env file in the same location, using the API locations specific for the envrionment you wish to test against.
 
-```bash
-export API_BASE_URL=https://api-f2f-cri-api.review-o.dev.account.gov.uk
-export PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
-```
+`CUSTOM_FE_URL` only needs to be populated if you would like to test against a custom deployed FE stack or if you wish to run browser-test against your local stack in which case set the value to be `http:/localhost:5030`
 
 ## Run front-end locally against deployed back-end
 
-- Set `API_BASE_URL` as described above.
-- Replace all instances of `x-govuk-signin-session-id` with a valid session ID from the dev environment
+- Setup `.env` file as mentioned above
 - Run `yarn build` followed by `yarn start`
-
-# Mock Data
-
-[Wiremock](https://wiremock.org/) has been used to create a [stateful mock](https://wiremock.org/docs/stateful-behaviour/) of the API, through the use of scenarios. These configuration files are stored as JSON files in the [./test/mocks/mappings](./test/mocks/mappings) directory.
-
-This can be run by using:
-
-`yarn run mocks`
-
-The frontend can be configured to use this mock server through two environment variables:
-
-- `NODE_ENV=development` - this enables a middleware that passes the `x-scenario-id` header from web requests through to the API
-- `API_BASE_URL=http://localhost:8090` - this points the frontend at the Wiremock instance
-
-A browser extension, such as [Mod Header](https://modheader.com/), can be used to set the value of this header in a web browser.
-
-# Request properties
-
-In order to support consistent use of headers for API requests, [middleware](./src/lib/axios) is applied to add an instance of
-[axios](https://axios-http.com/) on each request onto `req.axios`. This is then reused in any code that uses the API.
+- Make a `POST` call to the IPV_STUB_URL with the following body payload 
+```
+{
+"frontendURL": "http://localhost:5030" 
+}
+```
+- Start the journey from the but navigating to the `AuthorizeLocation` in the Stub response
 
 # Browser tests
 
-Browser based tests can be run against:
+Browser based tests can be run against a deployed API stack using the CIC-IPV Stub. To run the tests make sure you have urls pointing to the relevant envrionment filled out in your .env file and run `npm run test:browser`
 
-- a local FE and a mock server
-- a local FE pointed to a deployed API
-- a deployed FE pointed to a deployed API
+Adding `CUSTOM_FE_URL=http:/localhost:5030` will run browser tets against your local changes
 
 These tests are written using [Cucumber](https://cucumber.io/docs/installation/javascript/) as the test runner and [Playwright](https://playwright.dev/) as the automation tool. They also follow the [Page Object Model](https://playwright.dev/docs/test-pom) for separation of concerns.
-
-They can be run by using:
-
-`yarn run test:browser`
-
-When run against an instance of the FE deployed in the cloud, which in turn connects to a deployed API, however currently the mocks also need to be running (`yarn run mocks`) as the test runner makes calls to a `GET /__reset/{scenario}` endpoint which is not present in a deployed API.
-However the actual test will run against cloud-deployed code and not utilise the mock. In a future PR this needs to be refactored so that the mocks do not need to run when executing browser tests against a deployed FE.
-
-## Using mocked scenario data
-
-Any cucumber feature or scenario with a tag prefixed with `@mock-api:`
-
-e.g.
-```
-  @mock-api:question-error
-  Scenario: API error
-...
-```
-
-This scenario will be configured to send a `scenario-id` header of `question-error` on every web browser request.
 
 ### Code Owners
 
