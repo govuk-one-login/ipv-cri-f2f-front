@@ -71,8 +71,7 @@
     "sinon": "15.2.0",
     "sinon-chai": "3.7.0",
     "uglify-js": "3.17.4",
-    "wait-on": "7.0.1",
-    "wiremock": "2.35.0"
+    "wait-on": "7.0.1"
   },
   "dependencies": {
     "@aws-sdk/credential-providers": "^3.438.0",
