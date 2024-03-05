@@ -32,7 +32,6 @@ jobs:
       - run: yarn lint
       - run: yarn build
       - run: yarn test:coverage
-      - run: npm run start
       - run: npm run test:browser:ci
         env: 
           PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
