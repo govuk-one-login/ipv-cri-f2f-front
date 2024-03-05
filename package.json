@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node src/app.js",
+		"start:nohup": "nohup node src/app.js &",
     "start:ci": "REDIS_SESSION_URL= NODE_ENV=development node src/app.js",
     "start:debug": "DEBUG=* node src/app.js",
     "dev": "nodemon src/app.js",

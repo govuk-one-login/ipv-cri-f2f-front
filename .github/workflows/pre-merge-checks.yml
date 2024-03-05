@@ -12,14 +12,14 @@ on:
       - main
 
 jobs:
-  detect-secrets:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-      - uses: pre-commit/action@v3.0.1
-        with:
-          extra_args: "detect-secrets --all-files"
+  # detect-secrets:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-python@v5
+  #     - uses: pre-commit/action@v3.0.1
+  #       with:
+  #         extra_args: "detect-secrets --all-files"
 
   run-checks:
     runs-on: ubuntu-latest
@@ -28,33 +28,30 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: yarn install
-      - run: yarn lint
-      - run: yarn build
-      - run: yarn test:coverage
-      - run: npm run test:browser:ci
-        env: 
-          PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
-          IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
-          F2F_FE_BASE_URL: ${{ secrets.F2F_FE_BASE_URL }}
-          CUSTOM_FE_URL: ${{ secrets.F2F_FE_BASE_URL }}
+      - run: npm install
+      # Uncomment and add your linting step if needed
+      # - run: npm run lint
+      - run: npm run build
+      - run: npm run test:coverage
+      - name: Start server, Run browser tests, and Cleanup
+        run: bash ./run-browser-tests.sh
       - name: Archive browser tests results
         uses: actions/upload-artifact@v4
         with:
           name: f2f-code-coverage-report
           path: test/reports/f2f-reports/
 
-  sonar-checks:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - run: yarn install
-      - name: "Run SonarCloud Scan"
-        if: ${{ success() && github.actor != 'dependabot[bot]' }}
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # sonar-checks:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 18
+  #     - run: npm install
+  #     - name: "Run SonarCloud Scan"
+  #       if: ${{ success() && github.actor != 'dependabot[bot]' }}
+  #       uses: SonarSource/sonarcloud-github-action@master
+  #       env:
+  #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

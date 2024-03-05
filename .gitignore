@@ -6,6 +6,7 @@ dist
 coverage
 .nyc_output
 .aws-sam
+nohup.out
 
 # Logs
 logs
