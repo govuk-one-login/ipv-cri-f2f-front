@@ -14,6 +14,7 @@ module.exports = class PlaywrightDevPage {
 
   async isCurrentPage() {
     const { pathname } = new URL(await this.page.url());
+    console.log("Path Name: " + pathname);
     return pathname === this.path;
   }
 
