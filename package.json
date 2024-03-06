@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node src/app.js",
-    "start:ci": "REDIS_SESSION_URL= NODE_ENV=development node src/app.js",
+    "start:ci": "REDIS_SESSION_URL= NODE_ENV=development DEBUG=* node src/app.js",
     "start:debug": "DEBUG=* node src/app.js",
     "dev": "nodemon src/app.js",
     "build": "yarn build-sass && yarn build-js && yarn copy-assets",
