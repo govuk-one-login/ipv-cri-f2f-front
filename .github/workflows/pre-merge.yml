@@ -32,8 +32,10 @@ jobs:
       - name: Run test and write coverage
         run: yarn test:coverage
       - name: Run browser tests
-        run: npm run test:browser:ci
-        env:
-          IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
-          F2F_FE_BASE_URL: ${{ secrets.F2F_FE_BASE_URL }}
+        run: bash ./run-browser-tests.sh
+      # - name: Run browser tests
+      #   run: npm run test:browser:ci
+      #   env:
+      #     IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
+      #     F2F_FE_BASE_URL: ${{ secrets.F2F_FE_BASE_URL }}
 
