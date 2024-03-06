@@ -39,15 +39,5 @@ check_and_kill_port() {
 # Check if port 5030 is already in use and attempt to kill the process using it
 check_and_kill_port
 
-# Function to wait for the server to be ready
-waitForServer() {
-    echo "Waiting for server to be ready..."
-    until curl --output /dev/null --silent --head --fail http://localhost:5030; do
-        printf '.'
-        sleep 1
-    done
-    echo "Server is up and running."
-}
-
-# Start the application
+# Start server and run tests
 npm run test:browser:ci
