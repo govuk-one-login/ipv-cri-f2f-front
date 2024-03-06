@@ -10,8 +10,8 @@ module.exports = class PlaywrightDevPage {
     const axios = require("axios");
     const claim = require("../support/shared_claim");
 		if (process.env.CUSTOM_FE_URL) claim.frontendURL = process.env.CUSTOM_FE_URL;
-		console.log("CLAIMS", claim);
     const postRequest = await axios.post(process.env.IPV_STUB_URL, claim);
+		console.log("AuthorizeLocation", postRequest.data.AuthorizeLocation);
     await this.page.goto(postRequest.data.AuthorizeLocation);
   }
 

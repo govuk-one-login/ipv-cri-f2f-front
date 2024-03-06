@@ -22,22 +22,35 @@ jobs:
   run-checks:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Node.js
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'yarn'
       - name: Install dependencies
-        run: npm install
-      - name: Run linting
-        run: npm run lint
-      - name: Build project
-        run: npm run build
-      - name: Run tests with coverage
-        run: npm run test:coverage
+        run: yarn install
+      - name: Export Proxy URL
+        run: echo "PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk" >> $GITHUB_ENV
+      - name: Export IPV_STUB_URL
+        run: echo "IPV_STUB_URL=https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/start" >> $GITHUB_ENV
+      - name: Export F2F_FE_BASE_URL
+        run: echo "F2F_FE_BASE_URL=http://localhost:5030" >> $GITHUB_ENV
+      - name: Export CUSTOM_FE_URL
+        run: echo "CUSTOM_FE_URL=http://localhost:5030" >> $GITHUB_ENV
+      - name: Run lint
+        run: yarn lint
+      - name: Run build
+        run: yarn build
+      - name: Run test and write coverage
+        run: yarn test:coverage
+      - name: Start Server
+        run: npm run start:ci & npm run test:browser
       - name: Run browser tests
         run: bash ./run-browser-tests.sh
+      - name: Create report
+        run: npm run test:browser:report
       - name: Archive browser tests results
         uses: actions/upload-artifact@v4
         with:
@@ -47,14 +60,12 @@ jobs:
   sonar-checks:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: Install dependencies
-        run: npm install
+      - run: yarn install
+      - run: yarn build
       - name: Run SonarCloud Scan
         if: success() && github.actor != 'dependabot[bot]'
         uses: SonarSource/sonarcloud-github-action@master
