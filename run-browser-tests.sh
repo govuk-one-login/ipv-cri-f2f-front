@@ -13,11 +13,11 @@ export LOG_LEVEL="debug"
 
 # QA Environment variables
 export IPV_STUB_URL=https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/start
-export F2F_FE_BASE_URL=http://localhost:5030
+export F2F_FE_BASE_URL=https://f2f-cri-front.review-o.dev.account.gov.uk
 export TEST_HARNESS_URL=https://f2f-test-harness-testharness.review-o.dev.account.gov.uk
 export SESSION_TABLE=session-f2f-cri-ddb
 export API_BASE_URL=https://api-f2f-cri-api.review-o.dev.account.gov.uk
-export CUSTOM_FE_URL=http://localhost:5030
+export CUSTOM_FE_URL=https://f2f-cri-front.review-o.dev.account.gov.uk
 export PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
 
 check_and_kill_port() {
@@ -50,18 +50,18 @@ waitForServer() {
 }
 
 # Start the application
-npm run test:browser:ci
+npm run test &
 
-# # Save the PID of the server process
-# SERVER_PID=$!
+# Save the PID of the server process
+SERVER_PID=$!
 
-# # Wait for the server to be ready
-# waitForServer
+# Wait for the server to be ready
+waitForServer
 
-# # Run tests
-# # npm run test:browser
-# # npm run test:browser:report
+# Run tests
+npm run test:browser
+npm run test:browser:report
 
-# # Kill the server process
-# kill $SERVER_PID
-# echo "Server process (PID: $SERVER_PID) has been stopped."
+# Kill the server process
+kill $SERVER_PID
+echo "Server process (PID: $SERVER_PID) has been stopped."

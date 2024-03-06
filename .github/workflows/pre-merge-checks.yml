@@ -11,6 +11,9 @@ on:
     branches:
       - main
 
+env: # Only adding the variables in that are required for 
+  AWS_REGION: eu-west-2
+
 jobs:
   # detect-secrets:
   #   runs-on: ubuntu-latest
@@ -33,6 +36,11 @@ jobs:
       # - run: npm run lint
       - run: npm run build
       - run: npm run test:coverage
+      # - name: Assume temporary AWS role
+      #   uses: aws-actions/configure-aws-credentials@v1-node16
+      #   with:
+      #     role-to-assume: ${{ secrets.DEV_CRI_F2F_GH_ACTIONS_ROLE_ARN }}
+      #     aws-region: ${{ env.AWS_REGION }}
       - name: Start server, Run browser tests, and Cleanup
         run: bash ./run-browser-tests.sh
       - name: Archive browser tests results
