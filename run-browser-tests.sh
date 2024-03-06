@@ -1,22 +1,8 @@
 #!/bin/bash
 
-# Export environment variables
-export PORT=5030
-export SESSION_SECRET=123456
-export NODE_ENV=local
-export GA4_DISABLED=false
-export UA_DISABLED=false
-export UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID="GTM-XXXXXXX"
-export GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID="GTM-XXXXXXwX"
-export ANALYTICS_DOMAIN="localhost"
-export LOG_LEVEL="debug"
-
 # QA Environment variables
 export IPV_STUB_URL=https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/start
 export F2F_FE_BASE_URL=http://localhost:5030
-export TEST_HARNESS_URL=https://f2f-test-harness-testharness.review-o.dev.account.gov.uk
-export SESSION_TABLE=session-f2f-cri-ddb
-export API_BASE_URL=https://api-f2f-cri-api.review-o.dev.account.gov.uk
 export CUSTOM_FE_URL=http://localhost:5030
 export PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
 
