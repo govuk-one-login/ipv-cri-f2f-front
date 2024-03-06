@@ -46,12 +46,7 @@ jobs:
       - name: Run tests with coverage
         run: npm run test:coverage
       - name: Run browser tests
-        run: npm run test:browser:ci
-        env:
-          IPV_STUB_URL: https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/start
-          F2F_FE_BASE_URL: http://localhost:5030
-          CUSTOM_FE_URL: http://localhost:5030
-          PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
+        run: bash ./run-browser-tests.sh
       - name: Archive browser tests results
         uses: actions/upload-artifact@v4
         with:
