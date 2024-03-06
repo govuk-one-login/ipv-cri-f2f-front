@@ -50,7 +50,7 @@ waitForServer() {
 }
 
 # Start the application
-npm run test &
+npm run start:ci &
 
 # Save the PID of the server process
 SERVER_PID=$!
@@ -59,7 +59,7 @@ SERVER_PID=$!
 waitForServer
 
 # Run tests
-npm run test:browser
+npm run test:browser:ci
 npm run test:browser:report
 
 # Kill the server process

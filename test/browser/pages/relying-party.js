@@ -10,23 +10,24 @@ module.exports = class PlaywrightDevPage {
     const axios = require("axios");
     const claim = require("../support/shared_claim")
 		if (process.env.CUSTOM_FE_URL) claim.frontendURL = process.env.CUSTOM_FE_URL;
+		console.log("CLAIMS", claim);
     const postRequest = await axios.post(process.env.IPV_STUB_URL, claim);
     await this.page.goto(postRequest.data.AuthorizeLocation);
   }
 
-	async goto() {
-		if (process.env.CUSTOM_FE_URL) {
-			claim.frontendURL = process.env.CUSTOM_FE_URL;
-			try {
-				await axios.get("http://localhost:5030");
-				console.log("http://localhost:5030 is reachable.");
-			} catch (error) {
-				console.error("Error: http://localhost:5030 is not reachable.");
-			}
-		}
-		const postRequest = await axios.post(process.env.IPV_STUB_URL, claim);
-		await this.page.goto(postRequest.data.AuthorizeLocation);
-	}
+	// async goto() {
+	// 	if (process.env.CUSTOM_FE_URL) {
+	// 		claim.frontendURL = process.env.CUSTOM_FE_URL;
+	// 		try {
+	// 			await axios.get("http://localhost:5030");
+	// 			console.log("http://localhost:5030 is reachable.");
+	// 		} catch (error) {
+	// 			console.error("Error: http://localhost:5030 is not reachable.");
+	// 		}
+	// 	}
+	// 	const postRequest = await axios.post(process.env.IPV_STUB_URL, claim);
+	// 	await this.page.goto(postRequest.data.AuthorizeLocation);
+	// }
 
   isRelyingPartyServer() {
     return new URL(this.page.url()).origin === "http://example.net";
