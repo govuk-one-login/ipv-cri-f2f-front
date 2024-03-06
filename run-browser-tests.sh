@@ -51,17 +51,3 @@ waitForServer() {
 
 # Start the application
 npm run test:browser:ci
-
-# # Save the PID of the server process
-# SERVER_PID=$!
-
-# # Wait for the server to be ready
-# waitForServer
-
-# # Run tests
-# npm run test:browser:ci
-# npm run test:browser:report
-
-# # Kill the server process
-# kill $SERVER_PID
-# echo "Server process (PID: $SERVER_PID) has been stopped."
