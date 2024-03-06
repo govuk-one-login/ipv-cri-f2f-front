@@ -32,8 +32,7 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - run: npm run test:coverage
-      - name: Start server, Run browser tests, and Cleanup
-        run: bash ./run-browser-tests.sh
+      - run: bash ./run-browser-tests.sh
       - name: Archive browser tests results
         uses: actions/upload-artifact@v4
         with:
