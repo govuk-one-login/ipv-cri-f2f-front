@@ -13,8 +13,8 @@ const commonExpress = require("@govuk-one-login/di-ipv-cri-common-express");
 const setHeaders = commonExpress.lib.headers;
 const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
 const setAxiosDefaults = commonExpress.lib.axios;
-const { setGTM } = commonExpress.lib.settings;
-const { getGTM } = commonExpress.lib.locals;
+const { setGTM, setLanguageToggle } = commonExpress.lib.settings;
+const { getGTM, getLanguageToggle } = commonExpress.lib.locals;
 
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
 const { setI18n } = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next");
@@ -73,6 +73,7 @@ const { app, router } = setup({
       path.dirname(require.resolve("@govuk-one-login/di-ipv-cri-common-express")),
       "components"
     ),
+    path.resolve("node_modules/@govuk-one-login/"),
     "views",
   ],
   translation: {
@@ -128,7 +129,11 @@ setGTM({
   uaDisabled: APP.GTM.UA_DISABLED,
 });
 
+setLanguageToggle({ app, showLanguageToggle: APP.LANGUAGE_TOGGLE_ENABLED });
+
 router.use(getGTM);
+
+router.use(getLanguageToggle);
 
 router.use(setScenarioHeaders);
 router.use(setAxiosDefaults);
