@@ -1,6 +1,7 @@
 $govuk-assets-path: "/public/";
 @import "../../../node_modules/govuk-frontend/govuk/all";
 @import "../../../node_modules/hmpo-components/all";
+@import "../../../node_modules/@govuk-one-login/one-login-language-toggle/stylesheet/styles";
 
 .govuk-date-input__label {
   @include govuk-responsive-margin(2, "bottom");
@@ -276,4 +277,8 @@ main p,
 
 .govuk-warning-text {
   @include govuk-responsive-margin(4, "bottom");
+}
+
+.last-item {
+  float: right;
 }
