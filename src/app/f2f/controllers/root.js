@@ -6,7 +6,7 @@ class RootController extends BaseController {
 
     if (sharedClaims) {
       if (sharedClaims?.address[0]?.postalCode?.length > 0) {
-        req.sessionModel.set("postcode", sharedClaims.address[0].postalCode)
+        req.sessionModel.set("postcode", sharedClaims.address[0].postalCode);
       }
     }
     super.saveValues(req, res, next);
