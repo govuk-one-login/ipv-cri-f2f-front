@@ -24,19 +24,19 @@ module.exports = {
     next: APP.PATHS.LANDING_PAGE,
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
-	controller: landingPage,
-	next: [
-		{
-		  field: "isThinFileUser",
-		  value: true,
-		  next: APP.PATHS.PHOTO_ID_SELECTION_THIN_FILE
-		},
-		{
-		  field: "isThinFileUser",
-		  value: false,
-		  next: APP.PATHS.PHOTO_ID_SELECTION
-		}
-	]
+    controller: landingPage,
+    next: [
+      {
+        field: "isThinFileUser",
+        value: true,
+        next: APP.PATHS.PHOTO_ID_SELECTION_THIN_FILE,
+      },
+      {
+        field: "isThinFileUser",
+        value: false,
+        next: APP.PATHS.PHOTO_ID_SELECTION,
+      },
+    ],
   },
   [`${APP.PATHS.PHOTO_ID_SELECTION}`]: {
     controller: photoIdSelect,
@@ -156,14 +156,14 @@ module.exports = {
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.YES,
-        next: APP.PATHS.NON_UK_PASSPORT_DETAILS
+        next: APP.PATHS.NON_UK_PASSPORT_DETAILS,
       },
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.NO,
-        next: APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR
-      }
-    ]
+        next: APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR,
+      },
+    ],
   },
   [`${APP.PATHS.UK_PHOTOCARD_DL_DETAILS}`]: {
     fields: ["ukPhotocardDlExpiryDate"],
@@ -218,14 +218,14 @@ module.exports = {
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.YES,
-        next: APP.PATHS.EU_PHOTOCARD_DL_DETAILS
+        next: APP.PATHS.EU_PHOTOCARD_DL_DETAILS,
       },
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.NO,
-        next: APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK
-      }
-    ]
+        next: APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK,
+      },
+    ],
   },
   [`${APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK}`]: {
     fields: ["euPhotocardDlAddressCheck"],
@@ -235,19 +235,19 @@ module.exports = {
       {
         field: "euPhotocardDlAddressCheck",
         value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
-        next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
+        next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR,
       },
       {
         field: "euPhotocardDlAddressCheck",
         value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        next: APP.PATHS.PHOTO_ID_SELECTION
+        next: APP.PATHS.PHOTO_ID_SELECTION,
       },
       {
         field: "euPhotocardDlAddressCheck",
         value: APP.ADDRESS_OPTIONS.NO_ADDRESS,
-        next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR
-      }
-    ]
+        next: APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR,
+      },
+    ],
   },
   [`${APP.PATHS.EEA_IDENTITY_CARD_DETAILS}`]: {
     fields: ["eeaIdCardExpiryDate"],
@@ -272,14 +272,14 @@ module.exports = {
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.YES,
-        next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS
+        next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS,
       },
       {
         field: "idHasExpiryDate",
         value: APP.HAS_EXPIRY_DATE.NO,
-        next: APP.PATHS.EEA_IDENTITY_CARD_ADDRESS_CHECK
-      }
-    ]
+        next: APP.PATHS.EEA_IDENTITY_CARD_ADDRESS_CHECK,
+      },
+    ],
   },
   [`${APP.PATHS.EEA_IDENTITY_CARD_ADDRESS_CHECK}`]: {
     fields: ["eeaIdentityCardAddressCheck"],
@@ -289,19 +289,19 @@ module.exports = {
       {
         field: "eeaIdentityCardAddressCheck",
         value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
-        next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
+        next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR,
       },
       {
         field: "eeaIdentityCardAddressCheck",
         value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        next: APP.PATHS.PHOTO_ID_SELECTION
+        next: APP.PATHS.PHOTO_ID_SELECTION,
       },
       {
         field: "eeaIdentityCardAddressCheck",
         value: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
-        next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR
-      }
-    ]
+        next: APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR,
+      },
+    ],
   },
   [`${APP.PATHS.EXPIRED_ID}`]: {
     controller: photoIdExpiry,
@@ -340,7 +340,7 @@ module.exports = {
             field: "photoIdChoice",
             value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD,
             next: APP.PATHS.EEA_IDENTITY_CARD_DETAILS,
-          }
+          },
         ],
       },
       {
@@ -353,7 +353,7 @@ module.exports = {
         value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY,
         next: APP.PATHS.ABORT,
       },
-    ]
+    ],
   },
   [`${APP.PATHS.UK_PHOTOCARD_DL_ADDRESS_CHECK}`]: {
     fields: ["ukPhotocardDlAddressCheck"],
@@ -363,33 +363,32 @@ module.exports = {
       {
         field: "ukPhotocardDlAddressCheck",
         value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
-        next: APP.PATHS.FIND_POST_OFFICE
+        next: APP.PATHS.FIND_POST_OFFICE,
       },
       {
         field: "ukPhotocardDlAddressCheck",
         value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
-        next: APP.PATHS.PHOTO_ID_SELECTION
-      }
-    ]
+        next: APP.PATHS.PHOTO_ID_SELECTION,
+      },
+    ],
   },
   [`${APP.PATHS.EEA_IDENTITY_CARD_COUNTRY_SELECTOR}`]: {
     fields: ["eeaIdentityCardCountrySelector"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
-    next: APP.PATHS.FIND_POST_OFFICE
+    next: APP.PATHS.FIND_POST_OFFICE,
   },
   [`${APP.PATHS.EU_DRIVING_LICENCE_COUNTRY_SELECTOR}`]: {
     fields: ["euDrivingLicenceCountrySelector"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
-    next: APP.PATHS.FIND_POST_OFFICE
-
+    next: APP.PATHS.FIND_POST_OFFICE,
   },
   [`${APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR}`]: {
     fields: ["nonUkPassportCountrySelector"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
-    next: APP.PATHS.FIND_POST_OFFICE
+    next: APP.PATHS.FIND_POST_OFFICE,
   },
   [`${APP.PATHS.FIND_POST_OFFICE}`]: {
     editable: true,
@@ -400,17 +399,14 @@ module.exports = {
   [`${APP.PATHS.CHOOSE_POST_OFFICE}`]: {
     controller: resultsController,
     fields: ["branches"],
-    revalidateIf: [
-      "postcode",
-      "branches"
-    ],
-    next: APP.PATHS.CHECK_DETAILS
+    revalidateIf: ["postcode", "branches"],
+    next: APP.PATHS.CHECK_DETAILS,
   },
   [`${APP.PATHS.CHECK_DETAILS}`]: {
     controller: checkDetails,
     next: APP.PATHS.DONE,
   },
-	[`${APP.PATHS.ABORT}`]: {
+  [`${APP.PATHS.ABORT}`]: {
     entryPoint: true,
     skip: true,
     controller: abort,
@@ -420,7 +416,7 @@ module.exports = {
     noPost: true,
     next: APP.PATHS.OAUTH2,
   },
-	[`${APP.PATHS.ERROR}`]: {
+  [`${APP.PATHS.ERROR}`]: {
     entryPoint: true,
-  }
-}
+  },
+};

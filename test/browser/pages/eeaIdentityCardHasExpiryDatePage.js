@@ -36,22 +36,30 @@ module.exports = class PlaywrightDevPage {
   }
 
   async checkErrorText() {
-    const errorText = await this.page.locator(".govuk-error-summary__title").textContent();
-    return errorText.trim()
+    const errorText = await this.page
+      .locator(".govuk-error-summary__title")
+      .textContent();
+    return errorText.trim();
   }
 
   async checkErrorBodyText() {
-    const errorBodyText = await this.page.locator('[href*="#idHasExpiryDate"]').textContent();
-    return errorBodyText.trim()
+    const errorBodyText = await this.page
+      .locator('[href*="#idHasExpiryDate"]')
+      .textContent();
+    return errorBodyText.trim();
   }
 
   async checkErrorAboveRadioButtonText() {
-    const errorBodyText = await this.page.locator("#idHasExpiryDate-error").textContent();
-    return errorBodyText.trim()
+    const errorBodyText = await this.page
+      .locator("#idHasExpiryDate-error")
+      .textContent();
+    return errorBodyText.trim();
   }
 
   async checkRedirectionErrorText() {
-    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    const errorRedirectionText = await this.page.textContent(
+      '[data-id="error-title"]'
+    );
     return errorRedirectionText.trim();
   }
 };

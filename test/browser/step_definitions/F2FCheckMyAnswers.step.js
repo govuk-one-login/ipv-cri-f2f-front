@@ -10,7 +10,7 @@ const {
   FindBranchValidEdit,
   PostOfficeLocations,
   EEAIdentityCardAddressCheckEdit,
-  EEAIdentityCardCountrySelectorPageEdit
+  EEAIdentityCardCountrySelectorPageEdit,
 } = require("../pages");
 
 Given(
@@ -28,55 +28,59 @@ When(/^the user clicks the CMA Back button$/, async function () {
   await cma.back();
 });
 
-Then(/^Does your photo ID have an expiry date option is displayed as Yes$/, async function () {
-  const cma = new CheckDetails(await this.page);
+Then(
+  /^Does your photo ID have an expiry date option is displayed as Yes$/,
+  async function () {
+    const cma = new CheckDetails(await this.page);
 
-  expect(await cma.getChangeIDHASExpiryDateSelection()).equal("Yes");
+    expect(await cma.getChangeIDHASExpiryDateSelection()).equal("Yes");
+  }
+);
 
-});
+Then(
+  /^Does your photo ID have an expiry date option is displayed as No$/,
+  async function () {
+    const cma = new CheckDetails(await this.page);
 
-Then(/^Does your photo ID have an expiry date option is displayed as No$/, async function () {
-  const cma = new CheckDetails(await this.page);
+    expect(await cma.getChangeIDHASExpiryDateSelection()).equal("No");
+  }
+);
 
-  expect(await cma.getChangeIDHASExpiryDateSelection()).equal("No");
+Then(
+  /^Does your photo ID have an expiry date option is not displayed$/,
+  async function () {
+    const cma = new CheckDetails(await this.page);
 
-});
-
-Then(/^Does your photo ID have an expiry date option is not displayed$/, async function () {
-  const cma = new CheckDetails(await this.page);
-
-  expect(await cma.isExpiryDateSelectionDisplayed()).to.be.false;
-
-});
+    expect(await cma.isExpiryDateSelectionDisplayed()).to.be.false;
+  }
+);
 
 Then(/^Expiry date is not displayed$/, async function () {
   const cma = new CheckDetails(await this.page);
 
-  expect(await cma.isExpiryDateDisplayed()).not.equal("Expiry date")
-
+  expect(await cma.isExpiryDateDisplayed()).not.equal("Expiry date");
 });
 
 Then(/^Expiry date is displayed$/, async function () {
   const cma = new CheckDetails(await this.page);
 
-  expect(await cma.isExpiryDateDisplayed()).equal("Expiry date")
-
+  expect(await cma.isExpiryDateDisplayed()).equal("Expiry date");
 });
 
 Then(/^$/, async function () {
   const cma = new CheckDetails(await this.page);
 
   expect(await cma.getChangeIDHASExpiryDateSelection()).equal("No");
-
 });
 
-Then(/^the user is navigated back to the PO Locations page$/, async function () {
-  const poLocations = new PostOfficeLocations(await this.page);
+Then(
+  /^the user is navigated back to the PO Locations page$/,
+  async function () {
+    const poLocations = new PostOfficeLocations(await this.page);
 
-  expect(await poLocations.isCurrentPage()).to.be.true;
-
-});
-
+    expect(await poLocations.isCurrentPage()).to.be.true;
+  }
+);
 
 /**             DOCUMENT SELECTION CHANGE             */
 
@@ -89,7 +93,8 @@ When(/^the user clicks the PhotoIdChange button$/, async function () {
 });
 
 Then(
-  /^the user is navigated back to the PhotoIdSelection page$/, async function () {
+  /^the user is navigated back to the PhotoIdSelection page$/,
+  async function () {
     const pIDEditPage = new PhotoIdSelectionPageEdit(await this.page);
 
     expect(await pIDEditPage.isCurrentPage()).to.be.true;
@@ -174,14 +179,16 @@ When(/^the user clicks the EEAHASExpiryDate Change button$/, async function () {
   await cma.changeEEAHASExpiryDate();
 });
 
-When(/^the user clicks the EUDLHASSExpiryDate Change button$/, async function () {
-  const cma = new CheckDetails(await this.page);
+When(
+  /^the user clicks the EUDLHASSExpiryDate Change button$/,
+  async function () {
+    const cma = new CheckDetails(await this.page);
 
-  expect(await cma.isCurrentPage()).to.be.true;
+    expect(await cma.isCurrentPage()).to.be.true;
 
-  await cma.changeEUDLHASExpiryDate();
-});
-
+    await cma.changeEUDLHASExpiryDate();
+  }
+);
 
 /**             POST OFFICE SELECTION CHANGE             */
 
@@ -243,8 +250,11 @@ When(/^the user clicks the Address Check Change button$/, async function () {
 
 /** 2. Navigate back to the Address Check page for editing */
 Then(
-  /^the user is navigated back to the Address Check Page$/, async function () {
-    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(await this.page);
+  /^the user is navigated back to the Address Check Page$/,
+  async function () {
+    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(
+      await this.page
+    );
 
     expect(await addressCheckEdit.isCurrentPage()).to.be.true;
   }
@@ -253,26 +263,29 @@ Then(
 /** 3. Change address selction choice to "My identity card does not have my address on it" */
 
 Then(
-  /^the user changes the address selection to "My identity card does not have my address on it"$/, async function () {
-    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(await this.page);
+  /^the user changes the address selection to "My identity card does not have my address on it"$/,
+  async function () {
+    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(
+      await this.page
+    );
 
     await addressCheckEdit.noAddress();
-
   }
 );
 
 /** 4. Return to the CMA page*/
 Then(
-  /^the user continues to the CMA page from the Address Check page$/, async function () {
-
-    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(await this.page);
+  /^the user continues to the CMA page from the Address Check page$/,
+  async function () {
+    const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(
+      await this.page
+    );
 
     const checkDetails = new CheckDetails(await this.page);
 
     await addressCheckEdit.continue();
 
     expect(await checkDetails.isCurrentPage()).to.be.true;
-
   }
 );
 
@@ -289,8 +302,11 @@ When(/^the user clicks the Country Change button$/, async function () {
 
 /** 2. Navigate back to country selector for editing */
 Then(
-  /^the user is navigated back to the Country Selector Page$/, async function () {
-    const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(await this.page);
+  /^the user is navigated back to the Country Selector Page$/,
+  async function () {
+    const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(
+      await this.page
+    );
 
     expect(await countrySelector.isCurrentPage()).to.be.true;
   }
@@ -298,26 +314,26 @@ Then(
 
 /** 3. Change country of issue */
 
-Then(
-  /^the user changes the country of issue$/, async function () {
-    const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(await this.page);
+Then(/^the user changes the country of issue$/, async function () {
+  const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(
+    await this.page
+  );
 
-    await countrySelector.selectCountry();
-
-  }
-);
+  await countrySelector.selectCountry();
+});
 
 /** 4. Return to the CMA page*/
 Then(
-  /^the user continues to the CMA page from the Country Selector page$/, async function () {
-
-    const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(await this.page);
+  /^the user continues to the CMA page from the Country Selector page$/,
+  async function () {
+    const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(
+      await this.page
+    );
 
     const checkDetails = new CheckDetails(await this.page);
 
     await countrySelector.continue();
 
     expect(await checkDetails.isCurrentPage()).to.be.true;
-
   }
 );
