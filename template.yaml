@@ -123,6 +123,8 @@ Mappings:
       ANALYTICSDOMAIN: "dev.account.gov.uk"
       PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
       LOGLEVEL: "debug"
+      GA4DISABLED: false
+      UADISABLED: false
     build:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
       DNSSUFFIX: "review-o.build.account.gov.uk"
@@ -133,6 +135,8 @@ Mappings:
       ANALYTICSDOMAIN: "build.account.gov.uk"
       PROXYURL: "proxy.review-o.build.account.gov.uk"
       LOGLEVEL: "warn"
+      GA4DISABLED: false
+      UADISABLED: false
     staging:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
@@ -143,6 +147,8 @@ Mappings:
       ANALYTICSDOMAIN: "staging.account.gov.uk"
       PROXYURL: "proxy.review-o.staging.account.gov.uk"
       LOGLEVEL: "warn"
+      GA4DISABLED: false
+      UADISABLED: false
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
@@ -153,6 +159,8 @@ Mappings:
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       PROXYURL: "proxy.review-o.integration.account.gov.uk"
       LOGLEVEL: "warn"
+      GA4DISABLED: true
+      UADISABLED: false
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
@@ -163,6 +171,8 @@ Mappings:
       ANALYTICSDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.account.gov.uk"
       LOGLEVEL: "warn"
+      GA4DISABLED: true
+      UADISABLED: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -442,6 +452,10 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, PROXYURL ]
             - Name: LOG_LEVEL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
+            - Name: GA4_DISABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, GA4DISABLED ]
+            - Name: UA_DISABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, UADISABLED ]
 
           Secrets:
             - Name: DT_TENANT

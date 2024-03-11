@@ -26,9 +26,9 @@ module.exports = {
       PHOTO_ID_SELECTION_THIN_FILE: "/choose-photo-id-post-office-biometric",
       UK_PASSPORT_DETAILS: "/uk-passport-expire",
       NON_UK_PASSPORT_DETAILS: "/non-uk-passport-expire",
-      NON_UK_PASSPORT_HAS_EXPIRY_DATE: "/non-uk-passport-has-expiry-date",
-      EU_DRIVING_LICENCE_HAS_EXPIRY_DATE: "/eu-driving-licence-has-expiry-date",
-      NATIONAL_IDENTITY_CARD_HAS_EXPIRY_DATE: "/national-identity-card-has-expiry-date",
+      NON_UK_PASSPORT_HAS_EXPIRY_DATE: "/non-uk-passport-expiry-date",
+      EU_DRIVING_LICENCE_HAS_EXPIRY_DATE: "/eu-driving-licence-expiry-date",
+      NATIONAL_IDENTITY_CARD_HAS_EXPIRY_DATE: "/national-identity-card-expiry-date",
       NON_UK_PASSPORT_COUNTRY_SELECTOR: "/select-country-non-uk-passport",
       UK_PHOTOCARD_DL_DETAILS: "/uk-driving-licence-expire",
       UK_PHOTOCARD_DL_ADDRESS_CHECK: "/uk-driving-licence-current-address",
@@ -73,11 +73,12 @@ module.exports = {
       CHOOSE_DIFFERENT_PHOTO_ID: "chooseDifferentPhotoId",
       PROVE_IDENTITY_ANOTHER_WAY: "proveIdentityAnotherWay"
     },
-    ANALYTICS: {
-      GTM_ID_UA: process.env.UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID,
-      DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
-      GA4_ENABLED: process.env.GA4_ENABLED,
-      GTM_ID_GA4: process.env.GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID
+    GTM: {
+      GA4_ID: process.env.GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID || "GTM-XXXXXXX",
+      UA_ID: process.env.UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID || "UA-XXXXXXX",
+      ANALYTICS_COOKIE_DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
+      GA4_DISABLED: process.env.GA4_DISABLED || false,
+      UA_DISABLED: process.env.UA_DISABLED || true,
     },
   },
   PORT: process.env.PORT || 5030,

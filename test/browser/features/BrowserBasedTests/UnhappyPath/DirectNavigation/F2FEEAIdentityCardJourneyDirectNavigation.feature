@@ -2,7 +2,7 @@
 Feature: Directly navigating EEA Identity Card pages in journey- unhappy path
 
     Scenario: Direct Navigation to EEAIdentityCardHasExpiry
-        Given the user navigates directly to national-identity-card-has-expiry-date page
+        Given the user navigates directly to national-identity-card-expiry-date page
         Then they should see the unrecoverable error page
 
     Scenario: Direct Navigation to EEAIdentityCardCountrySelector

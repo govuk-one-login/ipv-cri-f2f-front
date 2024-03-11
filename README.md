@@ -17,13 +17,20 @@ yarn build
 
 ## Environment Variables
 
-- 'API_BASE_URL': Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows
+- `API_BASE_URL`: Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows. See below to set this.
 - `PORT` - Default port to run webserver on. (Default to `5030`)
-- `PROXYURL` - The url for the HTTP Proxy API (see below to set this)
+- `PROXYURL` - The url for the HTTP Proxy API. See below to set this.
 
 ```bash
+export API_BASE_URL=https://api-f2f-cri-api.review-o.dev.account.gov.uk
 export PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
 ```
+
+## Run front-end locally against deployed back-end
+
+- Set `API_BASE_URL` as described above.
+- Replace all instances of `x-govuk-signin-session-id` with a valid session ID from the dev environment
+- Run `yarn build` followed by `yarn start`
 
 # Mock Data
 
@@ -93,3 +100,70 @@ docker push 440208678480.dkr.ecr.eu-west-2.amazonaws.com/YOUR_REPO:YOUR_TAG
 ```
 
 Then to use this new image update the `Image:` tag in the template.yaml and redeploy your template locally in to your own stack in DEV.
+
+## Pre-Commit Checking / Verification
+
+Completely optional, there is a `.pre-commit-config.yaml` configuration setup in this repo, this uses [pre-commit](https://pre-commit.com/) to verify your commit before actually commiting, it runs the following checks:
+
+- Check Json files for formatting issues
+- Fixes end of file issues (it will auto correct if it spots an issue - you will need to run the git commit again after it has fixed the issue)
+- It automatically removes trailing whitespaces (again will need to run commit again after it detects and fixes the issue)
+- Detects aws credentials or private keys accidentally added to the repo
+- runs cloud formation linter and detects issues
+- runs checkov and checks for any issues.
+
+### Dependency Installation
+
+To use this locally you will first need to install the dependencies, this can be done in 2 ways:
+
+#### Method 1 - Python pip
+
+Run the following in a terminal:
+
+```
+sudo -H pip3 install checkov pre-commit cfn-lint
+```
+
+this should work across platforms
+
+#### Method 2 - Brew
+
+If you have brew installed please run the following:
+
+```
+brew install pre-commit ;\
+brew install cfn-lint ;\
+brew install checkov
+```
+
+### Post Installation Configuration
+
+once installed run:
+
+```
+pre-commit install
+```
+
+To update the various versions of the pre-commit plugins, this can be done by running:
+
+```
+pre-commit autoupdate && pre-commit install
+```
+
+This will install / configure the pre-commit git hooks, if it detects an issue while committing it will produce an output like the following:
+
+```
+ git commit -a
+check json...........................................(no files to check)Skipped
+fix end of files.........................................................Passed
+trim trailing whitespace.................................................Passed
+detect aws credentials...................................................Passed
+detect private key.......................................................Passed
+AWS CloudFormation Linter................................................Failed
+- hook id: cfn-python-lint
+- exit code: 4
+W3011 Both UpdateReplacePolicy and DeletionPolicy are needed to protect Resources/PublicHostedZone from deletion
+core/deploy/dns-zones/template.yaml:20:3
+Checkov..............................................(no files to check)Skipped
+- hook id: checkov
+```

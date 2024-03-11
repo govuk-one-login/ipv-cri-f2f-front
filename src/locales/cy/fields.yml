@@ -234,12 +234,15 @@ photoIdExpiryChoice:
   items:
     reEnterDetails:
       label: Gwiriwch y dyddiad dod i ben a'i roi eto
+      hint: ""
       reveal: ""
     chooseDifferentPhotoId:
       label: Dewiswch fath gwahanol o ID gyda llun
+      hint: ""
       reveal: ""
     proveIdentityAnotherWay:
       label: Profi eich hunaniaeth mewn ffordd arall
+      hint: ""
       reveal: ""
 
 eeaIdentityCardCountrySelector:

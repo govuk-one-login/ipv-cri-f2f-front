@@ -4,8 +4,8 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.baseURL = process.env.IPV_BASE_URL;
-    this.path = "/eu-driving-licence-has-expiry-date";
+    this.baseURL = process.env.F2F_FE_BASE_URL;
+    this.path = "/eu-driving-licence-expiry-date";
   }
 
   async goTo() {
@@ -36,7 +36,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async checkErrorText() {
-    const errorText = await this.page.locator("#error-summary-title").textContent();
+    const errorText = await this.page.locator(".govuk-error-summary__title").textContent();
     return errorText.trim()
   }
 

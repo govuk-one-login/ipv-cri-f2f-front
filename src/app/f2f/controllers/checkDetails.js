@@ -18,6 +18,7 @@ class CheckDetailsController extends DateController {
       let postOfficePostcode;
       let postOfficeLatitude;
       let postOfficeLongitude;
+      let postOfficeFadCode;
 
       switch (req.form.values.branches) {
         case "1": {
@@ -27,6 +28,7 @@ class CheckDetailsController extends DateController {
           postOfficePostcode = payLoadDetails.location0.postcode
           postOfficeLatitude = payLoadDetails.location0.latitude
           postOfficeLongitude = payLoadDetails.location0.longitude
+          postOfficeFadCode = payLoadDetails.location0.fadCode
           break;
         }
         case "2": {
@@ -36,6 +38,7 @@ class CheckDetailsController extends DateController {
           postOfficePostcode = payLoadDetails.location1.postcode
           postOfficeLatitude = payLoadDetails.location1.latitude
           postOfficeLongitude = payLoadDetails.location1.longitude
+          postOfficeFadCode = payLoadDetails.location1.fadCode
           break;
         }
         case "3": {
@@ -45,6 +48,7 @@ class CheckDetailsController extends DateController {
           postOfficePostcode = payLoadDetails.location2.postcode
           postOfficeLatitude = payLoadDetails.location2.latitude
           postOfficeLongitude = payLoadDetails.location2.longitude
+          postOfficeFadCode = payLoadDetails.location2.fadCode
           break;
         }
         case "4": {
@@ -54,6 +58,7 @@ class CheckDetailsController extends DateController {
           postOfficePostcode = payLoadDetails.location3.postcode
           postOfficeLatitude = payLoadDetails.location3.latitude
           postOfficeLongitude = payLoadDetails.location3.longitude
+          postOfficeFadCode = payLoadDetails.location3.fadCode
           break;
         }
         case "5": {
@@ -63,6 +68,7 @@ class CheckDetailsController extends DateController {
           postOfficePostcode = payLoadDetails.location4.postcode
           postOfficeLatitude = payLoadDetails.location4.latitude
           postOfficeLongitude = payLoadDetails.location4.longitude
+          postOfficeFadCode = payLoadDetails.location4.fadCode
           break;
         }
       }
@@ -72,6 +78,7 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("postOfficePostcode", postOfficePostcode);
       req.sessionModel.set("postOfficeLatitude", postOfficeLatitude);
       req.sessionModel.set("postOfficeLongitude", postOfficeLongitude);
+      req.sessionModel.set("postOfficeFadCode", postOfficeFadCode);
 
       // Value for document expiry date depends on selected document
       let idHasExpiryDate
@@ -114,12 +121,12 @@ class CheckDetailsController extends DateController {
           expiryDate = req.form.values.eeaIdCardExpiryDate;
           address = req.form.values.eeaIdentityCardAddressCheck;
           req.sessionModel.set("countryCode", req.form.values.eeaIdentityCardCountrySelector);
-          req.sessionModel.set("country", res.locals.translate(`countries.${req.form.values.eeaIdentityCardCountrySelector}`))
+          req.sessionModel.set("country", res.locals.translate(`countries.${req.form.values.eeaIdentityCardCountrySelector}`));
           break;
         }
       }
 
-      req.sessionModel.set("idHasExpiryDate", idHasExpiryDate)
+      req.sessionModel.set("idHasExpiryDate", idHasExpiryDate);
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
       
@@ -128,12 +135,14 @@ class CheckDetailsController extends DateController {
       const changeUrl = req.sessionModel.get("changeUrl");
       const addressCheck = req.sessionModel.get("addressCheck");
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
+      const format = "YYYY-MM-DD";
+      const language = req.lng;
 
-      locals.formattedExpiryDate = formatDate(expiryDate, "YYYY-MM-DD");
-      locals.idTranslatedString = res.locals.translate(`photoIdChoice.items.${idChoice}.label`)
-      locals.addressCheckTranslatedString = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`)
-      locals.hasExpiryDateTranslatedString = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`)
-      locals.countryTranslatedString = req.sessionModel.get("country")
+      locals.formattedExpiryDate = formatDate(expiryDate, format, language);
+      locals.idTranslatedString = res.locals.translate(`photoIdChoice.items.${idChoice}.label`);
+      locals.addressCheckTranslatedString = res.locals.translate(`${idChoice}AddressCheck.items.${addressCheck}.label`);
+      locals.hasExpiryDateTranslatedString = res.locals.translate(`idHasExpiryDate.items.${hasExpiryDate}.label`);
+      locals.countryTranslatedString = req.sessionModel.get("country");
 
       locals.changeUrl = `/${changeUrl}`;
       locals.hasExpiryDate = hasExpiryDate;
@@ -144,7 +153,7 @@ class CheckDetailsController extends DateController {
     });
   }
   next() {
-    return '/done'
+    return '/done';
   }
   async saveValues(req, res, callback) {
     try {
@@ -161,7 +170,8 @@ class CheckDetailsController extends DateController {
             "latitude": req.sessionModel.get("postOfficeLatitude"),
             "longitude": req.sessionModel.get("postOfficeLongitude"),
           },
-          "post_code": req.sessionModel.get("postOfficePostcode")
+          "post_code": req.sessionModel.get("postOfficePostcode"),
+          "fad_code": req.sessionModel.get("postOfficeFadCode")
         }
       }
 
