@@ -42,17 +42,24 @@ module.exports = class PlaywrightDevPage {
   }
 
   async getChangeIDHASExpiryDateSelection() {
-    const optionSelected = await this.page.locator(".govuk-summary-list__value").nth(1).textContent();
-    return optionSelected.trim()
-
+    const optionSelected = await this.page
+      .locator(".govuk-summary-list__value")
+      .nth(1)
+      .textContent();
+    return optionSelected.trim();
   }
 
   async isExpiryDateSelectionDisplayed() {
-    return await this.page.isVisible('text= Does your photo ID have an expiry date');
+    return await this.page.isVisible(
+      "text= Does your photo ID have an expiry date"
+    );
   }
 
   async isExpiryDateDisplayed() {
-    const expiryDateLabel = await this.page.locator(".govuk-summary-list__key").nth(2).textContent();
+    const expiryDateLabel = await this.page
+      .locator(".govuk-summary-list__key")
+      .nth(2)
+      .textContent();
     return expiryDateLabel.trim();
   }
 
@@ -61,11 +68,15 @@ module.exports = class PlaywrightDevPage {
   }
 
   async changeAddressCheckLocation() {
-    await this.page.click('[href*="national-identity-card-current-address/edit"]');
+    await this.page.click(
+      '[href*="national-identity-card-current-address/edit"]'
+    );
   }
 
   async changeCountry() {
-    await this.page.click('[href*="select-country-national-identity-card/edit"]');
+    await this.page.click(
+      '[href*="select-country-national-identity-card/edit"]'
+    );
   }
 
   async continue() {
@@ -83,8 +94,9 @@ module.exports = class PlaywrightDevPage {
   }
 
   async checkRedirectionErrorText() {
-    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    const errorRedirectionText = await this.page.textContent(
+      '[data-id="error-title"]'
+    );
     return errorRedirectionText.trim();
   }
-
 };

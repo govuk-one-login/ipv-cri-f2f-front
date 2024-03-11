@@ -1,6 +1,6 @@
 const { Before, BeforeAll, AfterAll, After } = require("@cucumber/cucumber");
 const { chromium } = require("playwright");
-const { setDefaultTimeout } = require ('@cucumber/cucumber');
+const { setDefaultTimeout } = require("@cucumber/cucumber");
 
 setDefaultTimeout(10 * 1000);
 
@@ -13,7 +13,7 @@ BeforeAll(async function () {
         // Not headless so we can watch test runs
         headless: false,
         // Slow so we can see things happening
-      //slowMo: 1500,
+        //slowMo: 1500,
       });
 });
 

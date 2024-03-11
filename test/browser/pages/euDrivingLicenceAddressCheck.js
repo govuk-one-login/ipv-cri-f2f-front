@@ -17,7 +17,6 @@ module.exports = class PlaywrightDevPage {
     return pathname === this.path;
   }
 
-
   async continue() {
     await this.page.click("#continue");
   }
@@ -27,8 +26,10 @@ module.exports = class PlaywrightDevPage {
   }
 
   async checkErrorText() {
-    const errorText = await this.page.locator(".govuk-error-summary__title").textContent();
-    return errorText.trim()
+    const errorText = await this.page
+      .locator(".govuk-error-summary__title")
+      .textContent();
+    return errorText.trim();
   }
 
   async sameAddress() {
@@ -44,7 +45,9 @@ module.exports = class PlaywrightDevPage {
   }
 
   async checkRedirectionErrorText() {
-    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    const errorRedirectionText = await this.page.textContent(
+      '[data-id="error-title"]'
+    );
     return errorRedirectionText.trim();
   }
 };

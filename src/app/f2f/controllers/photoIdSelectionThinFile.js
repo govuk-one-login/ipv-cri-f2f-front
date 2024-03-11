@@ -3,7 +3,6 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const logger = require("hmpo-logger").get();
 
 class PhotoIdSelectionThinFileController extends BaseController {
-
   async saveValues(req, res, next) {
     try {
       req.sessionModel.set("redirect_url", undefined);
