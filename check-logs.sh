@@ -23,8 +23,8 @@ function update_query_string() {
   echo $query
 }
 
-updated_query=$(update_query_string $firstName1 $lastName $birthDate $emailAddress $address_postalCode)
-echo $updated_query
+query=$(update_query_string $firstName1 $lastName $birthDate $emailAddress $address_postalCode)
+echo $query
 
 stack_name="f2f-cri-front"
 log_groups=(
