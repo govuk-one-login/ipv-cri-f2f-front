@@ -83,7 +83,7 @@
     "aws-sdk": "^2.1551.0",
     "@govuk-one-login/di-ipv-cri-common-express": "6.0.0",
     "@govuk-one-login/one-login-analytics": "^0.0.9",
-    "axios": "1.4.0",
+    "axios": "1.6.7",
     "cfenv": "1.2.4",
     "connect-dynamodb": "^2.0.6",
     "copyfiles": "2.4.1",
