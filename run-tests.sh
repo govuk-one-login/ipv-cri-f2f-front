@@ -27,7 +27,7 @@ cp -rf /app/test/reports $TEST_REPORT_ABSOLUTE_DIR
 sleep 2m
 
 apt-get install jq -y
-cd /src; npm run test:pii
+cd /app; npm run test:pii
 error_code=$?
 
 exit $error_code
