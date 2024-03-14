@@ -79,7 +79,7 @@
     "wiremock": "2.35.0"
   },
   "dependencies": {
-    "@aws-sdk/credential-providers": "^3.438.0",
+    "@aws-sdk/credential-providers": "^3.533.0",
     "aws-sdk": "^2.1551.0",
     "@govuk-one-login/di-ipv-cri-common-express": "6.0.0",
     "@govuk-one-login/one-login-analytics": "^0.0.9",
