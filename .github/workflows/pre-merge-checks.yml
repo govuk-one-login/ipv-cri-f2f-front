@@ -31,26 +31,14 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
-      - name: Export Proxy URL
-        run: echo "PROXYURL=f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk" >> $GITHUB_ENV
-      - name: Export IPV_STUB_URL
-        run: echo "IPV_STUB_URL=https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/start" >> $GITHUB_ENV
-      - name: Export F2F_FE_BASE_URL
-        run: echo "F2F_FE_BASE_URL=http://localhost:5030" >> $GITHUB_ENV
-      - name: Export CUSTOM_FE_URL
-        run: echo "CUSTOM_FE_URL=http://localhost:5030" >> $GITHUB_ENV
       - name: Run lint
         run: yarn lint
       - name: Run build
         run: yarn build
       - name: Run test and write coverage
         run: yarn test:coverage
-      - name: Start Server
-        run: npm run start:ci & npm run test:browser
       - name: Run browser tests
-        run: bash ./run-browser-tests.sh
-      - name: Create report
-        run: npm run test:browser:report
+        run: npm run test:browser:ci
       - name: Archive browser tests results
         uses: actions/upload-artifact@v4
         with:
