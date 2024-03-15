@@ -9,6 +9,10 @@ module.exports = class PlaywrightDevPage {
   async goto() {
     const axios = require("axios");
     const claim = require("../support/shared_claim");
+
+    console.log("🍓 CUSTOM_FE_URL", process.env.CUSTOM_FE_URL)
+    console.log("🍓 IPV_STUB_URL", process.env.IPV_STUB_URL)
+
     if (process.env.CUSTOM_FE_URL)
       claim.frontendURL = process.env.CUSTOM_FE_URL;
     const postRequest = await axios.post(process.env.IPV_STUB_URL, claim);

@@ -13,7 +13,7 @@ Clone this repository and then run:
 ```bash
 yarn install
 yarn build
-```
+``` 
 
 ## Environment Variables
 

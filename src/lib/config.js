@@ -2,7 +2,7 @@ require("dotenv").config();
 
 module.exports = {
   API: {
-    BASE_URL: process.env.API_BASE_URL || "https://api-f2f-cri-api.review-o.dev.account.gov.uk",
+    BASE_URL: process.env.API_BASE_URL || "https://api-f2f-cri-api-ccooling.review-o.dev.account.gov.uk",
     PATHS: {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
