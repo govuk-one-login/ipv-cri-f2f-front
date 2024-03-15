@@ -14,7 +14,7 @@ const { XMLParser } = require("fast-xml-parser");
 module.exports = class TestHarness {
   constructor() {
     this.HARNESS_API_INSTANCE = axios.create({
-      baseURL: "https://f2f-test-harness-ccooling-testharness.review-o.dev.account.gov.uk/",
+      baseURL: process.env["TEST_HARNESS_URL"],
     });
     const customCredentialsProvider = {
       getCredentials: fromNodeProviderChain({
