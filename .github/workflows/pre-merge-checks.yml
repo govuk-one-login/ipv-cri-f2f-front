@@ -41,7 +41,9 @@ jobs:
         run: npm run test:browser:ci
         env: 
           IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
-          CUSTOM_FE_URL: http:/localhost:5030 
+          CUSTOM_FE_URL: http:/localhost:5030
+          PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
+          F2F_FE_BASE_URL: ${{ secrets.F2F_FE_BASE_URL }}
       - name: Archive browser tests results
         uses: actions/upload-artifact@v4
         with:
