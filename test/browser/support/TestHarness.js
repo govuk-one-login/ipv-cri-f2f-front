@@ -11,11 +11,11 @@ const { unmarshall } = require("@aws-sdk/util-dynamodb");
 const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
 const { XMLParser } = require("fast-xml-parser");
 
-
 module.exports = class TestHarness {
-
   constructor() {
-    this.HARNESS_API_INSTANCE = axios.create({ baseURL: process.env['TEST_HARNESS_URL'] });
+    this.HARNESS_API_INSTANCE = axios.create({
+      baseURL: process.env["TEST_HARNESS_URL"],
+    });
     const customCredentialsProvider = {
       getCredentials: fromNodeProviderChain({
         timeout: 1000,
@@ -35,7 +35,12 @@ module.exports = class TestHarness {
 
   async getSession(sessionId) {
     try {
-      const getItemResponse = await this.HARNESS_API_INSTANCE.get("/getRecordBySessionId/"+ process.env["SESSION_TABLE"] +"/" + sessionId);
+      const getItemResponse = await this.HARNESS_API_INSTANCE.get(
+        "/getRecordBySessionId/" +
+          process.env["SESSION_TABLE"] +
+          "/" +
+          sessionId
+      );
       return unmarshall(getItemResponse.data.Item);
     } catch (error) {
       return error;
@@ -44,7 +49,9 @@ module.exports = class TestHarness {
 
   async getSessionByAuthCode(authCode) {
     try {
-      const getItemResponse = await this.HARNESS_API_INSTANCE.get("/getSessionByAuthCode/"+ process.env["SESSION_TABLE"] +"/" + authCode);
+      const getItemResponse = await this.HARNESS_API_INSTANCE.get(
+        "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + authCode
+      );
       return unmarshall(getItemResponse.data.Items[0]);
     } catch (error) {
       return error;
@@ -52,11 +59,14 @@ module.exports = class TestHarness {
   }
 
   async getDequeuedSqsMessage(prefix) {
-    const listObjectsResponse = await this.HARNESS_API_INSTANCE.get("/bucket/", {
-      params: {
-        prefix: "ipv-core/" + prefix,
-      },
-    });
+    const listObjectsResponse = await this.HARNESS_API_INSTANCE.get(
+      "/bucket/",
+      {
+        params: {
+          prefix: "ipv-core/" + prefix,
+        },
+      }
+    );
     const xmlParser = new XMLParser();
     const listObjectsParsedResponse = xmlParser.parse(listObjectsResponse.data);
     if (!listObjectsParsedResponse?.ListBucketResult?.Contents) {
@@ -69,7 +79,10 @@ module.exports = class TestHarness {
       key = listObjectsParsedResponse.ListBucketResult.Contents.Key;
     }
 
-    const getObjectResponse = await this.HARNESS_API_INSTANCE.get("/object/" + key, {});
+    const getObjectResponse = await this.HARNESS_API_INSTANCE.get(
+      "/object/" + key,
+      {}
+    );
     return getObjectResponse.data;
   }
 
@@ -78,13 +91,18 @@ module.exports = class TestHarness {
     let keyList;
     let i;
     do {
-      const listObjectsResponse = await this.HARNESS_API_INSTANCE.get("/bucket/", {
-        params: {
-          prefix: folder + prefix,
-        },
-      });
+      const listObjectsResponse = await this.HARNESS_API_INSTANCE.get(
+        "/bucket/",
+        {
+          params: {
+            prefix: folder + prefix,
+          },
+        }
+      );
       const xmlParser = new XMLParser();
-      const listObjectsParsedResponse = xmlParser.parse(listObjectsResponse.data);
+      const listObjectsParsedResponse = xmlParser.parse(
+        listObjectsResponse.data
+      );
       if (!listObjectsParsedResponse?.ListBucketResult?.Contents) {
         return undefined;
       }
@@ -92,32 +110,40 @@ module.exports = class TestHarness {
       console.log(listObjectsParsedResponse?.ListBucketResult?.Contents);
       keyList = [];
       for (i = 0; i < keys.length; i++) {
-        keyList.push(listObjectsParsedResponse?.ListBucketResult?.Contents.at(i).Key);
+        keyList.push(
+          listObjectsParsedResponse?.ListBucketResult?.Contents.at(i).Key
+        );
       }
-    } while (keys.length < txmaEventSize );
+    } while (keys.length < txmaEventSize);
     return keyList;
   }
 
   async validateTxMAEventData(keyList) {
     let i;
     for (i = 0; i < keyList.length; i++) {
-      const getObjectResponse = await this.HARNESS_API_INSTANCE.get("/object/" + keyList[i], {});
+      const getObjectResponse = await this.HARNESS_API_INSTANCE.get(
+        "/object/" + keyList[i],
+        {}
+      );
       console.log(JSON.stringify(getObjectResponse.data, null, 2));
       let valid = true;
       const eventName = getObjectResponse.data.event_name;
-      const Ajv = require('ajv').default;
-      const AjvFormats = require('ajv-formats');
+      const Ajv = require("ajv").default;
+      const AjvFormats = require("ajv-formats");
       const ajv = new Ajv({ strictTuples: false });
 
       AjvFormats(ajv);
-
 
       switch (eventName) {
         case "F2F_YOTI_START": {
           const validate = ajv.compile(F2F_YOTI_START);
           valid = validate(getObjectResponse.data);
           if (!valid) {
-            console.error(getObjectResponse.data.event_name + " Event Errors: " + JSON.stringify(validate.errors));
+            console.error(
+              getObjectResponse.data.event_name +
+                " Event Errors: " +
+                JSON.stringify(validate.errors)
+            );
           }
           break;
         }
@@ -125,7 +151,11 @@ module.exports = class TestHarness {
           const validate = ajv.compile(F2F_YOTI_RESPONSE_RECEIVED);
           valid = validate(getObjectResponse.data);
           if (!valid) {
-            console.error(getObjectResponse.data.event_name + " Event Errors: " + JSON.stringify(validate.errors));
+            console.error(
+              getObjectResponse.data.event_name +
+                " Event Errors: " +
+                JSON.stringify(validate.errors)
+            );
           }
           break;
         }
@@ -133,7 +163,11 @@ module.exports = class TestHarness {
           const validate = ajv.compile(F2F_YOTI_PDF_EMAILED);
           valid = validate(getObjectResponse.data);
           if (!valid) {
-            console.error(getObjectResponse.data.event_name + " Event Errors: " + JSON.stringify(validate.errors));
+            console.error(
+              getObjectResponse.data.event_name +
+                " Event Errors: " +
+                JSON.stringify(validate.errors)
+            );
           }
           break;
         }
@@ -141,7 +175,11 @@ module.exports = class TestHarness {
           const validate = ajv.compile(F2F_CRI_VC_ISSUED);
           valid = validate(getObjectResponse.data);
           if (!valid) {
-            console.error(getObjectResponse.data.event_name + " Event Errors: " + JSON.stringify(validate.errors));
+            console.error(
+              getObjectResponse.data.event_name +
+                " Event Errors: " +
+                JSON.stringify(validate.errors)
+            );
           }
           break;
         }
@@ -149,7 +187,11 @@ module.exports = class TestHarness {
           const validate = ajv.compile(F2F_CRI_START);
           valid = validate(getObjectResponse.data);
           if (!valid) {
-            console.error(getObjectResponse.data.event_name + " Event Errors: " + JSON.stringify(validate.errors));
+            console.error(
+              getObjectResponse.data.event_name +
+                " Event Errors: " +
+                JSON.stringify(validate.errors)
+            );
           }
           break;
         }
@@ -157,7 +199,11 @@ module.exports = class TestHarness {
           const validate = ajv.compile(F2F_CRI_END);
           valid = validate(getObjectResponse.data);
           if (!valid) {
-            console.error(getObjectResponse.data.event_name + " Event Errors: " + JSON.stringify(validate.errors));
+            console.error(
+              getObjectResponse.data.event_name +
+                " Event Errors: " +
+                JSON.stringify(validate.errors)
+            );
           }
           break;
         }
@@ -165,11 +211,15 @@ module.exports = class TestHarness {
           const validate = ajv.compile(F2F_CRI_AUTH_CODE_ISSUED);
           valid = validate(getObjectResponse.data);
           if (!valid) {
-            console.error(getObjectResponse.data.event_name + " Event Errors: " + JSON.stringify(validate.errors));
+            console.error(
+              getObjectResponse.data.event_name +
+                " Event Errors: " +
+                JSON.stringify(validate.errors)
+            );
           }
           break;
         }
       }
     }
   }
-}
+};

@@ -3,7 +3,6 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const logger = require("hmpo-logger").get();
 
 class PhotoIdSelectionController extends BaseController {
-
   async saveValues(req, res, next) {
     try {
       logger.info("user submitting photo Id choice", { req, res });
@@ -14,7 +13,7 @@ class PhotoIdSelectionController extends BaseController {
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD, undefined);
-      req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID, undefined)
+      req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID, undefined);
 
       const action = req.form.values.photoIdChoice;
       req.sessionModel.set("photoIdChoice", action);
@@ -35,7 +34,10 @@ class PhotoIdSelectionController extends BaseController {
             { req, res }
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.BRP, true);
-          req.sessionModel.set("changeUrl", "biometric-residence-permit-expire");
+          req.sessionModel.set(
+            "changeUrl",
+            "biometric-residence-permit-expire"
+          );
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
@@ -67,7 +69,6 @@ class PhotoIdSelectionController extends BaseController {
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
-
           logger.info(
             "photo-id-selection: user has selected EU ID Card - redirecting to EU ID Card details page",
             { req, res }
@@ -91,8 +92,6 @@ class PhotoIdSelectionController extends BaseController {
       return next(err);
     }
   }
-
 }
 
 module.exports = PhotoIdSelectionController;
-

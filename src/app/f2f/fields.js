@@ -15,10 +15,10 @@ module.exports = {
       { value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL },
       { value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD },
       { divider: "or" },
-      { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
+      { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID },
     ],
     validate: ["required"],
-    invalidates: ["eeaIdentityCardAddressCheck"]
+    invalidates: ["eeaIdentityCardAddressCheck"],
   },
   photoIdChoiceThinFile: {
     type: "radios",
@@ -29,32 +29,36 @@ module.exports = {
       { value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT },
       { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
       { divider: "or" },
-      { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID }
+      { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID },
     ],
-    validate: ["required"]
+    validate: ["required"],
   },
   ukPassportExpiryDate: {
     type: "date",
     journeyKey: "UKPassportExpiryDate",
-    validate: ["required", "date",
-          {
-            type: "beforeNow",
-            fn: utils.beforeNow,
-            arguments: [10, "years"]
-          }
-        ],
+    validate: [
+      "required",
+      "date",
+      {
+        type: "beforeNow",
+        fn: utils.beforeNow,
+        arguments: [10, "years"],
       },
+    ],
+  },
   nonUKPassportExpiryDate: {
     type: "date",
     journeyKey: "nonUKPassportExpiryDate",
-    validate: ["required", "date",
-          {
-            type: "beforeNow",
-            fn: utils.beforeNow,
-            arguments: [75, "years"]
-          }
-        ],
+    validate: [
+      "required",
+      "date",
+      {
+        type: "beforeNow",
+        fn: utils.beforeNow,
+        arguments: [75, "years"],
       },
+    ],
+  },
   idHasExpiryDate: {
     type: "radios",
     legend: "",
@@ -64,49 +68,56 @@ module.exports = {
       {
         value: APP.HAS_EXPIRY_DATE.YES,
         conditional: {
-          html: ""
-        }
+          html: "",
+        },
       },
-      { value: APP.HAS_EXPIRY_DATE.NO,
+      {
+        value: APP.HAS_EXPIRY_DATE.NO,
         conditional: {
-          html: ""
-        }
-      }
+          html: "",
+        },
+      },
     ],
-    validate: ["required"]
+    validate: ["required"],
   },
   ukPhotocardDlExpiryDate: {
     type: "date",
     journeyKey: "ukPhotocardDlExpiryDate",
-    validate: ["required", "date",
-    {
-      type: "beforeNow",
-      fn: utils.beforeNow,
-      arguments: [10, "years"]
-    }
-    ]
+    validate: [
+      "required",
+      "date",
+      {
+        type: "beforeNow",
+        fn: utils.beforeNow,
+        arguments: [10, "years"],
+      },
+    ],
   },
   brpExpiryDate: {
     type: "date",
     journeyKey: "brpExpiryDate",
-    validate: ["required", "date",
+    validate: [
+      "required",
+      "date",
       {
         type: "before",
-        arguments: ["2033-01-01"]
+        arguments: ["2033-01-01"],
       },
-    ]
+    ],
   },
   euPhotocardDlExpiryDate: {
     type: "date",
     journeyKey: "euPhotocardDlDate",
-    validate: ["required", "date",
-          {
-            type: "beforeNow",
-            fn: utils.beforeNow,
-            arguments: [75, "years"]
-          }
-        ],
+    validate: [
+      "required",
+      "date",
+      {
+        type: "beforeNow",
+        fn: utils.beforeNow,
+        arguments: [75, "years"],
       },
+    ],
+  },
   ukPhotocardDlAddressCheck: {
     legend: "",
     label: "",
@@ -115,76 +126,84 @@ module.exports = {
       {
         value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         conditional: {
-          html: ""
-        }
+          html: "",
+        },
       },
-      { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
+      {
+        value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         conditional: {
-          html: ""
-        }
-      }
+          html: "",
+        },
+      },
     ],
-    validate: ["required"]
+    validate: ["required"],
   },
   euPhotocardDlAddressCheck: {
     legend: "",
     label: "",
     hint: "",
     items: [
-      { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
+      {
+        value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         conditional: {
-          html: ""
-        }
+          html: "",
+        },
       },
-      { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
+      {
+        value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         conditional: {
-          html: ""
-        }
+          html: "",
+        },
       },
       { divider: "or" },
-      { value: APP.ADDRESS_OPTIONS.NO_ADDRESS,
+      {
+        value: APP.ADDRESS_OPTIONS.NO_ADDRESS,
         conditional: {
-          html: ""
-        }
-      }
+          html: "",
+        },
+      },
     ],
-    validate: ["required"]
+    validate: ["required"],
   },
   eeaIdCardExpiryDate: {
     type: "date",
     journeyKey: "euIdCardExpiryDate",
     validate: [
-      "required", "date",
+      "required",
+      "date",
       {
-            type: "beforeNow",
-            fn: utils.beforeNow,
-            arguments: [75, "years"]
-          }
-        ],
+        type: "beforeNow",
+        fn: utils.beforeNow,
+        arguments: [75, "years"],
       },
+    ],
+  },
   eeaIdentityCardAddressCheck: {
     legend: "",
     label: "",
     hint: "",
     items: [
-      { value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
+      {
+        value: APP.ADDRESS_OPTIONS.CURRENT_ADDRESS,
         conditional: {
-          html: ""
-        }
+          html: "",
+        },
       },
-      { value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
+      {
+        value: APP.ADDRESS_OPTIONS.DIFFERENT_ADDRESS,
         conditional: {
-          html: ""
-        }
+          html: "",
+        },
       },
-      {divider: "or"},
-      { value: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
+      { divider: "or" },
+      {
+        value: APP.ADDRESS_OPTIONS.ID_NO_ADDRESS,
         conditional: {
-          html: ""
-        }
-      }
+          html: "",
+        },
+      },
     ],
-    validate: ["required"]
+    validate: ["required"],
   },
   postcode: {
     type: "text",
@@ -193,15 +212,24 @@ module.exports = {
       "required",
       { type: "maxlength", arguments: [8] },
       { type: "minlength", arguments: [5] },
-      { type: "regexPostcodeSymbol", fn: (value) => value.match(/^[A-Za-z0-9 ]+$/) },
+      {
+        type: "regexPostcodeSymbol",
+        fn: (value) => value.match(/^[A-Za-z0-9 ]+$/),
+      },
       { type: "regexPostcodeAlpha", fn: (value) => value.match(/[A-Za-z]+/) },
       { type: "regexPostcodeNumeric", fn: (value) => value.match(/[0-9]+/) },
-      { type: "regexPostcodeUK", fn: (value) => value.match(/([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})/) }
+      {
+        type: "regexPostcodeUK",
+        fn: (value) =>
+          value.match(
+            /([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})/
+          ),
+      },
     ],
     classes: "govuk-input--width-10",
   },
   branches: {
-    validate: ["required"]
+    validate: ["required"],
   },
   photoIdExpiryChoice: {
     type: "radios",
@@ -214,9 +242,9 @@ module.exports = {
       { divider: "or" },
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY },
     ],
-    validate: ["required"]
+    validate: ["required"],
   },
-eeaIdentityCardCountrySelector: {
+  eeaIdentityCardCountrySelector: {
     legend: "",
     label: "",
     hint: "",
@@ -251,12 +279,12 @@ eeaIdentityCardCountrySelector: {
       { value: "SVK", key: "countries.SVK" },
       { value: "SVN", key: "countries.SVN" },
       { value: "ESP", key: "countries.ESP" },
-      { value: "SWE", key: "countries.SWE" }
-
+      { value: "SWE", key: "countries.SWE" },
     ],
-    validate: ["required",
-      { type: "equal", fn: (value) => !value.match(/Select/)}
-    ]
+    validate: [
+      "required",
+      { type: "equal", fn: (value) => !value.match(/Select/) },
+    ],
   },
   euDrivingLicenceCountrySelector: {
     legend: "",
@@ -290,12 +318,12 @@ eeaIdentityCardCountrySelector: {
       { value: "SVK", key: "countries.SVK" },
       { value: "SVN", key: "countries.SVN" },
       { value: "ESP", key: "countries.ESP" },
-      { value: "SWE", key: "countries.SWE" }
-
+      { value: "SWE", key: "countries.SWE" },
     ],
-    validate: ["required",
-      {type: "equal", fn: (value) => !value.match(/Select/)}
-    ]
+    validate: [
+      "required",
+      { type: "equal", fn: (value) => !value.match(/Select/) },
+    ],
   },
   nonUkPassportCountrySelector: {
     type: "select",
@@ -303,7 +331,7 @@ eeaIdentityCardCountrySelector: {
     label: "",
     hint: "",
     items: [
-      { value: "Select", key: "countries.Select"},
+      { value: "Select", key: "countries.Select" },
       { value: "AFG", key: "countries.AFG" },
       { value: "ALB", key: "countries.ALB" },
       { value: "DZA", key: "countries.DZA" },
@@ -496,13 +524,11 @@ eeaIdentityCardCountrySelector: {
       { value: "VNM", key: "countries.VNM" },
       { value: "YEM", key: "countries.YEM" },
       { value: "ZMB", key: "countries.ZMB" },
-      { value: "ZWE", key: "countries.ZWE" }
+      { value: "ZWE", key: "countries.ZWE" },
     ],
-    validate: ["required",
-      {type: "equal", fn: (value) => !value.match(/Select/)}
-    ]
-  }
-}
-
-
-
+    validate: [
+      "required",
+      { type: "equal", fn: (value) => !value.match(/Select/) },
+    ],
+  },
+};

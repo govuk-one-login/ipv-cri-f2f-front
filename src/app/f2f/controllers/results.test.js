@@ -65,15 +65,15 @@ describe("Postcode Search Controller", () => {
     context("postOfficeData successfully fetched", () => {
       const postOfficeData = [
         {
-          name: 'Broadway',
+          name: "Broadway",
           locationBusinessId: "0100110",
           address: {
-            address1: '1 Broadway',
-            address4: 'London',
-            address5: 'Greater London',
-            postcode: 'SW1H 0AX',
+            address1: "1 Broadway",
+            address4: "London",
+            address5: "Greater London",
+            postcode: "SW1H 0AX",
             latitude: 51.49865,
-            longitude: -0.13392
+            longitude: -0.13392,
           },
         },
         {
@@ -81,48 +81,48 @@ describe("Postcode Search Controller", () => {
           locationBusinessId: "0540110",
           address: {
             address1: "11 Regent Street St. James's",
-            address4: 'London',
-            address5: 'Greater London',
-            postcode: 'SW1Y 4LR',
+            address4: "London",
+            address5: "Greater London",
+            postcode: "SW1Y 4LR",
             latitude: 51.50841,
-            longitude: -0.1341
+            longitude: -0.1341,
           },
         },
         {
-          name: 'Strand',
+          name: "Strand",
           locationBusinessId: "0550108",
           address: {
-            address1: 'Queensland House',
-            address2: '393 Strand',
-            address4: 'London',
-            address5: 'Greater London',
-            postcode: 'WC2R 0LT',
+            address1: "Queensland House",
+            address2: "393 Strand",
+            address4: "London",
+            address5: "Greater London",
+            postcode: "WC2R 0LT",
             latitude: 51.5105,
-            longitude: -0.1221
+            longitude: -0.1221,
           },
         },
         {
-          name: 'Westminster Bridge Road',
+          name: "Westminster Bridge Road",
           locationBusinessId: "2350076",
           address: {
-            address1: '125-131 Westminster Bridge Road',
-            address4: 'London',
-            address5: 'Greater London',
-            postcode: 'SE1 7HJ',
+            address1: "125-131 Westminster Bridge Road",
+            address4: "London",
+            address5: "Greater London",
+            postcode: "SE1 7HJ",
             latitude: 51.49947,
-            longitude: -0.11381
+            longitude: -0.11381,
           },
         },
         {
-          name: 'Aldwych',
+          name: "Aldwych",
           locationBusinessId: "0080101",
           address: {
-            address1: '95 Aldwych',
-            address4: 'London',
-            address5: 'Greater London',
-            postcode: 'WC2B 4JN',
+            address1: "95 Aldwych",
+            address4: "London",
+            address5: "Greater London",
+            postcode: "WC2B 4JN",
             latitude: 51.51341,
-            longitude: -0.11534
+            longitude: -0.11534,
           },
         },
       ];
@@ -137,10 +137,13 @@ describe("Postcode Search Controller", () => {
 
         await postcodeSearch.locals(req, res, next);
 
-        expect(req.axios.post).to.have.been.calledWith(`https://${PROXY_API.BASE_URL}${PROXY_API.PATHS.POST_OFFICE}`,  {
-          "searchString": postCode,
-          "productFilter": ["50321"]
-        });
+        expect(req.axios.post).to.have.been.calledWith(
+          `https://${PROXY_API.BASE_URL}${PROXY_API.PATHS.POST_OFFICE}`,
+          {
+            searchString: postCode,
+            productFilter: ["50321"],
+          }
+        );
       });
 
       it("post office details are set correctly", async () => {
@@ -150,90 +153,150 @@ describe("Postcode Search Controller", () => {
           {
             value: "1",
             conditional: {
-              html: ""
+              html: "",
             },
             text: postOfficeData[0].name,
             hint: {
-              text: postOfficeData[0].address.address1 + ", " + postOfficeData[0].address.address4 + ", " + postOfficeData[0].address.address5 + ", " + postOfficeData[0].address.postcode
+              text:
+                postOfficeData[0].address.address1 +
+                ", " +
+                postOfficeData[0].address.address4 +
+                ", " +
+                postOfficeData[0].address.address5 +
+                ", " +
+                postOfficeData[0].address.postcode,
             },
           },
           {
             value: "2",
             conditional: {
-              html: ""
+              html: "",
             },
             text: postOfficeData[1].name,
             hint: {
-              text: postOfficeData[1].address.address1 + ", " + postOfficeData[1].address.address4 + ", " + postOfficeData[1].address.address5 + ", " + postOfficeData[1].address.postcode
-            }
+              text:
+                postOfficeData[1].address.address1 +
+                ", " +
+                postOfficeData[1].address.address4 +
+                ", " +
+                postOfficeData[1].address.address5 +
+                ", " +
+                postOfficeData[1].address.postcode,
+            },
           },
           {
             value: "3",
             conditional: {
-              html: ""
+              html: "",
             },
             text: postOfficeData[2].name,
             hint: {
-              text: postOfficeData[2].address.address1 + ", " + postOfficeData[2].address.address4 + ", " + postOfficeData[2].address.address5 + ", " + postOfficeData[2].address.postcode
-            }
+              text:
+                postOfficeData[2].address.address1 +
+                ", " +
+                postOfficeData[2].address.address4 +
+                ", " +
+                postOfficeData[2].address.address5 +
+                ", " +
+                postOfficeData[2].address.postcode,
+            },
           },
           {
             value: "4",
             conditional: {
-              html: ""
+              html: "",
             },
             text: postOfficeData[3].name,
             hint: {
-              text: postOfficeData[3].address.address1 + ", " + postOfficeData[3].address.address4 + ", " + postOfficeData[3].address.address5 + ", " + postOfficeData[3].address.postcode
-            }
+              text:
+                postOfficeData[3].address.address1 +
+                ", " +
+                postOfficeData[3].address.address4 +
+                ", " +
+                postOfficeData[3].address.address5 +
+                ", " +
+                postOfficeData[3].address.postcode,
+            },
           },
           {
             value: "5",
             conditional: {
-              html: ""
+              html: "",
             },
             text: postOfficeData[4].name,
             hint: {
-              text: postOfficeData[4].address.address1 + ", " + postOfficeData[4].address.address4 + ", " + postOfficeData[4].address.address5 + ", " + postOfficeData[4].address.postcode
-            }
+              text:
+                postOfficeData[4].address.address1 +
+                ", " +
+                postOfficeData[4].address.address4 +
+                ", " +
+                postOfficeData[4].address.address5 +
+                ", " +
+                postOfficeData[4].address.postcode,
+            },
           },
         ]);
         expect(req.sessionModel.get("payLoadValues")).to.eql({
           location0: {
-            addressWithoutPostCode: postOfficeData[0].address.address1 + ", " + postOfficeData[0].address.address4 + ", " + postOfficeData[0].address.address5,
+            addressWithoutPostCode:
+              postOfficeData[0].address.address1 +
+              ", " +
+              postOfficeData[0].address.address4 +
+              ", " +
+              postOfficeData[0].address.address5,
             postcode: postOfficeData[0].address.postcode,
             latitude: postOfficeData[0].address.latitude,
             longitude: postOfficeData[0].address.longitude,
-            fadCode: postOfficeData[0].locationBusinessId
+            fadCode: postOfficeData[0].locationBusinessId,
           },
           location1: {
-            addressWithoutPostCode: postOfficeData[1].address.address1 + ", " + postOfficeData[1].address.address4 + ", " + postOfficeData[1].address.address5,
+            addressWithoutPostCode:
+              postOfficeData[1].address.address1 +
+              ", " +
+              postOfficeData[1].address.address4 +
+              ", " +
+              postOfficeData[1].address.address5,
             postcode: postOfficeData[1].address.postcode,
             latitude: postOfficeData[1].address.latitude,
             longitude: postOfficeData[1].address.longitude,
-            fadCode: postOfficeData[1].locationBusinessId
+            fadCode: postOfficeData[1].locationBusinessId,
           },
           location2: {
-            addressWithoutPostCode: postOfficeData[2].address.address1 + ", " + postOfficeData[2].address.address4 + ", " + postOfficeData[2].address.address5,
+            addressWithoutPostCode:
+              postOfficeData[2].address.address1 +
+              ", " +
+              postOfficeData[2].address.address4 +
+              ", " +
+              postOfficeData[2].address.address5,
             postcode: postOfficeData[2].address.postcode,
             latitude: postOfficeData[2].address.latitude,
             longitude: postOfficeData[2].address.longitude,
-            fadCode: postOfficeData[2].locationBusinessId
+            fadCode: postOfficeData[2].locationBusinessId,
           },
           location3: {
-            addressWithoutPostCode: postOfficeData[3].address.address1 + ", " + postOfficeData[3].address.address4 + ", " + postOfficeData[3].address.address5,
+            addressWithoutPostCode:
+              postOfficeData[3].address.address1 +
+              ", " +
+              postOfficeData[3].address.address4 +
+              ", " +
+              postOfficeData[3].address.address5,
             postcode: postOfficeData[3].address.postcode,
             latitude: postOfficeData[3].address.latitude,
             longitude: postOfficeData[3].address.longitude,
-            fadCode: postOfficeData[3].locationBusinessId
+            fadCode: postOfficeData[3].locationBusinessId,
           },
           location4: {
-            addressWithoutPostCode: postOfficeData[4].address.address1 + ", " + postOfficeData[4].address.address4 + ", " + postOfficeData[4].address.address5,
+            addressWithoutPostCode:
+              postOfficeData[4].address.address1 +
+              ", " +
+              postOfficeData[4].address.address4 +
+              ", " +
+              postOfficeData[4].address.address5,
             postcode: postOfficeData[4].address.postcode,
             latitude: postOfficeData[4].address.latitude,
             longitude: postOfficeData[4].address.longitude,
-            fadCode: postOfficeData[4].locationBusinessId
-          }
+            fadCode: postOfficeData[4].locationBusinessId,
+          },
         });
       });
     });
