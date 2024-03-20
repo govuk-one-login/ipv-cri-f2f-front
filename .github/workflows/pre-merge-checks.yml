@@ -1,0 +1,67 @@
+name: Pre-merge checks
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+  push:
+    branches: [main]
+
+jobs:
+  detect-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+      - name: Run pre-commit for detecting secrets
+        uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: detect-secrets --all-files
+
+  run-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install
+      - name: Run lint
+        run: yarn lint
+      - name: Run build
+        run: yarn build
+      - name: Run test and write coverage
+        run: yarn test:coverage
+      - name: Run browser tests
+        run: npm run test:browser:ci
+        env: 
+          IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
+          CUSTOM_FE_URL: http:/localhost:5030
+          PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
+          F2F_FE_BASE_URL: http:/localhost:5030
+      - name: Archive browser tests results
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-tests-report
+          path: test/reports/f2f-reports/
+
+  sonar-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: yarn install
+      - run: yarn build
+      - name: Run SonarCloud Scan
+        if: success() && github.actor != 'dependabot[bot]'
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
