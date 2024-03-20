@@ -278,7 +278,3 @@ main p,
 .govuk-warning-text {
   @include govuk-responsive-margin(4, "bottom");
 }
-
-.last-item {
-  float: right;
-}
