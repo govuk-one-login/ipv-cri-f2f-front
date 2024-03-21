@@ -73,4 +73,4 @@ common:
     linkToNoPhotoId: "https://signin.account.gov.uk/no-photo-id"
 
 links:
-  changePostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/find-post-office-prove-identity" id="changePostcode" data-id="changePostcode" class="govuk-link"> Newid <span class="govuk-visually-hidden">eich cod post cyfredol</span></a>
+  changePostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/find-post-office-prove-identity?edit=true" id="changePostcode" data-id="changePostcode" class="govuk-link"> Newid <span class="govuk-visually-hidden">eich cod post cyfredol</span></a>
