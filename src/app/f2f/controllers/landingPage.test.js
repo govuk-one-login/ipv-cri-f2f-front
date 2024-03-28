@@ -1,6 +1,6 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { expect } = require("chai");
-const LandingPageController = require('./landingPage');
+const LandingPageController = require("./landingPage");
 
 describe("LandingPage", () => {
   let landingPageController;
@@ -14,7 +14,9 @@ describe("LandingPage", () => {
     res = setup.res;
     next = setup.next;
     req.session.tokenId = "123abc";
-    req.axios.get = sinon.fake.resolves({ data: { evidence_requested: {strengthScore: 3 } } });
+    req.axios.get = sinon.fake.resolves({
+      data: { evidence_requested: { strengthScore: 3 } },
+    });
 
     landingPageController = new LandingPageController({ route: "/test" });
 
@@ -33,7 +35,10 @@ describe("LandingPage", () => {
     it("should set isThinFileUser to false by default", async () => {
       req.sessionModel.set = sinon.fake();
       await landingPageController.saveValues(req, res, next);
-      expect(req.sessionModel.set).to.have.been.calledWith("isThinFileUser", false);
+      expect(req.sessionModel.set).to.have.been.calledWith(
+        "isThinFileUser",
+        false
+      );
     });
 
     it("should fetch session configuration", async () => {
@@ -41,21 +46,28 @@ describe("LandingPage", () => {
       expect(req.axios.get).to.have.been.calledWith("/sessionConfiguration", {
         headers: {
           "x-govuk-signin-session-id": req.session.tokenId,
-        }
+        },
       });
     });
 
     it("should log error if session configuration can't be fetched", async () => {
       req.axios.get = sinon.fake.rejects("Error fetching");
       await landingPageController.saveValues(req, res, next);
-      expect(console.log).to.have.been.calledWith("Error calling /sessionConfiguration");
+      expect(console.log).to.have.been.calledWith(
+        "Error calling /sessionConfiguration"
+      );
     });
 
     it("if strength score is 4 isThinFileUser is set to true", async () => {
       req.sessionModel.set = sinon.fake();
-      req.axios.get = sinon.fake.resolves({ data: { evidence_requested: {strengthScore: 4 } } });
+      req.axios.get = sinon.fake.resolves({
+        data: { evidence_requested: { strengthScore: 4 } },
+      });
       await landingPageController.saveValues(req, res, next);
-      expect(req.sessionModel.set).to.have.been.calledWith("isThinFileUser", true);
+      expect(req.sessionModel.set).to.have.been.calledWith(
+        "isThinFileUser",
+        true
+      );
     });
 
     it("should save the values to the sessionModel if all is successful", async () => {

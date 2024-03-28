@@ -38,7 +38,9 @@ module.exports = class PlaywrightDevPage {
   }
 
   async checkErrorText() {
-    const errorText = await this.page.locator(".govuk-error-summary__title").textContent();
+    const errorText = await this.page
+      .locator(".govuk-error-summary__title")
+      .textContent();
     return errorText.trim();
   }
   async back() {
@@ -46,8 +48,9 @@ module.exports = class PlaywrightDevPage {
   }
 
   async checkRedirectionErrorText() {
-    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    const errorRedirectionText = await this.page.textContent(
+      '[data-id="error-title"]'
+    );
     return errorRedirectionText.trim();
   }
-
 };

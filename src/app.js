@@ -5,8 +5,8 @@ const path = require("path");
 const session = require("express-session");
 const AWS = require("aws-sdk");
 const DynamoDBStore = require("connect-dynamodb")(session);
-const wizard = require('hmpo-form-wizard');
-const logger = require("hmpo-logger")
+const wizard = require("hmpo-form-wizard");
+const logger = require("hmpo-logger");
 
 const commonExpress = require("@govuk-one-login/di-ipv-cri-common-express");
 
@@ -17,7 +17,9 @@ const { setGTM, setLanguageToggle } = commonExpress.lib.settings;
 const { getGTM, getLanguageToggle } = commonExpress.lib.locals;
 
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
-const { setI18n } = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next");
+const {
+  setI18n,
+} = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next");
 
 const {
   API,
@@ -70,7 +72,9 @@ const { app, router } = setup({
   publicDirs: ["../dist/public"],
   views: [
     path.resolve(
-      path.dirname(require.resolve("@govuk-one-login/di-ipv-cri-common-express")),
+      path.dirname(
+        require.resolve("@govuk-one-login/di-ipv-cri-common-express")
+      ),
       "components"
     ),
     path.resolve("node_modules/@govuk-one-login/"),
@@ -89,7 +93,7 @@ const { app, router } = setup({
 
 // setting trust proxy since this runs behind an AWS ALB
 // see https://expressjs.com/en/guide/behind-proxies.html
-app.set('trust proxy', 'loopback, linklocal, uniquelocal');
+app.set("trust proxy", "loopback, linklocal, uniquelocal");
 
 const steps = require("./app/f2f/steps");
 const fields = require("./app/f2f/fields");
@@ -115,10 +119,10 @@ setAPIConfig({
   sessionPath: API.PATHS.SESSION,
   authorizationPath: API.PATHS.AUTHORIZATION,
   proxyUrl: PROXY_API.BASE_URL,
-  postOfficeProxyUrl: PROXY_API.PATHS.POST_OFFICE
+  postOfficeProxyUrl: PROXY_API.PATHS.POST_OFFICE,
 });
 
-setOAuthPaths({ app, entryPointPath: APP.PATHS.F2F});
+setOAuthPaths({ app, entryPointPath: APP.PATHS.F2F });
 
 setGTM({
   app,
@@ -149,12 +153,17 @@ const wizardOptions = {
 router.use(wizard(steps, fields, wizardOptions));
 
 router.use((err, req, res, next) => {
-  logger.get().error("Error caught by Express handler - redirecting to Callback with server_error", {err});
-	const REDIRECT_URI = req.session?.authParams?.redirect_uri;
-	if (REDIRECT_URI) {
-		next(err);
-		router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
-	} else {
-		res.redirect(APP.PATHS.ERROR)
-	}
+  logger
+    .get()
+    .error(
+      "Error caught by Express handler - redirecting to Callback with server_error",
+      { err }
+    );
+  const REDIRECT_URI = req.session?.authParams?.redirect_uri;
+  if (REDIRECT_URI) {
+    next(err);
+    router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
+  } else {
+    res.redirect(APP.PATHS.ERROR);
+  }
 });

@@ -1,20 +1,18 @@
 /* global window document ga */
 
-window.DI = window.DI || {}
+window.DI = window.DI || {};
 window.DI.analyticsUa = window.DI.analyticsUa || {};
 
 (function (analytics) {
-
-  'use strict'
+  "use strict";
 
   function initGtm() {
-
-    const sendData = window.DI.analyticsGa4.pageViewTracker.pushToDataLayer
+    const sendData = window.DI.analyticsGa4.pageViewTracker.pushToDataLayer;
 
     sendData({
       "gtm.allowlist": ["google"],
       "gtm.blocklist": ["adm", "awct", "sp", "gclidw", "gcs", "opt"],
-    })
+    });
 
     const gaDataElement = document.getElementById("gaData");
 
@@ -113,21 +111,19 @@ window.DI.analyticsUa = window.DI.analyticsUa || {};
   //   return JOURNEY_DATA_LAYER_PATHS[url];
   // }
 
-  const init = function() {
-
+  const init = function () {
     const consentGiven = window.DI.analyticsGa4.cookie.hasConsentForAnalytics();
 
     if (consentGiven) {
       window.DI.analyticsGa4.loadGtmScript(
         window.DI.analyticsGa4.uaContainerId
       );
-      initGtm()
-      initLinkerHandlers()
+      initGtm();
+      initLinkerHandlers();
     } else {
-      window.addEventListener('cookie-consent', window.DI.analyticsUa.init)
+      window.addEventListener("cookie-consent", window.DI.analyticsUa.init);
     }
-  }
+  };
 
-  analytics.init = init
-
-})(window.DI.analyticsUa)
+  analytics.init = init;
+})(window.DI.analyticsUa);

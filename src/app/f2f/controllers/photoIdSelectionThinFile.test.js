@@ -1,11 +1,12 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-const {APP} = require("../../../lib/config");
+const { APP } = require("../../../lib/config");
 const { expect } = require("chai");
 const { afterEach } = require("mocha");
-const PhotoIdSelectionThinFileController = require('./photoIdSelectionThinFile');
+const PhotoIdSelectionThinFileController = require("./photoIdSelectionThinFile");
 
 describe("PhotoIdSelectionThinFileController", () => {
-  const photoIdSelectionThinFileController = new PhotoIdSelectionThinFileController({ route: '/test' });
+  const photoIdSelectionThinFileController =
+    new PhotoIdSelectionThinFileController({ route: "/test" });
   let req;
   let res;
   let next;
@@ -24,7 +25,9 @@ describe("PhotoIdSelectionThinFileController", () => {
   });
 
   it("should be an instance of BaseController", () => {
-    expect(photoIdSelectionThinFileController).to.be.an.instanceOf(BaseController);
+    expect(photoIdSelectionThinFileController).to.be.an.instanceOf(
+      BaseController
+    );
   });
 
   describe("#saveValues", () => {
@@ -41,7 +44,8 @@ describe("PhotoIdSelectionThinFileController", () => {
     });
 
     it("should save values to sessionModel when selected document type is NON_UK_PASSPORT", async () => {
-      req.form.values.photoIdChoiceThinFile = APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT;
+      req.form.values.photoIdChoiceThinFile =
+        APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT;
 
       await photoIdSelectionThinFileController.saveValues(req, res, next);
       const photoIdChoice = req.sessionModel.get("photoIdChoice");
@@ -70,7 +74,7 @@ describe("PhotoIdSelectionThinFileController", () => {
       await photoIdSelectionThinFileController.saveValues(req, res, next);
 
       const nextError = next.firstArg;
-      const nextErrMessage = ("photo-id-selection: Invalid action " + undefined);
+      const nextErrMessage = "photo-id-selection: Invalid action " + undefined;
 
       expect(next).to.have.been.calledOnce;
       expect(nextError).to.be.instanceOf(Error);

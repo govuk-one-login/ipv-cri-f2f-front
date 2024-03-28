@@ -22,24 +22,28 @@ module.exports = class PlaywrightDevPage {
   }
 
   async expiryDate() {
-    const tomorrow = new Date().getDate() + 1
-    const expDay = tomorrow.toString()
-    const currentMonth = new Date().getMonth() + 1
-    const expMonth = currentMonth.toString()
-    const futureYear = new Date().getFullYear() + 75
-    const expYear = futureYear.toString()
+    const tomorrow = new Date().getDate() + 1;
+    const expDay = tomorrow.toString();
+    const currentMonth = new Date().getMonth() + 1;
+    const expMonth = currentMonth.toString();
+    const futureYear = new Date().getFullYear() + 75;
+    const expYear = futureYear.toString();
     await this.page.locator("#euPhotocardDlExpiryDate-day").fill(expDay);
     await this.page.locator("#euPhotocardDlExpiryDate-month").fill(expMonth);
     await this.page.locator("#euPhotocardDlExpiryDate-year").fill(expYear);
   }
 
   async checkErrorText() {
-    const errorText = await this.page.locator(".govuk-error-summary__title").textContent();
+    const errorText = await this.page
+      .locator(".govuk-error-summary__title")
+      .textContent();
     return errorText.trim();
   }
 
   async checkRedirectionErrorText() {
-    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    const errorRedirectionText = await this.page.textContent(
+      '[data-id="error-title"]'
+    );
     return errorRedirectionText.trim();
   }
 };

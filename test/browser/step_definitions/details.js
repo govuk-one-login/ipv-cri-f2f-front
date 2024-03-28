@@ -1,18 +1,30 @@
 const { Given, Then, When } = require("@cucumber/cucumber");
 
-const { RelyingPartyPage, FindBranch, LandingPage, CheckDetails } = require("../pages");
+const {
+  RelyingPartyPage,
+  FindBranch,
+  LandingPage,
+  CheckDetails,
+} = require("../pages");
 
 const { expect } = require("chai");
 
-Given(/^([A-Za-z ])+is using the system$/, { timeout: 2 * 50000 }, async function (name) {
-  this.user = this.allUsers[name];
-  const rpPage = new RelyingPartyPage(this.page);
+Given(
+  /^([A-Za-z ])+is using the system$/,
+  { timeout: 2 * 50000 },
+  async function (name) {
+    this.user = this.allUsers[name];
+    const rpPage = new RelyingPartyPage(this.page);
 
-  await rpPage.goto();
-});
+    await rpPage.goto();
+  }
+);
 
-When("they have provided their details",{
-  timeout: 10 * 1000 },
+When(
+  "they have provided their details",
+  {
+    timeout: 10 * 1000,
+  },
   async function () {}
 );
 
@@ -28,7 +40,6 @@ Then("they should be redirected to the Find a Branch page", async function () {
   expect(await findBranchValid.isCurrentPage()).to.be.true;
 });
 
-
 Then("they should be redirected as an error", function () {
   const rpPage = new RelyingPartyPage(this.page);
 
@@ -37,7 +48,6 @@ Then("they should be redirected as an error", function () {
   expect(rpPage.hasErrorQueryParams()).to.be.true;
 });
 
-
 When(/^the user clicks the Check My Answers Submit button$/, async function () {
   const cmPage = new CheckDetails(await this.page);
 
@@ -45,5 +55,4 @@ When(/^the user clicks the Check My Answers Submit button$/, async function () {
 
   this.state = await cmPage.setSessionState();
   this.authCode = await cmPage.setAuthCode();
-
-})
+});

@@ -22,19 +22,21 @@ module.exports = class PlaywrightDevPage {
   }
 
   async expiryDate() {
-    const today = new Date().getDate()
-    const expDay = today.toString()
-    const currentMonth = new Date().getMonth() + 1
-    const expMonth = currentMonth.toString()
-    const pastYear = new Date().getFullYear() - 1
-    const expYear = pastYear.toString()
+    const today = new Date().getDate();
+    const expDay = today.toString();
+    const currentMonth = new Date().getMonth() + 1;
+    const expMonth = currentMonth.toString();
+    const pastYear = new Date().getFullYear() - 1;
+    const expYear = pastYear.toString();
     await this.page.locator("#brpExpiryDate-day").fill(expDay);
     await this.page.locator("#brpExpiryDate-month").fill(expMonth);
     await this.page.locator("#brpExpiryDate-year").fill(expYear);
   }
 
   async checkRedirectionErrorText() {
-    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    const errorRedirectionText = await this.page.textContent(
+      '[data-id="error-title"]'
+    );
     return errorRedirectionText.trim();
   }
 };

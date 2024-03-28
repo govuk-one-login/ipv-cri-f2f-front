@@ -22,7 +22,9 @@ module.exports = class PlaywrightDevPage {
   }
 
   get poLink() {
-    return this.page.locator('[href*="https://www.postoffice.co.uk/identity/in-branch-verification-service"]');
+    return this.page.locator(
+      '[href*="https://www.postoffice.co.uk/identity/in-branch-verification-service"]'
+    );
   }
 
   async postOfficeLink() {
@@ -31,8 +33,9 @@ module.exports = class PlaywrightDevPage {
   }
 
   async checkRedirectionErrorText() {
-    const errorRedirectionText = await this.page.textContent('[data-id="error-title"]');
+    const errorRedirectionText = await this.page.textContent(
+      '[data-id="error-title"]'
+    );
     return errorRedirectionText.trim();
   }
-
 };

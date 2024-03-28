@@ -1,4 +1,4 @@
-const {  When, Then } = require("@cucumber/cucumber");
+const { When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
@@ -13,5 +13,5 @@ Then("they should see the unrecoverable error page", async function () {
 
   expect(errorTitle).to.equal(errorPage.getSomethingWentWrongMessage());
 
-	expect(await errorPage.isCurrentPage()).to.be.true;
+  expect(await errorPage.isCurrentPage()).to.be.true;
 });

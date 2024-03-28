@@ -1,18 +1,17 @@
-const { formatDate, beforeNow } = require('./utils')
+const { formatDate, beforeNow } = require("./utils");
 const { expect } = require("chai");
 const moment = require("moment");
-
 
 describe("formatDate", () => {
   it("returns a YYYY-MM-DD date with language set to en as DD Month(English) YYYY", () => {
     expect(formatDate("2030-03-31", "YYYY-MM-DD", "en")).to.equal(
-      "31 March 2030",
+      "31 March 2030"
     );
   });
 
   it("returns a YYYY-MM-DD date with language set to cy as DD Month(Welsh) YYYY", () => {
     expect(formatDate("2030-03-31", "YYYY-MM-DD", "cy")).to.equal(
-      "31 Mawrth 2030",
+      "31 Mawrth 2030"
     );
   });
 
@@ -29,8 +28,7 @@ describe("formatDate", () => {
   });
 });
 
-describe('beforeNow', () => {
-
+describe("beforeNow", () => {
   it("should be false when UK passport issued greater than 10 years in the future", () => {
     const issueDate = moment()
       .add(10, "years")
@@ -38,8 +36,8 @@ describe('beforeNow', () => {
       .format("YYYY-MM-DD");
     const validator = beforeNow.bind({
       values: {
-        issueDate: issueDate
-      }
+        issueDate: issueDate,
+      },
     });
 
     expect(validator(issueDate, 10, "years")).to.be.false;
@@ -52,8 +50,8 @@ describe('beforeNow', () => {
       .format("YYYY-MM-DD");
     const validator = beforeNow.bind({
       values: {
-        issueDate: issueDate
-      }
+        issueDate: issueDate,
+      },
     });
 
     expect(validator(issueDate, 10, "years")).to.be.true;
@@ -63,11 +61,10 @@ describe('beforeNow', () => {
     const issueDate = moment().add(10, "years").format("YYYY-MM-DD");
     const validator = beforeNow.bind({
       values: {
-        issueDate: issueDate
-      }
+        issueDate: issueDate,
+      },
     });
 
     expect(validator(issueDate, 10, "years")).to.be.true;
   });
-
-})
+});

@@ -1,11 +1,11 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { expect } = require("chai");
 const sinon = require("sinon");
-const AbortController = require('./abort');
+const AbortController = require("./abort");
 const {
   API: {
     PATHS: { ABORT },
-  }
+  },
 } = require("../../../lib/config");
 
 describe("AbortController", () => {
@@ -20,7 +20,7 @@ describe("AbortController", () => {
     res = setup.res;
     next = setup.next;
 
-    abortController = new AbortController({ route: '/abort' });
+    abortController = new AbortController({ route: "/abort" });
   });
 
   it("should be an instance of BaseController", () => {
@@ -39,7 +39,7 @@ describe("AbortController", () => {
           { reason: "session_expired" },
           {
             headers: {
-              "x-govuk-signin-session-id": req.session.tokenId
+              "x-govuk-signin-session-id": req.session.tokenId,
             },
           }
         );

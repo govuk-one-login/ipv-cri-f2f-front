@@ -5,9 +5,7 @@ const {
   API: {
     PATHS: { SAVE_F2FDATA },
   },
-  APP: {
-    PHOTO_ID_OPTIONS
-  }
+  APP: { PHOTO_ID_OPTIONS },
 } = require("../../../lib/config");
 
 describe("CheckDetails controller", () => {
@@ -51,7 +49,7 @@ describe("CheckDetails controller", () => {
       };
       locals = {
         key: "value",
-        translate: (key) => key
+        translate: (key) => key,
       };
 
       req.form.values.postOfficeDetails = [
@@ -59,38 +57,38 @@ describe("CheckDetails controller", () => {
           value: "1",
           text: "BRANCH NAME 1",
           hint: {
-            text: "NAME and POSTCODE 1"
-          }
+            text: "NAME and POSTCODE 1",
+          },
         },
         {
           value: "2",
           text: "BRANCH NAME 2",
           hint: {
-            text: "NAME and POSTCODE 2"
-          }
+            text: "NAME and POSTCODE 2",
+          },
         },
         {
           value: "3",
           text: "BRANCH NAME 3",
           hint: {
-            text: "NAME and POSTCODE 3"
-          }
+            text: "NAME and POSTCODE 3",
+          },
         },
         {
           value: "4",
           text: "BRANCH NAME 4",
           hint: {
-            text: "NAME and POSTCODE 4"
-          }
+            text: "NAME and POSTCODE 4",
+          },
         },
         {
           value: "5",
           text: "BRANCH NAME 5",
           hint: {
-            text: "NAME and POSTCODE 5"
-          }
+            text: "NAME and POSTCODE 5",
+          },
         },
-      ]
+      ];
       req.form.values.payLoadValues = {
         location0: {
           addressWithoutPostCode: "Address for location 0",
@@ -127,7 +125,7 @@ describe("CheckDetails controller", () => {
           longitude: "-100000",
           fadCode: "0080101",
         },
-      }
+      };
       res.locals = locals;
       BaseController.prototype.locals.yields(error, superLocals);
     });
@@ -140,26 +138,48 @@ describe("CheckDetails controller", () => {
       { branch: "5", detailsIndex: 4 },
     ].forEach(({ branch, detailsIndex }) => {
       it(`when the user has selected post office ${branch}, details are updated correctly`, async () => {
-        const postOfficeDetails = req.form.values.postOfficeDetails[detailsIndex];
-        const payLoadValues = req.form.values.payLoadValues[`location${detailsIndex}`];
+        const postOfficeDetails =
+          req.form.values.postOfficeDetails[detailsIndex];
+        const payLoadValues =
+          req.form.values.payLoadValues[`location${detailsIndex}`];
         req.form.values.branches = branch;
 
         await checkDetailsController.locals(req, res, next);
 
-        expect(req.sessionModel.get("postOfficeName")).to.equal(postOfficeDetails.text);
-        expect(req.sessionModel.get("postOfficeAddress")).to.equal(postOfficeDetails.hint.text);
-        expect(req.sessionModel.get("postOfficePostcode")).to.equal(payLoadValues.postcode);
-        expect(req.sessionModel.get("postOfficeAddressWithoutPostCode")).to.equal(payLoadValues.addressWithoutPostCode);
-        expect(req.sessionModel.get("postOfficeLatitude")).to.equal(payLoadValues.latitude);
-        expect(req.sessionModel.get("postOfficeLongitude")).to.equal(payLoadValues.longitude);
-        expect(req.sessionModel.get("postOfficeFadCode")).to.equal(payLoadValues.fadCode);
+        expect(req.sessionModel.get("postOfficeName")).to.equal(
+          postOfficeDetails.text
+        );
+        expect(req.sessionModel.get("postOfficeAddress")).to.equal(
+          postOfficeDetails.hint.text
+        );
+        expect(req.sessionModel.get("postOfficePostcode")).to.equal(
+          payLoadValues.postcode
+        );
+        expect(
+          req.sessionModel.get("postOfficeAddressWithoutPostCode")
+        ).to.equal(payLoadValues.addressWithoutPostCode);
+        expect(req.sessionModel.get("postOfficeLatitude")).to.equal(
+          payLoadValues.latitude
+        );
+        expect(req.sessionModel.get("postOfficeLongitude")).to.equal(
+          payLoadValues.longitude
+        );
+        expect(req.sessionModel.get("postOfficeFadCode")).to.equal(
+          payLoadValues.fadCode
+        );
       });
     });
 
     [
-      { photoIdChoice: PHOTO_ID_OPTIONS.UK_PASSPORT, expiryDateKey: "ukPassportExpiryDate" },
+      {
+        photoIdChoice: PHOTO_ID_OPTIONS.UK_PASSPORT,
+        expiryDateKey: "ukPassportExpiryDate",
+      },
       { photoIdChoice: PHOTO_ID_OPTIONS.BRP, expiryDateKey: "brpExpiryDate" },
-      { photoIdChoice: PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, expiryDateKey: "ukPhotocardDlExpiryDate" },
+      {
+        photoIdChoice: PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
+        expiryDateKey: "ukPhotocardDlExpiryDate",
+      },
     ].forEach(({ photoIdChoice, expiryDateKey }) => {
       it(`when photoIdChoice is ${photoIdChoice} countryCode and expiryDate are set correctly`, async () => {
         req.form.values.branches = "1";
@@ -199,9 +219,9 @@ describe("CheckDetails controller", () => {
       req.form.values.idHasExpiryDate = true;
       req.form.values.euDrivingLicenceCountrySelector = "DEU";
       req.form.values.euPhotocardDlAddressCheck = true;
-      
+
       await checkDetailsController.locals(req, res, next);
-    
+
       expect(req.sessionModel.get("countryCode")).to.equal("DEU");
       expect(req.sessionModel.get("country")).to.equal("countries.DEU");
       expect(req.sessionModel.get("expiryDate")).to.equal("01/01/2030");
@@ -231,26 +251,26 @@ describe("CheckDetails controller", () => {
     context("on journey save f2f data", () => {
       it("should call documentSelection endpoint", async () => {
         req.axios.post = sinon.fake.resolves({
-          data: {}
+          data: {},
         });
 
         const f2fData = {
-          "document_selection": {
-            "document_selected": req.sessionModel.get("photoIdChoice"),
-            "date_of_expiry": req.sessionModel.get("expiryDate"),
-            "country_code": req.sessionModel.get("countryCode")
+          document_selection: {
+            document_selected: req.sessionModel.get("photoIdChoice"),
+            date_of_expiry: req.sessionModel.get("expiryDate"),
+            country_code: req.sessionModel.get("countryCode"),
           },
-          "post_office_selection": {
-            "name": req.sessionModel.get("postOfficeName"),
-            "address": req.sessionModel.get("postOfficeAddressWithoutPostCode"),
-            "location": {
-              "latitude": req.sessionModel.get("postOfficeLatitude"),
-              "longitude": req.sessionModel.get("postOfficeLongitude"),
+          post_office_selection: {
+            name: req.sessionModel.get("postOfficeName"),
+            address: req.sessionModel.get("postOfficeAddressWithoutPostCode"),
+            location: {
+              latitude: req.sessionModel.get("postOfficeLatitude"),
+              longitude: req.sessionModel.get("postOfficeLongitude"),
             },
-            "post_code": req.sessionModel.get("postOfficePostcode"),
-            "fad_code": req.sessionModel.get("postOfficeFadCode")
-          }
-        }
+            post_code: req.sessionModel.get("postOfficePostcode"),
+            fad_code: req.sessionModel.get("postOfficeFadCode"),
+          },
+        };
 
         await checkDetailsController.saveValues(req, res, next);
         expect(next).to.have.been.calledOnce;
@@ -259,15 +279,15 @@ describe("CheckDetails controller", () => {
           f2fData,
           {
             headers: {
-              "x-govuk-signin-session-id": req.session.tokenId
+              "x-govuk-signin-session-id": req.session.tokenId,
             },
           }
         );
       });
 
       it("if call to documentSelection endpoint fails, callback is called with the error", async () => {
-        const error  = new Error("error");
-        req.axios.post = sinon.fake.rejects(error)
+        const error = new Error("error");
+        req.axios.post = sinon.fake.rejects(error);
         await checkDetailsController.saveValues(req, res, next);
         expect(next).to.have.been.calledWith(error);
       });

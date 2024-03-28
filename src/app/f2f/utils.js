@@ -25,7 +25,10 @@ function beforeNow(_value, timePeriod, timeUnit) {
   let test = moment(_value, dateFormat);
   let comparator;
   // One additional day added so that the check is inclusive of the current date minus X time
-  comparator = moment().add(timePeriod, timeUnit).add(1, 'day').format(dateFormat);
+  comparator = moment()
+    .add(timePeriod, timeUnit)
+    .add(1, "day")
+    .format(dateFormat);
 
   return (
     _value === "" || (validators.date(_value) && test.isBefore(comparator))
