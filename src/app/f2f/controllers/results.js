@@ -7,10 +7,10 @@ class PostcodeSearchController extends BaseController {
       if (err) {
         return callback(err, locals);
       }
-
+      try {
       const userPostcode = req.sessionModel.get("postcode");
       const { data: postOfficeData } = await req.axios.post(
-        `https://${PROXY_API.BASE_URL}${PROXY_API.PATHS.POST_OFFICE}`,
+        "https://f2f-post-office-stub-1726b-postofficestub.review-o.dev.account.gov.uk/v1/locations/search",
         {
           searchString: userPostcode,
           productFilter: ["50321"],
@@ -181,6 +181,15 @@ class PostcodeSearchController extends BaseController {
       req.sessionModel.set("payLoadValues", locals.payLoadValues);
 
       callback(err, locals);
+    } catch (error) {
+      const REDIRECT_URI = true
+      if (REDIRECT_URI) {
+        next(err);
+        router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
+      } else {
+        callback(error);
+      }
+    }
     });
   }
 }
