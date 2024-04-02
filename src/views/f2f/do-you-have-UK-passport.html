@@ -9,10 +9,8 @@
 
     {% set title = translate("photoIdSelectionThinFile.title") %}
     {% set content = translate("photoIdSelectionThinFile.content") %}
-    {% set biometricHint = translate("photoIdSelectionThinFile.biometricHint") %}
-    {% set biometricChipPhoto = translate("photoIdSelectionThinFile.biometricChipPhoto") %}
-    {% set photocopyWarning = translate("photoIdSelectionThinFile.photocopyWarning") %}
-    {% set formInstructions = "<p>" + content + "</p><br><p>" + biometricHint + "</p><br><p>" + biometricChipPhoto + "</p><br><p>" + photocopyWarning + "</p>" %}
+    {% set hint = translate("photoIdSelectionThinFile.hint") %}
+    {% set formInstructions = "<br><p>" + content + "</p><br><p>" + hint + "</p>" %}
 
     {% call hmpoForm(ctx) %}
     {{ hmpoRadios(ctx, {

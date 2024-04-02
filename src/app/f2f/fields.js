@@ -27,8 +27,6 @@ module.exports = {
     hint: "",
     items: [
       { value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT },
-      { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
-      { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID },
     ],
     validate: ["required"],
