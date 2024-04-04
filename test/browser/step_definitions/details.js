@@ -67,9 +67,9 @@ Then(
   async function (languageAttribute) {
     const landingPage = new LandingPage(await this.page);
     expect(await landingPage.returnLanguageAttribute()).to.equal(
-      languageAttribute,
+      languageAttribute
     );
-  },
+  }
 );
 
 When("the user switches language to {string}", async function (language) {
@@ -82,5 +82,5 @@ When(
   async function (language) {
     const landingPage = new LandingPage(await this.page);
     expect(await landingPage.returnLanguageToggleHref(language)).to.be.null;
-  },
+  }
 );
