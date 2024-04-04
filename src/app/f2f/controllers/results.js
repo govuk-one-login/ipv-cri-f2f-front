@@ -1,6 +1,6 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-const { PROXY_API } = require("../../../../src/lib/config");
 const { API } = require("../../../lib/config")
+const logger = require("hmpo-logger").get();
 
 class PostcodeSearchController extends BaseController {
   locals(req, res, callback) {
@@ -11,7 +11,7 @@ class PostcodeSearchController extends BaseController {
       try {
       const userPostcode = req.sessionModel.get("postcode");
       const { data: postOfficeData } = await req.axios.post(
-        "https://f2f-post-office-stub-1726b-postofficestub.review-o.dev.account.gov.uk/v1/locations/search",
+        "https://f2f-post-office-stub-1726-postofficestub.review-o.dev.account.gov.uk/v1/locations/search",
         {
           searchString: userPostcode,
           productFilter: ["50321"],
@@ -183,8 +183,6 @@ class PostcodeSearchController extends BaseController {
 
       callback(err, locals);
     } catch (error) {
-      const REDIRECT_URI = true
-      if (REDIRECT_URI) {
         const headers = {
           "x-govuk-signin-session-id": req.session.tokenId,
         };
@@ -198,17 +196,16 @@ class PostcodeSearchController extends BaseController {
         );
     
         if (response.status === 200 && response.headers.location) {
-          const REDIRECT_URL = decodeURIComponent(response.headers.location);
+          const REDIRECT_URI = decodeURIComponent(response.headers.location);
     
           logger.warn("Session aborted successfully - now redirecting", {
-            location: REDIRECT_URL,
+            location: REDIRECT_URI,
           });
     
-          res.redirect(REDIRECT_URL);
+          res.redirect(REDIRECT_URI);
+        } else {
+          callback(error);
         }
-      } else {
-        callback(error);
-      }
     }
     });
   }
