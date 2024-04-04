@@ -33,6 +33,27 @@ jobs:
           node-version: 18
           cache: 'yarn'
 
+      - name: Checks if commiting secrets to repo
+        uses: pre-commit/action@v3.0.0
+        with:
+          extra_args: "detect-secrets --all-files"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run lint
+        run: yarn lint
+
+      - name: Run test and write coverage
+        run: yarn nyc --reporter=lcov --reporter=text-summary yarn mocha
+        
+      - name: "Run SonarCloud Scan"
+        if: ${{ success() && github.actor != 'dependabot[bot]' }}
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build Test F2F Front Image
         uses: borales/actions-yarn@v4
         with:
