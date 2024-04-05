@@ -1,4 +1,5 @@
 const BaseController = require("hmpo-form-wizard").Controller;
+const { PROXY_API } = require("../../../../src/lib/config");
 const { API } = require("../../../lib/config")
 const logger = require("hmpo-logger").get();
 
@@ -11,7 +12,7 @@ class PostcodeSearchController extends BaseController {
       try {
       const userPostcode = req.sessionModel.get("postcode");
       const { data: postOfficeData } = await req.axios.post(
-        "https://f2f-post-office-stub-1726-postofficestub.review-o.dev.account.gov.uk/v1/locations/search",
+        `https://${PROXY_API.BASE_URL}${PROXY_API.PATHS.POST_OFFICE}`,
         {
           searchString: userPostcode,
           productFilter: ["50321"],
