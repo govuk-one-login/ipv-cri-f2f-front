@@ -108,11 +108,6 @@ module.exports = {
       },
       {
         field: "photoIdChoice",
-        value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
-        next: APP.PATHS.NON_UK_PASSPORT_HAS_EXPIRY_DATE,
-      },
-      {
-        field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID,
         next: APP.PATHS.ABORT,
       },

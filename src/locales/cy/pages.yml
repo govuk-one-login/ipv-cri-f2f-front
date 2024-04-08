@@ -19,11 +19,9 @@ landingPage:
       one: "Byddwch yn cael e-bost am ganlyniad eich gwiriad hunaniaeth - fel arfer o fewn diwrnod o fynd i'r Swyddfa Bost."
 
 photoIdSelectionThinFile:
-  title: "Dewiswch pa ID gyda llun y gallwch fynd i'r Swyddfa Bost"
-  content: "Yn seiliedig ar beth rydych wedi'i ddweud wrthym a'r gwiriadau rydym wedi'u gwneud, byddwch angen pasbort y DU neu basbort o'r tu allan i'r DU gyda sglodyn biometrig i brofi pwy ydych chi mewn Swyddfa Bost."
-  biometricHint: "I wirio a oes gan eich pasbort o'r tu allan i'r DU sglodyn biometrig, edrychwch am y symbol sglodyn biometrig petryal ar y clawr blaen."
-  biometricChipPhoto: <img src="public/images/biometricChipPhoto.png" alt="Llun Sglodyn Biometrig" width="150" height="100">
-  photocopyWarning: "Ni allwch ddefnyddio llungopi neu gopi digidol o'ch pasbort."
+  title: "Oes gennych chi basbort y Deyrnas Unedig?"
+  content: "Gallwch ddefnyddio unrhyw pasbort y DU. Os yw'ch pasbort y DU wedi dod i ben, gallwch barhau i'w ddefnyddio i brofi eich hunaniaeth hyd at 18 mis ar ôl ei ddyddiad dod i ben."
+  hint: "Ni allwch ddefnyddio llungopi neu gopi digidol o'ch pasbort."
 
 photoIdSelection:
   title: "Dewiswch pa ID gyda llun y gallwch fynd i'r Swyddfa Bost"

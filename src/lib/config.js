@@ -25,7 +25,7 @@ module.exports = {
       F2F: "/",
       LANDING_PAGE: "/prove-identity-post-office",
       PHOTO_ID_SELECTION: "/choose-photo-id-post-office",
-      PHOTO_ID_SELECTION_THIN_FILE: "/choose-photo-id-post-office-biometric",
+      PHOTO_ID_SELECTION_THIN_FILE: "/do-you-have-UK-passport",
       UK_PASSPORT_DETAILS: "/uk-passport-expire",
       NON_UK_PASSPORT_DETAILS: "/non-uk-passport-expire",
       NON_UK_PASSPORT_HAS_EXPIRY_DATE: "/non-uk-passport-expiry-date",
