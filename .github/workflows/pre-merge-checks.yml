@@ -42,6 +42,7 @@ jobs:
         env: 
           IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
           CUSTOM_FE_URL: http:/localhost:5030
+          LANGUAGE_TOGGLE_DISABLED: false
           PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
           F2F_FE_BASE_URL: http:/localhost:5030
       - name: Archive browser tests results

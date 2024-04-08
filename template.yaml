@@ -125,6 +125,7 @@ Mappings:
       LOGLEVEL: "debug"
       GA4DISABLED: false
       UADISABLED: false
+      LANGUAGETOGGLEDISABLED: false
     build:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
       DNSSUFFIX: "review-o.build.account.gov.uk"
@@ -137,6 +138,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: false
       UADISABLED: false
+      LANGUAGETOGGLEDISABLED: false
     staging:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
@@ -149,6 +151,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: false
       UADISABLED: false
+      LANGUAGETOGGLEDISABLED: true
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
@@ -161,6 +164,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: true
       UADISABLED: false
+      LANGUAGETOGGLEDISABLED: true
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
@@ -173,6 +177,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: true
       UADISABLED: false
+      LANGUAGETOGGLEDISABLED: true
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -456,6 +461,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, GA4DISABLED ]
             - Name: UA_DISABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, UADISABLED ]
+            - Name: LANGUAGE_TOGGLE_DISABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, LANGUAGETOGGLEDISABLED ]
 
           Secrets:
             - Name: DT_TENANT

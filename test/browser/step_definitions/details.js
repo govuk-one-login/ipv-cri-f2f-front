@@ -56,3 +56,31 @@ When(/^the user clicks the Check My Answers Submit button$/, async function () {
   this.state = await cmPage.setSessionState();
   this.authCode = await cmPage.setAuthCode();
 });
+
+Then("the language toggle is present on the screen", async function () {
+  const landingPage = new LandingPage(await this.page);
+  await landingPage.languageTogglePresent();
+});
+
+Then(
+  "The HTML Language Attribute is set to {string}",
+  async function (languageAttribute) {
+    const landingPage = new LandingPage(await this.page);
+    expect(await landingPage.returnLanguageAttribute()).to.equal(
+      languageAttribute
+    );
+  }
+);
+
+When("the user switches language to {string}", async function (language) {
+  const landingPage = new LandingPage(await this.page);
+  await landingPage.selectLanguageToggle(language);
+});
+
+When(
+  "the language toggle updates the {string} hyperlink",
+  async function (language) {
+    const landingPage = new LandingPage(await this.page);
+    expect(await landingPage.returnLanguageToggleHref(language)).to.be.null;
+  }
+);

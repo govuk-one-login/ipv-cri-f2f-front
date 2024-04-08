@@ -16,6 +16,7 @@ export F2F_FE_BASE_URL=https://$(remove_quotes $CFN_F2FCustomDomain)
 export TEST_HARNESS_URL=$(remove_quotes $CFN_F2FTestHarnessURL)
 export SESSION_TABLE=$(remove_quotes $CFN_BackendSessionTableName)
 export API_BASE_URL=$(remove_quotes "$CFN_F2FBackendURL")
+export LANGUAGE_TOGGLE_DISABLED=false
 
 declare error_code
 
