@@ -1,7 +1,5 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { PROXY_API } = require("../../../../src/lib/config");
-const { API } = require("../../../lib/config")
-const logger = require("hmpo-logger").get();
 
 class PostcodeSearchController extends BaseController {
   locals(req, res, callback) {
@@ -184,29 +182,7 @@ class PostcodeSearchController extends BaseController {
 
       callback(err, locals);
     } catch (error) {
-        const headers = {
-          "x-govuk-signin-session-id": req.session.tokenId,
-        };
-    
-        const response = await req.axios.post(
-          `${API.PATHS.ABORT}`,
-          { reason: "session_expired" },
-          {
-            headers,
-          }
-        );
-    
-        if (response.status === 200 && response.headers.location) {
-          const REDIRECT_URI = decodeURIComponent(response.headers.location);
-    
-          logger.warn("Session aborted successfully - now redirecting", {
-            location: REDIRECT_URI,
-          });
-    
-          res.redirect(REDIRECT_URI);
-        } else {
-          callback(error);
-        }
+      callback(error); 
     }
     });
   }
