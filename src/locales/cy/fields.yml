@@ -37,7 +37,7 @@ photoIdChoiceThinFile:
   items:
     ukPassport:
       label: Oes, mae gen i basbort y Deyrnas Unedig
-      hint: "Os yw'ch pasbort y DU wedi dod i ben, gallwch barhau i’w ddefnyddio i brofi pwy ydych chi hyd at 18 mis ar ôl ei ddyddiad dod i ben."
+      hint: ""
       reveal: ""
     noPhotoId:
       label: Na, nid oes gennyf basbort y Deyrnas Unedig
