@@ -55,6 +55,10 @@ Parameters:
     Type: String
     Default: "f2f-test-harness"
     Description: The name of the deployed Test Harness stack
+  DeployAlarmsInDev:
+    Description: "Set to the string value `true` to deploy alarms in a DEV environment"
+    Type: String
+    Default: false
 
 Conditions:
   IsNotDevelopment: !Or
@@ -80,6 +84,9 @@ Conditions:
     - !Equals [ !Ref Environment, staging ]
     - !Equals [ !Ref Environment, integration ]
     - !Equals [ !Ref Environment, production ]
+  DeployAlarms: !Or
+    - Condition: IsNotDevelopment
+    - !Equals [!Ref DeployAlarmsInDev, true]
 
 # DO WE NEED TO CHANGE THE ARN?
 
@@ -400,6 +407,7 @@ Resources:
 
   ECSFatalErorMetricFilter:
     Type: AWS::Logs::MetricFilter
+    Condition: "DeployAlarms"
     Properties:
       LogGroupName: !Ref ECSAccessLogsGroup
       FilterPattern: '{ $.level = "FATAL" || $.message = "Unhandled Exception:*" }'
@@ -413,6 +421,7 @@ Resources:
     DependsOn:
       - "ECSFatalErorMetricFilter"
     Type: AWS::CloudWatch::Alarm
+    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-ECSFatalErrorAlarm"
       AlarmDescription: !Sub "Trigger an alarm when Fatal Error occurs ${SupportManualURL}"
@@ -704,6 +713,7 @@ Resources:
 
   APIGWFatalErorMetricFilter:
     Type: AWS::Logs::MetricFilter
+    Condition: "DeployAlarms"
     Properties:
       LogGroupName: !Ref APIGWAccessLogsGroup
       FilterPattern: '{ $.level = "FATAL" || $.message = "Unhandled Exception:*" }'
@@ -717,6 +727,7 @@ Resources:
     DependsOn:
       - "APIGWFatalErorMetricFilter"
     Type: AWS::CloudWatch::Alarm
+    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-APIGWFatalErrorAlarm"
       AlarmDescription: !Sub "Trigger an alarm when Fatal Error occurs ${SupportManualURL}"
@@ -849,6 +860,7 @@ Resources:
 
   FE5XXErrorAlarm:
     Type: AWS::CloudWatch::Alarm
+    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FE5XXErrorAlarm"
       AlarmDescription: !Sub "Trigger the warning alarm for Frontend 5XX Error ${SupportManualURL}"
@@ -898,6 +910,7 @@ Resources:
 
   FE4XXErrorAlarm:
     Type: AWS::CloudWatch::Alarm
+    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FE4XXErrorAlarm"
       AlarmDescription: !Sub "Trigger the warning alarm for Frontend 4xx Alarm ${SupportManualURL}"
@@ -947,6 +960,7 @@ Resources:
 
   FELatencyAlarmP95:
     Type: AWS::CloudWatch::Alarm
+    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELatencyAlarmP95"
       AlarmDescription: !Sub "Trigger the warning alarm for Frontend P95 Latency ${SupportManualURL}"
@@ -992,6 +1006,7 @@ Resources:
 
   FELatencyAlarmP99:
     Type: AWS::CloudWatch::Alarm
+    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELatencyAlarmP99"
       AlarmDescription: !Sub "Trigger the warning alarm for Frontend P99 Latency ${SupportManualURL}"
@@ -1040,6 +1055,7 @@ Resources:
       - F2FFrontEcsService
       - F2FFrontEcsCluster
     Type: AWS::CloudWatch::Alarm
+    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELowContainerTaskCountAlarm"
       AlarmDescription: !Sub "Trigger a warning if the running container task count drops below 2 ${SupportManualURL}"
@@ -1073,6 +1089,7 @@ Resources:
       - F2FFrontEcsService
       - F2FFrontEcsCluster
     Type: AWS::CloudWatch::Alarm
+    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FEHighContainerTaskCountWarning"
       AlarmDescription: !Sub "Trigger a warning if the running container task count reaches the auto-scaling maximum for 5 minutes ${SupportManualURL}"
@@ -1108,6 +1125,7 @@ Resources:
       - F2FFrontEcsService
       - F2FFrontEcsCluster
     Type: AWS::CloudWatch::Alarm
+    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELowContainerTaskCountCriticalAlarm"
       AlarmDescription: !Sub "Trigger a critical alert if the running container task count drops below 1 ${SupportManualURL}"
@@ -1138,6 +1156,7 @@ Resources:
 
   WarningAlarmDashboard:
     Type: AWS::CloudWatch::Dashboard
+    Condition: "DeployAlarms"
     Properties:
       DashboardName: !Sub '${AWS::StackName}-Warning-Alarm-Overview'
       DashboardBody:
@@ -1239,6 +1258,7 @@ Resources:
 
   CriticalAlarmDashboard:
     Type: AWS::CloudWatch::Dashboard
+    Condition: "DeployAlarms"
     Properties:
       DashboardName: !Sub '${AWS::StackName}-Critical-Alarm-Overview'
       DashboardBody:
