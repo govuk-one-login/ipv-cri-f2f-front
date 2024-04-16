@@ -1,4 +1,4 @@
-@success @browser @e2e2
+@success @browser 
 Feature: Enter UK driving licence   - Happy Path
 
     Background:
