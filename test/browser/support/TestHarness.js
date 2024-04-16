@@ -10,6 +10,7 @@ const aws4Interceptor = require("aws4-axios").aws4Interceptor;
 const { unmarshall } = require("@aws-sdk/util-dynamodb");
 const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
 const { XMLParser } = require("fast-xml-parser");
+const { expect } = require("chai");
 
 module.exports = class TestHarness {
   constructor() {
@@ -120,13 +121,14 @@ module.exports = class TestHarness {
 
   async validateTxMAEventData(keyList) {
     let i;
+    let valid = Boolean;
+    
     for (i = 0; i < keyList.length; i++) {
       const getObjectResponse = await this.HARNESS_API_INSTANCE.get(
         "/object/" + keyList[i],
         {}
       );
       console.log(JSON.stringify(getObjectResponse.data, null, 2));
-      let valid = true;
       const eventName = getObjectResponse.data.event_name;
       const Ajv = require("ajv").default;
       const AjvFormats = require("ajv-formats");
@@ -220,6 +222,7 @@ module.exports = class TestHarness {
           break;
         }
       }
+      expect(valid).to.be.true;
     }
   }
 };

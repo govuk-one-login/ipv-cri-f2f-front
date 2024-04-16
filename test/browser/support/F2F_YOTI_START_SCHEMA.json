@@ -138,7 +138,7 @@
                         }
                     ]
                 },
-                "drivingPermit": {
+                "passport": {
                     "type": "array",
                     "items": [
                         {
@@ -161,7 +161,7 @@
             },
             "required": [
                 "name",
-                "drivingPermit"
+                "passport"
             ]
         }
     },
