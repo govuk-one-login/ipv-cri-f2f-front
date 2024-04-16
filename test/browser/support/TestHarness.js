@@ -121,8 +121,9 @@ module.exports = class TestHarness {
 
   async validateTxMAEventData(keyList) {
     let i;
+    let valid = Boolean;
+    
     for (i = 0; i < keyList.length; i++) {
-      let valid = Boolean;
       const getObjectResponse = await this.HARNESS_API_INSTANCE.get(
         "/object/" + keyList[i],
         {}
