@@ -170,7 +170,6 @@
         "user",
         "timestamp",
         "event_timestamp_ms",
-        "event_timestamp_ms",
         "component_id",
         "extensions",
         "restricted"
