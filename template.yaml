@@ -162,7 +162,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: false
       UADISABLED: false
-      LANGUAGETOGGLEDISABLED: true
+      LANGUAGETOGGLEDISABLED: false
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
