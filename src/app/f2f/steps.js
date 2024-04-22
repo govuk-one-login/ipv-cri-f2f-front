@@ -40,6 +40,8 @@ module.exports = {
   },
   [`${APP.PATHS.PHOTO_ID_SELECTION}`]: {
     controller: photoIdSelect,
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     fields: ["photoIdChoice"],
     invalidates: [
       "ukPassportExpiryDate",
@@ -90,6 +92,8 @@ module.exports = {
   },
   [`${APP.PATHS.PHOTO_ID_SELECTION_THIN_FILE}`]: {
     controller: photoIdSelectThinFile,
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     fields: ["photoIdChoiceThinFile"],
     invalidates: [
       "ukPassportExpiryDate",
