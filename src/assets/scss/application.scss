@@ -63,10 +63,6 @@ main p,
   @include govuk-responsive-margin(0, "bottom");
 }
 
-.govuk-error-summary {
-  width: 66.6666%;
-}
-
 #landingPageTitle {
   @include govuk-responsive-margin(5, "bottom");
 }
