@@ -82,14 +82,17 @@ Then(
             expecedStrengthScore
           );
         } catch (error) {
-          console.log(`Error validating Strength Score for yotiMockId: ${yotiMockIdId}`, error);
+          console.log(
+            `Error validating Strength Score for yotiMockId: ${yotiMockIdId}`,
+            error
+          );
           return error;
         }
       } else {
         throw new Error(
-          `No expected Strength Score for yotiMockId: ${yotiMockIdId}`,
-        )
-      };
+          `No expected Strength Score for yotiMockId: ${yotiMockIdId}`
+        );
+      }
       // Validity Score
       const expecedValidityScore = eval(
         "vcResponseData.s" + yotiMockIdId + ".validityScore"
@@ -100,14 +103,17 @@ Then(
             expecedValidityScore
           );
         } catch (error) {
-          console.log(`Error validating Validity Score for yotiMockId: ${yotiMockIdId}`, error);
+          console.log(
+            `Error validating Validity Score for yotiMockId: ${yotiMockIdId}`,
+            error
+          );
           return error;
         }
       } else {
         throw new Error(
-          `No expected Validity Score for yotiMockId: ${yotiMockIdId}`,
-        )
-      };
+          `No expected Validity Score for yotiMockId: ${yotiMockIdId}`
+        );
+      }
       // Verification Score
       const expecedVerificationScore = eval(
         "vcResponseData.s" + yotiMockIdId + ".verificationScore"
@@ -118,18 +124,19 @@ Then(
             expecedVerificationScore
           );
         } catch (error) {
-          console.log(`Error validating Verification Score for yotiMockId: ${yotiMockIdId}`, error);
+          console.log(
+            `Error validating Verification Score for yotiMockId: ${yotiMockIdId}`,
+            error
+          );
           return error;
         }
       } else {
         throw new Error(
-          `No expected Verification Score for yotiMockId: ${yotiMockIdId}`,
-        )
-      };
+          `No expected Verification Score for yotiMockId: ${yotiMockIdId}`
+        );
+      }
     } else {
-      throw new Error(
-        "Verifiable Credential Validation JSON not found",
-      )
+      throw new Error("Verifiable Credential Validation JSON not found");
     }
   }
 );
