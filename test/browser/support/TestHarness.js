@@ -1,16 +1,59 @@
-const F2F_CRI_AUTH_CODE_ISSUED = require("../support/F2F_CRI_AUTH_CODE_ISSUED_SCHEMA.json");
-const F2F_CRI_END = require("../support/F2F_CRI_END_SCHEMA.json");
-const F2F_CRI_START = require("../support/F2F_CRI_START_SCHEMA.json");
-const F2F_CRI_VC_ISSUED = require("../support/F2F_CRI_VC_ISSUED_SCHEMA.json");
-const F2F_YOTI_PDF_EMAILED = require("../support/F2F_YOTI_PDF_EMAILED_SCHEMA.json");
-const F2F_YOTI_RESPONSE_RECEIVED = require("../support/F2F_YOTI_RESPONSE_RECEIVED_SCHEMA.json");
-const F2F_YOTI_START = require("../support/F2F_YOTI_START_SCHEMA.json");
+const F2F_CRI_AUTH_CODE_ISSUED_SCHEMA = require("../support/F2F_CRI_AUTH_CODE_ISSUED_SCHEMA.json");
+const F2F_CRI_END_SCHEMA = require("../support/F2F_CRI_END_SCHEMA.json");
+const F2F_CRI_START_SCHEMA = require("../support/F2F_CRI_START_SCHEMA.json");
+const F2F_CRI_VC_ISSUED_SCHEMA_00 = require("../support/F2F_CRI_VC_ISSUED_00_SCHEMA.json");
+const F2F_CRI_VC_ISSUED_SCHEMA_01 = require("../support/F2F_CRI_VC_ISSUED_01_SCHEMA.json");
+const F2F_CRI_VC_ISSUED_SCHEMA_02 = require("../support/F2F_CRI_VC_ISSUED_02_SCHEMA.json");
+const F2F_CRI_VC_ISSUED_SCHEMA_03 = require("../support/F2F_CRI_VC_ISSUED_03_SCHEMA.json");
+const F2F_CRI_VC_ISSUED_SCHEMA_04 = require("../support/F2F_CRI_VC_ISSUED_04_SCHEMA.json");
+const F2F_CRI_VC_ISSUED_SCHEMA_05 = require("../support/F2F_CRI_VC_ISSUED_05_SCHEMA.json");
+const F2F_YOTI_PDF_EMAILED_SCHEMA = require("../support/F2F_YOTI_PDF_EMAILED_SCHEMA.json");
+const F2F_YOTI_RESPONSE_RECEIVED_SCHEMA = require("../support/F2F_YOTI_RESPONSE_RECEIVED_SCHEMA.json");
+const F2F_YOTI_START_SCHEMA_00 = require("../support/F2F_YOTI_START_00_SCHEMA.json");
+const F2F_YOTI_START_SCHEMA_01 = require("../support/F2F_YOTI_START_01_SCHEMA.json");
+const F2F_YOTI_START_SCHEMA_02 = require("../support/F2F_YOTI_START_02_SCHEMA.json");
+const F2F_YOTI_START_SCHEMA_03 = require("../support/F2F_YOTI_START_03_SCHEMA.json");
+const F2F_YOTI_START_SCHEMA_04 = require("../support/F2F_YOTI_START_04_SCHEMA.json");
+const F2F_YOTI_START_SCHEMA_05 = require("../support/F2F_YOTI_START_05_SCHEMA.json");
 const axios = require("axios");
 const aws4Interceptor = require("aws4-axios").aws4Interceptor;
 const { unmarshall } = require("@aws-sdk/util-dynamodb");
 const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
 const { XMLParser } = require("fast-xml-parser");
 const { expect } = require("chai");
+const Ajv = require("ajv").default;
+const AjvFormats = require("ajv-formats");
+const ajv = new Ajv({ strictTuples: false });
+ajv.addSchema(
+  F2F_CRI_AUTH_CODE_ISSUED_SCHEMA,
+  "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA"
+);
+ajv.addSchema(F2F_CRI_END_SCHEMA, "F2F_CRI_END_SCHEMA");
+ajv.addSchema(F2F_CRI_START_SCHEMA, "F2F_CRI_START_SCHEMA");
+ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_00, "F2F_CRI_VC_ISSUED_SCHEMA_UK_DL");
+ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_01, "F2F_CRI_VC_ISSUED_SCHEMA_UK_PP");
+ajv.addSchema(
+  F2F_CRI_VC_ISSUED_SCHEMA_02,
+  "F2F_CRI_VC_ISSUED_SCHEMA_NON_UK_PP"
+);
+ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_03, "F2F_CRI_VC_ISSUED_SCHEMA_BRP");
+ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_04, "F2F_CRI_VC_ISSUED_SCHEMA_EU_DL");
+ajv.addSchema(
+  F2F_CRI_VC_ISSUED_SCHEMA_05,
+  "F2F_CRI_VC_ISSUED_SCHEMA_EEA_ID_CARD"
+);
+ajv.addSchema(F2F_YOTI_PDF_EMAILED_SCHEMA, "F2F_YOTI_PDF_EMAILED_SCHEMA");
+ajv.addSchema(
+  F2F_YOTI_RESPONSE_RECEIVED_SCHEMA,
+  "F2F_YOTI_RESPONSE_RECEIVED_SCHEMA"
+);
+ajv.addSchema(F2F_YOTI_START_SCHEMA_00, "F2F_YOTI_START_UK_DL");
+ajv.addSchema(F2F_YOTI_START_SCHEMA_01, "F2F_YOTI_START_UK_PP");
+ajv.addSchema(F2F_YOTI_START_SCHEMA_02, "F2F_YOTI_START_NON_UK_PP");
+ajv.addSchema(F2F_YOTI_START_SCHEMA_03, "F2F_YOTI_START_BRP");
+ajv.addSchema(F2F_YOTI_START_SCHEMA_04, "F2F_YOTI_START_EU_DL");
+ajv.addSchema(F2F_YOTI_START_SCHEMA_05, "F2F_YOTI_START_EEA_ID_CARD");
+AjvFormats(ajv);
 
 module.exports = class TestHarness {
   constructor() {
@@ -119,110 +162,39 @@ module.exports = class TestHarness {
     return keyList;
   }
 
-  async validateTxMAEventData(keyList) {
+  async getTxMAEventData(keyList) {
+    let obj = {};
     let i;
-    let valid = Boolean;
-    
     for (i = 0; i < keyList.length; i++) {
-      const getObjectResponse = await this.HARNESS_API_INSTANCE.get(
+      const txmaEventBody = await this.HARNESS_API_INSTANCE.get(
         "/object/" + keyList[i],
         {}
       );
-      console.log(JSON.stringify(getObjectResponse.data, null, 2));
-      const eventName = getObjectResponse.data.event_name;
-      const Ajv = require("ajv").default;
-      const AjvFormats = require("ajv-formats");
-      const ajv = new Ajv({ strictTuples: false });
+      const eventName = txmaEventBody.data.event_name;
+      obj[eventName] = txmaEventBody.data;
+    }
+    return obj;
+  }
 
-      AjvFormats(ajv);
+  async validateTxMAEventData(allTxmaEventBodies, eventName, schemaName) {
+    const currentEventBody = allTxmaEventBodies[eventName];
 
-      switch (eventName) {
-        case "F2F_YOTI_START": {
-          const validate = ajv.compile(F2F_YOTI_START);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors)
-            );
-          }
-          break;
+    if (currentEventBody?.event_name) {
+      try {
+        const validate = ajv.getSchema(schemaName);
+        if (validate) {
+          expect(validate(currentEventBody)).to.be.true;
+        } else {
+          throw new Error(`Could not find schema ${schemaName}`);
         }
-        case "F2F_YOTI_RESPONSE_RECEIVED": {
-          const validate = ajv.compile(F2F_YOTI_RESPONSE_RECEIVED);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors)
-            );
-          }
-          break;
-        }
-        case "F2F_YOTI_PDF_EMAILED": {
-          const validate = ajv.compile(F2F_YOTI_PDF_EMAILED);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors)
-            );
-          }
-          break;
-        }
-        case "F2F_CRI_VC_ISSUED": {
-          const validate = ajv.compile(F2F_CRI_VC_ISSUED);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors)
-            );
-          }
-          break;
-        }
-        case "F2F_CRI_START": {
-          const validate = ajv.compile(F2F_CRI_START);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors)
-            );
-          }
-          break;
-        }
-        case "F2F_CRI_END": {
-          const validate = ajv.compile(F2F_CRI_END);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors)
-            );
-          }
-          break;
-        }
-        case "F2F_CRI_AUTH_CODE_ISSUED": {
-          const validate = ajv.compile(F2F_CRI_AUTH_CODE_ISSUED);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors)
-            );
-          }
-          break;
-        }
+      } catch (error) {
+        console.error(`Error validating ${eventName} event`, error);
+        throw error;
       }
-      expect(valid).to.be.true;
+    } else {
+      throw new Error(
+        `No event found in the test harness for ${eventName} event`
+      );
     }
   }
 };

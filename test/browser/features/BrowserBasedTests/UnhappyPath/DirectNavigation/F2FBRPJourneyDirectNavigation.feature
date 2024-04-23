@@ -1,4 +1,4 @@
-@browser
+@browserSS
 Feature: Directly navigating BRP pages in journey- unhappy path
 
     Scenario: Direct Navigation to BRPDetailsPageInvalidFuture

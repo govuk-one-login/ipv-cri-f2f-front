@@ -3,6 +3,9 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 const { expect } = require("chai");
 
 const TestHarness = require("../support/TestHarness");
+
+const vcResponseData = require("../support/vcValidationData.json");
+
 Given(
   /^I have retrieved the sessionTable data for my F2F session$/,
   { timeout: 2 * 50000 },
@@ -65,12 +68,63 @@ Then(
     const decodedBody = JSON.parse(
       Buffer.from(rawBody.replace(/\W/g, ""), "base64url").toString()
     );
+    const yotiMockIdId = this.yotiSessionId.substr(
+      this.yotiSessionId.length - 4
+    );
     // Strength Score
-    expect(decodedBody.vc.evidence[0].strengthScore).to.equal(3);
+    const expecedStrengthScore = eval(
+      "vcResponseData.s" + yotiMockIdId + ".strengthScore"
+    );
+    if (expecedStrengthScore) {
+      try {
+        expect(decodedBody.vc.evidence[0].strengthScore).to.equal(
+          expecedStrengthScore
+        );
+      } catch (error) {
+        console.log(`Error validating Strength Score for yotiMockId: ${yotiMockIdId}`, error);
+        return error;
+      }
+    } else {
+      throw new Error(
+        `No expected Strength Score for yotiMockId: ${yotiMockIdId}`,
+      )
+    };
     // Validity Score
-    expect(decodedBody.vc.evidence[0].validityScore).to.equal(2);
+    const expecedValidityScore = eval(
+      "vcResponseData.s" + yotiMockIdId + ".validityScore"
+    );
+    if (expecedValidityScore) {
+      try {
+        expect(decodedBody.vc.evidence[0].validityScore).to.equal(
+          expecedValidityScore
+        );
+      } catch (error) {
+        console.log(`Error validating Validity Score for yotiMockId: ${yotiMockIdId}`, error);
+        return error;
+      }
+    } else {
+      throw new Error(
+        `No expected Validity Score for yotiMockId: ${yotiMockIdId}`,
+      )
+    };
     // Verification Score
-    expect(decodedBody.vc.evidence[0].verificationScore).to.equal(3);
+    const expecedVerificationScore = eval(
+      "vcResponseData.s" + yotiMockIdId + ".verificationScore"
+    );
+    if (expecedVerificationScore) {
+      try {
+        expect(decodedBody.vc.evidence[0].verificationScore).to.equal(
+          expecedVerificationScore
+        );
+      } catch (error) {
+        console.log(`Error validating Verification Score for yotiMockId: ${yotiMockIdId}`, error);
+        return error;
+      }
+    } else {
+      throw new Error(
+        `No expected Verification Score for yotiMockId: ${yotiMockIdId}`,
+      )
+    };
   }
 );
 
@@ -89,5 +143,36 @@ Then(
     } while (!sqsMessage);
 
     testHarness.validateTxMAEventData(sqsMessage);
+  }
+);
+
+When(
+  /^I get all TxMA events from Test Harness$/,
+  { timeout: 2 * 50000 },
+  async function () {
+    const testHarness = new TestHarness();
+    let sqsMessage;
+    do {
+      sqsMessage = await testHarness.getSqsEventList(
+        "txma/",
+        this.sessionId,
+        7
+      );
+    } while (!sqsMessage);
+
+    this.allTxmaEventBodies = await testHarness.getTxMAEventData(sqsMessage);
+  }
+);
+
+Then(
+  "the {string} event matches the {string} Schema",
+  { timeout: 2 * 50000 },
+  async function (eventName, schemaName) {
+    const testHarness = new TestHarness();
+    await testHarness.validateTxMAEventData(
+      this.allTxmaEventBodies,
+      eventName,
+      schemaName
+    );
   }
 );

@@ -1,4 +1,4 @@
-@success @e2e
+@success
 
 Feature: F2F Language Toggle
 
