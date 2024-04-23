@@ -71,60 +71,66 @@ Then(
     const yotiMockIdId = this.yotiSessionId.substr(
       this.yotiSessionId.length - 4
     );
-    // Strength Score
-    const expecedStrengthScore = eval(
-      "vcResponseData.s" + yotiMockIdId + ".strengthScore"
-    );
-    if (expecedStrengthScore) {
-      try {
-        expect(decodedBody.vc.evidence[0].strengthScore).to.equal(
-          expecedStrengthScore
-        );
-      } catch (error) {
-        console.log(`Error validating Strength Score for yotiMockId: ${yotiMockIdId}`, error);
-        return error;
-      }
+    if (vcResponseData) {
+      // Strength Score
+      const expecedStrengthScore = eval(
+        "vcResponseData.s" + yotiMockIdId + ".strengthScore"
+      );
+      if (expecedStrengthScore) {
+        try {
+          expect(decodedBody.vc.evidence[0].strengthScore).to.equal(
+            expecedStrengthScore
+          );
+        } catch (error) {
+          console.log(`Error validating Strength Score for yotiMockId: ${yotiMockIdId}`, error);
+          return error;
+        }
+      } else {
+        throw new Error(
+          `No expected Strength Score for yotiMockId: ${yotiMockIdId}`,
+        )
+      };
+      // Validity Score
+      const expecedValidityScore = eval(
+        "vcResponseData.s" + yotiMockIdId + ".validityScore"
+      );
+      if (expecedValidityScore) {
+        try {
+          expect(decodedBody.vc.evidence[0].validityScore).to.equal(
+            expecedValidityScore
+          );
+        } catch (error) {
+          console.log(`Error validating Validity Score for yotiMockId: ${yotiMockIdId}`, error);
+          return error;
+        }
+      } else {
+        throw new Error(
+          `No expected Validity Score for yotiMockId: ${yotiMockIdId}`,
+        )
+      };
+      // Verification Score
+      const expecedVerificationScore = eval(
+        "vcResponseData.s" + yotiMockIdId + ".verificationScore"
+      );
+      if (expecedVerificationScore) {
+        try {
+          expect(decodedBody.vc.evidence[0].verificationScore).to.equal(
+            expecedVerificationScore
+          );
+        } catch (error) {
+          console.log(`Error validating Verification Score for yotiMockId: ${yotiMockIdId}`, error);
+          return error;
+        }
+      } else {
+        throw new Error(
+          `No expected Verification Score for yotiMockId: ${yotiMockIdId}`,
+        )
+      };
     } else {
       throw new Error(
-        `No expected Strength Score for yotiMockId: ${yotiMockIdId}`,
+        "Verifiable Credential Validation JSON not found",
       )
-    };
-    // Validity Score
-    const expecedValidityScore = eval(
-      "vcResponseData.s" + yotiMockIdId + ".validityScore"
-    );
-    if (expecedValidityScore) {
-      try {
-        expect(decodedBody.vc.evidence[0].validityScore).to.equal(
-          expecedValidityScore
-        );
-      } catch (error) {
-        console.log(`Error validating Validity Score for yotiMockId: ${yotiMockIdId}`, error);
-        return error;
-      }
-    } else {
-      throw new Error(
-        `No expected Validity Score for yotiMockId: ${yotiMockIdId}`,
-      )
-    };
-    // Verification Score
-    const expecedVerificationScore = eval(
-      "vcResponseData.s" + yotiMockIdId + ".verificationScore"
-    );
-    if (expecedVerificationScore) {
-      try {
-        expect(decodedBody.vc.evidence[0].verificationScore).to.equal(
-          expecedVerificationScore
-        );
-      } catch (error) {
-        console.log(`Error validating Verification Score for yotiMockId: ${yotiMockIdId}`, error);
-        return error;
-      }
-    } else {
-      throw new Error(
-        `No expected Verification Score for yotiMockId: ${yotiMockIdId}`,
-      )
-    };
+    }
   }
 );
 
