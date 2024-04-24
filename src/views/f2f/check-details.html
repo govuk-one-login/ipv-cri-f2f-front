@@ -42,7 +42,7 @@
     {% endif %}
 
     {% call hmpoForm(ctx) %}
-      {{ hmpoSubmit(ctx, {id: "continue", text: translate("checkDetails.buttonText"), attributes: {"data-nav": true,"data-link": "/undefined"}
+      {{ hmpoSubmit(ctx, {id: "continue", text: translate("checkDetails.buttonText"), attributes: {"data-nav": true,"data-link": "/undefined", "data-testid": "confirm-details-continue-btn"}
       }) }}
     {% endcall %}
     </div>
