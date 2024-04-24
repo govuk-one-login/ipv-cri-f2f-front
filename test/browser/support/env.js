@@ -9,7 +9,6 @@ const userClaims = {
   "A BRP User": require("../support/shared_claim_brp"),
   "An EU Drivers Licence User": require("../support/shared_claim_eu_dl"),
   "An EEA Identity Card User": require("../support/shared_claim_eea_id"),
-  "Authenticatable Anita": require("../support/shared_claim"),
 };
 
 class CustomWorld {

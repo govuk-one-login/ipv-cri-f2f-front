@@ -3,7 +3,7 @@
 Feature: F2F Language Toggle
 
     Scenario: F2F Journey - Language Toggle Validation
-        Given Authenticatable Anita is using the system
+        Given A UK Drivers Licence User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
         And the language toggle is present on the screen
@@ -37,7 +37,7 @@ Feature: F2F Language Toggle
 
 
     Scenario: HTML Tag and Hyperlink updated when Language is changed
-        Given Authenticatable Anita is using the system
+        Given A UK Drivers Licence User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
         And the language toggle is present on the screen
