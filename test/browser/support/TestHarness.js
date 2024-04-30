@@ -198,64 +198,17 @@ module.exports = class TestHarness {
     }
   }
 
-  async checkStrengthScore(yotiMockIdId, expecedStrengthScore) {
-    if (expecedStrengthScore) {
-      try {
-        expect(decodedBody.vc.evidence[0].strengthScore).to.equal(
-          expecedStrengthScore
-        );
-      } catch (error) {
-        console.log(
-          `Error validating Strength Score for yotiMockId: ${yotiMockIdId}`,
-          error
-        );
-        return error;
-      }
-    } else {
-      throw new Error(
-        `No expected Strength Score for yotiMockId: ${yotiMockIdId}`
+  async checkVerifiableCredentialValue(decodedBody, yotiMockIdId, expecedValue, vcAttribute) {
+    try {
+      expect(decodedBody.vc.evidence[0][vcAttribute]).to.equal(
+        expecedValue
       );
+    } catch (error) {
+      console.log(
+        `Error validating ${vcAttribute} for yotiMockId: ${yotiMockIdId}`,
+        error
+      );
+      return error;
     }
   }
-  
-  async checkValidityScore(yotiMockIdId, expecedValidityScore) {
-    if (expecedValidityScore) {
-      try {
-        expect(decodedBody.vc.evidence[0].validityScore).to.equal(
-          expecedValidityScore
-        );
-      } catch (error) {
-        console.log(
-          `Error validating Validity Score for yotiMockId: ${yotiMockIdId}`,
-          error
-        );
-        return error;
-      }
-    } else {
-      throw new Error(
-        `No expected Validity Score for yotiMockId: ${yotiMockIdId}`
-      );
-    }
-  }
-
-  async checkVerificationScore(yotiMockIdId, expecedVerificationScore) {
-    if (expecedVerificationScore) {
-      try {
-        expect(decodedBody.vc.evidence[0].verificationScore).to.equal(
-          expecedVerificationScore
-        );
-      } catch (error) {
-        console.log(
-          `Error validating Verification Score for yotiMockId: ${yotiMockIdId}`,
-          error
-        );
-        return error;
-      }
-    } else {
-      throw new Error(
-        `No expected Verification Score for yotiMockId: ${yotiMockIdId}`
-      );
-    }
-  }
-
 };
