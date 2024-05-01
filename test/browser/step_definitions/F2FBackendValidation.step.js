@@ -80,7 +80,7 @@ Then(
       testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, eval(
         "vcResponseData.s" + yotiMockIdId + ".validityScore"
       ), "validityScore")
-      // // Verification Score
+      // Verification Score
       testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, eval(
         "vcResponseData.s" + yotiMockIdId + ".verificationScore"
       ), "verificationScore")
