@@ -3,7 +3,7 @@
 Feature: Enter NonUK Passport Details  - Happy Path
 
     Background:
-        Given Authenticatable Anita is using the system
+        Given A UK Drivers Licence User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
 

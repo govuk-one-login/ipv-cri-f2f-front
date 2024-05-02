@@ -3,6 +3,9 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 const { expect } = require("chai");
 
 const TestHarness = require("../support/TestHarness");
+
+const vcResponseData = require("../support/vcValidationData.json");
+
 Given(
   /^I have retrieved the sessionTable data for my F2F session$/,
   { timeout: 2 * 50000 },
@@ -65,12 +68,18 @@ Then(
     const decodedBody = JSON.parse(
       Buffer.from(rawBody.replace(/\W/g, ""), "base64url").toString()
     );
-    // Strength Score
-    expect(decodedBody.vc.evidence[0].strengthScore).to.equal(3);
-    // Validity Score
-    expect(decodedBody.vc.evidence[0].validityScore).to.equal(2);
-    // Verification Score
-    expect(decodedBody.vc.evidence[0].verificationScore).to.equal(3);
+    const yotiMockIdId = this.yotiSessionId.substr(
+      this.yotiSessionId.length - 4
+    );
+      // Strength Score
+      const expectedStrengthScore = vcResponseData[`s${yotiMockIdId}`]["strengthScore"];
+      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, expectedStrengthScore, "strengthScore");
+      // Validity Score
+      const epxectedValidityScore = vcResponseData[`s${yotiMockIdId}`]["validityScore"];
+      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedValidityScore, "validityScore");
+      // Verification Score
+      const epxectedVerificationScore = vcResponseData[`s${yotiMockIdId}`]["verificationScore"];
+      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedVerificationScore, "verificationScore");
   }
 );
 
@@ -89,5 +98,36 @@ Then(
     } while (!sqsMessage);
 
     testHarness.validateTxMAEventData(sqsMessage);
+  }
+);
+
+When(
+  /^I get all TxMA events from Test Harness$/,
+  { timeout: 2 * 50000 },
+  async function () {
+    const testHarness = new TestHarness();
+    let sqsMessage;
+    do {
+      sqsMessage = await testHarness.getSqsEventList(
+        "txma/",
+        this.sessionId,
+        7
+      );
+    } while (!sqsMessage);
+
+    this.allTxmaEventBodies = await testHarness.getTxMAEventData(sqsMessage);
+  }
+);
+
+Then(
+  "the {string} event matches the {string} Schema",
+  { timeout: 2 * 50000 },
+  async function (eventName, schemaName) {
+    const testHarness = new TestHarness();
+    await testHarness.validateTxMAEventData(
+      this.allTxmaEventBodies,
+      eventName,
+      schemaName
+    );
   }
 );
