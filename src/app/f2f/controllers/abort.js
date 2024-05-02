@@ -1,6 +1,9 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config");
 const logger = require("hmpo-logger").get();
+const {
+  createPersonalDataHeaders,
+} = require("@govuk-one-login/frontend-passthrough-headers");
 
 class AbortController extends BaseController {
   async saveValues(req, res, callback) {
@@ -14,6 +17,7 @@ class AbortController extends BaseController {
   async abortJourney(req, res) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
+      ...createPersonalDataHeaders(`${API.BASE_URL}${API.PATHS.ABORT}`, req),
     };
 
     const response = await req.axios.post(

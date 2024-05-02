@@ -449,7 +449,7 @@ Resources:
     Properties:
       ContainerDefinitions:
         - Essential: true
-          Image: CONTAINER-IMAGE-PLACEHOLDER
+          Image: 440208678480.dkr.ecr.eu-west-2.amazonaws.com/f2f-cri-front-ecr-containerrepository-lrazucdwjqvv:1787
           Name: app
           Environment:
             - Name: API_BASE_URL

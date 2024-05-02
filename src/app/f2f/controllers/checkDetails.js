@@ -3,6 +3,9 @@ const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils");
 const { APP, API } = require("../../../lib/config");
 const DateController = DateControllerMixin(BaseController);
+const {
+  createPersonalDataHeaders,
+} = require("@govuk-one-login/frontend-passthrough-headers");
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
     super.locals(req, res, (err, locals) => {
@@ -221,6 +224,7 @@ class CheckDetailsController extends DateController {
   async saveF2fData(axios, f2fData, req) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
+      ...createPersonalDataHeaders(`${API.BASE_URL}${API.PATHS.SAVE_F2FDATA}`, req),
     };
     const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
       headers,
