@@ -74,16 +74,13 @@ Then(
     if (vcResponseData) {
       // Strength Score
       const expectedStrengthScore = vcResponseData[`s${yotiMockIdId}`]["strengthScore"];
-
-      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, expectedStrengthScore, "strengthScore")
+      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, expectedStrengthScore, "strengthScore");
       // // Validity Score
-      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, eval(
-        "vcResponseData.s" + yotiMockIdId + ".validityScore"
-      ), "validityScore")
+      const epxectedValidityScore = vcResponseData[`s${yotiMockIdId}`]["validityScore"];
+      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedValidityScore, "validityScore");
       // Verification Score
-      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, eval(
-        "vcResponseData.s" + yotiMockIdId + ".verificationScore"
-      ), "verificationScore")
+      const epxectedVerificationScore = vcResponseData[`s${yotiMockIdId}`]["verificationScore"];
+      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedVerificationScore, "verificationScore");
     } else {
       throw new Error("Verifiable Credential Validation JSON not found");
     }
