@@ -39,6 +39,7 @@ describe("AbortController", () => {
           { reason: "session_expired" },
           {
             headers: {
+              "txma-audit-encoded": "dummy-txma-header",
               "x-govuk-signin-session-id": req.session.tokenId,
             },
           }

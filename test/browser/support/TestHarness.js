@@ -165,6 +165,7 @@ module.exports = class TestHarness {
   async getTxMAEventData(keyList) {
     let obj = {};
     let i;
+
     for (i = 0; i < keyList.length; i++) {
       const txmaEventBody = await this.HARNESS_API_INSTANCE.get(
         "/object/" + keyList[i],
