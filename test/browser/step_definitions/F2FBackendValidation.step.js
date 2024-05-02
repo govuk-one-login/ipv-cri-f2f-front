@@ -75,7 +75,7 @@ Then(
       // Strength Score
       const expectedStrengthScore = vcResponseData[`s${yotiMockIdId}`]["strengthScore"];
       testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, expectedStrengthScore, "strengthScore");
-      // // Validity Score
+      // Validity Score
       const epxectedValidityScore = vcResponseData[`s${yotiMockIdId}`]["validityScore"];
       testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedValidityScore, "validityScore");
       // Verification Score
