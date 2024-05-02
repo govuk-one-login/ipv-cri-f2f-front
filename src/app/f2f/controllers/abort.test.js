@@ -42,7 +42,7 @@ describe("AbortController", () => {
               "txma-audit-encoded": "dummy-txma-header",
               "x-govuk-signin-session-id": req.session.tokenId,
             },
-          },
+          }
         );
       });
 
