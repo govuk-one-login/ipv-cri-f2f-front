@@ -1,0 +1,344 @@
+{
+    "s0000":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,bvr",
+        "ci": null
+    },
+    "s0001":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,pvr",
+        "ci": null
+    },
+    "s0003":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,bvr",
+        "ci": null
+    },
+    "s0100":{
+        "strengthScore": 4,
+        "validityScore": 3,
+        "verificationScore": 3,
+        "checkMethod": "vcrypt,bvr",
+        "ci": null
+    },
+    "s0101":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,bvr",
+        "ci": null
+    },
+    "s0102":{
+        "strengthScore": 4,
+        "validityScore": 3,
+        "verificationScore": 3,
+        "checkMethod": "vcrypt,pvr",
+        "ci": null
+    },
+    "s0103":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,pvr",
+        "ci": null
+    },
+    "s0104":{
+        "strengthScore": "",
+        "validityScore": "",
+        "verificationScore": "",
+        "checkMethod": "",
+        "ci": ""
+    },
+    "s0105":{
+        "strengthScore": "",
+        "validityScore": "",
+        "verificationScore": "",
+        "checkMethod": "",
+        "ci": ""
+    },
+    "s0106":{
+        "strengthScore": "",
+        "validityScore": "",
+        "verificationScore": "",
+        "checkMethod": "",
+        "ci": ""
+    },
+    "s0107":{
+        "strengthScore": "",
+        "validityScore": "",
+        "verificationScore": "",
+        "checkMethod": "",
+        "ci": ""
+    },
+    "s0108":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "failedCheck": "FACE_NOT_GENUINE",
+        "checkMethod": null,
+        "ci": "V01"
+    },
+    "s0109":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "failedCheck": "LARGE_AGE_GAP",
+        "checkMethod": null,
+        "ci": "V01"
+    },
+    "s0110":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "failedCheck": "PHOTO_OF_MASK",
+        "checkMethod": null,
+        "ci": "V01"
+    },
+    "s0111":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "failedCheck": "PHOTO_OF_PHOTO",
+        "checkMethod": null,
+        "ci": "V01"
+    },
+    "s0112":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "failedCheck": "DIFFERENT_PERSON",
+        "checkMethod": null,
+        "ci": "V01"
+    },
+    "s0113":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "failedCheck": "COUNTERFEIT",
+        "checkMethod": null,
+        "ci": "D14"
+    },
+    "s0114":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "failedCheck": "EXPIRED_DOCUMENT",
+        "checkMethod": null,
+        "ci": "D16"
+    },
+    "s0115":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "failedCheck": "FRAUD_LIST_MATCH",
+        "ci": "F03"
+    },
+    "s0116":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "ci": null
+    },
+    "s0117":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "ci": null
+    },
+    "s0118":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "failedCheck": "TAMPERED",
+        "ci": "D14"
+    },
+    "s0119":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "failedCheck": "MISSING_HOLOGRAM",
+        "ci": "D14"
+    },
+    "s0120":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "failedCheck": "NO_HOLOGRAM_MOVEMENT",
+        "ci": "D14"
+    },
+    "s0121":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "ci": null
+    },
+    "s0122":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "failedCheck": "DOC_NUMBER_INVALID",
+        "ci": "D14"
+    },
+    "s0123":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "ci": null
+    },
+    "s0124":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "ci": null
+    },
+    "s0125":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "ci": null
+    },
+    "s0126":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "ci": null
+    },
+    "s0127":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "ci": null
+    },
+    "s0133":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,pvr",
+        "ci": null
+    },
+    "s0200":{
+        "strengthScore": 4,
+        "validityScore": 3,
+        "verificationScore": 3,
+        "checkMethod": "vcrypt,bvr",
+        "ci": ""
+    },
+    "s0201":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,bvr",
+        "ci": ""
+    },
+    "s0202":{
+        "strengthScore": 4,
+        "validityScore": 3,
+        "verificationScore": 3,
+        "checkMethod": "vcrypt,pvr",
+        "ci": ""
+    },
+    "s0203":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,pvr",
+        "ci": ""
+    },
+    "s0204":{
+        "strengthScore": null,
+        "validityScore": null,
+        "verificationScore": 0,
+        "checkMethod": null,
+        "failedCheck": "FACE_NOT_GENUINE",
+        "ci": "V01"
+    },
+    "s0300":{
+        "strengthScore": 4,
+        "validityScore": 3,
+        "verificationScore": 3,
+        "checkMethod": "vcrypt,bvr",
+        "ci": ""
+    },
+    "s0301":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,bvr",
+        "ci": ""
+    },
+    "s0302":{
+        "strengthScore": 4,
+        "validityScore": 3,
+        "verificationScore": 3,
+        "checkMethod": "vcrypt,pvr",
+        "ci": ""
+    },
+    "s0303":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,pvr",
+        "ci": ""
+    },
+    "s0400":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,bvr",
+        "ci": ""
+    },
+    "s0401":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,pvr",
+        "ci": ""
+    },
+    "s0500":{
+        "strengthScore": 4,
+        "validityScore": 3,
+        "verificationScore": 3,
+        "checkMethod": "vcrypt,bvr",
+        "ci": ""
+    },
+    "s0501":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,bvr",
+        "ci": ""
+    },
+    "s0502":{
+        "strengthScore": 4,
+        "validityScore": 3,
+        "verificationScore": 3,
+        "checkMethod": "vcrypt,pvr",
+        "ci": ""
+    },
+    "s0503":{
+        "strengthScore": 3,
+        "validityScore": 2,
+        "verificationScore": 3,
+        "checkMethod": "vri,pvr",
+        "ci": ""
+    }
+}

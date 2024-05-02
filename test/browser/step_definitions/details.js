@@ -10,13 +10,13 @@ const {
 const { expect } = require("chai");
 
 Given(
-  /^([A-Za-z ])+is using the system$/,
-  { timeout: 2 * 50000 },
+  /^([^"]*) is using the system$/,
+  { timeout: 2 * 5000 },
   async function (name) {
-    this.user = this.allUsers[name];
+    const claim = this.allUserClaims[name];
     const rpPage = new RelyingPartyPage(this.page);
 
-    await rpPage.goto();
+    await rpPage.goto(claim);
   }
 );
 
