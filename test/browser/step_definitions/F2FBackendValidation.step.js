@@ -71,7 +71,6 @@ Then(
     const yotiMockIdId = this.yotiSessionId.substr(
       this.yotiSessionId.length - 4
     );
-    if (vcResponseData) {
       // Strength Score
       const expectedStrengthScore = vcResponseData[`s${yotiMockIdId}`]["strengthScore"];
       testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, expectedStrengthScore, "strengthScore");
@@ -81,9 +80,6 @@ Then(
       // Verification Score
       const epxectedVerificationScore = vcResponseData[`s${yotiMockIdId}`]["verificationScore"];
       testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedVerificationScore, "verificationScore");
-    } else {
-      throw new Error("Verifiable Credential Validation JSON not found");
-    }
   }
 );
 
