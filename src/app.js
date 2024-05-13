@@ -16,6 +16,8 @@ const setAxiosDefaults = commonExpress.lib.axios;
 const { setGTM, setLanguageToggle } = commonExpress.lib.settings;
 const { getGTM, getLanguageToggle } = commonExpress.lib.locals;
 
+const addLanguageParam = require("@govuk-one-login/frontend-language-toggle/build/cjs/language-param-setter.cjs");
+
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
 const {
   setI18n,
@@ -136,6 +138,8 @@ setGTM({
 // Common express relies on 0/1 strings
 const showLanguageToggle = APP.LANGUAGE_TOGGLE_DISABLED == "true" ? "0" : "1";
 setLanguageToggle({ app, showLanguageToggle: showLanguageToggle });
+
+app.get("nunjucks").addGlobal("addLanguageParam", addLanguageParam);
 
 router.use(getGTM);
 
