@@ -88,9 +88,9 @@ Conditions:
     - Condition: IsNotDevelopment
     - !Equals [!Ref DeployAlarmsInDev, true]
 
-  IsCloudFrontPilotTesting: !Equals
+  IsWAFAssosciationonProd: !Equals
     - !Ref Environment
-    - dev
+    - production
 
 # DO WE NEED TO CHANGE THE ARN?
 
@@ -696,7 +696,7 @@ Resources:
 
   WAFv2ACLAssociation:
     Type: AWS::WAFv2::WebACLAssociation
-    Condition: IsNotDevelopment
+    Condition: IsWAFAssosciationonProd
     Properties:
       ResourceArn: !Ref LoadBalancer
       WebACLArn: !Sub "{{resolve:ssm:/${Environment}/Platform/Security/Block/WafArn}}"
@@ -831,7 +831,6 @@ Resources:
 
   F2FFrontApiOriginRecord:
     Type: AWS::Route53::RecordSet
-    Condition: IsCloudFrontPilotTesting
     Properties:
       Name: !If
       - IsNotDevelopment
@@ -842,7 +841,7 @@ Resources:
         - "origin.${AWS::StackName}.${DNSSUFFIX}"
         - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
       Type: A
-      HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
+      HostedZoneId: !ImportValue PublicHostedZoneId
       AliasTarget:
         DNSName: !GetAtt F2FFrontCustomDomain.RegionalDomainName
         HostedZoneId: !GetAtt F2FFrontCustomDomain.RegionalHostedZoneId
