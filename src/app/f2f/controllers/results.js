@@ -7,6 +7,7 @@ class PostcodeSearchController extends BaseController {
       if (err) {
         return callback(err, locals);
       }
+      
       const userPostcode = req.sessionModel.get("postcode");
       const { data: postOfficeData } = await req.axios.post(
         `https://${PROXY_API.BASE_URL}${PROXY_API.PATHS.POST_OFFICE}`,
