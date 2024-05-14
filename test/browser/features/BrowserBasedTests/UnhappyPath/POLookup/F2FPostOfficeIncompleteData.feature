@@ -1,7 +1,7 @@
-@mock-api:f2f-f2f-success @browser
+@mock-api:f2f-f2f-success @browsers
 Feature: Handle Incomplete Data from Post Office API
 
-    Scenario: Successful redirect from CMA screen back to PO Finder then back to CMA screen
+    Scenario: User is successfully shown an error page when PO API returns incomplete data
         Given Authenticatable Anita is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
@@ -18,4 +18,5 @@ Feature: Handle Incomplete Data from Post Office API
         When the user clicks the continue button on the UKPassportPage
         Then the user is routed to the next screen in the journey Branch Finder Screen
         When the user enters a postcode that returns incomplete data
-
+        And the user clicks the continue button on the find Post Office branch page
+        Then they should see the unrecoverable error page
