@@ -66,3 +66,10 @@ Then(/^the user enters a valid postcode$/, async function () {
 
   await branchFinderPage.postCode();
 });
+
+
+When(/^the user enters a postcode that returns incomplete data$/, async function () {
+  const branchFinderPage = new FindBranch(await this.page);
+
+  await branchFinderPage.postCodeIncompleteData();
+});
