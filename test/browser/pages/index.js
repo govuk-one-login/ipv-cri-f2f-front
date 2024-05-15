@@ -31,6 +31,7 @@ module.exports = {
   BRPDetailsPageInvalidPast: require("./brpDetailsPageInvalidPast"),
   PhotoIdExpiryPage: require("./photoIdExpiryPage"),
   ErrorPage: require("./error.js"),
+  IpvErrorPage: require("./ipvError.js"),
   PassportDetailsPageValid: require("./ukPassportDetailsPageValid"),
   PassportDetailsPageValidEdit: require("./ukPassportDetailsPageValidEdit"),
   PassportDetailsPageInvalidFuture: require("./ukPassportDetailsPageInvalidFuture"),

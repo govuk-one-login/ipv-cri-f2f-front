@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @browsers
+@mock-api:f2f-f2f-success @browser
 Feature: Handle Incomplete Data from Post Office API
 
     Scenario: User is successfully shown an error page when PO API returns incomplete data
@@ -19,4 +19,4 @@ Feature: Handle Incomplete Data from Post Office API
         Then the user is routed to the next screen in the journey Branch Finder Screen
         When the user enters a postcode that returns incomplete data
         And the user clicks the continue button on the find Post Office branch page
-        Then they should see the unrecoverable error page
+        Then they should see the IPV Core error page
