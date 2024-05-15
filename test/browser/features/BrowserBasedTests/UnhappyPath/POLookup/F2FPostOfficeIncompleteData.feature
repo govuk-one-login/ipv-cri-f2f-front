@@ -2,7 +2,7 @@
 Feature: Handle Incomplete Data from Post Office API
 
     Scenario: User is successfully shown an error page when PO API returns incomplete data
-        Given Authenticatable Anita is using the system
+        Given A UK Passport User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
 
