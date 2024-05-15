@@ -7,14 +7,6 @@ module.exports = class PlaywrightDevPage {
     this.path = "/redirect";
   }
 
-  getErrorText() {
-    return this.page.textContent("body > pre");
-  }
-
-  getAuthorizationFailedMessage() {
-    return "Authorisation Grant Failed. See logs for details";
-  }
-
   async isCurrentPage() {
     const { pathname } = new URL(this.page.url());
     return pathname === this.path;
