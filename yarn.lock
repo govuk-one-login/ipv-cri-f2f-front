@@ -1372,11 +1372,12 @@
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.57.0.tgz"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@govuk-one-login/di-ipv-cri-common-express@^6.2.2":
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-6.2.2.tgz#0c154ebf94588f37e60c63d2b087fda0ed5403b1"
-  integrity sha512-Yar63UjB7bVHid1bhxNP9DzkT5OmploNPOW9qxavmbj/n0pjEQoW1TjWCSpK7DBoxcjwgCru4rYHJbGK1LXF7w==
-  dependencies:
+"@govuk-one-login/di-ipv-cri-common-express@6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-6.3.0.tgz#f032fe1524dd3c47c9d910a047a69e5a199f5156"
+  integrity sha512-E8/8a+BvpW+evLCKabXyLV3UB15die5YHDGc20jYUzL81SOzJHBm+z2uznnoOgn1mP47FIdx7M5NRgw0R5Y3qg==
+
+dependencies:
     hmpo-logger "7.0.1"
     i18next "23.8.1"
     i18next-fs-backend "2.3.1"
@@ -1397,10 +1398,18 @@
     forwarded-parse "^2.1.2"
     pino "^8.20.0"
 
-"@govuk-one-login/one-login-language-toggle@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/@govuk-one-login/one-login-language-toggle/-/one-login-language-toggle-2.0.0.tgz"
-  integrity sha512-2+XO0qFOLJFFnRLCBFQF6lSb/XsPMR8uw74Jtj27kTVfaoNUXMTSHu3t/Ojm6aQmKXmTp79+73dGPp5xWpBrUQ==
+"@govuk-one-login/frontend-language-toggle@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-language-toggle/-/frontend-language-toggle-1.1.0.tgz#d1a55f39aaae0fb65ed891b5e6cb4cf8cd6265ce"
+  integrity sha512-vfik6DuCeAE8JlA2aN58TF4zipHW5/gMffkljMIuarol9qZk5+JUA+xpAyFx3Vq3jLRUsgzmbP/00/OW/xr2Fw==
+
+"@govuk-one-login/frontend-passthrough-headers@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-passthrough-headers/-/frontend-passthrough-headers-0.0.3.tgz#74c0e1a4e02a4e2870071dea3e2af793e52d62d6"
+  integrity sha512-pSazX/aasD7D22uKxb8rqXhDlqH633kWX3IBH3EBqeGwkejfS6Q3moRRdFD0nQttXthKDBiAdrnVtXUhj1ffWg==
+  dependencies:
+    forwarded-parse "^2.1.2"
+    pino "^8.20.0"
 
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
@@ -2750,24 +2759,6 @@ binary-extensions@^2.0.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
-
-body-parser@1.20.1:
-  version "1.20.1"
-  resolved "https://registry.npmjs.org/body-parser/-/body-parser-1.20.1.tgz"
-  integrity sha512-jWi7abTbYwajOytWCQc37VulmWiRae5RyTpaCyDcS5/lMdtwSz5lOpDE67srw/HYe35f1z3fDQw+3txg7gNtWw==
-  dependencies:
-    bytes "3.1.2"
-    content-type "~1.0.4"
-    debug "2.6.9"
-    depd "2.0.0"
-    destroy "1.2.0"
-    http-errors "2.0.0"
-    iconv-lite "0.4.24"
-    on-finished "2.4.1"
-    qs "6.11.0"
-    raw-body "2.5.1"
-    type-is "~1.6.18"
-    unpipe "1.0.0"
 
 body-parser@^1.20.2:
   version "1.20.2"
@@ -4153,9 +4144,9 @@ get-caller-file@^2.0.1, get-caller-file@^2.0.5:
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
 
 get-func-name@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/get-func-name/-/get-func-name-2.0.0.tgz"
-  integrity sha512-Hm0ixYtaSZ/V7C8FJrtZIuBBI+iSgL+1Aq82zSu8VQNB4S3Gk8e7Qs3VwBDJAhmRZcFqkl3tQu36g/Foh5I5ig==
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/get-func-name/-/get-func-name-2.0.2.tgz#0d7cf20cd13fda808669ffa88f4ffc7a3943fc41"
+  integrity sha512-8vXOvuE167CtIc3OyItco7N/dpRtBbYOsPsXCz7X/PMnlGjYjSGuZJgM1Y7mmew7BKf9BqvLX2tnOVy1BBUsxQ==
 
 get-intrinsic@^1.0.2, get-intrinsic@^1.1.1, get-intrinsic@^1.1.3, get-intrinsic@^1.2.0:
   version "1.2.0"
