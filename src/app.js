@@ -167,8 +167,8 @@ router.use((err, req, res, next) => {
     );
   const REDIRECT_URI = req.session?.authParams?.redirect_uri;
   if (REDIRECT_URI) {
-    next(err);
     router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
+    next(err);
   } else {
     res.redirect(APP.PATHS.ERROR);
   }
