@@ -958,10 +958,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@govuk-one-login/di-ipv-cri-common-express@6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-6.3.0.tgz#f032fe1524dd3c47c9d910a047a69e5a199f5156"
-  integrity sha512-E8/8a+BvpW+evLCKabXyLV3UB15die5YHDGc20jYUzL81SOzJHBm+z2uznnoOgn1mP47FIdx7M5NRgw0R5Y3qg==
+"@govuk-one-login/di-ipv-cri-common-express@6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-6.4.0.tgz#fbd7546720a5740bba8a258655769e45d71fcba1"
+  integrity sha512-Row+gMKBnFMIND1RyukOxU6tz258I5QfS1I/5cXaqDaF2oShCAb/zhEijaK8LjATgWODMSHQ/fhzvwudg5+0Zw==
   dependencies:
     hmpo-logger "7.0.1"
     i18next "23.8.1"
@@ -980,10 +980,10 @@
   resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-language-toggle/-/frontend-language-toggle-1.1.0.tgz#d1a55f39aaae0fb65ed891b5e6cb4cf8cd6265ce"
   integrity sha512-vfik6DuCeAE8JlA2aN58TF4zipHW5/gMffkljMIuarol9qZk5+JUA+xpAyFx3Vq3jLRUsgzmbP/00/OW/xr2Fw==
 
-"@govuk-one-login/frontend-passthrough-headers@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-passthrough-headers/-/frontend-passthrough-headers-0.0.3.tgz#74c0e1a4e02a4e2870071dea3e2af793e52d62d6"
-  integrity sha512-pSazX/aasD7D22uKxb8rqXhDlqH633kWX3IBH3EBqeGwkejfS6Q3moRRdFD0nQttXthKDBiAdrnVtXUhj1ffWg==
+"@govuk-one-login/frontend-passthrough-headers@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-passthrough-headers/-/frontend-passthrough-headers-1.0.0.tgz#c9d433f6f1d60d93e13f828a52e551a96f5106e1"
+  integrity sha512-Tg8bh40F9cQHi13WpuwskI5wT0kgdgnl9l6I6kxKmlIWxL07tVbfS3MxDGVTXUttQfhnJvKKEem2hJr8LLA/dw==
   dependencies:
     forwarded-parse "^2.1.2"
     pino "^8.20.0"
@@ -7540,6 +7540,7 @@ workerpool@6.2.1:
   integrity sha512-ILEIE97kDZvF9Wb9f6h5aXK4swSlKGUcOEGiIYb2OOu/IrDU9iwj0fD//SsA6E5ibwJxpEvhullJY4Sl4GcpAw==
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
