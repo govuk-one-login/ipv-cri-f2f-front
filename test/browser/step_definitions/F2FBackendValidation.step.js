@@ -5,7 +5,6 @@ const { expect } = require("chai");
 const TestHarness = require("../support/TestHarness");
 
 const vcResponseData = require("../support/vcValidationData.json");
-const { error } = require("ajv/dist/vocabularies/applicator/dependencies");
 
 Given(
   "I have retrieved the sessionTable data for my F2F session using {string}",
