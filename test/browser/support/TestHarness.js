@@ -15,6 +15,7 @@ const F2F_YOTI_START_SCHEMA_02 = require("../support/F2F_YOTI_START_02_SCHEMA.js
 const F2F_YOTI_START_SCHEMA_03 = require("../support/F2F_YOTI_START_03_SCHEMA.json");
 const F2F_YOTI_START_SCHEMA_04 = require("../support/F2F_YOTI_START_04_SCHEMA.json");
 const F2F_YOTI_START_SCHEMA_05 = require("../support/F2F_YOTI_START_05_SCHEMA.json");
+const F2F_CRI_SESSION_ABORTED_SCHEMA = require("../support/F2F_CRI_SESSION_ABORTED_SCHEMA.json");
 const axios = require("axios");
 const aws4Interceptor = require("aws4-axios").aws4Interceptor;
 const { unmarshall } = require("@aws-sdk/util-dynamodb");
@@ -53,6 +54,7 @@ ajv.addSchema(F2F_YOTI_START_SCHEMA_02, "F2F_YOTI_START_NON_UK_PP");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_03, "F2F_YOTI_START_BRP");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_04, "F2F_YOTI_START_EU_DL");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_05, "F2F_YOTI_START_EEA_ID_CARD");
+ajv.addSchema(F2F_CRI_SESSION_ABORTED_SCHEMA, "F2F_CRI_SESSION_ABORTED_SCHEMA");
 AjvFormats(ajv);
 
 module.exports = class TestHarness {
@@ -95,6 +97,17 @@ module.exports = class TestHarness {
     try {
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
         "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + authCode
+      );
+      return unmarshall(getItemResponse.data.Items[0]);
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async getSessionByState(state) {
+    try {
+      const getItemResponse = await this.HARNESS_API_INSTANCE.get(
+        "/getSessionByState/" + process.env["SESSION_TABLE"] + "/" + state
       );
       return unmarshall(getItemResponse.data.Items[0]);
     } catch (error) {

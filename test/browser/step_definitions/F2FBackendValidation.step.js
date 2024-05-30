@@ -5,30 +5,38 @@ const { expect } = require("chai");
 const TestHarness = require("../support/TestHarness");
 
 const vcResponseData = require("../support/vcValidationData.json");
+const { error } = require("ajv/dist/vocabularies/applicator/dependencies");
 
 Given(
-  /^I have retrieved the sessionTable data for my F2F session$/,
+  "I have retrieved the sessionTable data for my F2F session using {string}",
   { timeout: 2 * 50000 },
-  async function () {
+  async function (queryField) {
     await new Promise((r) => setTimeout(r, 10000));
-
     const testHarness = new TestHarness();
-    const authCodeDetails = await testHarness.getSessionByAuthCode(
-      this.authCode
-    );
-    expect(authCodeDetails.authorizationCode).to.equal(this.authCode);
-    this.sessionId = authCodeDetails.sessionId;
+    let sessionData;
+    if (queryField === "authCode") {
+      sessionData = await testHarness.getSessionByAuthCode(
+        this.authCode
+      );
+    } else if (queryField === "state") {
+      sessionData = await testHarness.getSessionByState(
+        this.state
+      );
+    } else {
+      throw new Error(`Invalid query field: ${queryField}`);
+    }
+    this.sessionId = sessionData.sessionId;
     const session = await testHarness.getSession(this.sessionId);
     this.authSessionState = session.authSessionState;
   }
 );
 
 Then(
-  /^session details are correctly stored in DB$/,
+  "the authSessionState is correctly recorded as {string}",
   { timeout: 2 * 50000 },
-  async function () {
+  async function (authSessionState) {
     expect(this.sessionId).to.not.be.null;
-    expect(this.authSessionState).to.equal("F2F_AUTH_CODE_ISSUED");
+    expect(this.authSessionState).to.equal(authSessionState);
   }
 );
 
@@ -71,15 +79,15 @@ Then(
     const yotiMockIdId = this.yotiSessionId.substr(
       this.yotiSessionId.length - 4
     );
-      // Strength Score
-      const expectedStrengthScore = vcResponseData[`s${yotiMockIdId}`]["strengthScore"];
-      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, expectedStrengthScore, "strengthScore");
-      // Validity Score
-      const epxectedValidityScore = vcResponseData[`s${yotiMockIdId}`]["validityScore"];
-      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedValidityScore, "validityScore");
-      // Verification Score
-      const epxectedVerificationScore = vcResponseData[`s${yotiMockIdId}`]["verificationScore"];
-      testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedVerificationScore, "verificationScore");
+    // Strength Score
+    const expectedStrengthScore = vcResponseData[`s${yotiMockIdId}`]["strengthScore"];
+    testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, expectedStrengthScore, "strengthScore");
+    // Validity Score
+    const epxectedValidityScore = vcResponseData[`s${yotiMockIdId}`]["validityScore"];
+    testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedValidityScore, "validityScore");
+    // Verification Score
+    const epxectedVerificationScore = vcResponseData[`s${yotiMockIdId}`]["verificationScore"];
+    testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedVerificationScore, "verificationScore");
   }
 );
 
@@ -101,23 +109,23 @@ Then(
   }
 );
 
-When(
-  /^I get all TxMA events from Test Harness$/,
+When('I get {int} TxMA events from Test Harness',
   { timeout: 2 * 50000 },
-  async function () {
+  async function (txmaEventCount) {
     const testHarness = new TestHarness();
     let sqsMessage;
     do {
       sqsMessage = await testHarness.getSqsEventList(
         "txma/",
         this.sessionId,
-        7
+        txmaEventCount
       );
     } while (!sqsMessage);
 
     this.allTxmaEventBodies = await testHarness.getTxMAEventData(sqsMessage);
   }
 );
+
 
 Then(
   "the {string} event matches the {string} Schema",

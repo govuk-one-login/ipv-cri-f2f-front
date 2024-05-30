@@ -2,7 +2,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { LandingPage, PhotoIdSelectionPage } = require("../pages");
+const { LandingPage, PhotoIdSelectionPage, CheckDetails } = require("../pages");
 
 Given(
   /^the user wants to progress to the next step of the journey$/,
@@ -28,5 +28,19 @@ Then(
     const photoIdPage = new PhotoIdSelectionPage(await this.page);
 
     expect(await photoIdPage.isCurrentPage()).to.be.true;
+  }
+);
+
+Then(
+  /^the user selects I do not have any of these documents$/,
+  async function () {
+    const photoIdPage = new PhotoIdSelectionPage(await this.page);
+    const cmPage = new CheckDetails(await this.page);
+
+    await photoIdPage.noDocumentAbortChoice();
+    await photoIdPage.continue();
+
+    this.state = await cmPage.setSessionState();
+
   }
 );
