@@ -45,6 +45,10 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#photoIdChoice-euPhotocardDl");
   }
 
+  async noDocumentAbortChoice() {
+    await this.page.click("#photoIdChoice-noPhotoId");
+  }
+
   async back() {
     await this.page.click("#back");
   }

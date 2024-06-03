@@ -32,11 +32,11 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session
-        Then session details are correctly stored in DB
+        Given I have retrieved the sessionTable data for my F2F session using "authCode"
+        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
-        When I get all TxMA events from Test Harness
+        When I get 7 TxMA events from Test Harness
         Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
         And the "F2F_YOTI_START" event matches the "F2F_YOTI_START_UK_DL" Schema
         And the "F2F_CRI_AUTH_CODE_ISSUED" event matches the "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA" Schema
@@ -72,11 +72,11 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session
-        Then session details are correctly stored in DB
+        Given I have retrieved the sessionTable data for my F2F session using "authCode"
+        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
-        When I get all TxMA events from Test Harness
+        When I get 7 TxMA events from Test Harness
         Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
         And the "F2F_YOTI_START" event matches the "F2F_YOTI_START_UK_PP" Schema
         And the "F2F_CRI_AUTH_CODE_ISSUED" event matches the "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA" Schema
@@ -126,11 +126,11 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session
-        Then session details are correctly stored in DB
+        Given I have retrieved the sessionTable data for my F2F session using "authCode"
+        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
-        When I get all TxMA events from Test Harness
+        When I get 7 TxMA events from Test Harness
         Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
         And the "F2F_YOTI_START" event matches the "F2F_YOTI_START_NON_UK_PP" Schema
         And the "F2F_CRI_AUTH_CODE_ISSUED" event matches the "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA" Schema
@@ -165,11 +165,11 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session
-        Then session details are correctly stored in DB
+        Given I have retrieved the sessionTable data for my F2F session using "authCode"
+        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
-        When I get all TxMA events from Test Harness
+        When I get 7 TxMA events from Test Harness
         Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
         And the "F2F_YOTI_START" event matches the "F2F_YOTI_START_BRP" Schema
         And the "F2F_CRI_AUTH_CODE_ISSUED" event matches the "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA" Schema
@@ -215,11 +215,11 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session
-        Then session details are correctly stored in DB
+        Given I have retrieved the sessionTable data for my F2F session using "authCode"
+        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
-        When I get all TxMA events from Test Harness
+        When I get 7 TxMA events from Test Harness
         Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
         And the "F2F_YOTI_START" event matches the "F2F_YOTI_START_EU_DL" Schema
         And the "F2F_CRI_AUTH_CODE_ISSUED" event matches the "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA" Schema
@@ -265,11 +265,11 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session
-        Then session details are correctly stored in DB
+        Given I have retrieved the sessionTable data for my F2F session using "authCode"
+        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
-        When I get all TxMA events from Test Harness
+        When I get 7 TxMA events from Test Harness
         Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
         And the "F2F_YOTI_START" event matches the "F2F_YOTI_START_EEA_ID_CARD" Schema
         And the "F2F_CRI_AUTH_CODE_ISSUED" event matches the "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA" Schema
@@ -277,4 +277,20 @@ Feature: F2F Journey - E2E
         And the "F2F_YOTI_PDF_EMAILED" event matches the "F2F_YOTI_PDF_EMAILED_SCHEMA" Schema
         And the "F2F_YOTI_RESPONSE_RECEIVED" event matches the "F2F_YOTI_RESPONSE_RECEIVED_SCHEMA" Schema
         And the "F2F_CRI_VC_ISSUED" event matches the "F2F_CRI_VC_ISSUED_SCHEMA_EEA_ID_CARD" Schema
+
+    Scenario: F2F Journey - E2E Abort and DB Validation
+        Given A UK Drivers Licence User is using the system
+        When they have provided their details
+        Then they should be redirected to the Landing Page
+
+        Given the user wants to progress to the next step of the journey
+        When the user clicks the continue button on the Landing Page
+        Then the user is routed to the next screen in the journey PhotoId Selection
+        When the user selects I do not have any of these documents
+        And I have retrieved the sessionTable data for my F2F session using "state"
+        Then the authSessionState is correctly recorded as "F2F_CRI_SESSION_ABORTED"
+        When I get 2 TxMA events from Test Harness
+        Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
+        And the "F2F_CRI_SESSION_ABORTED" event matches the "F2F_CRI_SESSION_ABORTED_SCHEMA" Schema
+
 
