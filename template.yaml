@@ -173,7 +173,7 @@ Mappings:
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       PROXYURL: "proxy.review-o.integration.account.gov.uk"
       LOGLEVEL: "warn"
-      GA4DISABLED: true
+      GA4DISABLED: false
       UADISABLED: false
       LANGUAGETOGGLEDISABLED: true
     production:
@@ -186,7 +186,7 @@ Mappings:
       ANALYTICSDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.account.gov.uk"
       LOGLEVEL: "warn"
-      GA4DISABLED: true
+      GA4DISABLED: false
       UADISABLED: false
       LANGUAGETOGGLEDISABLED: true
 
