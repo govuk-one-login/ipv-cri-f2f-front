@@ -87,13 +87,12 @@ Conditions:
   DeployAlarms: !Or
     - Condition: IsNotDevelopment
     - !Equals [!Ref DeployAlarmsInDev, true]
-  IsCloudFrontTesting: !Or
+  EnableCloudFront: !Or
     - !Equals [ !Ref Environment, dev ]
     - !Equals [ !Ref Environment, build ]
     # - !Equals [ !Ref Environment, staging ]
     # - !Equals [ !Ref Environment, integration ]
-  IsWAFAssosciationEnable: !Not
-    - !Condition IsCloudFrontTesting
+  EnableWAFAssociation: !Equals [!Ref Environment, production]
 
 # DO WE NEED TO CHANGE THE ARN?
 
@@ -709,7 +708,7 @@ Resources:
 
   WAFv2ACLAssociation:
     Type: AWS::WAFv2::WebACLAssociation
-    Condition: IsWAFAssosciationEnable
+    Condition: EnableWAFAssociation
     Properties:
       ResourceArn: !Ref LoadBalancer
       WebACLArn: !Sub "{{resolve:ssm:/${Environment}/Platform/Security/Block/WafArn}}"
@@ -838,7 +837,7 @@ Resources:
       Type: A
       HostedZoneId: !ImportValue PublicHostedZoneId
       AliasTarget: !If
-      - IsCloudFrontPilotTesting
+      - EnableCloudFront
       - DNSName:  !FindInMap [EnvironmentVariables, !Ref Environment, CLOUDFRONTDOMAIN]
         HostedZoneId: Z2FDTNDATAQYW2
         EvaluateTargetHealth: false
