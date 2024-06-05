@@ -706,7 +706,7 @@ Resources:
 
   WAFv2ACLAssociation:
     Type: AWS::WAFv2::WebACLAssociation
-    Condition: EnableWAFAssociation
+   # Condition: EnableWAFAssociation
     Properties:
       ResourceArn: !Ref LoadBalancer
       WebACLArn: !Sub "{{resolve:ssm:/${Environment}/Platform/Security/Block/WafArn}}"
