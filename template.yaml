@@ -88,8 +88,8 @@ Conditions:
     - Condition: IsNotDevelopment
     - !Equals [!Ref DeployAlarmsInDev, true]
   EnableCloudFront: !Or
-    - !Equals [ !Ref Environment, dev ]
     - !Equals [ !Ref Environment, build ]
+    - !Equals [ !Ref Environment, staging ]
   EnableWAFAssociation: !Equals [!Ref Environment, production]
 
 # DO WE NEED TO CHANGE THE ARN?
@@ -706,7 +706,7 @@ Resources:
 
   WAFv2ACLAssociation:
     Type: AWS::WAFv2::WebACLAssociation
-    Condition: EnableWAFAssociation
+  #  Condition: EnableWAFAssociation
     Properties:
       ResourceArn: !Ref LoadBalancer
       WebACLArn: !Sub "{{resolve:ssm:/${Environment}/Platform/Security/Block/WafArn}}"
