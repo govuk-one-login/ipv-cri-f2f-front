@@ -90,6 +90,8 @@ Conditions:
   EnableCloudFront: !Or
     - !Equals [ !Ref Environment, dev ]
     - !Equals [ !Ref Environment, build ]
+    - !Equals [ !Ref Environment, staging ]
+    - !Equals [ !Ref Environment, integration ]
   EnableWAFAssociation: !Equals [!Ref Environment, production]
 
 # DO WE NEED TO CHANGE THE ARN?
