@@ -183,7 +183,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: false
       UADISABLED: false
-      LANGUAGETOGGLEDISABLED: true
+      LANGUAGETOGGLEDISABLED: false
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
@@ -197,7 +197,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: false
       UADISABLED: false
-      LANGUAGETOGGLEDISABLED: true
+      LANGUAGETOGGLEDISABLED: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
