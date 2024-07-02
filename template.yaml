@@ -131,7 +131,6 @@ Mappings:
     ### Please ensure that any variables defined for an environment are defined for _all_ environments.
     dev:
       APIBASEURL: "https://api-f2f-cri-api.review-o.dev.account.gov.uk"
-      IPVSTUBURL: "https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/"
       DNSSUFFIX: "review-o.dev.account.gov.uk"
       CLOUDFRONTDOMAIN: "d3o29uantyvgzg.cloudfront.net"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
@@ -146,7 +145,6 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
     build:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
-      IPVSTUBURL: "https://ipvstub.review-o.build.account.gov.uk/"
       DNSSUFFIX: "review-o.build.account.gov.uk"
       CLOUDFRONTDOMAIN: "d2qciy1us75oe5.cloudfront.net"
       SESSIONTABLENAME: "f2f-front-sessions-build"
@@ -1341,7 +1339,8 @@ Outputs:
   F2FIPVStubExecuteURL:
     Condition: IsNotProdLikeEnvironment
     Description: "F2F IPV Stub"
-    Value: !FindInMap [EnvironmentVariables, !Ref Environment, IPVSTUBURL]
+    Value:
+      Fn::ImportValue: !Sub '${IPVStubStackName}-IPVStubExecuteUrl'
   F2FTestHarnessURL:
     Condition: IsNotProdLikeEnvironment
     Description: "F2F Test Harness"
