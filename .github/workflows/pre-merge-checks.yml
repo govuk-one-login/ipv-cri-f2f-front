@@ -38,7 +38,6 @@ jobs:
       - name: Run test and write coverage
         run: yarn test:coverage
       - name: Run browser tests
-        id: f2fApiTests
         run: npm run test:browser:ci
         env: 
           IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
@@ -47,7 +46,6 @@ jobs:
           PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
           F2F_FE_BASE_URL: http:/localhost:5030
       - name: Archive browser tests results
-        if: always() && steps.f2fApiTests.outcome == 'failure'
         uses: actions/upload-artifact@v4
         with:
           name: browser-tests-report
