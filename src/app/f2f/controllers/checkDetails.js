@@ -213,6 +213,7 @@ class CheckDetailsController extends DateController {
           post_code: req.sessionModel.get("postOfficePostcode"),
           fad_code: req.sessionModel.get("postOfficeFadCode"),
         },
+        pdf_preference: "EMAIL_ONLY",
       };
 
       await this.saveF2fData(req.axios, f2fData, req);
