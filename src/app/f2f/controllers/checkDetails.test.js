@@ -21,6 +21,14 @@ describe("CheckDetails controller", () => {
     next = setup.next;
 
     checkDetailsController = new CheckDetailsController({ route: "/test" });
+		req.session.tokenId = 123456;
+		sinon.stub(console, "log");
+		sinon.stub(console, "error");
+  });
+
+  afterEach(() => {
+    console.log.restore();
+		console.error.restore();
   });
 
   it("should be an instance of BaseController", () => {
@@ -292,6 +300,15 @@ describe("CheckDetails controller", () => {
         await checkDetailsController.saveValues(req, res, next);
         expect(next).to.have.been.calledWith(error);
       });
+
+			it("should redirect to /error if session token is missing", async () => {
+				req.session.tokenId = null;
+	
+				await checkDetailsController.saveValues(req, res, next);
+	
+				expect(res.redirect).to.have.been.calledOnceWith("/error");
+				sinon.assert.calledWith(console.error, "Missing sessionID, redirecting to /error");
+			});
     });
   });
 
