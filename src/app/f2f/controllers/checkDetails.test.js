@@ -278,6 +278,7 @@ describe("CheckDetails controller", () => {
             post_code: req.sessionModel.get("postOfficePostcode"),
             fad_code: req.sessionModel.get("postOfficeFadCode"),
           },
+          pdf_preference: "EMAIL_ONLY",
         };
 
         await checkDetailsController.saveValues(req, res, next);
