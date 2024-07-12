@@ -18,7 +18,7 @@ Then("they should see the unrecoverable error page", async function () {
 
 Then("they should see the IPV Core error page", async function () {
   const ipvErrorPage = new IpvErrorPage(this.page);
-  
+
   expect(await ipvErrorPage.isCurrentPage()).to.be.true;
   expect(await ipvErrorPage.hasErrorQueryParams()).to.be.true;
 });

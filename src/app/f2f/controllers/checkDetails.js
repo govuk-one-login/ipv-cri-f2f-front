@@ -223,26 +223,24 @@ class CheckDetailsController extends DateController {
     }
   }
   async saveF2fData(axios, f2fData, req, res) {
-		const tokenId = req.session.tokenId;
+    const tokenId = req.session.tokenId;
 
-		if (tokenId) {
-			const headers = {
-				"x-govuk-signin-session-id": tokenId,
-				...createPersonalDataHeaders(
-					`${API.BASE_URL}${API.PATHS.SAVE_F2FDATA}`,
-					req
-				),
-			};
-			const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
-				headers,
-			});
-			return resp.data;
-		} else {
-			console.error("Missing sessionID, redirecting to /error");
-			res.redirect("/error");
-		}
-
-    
+    if (tokenId) {
+      const headers = {
+        "x-govuk-signin-session-id": tokenId,
+        ...createPersonalDataHeaders(
+          `${API.BASE_URL}${API.PATHS.SAVE_F2FDATA}`,
+          req
+        ),
+      };
+      const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
+        headers,
+      });
+      return resp.data;
+    } else {
+      console.error("Missing sessionID, redirecting to /error");
+      res.redirect("/error");
+    }
   }
 }
 module.exports = CheckDetailsController;

@@ -83,9 +83,9 @@ module.exports = class TestHarness {
     try {
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
         "/getRecordBySessionId/" +
-        process.env["SESSION_TABLE"] +
-        "/" +
-        sessionId
+          process.env["SESSION_TABLE"] +
+          "/" +
+          sessionId
       );
       return unmarshall(getItemResponse.data.Item);
     } catch (error) {
@@ -212,11 +212,14 @@ module.exports = class TestHarness {
     }
   }
 
-  async checkVerifiableCredentialValue(decodedBody, yotiMockIdId, expecedValue, vcAttribute) {
+  async checkVerifiableCredentialValue(
+    decodedBody,
+    yotiMockIdId,
+    expecedValue,
+    vcAttribute
+  ) {
     try {
-      expect(decodedBody.vc.evidence[0][vcAttribute]).to.equal(
-        expecedValue
-      );
+      expect(decodedBody.vc.evidence[0][vcAttribute]).to.equal(expecedValue);
     } catch (error) {
       console.log(
         `Error validating ${vcAttribute} for yotiMockId: ${yotiMockIdId}`,
