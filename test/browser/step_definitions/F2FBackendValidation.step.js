@@ -14,13 +14,9 @@ Given(
     const testHarness = new TestHarness();
     let sessionData;
     if (queryField === "authCode") {
-      sessionData = await testHarness.getSessionByAuthCode(
-        this.authCode
-      );
+      sessionData = await testHarness.getSessionByAuthCode(this.authCode);
     } else if (queryField === "state") {
-      sessionData = await testHarness.getSessionByState(
-        this.state
-      );
+      sessionData = await testHarness.getSessionByState(this.state);
     } else {
       throw new Error(`Invalid query field: ${queryField}`);
     }
@@ -79,14 +75,32 @@ Then(
       this.yotiSessionId.length - 4
     );
     // Strength Score
-    const expectedStrengthScore = vcResponseData[`s${yotiMockIdId}`]["strengthScore"];
-    testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, expectedStrengthScore, "strengthScore");
+    const expectedStrengthScore =
+      vcResponseData[`s${yotiMockIdId}`]["strengthScore"];
+    testHarness.checkVerifiableCredentialValue(
+      decodedBody,
+      yotiMockIdId,
+      expectedStrengthScore,
+      "strengthScore"
+    );
     // Validity Score
-    const epxectedValidityScore = vcResponseData[`s${yotiMockIdId}`]["validityScore"];
-    testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedValidityScore, "validityScore");
+    const epxectedValidityScore =
+      vcResponseData[`s${yotiMockIdId}`]["validityScore"];
+    testHarness.checkVerifiableCredentialValue(
+      decodedBody,
+      yotiMockIdId,
+      epxectedValidityScore,
+      "validityScore"
+    );
     // Verification Score
-    const epxectedVerificationScore = vcResponseData[`s${yotiMockIdId}`]["verificationScore"];
-    testHarness.checkVerifiableCredentialValue(decodedBody, yotiMockIdId, epxectedVerificationScore, "verificationScore");
+    const epxectedVerificationScore =
+      vcResponseData[`s${yotiMockIdId}`]["verificationScore"];
+    testHarness.checkVerifiableCredentialValue(
+      decodedBody,
+      yotiMockIdId,
+      epxectedVerificationScore,
+      "verificationScore"
+    );
   }
 );
 
@@ -108,7 +122,8 @@ Then(
   }
 );
 
-When('I get {int} TxMA events from Test Harness',
+When(
+  "I get {int} TxMA events from Test Harness",
   { timeout: 2 * 50000 },
   async function (txmaEventCount) {
     const testHarness = new TestHarness();
@@ -124,7 +139,6 @@ When('I get {int} TxMA events from Test Harness',
     this.allTxmaEventBodies = await testHarness.getTxMAEventData(sqsMessage);
   }
 );
-
 
 Then(
   "the {string} event matches the {string} Schema",

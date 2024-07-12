@@ -20,27 +20,25 @@ class LandingPageController extends BaseController {
   }
 
   async getSessionConfig(req, res) {
-		const tokenId = req.session.tokenId;
+    const tokenId = req.session.tokenId;
 
-		if (tokenId) {
-			const headers = {
-				"x-govuk-signin-session-id": tokenId,
-			};
-			try {
-				const { data } = await req.axios.get(`${API.PATHS.SESSION_CONFIG}`, {
-					headers,
-				});
-				return data;
-			} catch (error) {
-				console.log("Error calling /sessionConfiguration");
-				logger.error("Error calling /sessionConfiguration", error);
-			}
-		} else {
-			console.error("Missing sessionID, redirecting to /error");
-			res.redirect("/error");
-		}
-
-    
+    if (tokenId) {
+      const headers = {
+        "x-govuk-signin-session-id": tokenId,
+      };
+      try {
+        const { data } = await req.axios.get(`${API.PATHS.SESSION_CONFIG}`, {
+          headers,
+        });
+        return data;
+      } catch (error) {
+        console.log("Error calling /sessionConfiguration");
+        logger.error("Error calling /sessionConfiguration", error);
+      }
+    } else {
+      console.error("Missing sessionID, redirecting to /error");
+      res.redirect("/error");
+    }
   }
 }
 

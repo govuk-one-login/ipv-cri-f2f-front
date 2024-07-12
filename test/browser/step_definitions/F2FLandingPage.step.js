@@ -41,6 +41,5 @@ Then(
     await photoIdPage.continue();
 
     this.state = await cmPage.setSessionState();
-
   }
 );

@@ -15,37 +15,35 @@ class AbortController extends BaseController {
   }
 
   async abortJourney(req, res) {
-		const tokenId = req.session.tokenId;
+    const tokenId = req.session.tokenId;
 
     if (tokenId) {
-			const headers = {
-				"x-govuk-signin-session-id": tokenId,
-				...createPersonalDataHeaders(`${API.BASE_URL}${API.PATHS.ABORT}`, req),
-			};
-	
-			const response = await req.axios.post(
-				`${API.PATHS.ABORT}`,
-				{ reason: "session_expired" },
-				{
-					headers,
-				}
-			);
-	
-			if (response.status === 200 && response.headers.location) {
-				const REDIRECT_URL = decodeURIComponent(response.headers.location);
-	
-				logger.warn("Session aborted successfully - now redirecting", {
-					location: REDIRECT_URL,
-				});
-	
-				res.redirect(REDIRECT_URL);
-			}
-    } else {
-			console.error("Missing sessionID, redirecting to /error");
-      res.redirect("/error");
-		}
+      const headers = {
+        "x-govuk-signin-session-id": tokenId,
+        ...createPersonalDataHeaders(`${API.BASE_URL}${API.PATHS.ABORT}`, req),
+      };
 
-    
+      const response = await req.axios.post(
+        `${API.PATHS.ABORT}`,
+        { reason: "session_expired" },
+        {
+          headers,
+        }
+      );
+
+      if (response.status === 200 && response.headers.location) {
+        const REDIRECT_URL = decodeURIComponent(response.headers.location);
+
+        logger.warn("Session aborted successfully - now redirecting", {
+          location: REDIRECT_URL,
+        });
+
+        res.redirect(REDIRECT_URL);
+      }
+    } else {
+      console.error("Missing sessionID, redirecting to /error");
+      res.redirect("/error");
+    }
   }
 }
 
