@@ -455,3 +455,18 @@ countries:
     YEM: "Yemen"
     ZMB: "Zambia"
     ZWE: "Zimbabwe"
+
+postOfficeCustomerLetterChoice:
+  validation:
+    required: You must choose an option to continue
+  content: ""
+  items:
+    email:
+      label: Email only
+      hint: ""
+      reveal: ""
+    post:
+      label: Post and email
+      hint: "It can take up to 6 working days to get your letter by post."
+      reveal: ""
+   

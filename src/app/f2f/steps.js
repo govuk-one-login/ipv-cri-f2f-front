@@ -21,7 +21,7 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: APP.PATHS.LANDING_PAGE,
+    next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER,
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
     controller: landingPage,
@@ -399,7 +399,24 @@ module.exports = {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
-    next: APP.PATHS.CHECK_DETAILS,
+    next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER,
+  },
+  [`${APP.PATHS.POST_OFFICE_CUSTOMER_LETTER}`]: {
+    fields: ["postOfficeCustomerLetterChoice"],
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: [
+      {
+        field: "postOfficeCustomerLetterChoice",
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL,
+        next: APP.PATHS.CHECK_DETAILS
+      },
+      {
+        field: "postOfficeCustomerLetterChoice",
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
+        next: APP.PATHS.CHECK_DETAILS
+      }
+    ]
   },
   [`${APP.PATHS.CHECK_DETAILS}`]: {
     controller: checkDetails,
