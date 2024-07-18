@@ -12,9 +12,9 @@ class LandingPageController extends BaseController {
         // Show thin file user screen
         req.sessionModel.set("isThinFileUser", true);
       }
-      if (configData && configData.pcl_enabled) {
-        // Show the printed customer letter preference selection screen
-        req.sessionModel.set("pclEnabled", configData.pcl_enabled);
+      if (configData) {
+        // Save the printed customer letter enabled flag
+        req.sessionModel.set("pclEnabled", !!(configData.pcl_enabled == "true"));
       }
 
       super.saveValues(req, res, next);
