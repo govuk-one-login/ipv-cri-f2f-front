@@ -458,7 +458,7 @@ countries:
 
 postOfficeCustomerLetterChoice:
   validation:
-    required: You must choose an option to continue
+    required: Select how you want to get you Post Office customer letter
   content: ""
   items:
     email:

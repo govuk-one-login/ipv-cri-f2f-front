@@ -12,7 +12,7 @@
 {% set content1 = translate("postOfficeCustomerLetterChoice.content1") %}
 {% set content2 = translate("postOfficeCustomerLetterChoice.content2") %}
 {% set prompt = translate("postOfficeCustomerLetterChoice.prompt") %}
-{% set formInstructions = "<p>"+content1+"</p><br><p>"+content2+"</p><p class=\"expiredIdPrompt\">"+prompt+"</p>"%}
+{% set formInstructions = "<p id=\"contentLine1\">"+content1+"</p><p id=\"contentLine2\">"+content2+"</p><p class=\"postOfficeLetterPrompt\">"+prompt+"</p>"%}
       
       {% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {
@@ -22,7 +22,7 @@
                     legend: {
                         text: title,
                         isPageHeading: true,
-                        classes: "govuk-fieldset__legend--l idHasExpiryDate-radios"
+                        classes: "govuk-fieldset__legend--l postOfficeCustomerLetterChoice-radios"
                     }
                 },
                 hint: {

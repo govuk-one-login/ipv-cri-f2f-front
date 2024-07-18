@@ -21,7 +21,7 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER,
+    next: APP.PATHS.LANDING_PAGE,
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
     controller: landingPage,
