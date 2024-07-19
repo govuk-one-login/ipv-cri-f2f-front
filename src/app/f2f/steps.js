@@ -21,7 +21,7 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: APP.PATHS.LANDING_PAGE,
+    next: APP.PATHS.CHECK_ADDRESS,
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
     controller: landingPage,
@@ -399,7 +399,24 @@ module.exports = {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
-    next: APP.PATHS.CHECK_DETAILS,
+    next: APP.PATHS.CHECK_ADDRESS,
+  },
+  [`${APP.PATHS.CHECK_ADDRESS}`]: {
+    fields: ["customerLetterCheckAddress"],
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: [
+      {
+        field: "customerLetterCheckAddress",
+        value: APP.CHECK_ADDRESS.EXISTING_ADDRESS,
+        next: APP.PATHS.CHECK_DETAILS
+      },
+      {
+        field: "customerLetterCheckAddress",
+        value: APP.CHECK_ADDRESS.DIFFERENT_ADDRESS,
+        next: APP.PATHS.CHECK_DETAILS
+      }
+    ]
   },
   [`${APP.PATHS.CHECK_DETAILS}`]: {
     controller: checkDetails,

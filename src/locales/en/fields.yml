@@ -455,3 +455,16 @@ countries:
     YEM: "Yemen"
     ZMB: "Zambia"
     ZWE: "Zimbabwe"
+
+customerLetterCheckAddress:
+  validation: 
+    equal: "Select if you want you Post Office customer letter to be sent to this address"
+  items:
+    existingAddress:
+      label: "Yes"
+      hint: ""
+      reveal: ""
+    differentAddress:
+      label: "No, I want my customer letter sent to a different address"
+      hint: ""
+      reveal: ""

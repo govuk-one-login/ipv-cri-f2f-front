@@ -126,3 +126,8 @@ nonUkPassportCountrySelector:
   title: "Select which country your passport is from"
   content: "If the country your passport is from is not on the list, you'll need to choose another type of photo ID."
   link: "The country my passport is from is not on the list"
+
+customerLetterCheckAddress:
+  title: "Check your address"
+  content: "You gave the following address as your current home address."
+  prompt: "Do you want your Post Office customer letter to be sent to this address?"

@@ -48,6 +48,7 @@ module.exports = {
       ABORT: "/abort",
       EXPIRED_ID: "/photo-id-expired",
       FIND_POST_OFFICE: "/find-post-office-prove-identity",
+      CHECK_ADDRESS: "/post-office-customer-letter-check-address",
       CHOOSE_POST_OFFICE: "/choose-post-office-prove-identity",
       CHECK_DETAILS: "/check-details",
       DONE: "/done",
@@ -77,6 +78,10 @@ module.exports = {
       RE_ENTER_DETAILS: "reEnterDetails",
       CHOOSE_DIFFERENT_PHOTO_ID: "chooseDifferentPhotoId",
       PROVE_IDENTITY_ANOTHER_WAY: "proveIdentityAnotherWay",
+    },
+    CHECK_ADDRESS : {
+      EXISTING_ADDRESS: "existingAddress",
+      DIFFERENT_ADDRESS: "differentAddress"
     },
     GTM: {
       GA4_ID: process.env.GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID || "GTM-XXXXXXX",
