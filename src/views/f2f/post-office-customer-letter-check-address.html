@@ -2,38 +2,47 @@
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "customerLetterCheckAddress" %}
 {% set gtmJourney = "f2f - customerLetterCheckAddress" %}
-
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
-
-{% block mainContent %}
 
 {% set title = translate("customerLetterCheckAddress.title") %}
 {% set content = translate("customerLetterCheckAddress.content") %}
 {% set prompt = translate("customerLetterCheckAddress.prompt") %}
+{% set insetBody = translate("customerLetterCheckAddress.prompt") %} 
+
 {% set formInstructions = "<p>"+content+"</p><p class=\"postOfficeLetterPrompt\">"+prompt+"</p>"%}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">{{ "customerLetterCheckAddress.title" | translate }}</h1>
 
-      {% call hmpoForm(ctx) %}
-              {{ hmpoRadios(ctx, {
-                id: "customerLetterCheckAddress",
-                namePrefix: "customerLetterCheckAddress",
-                fieldset: {
-                    legend: {
-                        text: title,
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend--l customerLetterCheckAddress-radios"
-                    }
-                },
-                hint: {
-                    html: formInstructions
-                }
-            }) }}
+        <p class="instruction">{{ "customerLetterCheckAddress.content" | translate }}</p>
 
-    {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
+        {{ govukInsetText({
+            html: insetBody
+        }) }}
 
-    {% endcall %}
+            {% call hmpoForm(ctx) %}
+                    {{ hmpoRadios(ctx, {
+                        id: "customerLetterCheckAddress",
+                        namePrefix: "customerLetterCheckAddress",
+                        fieldset: {
+                            legend: {
+                                text: prompt,
+                                isPageHeading: false,
+                                classes: "govuk-fieldset__legend--m customerLetterCheckAddress-radios"
+                            }
+                        }
+                    }) }}
+
+            {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
+
+            {% endcall %}
 
 {% endblock %} 
+  </div>
+</div>
 
 {% set footerNavItems = translate("govuk.footerNavItems") %}
 

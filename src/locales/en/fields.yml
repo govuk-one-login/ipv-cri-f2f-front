@@ -458,7 +458,7 @@ countries:
 
 customerLetterCheckAddress:
   validation: 
-    equal: "Select if you want you Post Office customer letter to be sent to this address"
+    required: "Select if you want you Post Office customer letter to be sent to this address"
   items:
     existingAddress:
       label: "Yes"

@@ -11,6 +11,7 @@ module.exports = {
       SAVE_F2FDATA: "/documentSelection",
       ABORT: "/abort",
       SESSION_CONFIG: "/sessionConfiguration",
+      PERSON_INFO: "/person-info"
     },
   },
   PROXY_API: {
