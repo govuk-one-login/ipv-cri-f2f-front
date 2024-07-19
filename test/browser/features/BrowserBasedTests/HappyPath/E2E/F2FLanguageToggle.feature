@@ -31,6 +31,7 @@ Feature: F2F Language Toggle
 
         Given a Post Office branch is selected
         When the user clicks continue
+        And the user selects a Post Office customer letter option of "Email only"
         Then the user is navigated to the next step in the journey - Confirm Answer
         And the language toggle is present on the screen
         When the user clicks the Check My Answers Submit button

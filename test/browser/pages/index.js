@@ -36,6 +36,7 @@ module.exports = {
   PassportDetailsPageValidEdit: require("./ukPassportDetailsPageValidEdit"),
   PassportDetailsPageInvalidFuture: require("./ukPassportDetailsPageInvalidFuture"),
   PassportDetailsPageInvalidPast: require("./ukPassportDetailsPageInvalidPast"),
+  PostOfficeCustomerLetterPage: require("./postOfficeCustomerLetterPage"),
   EuDrivingLicenceDetailsPageValid: require("./euDrivingLicenceDetailsPageValid"),
   EuDrivingLicenceDetailsPageValidEdit: require("./euDrivingLicenceDetailsPageValidEdit"),
   EuDrivingLicenceDetailsPageInvalidFuture: require("./euDrivingLicenceDetailsPageInvalidFuture"),

@@ -29,6 +29,7 @@ Feature: F2F Journey - E2E
 
         Given a Post Office branch is selected
         When the user clicks continue
+        And the user selects a Post Office customer letter option of "Email only"
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
@@ -69,6 +70,7 @@ Feature: F2F Journey - E2E
 
         Given a Post Office branch is selected
         When the user clicks continue
+        And the user selects a Post Office customer letter option of "Email only"
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
@@ -123,6 +125,7 @@ Feature: F2F Journey - E2E
 
         Given a Post Office branch is selected
         When the user clicks continue
+        And the user selects a Post Office customer letter option of "Email only"
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
@@ -162,6 +165,7 @@ Feature: F2F Journey - E2E
 
         Given a Post Office branch is selected
         When the user clicks continue
+        And the user selects a Post Office customer letter option of "Email only"
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
@@ -212,6 +216,7 @@ Feature: F2F Journey - E2E
 
         Given a Post Office branch is selected
         When the user clicks continue
+        And the user selects a Post Office customer letter option of "Email only"
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
@@ -262,6 +267,7 @@ Feature: F2F Journey - E2E
 
         Given a Post Office branch is selected
         When the user clicks continue
+        And the user selects a Post Office customer letter option of "Email only"
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 

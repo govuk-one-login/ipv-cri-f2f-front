@@ -33,4 +33,5 @@ Feature: Document Selection - NonUK Passport E2E Journey (Happy Path)
     Scenario: NonUK Passport - E2E Journey (Happy Path)
         Given a Post Office branch is selected
         When the user clicks continue
+        And the user selects a Post Office customer letter option of "Email only"
         Then the user is navigated to the next step in the journey - Confirm Answer

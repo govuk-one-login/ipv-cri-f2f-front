@@ -25,6 +25,7 @@ Feature: Document Selection - Biometric Residence Permit E2E Journey (Happy Path
     Scenario: BRP - E2E Journey (Happy Path)
         Given a Post Office branch is selected
         When the user clicks continue
+        And the user selects a Post Office customer letter option of "Email only"
         Then the user is navigated to the next step in the journey - Confirm Answer
         And Does your photo ID have an expiry date option is not displayed
         And Expiry date is not displayed
