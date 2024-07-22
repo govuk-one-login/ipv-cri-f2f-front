@@ -425,7 +425,7 @@ module.exports = {
       {
         field: "postOfficeCustomerLetterChoice",
         value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
-        next: APP.PATHS.CHECK_DETAILS
+        next: APP.PATHS.CHECK_ADDRESS
       }
     ]
   },
