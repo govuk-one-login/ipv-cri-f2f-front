@@ -131,3 +131,4 @@ customerLetterCheckAddress:
   title: "Check your address"
   content: "You gave the following address as your current home address."
   prompt: "Do you want your Post Office customer letter to be sent to this address?"
+  dummyAddress: "123 Fake Street <br> Fakington <br> FK12 8RZ"

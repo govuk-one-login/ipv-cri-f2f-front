@@ -6,35 +6,31 @@
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 
+{% block mainContent %}
+
 {% set title = translate("customerLetterCheckAddress.title") %}
 {% set content = translate("customerLetterCheckAddress.content") %}
 {% set prompt = translate("customerLetterCheckAddress.prompt") %}
-{% set insetBody = translate("customerLetterCheckAddress.prompt") %} 
+{% set insetText = govukInsetText({
+    html: translate("customerLetterCheckAddress.dummyAddress")
+  }) %}
+{% set formInstructions = "<p class=\"addressCheckContent\">"+content+"</p><div>"+insetText+"</div><p class=\"addressCheckPrompt\">"+prompt+"</p>"%}
 
-{% set formInstructions = "<p>"+content+"</p><p class=\"postOfficeLetterPrompt\">"+prompt+"</p>"%}
-{% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">{{ "customerLetterCheckAddress.title" | translate }}</h1>
-
-        <p class="instruction">{{ "customerLetterCheckAddress.content" | translate }}</p>
-
-        {{ govukInsetText({
-            html: insetBody
-        }) }}
-
-            {% call hmpoForm(ctx) %}
-                    {{ hmpoRadios(ctx, {
-                        id: "customerLetterCheckAddress",
-                        namePrefix: "customerLetterCheckAddress",
-                        fieldset: {
-                            legend: {
-                                text: prompt,
-                                isPageHeading: false,
-                                classes: "govuk-fieldset__legend--m customerLetterCheckAddress-radios"
-                            }
-                        }
-                    }) }}
+      {% call hmpoForm(ctx) %}
+              {{ hmpoRadios(ctx, {
+                id: "customerLetterCheckAddress",
+                namePrefix: "customerLetterCheckAddress",
+                fieldset: {
+                    legend: {
+                        text: title,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l customerLetterCheckAddress-radios"
+                    }
+                },
+                hint: {
+                    html: formInstructions
+                }
+            }) }}
 
             {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
 
