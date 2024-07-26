@@ -13,6 +13,7 @@ const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
 const { APP } = require("../../lib/config");
+const checkAddressController = require("./controllers/checkAddress");
 
 module.exports = {
   [`${APP.PATHS.F2F}`]: {
@@ -21,7 +22,7 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: APP.PATHS.CHECK_ADDRESS,
+    next: APP.PATHS.LANDING_PAGE,
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
     controller: landingPage,
@@ -403,6 +404,7 @@ module.exports = {
   },
   [`${APP.PATHS.CHECK_ADDRESS}`]: {
     fields: ["customerLetterCheckAddress"],
+    controller: checkAddressController,
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
