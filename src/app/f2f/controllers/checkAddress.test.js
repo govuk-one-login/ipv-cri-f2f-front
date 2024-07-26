@@ -2,7 +2,7 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const { expect } = require("chai");
 const CheckAddressController = require("./checkAddress");
 
-describe("CheckDetails controller", () => {
+describe("CheckAddress controller", () => {
     let checkAddressController;
     let req;
     let res;
