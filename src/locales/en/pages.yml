@@ -85,6 +85,10 @@ photoIdExpiry:
   content: "You need valid photo ID to prove your identity."
   prompt: "What would you like to do?"
 
+findAddress:
+  title: "Find an address"
+  body: "Enter the UK postcode of where you want to have your Post Office customer letter sent."
+
 checkDetails:
   title: "Check your answers"
   selectedId: "Chosen photo ID"

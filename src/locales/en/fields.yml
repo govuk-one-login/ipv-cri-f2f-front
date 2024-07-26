@@ -215,6 +215,12 @@ postcode:
   validation:
     default: "Enter a real UK postcode"
 
+letterPostcode:
+  label: UK postcode
+  hint: "For example, SW1A 2AA"
+  validation:
+    default: "Enter a full UK postcode"
+
 branches:
   label: Postcode
   validation:

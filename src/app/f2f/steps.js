@@ -34,7 +34,7 @@ module.exports = {
       {
         field: "isThinFileUser",
         value: false,
-        next: APP.PATHS.PHOTO_ID_SELECTION,
+        next: APP.PATHS.FIND_ADDRESS,
       },
     ],
   },
@@ -399,6 +399,12 @@ module.exports = {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
+    next: APP.PATHS.FIND_ADDRESS,
+  },
+  [`${APP.PATHS.FIND_ADDRESS}`]: {
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_ADDRESS,
+    fields: ["letterPostcode"],
     next: APP.PATHS.CHECK_DETAILS,
   },
   [`${APP.PATHS.CHECK_DETAILS}`]: {
