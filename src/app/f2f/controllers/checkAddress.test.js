@@ -34,7 +34,7 @@ describe("CheckAddress controller", () => {
         checkAddressController.locals(req, res, next)
 
     setImmediate(() => {
-      const locals = next.args[0][1]; // Extract locals from callback arguments
+      const locals = next.args[0][1];
       expect(locals.addressLine1).to.equal(testAddressLine1);
       expect(locals.addressLine2).to.equal(testAddressLine2);
       expect(locals.townCity).to.equal(testTownCity);
