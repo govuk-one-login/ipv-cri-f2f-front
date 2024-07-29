@@ -165,7 +165,7 @@ module.exports = {
   },
   eeaIdCardExpiryDate: {
     type: "date",
-    journeyKey: "euIdCardExpiryDate",
+    journeyKey: "eeaIdCardExpiryDate",
     validate: [
       "required",
       "date",

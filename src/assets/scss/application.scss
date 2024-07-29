@@ -274,3 +274,7 @@ main p,
 .govuk-warning-text {
   @include govuk-responsive-margin(4, "bottom");
 }
+
+#findAddressContent {
+  @include govuk-responsive-margin(5, "bottom");
+}

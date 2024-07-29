@@ -5,15 +5,25 @@
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "hmpo-date/macro.njk" import hmpoDate %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+
 
 {% block mainContent %}
 
 {% set title = translate("findAddress.title") %}
-{% set body = translate("findAddress.body") %}
-{% set formInstructions = body %}
+{% set content = translate("findAddress.content") %}
+{% set prompt = translate("findAddress.prompt") %}
+{% set hintText = translate("findAddress.hintText") %}
+{% set formInstructions = "<p id=\"findAddressContent\">"+content+"</p><p>"+prompt+"</p>"+hintText+"<p>"%}
+
+<h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+    {{ title }}
+</h1>
     
     {% call hmpoForm(ctx) %}
-        {{ hmpoText(ctx, {
+          {{ hmpoText(ctx, {
             id: "letterPostcode",
             namePrefix: "letterPostcode",
             fieldset: {
@@ -29,6 +39,8 @@
         }) }}
 
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+
+    <p><a href="/post-office-customer-letter-enter-address">{{ translate("findAddress.link") }}</a></p>
 
     {% endcall %}
 {% endblock %}

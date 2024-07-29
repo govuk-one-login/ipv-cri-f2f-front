@@ -216,8 +216,9 @@ postcode:
     default: "Enter a real UK postcode"
 
 letterPostcode:
-  label: UK postcode
-  hint: "For example, SW1A 2AA"
+  legend: ""
+  label: ""
+  hint: ""
   validation:
     default: "Enter a full UK postcode"
 

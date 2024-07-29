@@ -87,7 +87,10 @@ photoIdExpiry:
 
 findAddress:
   title: "Find an address"
-  body: "Enter the UK postcode of where you want to have your Post Office customer letter sent."
+  content: "Enter the UK postcode of where you want to have your Post Office customer letter sent."
+  prompt: "UK postcode"
+  hintText: "For example, SW1A 2AA"
+  link: "Enter address manually"
 
 checkDetails:
   title: "Check your answers"
