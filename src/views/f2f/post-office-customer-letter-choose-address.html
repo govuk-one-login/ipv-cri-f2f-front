@@ -1,0 +1,70 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoPageKey = "addressResults" %}
+{% set gtmJourney = "f2f - addressResults" %}
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-select/macro.njk" import hmpoSelect %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{% block mainContent %}
+
+{% set title = translate("addressResults.title") %}
+{% set userPostCodeLabel = translate("addressResults.label") %}
+{% set userPostCodeControl = hmpoHtml(translate("links.changeAddressPostcode")) %}
+{% set userPostCodePrompt = translate("addressResults.prompt") %}
+{% set formInstructions = "<p>"+userPostCodeControl+"</p><p class=\"govuk-!-margin-top-6\">"+userPostCodePrompt+"</p>" %}
+
+
+    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+        {{ translate("addressResults.title") }}
+    </h1>
+
+    {% call hmpoForm(ctx) %}
+
+        {{ hmpoSelect(ctx, {
+            id: "addressResults",
+            name: "addressResults",
+            label: userPostCodeLabel,
+            hint: {
+                html: formInstructions
+            },
+            items: addressResults
+        }) }}
+    
+    
+        
+        {{ hmpoSubmit(ctx, {id: "useThisAddress", text: translate("buttons.useThisAddress")}) }}
+    {% endcall %}
+
+    {{ govukDetails({
+        summaryText: translate("addressResults.noAddress-summary"),
+        html: translate("addressResults.noAddress-link")
+    }) }}
+
+
+{% endblock %}
+
+
+  {% set footerNavItems = translate("govuk.footerNavItems") %}
+
+  {% block footer %}
+      {{ govukFooter( footerNavItems ) }}
+      <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+        window.addEventListener('load', function () {
+            window
+                .DI
+                .analyticsGa4
+                .pageViewTracker
+                .trackOnPageLoad({
+                    statusCode: '200', // Access status code
+                    englishPageTitle: '{{translate("locations.title")}}',
+                    taxonomy_level1: 'web cri', // Access taxonomy level 1
+                    taxonomy_level2: 'f2f', // Access taxonomy level 2
+                    content_id: '001',
+                    logged_in_status: true,
+                    dynamic: false
+                });
+        });
+    </script>
+  {% endblock %}

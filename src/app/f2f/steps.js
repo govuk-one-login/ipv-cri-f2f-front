@@ -12,6 +12,7 @@ const abort = require("./controllers/abort");
 const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
+const addressResults = require("./controllers/addressResults")
 const { APP } = require("../../lib/config");
 
 module.exports = {
@@ -34,7 +35,7 @@ module.exports = {
       {
         field: "isThinFileUser",
         value: false,
-        next: APP.PATHS.PHOTO_ID_SELECTION,
+        next: APP.PATHS.CHOOSE_ADDRESS,
       },
     ],
   },
@@ -399,6 +400,11 @@ module.exports = {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
+    next: APP.PATHS.CHECK_DETAILS,
+  },
+  [`${APP.PATHS.CHOOSE_ADDRESS}`]: {
+    controller: addressResults,
+    fields: ["addressPostcode"],
     next: APP.PATHS.CHECK_DETAILS,
   },
   [`${APP.PATHS.CHECK_DETAILS}`]: {

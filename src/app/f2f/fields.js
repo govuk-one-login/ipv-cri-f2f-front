@@ -229,6 +229,9 @@ module.exports = {
   branches: {
     validate: ["required"],
   },
+  addressResults: {
+    validate: ["required"],
+  },
   photoIdExpiryChoice: {
     type: "radios",
     legend: "",

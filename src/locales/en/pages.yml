@@ -80,6 +80,13 @@ locations:
   title: "Choose a Post Office where you can prove your identity"
   body: "Postcode"
 
+addressResults:
+  title: "Choose an address"
+  label: "Postcode"
+  prompt: "Choose an address from the list"
+  noAddress-summary: "I cannot find my address on the list"
+  noAddress-link: <p>If you cannot find your address in the list, you can <a href="/choose-post-office-prove-identity" target="_blank" class="govuk-link">get your Post Office customer letter by email only</a></p>
+
 photoIdExpiry:
   title: "Your photo ID has expired"
   content: "You need valid photo ID to prove your identity."

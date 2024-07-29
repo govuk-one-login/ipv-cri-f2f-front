@@ -274,3 +274,7 @@ main p,
 .govuk-warning-text {
   @include govuk-responsive-margin(4, "bottom");
 }
+
+#addressResultsPrompt {
+  @include govuk-responsive-margin(3, "top");
+}

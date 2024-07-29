@@ -2,6 +2,7 @@ buttons:
   next: Continue
   cancel: Cancel
   continue: Continue
+  useThisAddress: Use this address
 
 govuk:
   serviceName: ""
@@ -81,3 +82,4 @@ common:
 
 links:
   changePostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/find-post-office-prove-identity?edit=true" id="changePostcode" data-id="changePostcode" class="govuk-link"> Change <span class="govuk-visually-hidden">your current postcode</span></a>
+  changeAddressPostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changeAddressPostcodeValue"><b id="addressPostcode">{{addressPostcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/post-office-customer-letter-find-address?edit=true" id="changeAddressPostcode" data-id="changeAddressPostcode" class="govuk-link"> Change <span class="govuk-visually-hidden">your current postcode</span></a>
