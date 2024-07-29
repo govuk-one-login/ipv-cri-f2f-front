@@ -399,7 +399,7 @@ module.exports = {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
-    next: APP.PATHS.CHECK_ADDRESS,
+    next: APP.PATHS.CHECK_DETAILS,
   },
   [`${APP.PATHS.FIND_ADDRESS}`]: {
     editable: true,
