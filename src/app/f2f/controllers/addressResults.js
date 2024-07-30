@@ -1,7 +1,9 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config")
+const { PROXY_API } = require("../../../../src/lib/config");
+
 const presenters = require("../../../presenters");
-const convertKeysToLowerCase = require("../utils")
+const { convertKeysToLowerCase } = require("../utils")
   
   class AddressResultsController extends BaseController {
     locals(req, res, callback) {
@@ -10,13 +12,11 @@ const convertKeysToLowerCase = require("../utils")
           callback(err, locals);
         }
         try {
-            req.sessionModel.set("letterPostcode", "BS65AS");
             locals.letterPostcode = req.sessionModel.get("letterPostcode");
             const letterPostcode = req.sessionModel.get("letterPostcode");
-            const osKey = API.OS_KEY
     
             const { data: osData } = await req.axios.get(
-            `https://api.os.uk/search/places/v1/postcode?postcode=${letterPostcode}&key=${osKey}`
+            `${PROXY_API.PATHS.ORDNANCE_SURVEY}postcode=${letterPostcode}&key=${API.OS_KEY}`
             )
             const searchResults = convertKeysToLowerCase(osData.results).map(item => item.dpa)
             req.sessionModel.set("searchResults", searchResults)

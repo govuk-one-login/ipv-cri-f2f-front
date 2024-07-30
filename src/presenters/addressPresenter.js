@@ -48,7 +48,7 @@ function extractAddressFields(address) {
     buildingNames.push(address.organisation_name);
   }
   if (address.sub_building_name) {
-    buildingNames.push(address.subBuilding_name);
+    buildingNames.push(address.sub_building_name);
   }
   if (address.building_name) {
     buildingNames.push(address.building_name);
