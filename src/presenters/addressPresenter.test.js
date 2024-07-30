@@ -5,55 +5,55 @@ const {
 } = require("./addressPresenter");
 
 const address = {
-  organisationName: "Company",
-  departmentName: "Department",
-  buildingName: "Building",
-  subBuildingName: "Room 5",
-  buildingNumber: "1",
-  dependentStreetName: "Outer street",
-  doubleDependentAddressLocality: "Double dependent town",
-  dependentAddressLocality: "Dependent town",
-  addressLocality: "Town",
-  postalCode: "Code",
+  organisation_name: "A Company",
+  department_name: "Some Department",
+  building_name: "That Building",
+  sub_building_name: "Room 5",
+  building_number: "1",
+  dependent_street_name: "Outer street",
+  double_dependent_locality: "Double dependent town",
+  dependent_locality: "Dependent town",
+  post_town: "Town",
+  postcode: "ABC 123",
 };
 
 const addressWithStreet = {
   ...address,
-  streetName: "Inner street",
+  thoroughfare_name: "Inner street",
 };
 
 const buildingText = [
-  address.departmentName,
-  address.organisationName,
-  address.subBuildingName,
-  address.buildingName,
+  address.department_name,
+  address.organisation_name,
+  address.sub_building_name,
+  address.building_name,
 ].join(" ");
 
 const localityText = [
-  address.doubleDependentAddressLocality,
-  address.dependentAddressLocality,
-  address.addressLocality,
+  address.double_dependent_locality,
+  address.dependent_locality,
+  address.post_town,
 ].join(" ");
 
 describe("Generate search result string", () => {
   const streetText = [
     buildingText,
-    address.buildingNumber,
-    address.dependentStreetName,
+    address.building_number,
+    address.dependent_street_name,
   ].join(" ");
 
   it("should generate search result string without street name", () => {
     expect(generateSearchResultString(address)).to.equal(
-      [streetText, localityText, address.postalCode].join(", ")
+      [streetText, localityText, address.postcode].join(", ")
     );
   });
 
   it("should generate search result string with street name", () => {
     expect(generateSearchResultString(addressWithStreet)).to.equal(
       [
-        [streetText, addressWithStreet.streetName].join(" "),
+        [streetText, addressWithStreet.thoroughfare_name].join(" "),
         localityText,
-        address.postalCode,
+        address.postcode,
       ].join(", ")
     );
   });
@@ -65,10 +65,10 @@ describe("Generate HTML of address", () => {
       [
         [
           buildingText,
-          [address.buildingNumber, address.dependentStreetName].join(" "),
+          [address.building_number, address.dependent_street_name].join(" "),
         ].join("<br>"),
         localityText,
-        address.postalCode,
+        address.postcode,
       ]
         .join(",<br>")
         .concat("<br>")
@@ -81,13 +81,13 @@ describe("Generate HTML of address", () => {
         [
           buildingText,
           [
-            address.buildingNumber,
-            address.dependentStreetName,
-            addressWithStreet.streetName,
+            address.building_number,
+            address.dependent_street_name,
+            addressWithStreet.thoroughfare_name,
           ].join(" "),
         ].join("<br>"),
         localityText,
-        address.postalCode,
+        address.postcode,
       ]
         .join(",<br>")
         .concat("<br>")

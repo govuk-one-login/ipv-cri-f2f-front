@@ -131,7 +131,7 @@ describe("Postcode Search Controller", () => {
         req.axios.post = sinon.fake.resolves({ data: postOfficeData });
       });
 
-      it("calls port office endpoint with correct data", async () => {
+      it("calls post office endpoint with correct data", async () => {
         const postCode = "SW1A 2AA";
         req.sessionModel.set("postcode", postCode);
 

@@ -9,11 +9,11 @@ const { convertKeysToLowerCase } = require("../utils")
     locals(req, res, callback) {
       super.locals(req, res, async (err, locals) => {
         if (err) {
-          callback(err, locals);
+          return callback(err, locals);
         }
         try {
-            locals.letterPostcode = req.sessionModel.get("letterPostcode");
             const letterPostcode = req.sessionModel.get("letterPostcode");
+            locals.letterPostcode = letterPostcode;
     
             const { data: osData } = await req.axios.get(
             `${PROXY_API.PATHS.ORDNANCE_SURVEY}postcode=${letterPostcode}&key=${API.OS_KEY}`
@@ -24,10 +24,10 @@ const { convertKeysToLowerCase } = require("../utils")
               addresses: searchResults,
             });
             locals.addressResults = addressResults
+            callback(err, locals);
         } catch (err) {
             callback(err);
         }
-        callback(err, locals);
       });
     }
   
