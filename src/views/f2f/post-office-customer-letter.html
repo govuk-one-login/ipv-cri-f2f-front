@@ -1,0 +1,60 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoPageKey = "postOfficeCustomerLetter" %}
+{% set gtmJourney = "f2f - postOfficeCustomerLetter" %}
+
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+
+{% block mainContent %}
+
+{% set title = translate("postOfficeCustomerLetterChoice.title") %}
+{% set content1 = translate("postOfficeCustomerLetterChoice.content1") %}
+{% set content2 = translate("postOfficeCustomerLetterChoice.content2") %}
+{% set prompt = translate("postOfficeCustomerLetterChoice.prompt") %}
+{% set formInstructions = "<p id=\"contentLine1\">"+content1+"</p><p id=\"contentLine2\">"+content2+"</p><p class=\"postOfficeLetterPrompt\">"+prompt+"</p>"%}
+      
+      {% call hmpoForm(ctx) %}
+              {{ hmpoRadios(ctx, {
+                id: "postOfficeCustomerLetterChoice",
+                namePrefix: "postOfficeCustomerLetterChoice",
+                fieldset: {
+                    legend: {
+                        text: title,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l postOfficeCustomerLetterChoice-radios"
+                    }
+                },
+                hint: {
+                    html: formInstructions
+                }
+            }) }}
+
+    {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
+  
+    {% endcall %}
+
+{% endblock %} 
+
+{% set footerNavItems = translate("govuk.footerNavItems") %}
+
+{% block footer %}
+    {{ govukFooter( footerNavItems ) }}
+    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+        window.addEventListener('load', function () {
+            window
+                .DI
+                .analyticsGa4
+                .pageViewTracker
+                .trackOnPageLoad({
+                    statusCode: '200', // Access status code
+                    englishPageTitle: '{{translate("euDrivingLicenceHasExpiryDate.title")}}',
+                    taxonomy_level1: 'web cri', // Access taxonomy level 1
+                    taxonomy_level2: 'f2f', // Access taxonomy level 2
+                    content_id: '001',
+                    logged_in_status: true,
+                    dynamic: false
+                });
+        });
+    </script>
+{% endblock %}
