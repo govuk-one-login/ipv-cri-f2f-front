@@ -231,7 +231,11 @@ module.exports = {
   },
   addressResults: {
     type: "list",
-    validate: ["required"],
+    validate: [
+      {
+        type: "required",
+      },
+    ],
   },
   photoIdExpiryChoice: {
     type: "radios",

@@ -13,7 +13,6 @@ const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
 const addressResults = require("./controllers/addressResults")
-const addressCri = require("./controllers/addressCriController")
 const { APP } = require("../../lib/config");
 
 module.exports = {
@@ -36,7 +35,7 @@ module.exports = {
       {
         field: "isThinFileUser",
         value: false,
-        next: APP.PATHS.PHOTO_ID_SELECTION,
+        next: APP.PATHS.CHOOSE_ADDRESS,
       },
     ],
   },
@@ -404,7 +403,7 @@ module.exports = {
     next: APP.PATHS.CHOOSE_ADDRESS,
   },
   [`${APP.PATHS.CHOOSE_ADDRESS}`]: {
-    controller: addressCri,
+    controller: addressResults,
     fields: ["addressResults"],
     next: APP.PATHS.CHECK_DETAILS,
   },

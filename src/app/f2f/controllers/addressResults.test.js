@@ -1,5 +1,5 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-const { API } = require("../../../lib/config")
+const { API } = require("../../../lib/config");
 const presenters = require("../../../presenters");
 const convertKeysToLowerCase = require("../utils")
   
