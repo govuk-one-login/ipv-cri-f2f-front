@@ -12,11 +12,13 @@ module.exports = {
       ABORT: "/abort",
       SESSION_CONFIG: "/sessionConfiguration",
     },
+    OS_KEY: process.env.OS_KEY
   },
   PROXY_API: {
     BASE_URL: process.env.PROXYURL,
     PATHS: {
       POST_OFFICE: "/postoffice/v1/locations/search",
+      ORDNANCE_SURVEY: ""
     },
   },
   APP: {

@@ -230,6 +230,7 @@ module.exports = {
     validate: ["required"],
   },
   addressResults: {
+    type: "list",
     validate: ["required"],
   },
   photoIdExpiryChoice: {

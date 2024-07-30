@@ -220,6 +220,10 @@ branches:
   validation:
     default: "Select a Post Office where you can prove your identity"
 
+addressResults:
+  validation:
+    default: "Choose an address from the list"
+
 checkDetails:
   label: ""
   legend: ""
