@@ -14,11 +14,13 @@ module.exports = {
       PERSON_INFO: "/person-info",
       PERSON_INFO_KEY: "/person-info-key"
     },
+    OS_KEY: process.env.OS_KEY
   },
   PROXY_API: {
     BASE_URL: process.env.PROXYURL,
     PATHS: {
       POST_OFFICE: "/postoffice/v1/locations/search",
+      ORDNANCE_SURVEY: "https://api.os.uk/search/places/v1/postcode?"
     },
   },
   APP: {
@@ -52,6 +54,7 @@ module.exports = {
       FIND_POST_OFFICE: "/find-post-office-prove-identity",
       CHECK_ADDRESS: "/post-office-customer-letter-check-address",
       CHOOSE_POST_OFFICE: "/choose-post-office-prove-identity",
+      CHOOSE_ADDRESS: "/post-office-customer-letter-choose-address",
       FIND_ADDRESS: "/post-office-customer-letter-find-address",
       POST_OFFICE_CUSTOMER_LETTER: "/post-office-customer-letter",
       CHECK_DETAILS: "/check-details",
