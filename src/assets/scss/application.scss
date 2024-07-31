@@ -271,16 +271,17 @@ main p,
   @include govuk-responsive-margin(4, "bottom");
 }
 
+
+#addressResultsPrompt {
+  @include govuk-responsive-margin(3, "top");
+}
+
 .addressCheckPrompt {
   color: govuk-colour("black");
   font-size: 24px;
   font-weight: bold;
   @include govuk-responsive-margin(6, "top");
   @include govuk-responsive-margin(3, "bottom");
-}
-
-.addressCheckContent {
-  @include govuk-responsive-margin(5, "top");
 }
 
 #findAddressContent {

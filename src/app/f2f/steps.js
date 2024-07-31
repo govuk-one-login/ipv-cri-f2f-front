@@ -12,6 +12,7 @@ const abort = require("./controllers/abort");
 const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
+const addressResults = require("./controllers/addressResults")
 const { APP } = require("../../lib/config");
 const checkAddressController = require("./controllers/checkAddress");
 
@@ -440,6 +441,11 @@ module.exports = {
     editBackStep: APP.PATHS.CHECK_DETAILS,
     fields: ["letterPostcode"],
     next: APP.PATHS.CHOOSE_ADDRESS,
+  },
+  [`${APP.PATHS.CHOOSE_ADDRESS}`]: {
+    controller: addressResults,
+    fields: ["addressResults"],
+    next: APP.PATHS.CHECK_DETAILS,
   },
   [`${APP.PATHS.CHECK_DETAILS}`]: {
     controller: checkDetails,

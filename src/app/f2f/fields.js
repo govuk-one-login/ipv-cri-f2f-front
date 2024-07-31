@@ -252,6 +252,14 @@ module.exports = {
   branches: {
     validate: ["required"],
   },
+  addressResults: {
+    type: "list",
+    validate: [
+      {
+        type: "required",
+      },
+    ],
+  },
   photoIdExpiryChoice: {
     type: "radios",
     legend: "",
