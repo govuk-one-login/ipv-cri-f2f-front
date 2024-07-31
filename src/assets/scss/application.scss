@@ -93,7 +93,6 @@ main p,
   font-weight: bold;
 }
 
-
 .govuk-main-wrapper {
   @include govuk-responsive-padding(3, "top");
 }
@@ -117,7 +116,6 @@ main p,
 .changePostcode {
   @include govuk-responsive-margin(6, "bottom");
 }
-
 
 #confirmIdentityAnotherWay {
   font-size: 19px;
@@ -173,8 +171,6 @@ main p,
   margin-top:0; 
   margin-bottom:20px;
 }
-
-////////////////////////
 
 #photoIdChoice-hint {
   @include govuk-responsive-margin(4, "top");
@@ -285,4 +281,32 @@ main p,
 
 .addressCheckContent {
   @include govuk-responsive-margin(5, "top");
+}
+
+#findAddressContent {
+  @include govuk-responsive-margin(5, "bottom");
+}
+
+.postOfficeLetterPrompt {
+  color: govuk-colour("black");
+  font-size: 24px;
+  font-weight: bold;
+  @include govuk-responsive-margin(6, "top");
+  @include govuk-responsive-margin(3, "bottom");
+}
+
+.addressCheckContent {
+  @include govuk-responsive-margin(5, "top");
+}
+
+#postOfficeCustomerLetterChoice-fieldset {
+  @include govuk-responsive-margin(4, "top");
+}
+
+#contentLine1 {
+  @include govuk-responsive-margin(5, "top");
+}
+
+#contentLine2 {
+  @include govuk-responsive-margin(6, "top");
 }

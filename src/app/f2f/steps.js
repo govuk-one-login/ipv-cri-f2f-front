@@ -405,6 +405,21 @@ module.exports = {
   [`${APP.PATHS.CHECK_ADDRESS}`]: {
     fields: ["customerLetterCheckAddress"],
     controller: checkAddressController,
+    next: [
+      {
+        field: "pclEnabled",
+        value: true,
+        next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER,
+      },
+      {
+        field: "pclEnabled",
+        value: false,
+        next: APP.PATHS.CHECK_DETAILS,
+      },
+    ],
+  },
+  [`${APP.PATHS.POST_OFFICE_CUSTOMER_LETTER}`]: {
+    fields: ["postOfficeCustomerLetterChoice"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
@@ -419,6 +434,12 @@ module.exports = {
         next: APP.PATHS.FIND_ADDRESS
       }
     ]
+  },
+  [`${APP.PATHS.FIND_ADDRESS}`]: {
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    fields: ["letterPostcode"],
+    next: APP.PATHS.CHOOSE_ADDRESS,
   },
   [`${APP.PATHS.CHECK_DETAILS}`]: {
     controller: checkDetails,
