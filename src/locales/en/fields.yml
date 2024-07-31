@@ -215,6 +215,13 @@ postcode:
   validation:
     default: "Enter a real UK postcode"
 
+letterPostcode:
+  legend: ""
+  label: ""
+  hint: ""
+  validation:
+    default: "Enter a full UK postcode"
+
 branches:
   label: Postcode
   validation:

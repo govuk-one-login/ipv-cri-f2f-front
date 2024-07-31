@@ -429,6 +429,12 @@ module.exports = {
       }
     ]
   },
+  [`${APP.PATHS.FIND_ADDRESS}`]: {
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    fields: ["letterPostcode"],
+    next: APP.PATHS.CHOOSE_ADDRESS,
+  },
   [`${APP.PATHS.CHECK_DETAILS}`]: {
     controller: checkDetails,
     next: APP.PATHS.DONE,
