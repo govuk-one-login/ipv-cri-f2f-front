@@ -401,11 +401,6 @@ module.exports = {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
-    next: APP.PATHS.CHECK_DETAILS,
-  },
-  [`${APP.PATHS.CHECK_ADDRESS}`]: {
-    fields: ["customerLetterCheckAddress"],
-    controller: checkAddressController,
     next: [
       {
         field: "pclEnabled",
@@ -435,6 +430,22 @@ module.exports = {
         next: APP.PATHS.FIND_ADDRESS
       }
     ]
+  },
+  [`${APP.PATHS.CHECK_ADDRESS}`]: {
+    fields: ["customerLetterCheckAddress"],
+    controller: checkAddressController,
+    next: [
+      {
+        field: "pclEnabled",
+        value: true,
+        next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER,
+      },
+      {
+        field: "pclEnabled",
+        value: false,
+        next: APP.PATHS.CHECK_DETAILS,
+      },
+    ],
   },
   [`${APP.PATHS.FIND_ADDRESS}`]: {
     editable: true,
