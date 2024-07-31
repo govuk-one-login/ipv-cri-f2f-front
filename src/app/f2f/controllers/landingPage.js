@@ -6,7 +6,7 @@ class LandingPageController extends BaseController {
   async saveValues(req, res, next) {
     req.sessionModel.set("isThinFileUser", false);
     req.sessionModel.set("pclEnabled", false);
-    req.sessionModel.set("postOfficeCustomerLetterChoice", false);
+    req.sessionModel.set("postOfficeCustomerLetterChoice", true);
 
     try {
       // const configData = await this.getSessionConfig(req, res);
@@ -30,7 +30,7 @@ class LandingPageController extends BaseController {
 
     if (tokenId) {
       const headers = {
-        "x-govuk-signin-session-id": tokenId,
+        "x-govuk-signin-session-id": "6a9645ea-b4f8-4bd1-ba49-9ee0e8333e1e",
       };
       try {
         const { data } = await req.axios.get(`${API.PATHS.SESSION_CONFIG}`, {

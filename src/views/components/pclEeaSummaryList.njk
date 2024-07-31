@@ -20,6 +20,23 @@
           },
           {
             key: {
+              text: translate("checkDetails.hasExpiryDate")
+            },
+            value: {
+              html: hasExpiryDateTranslatedString
+            },
+            actions: {
+              items: [
+                {
+                  href: "national-identity-card-expiry-date/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.hasExpiryDate")
+                }
+              ]
+            }
+          },
+          {
+            key: {
               text: translate("checkDetails.expiryDate")
             },
             value: {
@@ -31,6 +48,40 @@
                   href: changeUrl + "/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.expiryDate")
+                }
+              ]
+            }
+          },
+          { 
+              key: {
+              text: translate("checkDetails.idCardAddress")
+            },
+            value: {
+              html: addressCheckTranslatedString
+            },
+            actions: {
+              items: [
+                {
+                  href: "/national-identity-card-current-address/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.idCardAddress")
+                }
+              ]
+            }
+          },
+          { 
+            key: {
+              text: translate("checkDetails.country")
+            },
+            value: {
+              html: countryTranslatedString
+            },
+            actions: {
+              items: [
+                {
+                  href: "/select-country-national-identity-card/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("{{ country }}")
                 }
               ]
             }

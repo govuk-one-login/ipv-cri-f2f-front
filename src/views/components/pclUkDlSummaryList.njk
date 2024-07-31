@@ -13,7 +13,7 @@
                 {
                   href: "/choose-photo-id-post-office/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("{{ idChoice }}")
+                  visuallyHiddenText: translate("checkDetails.selectedId")
                 }
               ]
             }
@@ -31,6 +31,23 @@
                   href: changeUrl + "/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.expiryDate")
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: translate("checkDetails.ukDlAddress")
+            },
+            value: {
+              html: addressCheckTranslatedString
+            },
+            actions: {
+              items: [
+                {
+                  href: "/uk-driving-licence-current-address/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.ukDlAddress")
                 }
               ]
             }

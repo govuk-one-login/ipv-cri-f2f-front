@@ -13,7 +13,24 @@
                 {
                   href: "/choose-photo-id-post-office/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("{{ idChoice }}")
+                  visuallyHiddenText: translate("checkDetails.selectedId")
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: translate("checkDetails.hasExpiryDate")
+            },
+            value: {
+              html: hasExpiryDateTranslatedString
+            },
+            actions: {
+              items: [
+                {
+                  href: "eu-driving-licence-expiry-date/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.hasExpiryDate")
                 }
               ]
             }
@@ -31,6 +48,40 @@
                   href: changeUrl + "/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.expiryDate")
+                }
+              ]
+            }
+          },
+          { 
+              key: {
+              text: translate("checkDetails.euDlAddress")
+            },
+            value: {
+              html: addressCheckTranslatedString
+            },
+            actions: {
+              items: [
+                {
+                  href: "/eu-driving-licence-current-address/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.euDlAddress")
+                }
+              ]
+            }
+          },
+          { 
+            key: {
+              text: translate("checkDetails.country")
+            },
+            value: {
+              html: countryTranslatedString
+            },
+            actions: {
+              items: [
+                {
+                  href: "/select-country-eu-driving-licence/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("{{ country }}")
                 }
               ]
             }
