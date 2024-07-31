@@ -17,28 +17,60 @@
       iconFallbackText: "Warning"
     }) }}
 
-    {% if (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == false) %}
+    {% if (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == false and values.postOfficeCustomerLetterChoice == true) %}
+      {% include "../components/pclCountrySummaryList.njk" %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == false and values.postOfficeCustomerLetterChoice == false) %}
       {% include "../components/countrySummaryList.njk" %}
-    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == false) %}
+
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == false and values.postOfficeCustomerLetterChoice == true) %}
+      {% include "../components/pclCountrySummaryListNoExpiry.njk" %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == false and values.postOfficeCustomerLetterChoice == false) %}
       {% include "../components/countrySummaryListNoExpiry.njk" %}
-    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == true) %}
+
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == true) %}
+      {% include "../components/pclCountryThinFileSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == false) %}
       {% include "../components/countryThinFileSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == true) %}
+
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == true) %}
+      {% include "../components/pclCountrySummaryListThinFileNoExpiry.njk" %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == false) %}
       {% include "../components/countrySummaryListThinFileNoExpiry.njk" %}
-    {% elif (values.photoIdChoice == "ukPassport" and values.isThinFileUser == true) %}
+
+    {% elif (values.photoIdChoice == "ukPassport" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == true and values.postOfficeCustomerLetterChoice == true) %}
+      {% include "../components/pclUkPassportThinFileSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "ukPassport" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == false and values.postOfficeCustomerLetterChoice == false) %}
       {% include "../components/ukPassportThinFileSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "ukPhotocardDl") %}
+
+    {% elif (values.photoIdChoice == "ukPhotocardDl" and values.postOfficeCustomerLetterChoice == true) %}
+      {% include "../components/pclUkDlSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "ukPhotocardDl" and values.postOfficeCustomerLetterChoice == false) %}
       {% include "../components/ukDlSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "yes") %}
+
+    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "yes" and values.postOfficeCustomerLetterChoice == true) %}
+      {% include "../components/pclEuSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "yes" and values.postOfficeCustomerLetterChoice == false) %}
       {% include "../components/euSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "no") %}
+
+    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "no" and values.postOfficeCustomerLetterChoice == true) %}
+      {% include "../components/pclEuSummaryListNoExpiry.njk" %}
+    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "no" and values.postOfficeCustomerLetterChoice == false) %}
       {% include "../components/euSummaryListNoExpiry.njk" %}
-    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "yes") %}
+
+    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "yes" and values.postOfficeCustomerLetterChoice == true) %}
+      {% include "../components/pclEeaSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "yes" and values.postOfficeCustomerLetterChoice == false) %}
       {% include "../components/eeaSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "no") %}
+
+    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "no" and values.postOfficeCustomerLetterChoice == true) %}
+      {% include "../components/pclEeaSummaryListNoExpiry.njk" %}
+    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "no" and values.postOfficeCustomerLetterChoice == false) %}
       {% include "../components/eeaSummaryListNoExpiry.njk" %}
+
+    {% elif (values.postOfficeCustomerLetterChoice == true) %}
+        {% include "../components/pclSummaryList.njk" %}
     {% else %}
-      {% include "../components/summaryList.njk" %}
+        {% include "../components/summaryList.njk" %}
     {% endif %}
 
     {% call hmpoForm(ctx) %}

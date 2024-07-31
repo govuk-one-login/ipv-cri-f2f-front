@@ -105,12 +105,14 @@ checkDetails:
   expiryDate: "Expiry date"
   postOffice: "Post Office address"
   changeLink: "Change"
-  buttonText: "Confirm and send"
+  buttonText: "Confirm and submit"
   ukDlAddress: Is the address on your driving licence the same as your current address?
   euDlAddress: Does your driving licence have your current address on it?
   idCardAddress: Does your national identity card have your current address on it?
   country: Country
   hasExpiryDate: Does your photo ID have an expiry date?
+  pdfPreference: How do you want to get your Post Office customer letter?
+  pdfChosenAddress: Where your post office customer letter will be sent
 
 ukPhotocardDlAddressCheck:
   title: "Does your driving licence have your current address on it?"

@@ -11,7 +11,7 @@
             actions: {
               items: [
                 {
-                  href: "/do-you-have-UK-passport/edit?edit=true",
+                  href: "/choose-photo-id-post-office/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.selectedId")
                 }
@@ -20,17 +20,34 @@
           },
           {
             key: {
-              text: translate("checkDetails.expiryDate")
+              text: translate("checkDetails.hasExpiryDate")
             },
             value: {
-              html: translate("{{ formattedExpiryDate }}")
+              html: hasExpiryDateTranslatedString
             },
             actions: {
               items: [
                 {
-                  href: changeUrl + "/edit?edit=true",
+                  href: "non-uk-passport-expiry-date/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("checkDetails.expiryDate")
+                  visuallyHiddenText: translate("checkDetails.hasExpiryDate")
+                }
+              ]
+            }
+          },
+          { 
+              key: {
+              text: translate("checkDetails.country")
+            },
+            value: {
+              html: countryTranslatedString
+            },
+            actions: {
+              items: [
+                {
+                  href: "/select-country-non-uk-passport/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.country")
                 }
               ]
             }
@@ -65,6 +82,23 @@
                   href: "//post-office-customer-letter/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.pdfPreference")
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: translate("checkDetails.pdfChosenAddress")
+            },
+            value: {
+              html: translate("{{ addressLine1 }}<br>{{ addressLine2 }}<br>{{ addressLine3 }}<br>{{ addressPostcode}}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "/post-office-customer-letter-check-address/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.pdfChosenAddress")
                 }
               ]
             }

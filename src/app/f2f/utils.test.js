@@ -1,4 +1,4 @@
-const { formatDate, beforeNow, convertKeysToLowerCase } = require("./utils");
+const { formatDate, beforeNow, convertKeysToLowerCase, formatAddress } = require("./utils");
 const { expect } = require("chai");
 const moment = require("moment");
 
@@ -66,6 +66,42 @@ describe("beforeNow", () => {
     });
 
     expect(validator(issueDate, 10, "years")).to.be.true;
+  });
+
+  describe("formatAddress", () => {
+    it("should format address correctly", () => {
+      const address = {
+        uprn: '11111',
+        udprn: '1111111',
+        address: '34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ',
+        building_number: '34',
+        thoroughfare_name: 'MOCK ROAD',
+        dependent_locality: 'PLACEHOLDER PARK',
+        post_town: 'FAKESVILLE',
+        postcode: 'FS6 5AQ'
+      }
+
+      const formattedAddress = formatAddress(address)
+      expect(formattedAddress).to.eql({
+        line1: '34 Mock Road',
+        line2: 'Placeholder Park',
+        line3: 'Fakesville',
+        postcode: 'FS6 5AQ'
+      })
+    })
+  })
+});
+
+describe("convertKeysToLowerCase", () => {
+  it("should turn all uppercase item keys to lower case", () => {
+    const data ={ 
+          "KEY1": "value1",
+          "KEY2": "value2",
+          "KEY3": "value3"
+        }
+  
+    const convertedData = convertKeysToLowerCase(data)
+    expect(Object.keys(convertedData)).to.deep.equal(["key1", "key2", "key3"])
   });
 });
 

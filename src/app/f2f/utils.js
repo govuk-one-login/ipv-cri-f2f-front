@@ -47,5 +47,18 @@ function convertKeysToLowerCase(obj) {
   return obj;
 }
 
+function toTitleCase(str) {
+  return str.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+}
 
-module.exports = { formatDate, beforeNow, convertKeysToLowerCase };
+function formatAddress(address) {
+  const formattedAddress = {
+    line1: `${toTitleCase(address.building_number)} ${toTitleCase(address.thoroughfare_name)}`, 
+    line2: toTitleCase(address.dependent_locality),
+    line3: toTitleCase(address.post_town),
+    postcode: address.postcode
+  };
+  return formattedAddress
+}
+
+module.exports = { formatDate, beforeNow, convertKeysToLowerCase, toTitleCase, formatAddress };
