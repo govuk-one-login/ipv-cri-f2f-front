@@ -552,4 +552,23 @@ module.exports = {
       { type: "equal", fn: (value) => !value.match(/Select/) },
     ],
   },
+  postOfficeCustomerLetterChoice: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL,
+        conditional: {
+          html: ""
+        }
+      },
+      { value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
+        conditional: {
+          html: ""
+        }
+      }
+    ],
+    validate: ["required"]
+  },
 };
