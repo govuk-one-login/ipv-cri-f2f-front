@@ -6,17 +6,18 @@ class LandingPageController extends BaseController {
   async saveValues(req, res, next) {
     req.sessionModel.set("isThinFileUser", false);
     req.sessionModel.set("pclEnabled", false);
+    req.sessionModel.set("postOfficeCustomerLetterChoice", false);
 
     try {
-      const configData = await this.getSessionConfig(req, res);
-      if (configData && configData.evidence_requested?.strengthScore === 4) {
-        // Show thin file user screen
-        req.sessionModel.set("isThinFileUser", true);
-      }
-      if (configData) {
-        // Save the printed customer letter enabled flag
-        req.sessionModel.set("pclEnabled", !!(configData.pcl_enabled == "true"));
-      }
+      // const configData = await this.getSessionConfig(req, res);
+      // if (configData && configData.evidence_requested?.strengthScore === 4) {
+      //   // Show thin file user screen
+      //   req.sessionModel.set("isThinFileUser", true);
+      // }
+      // if (configData) {
+      //   // Save the printed customer letter enabled flag
+      //   req.sessionModel.set("pclEnabled", !!(configData.pcl_enabled == "true"));
+      // }
 
       super.saveValues(req, res, next);
     } catch (err) {

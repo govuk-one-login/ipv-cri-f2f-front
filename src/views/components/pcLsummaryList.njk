@@ -57,7 +57,7 @@
               text: translate("checkDetails.pdfPreference")
             },
             value: {
-              html: translate("{{ pdfPreference }}")
+              html: translate("{{ pdfPreferenceText }}")
             },
             actions: {
               items: [
@@ -68,6 +68,23 @@
                 }
               ]
             }
-          }
+          },
+          {
+            key: {
+              text: translate("checkDetails.pdfChosenAddress")
+            },
+            value: {
+              html: translate("{{ addressLine1 }}<br>{{ addressLine2 }}<br>{{ addressLine3 }}<br>{{ addressLine4}}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "/post-office-customer-letter-check-address/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.postOffice")
+                }
+              ]
+            }
+          },
         ]
       }) }}

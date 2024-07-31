@@ -28,31 +28,31 @@
             actions: {
               items: [
                 {
-                  href: "eu-driving-licence-expiry-date/edit?edit=true",
+                  href: "/non-uk-passport-expiry-date/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.hasExpiryDate")
                 }
               ]
             }
           },
-          { 
-              key: {
-              text: translate("checkDetails.euDlAddress")
+          {
+            key: {
+              text: translate("checkDetails.expiryDate")
             },
             value: {
-              html: addressCheckTranslatedString
+              html: translate("{{ formattedExpiryDate }}")
             },
             actions: {
               items: [
                 {
-                  href: "eu-driving-licence-current-address/edit?edit=true",
+                  href: changeUrl + "/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("checkDetails.euDlAddress")
+                  visuallyHiddenText: translate("checkDetails.expiryDate")
                 }
               ]
             }
           },
-          { 
+          {
             key: {
               text: translate("checkDetails.country")
             },
@@ -62,9 +62,9 @@
             actions: {
               items: [
                 {
-                  href: "select-country-eu-driving-licence/edit?edit=true",
+                  href: "/select-country-non-uk-passport/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("{{ country }}")
+                  visuallyHiddenText: translate("checkDetails.country")
                 }
               ]
             }
@@ -91,14 +91,31 @@
               text: translate("checkDetails.pdfPreference")
             },
             value: {
-              html: translate("{{ pdfPreference }}")
+              html: translate("{{ pdfPreferenceText }}")
             },
             actions: {
               items: [
                 {
-                  href: "//post-office-customer-letter/edit?edit=true",
+                  href: "/post-office-customer-letter/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.pdfPreference")
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: translate("checkDetails.pdfChosenAddress")
+            },
+            value: {
+              html: translate("{{ addressLine1 }}<br>{{ addressLine2 }}<br>{{ addressLine3 }}<br>{{ addressLine4}}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "/post-office-customer-letter-check-address/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.postOffice")
                 }
               ]
             }

@@ -95,7 +95,6 @@ class CheckDetailsController extends DateController {
       let idHasExpiryDate;
       let expiryDate;
       let address;
-      const pdfPreference = req.form.values.postOfficeCustomerLetterChoice
 
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
@@ -166,7 +165,6 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate);
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
-      req.sessionModel.set("pdfPreference", pdfPreference);
 
       //Confirmation display values
       const idChoice = req.sessionModel.get("photoIdChoice");
@@ -175,6 +173,17 @@ class CheckDetailsController extends DateController {
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
       const format = "YYYY-MM-DD";
       const language = req.lng;
+
+      // Test values for PCL
+      
+      locals.addressLine1 = "TestLine1"
+      locals.addressLine2 = "TestLine2"
+      locals.addressLine3 = "TestLine3"
+      locals.addressLine4 = "TestLine4"
+      locals.pdfPreferenceText = "By email only"
+      if (req.sessionModel.get("postOfficeCustomerLetterChoice") == true) {
+        locals.pdfPreferenceText = "By email and post"
+      }
 
       locals.formattedExpiryDate = formatDate(expiryDate, format, language);
       locals.idTranslatedString = res.locals.translate(
@@ -192,6 +201,7 @@ class CheckDetailsController extends DateController {
       locals.hasExpiryDate = hasExpiryDate;
       locals.postOfficeAddress = postOfficeAddress.split(", ");
       locals.postOfficeName = postOfficeName;
+      
       callback(err, locals);
     });
   }
