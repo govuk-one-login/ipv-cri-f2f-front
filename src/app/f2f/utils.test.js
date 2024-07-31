@@ -104,3 +104,16 @@ describe("convertKeysToLowerCase", () => {
     expect(Object.keys(convertedData)).to.deep.equal(["key1", "key2", "key3"])
   });
 });
+
+describe("convertKeysToLowerCase", () => {
+  it("should turn all uppercase item keys to lower case", () => {
+    const data ={ 
+          "KEY1": "value1",
+          "KEY2": "value2",
+          "KEY3": "value3"
+        }
+  
+    const convertedData = convertKeysToLowerCase(data)
+    expect(Object.keys(convertedData)).to.deep.equal(["key1", "key2", "key3"])
+  });
+});
