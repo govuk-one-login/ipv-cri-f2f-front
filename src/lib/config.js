@@ -49,6 +49,7 @@ module.exports = {
       EXPIRED_ID: "/photo-id-expired",
       FIND_POST_OFFICE: "/find-post-office-prove-identity",
       CHOOSE_POST_OFFICE: "/choose-post-office-prove-identity",
+      FIND_ADDRESS: "/post-office-customer-letter-find-address",
       POST_OFFICE_CUSTOMER_LETTER: "/post-office-customer-letter",
       CHECK_DETAILS: "/check-details",
       DONE: "/done",
