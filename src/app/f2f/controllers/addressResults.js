@@ -12,6 +12,7 @@ const { convertKeysToLowerCase } = require("../utils")
           return callback(err, locals);
         }
         try {
+            req.sessionModel.set("letterPostcode", "SE5 8RS");
             const letterPostcode = req.sessionModel.get("letterPostcode");
             locals.letterPostcode = letterPostcode;
     

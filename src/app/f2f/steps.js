@@ -35,7 +35,7 @@ module.exports = {
       {
         field: "isThinFileUser",
         value: false,
-        next: APP.PATHS.PHOTO_ID_SELECTION,
+        next: APP.PATHS.CHOOSE_ADDRESS,
       },
     ],
   },
