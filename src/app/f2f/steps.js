@@ -400,7 +400,7 @@ module.exports = {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
-    next: APP.PATHS.CHOOSE_ADDRESS,
+    next: APP.PATHS.CHECK_DETAILS,
   },
   [`${APP.PATHS.CHOOSE_ADDRESS}`]: {
     controller: addressResults,
