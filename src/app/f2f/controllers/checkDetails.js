@@ -95,7 +95,7 @@ class CheckDetailsController extends DateController {
       let idHasExpiryDate;
       let expiryDate;
       let address;
-      //const pdfPreference = req.form.values.postOfficeCustomerLetterChoice;
+      const pdfPreference = "EMAIL_ONLY";
 
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
@@ -166,7 +166,7 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate);
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
-      req.sessionModel.set("pdfPreference", "EMAIL_ONLY");
+      req.sessionModel.set("pdfPreference", pdfPreference);
 
       //Confirmation display values
       const idChoice = req.sessionModel.get("photoIdChoice");
