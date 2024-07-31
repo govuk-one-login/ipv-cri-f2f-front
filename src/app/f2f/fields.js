@@ -273,6 +273,25 @@ module.exports = {
     ],
     validate: ["required"],
   },
+  customerLetterCheckAddress: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: APP.CHECK_ADDRESS.EXISTING_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      },
+      { value: APP.CHECK_ADDRESS.DIFFERENT_ADDRESS,
+        conditional: {
+          html: ""
+        }
+      }
+    ],
+    validate: ["required"]
+  },
   eeaIdentityCardCountrySelector: {
     legend: "",
     label: "",

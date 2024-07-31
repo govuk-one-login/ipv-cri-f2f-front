@@ -11,6 +11,8 @@ module.exports = {
       SAVE_F2FDATA: "/documentSelection",
       ABORT: "/abort",
       SESSION_CONFIG: "/sessionConfiguration",
+      PERSON_INFO: "/person-info",
+      PERSON_INFO_KEY: "/person-info-key"
     },
     OS_KEY: process.env.OS_KEY
   },
@@ -50,6 +52,7 @@ module.exports = {
       ABORT: "/abort",
       EXPIRED_ID: "/photo-id-expired",
       FIND_POST_OFFICE: "/find-post-office-prove-identity",
+      CHECK_ADDRESS: "/post-office-customer-letter-check-address",
       CHOOSE_POST_OFFICE: "/choose-post-office-prove-identity",
       CHOOSE_ADDRESS: "/post-office-customer-letter-choose-address",
       FIND_ADDRESS: "/post-office-customer-letter-find-address",
@@ -86,6 +89,10 @@ module.exports = {
       RE_ENTER_DETAILS: "reEnterDetails",
       CHOOSE_DIFFERENT_PHOTO_ID: "chooseDifferentPhotoId",
       PROVE_IDENTITY_ANOTHER_WAY: "proveIdentityAnotherWay",
+    },
+    CHECK_ADDRESS : {
+      EXISTING_ADDRESS: "existingAddress",
+      DIFFERENT_ADDRESS: "differentAddress"
     },
     GTM: {
       GA4_ID: process.env.GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID || "GTM-XXXXXXX",
