@@ -1,8 +1,9 @@
 const { generateSearchResultString } = require("./addressPresenter");
 
 module.exports = ({ addresses }) => {
+  const addressesLength = addresses.length;
   const defaultMessage = {
-    text: `${addresses.length} addresses found`,
+    text: addressesLength=== 1 ? `${addresses.length} address found` : `${addresses.length} addresses found`,
     value: "",
   };
 
