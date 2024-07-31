@@ -215,6 +215,13 @@ postcode:
   validation:
     default: "Enter a real UK postcode"
 
+letterPostcode:
+  legend: ""
+  label: ""
+  hint: ""
+  validation:
+    default: "Enter a full UK postcode"
+
 branches:
   label: Postcode
   validation:
@@ -459,3 +466,18 @@ countries:
     YEM: "Yemen"
     ZMB: "Zambia"
     ZWE: "Zimbabwe"
+
+postOfficeCustomerLetterChoice:
+  validation:
+    required: Select how you want to get your Post Office customer letter
+  content: ""
+  items:
+    email:
+      label: Email only
+      hint: ""
+      reveal: ""
+    post:
+      label: Post and email
+      hint: "It can take up to 6 working days to get your letter by post."
+      reveal: ""
+   

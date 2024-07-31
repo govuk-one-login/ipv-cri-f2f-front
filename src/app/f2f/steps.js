@@ -400,7 +400,41 @@ module.exports = {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
-    next: APP.PATHS.CHECK_DETAILS,
+    next: [
+      {
+        field: "pclEnabled",
+        value: true,
+        next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER,
+      },
+      {
+        field: "pclEnabled",
+        value: false,
+        next: APP.PATHS.CHECK_DETAILS,
+      },
+    ],
+  },
+  [`${APP.PATHS.POST_OFFICE_CUSTOMER_LETTER}`]: {
+    fields: ["postOfficeCustomerLetterChoice"],
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: [
+      {
+        field: "postOfficeCustomerLetterChoice",
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL,
+        next: APP.PATHS.CHECK_DETAILS
+      },
+      {
+        field: "postOfficeCustomerLetterChoice",
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
+        next: APP.PATHS.CHECK_ADDRESS
+      }
+    ]
+  },
+  [`${APP.PATHS.FIND_ADDRESS}`]: {
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    fields: ["letterPostcode"],
+    next: APP.PATHS.CHOOSE_ADDRESS,
   },
   [`${APP.PATHS.CHOOSE_ADDRESS}`]: {
     controller: addressResults,
