@@ -273,6 +273,7 @@ main p,
 
 #addressResultsPrompt {
   @include govuk-responsive-margin(3, "top");
+}
 
 #findAddressContent {
   @include govuk-responsive-margin(5, "bottom");

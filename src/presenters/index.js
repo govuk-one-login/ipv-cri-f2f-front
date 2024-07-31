@@ -1,4 +1,4 @@
- const addressesToSelectItems = require("./addressesToSelectItems");
+const addressesToSelectItems = require("./addressesToSelectItems");
 const addressPresenter = require("./addressPresenter");
 
 module.exports = {
