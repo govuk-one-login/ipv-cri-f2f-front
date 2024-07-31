@@ -13,6 +13,7 @@ const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
 const { APP } = require("../../lib/config");
+const checkAddressController = require("./controllers/checkAddress");
 
 module.exports = {
   [`${APP.PATHS.F2F}`]: {
@@ -399,6 +400,11 @@ module.exports = {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
+    next: APP.PATHS.CHECK_DETAILS,
+  },
+  [`${APP.PATHS.CHECK_ADDRESS}`]: {
+    fields: ["customerLetterCheckAddress"],
+    controller: checkAddressController,
     next: [
       {
         field: "pclEnabled",
@@ -418,14 +424,14 @@ module.exports = {
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
-        field: "postOfficeCustomerLetterChoice",
-        value: APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL,
+        field: "customerLetterCheckAddress",
+        value: APP.CHECK_ADDRESS.EXISTING_ADDRESS,
         next: APP.PATHS.CHECK_DETAILS
       },
       {
-        field: "postOfficeCustomerLetterChoice",
-        value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
-        next: APP.PATHS.CHECK_ADDRESS
+        field: "customerLetterCheckAddress",
+        value: APP.CHECK_ADDRESS.DIFFERENT_ADDRESS,
+        next: APP.PATHS.FIND_ADDRESS
       }
     ]
   },

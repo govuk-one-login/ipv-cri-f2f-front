@@ -1,0 +1,65 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoPageKey = "customerLetterCheckAddress" %}
+{% set gtmJourney = "f2f - customerLetterCheckAddress" %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+
+{% block mainContent %}
+
+{% set title = translate("customerLetterCheckAddress.title") %}
+{% set content = translate("customerLetterCheckAddress.content") %}
+{% set prompt = translate("customerLetterCheckAddress.prompt") %}
+{% set sharedClaimsAddress = "<p>"+addressLine1+"</p><p>"+addressLine2+"</p><p>"+townCity+"</p><p>"+postalCode+"</p>" %}
+{% set insetText = govukInsetText({
+    html: sharedClaimsAddress
+  }) %}
+{% set formInstructions = "<p class=\"addressCheckContent\">"+content+"</p><div>"+insetText+"</div><p class=\"addressCheckPrompt\">"+prompt+"</p>"%}
+
+      {% call hmpoForm(ctx) %}
+              {{ hmpoRadios(ctx, {
+                id: "customerLetterCheckAddress",
+                namePrefix: "customerLetterCheckAddress",
+                fieldset: {
+                    legend: {
+                        text: title,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l customerLetterCheckAddress-radios"
+                    }
+                },
+                hint: {
+                    html: formInstructions
+                }
+            }) }}
+
+            {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
+
+            {% endcall %}
+
+{% endblock %} 
+  </div>
+</div>
+
+{% set footerNavItems = translate("govuk.footerNavItems") %}
+
+{% block footer %}
+    {{ govukFooter( footerNavItems ) }}
+    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+        window.addEventListener('load', function () {
+            window
+                .DI
+                .analyticsGa4
+                .pageViewTracker
+                .trackOnPageLoad({
+                    statusCode: '200', // Access status code
+                    englishPageTitle: '{{translate("euDrivingLicenceHasExpiryDate.title")}}',
+                    taxonomy_level1: 'web cri', // Access taxonomy level 1
+                    taxonomy_level2: 'f2f', // Access taxonomy level 2
+                    content_id: '001',
+                    logged_in_status: true,
+                    dynamic: false
+                });
+        });
+    </script>
+{% endblock %}

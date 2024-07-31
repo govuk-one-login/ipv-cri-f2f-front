@@ -271,6 +271,18 @@ main p,
   @include govuk-responsive-margin(4, "bottom");
 }
 
+.addressCheckPrompt {
+  color: govuk-colour("black");
+  font-size: 24px;
+  font-weight: bold;
+  @include govuk-responsive-margin(6, "top");
+  @include govuk-responsive-margin(3, "bottom");
+}
+
+.addressCheckContent {
+  @include govuk-responsive-margin(5, "top");
+}
+
 #findAddressContent {
   @include govuk-responsive-margin(5, "bottom");
 }
@@ -281,6 +293,10 @@ main p,
   font-weight: bold;
   @include govuk-responsive-margin(6, "top");
   @include govuk-responsive-margin(3, "bottom");
+}
+
+.addressCheckContent {
+  @include govuk-responsive-margin(5, "top");
 }
 
 #postOfficeCustomerLetterChoice-fieldset {
