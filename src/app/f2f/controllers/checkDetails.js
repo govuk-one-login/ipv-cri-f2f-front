@@ -176,46 +176,7 @@ class CheckDetailsController extends DateController {
 
       // Values for PCL
 
-      const testAddress = {
-        uprn: '250180',
-        udprn: '2748939',
-        address: '30, BELMONT ROAD, ST. ANDREWS, BRISTOL, BS6 5AS',
-        building_number: '30',
-        thoroughfare_name: 'BELMONT ROAD',
-        dependent_locality: 'ST. ANDREWS',
-        post_town: 'BRISTOL',
-        postcode: 'BS6 5AS',
-        rpc: '1',
-        x_coordinate: 359066,
-        y_coordinate: 174828,
-        status: 'APPROVED',
-        logical_status_code: '1',
-        classification_code: 'RH03',
-        classification_code_description: 'HMO Not Further Divided',
-        local_custodian_code: 116,
-        local_custodian_code_description: 'BRISTOL',
-        country_code: 'E',
-        country_code_description: 'This record is within England',
-        postal_address_code: 'D',
-        postal_address_code_description: 'A record which is linked to PAF',
-        blpu_state_code: '2',
-        blpu_state_code_description: 'In use',
-        topography_layer_toid: 'osgb1000015001853',
-        ward_code: 'E05010885',
-        parent_uprn: '393042',
-        last_update_date: '10/06/2024',
-        entry_date: '19/01/1998',
-        blpu_state_date: '19/01/1998',
-        language: 'EN',
-        match: 1,
-        match_description: 'EXACT',
-        delivery_point_suffix: '1J'
-      }
-
-      req.sessionModel.set("postalAddress", testAddress)
-
       const displayAddress = formatAddress(req.sessionModel.get("postalAddress"))
-      console.log("------------------------------------------------------------------------DA", displayAddress)
       
       locals.addressLine1 = displayAddress.line1
       locals.addressLine2 = displayAddress.line2
@@ -281,7 +242,7 @@ class CheckDetailsController extends DateController {
 
     if (tokenId) {
       const headers = {
-        "x-govuk-signin-session-id": "6a9645ea-b4f8-4bd1-ba49-9ee0e8333e1e",
+        "x-govuk-signin-session-id": tokenId,
         ...createPersonalDataHeaders(
           `${API.BASE_URL}${API.PATHS.SAVE_F2FDATA}`,
           req

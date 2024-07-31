@@ -6,18 +6,18 @@ class LandingPageController extends BaseController {
   async saveValues(req, res, next) {
     req.sessionModel.set("isThinFileUser", false);
     req.sessionModel.set("pclEnabled", false);
-    req.sessionModel.set("postOfficeCustomerLetterChoice", true);
+    req.sessionModel.set("postOfficeCustomerLetterChoice", false);
 
     try {
-      // const configData = await this.getSessionConfig(req, res);
-      // if (configData && configData.evidence_requested?.strengthScore === 4) {
-      //   // Show thin file user screen
-      //   req.sessionModel.set("isThinFileUser", true);
-      // }
-      // if (configData) {
-      //   // Save the printed customer letter enabled flag
-      //   req.sessionModel.set("pclEnabled", !!(configData.pcl_enabled == "true"));
-      // }
+      const configData = await this.getSessionConfig(req, res);
+      if (configData && configData.evidence_requested?.strengthScore === 4) {
+        // Show thin file user screen
+        req.sessionModel.set("isThinFileUser", true);
+      }
+      if (configData) {
+        // Save the printed customer letter enabled flag
+        req.sessionModel.set("pclEnabled", !!(configData.pcl_enabled == "true"));
+      }
 
       super.saveValues(req, res, next);
     } catch (err) {
@@ -30,7 +30,7 @@ class LandingPageController extends BaseController {
 
     if (tokenId) {
       const headers = {
-        "x-govuk-signin-session-id": "6a9645ea-b4f8-4bd1-ba49-9ee0e8333e1e",
+        "x-govuk-signin-session-id": tokenId,
       };
       try {
         const { data } = await req.axios.get(`${API.PATHS.SESSION_CONFIG}`, {

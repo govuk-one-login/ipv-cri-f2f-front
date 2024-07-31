@@ -19,7 +19,7 @@ class AbortController extends BaseController {
 
     if (tokenId) {
       const headers = {
-        "x-govuk-signin-session-id": "6a9645ea-b4f8-4bd1-ba49-9ee0e8333e1e",
+        "x-govuk-signin-session-id": tokenId,
         ...createPersonalDataHeaders(`${API.BASE_URL}${API.PATHS.ABORT}`, req),
       };
 
