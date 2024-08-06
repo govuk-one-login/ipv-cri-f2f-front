@@ -420,14 +420,14 @@ module.exports = {
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
       {
-        field: "customerLetterCheckAddress",
-        value: APP.CHECK_ADDRESS.EXISTING_ADDRESS,
+        field: "postOfficeCustomerLetterChoice",
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL,
         next: APP.PATHS.CHECK_DETAILS
       },
       {
-        field: "customerLetterCheckAddress",
-        value: APP.CHECK_ADDRESS.DIFFERENT_ADDRESS,
-        next: APP.PATHS.FIND_ADDRESS
+        field: "postOfficeCustomerLetterChoice",
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
+        next: APP.PATHS.CHECK_ADDRESS
       }
     ]
   },
@@ -436,14 +436,14 @@ module.exports = {
     controller: checkAddressController,
     next: [
       {
-        field: "pclEnabled",
-        value: true,
-        next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER,
+        field: "customerLetterCheckAddress",
+        value: APP.CHECK_ADDRESS.EXISTING_ADDRESS,
+        next: APP.PATHS.CHECK_DETAILS,
       },
       {
-        field: "pclEnabled",
-        value: false,
-        next: APP.PATHS.CHECK_DETAILS,
+        field: "customerLetterCheckAddress",
+        value: APP.CHECK_ADDRESS.DIFFERENT_ADDRESS,
+        next: APP.PATHS.FIND_ADDRESS,
       },
     ],
   },

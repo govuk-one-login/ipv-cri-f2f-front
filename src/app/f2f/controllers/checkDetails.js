@@ -191,7 +191,7 @@ class CheckDetailsController extends DateController {
       }
       
       locals.pdfPreferenceText = "By email only"
-      if (req.sessionModel.get("postedCustomerLetterChosen") == true) {
+      if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "post") {
         locals.pdfPreferenceText = "By email and post"
       }
 
