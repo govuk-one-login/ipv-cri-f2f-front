@@ -28,7 +28,7 @@
             actions: {
               items: [
                 {
-                  href: "/non-uk-passport-expiry-date/edit?edit=true",
+                  href: "eu-driving-licence-expiry-date/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.hasExpiryDate")
                 }
@@ -52,7 +52,24 @@
               ]
             }
           },
-          {
+          { 
+              key: {
+              text: translate("checkDetails.euDlAddress")
+            },
+            value: {
+              html: addressCheckTranslatedString
+            },
+            actions: {
+              items: [
+                {
+                  href: "/eu-driving-licence-current-address/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.euDlAddress")
+                }
+              ]
+            }
+          },
+          { 
             key: {
               text: translate("checkDetails.country")
             },
@@ -62,9 +79,9 @@
             actions: {
               items: [
                 {
-                  href: "/select-country-non-uk-passport/edit?edit=true",
+                  href: "/select-country-eu-driving-licence/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("checkDetails.country")
+                  visuallyHiddenText: translate("{{ country }}")
                 }
               ]
             }
@@ -82,6 +99,23 @@
                   href: "/find-post-office-prove-identity/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.postOffice")
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: translate("checkDetails.pdfPreference")
+            },
+            value: {
+              html: translate("{{ pdfPreferenceText }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "//post-office-customer-letter/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.pdfPreference")
                 }
               ]
             }
