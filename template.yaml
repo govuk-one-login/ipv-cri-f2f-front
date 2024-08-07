@@ -440,11 +440,11 @@ Resources:
                 !Sub "${VpcStackName}-ProtectedSubnetIdA"
             - Fn::ImportValue:
                 !Sub "${VpcStackName}-ProtectedSubnetIdB"
-      # TaskDefinition: !Ref ECSServiceTaskDefinition
-      TaskDefinition: !If
-        - UseCanaryDeployment
-        - !Ref AWS::NoValue
-        - !Ref ECSServiceTaskDefinition
+      TaskDefinition: !Ref ECSServiceTaskDefinition
+      # TaskDefinition: !If
+      #   - UseCanaryDeployment
+      #   - !Ref AWS::NoValue
+      #   - !Ref ECSServiceTaskDefinition
       Tags:
         - Key: Name
           Value: !Sub "${AWS::StackName}-ECS"
