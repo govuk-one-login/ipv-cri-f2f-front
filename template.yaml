@@ -353,7 +353,7 @@ Resources:
         - Key: deregistration_delay.timeout_seconds
           Value: 60
 
-    LoadBalancerListenerTargetGroupECSGreen:
+  LoadBalancerListenerTargetGroupECSGreen:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
     Properties:
       HealthCheckEnabled: TRUE
