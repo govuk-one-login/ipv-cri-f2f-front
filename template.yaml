@@ -1267,7 +1267,7 @@ Resources:
         GreenTargetGroupName: !GetAtt LoadBalancerListenerTargetGroupECSGreen.TargetGroupName
         LoadBalancerListenerARN: !Ref LoadBalancerListener
         ECSServiceTaskDefinition: !Ref ECSServiceTaskDefinition
-        DeploymentStrategy: !Ref DeploymentStrategy #CodeDeployDefault.ECSAllAtOnce
+        DeploymentStrategy: CodeDeployDefault.ECSAllAtOnce
         ContainerName: app
         ContainerPort: 8080
         CloudWatchAlarms: !Sub
