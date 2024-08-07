@@ -20,24 +20,24 @@
           },
           {
             key: {
-              text: translate("checkDetails.hasExpiryDate")
+              text: translate("checkDetails.expiryDate")
             },
             value: {
-              html: hasExpiryDateTranslatedString
+              html: translate("{{ formattedExpiryDate }}")
             },
             actions: {
               items: [
                 {
-                  href: "national-identity-card-expiry-date/edit?edit=true",
+                  href: changeUrl + "/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("checkDetails.hasExpiryDate")
+                  visuallyHiddenText: translate("checkDetails.expiryDate")
                 }
               ]
             }
           },
-          { 
-              key: {
-              text: translate("checkDetails.idCardAddress")
+          {
+            key: {
+              text: translate("checkDetails.ukDlAddress")
             },
             value: {
               html: addressCheckTranslatedString
@@ -45,26 +45,9 @@
             actions: {
               items: [
                 {
-                  href: "national-identity-card-current-address/edit?edit=true",
+                  href: "/uk-driving-licence-current-address/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("checkDetails.idCardAddress")
-                }
-              ]
-            }
-          },
-          { 
-            key: {
-              text: translate("checkDetails.country")
-            },
-            value: {
-              html: countryTranslatedString
-            },
-            actions: {
-              items: [
-                {
-                  href: "select-country-national-identity-card/edit?edit=true",
-                  text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("{{ country }}")
+                  visuallyHiddenText: translate("checkDetails.ukDlAddress")
                 }
               ]
             }
@@ -103,7 +86,7 @@
               ]
             }
           },
-           {
+          {
             key: {
               text: translate("checkDetails.pdfChosenAddress")
             },

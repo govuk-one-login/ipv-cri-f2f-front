@@ -113,26 +113,9 @@
             actions: {
               items: [
                 {
-                  href: "//post-office-customer-letter/edit?edit=true",
+                  href: "/post-office-customer-letter/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.pdfPreference")
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: translate("checkDetails.pdfChosenAddress")
-            },
-            value: {
-              html: translate("{{ addressLine1 }}<br>{{ addressLine2 }}<br>{{ addressLine3 }}<br>{{ addressPostcode}}")
-            },
-            actions: {
-              items: [
-                {
-                  href: "/post-office-customer-letter-check-address/edit?edit=true",
-                  text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("checkDetails.pdfChosenAddress")
                 }
               ]
             }

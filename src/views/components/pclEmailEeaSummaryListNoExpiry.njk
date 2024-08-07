@@ -28,7 +28,7 @@
             actions: {
               items: [
                 {
-                  href: "eu-driving-licence-expiry-date/edit?edit=true",
+                  href: "national-identity-card-expiry-date/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.hasExpiryDate")
                 }
@@ -37,7 +37,7 @@
           },
           { 
               key: {
-              text: translate("checkDetails.euDlAddress")
+              text: translate("checkDetails.idCardAddress")
             },
             value: {
               html: addressCheckTranslatedString
@@ -45,9 +45,9 @@
             actions: {
               items: [
                 {
-                  href: "eu-driving-licence-current-address/edit?edit=true",
+                  href: "national-identity-card-current-address/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("checkDetails.euDlAddress")
+                  visuallyHiddenText: translate("checkDetails.idCardAddress")
                 }
               ]
             }
@@ -62,7 +62,7 @@
             actions: {
               items: [
                 {
-                  href: "select-country-eu-driving-licence/edit?edit=true",
+                  href: "select-country-national-identity-card/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("{{ country }}")
                 }
@@ -96,26 +96,9 @@
             actions: {
               items: [
                 {
-                  href: "//post-office-customer-letter/edit?edit=true",
+                  href: "/post-office-customer-letter/edit?edit=true",
                   text: translate("checkDetails.changeLink"),
                   visuallyHiddenText: translate("checkDetails.pdfPreference")
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: translate("checkDetails.pdfChosenAddress")
-            },
-            value: {
-              html: translate("{{ addressLine1 }}<br>{{ addressLine2 }}<br>{{ addressLine3 }}<br>{{ addressPostcode}}")
-            },
-            actions: {
-              items: [
-                {
-                  href: "/post-office-customer-letter-check-address/edit?edit=true",
-                  text: translate("checkDetails.changeLink"),
-                  visuallyHiddenText: translate("checkDetails.pdfChosenAddress")
                 }
               ]
             }

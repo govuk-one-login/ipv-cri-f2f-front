@@ -6,7 +6,6 @@ class LandingPageController extends BaseController {
   async saveValues(req, res, next) {
     req.sessionModel.set("isThinFileUser", false);
     req.sessionModel.set("pclEnabled", false);
-    req.sessionModel.set("postOfficeCustomerLetterChoice", false);
 
     try {
       const configData = await this.getSessionConfig(req, res);
