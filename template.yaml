@@ -27,6 +27,11 @@ Parameters:
       The name of the stack that defines the VPC in which this container will
       run.
     Type: String
+  CodeSigningConfigArn:
+    Type: String
+    Description: >
+      The ARN of the Code Signing Config to use, provided by the deployment pipeline.
+    Default: "none"
   PermissionsBoundary:
     Description: "The ARN of the permissions boundary to apply when creating IAM roles"
     Type: String
@@ -77,6 +82,11 @@ Conditions:
     - !Equals [!Ref Environment, production]
   IsNotProdLikeEnvironment: !Not
     - !Condition IsProdLikeEnvironment
+  UseCodeSigning:
+    Fn::Not:
+      - Fn::Equals:
+          - !Ref CodeSigningConfigArn
+          - "none"
   UsePermissionsBoundary:
     Fn::Not:
       - Fn::Equals:
@@ -93,10 +103,6 @@ Conditions:
     - !Equals [!Ref DeployAlarmsInDev, true]
   EnableSpotArmInstance: !Equals [!Ref Environment, dev]
 # DO WE NEED TO CHANGE THE ARN?
-  UsePermissionsBoundary: !Not
-    - !Equals [!Ref PermissionsBoundary, "none"]
-  UseCodeSigning: !Not
-    - !Equals [!Ref CodeSigningConfigArn, "none"]
   UseCanaryDeployment: !Not
     - !Equals [!Ref DeploymentStrategy, "None"]
 
@@ -322,6 +328,23 @@ Resources:
         - !Ref AWS::NoValue
 
   LoadBalancerListenerTargetGroupECS:
+    Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
+    Properties:
+      HealthCheckEnabled: TRUE
+      HealthCheckProtocol: HTTP
+      Matcher:
+        HttpCode: 200-499
+      Port: 80
+      Protocol: HTTP
+      TargetType: ip
+      VpcId:
+        Fn::ImportValue:
+          !Sub "${VpcStackName}-VpcId"
+      TargetGroupAttributes:
+        - Key: deregistration_delay.timeout_seconds
+          Value: 60
+
+  LoadBalancerListenerTargetGroupECSGreen:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
     Properties:
       HealthCheckEnabled: TRUE
@@ -908,6 +931,36 @@ Resources:
         SSEEnabled: true
         SSEType: KMS
 
+# ECS Canary deployments
+  ECSCanaryDeploymentStack:
+    Type: AWS::CloudFormation::Stack
+    Condition: UseCanaryDeployment
+    Properties:
+      TemplateURL: https://template-storage-templatebucket-1upzyw6v9cs42.s3.eu-west-2.amazonaws.com/ecs-canary-deployment/template.yaml?versionId=5RRU1nfKQD_d08FKttr8W7pzrAsqQiUM
+      Parameters:
+        PermissionsBoundary:
+          Fn::ImportValue: !Sub "${AWS::StackName}-ECSCanaryPermissionsBoundaryArn"
+        CodeSigningConfigArn: !If
+          - UseCodeSigning
+          - !Ref CodeSigningConfigArn
+          - !Ref AWS::NoValue
+        ContainerName: app
+        ContainerPort: 8080
+        DeploymentStrategy: !Ref DeploymentStrategy
+        ECSClusterName: !Ref F2FFrontEcsCluster
+        ECSServiceName: !GetAtt F2FFrontEcsService.Name
+        ECSServiceTaskDefinition: !Ref ECSServiceTaskDefinition
+        TargetGroupName: !GetAtt LoadBalancerListenerTargetGroupECS.TargetGroupName
+        GreenTargetGroupName: !GetAtt LoadBalancerListenerTargetGroupECSGreen.TargetGroupName
+        LoadBalancerListenerARN: !Ref LoadBalancerListener
+        SecurityGroups: !GetAtt ECSSecurityGroup.GroupId
+        VpcId: !Sub ${VpcStackName}-VpcId
+        Subnets: !Join
+          - ","
+          - - Fn::ImportValue: !Sub "${VpcStackName}-ProtectedSubnetIdA"
+            - Fn::ImportValue: !Sub "${VpcStackName}-ProtectedSubnetIdB"
+        CloudWatchAlarms: !Ref FrontTargetGroup5xxPercentErrors
+
   FE5XXErrorAlarm:
     Type: AWS::CloudWatch::Alarm
     Condition: "DeployAlarms"
@@ -1204,87 +1257,41 @@ Resources:
             Period: 60
             Stat: Maximum
 
-  ECSCanaryDeploymentStack:
-    Type: AWS::CloudFormation::Stack
+  FrontTargetGroup5xxPercentErrors:
+    Type: AWS::CloudWatch::Alarm
     Condition: UseCanaryDeployment
     Properties:
-      TemplateURL: https://template-storage-templatebucket-1upzyw6v9cs42.s3.eu-west-2.amazonaws.com/ecs-canary-deployment/template.yaml?versionId=5RRU1nfKQD_d08FKttr8W7pzrAsqQiUM
-      Parameters:
-        PermissionsBoundary:
-          Fn::ImportValue: !Sub "${AWS::StackName}-ECSCanaryPermissionsBoundaryArn"
-        CodeSigningConfigArn: !If
-          - UseCodeSigning
-          - !Ref CodeSigningConfigArn
-          - !Ref AWS::NoValue
-        ContainerName: app
-        ContainerPort: 8080
-        DeploymentStrategy: !Ref DeploymentStrategy
-        ECSClusterName: !Ref F2FFrontEcsCluster
-        ECSServiceName: !GetAtt F2FFrontEcsService.Name
-        ECSServiceTaskDefinition: !Ref ECSServiceTaskDefinition
-        TargetGroupName: !GetAtt LoadBalancerListenerTargetGroupECS.TargetGroupName
-        GreenTargetGroupName: !GetAtt LoadBalancerListenerTargetGroupECSGreen.TargetGroupName
-        LoadBalancerListenerARN: !Ref LoadBalancerListener
-        SecurityGroups: !GetAtt ECSSecurityGroup.GroupId
-        VpcId: !Sub ${VpcStackName}-VpcId
-        Subnets: !Join
-          - ","
-          - - Fn::ImportValue: !Sub "${VpcStackName}-ProtectedSubnetIdA"
-            - Fn::ImportValue: !Sub "${VpcStackName}-ProtectedSubnetIdB"
-        CloudWatchAlarms: !Sub
-          - "${ELB5XXAlarm},${ELB4XXAnomalyAlarm}"
-          - ELB5XXAlarm: !Ref ELB5XXAlarm
-            ELB4XXAnomalyAlarm: !Ref ELB4XXAnomalyAlarm
-
-  ELB5XXAlarm:
-    Type: AWS::CloudWatch::Alarm
-    Properties:
+      AlarmName: FrontTargetGroup5xxPercentAlarm
       AlarmDescription: >
-        The number of HTTP 5XX server error codes that originate from the load balancer.
-        This count does not include any response codes generated by the targets.
-      OKActions:
-        - !ImportValue platform-alarm-topic-slack-warning-alert
-      AlarmActions:
-        - !ImportValue platform-alarm-topic-slack-warning-alert
-      MetricName: HTTPCode_ELB_5XX_Count
-      Namespace: AWS/ApplicationELB
-      Statistic: Sum
-      Dimensions:
-        - Name: LoadBalancer
-          Value: !Ref LoadBalancer
-      Period: 60
+        The number of HTTP 5XX server error codes that originate from the
+        target group is greater than 5% of all traffic.
       EvaluationPeriods: 2
       DatapointsToAlarm: 2
-      Threshold: 2
+      Threshold: 5
       ComparisonOperator: GreaterThanThreshold
       TreatMissingData: notBreaching
-
-  ELB4XXAnomalyAlarm:
-    Type: AWS::CloudWatch::Alarm
-    Properties:
-      AlarmDescription: >
-        Based on anomaly detection, the number of HTTP 4XX server error codes that
-        originate from the load balancer. This count does not include any response
-        codes generated by the targets.
-      OKActions:
-        - !ImportValue platform-alarm-topic-slack-warning-alert
-      AlarmActions:
-        - !ImportValue platform-alarm-topic-slack-warning-alert
-      EvaluationPeriods: 2
-      DatapointsToAlarm: 2
-      ThresholdMetricId: ad1
-      ComparisonOperator: GreaterThanUpperThreshold
-      TreatMissingData: notBreaching
       Metrics:
-        - Id: ad1
+        - Id: e1
+          Label: ErrorPercent
           ReturnData: true
-          Expression: ANOMALY_DETECTION_BAND(m1, 2)
+          Expression: (m1/m2)*100
         - Id: m1
-          ReturnData: true
+          ReturnData: false
           MetricStat:
             Metric:
               Namespace: AWS/ApplicationELB
-              MetricName: HTTPCode_ELB_4XX_Count
+              MetricName: HTTPCode_Target_5XX_Count
+              Dimensions:
+                - Name: LoadBalancer
+                  Value: !GetAtt LoadBalancer.LoadBalancerFullName
+            Period: 60
+            Stat: Sum
+        - Id: m2
+          ReturnData: false
+          MetricStat:
+            Metric:
+              Namespace: AWS/ApplicationELB
+              MetricName: RequestCount
               Dimensions:
                 - Name: LoadBalancer
                   Value: !GetAtt LoadBalancer.LoadBalancerFullName
