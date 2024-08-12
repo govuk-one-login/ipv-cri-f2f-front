@@ -421,7 +421,6 @@ Resources:
         - UseCanaryDeployment
         - !Ref AWS::NoValue
         - AwsvpcConfiguration:
-            AwsvpcConfiguration:
             AssignPublicIp: DISABLED
             SecurityGroups:
               - !GetAtt ECSSecurityGroup.GroupId
