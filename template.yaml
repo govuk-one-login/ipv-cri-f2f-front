@@ -1265,6 +1265,10 @@ Resources:
       AlarmDescription: >
         The number of HTTP 5XX server error codes that originate from the
         target group is greater than 5% of all traffic.
+      OKActions:
+        - !ImportValue platform-alarm-topic-slack-warning-alert
+      AlarmActions:
+        - !ImportValue platform-alarm-topic-slack-warning-alert
       EvaluationPeriods: 2
       DatapointsToAlarm: 2
       Threshold: 5
