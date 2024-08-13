@@ -1155,7 +1155,6 @@ Resources:
 
   FELowContainerTaskCountAlarm:
     DependsOn:
-      - F2FFrontEcsService
       - F2FFrontEcsCluster
     Type: AWS::CloudWatch::Alarm
     Condition: "DeployAlarms"
@@ -1178,12 +1177,10 @@ Resources:
           MetricStat:
             Metric:
               Namespace: ECS/ContainerInsights
-              MetricName: RunningTaskCount
+              MetricName: TaskCount
               Dimensions:
                 - Name: ClusterName
                   Value: !Ref F2FFrontEcsCluster
-                - Name: ServiceName
-                  Value: !GetAtt F2FFrontEcsService.Name
             Period: 60
             Stat: Minimum
 
@@ -1225,7 +1222,6 @@ Resources:
 
   FELowContainerTaskCountCriticalAlarm:
     DependsOn:
-      - F2FFrontEcsService
       - F2FFrontEcsCluster
     Type: AWS::CloudWatch::Alarm
     Condition: "DeployAlarms"
@@ -1248,12 +1244,10 @@ Resources:
           MetricStat:
             Metric:
               Namespace: ECS/ContainerInsights
-              MetricName: RunningTaskCount
+              MetricName: TaskCount
               Dimensions:
                 - Name: ClusterName
                   Value: !Ref F2FFrontEcsCluster
-                - Name: ServiceName
-                  Value: !GetAtt F2FFrontEcsService.Name
             Period: 60
             Stat: Maximum
 
