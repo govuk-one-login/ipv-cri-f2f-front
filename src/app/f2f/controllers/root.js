@@ -1,7 +1,7 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API } = require("../../../lib/config");
-const logger = require("hmpo-logger").get();
-const NodeRSA = require("node-rsa");
+// const logger = require("hmpo-logger").get();
+// const NodeRSA = require("node-rsa");
 const {
   createPersonalDataHeaders,
 } = require("@govuk-one-login/frontend-passthrough-headers");
