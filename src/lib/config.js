@@ -12,15 +12,15 @@ module.exports = {
       ABORT: "/abort",
       SESSION_CONFIG: "/sessionConfiguration",
       PERSON_INFO: "/person-info",
-      PERSON_INFO_KEY: "/person-info-key"
+      PERSON_INFO_KEY: "/person-info-key",
     },
-    OS_KEY: process.env.OS_KEY
+    OS_KEY: process.env.OS_KEY,
   },
   PROXY_API: {
     BASE_URL: process.env.PROXYURL,
     PATHS: {
       POST_OFFICE: "/postoffice/v1/locations/search",
-      ORDNANCE_SURVEY: "https://api.os.uk/search/places/v1/postcode?"
+      ORDNANCE_SURVEY: "https://api.os.uk/search/places/v1/postcode?",
     },
   },
   APP: {
@@ -83,16 +83,16 @@ module.exports = {
     },
     POST_OFFICE_CUSTOMER_LETTER: {
       EMAIL: "email",
-      POST: "post"
+      POST: "post",
     },
     PHOTO_ID_EXPIRY_OPTIONS: {
       RE_ENTER_DETAILS: "reEnterDetails",
       CHOOSE_DIFFERENT_PHOTO_ID: "chooseDifferentPhotoId",
       PROVE_IDENTITY_ANOTHER_WAY: "proveIdentityAnotherWay",
     },
-    CHECK_ADDRESS : {
+    CHECK_ADDRESS: {
       EXISTING_ADDRESS: "existingAddress",
-      DIFFERENT_ADDRESS: "differentAddress"
+      DIFFERENT_ADDRESS: "differentAddress",
     },
     GTM: {
       GA4_ID: process.env.GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID || "GTM-XXXXXXX",

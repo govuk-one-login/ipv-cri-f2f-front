@@ -37,7 +37,7 @@ function beforeNow(_value, timePeriod, timeUnit) {
 
 function convertKeysToLowerCase(obj) {
   if (Array.isArray(obj)) {
-    return obj.map(item => convertKeysToLowerCase(item));
+    return obj.map((item) => convertKeysToLowerCase(item));
   } else if (obj !== null && obj.constructor === Object) {
     return Object.keys(obj).reduce((acc, key) => {
       acc[key.toLowerCase()] = convertKeysToLowerCase(obj[key]);
@@ -48,17 +48,25 @@ function convertKeysToLowerCase(obj) {
 }
 
 function toTitleCase(str) {
-  return str.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+  return str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
 function formatAddress(address) {
   const formattedAddress = {
-    line1: `${toTitleCase(address.building_number)} ${toTitleCase(address.thoroughfare_name)}`, 
+    line1: `${toTitleCase(address.building_number)} ${toTitleCase(
+      address.thoroughfare_name
+    )}`,
     line2: toTitleCase(address.dependent_locality),
     line3: toTitleCase(address.post_town),
-    postcode: address.postcode
+    postcode: address.postcode,
   };
-  return formattedAddress
+  return formattedAddress;
 }
 
-module.exports = { formatDate, beforeNow, convertKeysToLowerCase, toTitleCase, formatAddress };
+module.exports = {
+  formatDate,
+  beforeNow,
+  convertKeysToLowerCase,
+  toTitleCase,
+  formatAddress,
+};

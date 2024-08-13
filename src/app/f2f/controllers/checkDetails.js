@@ -178,21 +178,23 @@ class CheckDetailsController extends DateController {
 
       // Values for PCL
       if (req.sessionModel.get("postalAddress") !== undefined) {
-        const displayAddress = formatAddress(req.sessionModel.get("postalAddress"))
-        locals.addressLine1 = displayAddress.line1
-        locals.addressLine2 = displayAddress.line2
-        locals.addressLine3 = displayAddress.line3
-        locals.addressPostcode = displayAddress.postcode
+        const displayAddress = formatAddress(
+          req.sessionModel.get("postalAddress")
+        );
+        locals.addressLine1 = displayAddress.line1;
+        locals.addressLine2 = displayAddress.line2;
+        locals.addressLine3 = displayAddress.line3;
+        locals.addressPostcode = displayAddress.postcode;
       } else {
-        locals.addressLine1 = req.sessionModel.get("addressLine1")
-        locals.addressLine2 = req.sessionModel.get("addressLine2")
-        locals.addressLine3 = req.sessionModel.get("townCity")
-        locals.addressPostcode = req.sessionModel.get("postalCode")
+        locals.addressLine1 = req.sessionModel.get("addressLine1");
+        locals.addressLine2 = req.sessionModel.get("addressLine2");
+        locals.addressLine3 = req.sessionModel.get("townCity");
+        locals.addressPostcode = req.sessionModel.get("postalCode");
       }
-      
-      locals.pdfPreferenceText = "By email only"
+
+      locals.pdfPreferenceText = "By email only";
       if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "post") {
-        locals.pdfPreferenceText = "By email and post"
+        locals.pdfPreferenceText = "By email and post";
       }
 
       locals.formattedExpiryDate = formatDate(expiryDate, format, language);
@@ -211,7 +213,7 @@ class CheckDetailsController extends DateController {
       locals.hasExpiryDate = hasExpiryDate;
       locals.postOfficeAddress = postOfficeAddress.split(", ");
       locals.postOfficeName = postOfficeName;
-      
+
       callback(err, locals);
     });
   }

@@ -61,17 +61,17 @@ describe("CheckDetails controller", () => {
       };
 
       const testAddress = {
-        uprn: '11111',
-        udprn: '1111111',
-        address: '34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ',
-        building_number: '34',
-        thoroughfare_name: 'MOCK ROAD',
-        dependent_locality: 'PLACEHOLDER PARK',
-        post_town: 'FAKESVILLE',
-        postcode: 'FS6 5AQ'
-      }
+        uprn: "11111",
+        udprn: "1111111",
+        address: "34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
+        building_number: "34",
+        thoroughfare_name: "MOCK ROAD",
+        dependent_locality: "PLACEHOLDER PARK",
+        post_town: "FAKESVILLE",
+        postcode: "FS6 5AQ",
+      };
 
-      req.sessionModel.set("postalAddress", testAddress)
+      req.sessionModel.set("postalAddress", testAddress);
 
       req.form.values.postOfficeDetails = [
         {

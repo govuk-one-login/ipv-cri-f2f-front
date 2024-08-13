@@ -66,33 +66,34 @@ describe("Address Results Controller", () => {
     context("Ordnance Survey address data successfully fetched", () => {
       const osData = {
         results: [
-        {
-          dpa: {
-            uprn: '11111',
-            udprn: '1111111',
-            address: '34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ',
-            building_number: '34',
-            thoroughfare_name: 'MOCK ROAD',
-            dependent_locality: 'PLACEHOLDER PARK',
-            post_town: 'FAKESVILLE',
-            postcode: 'FS6 5AQ'
-          }
-        },
-        {
-          dpa: {
-            uprn: '22222',
-            udprn: '222222',
-            address: 'BASEMENT FLAT, 36, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ',
-            sub_building_name: 'BASEMENT FLAT',
-            building_number: '36',
-            thoroughfare_name: 'MOCK ROAD',
-            dependent_locality: 'PLACEHOLDER PARK',
-            post_town: 'FAKESVILLE',
-            postcode: 'FS6 5AQ'
-          }
-        }
-      ]
-    };
+          {
+            dpa: {
+              uprn: "11111",
+              udprn: "1111111",
+              address: "34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
+              building_number: "34",
+              thoroughfare_name: "MOCK ROAD",
+              dependent_locality: "PLACEHOLDER PARK",
+              post_town: "FAKESVILLE",
+              postcode: "FS6 5AQ",
+            },
+          },
+          {
+            dpa: {
+              uprn: "22222",
+              udprn: "222222",
+              address:
+                "BASEMENT FLAT, 36, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
+              sub_building_name: "BASEMENT FLAT",
+              building_number: "36",
+              thoroughfare_name: "MOCK ROAD",
+              dependent_locality: "PLACEHOLDER PARK",
+              post_town: "FAKESVILLE",
+              postcode: "FS6 5AQ",
+            },
+          },
+        ],
+      };
 
       beforeEach(() => {
         req.axios.get = sinon.fake.resolves({ data: osData });
@@ -112,27 +113,28 @@ describe("Address Results Controller", () => {
       it("sets sessionModel values", async () => {
         await addressResults.locals(req, res, next);
         expect(req.sessionModel.get("searchResults")).to.eql([
-            {
-              uprn: '11111',
-              udprn: '1111111',
-              address: '34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ',
-              building_number: '34',
-              thoroughfare_name: 'MOCK ROAD',
-              dependent_locality: 'PLACEHOLDER PARK',
-              post_town: 'FAKESVILLE',
-              postcode: 'FS6 5AQ'
-            },
-            {
-              uprn: '22222',
-              udprn: '222222',
-              address: 'BASEMENT FLAT, 36, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ',
-              sub_building_name: 'BASEMENT FLAT',
-              building_number: '36',
-              thoroughfare_name: 'MOCK ROAD',
-              dependent_locality: 'PLACEHOLDER PARK',
-              post_town: 'FAKESVILLE',
-              postcode: 'FS6 5AQ'
-            }
+          {
+            uprn: "11111",
+            udprn: "1111111",
+            address: "34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
+            building_number: "34",
+            thoroughfare_name: "MOCK ROAD",
+            dependent_locality: "PLACEHOLDER PARK",
+            post_town: "FAKESVILLE",
+            postcode: "FS6 5AQ",
+          },
+          {
+            uprn: "22222",
+            udprn: "222222",
+            address:
+              "BASEMENT FLAT, 36, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
+            sub_building_name: "BASEMENT FLAT",
+            building_number: "36",
+            thoroughfare_name: "MOCK ROAD",
+            dependent_locality: "PLACEHOLDER PARK",
+            post_town: "FAKESVILLE",
+            postcode: "FS6 5AQ",
+          },
         ]);
       });
     });
