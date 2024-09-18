@@ -23,8 +23,6 @@
             label: translate("fields.nonUkPassportCountrySelector.label")
         }) }}
     </div>
-    <label for="my-autocomplete">Select your country</label>
-    <div id="my-autocomplete-container"></div>
 
   <p><a href="/choose-photo-id-post-office">{{ translate("nonUkPassportCountrySelector.link") }}</a></p>
 
@@ -38,9 +36,8 @@
 {% set footerNavItems = translate("govuk.footerNavItems") %}
 
 {% block footer %}
-<script id="govuk-script-analytics" nonce="{{ cspNonce }}" type="module"> 
-    // import { i18n } from "/public/test.js";
-    var i18n = require("/public/test.js");
+<script id="govuk-script-analytics" nonce="{{ cspNonce }}" type="text/javascript"> 
+
 
 
     console.log("1!")
@@ -49,19 +46,12 @@
 
         const initialiseAddressCountryAutocomplete = () => {
           var autocompleteScript = document.createElement('script')
-          const countries = [
-            // 'France',
-            // 'Germany',
-            // 'United Kingdom'
-            i18n.translate(countries.AFG, 'en')
-        ]
 
           console.log("3")
           autocompleteScript.onload = function () {
-            accessibleAutocomplete({
-                element: document.querySelector('#my-autocomplete-container'),
-                id: 'my-autocomplete', // To match it to the existing <label>.
-                source: countries
+
+            accessibleAutocomplete.enhanceSelectElement({
+                selectElement: document.querySelector('#nonUkPassportCountrySelector')
             })
             console.log("4")
             // document.getElementById('addressCountry').setAttribute('autocomplete', 'country-disabled-autocomplete')
