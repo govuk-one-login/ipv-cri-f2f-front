@@ -388,6 +388,7 @@ module.exports = {
   [`${APP.PATHS.NON_UK_PASSPORT_COUNTRY_SELECTOR}`]: {
     fields: ["nonUkPassportCountrySelector"],
     editable: true,
+    entryPoint: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: APP.PATHS.FIND_POST_OFFICE,
   },

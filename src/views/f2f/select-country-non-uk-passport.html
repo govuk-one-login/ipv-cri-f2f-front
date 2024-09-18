@@ -18,11 +18,13 @@
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     <div class="hint-with-margin">
-    {{ hmpoSelect(ctx, {
-        id: "nonUkPassportCountrySelector",
-        label: translate("fields.nonUkPassportCountrySelector.label")
-    }) }}
-  </div>
+        {{ hmpoSelect(ctx, {
+            id: "nonUkPassportCountrySelector",
+            label: translate("fields.nonUkPassportCountrySelector.label")
+        }) }}
+    </div>
+    <label for="my-autocomplete">Select your country</label>
+    <div id="my-autocomplete-container"></div>
 
   <p><a href="/choose-photo-id-post-office">{{ translate("nonUkPassportCountrySelector.link") }}</a></p>
 
@@ -36,22 +38,44 @@
 {% set footerNavItems = translate("govuk.footerNavItems") %}
 
 {% block footer %}
-    {{ govukFooter( footerNavItems ) }}
-    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window
-                .DI
-                .analyticsGa4
-                .pageViewTracker
-                .trackOnPageLoad({
-                    statusCode: '200', // Access status code
-                    englishPageTitle: '{{translate("nonUkPassportCountrySelector.title")}}',
-                    taxonomy_level1: 'web cri', // Access taxonomy level 1
-                    taxonomy_level2: 'f2f', // Access taxonomy level 2
-                    content_id: '001',
-                    logged_in_status: true,
-                    dynamic: false
-                });
-        });
-    </script>
+<script id="govuk-script-analytics" nonce="{{ cspNonce }}" type="module"> 
+    // import { i18n } from "/public/test.js";
+    var i18n = require("/public/test.js");
+
+
+    console.log("1!")
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log("2!")
+
+        const initialiseAddressCountryAutocomplete = () => {
+          var autocompleteScript = document.createElement('script')
+          const countries = [
+            // 'France',
+            // 'Germany',
+            // 'United Kingdom'
+            i18n.translate(countries.AFG, 'en')
+        ]
+
+          console.log("3")
+          autocompleteScript.onload = function () {
+            accessibleAutocomplete({
+                element: document.querySelector('#my-autocomplete-container'),
+                id: 'my-autocomplete', // To match it to the existing <label>.
+                source: countries
+            })
+            console.log("4")
+            // document.getElementById('addressCountry').setAttribute('autocomplete', 'country-disabled-autocomplete')
+          }
+
+          console.log("5")
+          autocompleteScript.setAttribute('type', 'text/javascript')
+          autocompleteScript.setAttribute('src', '/public/accessible-autocomplete.min.js')
+          document.getElementsByTagName('head')[0].appendChild(autocompleteScript)
+
+          console.log("6")
+        }
+        initialiseAddressCountryAutocomplete()
+      })
+</script>
+    
 {% endblock %}

@@ -158,18 +158,18 @@ const wizardOptions = {
 
 router.use(wizard(steps, fields, wizardOptions));
 
-router.use((err, req, res, next) => {
-  logger
-    .get()
-    .error(
-      "Error caught by Express handler - redirecting to Callback with server_error",
-      { err }
-    );
-  const REDIRECT_URI = req.session?.authParams?.redirect_uri;
-  if (REDIRECT_URI) {
-    router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
-    next(err);
-  } else {
-    res.redirect(APP.PATHS.ERROR);
-  }
-});
+// router.use((err, req, res, next) => {
+//   logger
+//     .get()
+//     .error(
+//       "Error caught by Express handler - redirecting to Callback with server_error",
+//       { err }
+//     );
+//   const REDIRECT_URI = req.session?.authParams?.redirect_uri;
+//   if (REDIRECT_URI) {
+//     router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
+//     next(err);
+//   } else {
+//     res.redirect(APP.PATHS.ERROR);
+//   }
+// });
