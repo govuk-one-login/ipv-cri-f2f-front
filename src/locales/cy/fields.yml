@@ -10,10 +10,6 @@ photoIdChoice:
       label: Trwydded yrru gyda llun y DU
       hint: Rhaid i'r cyfeiriad ar eich trwydded yrru fod yr un fath â'ch cyfeiriad presennol.
       reveal: ""
-    brp:
-      label: Trwydded breswylio biometrig y DU (BRP)
-      hint: Efallai y bydd gennych BRP os oes gennych fisa am fwy na 6 mis neu ganiatâd amhenodol i aros. Ni allwch ddefnyddio Trwydded Gweithwyr Ffiniol y DU (FWP) na cherdyn preswylio biometrig y DU (BRC), a elwir hefyd yn gerdyn preswylio yn y DU.
-      reveal: ""
     nonUkPassport:
       label: Pasbort o'r tu allan i'r DU
       hint: ""
@@ -114,22 +110,6 @@ nonUKPassportExpiryDate:
     "required-month": "Rhowch y dyddiad dod i ben yn llawn"
     "required-year": "Rhowch y dyddiad dod i ben yn llawn"
 
-brpExpiryDate:
-  legend: ""
-  label: ""
-  hint: "Er enghraifft, 31 3 2025"
-  validation:
-    default: "Rhowch y dyddiad dod i ben yn llawn"
-    before: "Rhowch ddyddiad dod i ben dilys"
-    "numeric-day": "Mae'n rhaid i'r dyddiad dod i ben gynnwys diwrnod sy'n cynnwys rhifau yn unig"
-    "numeric-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n cynnwys rhifau yn unig"
-    "numeric-year": "Mae'n rhaid i'r dyddiad dod i ben gynnwys blwyddyn sy'n cynnwys rhifau yn unig"
-    "date-day": "Rhowch ddyddiad dod i ben dilys"
-    "date-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n rhif rhwng 1 a 12"
-    "required-day": "Rhowch y dyddiad dod i ben yn llawn"
-    "required-month": "Rhowch y dyddiad dod i ben yn llawn"
-    "required-year": "Rhowch y dyddiad dod i ben yn llawn"
-
 euPhotocardDlExpiryDate:
   legend: ""
   label: ""
@@ -180,11 +160,11 @@ idHasExpiryDate:
   validation:
     required: "Dewiswch os oes gan eich ID gyda llun ddyddiad dod i ben"
   items:
-    yes: 
+    yes:
       label: "Oes"
       hint: ""
       reveal: ""
-    no: 
+    no:
       label: "Na"
       hint: ""
       reveal: ""
@@ -352,7 +332,7 @@ countries:
     XXK: "Kosovo"
     KWT: "Kuwait"
     KGZ: "Kyrgyzstan"
-    LAO: "Laos"    
+    LAO: "Laos"
     LVA: "Latvia"
     LBN: "Lebanon"
     LSO: "Lesotho"
@@ -397,7 +377,7 @@ countries:
     PNG: "Papua New Guinea"
     PRY: "Paraguay"
     PER: "Peru"
-    PHL: "Philippines"  
+    PHL: "Philippines"
     POL: "Gwlad Pwyl"
     PRT: "Portiwgal"
     QAT: "Qatar"

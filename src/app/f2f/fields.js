@@ -11,7 +11,6 @@ module.exports = {
       { value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT },
       { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
       { value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL },
-      { value: APP.PHOTO_ID_OPTIONS.BRP },
       { value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL },
       { value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD },
       { divider: "or" },
@@ -88,18 +87,6 @@ module.exports = {
         type: "beforeNow",
         fn: utils.beforeNow,
         arguments: [10, "years"],
-      },
-    ],
-  },
-  brpExpiryDate: {
-    type: "date",
-    journeyKey: "brpExpiryDate",
-    validate: [
-      "required",
-      "date",
-      {
-        type: "before",
-        arguments: ["2033-01-01"],
       },
     ],
   },

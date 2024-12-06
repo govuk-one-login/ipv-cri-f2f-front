@@ -48,11 +48,6 @@ ukPhotocardDl:
   photocardDlInformationContext: "Rydym angen y wybodaeth hon i wirio bod eich ID gyda llun yn ddilys."
   hintText: "Er enghraifft, 31 3 2025"
 
-brp:
-  title: "Pryd mae eich trwydded preswylio biometrig (BRP) yn dod i ben?"
-  brpInformationContext: "Rydym angen y wybodaeth hon i wirio bod eich ID gyda llun yn ddilys."
-  hintText: "Er enghraifft, 31 3 2025"
-
 euPhotocardDl:
   title: "Pryd mae eich trwydded yrru yn dod i ben?"
   euPhotocardDlInformationContext: "Rydym angen y wybodaeth hon i wirio bod eich ID gyda llun yn ddilys."

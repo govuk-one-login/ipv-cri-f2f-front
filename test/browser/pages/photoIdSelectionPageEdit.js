@@ -29,10 +29,6 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#photoIdChoice-ukPhotocardDl");
   }
 
-  async brpChoice() {
-    await this.page.click("#photoIdChoice-brp");
-  }
-
   async nonUKPassportChoice() {
     await this.page.click("#photoIdChoice-nonUkPassport");
   }
