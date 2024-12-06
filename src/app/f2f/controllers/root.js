@@ -11,7 +11,7 @@ class RootController extends BaseController {
 
     const sharedClaims = req.session?.shared_claims;
 
-    // try { 
+    // try {
     //   const encryptedJSON = await this.getAddressInfo(req.axios, req);
     //   const key = await this.getDecryptKey(req.axios, req);
     //   const decryptKey = new NodeRSA(key)
