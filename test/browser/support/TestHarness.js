@@ -37,6 +37,7 @@ ajv.addSchema(
   F2F_CRI_VC_ISSUED_SCHEMA_02,
   "F2F_CRI_VC_ISSUED_SCHEMA_NON_UK_PP"
 );
+ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_03, "F2F_CRI_VC_ISSUED_SCHEMA_BRP");
 ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_04, "F2F_CRI_VC_ISSUED_SCHEMA_EU_DL");
 ajv.addSchema(
   F2F_CRI_VC_ISSUED_SCHEMA_05,
@@ -50,6 +51,7 @@ ajv.addSchema(
 ajv.addSchema(F2F_YOTI_START_SCHEMA_00, "F2F_YOTI_START_UK_DL");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_01, "F2F_YOTI_START_UK_PP");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_02, "F2F_YOTI_START_NON_UK_PP");
+ajv.addSchema(F2F_YOTI_START_SCHEMA_03, "F2F_YOTI_START_BRP");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_04, "F2F_YOTI_START_EU_DL");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_05, "F2F_YOTI_START_EEA_ID_CARD");
 ajv.addSchema(F2F_CRI_SESSION_ABORTED_SCHEMA, "F2F_CRI_SESSION_ABORTED_SCHEMA");
@@ -81,9 +83,9 @@ module.exports = class TestHarness {
     try {
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
         "/getRecordBySessionId/" +
-          process.env["SESSION_TABLE"] +
-          "/" +
-          sessionId
+        process.env["SESSION_TABLE"] +
+        "/" +
+        sessionId
       );
       return unmarshall(getItemResponse.data.Item);
     } catch (error) {

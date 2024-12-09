@@ -241,7 +241,7 @@ class CheckDetailsController extends DateController {
     }
   }
   async saveF2fData(axios, f2fData, req, res) {
-    const tokenId = "e2e6a8a9-f6a7-4d8e-bce6-8275c0e5b022";
+    const tokenId = req.session.tokenId;
 
     if (tokenId) {
       const headers = {
