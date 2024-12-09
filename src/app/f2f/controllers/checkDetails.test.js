@@ -196,7 +196,6 @@ describe("CheckDetails controller", () => {
         photoIdChoice: PHOTO_ID_OPTIONS.UK_PASSPORT,
         expiryDateKey: "ukPassportExpiryDate",
       },
-      { photoIdChoice: PHOTO_ID_OPTIONS.BRP, expiryDateKey: "brpExpiryDate" },
       {
         photoIdChoice: PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
         expiryDateKey: "ukPhotocardDlExpiryDate",
