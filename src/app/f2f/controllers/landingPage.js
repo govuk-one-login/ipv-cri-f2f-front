@@ -5,18 +5,18 @@ const logger = require("hmpo-logger").get();
 class LandingPageController extends BaseController {
   async saveValues(req, res, next) {
     req.sessionModel.set("isThinFileUser", false);
-    req.sessionModel.set("pclEnabled", false);
+    req.sessionModel.set("pclEnabled", true);
 
     try {
-      const configData = await this.getSessionConfig(req, res);
-      if (configData && configData.evidence_requested?.strengthScore === 4) {
-        // Show thin file user screen
-        req.sessionModel.set("isThinFileUser", true);
-      }
-      if (configData) {
-        // Save the printed customer letter enabled flag
-        req.sessionModel.set("pclEnabled", !!(configData.pcl_enabled == "true"));
-      }
+      // const configData = await this.getSessionConfig(req, res);
+      // if (configData && configData.evidence_requested?.strengthScore === 4) {
+      //   // Show thin file user screen
+      //   req.sessionModel.set("isThinFileUser", true);
+      // }
+      // if (configData) {
+      //   // Save the printed customer letter enabled flag
+      //   req.sessionModel.set("pclEnabled", !!(configData.pcl_enabled == "true"));
+      // }
 
       super.saveValues(req, res, next);
     } catch (err) {
@@ -25,7 +25,7 @@ class LandingPageController extends BaseController {
   }
 
   async getSessionConfig(req, res) {
-    const tokenId = req.session.tokenId;
+    const tokenId = "1200e9bc-70e1-4fdb-be2a-cec31671665d"
 
     if (tokenId) {
       const headers = {

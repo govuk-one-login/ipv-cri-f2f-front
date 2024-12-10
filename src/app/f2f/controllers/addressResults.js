@@ -35,11 +35,15 @@ const { convertKeysToLowerCase } = require("../utils")
       super.saveValues(req, res, () => {
         try {
           const selectedAddress = req.form.values.addressResults;
+          console.log("SELECTED ADDRESS!!!", selectedAddress)
           const searchResults = req.sessionModel.get("searchResults");
+          console.log("SEARCH RESULTS!!!", searchResults)
           const chosenAddress = this.getAddress(selectedAddress, searchResults);
+          console.log("CHOSEN ADDRESS!!!", chosenAddress)
           req.sessionModel.set("postalAddress", chosenAddress);
           callback();
         } catch (err) {
+          console.log("SAVE VALS ERR!!!", err)
           callback(err);
         }
       });

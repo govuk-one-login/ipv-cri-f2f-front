@@ -13,6 +13,7 @@ class CheckDetailsController extends DateController {
         return callback(err, locals);
       }
       // Value for selected Post Office depends on selected PO
+      console.log("16!!!")
       const addressDetails = req.form.values.postOfficeDetails;
       const payLoadDetails = req.form.values.payLoadValues;
       let postOfficeAddress;
@@ -22,7 +23,7 @@ class CheckDetailsController extends DateController {
       let postOfficeLatitude;
       let postOfficeLongitude;
       let postOfficeFadCode;
-
+      console.log("26!!!")
       switch (req.form.values.branches) {
         case "1": {
           postOfficeAddress = addressDetails[0].hint.text;
@@ -80,6 +81,7 @@ class CheckDetailsController extends DateController {
           break;
         }
       }
+      console.log("84!!!")
       req.sessionModel.set("postOfficeName", postOfficeName);
       req.sessionModel.set("postOfficeAddress", postOfficeAddress);
       req.sessionModel.set(
@@ -90,15 +92,16 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("postOfficeLatitude", postOfficeLatitude);
       req.sessionModel.set("postOfficeLongitude", postOfficeLongitude);
       req.sessionModel.set("postOfficeFadCode", postOfficeFadCode);
-
+      console.log("95!!!")
       // Value for document expiry date depends on selected document
       let idHasExpiryDate;
       let expiryDate;
       let address;
       const pdfPreference = "EMAIL_ONLY";
-
+      console.log("101!!!")
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
+          console.log("104!!!")
           expiryDate = req.form.values.ukPassportExpiryDate;
           req.sessionModel.set("countryCode", "GBR");
           break;
@@ -162,12 +165,13 @@ class CheckDetailsController extends DateController {
           break;
         }
       }
+      console.log("168!!!")
 
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate);
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
       req.sessionModel.set("pdfPreference", pdfPreference);
-
+      console.log("174!!!")
       //Confirmation display values
       const idChoice = req.sessionModel.get("photoIdChoice");
       const changeUrl = req.sessionModel.get("changeUrl");
@@ -175,10 +179,12 @@ class CheckDetailsController extends DateController {
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
       const format = "YYYY-MM-DD";
       const language = req.lng;
-
+      console.log("182!!!")
       // Values for PCL
-      if (req.sessionModel.get("postalAddress") !== undefined) {
+      if (req.sessionModel.get("postalAddress") !== undefined && req.sessionModel.get("customerLetterCheckAddress") === "differentAddress") {
+        console.log("185!!!")
         const displayAddress = formatAddress(req.sessionModel.get("postalAddress"))
+        console.log("DISPLAY ADDRESS!!!", displayAddress)
         locals.addressLine1 = displayAddress.line1
         locals.addressLine2 = displayAddress.line2
         locals.addressLine3 = displayAddress.line3

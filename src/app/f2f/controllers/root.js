@@ -22,6 +22,10 @@ class RootController extends BaseController {
     //   req.sessionModel.set("addressLine2", parsedAddress["address_line2"])
     //   req.sessionModel.set("townCity", parsedAddress["town_city"])
     //   req.sessionModel.set("postalCode", parsedAddress["postal_code"])
+      req.sessionModel.set("addressLine1", "123 Test Building")
+      req.sessionModel.set("addressLine2", "Demo Street")
+      req.sessionModel.set("townCity", "London")
+      req.sessionModel.set("postalCode", "SE1 9JH")
 
     // } catch(error) {
     //   console.log("Error calling /person-info")
