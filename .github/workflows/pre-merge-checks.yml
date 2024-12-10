@@ -29,6 +29,8 @@ jobs:
         with:
           node-version: 18
           cache: 'yarn'
+      - name: SAM Validate
+        run: sam validate --region eu-west-2 -t template.yaml --lint
       - name: Install dependencies
         run: yarn install
       - name: Run lint
@@ -39,7 +41,7 @@ jobs:
         run: yarn test:coverage
       - name: Run browser tests
         run: npm run test:browser:ci
-        env: 
+        env:
           IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
           CUSTOM_FE_URL: http:/localhost:5030
           LANGUAGE_TOGGLE_DISABLED: false
