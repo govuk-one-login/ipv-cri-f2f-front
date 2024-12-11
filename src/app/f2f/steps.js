@@ -3,7 +3,6 @@ const resultsController = require("./controllers/results");
 const ukPassportDetails = require("./controllers/ukPassportDetails");
 const ukPhotocardDlDetails = require("./controllers/ukPhotocardDl");
 const photoIdSelectThinFile = require("./controllers/photoIdSelectionThinFile");
-const brpDetails = require("./controllers/brpDetails");
 const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
 const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
 const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
@@ -49,7 +48,6 @@ module.exports = {
       "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",
       "ukPhotocardDlExpiryDate",
-      "brpExpiryDate",
       "eeaIdCardExpiryDate",
       "euPhotocardDlExpiryDate",
       "photoIdExpiryChoice",
@@ -59,11 +57,6 @@ module.exports = {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
         next: APP.PATHS.UK_PASSPORT_DETAILS,
-      },
-      {
-        field: "photoIdChoice",
-        value: APP.PHOTO_ID_OPTIONS.BRP,
-        next: APP.PATHS.BRP_DETAILS,
       },
       {
         field: "photoIdChoice",
@@ -101,7 +94,6 @@ module.exports = {
       "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",
       "ukPhotocardDlExpiryDate",
-      "brpExpiryDate",
       "eeaIdCardExpiryDate",
       "euPhotocardDlExpiryDate",
       "photoIdExpiryChoice",
@@ -179,21 +171,6 @@ module.exports = {
         next: APP.PATHS.EXPIRED_ID,
       },
       APP.PATHS.UK_PHOTOCARD_DL_ADDRESS_CHECK,
-    ],
-  },
-  [`${APP.PATHS.BRP_DETAILS}`]: {
-    fields: ["brpExpiryDate"],
-    controller: brpDetails,
-    editable: true,
-    editBackStep: APP.PATHS.CHECK_DETAILS,
-    next: [
-      {
-        field: "brpExpiryDate",
-        op: "before",
-        value: "today",
-        next: APP.PATHS.EXPIRED_ID,
-      },
-      APP.PATHS.FIND_POST_OFFICE,
     ],
   },
   [`${APP.PATHS.EU_PHOTOCARD_DL_DETAILS}`]: {
@@ -316,11 +293,6 @@ module.exports = {
             field: "photoIdChoice",
             value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
             next: APP.PATHS.UK_PASSPORT_DETAILS,
-          },
-          {
-            field: "photoIdChoice",
-            value: APP.PHOTO_ID_OPTIONS.BRP,
-            next: APP.PATHS.BRP_DETAILS,
           },
           {
             field: "photoIdChoice",

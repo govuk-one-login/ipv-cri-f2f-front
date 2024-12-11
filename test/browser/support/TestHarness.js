@@ -4,7 +4,6 @@ const F2F_CRI_START_SCHEMA = require("../support/F2F_CRI_START_SCHEMA.json");
 const F2F_CRI_VC_ISSUED_SCHEMA_00 = require("../support/F2F_CRI_VC_ISSUED_00_SCHEMA.json");
 const F2F_CRI_VC_ISSUED_SCHEMA_01 = require("../support/F2F_CRI_VC_ISSUED_01_SCHEMA.json");
 const F2F_CRI_VC_ISSUED_SCHEMA_02 = require("../support/F2F_CRI_VC_ISSUED_02_SCHEMA.json");
-const F2F_CRI_VC_ISSUED_SCHEMA_03 = require("../support/F2F_CRI_VC_ISSUED_03_SCHEMA.json");
 const F2F_CRI_VC_ISSUED_SCHEMA_04 = require("../support/F2F_CRI_VC_ISSUED_04_SCHEMA.json");
 const F2F_CRI_VC_ISSUED_SCHEMA_05 = require("../support/F2F_CRI_VC_ISSUED_05_SCHEMA.json");
 const F2F_YOTI_PDF_EMAILED_SCHEMA = require("../support/F2F_YOTI_PDF_EMAILED_SCHEMA.json");
@@ -12,7 +11,6 @@ const F2F_YOTI_RESPONSE_RECEIVED_SCHEMA = require("../support/F2F_YOTI_RESPONSE_
 const F2F_YOTI_START_SCHEMA_00 = require("../support/F2F_YOTI_START_00_SCHEMA.json");
 const F2F_YOTI_START_SCHEMA_01 = require("../support/F2F_YOTI_START_01_SCHEMA.json");
 const F2F_YOTI_START_SCHEMA_02 = require("../support/F2F_YOTI_START_02_SCHEMA.json");
-const F2F_YOTI_START_SCHEMA_03 = require("../support/F2F_YOTI_START_03_SCHEMA.json");
 const F2F_YOTI_START_SCHEMA_04 = require("../support/F2F_YOTI_START_04_SCHEMA.json");
 const F2F_YOTI_START_SCHEMA_05 = require("../support/F2F_YOTI_START_05_SCHEMA.json");
 const F2F_CRI_SESSION_ABORTED_SCHEMA = require("../support/F2F_CRI_SESSION_ABORTED_SCHEMA.json");
@@ -37,7 +35,6 @@ ajv.addSchema(
   F2F_CRI_VC_ISSUED_SCHEMA_02,
   "F2F_CRI_VC_ISSUED_SCHEMA_NON_UK_PP"
 );
-ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_03, "F2F_CRI_VC_ISSUED_SCHEMA_BRP");
 ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_04, "F2F_CRI_VC_ISSUED_SCHEMA_EU_DL");
 ajv.addSchema(
   F2F_CRI_VC_ISSUED_SCHEMA_05,
@@ -51,7 +48,6 @@ ajv.addSchema(
 ajv.addSchema(F2F_YOTI_START_SCHEMA_00, "F2F_YOTI_START_UK_DL");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_01, "F2F_YOTI_START_UK_PP");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_02, "F2F_YOTI_START_NON_UK_PP");
-ajv.addSchema(F2F_YOTI_START_SCHEMA_03, "F2F_YOTI_START_BRP");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_04, "F2F_YOTI_START_EU_DL");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_05, "F2F_YOTI_START_EEA_ID_CARD");
 ajv.addSchema(F2F_CRI_SESSION_ABORTED_SCHEMA, "F2F_CRI_SESSION_ABORTED_SCHEMA");
@@ -83,9 +79,9 @@ module.exports = class TestHarness {
     try {
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
         "/getRecordBySessionId/" +
-          process.env["SESSION_TABLE"] +
-          "/" +
-          sessionId
+        process.env["SESSION_TABLE"] +
+        "/" +
+        sessionId
       );
       return unmarshall(getItemResponse.data.Item);
     } catch (error) {

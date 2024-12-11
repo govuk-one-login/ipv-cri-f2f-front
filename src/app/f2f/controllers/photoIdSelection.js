@@ -8,7 +8,6 @@ class PhotoIdSelectionController extends BaseController {
       logger.info("user submitting photo Id choice", { req, res });
       req.sessionModel.set("redirect_url", undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, undefined);
-      req.sessionModel.set(APP.PHOTO_ID_OPTIONS.BRP, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, undefined);
       req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL, undefined);
@@ -26,18 +25,6 @@ class PhotoIdSelectionController extends BaseController {
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, true);
           req.sessionModel.set("changeUrl", "uk-passport-expire");
-          return next();
-        }
-        case APP.PHOTO_ID_OPTIONS.BRP: {
-          logger.info(
-            "photo-id-selection: user has selected BRP - redirecting to BRP page",
-            { req, res }
-          );
-          req.sessionModel.set(APP.PHOTO_ID_OPTIONS.BRP, true);
-          req.sessionModel.set(
-            "changeUrl",
-            "biometric-residence-permit-expire"
-          );
           return next();
         }
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {

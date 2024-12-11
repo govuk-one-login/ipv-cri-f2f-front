@@ -1,6 +1,5 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API } = require("../../../lib/config");
-// const logger = require("hmpo-logger").get();
 // const NodeRSA = require("node-rsa");
 const {
   createPersonalDataHeaders,
@@ -11,7 +10,7 @@ class RootController extends BaseController {
 
     const sharedClaims = req.session?.shared_claims;
 
-    // try { 
+    // try {
     //   const encryptedJSON = await this.getAddressInfo(req.axios, req);
     //   const key = await this.getDecryptKey(req.axios, req);
     //   const decryptKey = new NodeRSA(key)
