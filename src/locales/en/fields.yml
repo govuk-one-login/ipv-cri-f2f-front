@@ -469,14 +469,14 @@ countries:
 
 customerLetterCheckAddress:
   validation: 
-    required: "Select if you want you Post Office customer letter to be sent to this address"
+    required: "Select if you want your Post Office customer letter to be sent to this address"
   items:
     existingAddress:
       label: "Yes, I want my customer letter to be sent to this address"
       hint: ""
       reveal: ""
     differentAddress:
-      label: "No, I want my customer letter sent to a different address"
+      label: "No, I want my customer letter to be sent to a different address"
       hint: ""
       reveal: ""
 
