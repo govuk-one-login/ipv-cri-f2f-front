@@ -448,15 +448,15 @@ countries:
     ZWE: "Zimbabwe"
 
 customerLetterCheckAddress:
-  validation:
-    required: "Select if you want you Post Office customer letter to be sent to this address"
+  validation: 
+    required: "Select if you want your Post Office customer letter to be sent to this address"
   items:
     existingAddress:
-      label: "Yes"
+      label: "Yes, I want my customer letter to be sent to this address"
       hint: ""
       reveal: ""
     differentAddress:
-      label: "No, I want my customer letter sent to a different address"
+      label: "No, I want my customer letter to be sent to a different address"
       hint: ""
       reveal: ""
 
@@ -467,7 +467,7 @@ postOfficeCustomerLetterChoice:
   items:
     email:
       label: Email only
-      hint: ""
+      hint: "You can show your letter on your phone or tablet, or take a printed copy with you."
       reveal: ""
     post:
       label: Post and email
