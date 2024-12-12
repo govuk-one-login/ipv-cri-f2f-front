@@ -103,11 +103,6 @@ class CheckDetailsController extends DateController {
           req.sessionModel.set("countryCode", "GBR");
           break;
         }
-        case APP.PHOTO_ID_OPTIONS.BRP: {
-          expiryDate = req.form.values.brpExpiryDate;
-          req.sessionModel.set("countryCode", "GBR");
-          break;
-        }
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
           expiryDate = req.form.values.ukPhotocardDlExpiryDate;
           address = req.form.values.ukPhotocardDlAddressCheck;
@@ -189,7 +184,7 @@ class CheckDetailsController extends DateController {
         locals.addressLine3 = req.sessionModel.get("townCity")
         locals.addressPostcode = req.sessionModel.get("postalCode")
       }
-      
+
       locals.pdfPreferenceText = "By email only"
       if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "post") {
         locals.pdfPreferenceText = "By email and post"
@@ -211,7 +206,7 @@ class CheckDetailsController extends DateController {
       locals.hasExpiryDate = hasExpiryDate;
       locals.postOfficeAddress = postOfficeAddress.split(", ");
       locals.postOfficeName = postOfficeName;
-      
+
       callback(err, locals);
     });
   }

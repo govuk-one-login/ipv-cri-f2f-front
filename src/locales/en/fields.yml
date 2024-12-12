@@ -10,10 +10,6 @@ photoIdChoice:
       label: UK photocard driving licence
       hint: The address on your driving licence must be the same as your current address.
       reveal: ""
-    brp:
-      label: UK biometric residence permit (BRP)
-      hint: You might have a BRP if you have a visa for longer than 6 months or indefinite leave to remain. You cannot use a UK Frontier Worker permit (FWP) or a UK biometric residence card (BRC), also called a UK residence card.
-      reveal: ""
     nonUkPassport:
       label: Non-UK passport
       hint: ""
@@ -101,22 +97,6 @@ nonUKPassportExpiryDate:
     "required-month": "Enter the full expiry date"
     "required-year": "Enter the full expiry date"
 
-brpExpiryDate:
-  legend: ""
-  label: ""
-  hint: "For example, 31 3 2025"
-  validation:
-    default: "Enter the full expiry date"
-    before: "Enter a valid expiry date"
-    "numeric-day": "The expiry date must include a day that contains numbers only"
-    "numeric-month": "The expiry date must include a month that contains numbers only"
-    "numeric-year": "The expiry date must include a year that contains numbers only"
-    "date-day": "Enter a valid expiry date"
-    "date-month": "The expiry date must include a month that is a number between 1 and 12"
-    "required-day": "Enter the full expiry date"
-    "required-month": "Enter the full expiry date"
-    "required-year": "Enter the full expiry date"
-
 euPhotocardDlExpiryDate:
   legend: ""
   label: ""
@@ -153,11 +133,11 @@ idHasExpiryDate:
   validation:
     required: "Select if your photo ID has an expiry date"
   items:
-    yes: 
+    yes:
       label: "Yes"
       hint: ""
       reveal: ""
-    no: 
+    no:
       label: "No"
       hint: ""
       reveal: ""
@@ -208,7 +188,7 @@ eeaIdentityCardAddressCheck:
       label: "My national identity card does not have my address on it"
       hint: ""
       reveal: ""
-        
+
 postcode:
   label: Enter a UK postcode
   hint: "For example, SW1A 2AA"
@@ -366,7 +346,7 @@ countries:
     XXK: "Kosovo"
     KWT: "Kuwait"
     KGZ: "Kyrgyzstan"
-    LAO: "Laos"    
+    LAO: "Laos"
     LVA: "Latvia"
     LBN: "Lebanon"
     LSO: "Lesotho"
@@ -411,7 +391,7 @@ countries:
     PNG: "Papua New Guinea"
     PRY: "Paraguay"
     PER: "Peru"
-    PHL: "Philippines"  
+    PHL: "Philippines"
     POL: "Poland"
     PRT: "Portugal"
     QAT: "Qatar"
@@ -493,4 +473,4 @@ postOfficeCustomerLetterChoice:
       label: Post and email
       hint: "It can take up to 6 working days to get your letter by post."
       reveal: ""
-   
+

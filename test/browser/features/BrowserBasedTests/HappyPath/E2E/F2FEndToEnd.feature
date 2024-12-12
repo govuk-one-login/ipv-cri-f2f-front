@@ -139,45 +139,6 @@ Feature: F2F Journey - E2E
         And the "F2F_YOTI_RESPONSE_RECEIVED" event matches the "F2F_YOTI_RESPONSE_RECEIVED_SCHEMA" Schema
         And the "F2F_CRI_VC_ISSUED" event matches the "F2F_CRI_VC_ISSUED_SCHEMA_NON_UK_PP" Schema
 
-    Scenario: F2F Journey - E2E Happy Path and DB Validation - BRP
-        Given A BRP User is using the system
-        When they have provided their details
-        Then they should be redirected to the Landing Page
-
-        Given the user wants to progress to the next step of the journey
-        When the user clicks the continue button on the Landing Page
-        Then the user is routed to the next screen in the journey PhotoId Selection
-
-        Given the BRP option is selected
-        When the user clicks the BRP continue button
-        Then the user is routed to the next screen in the journey BRP Expiry Date
-
-        Given the date entered is within accepted BRP expiration window
-        When the user clicks the continue button on the BRP Page
-        Then they should be redirected to the Find a Branch page
-
-        Given the postcode entered is valid
-        When the user clicks the continue button on the find Post Office branch page
-        Then the user is routed to the Select Location page showing 5 nearest POs
-
-        Given a Post Office branch is selected
-        When the user clicks continue
-        Then the user is navigated to the next step in the journey - Confirm Answer
-        When the user clicks the Check My Answers Submit button
-
-        Given I have retrieved the sessionTable data for my F2F session using "authCode"
-        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
-        When I sent the request to the callback endpoint
-        Then the Verifiable Credential is stored as expected
-        When I get 7 TxMA events from Test Harness
-        Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
-        And the "F2F_YOTI_START" event matches the "F2F_YOTI_START_BRP" Schema
-        And the "F2F_CRI_AUTH_CODE_ISSUED" event matches the "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA" Schema
-        And the "F2F_CRI_END" event matches the "F2F_CRI_END_SCHEMA" Schema
-        And the "F2F_YOTI_PDF_EMAILED" event matches the "F2F_YOTI_PDF_EMAILED_SCHEMA" Schema
-        And the "F2F_YOTI_RESPONSE_RECEIVED" event matches the "F2F_YOTI_RESPONSE_RECEIVED_SCHEMA" Schema
-        And the "F2F_CRI_VC_ISSUED" event matches the "F2F_CRI_VC_ISSUED_SCHEMA_BRP" Schema
-
     Scenario: F2F Journey - E2E Happy Path and DB Validation - EU Drivers Licence
         Given An EU Drivers Licence User is using the system
         When they have provided their details

@@ -42,18 +42,6 @@ describe("PhotoIdSelectionController", () => {
       expect(changeUrl).to.equal("uk-passport-expire");
     });
 
-    it("should save values to sessionModel according to selected document type - BRP", async () => {
-      req.form.values.photoIdChoice = APP.PHOTO_ID_OPTIONS.BRP;
-
-      await photoIdSelectionController.saveValues(req, res, next);
-      const photoIdChoice = req.sessionModel.get("photoIdChoice");
-      const changeUrl = req.sessionModel.get("changeUrl");
-
-      expect(next).to.have.been.calledOnce;
-      expect(photoIdChoice).to.equal(APP.PHOTO_ID_OPTIONS.BRP);
-      expect(changeUrl).to.equal("biometric-residence-permit-expire");
-    });
-
     it("should save values to sessionModel according to selected document type - UK Driving Licence", async () => {
       req.form.values.photoIdChoice = APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL;
 

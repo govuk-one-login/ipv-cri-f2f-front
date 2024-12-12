@@ -41,7 +41,6 @@ module.exports = {
       UK_PHOTOCARD_DL_ADDRESS_CHECK: "/uk-driving-licence-current-address",
       EU_DRIVING_LICENCE_ADDRESS_CHECK: "/eu-driving-licence-current-address",
       EU_DRIVING_LICENCE_COUNTRY_SELECTOR: "/select-country-eu-driving-licence",
-      BRP_DETAILS: "/biometric-residence-permit-expire",
       EU_PHOTOCARD_DL_DETAILS: "/eu-driving-licence-expire",
       EEA_IDENTITY_CARD_DETAILS: "/national-identity-card-expire",
       EEA_IDENTITY_CARD_ADDRESS_CHECK:
@@ -66,7 +65,6 @@ module.exports = {
       UK_PASSPORT: "ukPassport",
       NON_UK_PASSPORT: "nonUkPassport",
       UK_PHOTOCARD_DL: "ukPhotocardDl",
-      BRP: "brp",
       EU_PHOTOCARD_DL: "euPhotocardDl",
       EEA_IDENTITY_CARD: "eeaIdentityCard",
       NO_PHOTO_ID: "noPhotoId",
