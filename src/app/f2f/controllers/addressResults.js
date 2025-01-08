@@ -37,6 +37,9 @@ const { convertKeysToLowerCase } = require("../utils")
           const selectedAddress = req.form.values.addressResults;
           const searchResults = req.sessionModel.get("searchResults");
           const chosenAddress = this.getAddress(selectedAddress, searchResults);
+          console.log("SELECTED ADDRESS", selectedAddress)
+          console.log("SEARCH RESULTS", searchResults)
+          console.log("CHOSEN ADDRESS", chosenAddress)
           req.sessionModel.set("postalAddress", chosenAddress);
           callback();
         } catch (err) {

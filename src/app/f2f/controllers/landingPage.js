@@ -5,7 +5,7 @@ const logger = require("hmpo-logger").get();
 class LandingPageController extends BaseController {
   async saveValues(req, res, next) {
     req.sessionModel.set("isThinFileUser", false);
-    req.sessionModel.set("pclEnabled", false);
+    req.sessionModel.set("pclEnabled", true);
 
     try {
       const configData = await this.getSessionConfig(req, res);

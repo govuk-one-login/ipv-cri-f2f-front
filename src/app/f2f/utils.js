@@ -53,8 +53,8 @@ function toTitleCase(str) {
 
 function formatAddress(address) {
   const formattedAddress = {
-    line1: `${toTitleCase(address.building_number)} ${toTitleCase(address.thoroughfare_name)}`, 
-    line2: toTitleCase(address.dependent_locality),
+    line1: toTitleCase(address.sub_building_name), 
+    line2: `${toTitleCase(address.building_number)} ${toTitleCase(address.thoroughfare_name)}`,
     line3: toTitleCase(address.post_town),
     postcode: address.postcode
   };

@@ -170,9 +170,8 @@ class CheckDetailsController extends DateController {
       const hasExpiryDate = req.sessionModel.get("idHasExpiryDate");
       const format = "YYYY-MM-DD";
       const language = req.lng;
-
       // Values for PCL
-      if (req.sessionModel.get("postalAddress") !== undefined) {
+      if (req.sessionModel.get("postalAddress") !== undefined && req.sessionModel.get("customerLetterCheckAddress") === "differentAddress") {
         const displayAddress = formatAddress(req.sessionModel.get("postalAddress"))
         locals.addressLine1 = displayAddress.line1
         locals.addressLine2 = displayAddress.line2
