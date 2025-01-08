@@ -6,7 +6,13 @@ const DateController = DateControllerMixin(BaseController);
 const {
   createPersonalDataHeaders,
 } = require("@govuk-one-login/frontend-passthrough-headers");
+const logger = require("hmpo-logger").get();
+
 class CheckDetailsController extends DateController {
+  _padYear(value, offset) {
+    logger.info("offset value of {} ignored as no padding is applied", offset);
+    return value;
+  }
   locals(req, res, callback) {
     super.locals(req, res, (err, locals) => {
       if (err) {
