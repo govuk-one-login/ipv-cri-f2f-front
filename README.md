@@ -19,7 +19,7 @@ yarn build
 
 All the required Environment Variables are inside the .env.sample file. Copy the contents on this file to a .env file in the same location, using the API locations specific for the envrionment you wish to test against.
 
-`CUSTOM_FE_URL` only needs to be populated if you would like to test against a custom deployed FE stack or if you wish to run browser-test against your local stack in which case set the value to be `http:/localhost:5030`
+`CUSTOM_FE_URL` only needs to be populated if you would like to test against a custom deployed FE stack or if you wish to run browser-test against your local stack in which case set the value to be `http://localhost:5030`
 
 ## Run front-end locally against deployed back-end
 
@@ -39,7 +39,7 @@ All the required Environment Variables are inside the .env.sample file. Copy the
 
 Browser based tests can be run against a deployed API stack using the CIC-IPV Stub. To run the tests make sure you have urls pointing to the relevant envrionment filled out in your .env file and run `npm run test:browser`
 
-Adding `CUSTOM_FE_URL=http:/localhost:5030` will run browser tets against your local changes
+Adding `CUSTOM_FE_URL=http://localhost:5030` will run browser tets against your local changes
 
 These tests are written using [Cucumber](https://cucumber.io/docs/installation/javascript/) as the test runner and [Playwright](https://playwright.dev/) as the automation tool. They also follow the [Page Object Model](https://playwright.dev/docs/test-pom) for separation of concerns.
 
