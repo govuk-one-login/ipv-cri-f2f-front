@@ -1,4 +1,4 @@
-const { Given, When, Then, And } = require("@cucumber/cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
