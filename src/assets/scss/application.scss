@@ -160,12 +160,12 @@ main p,
 }
 
 .govuk-cookie-banner h2, .govuk-cookie-banner p {
-  margin-top:0; 
+  margin-top:0;
   margin-bottom:20px;
 }
 
 .govuk-cookie-banner .govuk-button {
-  margin-top:0; 
+  margin-top:0;
   margin-bottom:20px;
 }
 
@@ -179,7 +179,7 @@ main p,
   @include govuk-responsive-margin(6, "bottom");
 }
 
-.idHasExpiryDate-radios { 
+.idHasExpiryDate-radios {
   @include govuk-responsive-margin(5, "bottom");
 }
 
@@ -210,7 +210,7 @@ main p,
   @include govuk-responsive-margin(4, "bottom");
 }
 
-.govuk-summary-list .govuk-summary-list__key { 
+.govuk-summary-list .govuk-summary-list__key {
   font-weight: bold;
   color: govuk-colour("black");
 }
@@ -307,4 +307,10 @@ main p,
 
 #contentLine2 {
   @include govuk-responsive-margin(6, "top");
+}
+
+#branchesInformation {
+  color: govuk-colour("black");
+  @include govuk-responsive-margin(3, "top");
+  @include govuk-responsive-margin(4, "bottom");
 }

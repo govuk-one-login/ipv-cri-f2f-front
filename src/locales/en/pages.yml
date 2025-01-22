@@ -10,11 +10,11 @@ landingPage:
     firstStep:
       one: "Enter the details from your photo ID on GOV.UK."
       two: "Then select which Post Office you want to take your photo ID to."
-      three: "We'll send you a confirmation email with a link to download your Post Office customer letter."
+      three: "We’ll send you a confirmation email with a link to download your Post Office customer letter. We can also send your customer letter to you by post."
     secondStep:
-      one: "Take your Post Office customer letter and photo ID to your chosen Post Office. Or go to any "
+      one: "Take your Post Office customer letter and photo ID to a "
       two: "A member of Post Office staff will scan your photo ID and take a photo of you. "
-      three: "You must go to the Post Office within 10 days of getting your confirmation email."
+      three: "You must go to the Post Office within 15 days of getting your confirmation email."
     thirdStep:
       one: "You'll get an email about the result of your identity check - usually within a day of going to the Post Office."
 
@@ -73,6 +73,7 @@ findBranch:
 
 locations:
   title: "Choose a Post Office where you can prove your identity"
+  content: "Your chosen Post Office will be shown on your customer letter. You can go to a different Post Office as long as it offers in-branch verification."
   body: "Postcode"
 
 addressResults:
@@ -145,7 +146,7 @@ customerLetterCheckAddress:
 
 postOfficeCustomerLetterChoice:
   title: "Your Post Office customer letter"
-  content1: "We’ll send you a confirmation email with a link to download your Post Office customer letter."
+  content1: "We’ll send you a confirmation email with a link to download your Post Office customer letter. We can also send your customer letter to you by post."
   content2: "We can also send your customer letter to you by post."
   prompt: "How do you want to get your Post Office customer letter?"
 
