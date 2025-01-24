@@ -204,6 +204,10 @@ branches:
   validation:
     default: "Dewiswch Swyddfa Bost lle gallwch brofi eich hunaniaeth"
 
+addressResults:
+  validation:
+    default: "Dewiswch gyfeiriad o'r rhestr"
+
 checkDetails:
   label: ""
   legend: ""

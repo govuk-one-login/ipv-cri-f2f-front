@@ -75,10 +75,6 @@ locations:
   title: "Dewiswch Swyddfa Bost lle gallwch brofi eich hunaniaeth"
   body: "Cod post"
 
-addressResults:
-  validation:
-    default: "Dewiswch gyfeiriad o'r rhestr"
-
 photoIdExpiry:
   title: "Mae eich ID gyda llun wedi dod i ben"
   content: "Rydych angen ID gyda llun dilys i brofi eich hunaniaeth."
