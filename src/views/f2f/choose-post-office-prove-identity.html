@@ -8,6 +8,7 @@
 
 {% block mainContent %}
 
+{% set information = translate("locations.content") %}
 {% set userPostCodeLabel = translate("locations.body") %}
 {% set userPostCodeControl = hmpoHtml(translate("links.changePostcode")) %}
 {% set title = translate("locations.title") %}
@@ -24,7 +25,7 @@
           }
     },
     hint: {
-        html: "<p class=\"govuk-body\" id=\"userPostCodeLabel\">" + userPostCodeLabel + "</p>" + userPostCodeControl
+        html: "<p class=\"govuk-body\" id=\"branchesInformation\">" + information + "</p>" + "<p class=\"govuk-body\" id=\"userPostCodeLabel\">" + userPostCodeLabel + "</p>" + userPostCodeControl
     },
     items: branch.items
     }
