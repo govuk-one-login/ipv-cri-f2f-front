@@ -192,10 +192,21 @@ postcode:
   validation:
     default: "Rhowch god post gwirioneddol yn y DU"
 
+letterPostcode:
+  legend: ""
+  label: ""
+  hint: ""
+  validation:
+    default: "Rhowch god post llawn yn y DU"
+
 branches:
   label: "Cod post"
   validation:
     default: "Dewiswch Swyddfa Bost lle gallwch brofi eich hunaniaeth"
+
+addressResults:
+  validation:
+    default: "Dewiswch gyfeiriad o'r rhestr"
 
 checkDetails:
   label: ""
@@ -432,3 +443,30 @@ countries:
     YEM: "Yemen"
     ZMB: "Zambia"
     ZWE: "Zimbabwe"
+
+customerLetterCheckAddress:
+  validation:
+    required: "Dewiswch os ydych chi eisiau i’ch llythyr cwsmer Swyddfa'r Post gael ei anfon i'r cyfeiriad hwn "
+  items:
+    existingAddress:
+      label: "Ydw, Rwyf eisiau i'm llythyr cwsmer gael ei anfon i'r cyfeiriad hwn"
+      hint: ""
+      reveal: ""
+    differentAddress:
+      label: "Na, Rwyf eisiau i'm llythyr cwsmer gael ei anfon i gyfeiriad gwahanol"
+      hint: ""
+      reveal: ""
+
+postOfficeCustomerLetterChoice:
+  validation:
+    required: Dewiswch sut ydych chi eisiau cael eich llythyr cwsmer Swyddfa'r Post
+  content: ""
+  items:
+    email:
+      label: E-bost yn unig
+      hint: "Gallwch ddangos eich llythyr ar eich ffôn neu dabled, neu fynd â chopi wedi’i argraffu gyda chi."
+      reveal: ""
+    post:
+      label: Post ac e-bost
+      hint: "Gall gymryd hyd at 6 diwrnod gwaith i gael eich llythyr drwy'r post."
+      reveal: ""

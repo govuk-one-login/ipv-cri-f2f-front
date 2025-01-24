@@ -121,3 +121,14 @@ nonUkPassportCountrySelector:
   title: "Dewiswch o ba wlad mae eich pasbort"
   content: "Os nad yw'r wlad y mae eich pasbort yn dod ohoni ar y rhestr, bydd angen i chi ddewis math arall o ID gyda llun."
   link: "Nid yw'r wlad y mae fy mhasport yn dod ohoni ar y rhestr"
+
+customerLetterCheckAddress:
+  title: "Gwirio eich cyfeiriad"
+  content: "Rydych wedi rhoi'r cyfeiriad canlynol fel eich cyfeiriad cartref presennol."
+  prompt: "Ydych chi eisiau i’ch llythyr cwsmer Swyddfa'r Post gael ei anfon i'r cyfeiriad hwn?"
+
+postOfficeCustomerLetterChoice:
+  title: "Eich llythyr cwsmer Swyddfa'r Post"
+  content1: "Byddwn yn anfon e-bost cadarnhau atoch gyda dolen i lawrlwytho eich llythyr cwsmer Swyddfa'r Post."
+  content2: "Gallwn hefyd anfon eich llythyr cwsmer atoch drwy'r post."
+  prompt: "Sut ydych chi eisiau cael eich llythyr cwsmer Swyddfa'r Post?"
