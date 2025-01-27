@@ -7,23 +7,21 @@ const {
 
 class RootController extends BaseController {
   async saveValues(req, res, next) {
-
     const sharedClaims = req.session?.shared_claims;
 
     try {
       const encryptedJSON = await this.getAddressInfo(req.axios, req);
       const key = await this.getDecryptKey(req.axios, req);
-      const decryptKey = new NodeRSA(key)
-      const userAddress = decryptKey.decrypt(encryptedJSON, "utf8")
-      const parsedAddress = JSON.parse(userAddress)
+      const decryptKey = new NodeRSA(key);
+      const userAddress = decryptKey.decrypt(encryptedJSON, "utf8");
+      const parsedAddress = JSON.parse(userAddress);
 
-      req.sessionModel.set("addressLine1", parsedAddress["address_line1"])
-      req.sessionModel.set("addressLine2", parsedAddress["address_line2"])
-      req.sessionModel.set("townCity", parsedAddress["town_city"])
-      req.sessionModel.set("postalCode", parsedAddress["postal_code"])
-
-    } catch(error) {
-      console.log("Error calling /person-info")
+      req.sessionModel.set("addressLine1", parsedAddress["address_line1"]);
+      req.sessionModel.set("addressLine2", parsedAddress["address_line2"]);
+      req.sessionModel.set("townCity", parsedAddress["town_city"]);
+      req.sessionModel.set("postalCode", parsedAddress["postal_code"]);
+    } catch (error) {
+      console.log("Error calling /person-info");
       logger.error("Error calling /person-info", error);
     }
 
@@ -41,7 +39,7 @@ class RootController extends BaseController {
       "x-govuk-signin-session-id": req.session.tokenId,
       ...createPersonalDataHeaders(
         `${API.BASE_URL}${API.PATHS.PERSON_INFO}`,
-        req,
+        req
       ),
     };
     const res = await axios.get(`${API.PATHS.PERSON_INFO}`, {
@@ -54,7 +52,7 @@ class RootController extends BaseController {
     const headers = {
       ...createPersonalDataHeaders(
         `${API.BASE_URL}${API.PATHS.PERSON_INFO_KEY}`,
-        req,
+        req
       ),
     };
     const res = await axios.get(`${API.PATHS.PERSON_INFO_KEY}`, {
