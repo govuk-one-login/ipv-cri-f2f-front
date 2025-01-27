@@ -38,7 +38,7 @@ class RootController extends BaseController {
 
   async getAddressInfo(axios, req) {
     const headers = {
-      "x-govuk-signin-session-id": "6c494e26-3019-4672-9cb8-c82fc032e6bb",
+      "x-govuk-signin-session-id": req.session.tokenId,
       ...createPersonalDataHeaders(
         `${API.BASE_URL}${API.PATHS.PERSON_INFO}`,
         req,
