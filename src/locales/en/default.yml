@@ -2,7 +2,6 @@ buttons:
   next: Continue
   cancel: Cancel
   continue: Continue
-  useThisAddress: Use this address
 
 govuk:
   serviceName: ""
