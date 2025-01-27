@@ -7,7 +7,6 @@ const {
 
 class RootController extends BaseController {
   async saveValues(req, res, next) {
-
     const sharedClaims = req.session?.shared_claims;
 
     // try {
@@ -41,7 +40,7 @@ class RootController extends BaseController {
       "x-govuk-signin-session-id": req.session.tokenId,
       ...createPersonalDataHeaders(
         `${API.BASE_URL}${API.PATHS.PERSON_INFO}`,
-        req,
+        req
       ),
     };
     const res = await axios.get(`${API.PATHS.PERSON_INFO}`, {
@@ -54,7 +53,7 @@ class RootController extends BaseController {
     const headers = {
       ...createPersonalDataHeaders(
         `${API.BASE_URL}${API.PATHS.PERSON_INFO_KEY}`,
-        req,
+        req
       ),
     };
     const res = await axios.get(`${API.PATHS.PERSON_INFO_KEY}`, {
