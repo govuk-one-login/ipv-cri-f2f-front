@@ -1,7 +1,6 @@
-const { Given, Then } = require("@cucumber/cucumber");
+const { Given, When } = require("@cucumber/cucumber");
 
 const { PostOfficeCustomerLetter } = require("../pages");
-const { expect } = require("chai");
 
 Given(
   /^the user navigates directly to post-office-customer-letter$/,
