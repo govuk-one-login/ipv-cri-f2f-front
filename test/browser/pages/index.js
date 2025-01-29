@@ -4,6 +4,7 @@ module.exports = {
   PhotoIdSelectionPage: require("./photoIdSelectionPage"),
   PhotoIdSelectionPageEdit: require("./photoIdSelectionPageEdit"),
   PostOfficeLocations: require("./postOfficeLocations"),
+  PostOfficeCustomerLetter: require("./postOfficeCustomerLetter"),
   LandingPage: require("./landingPage"),
   RelyingPartyPage: require("./relying-party"),
   OrchestratorStubPage: require("./orchestratorStub.js"),
