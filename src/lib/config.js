@@ -13,14 +13,13 @@ module.exports = {
       SESSION_CONFIG: "/sessionConfiguration",
       PERSON_INFO: "/person-info",
       PERSON_INFO_KEY: "/person-info-key",
-      OS_KEY: "/os-api-key",
+      ADDRESS_LOCATIONS: "/address-locations"
     },
   },
   PROXY_API: {
     BASE_URL: process.env.PROXYURL,
     PATHS: {
       POST_OFFICE: "/postoffice/v1/locations/search",
-      ORDNANCE_SURVEY: "https://api.os.uk/search/places/v1/postcode?",
     },
   },
   APP: {

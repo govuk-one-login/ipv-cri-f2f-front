@@ -68,17 +68,33 @@ class AddressResultsController extends BaseController {
     return chosenAddress;
   }
 
-  async getOsApiKey(axios, req) {
-    const res = await axios.get(`${API.PATHS.OS_KEY}`);
-    return res.data.key;
+  async getOsAddresses(req, res, postcode) {
+    const tokenId = req.session.tokenId;
+
+    if (tokenId) {
+      const headers = {
+        "postcode": postcode,
+        ...createPersonalDataHeaders(
+          `${API.BASE_URL}${API.PATHS.ADDRESS_LOCATIONS}`,
+          req
+        ),
+      }
+      try {
+        const { data } = await req.axios.get(`${API.PATHS.ADDRESS_LOCATIONS}`, {
+          headers,
+        });
+        return data;
+      } catch (error) {
+        console.log("Error calling /addressLocations");
+        logger.error("Error calling /addressLocations", error);
+      }
+    } else {
+      console.error("Missing sessionID, redirecting to /error");
+      res.redirect("/error");
+    }
   }
 
-  async getOsApiAddresses(axios, req, letterPostcode, osApiKey) {
-    const res = await axios.get(
-      `${PROXY_API.PATHS.ORDNANCE_SURVEY}postcode=${letterPostcode}&key=${osApiKey}`
-    );
-    return res.data;
-  }
+
 }
 
 module.exports = AddressResultsController;
