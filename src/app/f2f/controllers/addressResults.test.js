@@ -96,47 +96,90 @@ describe("Address Results Controller", () => {
       };
 
       beforeEach(() => {
-        req.axios.get = sinon.fake.resolves({ data: osData });
+        
+        // req.axios.get.onSecondCall().resolves({ data: osData });
       });
 
       it("calls OS endpoint with correct data", async () => {
         const letterPostcode = "test";
         req.sessionModel.set("letterPostcode", letterPostcode);
 
-        await addressResults.locals(req, res, next);
+        
+        const callbackPromise = new Promise((resolve, reject) => {
+          addressResults.locals(req, res, (err, locals) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(locals);
+            }
+          });
+        });
 
-        expect(req.axios.get).to.have.been.calledWith(
-          `${PROXY_API.PATHS.ORDNANCE_SURVEY}postcode=${letterPostcode}&key=${API.OS_KEY}`
+        await callbackPromise;
+        expect(req.axios.get.getCall(1).args[0]).to.equal(
+          `${PROXY_API.PATHS.ORDNANCE_SURVEY}postcode=${letterPostcode}&key=1234`
         );
       });
+    });
 
-      it("sets sessionModel values", async () => {
-        await addressResults.locals(req, res, next);
-        expect(req.sessionModel.get("searchResults")).to.eql([
-          {
-            uprn: "11111",
-            udprn: "1111111",
-            address: "34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
-            building_number: "34",
-            thoroughfare_name: "MOCK ROAD",
-            dependent_locality: "PLACEHOLDER PARK",
-            post_town: "FAKESVILLE",
-            postcode: "FS6 5AQ",
-          },
-          {
-            uprn: "22222",
-            udprn: "222222",
-            address:
-              "BASEMENT FLAT, 36, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
-            sub_building_name: "BASEMENT FLAT",
-            building_number: "36",
-            thoroughfare_name: "MOCK ROAD",
-            dependent_locality: "PLACEHOLDER PARK",
-            post_town: "FAKESVILLE",
-            postcode: "FS6 5AQ",
-          },
-        ]);
+    it("sets sessionModel values", async () => {
+      req.axios.get.onFirstCall().resolves({ data: { key: 1234 } });
+      req.axios.get.onSecondCall().resolves({ data: osData });
+      const callbackPromise = new Promise((resolve, reject) => {
+        addressResults.locals(req, res, (err, locals) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(locals);
+          }
+        });
       });
+
+      describe("#getOsApiKey", () => {
+        it("should make a request to get the OS API key", async () => {
+          const apiKey = "DUMMY_OS_API_KEY";
+          axiosGetStub.resolves({ data: { key: apiKey } });
+      
+          const result = await addressResultsController.getOsApiKey(req.axios, req);
+      
+          expect(result).to.equal(apiKey);
+          expect(axiosGetStub).to.have.been.calledWith(
+            API.PATHS.OS_KEY,
+            sinon.match({
+              headers: createPersonalDataHeaders(
+                `${API.BASE_URL}${API.PATHS.OS_KEY}`,
+                req
+              ),
+            })
+          );
+        });
+      });
+
+      await callbackPromise;
+      expect(req.sessionModel.get("searchResults")).to.eql([
+        {
+          uprn: "11111",
+          udprn: "1111111",
+          address: "34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
+          building_number: "34",
+          thoroughfare_name: "MOCK ROAD",
+          dependent_locality: "PLACEHOLDER PARK",
+          post_town: "FAKESVILLE",
+          postcode: "FS6 5AQ",
+        },
+        {
+          uprn: "22222",
+          udprn: "222222",
+          address:
+            "BASEMENT FLAT, 36, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
+          sub_building_name: "BASEMENT FLAT",
+          building_number: "36",
+          thoroughfare_name: "MOCK ROAD",
+          dependent_locality: "PLACEHOLDER PARK",
+          post_town: "FAKESVILLE",
+          postcode: "FS6 5AQ",
+        },
+      ]);
     });
   });
 });

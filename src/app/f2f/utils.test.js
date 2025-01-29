@@ -72,27 +72,28 @@ describe("beforeNow", () => {
 
     expect(validator(issueDate, 10, "years")).to.be.true;
   });
+});
 
-  describe("formatAddress", () => {
-    it("should format address correctly", () => {
-      const address = {
-        uprn: "11111",
-        udprn: "1111111",
-        address: "34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
-        building_number: "34",
-        thoroughfare_name: "MOCK ROAD",
-        dependent_locality: "PLACEHOLDER PARK",
-        post_town: "FAKESVILLE",
-        postcode: "FS6 5AQ",
-      };
+describe("formatAddress", () => {
+  it("should format address correctly", () => {
+    const address = {
+      uprn: "11111",
+      udprn: "1111111",
+      address: "34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
+      building_number: "34",
+      sub_building_name: "SUB BUILDING NAME",
+      thoroughfare_name: "MOCK ROAD",
+      dependent_locality: "PLACEHOLDER PARK",
+      post_town: "FAKESVILLE",
+      postcode: "FS6 5AQ",
+    };
 
-      const formattedAddress = formatAddress(address);
-      expect(formattedAddress).to.eql({
-        line1: "34 Mock Road",
-        line2: "Placeholder Park",
-        line3: "Fakesville",
-        postcode: "FS6 5AQ",
-      });
+    const formattedAddress = formatAddress(address);
+    expect(formattedAddress).to.eql({
+      line1: "Sub Building Name",
+      line2: "34 Mock Road",
+      line3: "Fakesville",
+      postcode: "FS6 5AQ",
     });
   });
 });

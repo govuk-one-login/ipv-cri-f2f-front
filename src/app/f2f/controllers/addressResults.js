@@ -16,10 +16,15 @@ class AddressResultsController extends BaseController {
       }
       try {
         const osApiKey = await this.getOsApiKey(req.axios, req);
+        console.log("KEY", osApiKey);
         const letterPostcode = req.sessionModel.get("letterPostcode");
+        console.log("KEY2", letterPostcode);
         locals.letterPostcode = letterPostcode;
-        const { data: osData } = await req.axios.get(
-          `${PROXY_API.PATHS.ORDNANCE_SURVEY}postcode=${letterPostcode}&key=${osApiKey}`
+        const osData = await this.getOsApiAddresses(
+          req.axios,
+          req,
+          letterPostcode,
+          osApiKey
         );
         const searchResults = convertKeysToLowerCase(osData.results).map(
           (item) => item.dpa
@@ -64,13 +69,15 @@ class AddressResultsController extends BaseController {
   }
 
   async getOsApiKey(axios, req) {
-    const headers = {
-      ...createPersonalDataHeaders(`${API.BASE_URL}${API.PATHS.OS_KEY}`, req),
-    };
-    const res = await axios.get(`${API.PATHS.OS_KEY}`, {
-      headers,
-    });
+    const res = await axios.get(`${API.PATHS.OS_KEY}`);
     return res.data.key;
+  }
+
+  async getOsApiAddresses(axios, req, letterPostcode, osApiKey) {
+    const res = await axios.get(
+      `${PROXY_API.PATHS.ORDNANCE_SURVEY}postcode=${letterPostcode}&key=${osApiKey}`
+    );
+    return res.data;
   }
 }
 

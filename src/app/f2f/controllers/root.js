@@ -4,6 +4,7 @@ const NodeRSA = require("node-rsa");
 const {
   createPersonalDataHeaders,
 } = require("@govuk-one-login/frontend-passthrough-headers");
+const logger = require("hmpo-logger").get();
 
 class RootController extends BaseController {
   async saveValues(req, res, next) {
