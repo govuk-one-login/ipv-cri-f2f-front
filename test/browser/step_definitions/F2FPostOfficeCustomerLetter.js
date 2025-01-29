@@ -1,4 +1,4 @@
-const { Given, When } = require("@cucumber/cucumber");
+const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { PostOfficeCustomerLetter } = require("../pages");
 
