@@ -24,10 +24,8 @@ module.exports = class PlaywrightDevPage {
   async emailOnly() {
     await this.page.click("#postOfficeCustomerLetterChoice");
   }
-  
-  async emailAndPost() {
-    await this.page.click("#postOfficeCustomerLetterChoice-post")
-  }
 
- 
+  async emailAndPost() {
+    await this.page.click("#postOfficeCustomerLetterChoice-post");
+  }
 };
