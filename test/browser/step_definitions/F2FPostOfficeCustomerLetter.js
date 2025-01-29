@@ -17,3 +17,12 @@ When(/^the user selects an Email only Post Office Letter$/, async function () {
   await postOfficeCustomerLetterPage.emailOnly();
   await postOfficeCustomerLetterPage.continue();
 });
+
+Then(
+  /^the user is navigated back to the PO Customer Letter page$/,
+  async function () {
+    const postOfficeCustomerLetterPage = new PostOfficeCustomerLetter(this.page);
+
+    expect(await postOfficeCustomerLetterPage.isCurrentPage()).to.be.true;
+  }
+);

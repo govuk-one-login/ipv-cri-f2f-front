@@ -34,5 +34,5 @@ Feature: Change Postcode - Unhappy Path
   Scenario: Successful redirect from CMA screen back to PO Finder screen
     Given the user has navigated to the Check My Answers Page
     When the user clicks the CMA Back button
-    Then the user is navigated back to the PO Locations page
+    Then the user is navigated back to the PO Customer Letter page
 
