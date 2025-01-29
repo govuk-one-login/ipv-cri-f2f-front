@@ -325,6 +325,14 @@ describe("CheckDetails controller", () => {
           "Missing sessionID, redirecting to /error"
         );
       });
+      it("should not pad the year field", async () => {
+        var value = "30";
+        var offset = 0;
+
+        var finalYear = await checkDetailsController._padYear(value, offset);
+
+        expect(finalYear).to.equal("30");
+      });
     });
   });
 
