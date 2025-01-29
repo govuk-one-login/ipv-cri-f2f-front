@@ -11,8 +11,8 @@ Given(
   }
 );
 
-Then(
-  /^the user sees an error message displayed on the choose-post-office page$/,
+When(
+  /^the user selects an Email only Post Office Letter$/,
   async function () {
     const errorPage = new ErrorPage(await this.page);
     expect(await errorPage.isCurrentPage()).to.be.true;
