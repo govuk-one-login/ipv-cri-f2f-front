@@ -12,7 +12,7 @@ module.exports = {
       ABORT: "/abort",
       SESSION_CONFIG: "/sessionConfiguration",
       PERSON_INFO: "/person-info",
-      PERSON_INFO_KEY: "/person-info-key",
+      ADDRESS_LOCATIONS: "/address-locations"
     },
     OS_KEY: process.env.OS_KEY,
   },

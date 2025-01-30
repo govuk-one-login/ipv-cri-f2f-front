@@ -1,7 +1,5 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config");
-const { PROXY_API } = require("../../../../src/lib/config");
-
 const presenters = require("../../../presenters");
 const { convertKeysToLowerCase } = require("../utils");
 
@@ -15,9 +13,7 @@ class AddressResultsController extends BaseController {
         const letterPostcode = req.sessionModel.get("letterPostcode");
         locals.letterPostcode = letterPostcode;
 
-        const { data: osData } = await req.axios.get(
-          `${PROXY_API.PATHS.ORDNANCE_SURVEY}postcode=${letterPostcode}&key=${API.OS_KEY}`
-        );
+        const { data: osData } = await getOsAddresses(req, res, letterPostcode);
         const searchResults = convertKeysToLowerCase(osData.results).map(
           (item) => item.dpa
         );
@@ -47,17 +43,30 @@ class AddressResultsController extends BaseController {
     });
   }
 
-  getAddress(selectedAddress, searchResults) {
-    const chosenAddress = Object.assign(
-      {},
-      searchResults.find(
-        (address) =>
-          presenters.addressPresenter.generateSearchResultString(address) ===
-          selectedAddress
-      )
-    );
-
-    return chosenAddress;
+  async getOsAddresses(req, res, postcode) {
+    const sessionId = req.session.tokenId;
+    if (sessionId) {
+      const headers = {
+        "x-govuk-signin-session-id": sessionId,
+        "postcode": postcode,
+        ...createPersonalDataHeaders(
+          `${API.BASE_URL}${API.PATHS.ADDRESS_LOCATIONS}`,
+          req
+        ),
+      }
+      try {
+        const { data } = await req.axios.get(`${API.PATHS.ADDRESS_LOCATIONS}`, {
+          headers,
+        });
+        return data;
+      } catch (error) {
+        console.log("Error calling /addressLocations");
+        logger.error("Error calling /addressLocations", error);
+      }
+    } else {
+      console.error("Missing sessionID, redirecting to /error");
+      res.redirect("/error");
+    }
   }
 }
 
