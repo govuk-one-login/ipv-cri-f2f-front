@@ -172,8 +172,11 @@ class CheckDetailsController extends DateController {
       const language = req.lng;
 
       // Values for PCL
-      if (req.sessionModel.get("postalAddress") !== undefined && req.sessionModel.get("customerLetterCheckAddress") === "differentAddress")
-        {
+      if (
+        req.sessionModel.get("postalAddress") !== undefined &&
+        req.sessionModel.get("customerLetterCheckAddress") ===
+          "differentAddress"
+      ) {
         const displayAddress = formatAddress(
           req.sessionModel.get("postalAddress")
         );

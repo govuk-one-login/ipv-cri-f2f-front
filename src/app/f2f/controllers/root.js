@@ -12,17 +12,16 @@ class RootController extends BaseController {
     try {
       const encryptedJSON = await this.getAddressInfo(req.axios, req);
       const key = await this.getDecryptKey(req.axios, req);
-      const decryptKey = new NodeRSA(key)
-      const userAddress = decryptKey.decrypt(encryptedJSON, "utf8")
-      const parsedAddress = JSON.parse(userAddress)
+      const decryptKey = new NodeRSA(key);
+      const userAddress = decryptKey.decrypt(encryptedJSON, "utf8");
+      const parsedAddress = JSON.parse(userAddress);
 
-      req.sessionModel.set("addressLine1", parsedAddress["address_line1"])
-      req.sessionModel.set("addressLine2", parsedAddress["address_line2"])
-      req.sessionModel.set("townCity", parsedAddress["town_city"])
-      req.sessionModel.set("postalCode", parsedAddress["postal_code"])
-
-    } catch(error) {
-      console.log("Error calling /person-info")
+      req.sessionModel.set("addressLine1", parsedAddress["address_line1"]);
+      req.sessionModel.set("addressLine2", parsedAddress["address_line2"]);
+      req.sessionModel.set("townCity", parsedAddress["town_city"]);
+      req.sessionModel.set("postalCode", parsedAddress["postal_code"]);
+    } catch (error) {
+      console.log("Error calling /person-info");
       res.redirect("/error");
     }
 

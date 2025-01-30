@@ -13,10 +13,8 @@ class AddressResultsController extends BaseController {
         const letterPostcode = req.form.values.letterPostcode;
         locals.letterPostcode = letterPostcode;
         const osData = await this.getOsAddresses(req.axios, letterPostcode);
-        const searchResults = convertKeysToLowerCase(osData)
-        const formattedResults = searchResults.map(
-          (item) => item.dpa
-        );
+        const searchResults = convertKeysToLowerCase(osData);
+        const formattedResults = searchResults.map((item) => item.dpa);
         req.sessionModel.set("searchResults", formattedResults);
         const addressResults = presenters.addressesToSelectItems({
           addresses: formattedResults,
@@ -61,17 +59,21 @@ class AddressResultsController extends BaseController {
   async getOsAddresses(axios, postcode) {
     const sessionId = req.session.tokenId;
     if (sessionId) {
-      const headers = { 
+      const headers = {
         "x-govuk-signin-session-id": sessionId,
-        "postcode": postcode
+        postcode: postcode,
       };
       try {
-        console.log("HEADERS address:", headers)
-        const response = await axios.post(`${API.PATHS.ADDRESS_LOCATIONS}`, {}, {
-          headers,
-        });
+        console.log("HEADERS address:", headers);
+        const response = await axios.post(
+          `${API.PATHS.ADDRESS_LOCATIONS}`,
+          {},
+          {
+            headers,
+          }
+        );
         return response.data;
-      } catch(error) {
+      } catch (error) {
         throw new Error("Error calling /addressLocations", error);
       }
     } else {

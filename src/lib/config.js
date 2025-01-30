@@ -13,7 +13,7 @@ module.exports = {
       SESSION_CONFIG: "/sessionConfiguration",
       PERSON_INFO: "/person-info",
       PERSON_INFO_KEY: "/person-info-key",
-      ADDRESS_LOCATIONS: "/addressLocations"
+      ADDRESS_LOCATIONS: "/addressLocations",
     },
   },
   PROXY_API: {
