@@ -1,9 +1,9 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const AddressResultsController = require("./addressResults");
-const { API } = require("../../../../src/lib/config");
-const { PROXY_API } = require("../../../../src/lib/config");
+// const { API } = require("../../../../src/lib/config");
+// const { PROXY_API } = require("../../../../src/lib/config");
 const { expect } = require("chai");
-const { convertKeysToLowerCase } = require("../utils");
+// const { convertKeysToLowerCase } = require("../utils");
 
 describe("Address Results Controller", () => {
   let addressResults;

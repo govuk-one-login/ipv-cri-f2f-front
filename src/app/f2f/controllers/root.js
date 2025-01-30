@@ -1,9 +1,9 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API } = require("../../../lib/config");
 const NodeRSA = require("node-rsa");
-const {
-  createPersonalDataHeaders,
-} = require("@govuk-one-login/frontend-passthrough-headers");
+// const {
+//   createPersonalDataHeaders,
+// } = require("@govuk-one-login/frontend-passthrough-headers");
 
 class RootController extends BaseController {
   async saveValues(req, res, next) {
@@ -21,7 +21,7 @@ class RootController extends BaseController {
       req.sessionModel.set("townCity", parsedAddress["town_city"]);
       req.sessionModel.set("postalCode", parsedAddress["postal_code"]);
     } catch (error) {
-      console.log("Error calling /person-info");
+      console.log("Error calling /person-info", error);
       res.redirect("/error");
     }
 
@@ -34,7 +34,7 @@ class RootController extends BaseController {
     super.saveValues(req, res, next);
   }
 
-  async getAddressInfo(axios) {
+  async getAddressInfo(axios, req) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
     };

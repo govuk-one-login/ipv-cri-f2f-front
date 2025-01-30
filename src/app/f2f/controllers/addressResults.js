@@ -12,7 +12,7 @@ class AddressResultsController extends BaseController {
       try {
         const letterPostcode = req.form.values.letterPostcode;
         locals.letterPostcode = letterPostcode;
-        const osData = await this.getOsAddresses(req.axios, letterPostcode);
+        const osData = await this.getOsAddresses(req, req.axios, letterPostcode);
         const searchResults = convertKeysToLowerCase(osData);
         const formattedResults = searchResults.map((item) => item.dpa);
         req.sessionModel.set("searchResults", formattedResults);
@@ -56,7 +56,7 @@ class AddressResultsController extends BaseController {
     return chosenAddress;
   }
 
-  async getOsAddresses(axios, postcode) {
+  async getOsAddresses(req, axios, postcode) {
     const sessionId = req.session.tokenId;
     if (sessionId) {
       const headers = {
