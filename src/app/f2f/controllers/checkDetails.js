@@ -174,7 +174,6 @@ class CheckDetailsController extends DateController {
       // Values for PCL
       if (req.sessionModel.get("postalAddress") !== undefined && req.sessionModel.get("customerLetterCheckAddress") === "differentAddress")
         {
-          console.log("DISPLAY", req.sessionModel.get("postalAddress"));
         const displayAddress = formatAddress(
           req.sessionModel.get("postalAddress")
         );

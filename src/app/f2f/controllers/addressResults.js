@@ -2,9 +2,6 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config");
 const presenters = require("../../../presenters");
 const { convertKeysToLowerCase } = require("../utils");
-const {
-  createPersonalDataHeaders,
-} = require("@govuk-one-login/frontend-passthrough-headers");
 
 class AddressResultsController extends BaseController {
   locals(req, res, callback) {
