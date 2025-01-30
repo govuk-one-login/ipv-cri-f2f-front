@@ -12,7 +12,6 @@ class AddressResultsController extends BaseController {
       try {
         const letterPostcode = req.sessionModel.get("letterPostcode");
         locals.letterPostcode = letterPostcode;
-
         const { data: osData } = await getOsAddresses(req, res, letterPostcode);
         const searchResults = convertKeysToLowerCase(osData.results).map(
           (item) => item.dpa
@@ -44,7 +43,7 @@ class AddressResultsController extends BaseController {
   }
 
   async getOsAddresses(req, res, postcode) {
-    const sessionId = req.session.tokenId;
+    const sessionId = "3a38ef50-f782-4877-8618-835c1b2658c5";
     if (sessionId) {
       const headers = {
         "x-govuk-signin-session-id": sessionId,
@@ -59,9 +58,9 @@ class AddressResultsController extends BaseController {
           headers,
         });
         return data;
-      } catch (error) {
-        console.log("Error calling /addressLocations");
-        logger.error("Error calling /addressLocations", error);
+      } catch(error) {
+        console.error("Error calling /address-locations");
+        res.redirect("/error");
       }
     } else {
       console.error("Missing sessionID, redirecting to /error");

@@ -22,8 +22,9 @@ class RootController extends BaseController {
       req.sessionModel.set("postalCode", parsedAddress["postal_code"])
 
     } catch(error) {
-      this.logger.error("Error calling /person-info", error);
-    }
+      console.error("Error calling /person-info");
+      res.redirect("/error");
+    } 
 
     if (sharedClaims) {
       if (sharedClaims?.address[0]?.postalCode?.length > 0) {
@@ -36,7 +37,7 @@ class RootController extends BaseController {
 
   async getAddressInfo(axios, req) {
     const headers = {
-      "x-govuk-signin-session-id": req.session.tokenId,
+      "x-govuk-signin-session-id": "3a38ef50-f782-4877-8618-835c1b2658c5",
       ...createPersonalDataHeaders(
         `${API.BASE_URL}${API.PATHS.PERSON_INFO}`,
         req
