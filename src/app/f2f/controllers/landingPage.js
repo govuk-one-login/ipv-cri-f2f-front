@@ -28,7 +28,7 @@ class LandingPageController extends BaseController {
   }
 
   async getSessionConfig(req, res) {
-    const tokenId = "3a38ef50-f782-4877-8618-835c1b2658c5";
+    const tokenId = req.session.tokenId;
 
     if (tokenId) {
       const headers = {
