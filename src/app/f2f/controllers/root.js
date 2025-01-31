@@ -1,6 +1,7 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API } = require("../../../lib/config");
 const NodeRSA = require("node-rsa");
+const logger = require("hmpo-logger").get();
 // const {
 //   createPersonalDataHeaders,
 // } = require("@govuk-one-login/frontend-passthrough-headers");
@@ -21,7 +22,7 @@ class RootController extends BaseController {
       req.sessionModel.set("townCity", parsedAddress["town_city"]);
       req.sessionModel.set("postalCode", parsedAddress["postal_code"]);
     } catch (error) {
-      console.log("Error calling /person-info", error);
+      logger.error("Error calling /person-info", error);
       res.redirect("/error");
     }
 

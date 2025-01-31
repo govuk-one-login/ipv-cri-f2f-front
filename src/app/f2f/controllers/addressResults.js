@@ -31,11 +31,9 @@ class AddressResultsController extends BaseController {
     super.saveValues(req, res, () => {
       try {
         const selectedAddress = req.form.values.addressResults;
-        console.log("selectedAddress", selectedAddress);
         const searchResults = req.sessionModel.get("searchResults");
         const chosenAddress = this.getAddress(selectedAddress, searchResults);
         req.sessionModel.set("postalAddress", chosenAddress);
-        console.log("chosenAddress", chosenAddress);
         callback();
       } catch (err) {
         callback(err);
@@ -64,7 +62,6 @@ class AddressResultsController extends BaseController {
         postcode: postcode,
       };
       try {
-        console.log("HEADERS address:", headers);
         const response = await axios.post(
           `${API.PATHS.ADDRESS_LOCATIONS}`,
           {},

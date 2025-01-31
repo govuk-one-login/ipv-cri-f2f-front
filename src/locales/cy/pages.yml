@@ -107,6 +107,10 @@ checkDetails:
   idCardAddress: "A oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad cyfredol arno?"
   country: "Gwlad"
   hasExpiryDate: "A oes gan eich ID gyda llun ddyddiad dod i ben?"
+  pdfPreference: "Sut ydych chi am gael eich llythyr cwsmer Swyddfa'r Post?"
+  pdfChosenAddress: "Lle bydd eich llythyr cwsmer Swyddfa'r Post yn cael ei anfon"
+  pdfPreferenceTextEmail: "Trwy e-bost yn unig"
+  pdfPreferenceTextPcl: "Trwy e-bost a'r post"
 
 ukPhotocardDlAddressCheck:
   title: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
