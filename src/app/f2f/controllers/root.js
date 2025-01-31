@@ -9,7 +9,8 @@ const logger = require("hmpo-logger").get();
 class RootController extends BaseController {
   async saveValues(req, res, next) {
     const sharedClaims = req.session?.shared_claims;
-
+  
+  if(!req.sessionModel.get("addressProcessed")) {
     try {
       const encryptedJSON = await this.getAddressInfo(req.axios, req);
       const key = await this.getDecryptKey(req.axios, req);
@@ -21,10 +22,12 @@ class RootController extends BaseController {
       req.sessionModel.set("addressLine2", parsedAddress["address_line2"]);
       req.sessionModel.set("townCity", parsedAddress["town_city"]);
       req.sessionModel.set("postalCode", parsedAddress["postal_code"]);
+      req.sessionModel.set("addressProcessed", true);
     } catch (error) {
       logger.error("Error calling /person-info", error);
       res.redirect("/error");
     }
+  }
 
     if (sharedClaims) {
       if (sharedClaims?.address[0]?.postalCode?.length > 0) {
