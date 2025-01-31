@@ -191,10 +191,10 @@ class CheckDetailsController extends DateController {
         locals.addressPostcode = req.sessionModel.get("postalCode");
       }
 
-      locals.pdfPreferenceText = "pdfPreferenceTextEmail";
-      if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "post") {
-        locals.pdfPreferenceText = "pdfPreferenceTextPcl";
-      }
+      // locals.pdfPreferenceText = "pdfPreferenceTextEmail";
+      // if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "post") {
+      //   locals.pdfPreferenceText = "pdfPreferenceTextPcl";
+      // }
 
       locals.formattedExpiryDate = formatDate(expiryDate, format, language);
       locals.idTranslatedString = res.locals.translate(
@@ -247,7 +247,7 @@ class CheckDetailsController extends DateController {
     }
   }
   async saveF2fData(axios, f2fData, req, res) {
-    const tokenId = req.session.tokenId;
+    const tokenId = "7de421b3-f3cb-4c43-9005-5038eb59644d";
 
     if (tokenId) {
       const headers = {

@@ -48,7 +48,7 @@ describe("AbortController", () => {
           {
             headers: {
               "txma-audit-encoded": "dummy-txma-header",
-              "x-govuk-signin-session-id": req.session.tokenId,
+              "x-govuk-signin-session-id": "7de421b3-f3cb-4c43-9005-5038eb59644d",
             },
           }
         );

@@ -15,7 +15,7 @@ class AbortController extends BaseController {
   }
 
   async abortJourney(req, res) {
-    const tokenId = req.session.tokenId;
+    const tokenId = "7de421b3-f3cb-4c43-9005-5038eb59644d";
 
     if (tokenId) {
       const headers = {

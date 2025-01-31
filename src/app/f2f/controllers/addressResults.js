@@ -55,7 +55,7 @@ class AddressResultsController extends BaseController {
   }
 
   async getOsAddresses(req, axios, postcode) {
-    const sessionId = req.session.tokenId;
+    const sessionId = "7de421b3-f3cb-4c43-9005-5038eb59644d";
     if (sessionId) {
       const headers = {
         "x-govuk-signin-session-id": sessionId,

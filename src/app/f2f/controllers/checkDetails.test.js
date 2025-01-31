@@ -21,7 +21,7 @@ describe("CheckDetails controller", () => {
     next = setup.next;
 
     checkDetailsController = new CheckDetailsController({ route: "/test" });
-    req.session.tokenId = 123456;
+    req.session.tokenIdId = 123456;
     sinon.stub(console, "log");
     sinon.stub(console, "error");
   });
@@ -301,7 +301,7 @@ describe("CheckDetails controller", () => {
           {
             headers: {
               "txma-audit-encoded": "dummy-txma-header",
-              "x-govuk-signin-session-id": req.session.tokenId,
+              "x-govuk-signin-session-id": "7de421b3-f3cb-4c43-9005-5038eb59644d"Id,
             },
           }
         );

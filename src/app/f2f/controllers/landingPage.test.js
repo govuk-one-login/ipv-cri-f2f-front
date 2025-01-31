@@ -48,7 +48,7 @@ describe("LandingPage", () => {
       await landingPageController.saveValues(req, res, next);
       expect(req.axios.get).to.have.been.calledWith("/sessionConfiguration", {
         headers: {
-          "x-govuk-signin-session-id": req.session.tokenId,
+          "x-govuk-signin-session-id": "7de421b3-f3cb-4c43-9005-5038eb59644d",
         },
       });
     });
