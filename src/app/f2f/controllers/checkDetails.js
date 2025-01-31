@@ -191,9 +191,14 @@ class CheckDetailsController extends DateController {
         locals.addressPostcode = req.sessionModel.get("postalCode");
       }
 
-      locals.pdfPreferenceText = "pdfPreferenceTextEmail";
-      if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "post") {
-        locals.pdfPreferenceText = "pdfPreferenceTextPcl";
+      if(req.sessionModel.get("postOfficeCustomerLetterChoice") == "email") {
+        locals.pdfPreferenceText = res.locals.translate(
+          "checkDetails.pdfPreferenceTextEmail"
+        )
+      } else if(req.sessionModel.get("postOfficeCustomerLetterChoice") == "post") {
+        locals.pdfPreferenceText = res.locals.translate(
+          "checkDetails.pdfPreferenceTextPcl"
+        );
       }
 
       locals.formattedExpiryDate = formatDate(expiryDate, format, language);
