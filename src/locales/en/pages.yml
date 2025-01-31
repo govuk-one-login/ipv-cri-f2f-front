@@ -109,6 +109,8 @@ checkDetails:
   hasExpiryDate: Does your photo ID have an expiry date?
   pdfPreference: How do you want to get your Post Office customer letter?
   pdfChosenAddress: Where your post office customer letter will be sent
+  pdfPreferenceTextEmail: "By email only"
+  pdfPreferenceTextPcl: "By email and post"
 
 ukPhotocardDlAddressCheck:
   title: "Does your driving licence have your current address on it?"

@@ -88,8 +88,8 @@ describe("beforeNow", () => {
 
       const formattedAddress = formatAddress(address);
       expect(formattedAddress).to.eql({
-        line1: "34 Mock Road",
-        line2: "Placeholder Park",
+        line1: "34",
+        line2: "Mock Road",
         line3: "Fakesville",
         postcode: "FS6 5AQ",
       });

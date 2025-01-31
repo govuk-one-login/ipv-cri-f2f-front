@@ -1,11 +1,15 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
-const { formatDate, formatAddress } = require("../utils");
+const { formatDate } = require("../utils");
 const { APP, API } = require("../../../lib/config");
 const DateController = DateControllerMixin(BaseController);
 const {
   createPersonalDataHeaders,
 } = require("@govuk-one-login/frontend-passthrough-headers");
+const {
+  generateHTMLofAddress,
+} = require("../../../presenters/addressPresenter");
+
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
     super.locals(req, res, (err, locals) => {
@@ -172,24 +176,33 @@ class CheckDetailsController extends DateController {
       const language = req.lng;
 
       // Values for PCL
-      if (req.sessionModel.get("postalAddress") !== undefined) {
-        const displayAddress = formatAddress(
+      if (
+        req.sessionModel.get("postalAddress") !== undefined &&
+        req.sessionModel.get("customerLetterCheckAddress") ===
+          "differentAddress"
+      ) {
+        const displayAddress = generateHTMLofAddress(
           req.sessionModel.get("postalAddress")
         );
-        locals.addressLine1 = displayAddress.line1;
-        locals.addressLine2 = displayAddress.line2;
-        locals.addressLine3 = displayAddress.line3;
-        locals.addressPostcode = displayAddress.postcode;
+        locals.addressLine = displayAddress;
       } else {
-        locals.addressLine1 = req.sessionModel.get("addressLine1");
-        locals.addressLine2 = req.sessionModel.get("addressLine2");
-        locals.addressLine3 = req.sessionModel.get("townCity");
-        locals.addressPostcode = req.sessionModel.get("postalCode");
+        locals.addressLine = `${req.sessionModel.get(
+          "addressLine1"
+        )}<br>${req.sessionModel.get("addressLine2")}<br>${req.sessionModel.get(
+          "townCity"
+        )}</br>${req.sessionModel.get("postalCode")}`;
       }
 
-      locals.pdfPreferenceText = "By email only";
-      if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "post") {
-        locals.pdfPreferenceText = "By email and post";
+      if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "email") {
+        locals.pdfPreferenceText = res.locals.translate(
+          "checkDetails.pdfPreferenceTextEmail"
+        );
+      } else if (
+        req.sessionModel.get("postOfficeCustomerLetterChoice") == "post"
+      ) {
+        locals.pdfPreferenceText = res.locals.translate(
+          "checkDetails.pdfPreferenceTextPcl"
+        );
       }
 
       locals.formattedExpiryDate = formatDate(expiryDate, format, language);

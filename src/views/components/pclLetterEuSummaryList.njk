@@ -125,7 +125,7 @@
               text: translate("checkDetails.pdfChosenAddress")
             },
             value: {
-              html: translate("{{ addressLine1 }}<br>{{ addressLine2 }}<br>{{ addressLine3 }}<br>{{ addressPostcode}}")
+              html: translate("{{ addressLine | safe }}")
             },
             actions: {
               items: [

@@ -1,7 +1,5 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config");
-const { PROXY_API } = require("../../../../src/lib/config");
-
 const presenters = require("../../../presenters");
 const { convertKeysToLowerCase } = require("../utils");
 
@@ -12,19 +10,27 @@ class AddressResultsController extends BaseController {
         return callback(err, locals);
       }
       try {
-        const letterPostcode = req.sessionModel.get("letterPostcode");
+        const letterPostcode = req.form.values.letterPostcode;
+        let addressResults = "";
+        if (letterPostcode !== req.sessionModel.get("searchedPostcode")) {
+          const osData = await this.getOsAddresses(
+            req,
+            req.axios,
+            letterPostcode
+          );
+          const searchResults = convertKeysToLowerCase(osData);
+          const formattedResults = searchResults.map((item) => item.dpa);
+          addressResults = presenters.addressesToSelectItems({
+            addresses: formattedResults,
+          });
+          req.sessionModel.set("searchResults", formattedResults);
+          req.sessionModel.set("searchedPostcode", letterPostcode);
+        } else {
+          addressResults = presenters.addressesToSelectItems({
+            addresses: req.sessionModel.get("searchResults"),
+          });
+        }
         locals.letterPostcode = letterPostcode;
-
-        const { data: osData } = await req.axios.get(
-          `${PROXY_API.PATHS.ORDNANCE_SURVEY}postcode=${letterPostcode}&key=${API.OS_KEY}`
-        );
-        const searchResults = convertKeysToLowerCase(osData.results).map(
-          (item) => item.dpa
-        );
-        req.sessionModel.set("searchResults", searchResults);
-        const addressResults = presenters.addressesToSelectItems({
-          addresses: searchResults,
-        });
         locals.addressResults = addressResults;
         callback(err, locals);
       } catch (err) {
@@ -58,6 +64,30 @@ class AddressResultsController extends BaseController {
     );
 
     return chosenAddress;
+  }
+
+  async getOsAddresses(req, axios, postcode) {
+    const sessionId = req.session.tokenId;
+    if (sessionId) {
+      const headers = {
+        "x-govuk-signin-session-id": sessionId,
+        postcode: postcode,
+      };
+      try {
+        const response = await axios.post(
+          `${API.PATHS.ADDRESS_LOCATIONS}`,
+          {},
+          {
+            headers,
+          }
+        );
+        return response.data;
+      } catch (error) {
+        throw new Error("Error calling /addressLocations", error);
+      }
+    } else {
+      throw new Error("Missing sessionID, redirecting to /error");
+    }
   }
 }
 
