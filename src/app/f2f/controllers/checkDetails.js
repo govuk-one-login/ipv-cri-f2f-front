@@ -186,14 +186,20 @@ class CheckDetailsController extends DateController {
         );
         locals.addressLine = displayAddress;
       } else {
-        locals.addressLine = `${req.sessionModel.get("addressLine1")}<br>${req.sessionModel.get("addressLine2")}<br>${req.sessionModel.get("townCity")}</br>${req.sessionModel.get("postalCode")}`;
+        locals.addressLine = `${req.sessionModel.get(
+          "addressLine1"
+        )}<br>${req.sessionModel.get("addressLine2")}<br>${req.sessionModel.get(
+          "townCity"
+        )}</br>${req.sessionModel.get("postalCode")}`;
       }
 
-      if(req.sessionModel.get("postOfficeCustomerLetterChoice") == "email") {
+      if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "email") {
         locals.pdfPreferenceText = res.locals.translate(
           "checkDetails.pdfPreferenceTextEmail"
-        )
-      } else if(req.sessionModel.get("postOfficeCustomerLetterChoice") == "post") {
+        );
+      } else if (
+        req.sessionModel.get("postOfficeCustomerLetterChoice") == "post"
+      ) {
         locals.pdfPreferenceText = res.locals.translate(
           "checkDetails.pdfPreferenceTextPcl"
         );

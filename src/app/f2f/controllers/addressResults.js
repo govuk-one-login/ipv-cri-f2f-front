@@ -13,7 +13,11 @@ class AddressResultsController extends BaseController {
         const letterPostcode = req.form.values.letterPostcode;
         let addressResults = "";
         if (letterPostcode !== req.sessionModel.get("searchedPostcode")) {
-          const osData = await this.getOsAddresses(req, req.axios, letterPostcode);
+          const osData = await this.getOsAddresses(
+            req,
+            req.axios,
+            letterPostcode
+          );
           const searchResults = convertKeysToLowerCase(osData);
           const formattedResults = searchResults.map((item) => item.dpa);
           addressResults = presenters.addressesToSelectItems({
@@ -23,7 +27,7 @@ class AddressResultsController extends BaseController {
           req.sessionModel.set("searchedPostcode", letterPostcode);
         } else {
           addressResults = presenters.addressesToSelectItems({
-          addresses: req.sessionModel.get("searchResults"),
+            addresses: req.sessionModel.get("searchResults"),
           });
         }
         locals.letterPostcode = letterPostcode;
