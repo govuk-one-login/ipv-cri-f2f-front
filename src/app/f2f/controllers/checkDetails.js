@@ -1,6 +1,6 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
-const { formatDate, formatAddress } = require("../utils");
+const { formatDate } = require("../utils");
 const { APP, API } = require("../../../lib/config");
 const DateController = DateControllerMixin(BaseController);
 const {
