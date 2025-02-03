@@ -18,10 +18,29 @@ class RootController extends BaseController {
         const userAddress = decryptKey.decrypt(encryptedJSON, "utf8");
         const parsedAddress = JSON.parse(userAddress);
 
-        req.sessionModel.set("addressLine1", parsedAddress["address_line1"]);
-        req.sessionModel.set("addressLine2", parsedAddress["address_line2"]);
-        req.sessionModel.set("townCity", parsedAddress["town_city"]);
-        req.sessionModel.set("postalCode", parsedAddress["postal_code"]);
+        let addressParts = [];
+        if (parsedAddress["address_line1"]) {
+          addressParts.push(parsedAddress["address_line1"]);
+        }
+        if (parsedAddress["address_line2"]) {
+          addressParts.push(parsedAddress["address_line2"]);
+        }
+        if (parsedAddress["town_city"]) {
+          addressParts.push(parsedAddress["town_city"]);
+        }
+        if (parsedAddress["postal_code"]) {
+          addressParts.push(parsedAddress["postal_code"]);
+        }
+        const fullParsedSharedClaimsAddress = addressParts.join("<br>");
+        req.sessionModel.set(
+          "fullParsedSharedClaimsAddress",
+          fullParsedSharedClaimsAddress
+        );
+
+        // req.sessionModel.set("addressLine1", parsedAddress["address_line1"]);
+        // req.sessionModel.set("addressLine2", parsedAddress["address_line2"]);
+        // req.sessionModel.set("townCity", parsedAddress["town_city"]);
+        // req.sessionModel.set("postalCode", parsedAddress["postal_code"]);
         req.sessionModel.set("addressProcessed", true);
       } catch (error) {
         logger.error("Error calling /person-info", error);

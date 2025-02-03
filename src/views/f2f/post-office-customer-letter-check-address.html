@@ -11,7 +11,7 @@
 {% set title = translate("customerLetterCheckAddress.title") %}
 {% set content = translate("customerLetterCheckAddress.content") %}
 {% set prompt = translate("customerLetterCheckAddress.prompt") %}
-{% set sharedClaimsAddress = "<p>"+addressLine1+"</p><p>"+addressLine2+"</p><p>"+townCity+"</p><p>"+postalCode+"</p>" %}
+{% set sharedClaimsAddress = "<p>"+addressLine+"</p>" %}
 {% set insetText = govukInsetText({
     html: sharedClaimsAddress
   }) %}

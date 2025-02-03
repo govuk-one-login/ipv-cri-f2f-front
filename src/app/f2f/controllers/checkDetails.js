@@ -186,13 +186,10 @@ class CheckDetailsController extends DateController {
         );
         locals.addressLine = displayAddress;
       } else {
-        locals.addressLine = `${req.sessionModel.get(
-          "addressLine1"
-        )}<br>${req.sessionModel.get("addressLine2")}<br>${req.sessionModel.get(
-          "townCity"
-        )}</br>${req.sessionModel.get("postalCode")}`;
+        locals.addressLine = req.sessionModel.get(
+          "fullParsedSharedClaimsAddress"
+        );
       }
-
       if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "email") {
         locals.pdfPreferenceText = res.locals.translate(
           "checkDetails.pdfPreferenceTextEmail"
