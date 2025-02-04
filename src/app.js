@@ -19,6 +19,8 @@ const { getGTM, getLanguageToggle } = commonExpress.lib.locals;
 const addLanguageParam = require("@govuk-one-login/frontend-language-toggle/build/cjs/language-param-setter.cjs");
 
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
+const featureSets = require("./app/f2f/featureSets");
+
 const {
   setI18n,
 } = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next");
@@ -147,6 +149,7 @@ router.use(getLanguageToggle);
 
 router.use(setScenarioHeaders);
 router.use(setAxiosDefaults);
+router.use(featureSets);
 
 router.use("/oauth2", commonExpress.routes.oauth2);
 
