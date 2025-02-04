@@ -260,6 +260,8 @@ main p,
 }
 
 #letterPostcode-label {
+  font-weight: bold;
+  font-size: 23px;
   @include govuk-responsive-margin(3, "bottom");
 }
 
