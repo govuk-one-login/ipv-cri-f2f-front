@@ -3,7 +3,7 @@ landingPage:
   firstCircle: "1"
   firstStepTitle: "Get your Post Office customer letter from GOV.UK"
   secondCircle: "2"
-  secondStepTitle: "Go to the Post Office"
+  secondStepTitle: "Go to a Post Office"
   thirdCircle: "3"
   thirdStepTitle: "Wait for your result"
   instructions:
@@ -76,6 +76,10 @@ locations:
   content: "Your chosen Post Office will be shown on your customer letter. You can go to a different Post Office as long as it offers in-branch verification."
   body: "Postcode"
 
+findAddress:
+  title: "Find an address"
+  content: "Enter the UK postcode of where you want to have your Post Office customer letter sent."
+
 addressResults:
   title: "Choose an address"
   label: "Postcode"
@@ -87,13 +91,6 @@ photoIdExpiry:
   title: "Your photo ID has expired"
   content: "You need valid photo ID to prove your identity."
   prompt: "What would you like to do?"
-
-findAddress:
-  title: "Find an address"
-  content: "Enter the UK postcode of where you want to have your Post Office customer letter sent."
-  prompt: "UK postcode"
-  hintText: "For example, SW1A 2AA"
-  link: "Enter address manually"
 
 checkDetails:
   title: "Check your answers"
@@ -108,7 +105,7 @@ checkDetails:
   country: Country
   hasExpiryDate: Does your photo ID have an expiry date?
   pdfPreference: How do you want to get your Post Office customer letter?
-  pdfChosenAddress: Where your post office customer letter will be sent
+  pdfChosenAddress: Where your Post Office customer letter will be sent
   pdfPreferenceTextEmail: "By email only"
   pdfPreferenceTextPcl: "By email and post"
 
