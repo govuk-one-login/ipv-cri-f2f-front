@@ -190,11 +190,11 @@ class CheckDetailsController extends DateController {
       }
 
       // Assign values for display text and API payload
+      req.sessionModel.set("pdfPreference", "EMAIL_ONLY");
       if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "email") {
         locals.pdfPreferenceText = res.locals.translate(
           "checkDetails.pdfPreferenceTextEmail"
         );
-        req.sessionModel.set("pdfPreference", "EMAIL_ONLY");
       } else if (
         req.sessionModel.get("postOfficeCustomerLetterChoice") == "post"
       ) {
