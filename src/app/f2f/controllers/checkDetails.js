@@ -99,7 +99,6 @@ class CheckDetailsController extends DateController {
       let idHasExpiryDate;
       let expiryDate;
       let address;
-      const pdfPreference = "EMAIL_ONLY";
 
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
@@ -165,7 +164,6 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate);
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
-      req.sessionModel.set("pdfPreference", pdfPreference);
 
       //Confirmation display values
       const idChoice = req.sessionModel.get("photoIdChoice");
@@ -190,16 +188,20 @@ class CheckDetailsController extends DateController {
           "fullParsedSharedClaimsAddress"
         );
       }
+
+      // Assign values for display text and API payload
       if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "email") {
         locals.pdfPreferenceText = res.locals.translate(
           "checkDetails.pdfPreferenceTextEmail"
         );
+        req.sessionModel.set("pdfPreference", "EMAIL_ONLY");
       } else if (
         req.sessionModel.get("postOfficeCustomerLetterChoice") == "post"
       ) {
         locals.pdfPreferenceText = res.locals.translate(
           "checkDetails.pdfPreferenceTextPcl"
         );
+        req.sessionModel.set("pdfPreference", "PRINTED_LETTER");
       }
 
       locals.formattedExpiryDate = formatDate(expiryDate, format, language);
