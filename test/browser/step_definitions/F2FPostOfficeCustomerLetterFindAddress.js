@@ -2,8 +2,6 @@ const { Given, When } = require("@cucumber/cucumber");
 
 const { PostOfficeCustomerLetterFindAddress } = require("../pages");
 
-const { expect } = require("chai");
-
 Given(
   /^the user navigates directly to post-office-customer-letter$/,
   async function () {
