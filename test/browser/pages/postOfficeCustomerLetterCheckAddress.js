@@ -26,6 +26,6 @@ module.exports = class PlaywrightDevPage {
   }
 
   async sendToDifferentAddress() {
-    await this.page.click("#customerLetterCheckAddress-differentAddress-post");
+    await this.page.click("#customerLetterCheckAddress-differentAddress");
   }
 };

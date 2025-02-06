@@ -25,7 +25,7 @@ module.exports = class PlaywrightDevPage {
     await this.page.locator("#letterPostcode").fill("BA2 5AA");
   }
 
-  async sendToDifferentAddress() {
-    await this.page.click("#customerLetterCheckAddress-differentAddress-post");
+  async selectAddress() {
+    await this.page.selectOption('select#addressResults', { value: '1 HADLEY ROAD, BATH, BA2 5AA' }); 
   }
 };

@@ -29,6 +29,7 @@ Feature: UK Passport Find Nearest PO Branch - Happy Path
         When the user selects an Email and Post Office Letter
         When the user selects that they want to send the letter to a different address
         And the user enters the postcode for the different address
+        And the user selects an address from the dropdown list
         Then the user is navigated to the next step in the journey - Confirm Answer
         And Does your photo ID have an expiry date option is not displayed
         And Expiry date is not displayed

@@ -20,9 +20,9 @@ When(/^the user enters the postcode for the different address/, async function (
   await postOfficeCustomerLetterFindAddressPage.continue();
 });
 
-When(/^the user selects that they want to send the letter to a different address$/, async function () {
+When(/^the user selects an address from the dropdown list/, async function () {
   const postOfficeCustomerLetterFindAddressPage = new PostOfficeCustomerLetterFindAddress(this.page);
-  await postOfficeCustomerLetterFindAddressPage.sendToDifferentAddress();
+  await postOfficeCustomerLetterFindAddressPage.selectAddress();
   await postOfficeCustomerLetterFindAddressPage.continue();
 });
 
