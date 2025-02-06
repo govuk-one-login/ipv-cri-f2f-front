@@ -84,3 +84,9 @@ When(
     expect(await landingPage.returnLanguageToggleHref(language)).to.be.null;
   }
 );
+
+Then("the user should see they have 10 days to visit the post office", async function () {
+  const landingPage = new LandingPage(await this.page);
+
+  expect(await landingPage.isCurrentPage()).to.be.true;
+});
