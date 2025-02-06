@@ -26,6 +26,8 @@ module.exports = class PlaywrightDevPage {
   }
 
   async selectAddress() {
-    await this.page.selectOption('select#addressResults', { value: '1 HADLEY ROAD, BATH, BA2 5AA' }); 
+    await this.page.selectOption("select#addressResults", {
+      value: "1 HADLEY ROAD, BATH, BA2 5AA",
+    });
   }
 };

@@ -29,7 +29,9 @@ When(/^the user selects an Email and Post Office Letter$/, async function () {
 Then(
   /^the user is navigated back to the PO Customer Letter page$/,
   async function () {
-    const postOfficeCustomerLetterPage = new PostOfficeCustomerLetter(this.page);
+    const postOfficeCustomerLetterPage = new PostOfficeCustomerLetter(
+      this.page
+    );
 
     expect(await postOfficeCustomerLetterPage.isCurrentPage()).to.be.true;
   }

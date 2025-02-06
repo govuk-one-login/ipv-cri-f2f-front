@@ -23,12 +23,10 @@ module.exports = class PlaywrightDevPage {
 
   async addressYes() {
     await this.page.click("#ukPhotocardDlAddressCheck");
-
   }
 
   async addressNo() {
     await this.page.click("#ukPhotocardDlAddressCheck-previous-label");
-
   }
 
   async changeAddressLink() {
