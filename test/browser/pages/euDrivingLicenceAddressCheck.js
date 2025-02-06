@@ -34,12 +34,10 @@ module.exports = class PlaywrightDevPage {
 
   async sameAddress() {
     await this.page.click("#euPhotocardDlAddressCheck");
-
   }
 
   async differentAddress() {
     await this.page.click("#euPhotocardDlAddressCheck-previous");
-
   }
 
   async noAddress() {
