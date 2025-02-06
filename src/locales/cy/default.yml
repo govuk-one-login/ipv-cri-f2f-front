@@ -73,7 +73,7 @@ common:
   postoffice:
     service: "Nid yw pob Swyddfa Bost yn cynnig y gwasanaeth hwn. Gallwch"
     postofficeLink: "Swyddfa Bost sy'n cynnig dilysu mewn canghennau (agor mewn tab newydd)."
-    pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service#bf-full-width"
+    pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service#bfSearchLabel"
   photoIdSelection:
     noPhotoId: "Nid oes gennyf unrhyw un o'r dogfennau hyn"
     linkToNoPhotoId: "https://signin.account.gov.uk/no-photo-id"

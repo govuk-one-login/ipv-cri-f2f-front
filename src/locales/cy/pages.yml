@@ -91,9 +91,6 @@ photoIdExpiry:
 findAddress:
   title: "Dod o hyd i gyfeiriad"
   content: "Rhowch god post y DU ble rydych am gael llythyr cwsmer Swyddfa'r Post wedi'i anfon."
-  prompt: "Cod post y DU"
-  hintText: "Er enghraifft, SW1A 2AA"
-  link: "Rhowch gyfeiriad â llaw"
 
 checkDetails:
   title: "Edrychwch dros eich atebion"

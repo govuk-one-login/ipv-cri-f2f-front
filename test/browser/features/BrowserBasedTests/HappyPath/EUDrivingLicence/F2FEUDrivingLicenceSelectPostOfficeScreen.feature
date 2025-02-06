@@ -36,4 +36,6 @@ Feature: Document Selection - EU Driving Licence E2E Journey (Happy Path)
     Scenario: EU DL - E2E Journey (Happy Path)
         Given a Post Office branch is selected
         When the user clicks continue
+        When the user selects an Email and Post Office Letter
+        When the user selects that they want to send the letter to the original address
         Then the user is navigated to the next step in the journey - Confirm Answer

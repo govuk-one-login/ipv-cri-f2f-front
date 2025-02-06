@@ -193,9 +193,8 @@ postcode:
     default: "Rhowch god post gwirioneddol yn y DU"
 
 letterPostcode:
-  legend: ""
-  label: ""
-  hint: ""
+  label: Cod post y DU
+  hint: Er enghraifft, SW1A 2AA
   validation:
     default: "Rhowch god post llawn yn y DU"
 

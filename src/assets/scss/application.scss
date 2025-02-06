@@ -133,12 +133,6 @@ main p,
   margin-right: 6px;
 }
 
-#postcode-label {
-  font-weight: bold;
-  font-size: 23px;
-  @include govuk-responsive-margin(3, "bottom");
-}
-
 #landingPageContinue {
   @include govuk-responsive-margin(1, "top");
 }
@@ -255,7 +249,23 @@ main p,
   @include govuk-responsive-margin(0, "bottom");
 }
 
+#postcode-label {
+  font-weight: bold;
+  font-size: 23px;
+  @include govuk-responsive-margin(3, "bottom");
+}
+
 #postcode-hint {
+  @include govuk-responsive-margin(4, "bottom");
+}
+
+#letterPostcode-label {
+  font-weight: bold;
+  font-size: 23px;
+  @include govuk-responsive-margin(3, "bottom");
+}
+
+#letterPostcode-hint {
   @include govuk-responsive-margin(4, "bottom");
 }
 
