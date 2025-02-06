@@ -34,6 +34,14 @@ Then("they should be redirected to the Landing Page", async function () {
   expect(await landingPage.isCurrentPage()).to.be.true;
 });
 
+Then("the user should see they have 10 days to visit the Post Office", async function () {
+  const landingPage = new LandingPage(await this.page);
+
+  expect(await landingPage.checkPostOfficeNumberOfDays()).to.contain(
+    "10 days"
+    );
+});
+
 Then("they should be redirected to the Find a Branch page", async function () {
   const findBranchValid = new FindBranch(await this.page);
 
