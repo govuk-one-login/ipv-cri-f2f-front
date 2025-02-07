@@ -10,11 +10,11 @@ landingPage:
     firstStep:
       one: "Rhowch y manylion o'ch ID gyda llun ar GOV.UK."
       two: "Yna dewiswch pa Swyddfa Bost rydych am fynd â'ch ID gyda llun iddo."
-      three: "Byddwn yn anfon e-bost cadarnhau atoch gyda dolen i lawrlwytho eich llythyr cwsmer Swyddfa Bost. Gallwn hefyd anfon eich llythyr cwsmer atoch drwy'r post."
+      three: "Byddwn yn anfon e-bost cadarnhau atoch gyda dolen i lawrlwytho eich llythyr cwsmer Swyddfa Bost."
     secondStep:
       one: "Ewch â'ch llythyr cwsmer Swyddfa'r Post a'ch ID gyda llun i "
       two: "Bydd aelod o staff y Swyddfa Bost yn sganio'ch ID gyda llun ac yn tynnu llun ohonoch chi. "
-      three: "Rhaid i chi fynd i Swyddfa'r Post o fewn 15 diwrnod o dderbyn eich e-bost cadarnhau."
+      three: "Rhaid i chi fynd i Swyddfa'r Post o fewn 10 diwrnod o dderbyn eich e-bost cadarnhau."
     thirdStep:
       one: "Byddwch yn cael e-bost am ganlyniad eich gwiriad hunaniaeth - fel arfer o fewn diwrnod o fynd i'r Swyddfa Bost."
 
