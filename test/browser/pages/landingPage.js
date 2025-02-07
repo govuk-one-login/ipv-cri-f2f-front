@@ -21,7 +21,7 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#landingPageContinue");
   }
 
-  async checkPostOfficeNumberOfDays() {
+  async getPostOfficeNumberOfDays() {
     const numberOfDaysText = await this.page.textContent(
       ".govuk-inset-text"
     );
