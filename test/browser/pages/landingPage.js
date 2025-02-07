@@ -21,6 +21,13 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#landingPageContinue");
   }
 
+  async getPostOfficeNumberOfDays() {
+    const numberOfDaysText = await this.page.textContent(
+      ".govuk-inset-text"
+    );
+    return numberOfDaysText.trim();
+  }
+
   get poLink() {
     return this.page.locator(
       '[href*="https://www.postoffice.co.uk/identity/in-branch-verification-service"]'
