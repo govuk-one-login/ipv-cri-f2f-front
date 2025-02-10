@@ -8,6 +8,7 @@ const {
 } = require("@govuk-one-login/frontend-passthrough-headers");
 const {
   generateHTMLofAddress,
+  titleCaseAddresses,
 } = require("../../../presenters/addressPresenter");
 
 class CheckDetailsController extends DateController {
@@ -180,7 +181,7 @@ class CheckDetailsController extends DateController {
           "differentAddress"
       ) {
         const displayAddress = generateHTMLofAddress(
-          req.sessionModel.get("postalAddress")
+          titleCaseAddresses(req.sessionModel.get("postalAddress"))
         );
         locals.addressLine = displayAddress;
       } else {
@@ -191,12 +192,12 @@ class CheckDetailsController extends DateController {
 
       // Assign values for display text and API payload
       req.sessionModel.set("pdfPreference", "EMAIL_ONLY");
-      if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "email") {
+      if (req.sessionModel.get("postOfficeCustomerLetterChoice") === "email") {
         locals.pdfPreferenceText = res.locals.translate(
           "checkDetails.pdfPreferenceTextEmail"
         );
       } else if (
-        req.sessionModel.get("postOfficeCustomerLetterChoice") == "post"
+        req.sessionModel.get("postOfficeCustomerLetterChoice") === "post"
       ) {
         locals.pdfPreferenceText = res.locals.translate(
           "checkDetails.pdfPreferenceTextPcl"

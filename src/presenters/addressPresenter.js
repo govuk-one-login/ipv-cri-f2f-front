@@ -15,6 +15,7 @@ module.exports = {
       return `${fullBuildingName}, ${fullLocality}, ${address.postcode}`.trim();
     }
   },
+
   generateHTMLofAddress: function (address) {
     const { buildingNames, streetNames, localityNames } =
       extractAddressFields(address);
@@ -27,11 +28,40 @@ module.exports = {
 
     const fullLocality = localityNames.join(" ");
 
-    if (fullStreetName) {
-      return `${fullBuildingName}<br>${fullStreetName},<br>${fullLocality},<br>${address.postcode}<br>`;
-    } else {
-      return `${fullBuildingName},<br>${fullLocality},<br>${address.postcode}<br>`;
+    let addressConfirm = [];
+
+    if (fullBuildingName) {
+      addressConfirm.push(fullBuildingName);
     }
+
+    if (fullStreetName) {
+      addressConfirm.push(fullStreetName);
+    }
+
+    if (fullLocality) {
+      addressConfirm.push(fullLocality);
+    }
+
+    if (address.postcode) {
+      addressConfirm.push(address.postcode);
+    }
+    return addressConfirm.join("<br>");
+  },
+
+  titleCaseAddresses: function (address) {
+    const titleCaseAddress = {};
+    for (let key in address) {
+      if (typeof address[key] === "string" && key !== "postcode") {
+        titleCaseAddress[key] = address[key].replace(
+          /\w\S*/g,
+          (text) =>
+            text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+        );
+      } else {
+        titleCaseAddress[key] = address[key];
+      }
+    }
+    return titleCaseAddress;
   },
 };
 
