@@ -192,12 +192,12 @@ class CheckDetailsController extends DateController {
 
       // Assign values for display text and API payload
       req.sessionModel.set("pdfPreference", "EMAIL_ONLY");
-      if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "email") {
+      if (req.sessionModel.get("postOfficeCustomerLetterChoice") === "email") {
         locals.pdfPreferenceText = res.locals.translate(
           "checkDetails.pdfPreferenceTextEmail"
         );
       } else if (
-        req.sessionModel.get("postOfficeCustomerLetterChoice") == "post"
+        req.sessionModel.get("postOfficeCustomerLetterChoice") === "post"
       ) {
         locals.pdfPreferenceText = res.locals.translate(
           "checkDetails.pdfPreferenceTextPcl"
