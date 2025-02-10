@@ -22,9 +22,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async getPostOfficeNumberOfDays() {
-    const numberOfDaysText = await this.page.textContent(
-      ".govuk-inset-text"
-    );
+    const numberOfDaysText = await this.page.textContent(".govuk-inset-text");
     return numberOfDaysText.trim();
   }
 

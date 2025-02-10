@@ -8,6 +8,7 @@ const {
 } = require("@govuk-one-login/frontend-passthrough-headers");
 const {
   generateHTMLofAddress,
+  titleCaseAddresses,
 } = require("../../../presenters/addressPresenter");
 
 class CheckDetailsController extends DateController {
@@ -180,7 +181,7 @@ class CheckDetailsController extends DateController {
           "differentAddress"
       ) {
         const displayAddress = generateHTMLofAddress(
-          req.sessionModel.get("postalAddress")
+          titleCaseAddresses(req.sessionModel.get("postalAddress"))
         );
         locals.addressLine = displayAddress;
       } else {
