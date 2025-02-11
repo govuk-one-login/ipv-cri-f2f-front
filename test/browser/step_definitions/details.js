@@ -39,9 +39,7 @@ Then(
   async function () {
     const landingPage = new LandingPage(await this.page);
 
-    expect(await landingPage.getPostOfficeNumberOfDays()).to.contain(
-      "10 days"
-    );
+    expect(await landingPage.getPostOfficeNumberOfDays()).to.contain("10 days");
   }
 );
 
