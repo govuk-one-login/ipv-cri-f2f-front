@@ -196,7 +196,7 @@ postcode:
     default: "Enter a real UK postcode"
 
 letterPostcode:
-  label: UK postcode
+  label: Enter a UK postcode
   hint: For example, SW1A 2AA
   validation:
     default: "Enter a full UK postcode"
@@ -447,7 +447,7 @@ countries:
     ZWE: "Zimbabwe"
 
 customerLetterCheckAddress:
-  validation: 
+  validation:
     required: "Select if you want your Post Office customer letter to be sent to this address"
   items:
     existingAddress:

@@ -322,5 +322,5 @@ main p,
 #branchesInformation {
   color: govuk-colour("black");
   @include govuk-responsive-margin(3, "top");
-  @include govuk-responsive-margin(4, "bottom");
+  @include govuk-responsive-margin(5, "bottom");
 }

@@ -4,37 +4,35 @@
 {% set gtmJourney = "f2f - postOfficeCustomerLetter" %}
 
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-
-{% block mainContent %}
 
 {% set title = translate("postOfficeCustomerLetterChoice.title") %}
 {% set content1 = translate("postOfficeCustomerLetterChoice.content1") %}
 {% set content2 = translate("postOfficeCustomerLetterChoice.content2") %}
 {% set prompt = translate("postOfficeCustomerLetterChoice.prompt") %}
-{% set formInstructions = "<p id=\"contentLine1\">"+content1+"</p><p id=\"contentLine2\">"+content2+"</p><p class=\"postOfficeLetterPrompt\">"+prompt+"</p>"%}
-      
-      {% call hmpoForm(ctx) %}
-              {{ hmpoRadios(ctx, {
-                id: "postOfficeCustomerLetterChoice",
-                namePrefix: "postOfficeCustomerLetterChoice",
-                fieldset: {
-                    legend: {
-                        text: title,
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend--l postOfficeCustomerLetterChoice-radios"
-                    }
-                },
-                hint: {
-                    html: formInstructions
-                }
-            }) }}
 
-    {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
-  
+{% block mainContent %}
+    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+      {{ title }}
+    </h1>
+
+{% call hmpoForm(ctx) %}
+    <div id="branches-hint">
+      <p id="branchesInformation">{{ content1 }}</p>
+      <p>{{ content2 }}</p>
+    </div>
+
+        {{ hmpoRadios(ctx, {
+            id: "postOfficeCustomerLetterChoice",
+            legend: {
+                text: prompt,
+                classes: "govuk-fieldset__legend--m"
+            }
+        })}}
+
+        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.continue")}) }}
     {% endcall %}
 
-{% endblock %} 
+{% endblock %}
 
 {% set footerNavItems = translate("govuk.footerNavItems") %}
 
