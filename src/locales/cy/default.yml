@@ -80,3 +80,4 @@ common:
 
 links:
   changePostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/find-post-office-prove-identity?edit=true" id="changePostcode" data-id="changePostcode" class="govuk-link"> Newid <span class="govuk-visually-hidden">eich cod post cyfredol</span></a>
+  changeLetterPostcode: <p>Cod post <br> <span class="govuk-body govuk-!-font-size-24" data-id="changeLetterPostcodeValue"><b id="letterPostcode">{{letterPostcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/post-office-customer-letter-find-address?edit=true" id="changeLetterPostcode" data-id="changeLetterPostcode" class="govuk-link"> Newid <span class="govuk-visually-hidden">eich cod post cyfredol</span></a></p>

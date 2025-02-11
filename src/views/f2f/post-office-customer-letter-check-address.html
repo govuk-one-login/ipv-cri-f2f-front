@@ -2,44 +2,38 @@
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "customerLetterCheckAddress" %}
 {% set gtmJourney = "f2f - customerLetterCheckAddress" %}
+
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
 
 {% block mainContent %}
 
 {% set title = translate("customerLetterCheckAddress.title") %}
 {% set content = translate("customerLetterCheckAddress.content") %}
 {% set prompt = translate("customerLetterCheckAddress.prompt") %}
-{% set sharedClaimsAddress = "<p>"+addressLine+"</p>" %}
-{% set insetText = govukInsetText({
-    html: sharedClaimsAddress
-  }) %}
-{% set formInstructions = "<p class=\"addressCheckContent\">"+content+"</p><div>"+insetText+"</div><p class=\"addressCheckPrompt\">"+prompt+"</p>"%}
 
-      {% call hmpoForm(ctx) %}
-              {{ hmpoRadios(ctx, {
-                id: "customerLetterCheckAddress",
-                namePrefix: "customerLetterCheckAddress",
-                fieldset: {
-                    legend: {
-                        text: title,
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend--l customerLetterCheckAddress-radios"
-                    }
-                },
-                hint: {
-                    html: formInstructions
+    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+        {{ title }}
+    </h1>
+
+    {% call hmpoForm(ctx) %}
+        <p class="addressCheckContent">{{ content }}</p>
+
+        {{ govukInsetText({
+            html: "<p>" + addressLine + "</p>"
+        }) }}
+
+        {{ hmpoRadios(ctx, {
+            id: "customerLetterCheckAddress",
+                legend: {
+                    text: prompt,
+                    classes: "govuk-fieldset__legend--m"
                 }
-            }) }}
+        })}}
 
-            {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
-
-            {% endcall %}
-
-{% endblock %} 
-  </div>
-</div>
+        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.continue")}) }}
+    {% endcall %}
+{% endblock %}
 
 {% set footerNavItems = translate("govuk.footerNavItems") %}
 

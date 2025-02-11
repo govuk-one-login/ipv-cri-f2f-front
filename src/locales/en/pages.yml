@@ -82,8 +82,7 @@ findAddress:
 
 addressResults:
   title: "Choose an address"
-  label: "Postcode"
-  prompt: "Choose an address from the list"
+  label: "Choose an address from the list"
   noAddress-summary: "I cannot find my address on the list"
   noAddress-link: <p>If you cannot find your address in the list, you can <a href="/post-office-customer-letter" class="govuk-link">get your Post Office customer letter by email only</a></p>
 
