@@ -78,8 +78,7 @@ locations:
 
 addressResults:
   title: "Dewiswch gyfeiriad"
-  label: "Cod post"
-  prompt: "Dewiswch gyfeiriad o'r rhestr"
+  label: "Dewiswch gyfeiriad o'r rhestr"
   noAddress-summary: "Ni allaf ddod o hyd i'm cyfeiriad ar y rhestr"
   noAddress-link: "Os na allwch ddod o hyd i'ch cyfeiriad ar y rhestr, gallwch gael llythyr cwsmer Swyddfa'r Post drwy e-bost yn unig."
 
