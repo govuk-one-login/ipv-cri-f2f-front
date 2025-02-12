@@ -2237,10 +2237,10 @@ aws-sdk@^2.1264.0, aws-sdk@^2.1551.0:
     uuid "8.0.0"
     xml2js "0.6.2"
 
-aws4-axios@^3.2.24:
-  version "3.3.6"
-  resolved "https://registry.npmjs.org/aws4-axios/-/aws4-axios-3.3.6.tgz"
-  integrity sha512-IUQXckwTlZuLgoHnK0Pqn8pghdyYRWdiwkdzHrHr5Ck43j/MGzF75Dx6hCSUwVuhZd0rg+Q9zxglLiMGzUZ8Nw==
+aws4-axios@^3.3.14:
+  version "3.3.14"
+  resolved "https://registry.yarnpkg.com/aws4-axios/-/aws4-axios-3.3.14.tgz#78efb019aca346809add2a112d2999a802012fe3"
+  integrity sha512-M/JL9ISNtYeyGOtcFI1lPFPX5tziL9Ininbm0k6FxxjvWhmA8NdC3nMJhL2SuRNZcfzrtJo037ZwPf60r+DfGA==
   dependencies:
     "@aws-sdk/client-sts" "^3.4.1"
     aws4 "^1.12.0"
