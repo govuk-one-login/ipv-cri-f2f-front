@@ -15,7 +15,10 @@ class LandingPageController extends BaseController {
       }
       if (configData) {
         // Save the printed customer letter enabled flag
-        req.sessionModel.set("pclEnabled", !!(configData.pcl_enabled == "true"));
+        req.sessionModel.set(
+          "pclEnabled",
+          !!(configData.pcl_enabled === "true")
+        );
       }
 
       super.saveValues(req, res, next);

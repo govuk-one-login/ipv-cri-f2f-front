@@ -1,12 +1,12 @@
-FROM --platform="linux/arm64" arm64v8/node@sha256:2cdd8af6e7c617a2f4cdbd4df609cb86fdc0d11b1619c9f05a9b97e1fc001f8f AS builder
+FROM --platform="linux/arm64" arm64v8/node:20.18.2-alpine3.21@sha256:ca79c9f7be0fd2d07a479d71b38e9bcbae1458151f29003af33f6f61fb2113bf AS builder
 
 WORKDIR /app
 
 COPY package.json yarn.lock ./
 COPY /src ./src
 
-RUN ["apt-get", "update"]
-RUN ["apt-get", "install", "-y", "yarn"]
+RUN ["apk", "--no-cache", "upgrade"]
+RUN ["apk", "add", "--no-cache", "tini"]
 RUN yarn install
 RUN yarn build
 
@@ -15,10 +15,10 @@ RUN yarn build
 RUN [ "rm", "-rf", "node_modules" ]
 RUN yarn install --production --frozen-lockfile
 
-FROM --platform="linux/arm64" arm64v8/node@sha256:2cdd8af6e7c617a2f4cdbd4df609cb86fdc0d11b1619c9f05a9b97e1fc001f8f AS final
+FROM --platform="linux/arm64" arm64v8/node:20.18.2-alpine3.21@sha256:ca79c9f7be0fd2d07a479d71b38e9bcbae1458151f29003af33f6f61fb2113bf AS final
 
-RUN ["apt-get", "update"]
-RUN ["apt-get", "install", "-y", "tini"]
+RUN ["apk", "--no-cache", "upgrade"]
+RUN ["apk", "add", "--no-cache", "tini"]
 
 WORKDIR /app
 
@@ -32,7 +32,6 @@ COPY --from=builder /app/src ./src
 # Add in dynatrace layer
 COPY --from=khw46367.live.dynatrace.com/linux/oneagent-codemodules-musl:nodejs / /
 ENV LD_PRELOAD /opt/dynatrace/oneagent/agent/lib64/liboneagentproc.so
-
 
 ENV PORT 8080
 EXPOSE $PORT

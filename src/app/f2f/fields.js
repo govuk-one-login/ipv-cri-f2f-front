@@ -268,16 +268,17 @@ module.exports = {
       {
         value: APP.CHECK_ADDRESS.EXISTING_ADDRESS,
         conditional: {
-          html: ""
-        }
+          html: "",
+        },
       },
-      { value: APP.CHECK_ADDRESS.DIFFERENT_ADDRESS,
+      {
+        value: APP.CHECK_ADDRESS.DIFFERENT_ADDRESS,
         conditional: {
-          html: ""
-        }
-      }
+          html: "",
+        },
+      },
     ],
-    validate: ["required"]
+    validate: ["required"],
   },
   eeaIdentityCardCountrySelector: {
     legend: "",
@@ -574,15 +575,16 @@ module.exports = {
       {
         value: APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL,
         conditional: {
-          html: ""
-        }
+          html: "",
+        },
       },
-      { value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
+      {
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
         conditional: {
-          html: ""
-        }
-      }
+          html: "",
+        },
+      },
     ],
-    validate: ["required"]
+    validate: ["required"],
   },
 };

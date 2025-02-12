@@ -11,7 +11,7 @@ const abort = require("./controllers/abort");
 const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
-const addressResults = require("./controllers/addressResults")
+const addressResults = require("./controllers/addressResults");
 const { APP } = require("../../lib/config");
 const checkAddressController = require("./controllers/checkAddress");
 
@@ -394,14 +394,14 @@ module.exports = {
       {
         field: "postOfficeCustomerLetterChoice",
         value: APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL,
-        next: APP.PATHS.CHECK_DETAILS
+        next: APP.PATHS.CHECK_DETAILS,
       },
       {
         field: "postOfficeCustomerLetterChoice",
         value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
-        next: APP.PATHS.CHECK_ADDRESS
-      }
-    ]
+        next: APP.PATHS.CHECK_ADDRESS,
+      },
+    ],
   },
   [`${APP.PATHS.CHECK_ADDRESS}`]: {
     fields: ["customerLetterCheckAddress"],

@@ -1,11 +1,15 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
-const { formatDate, formatAddress } = require("../utils");
+const { formatDate } = require("../utils");
 const { APP, API } = require("../../../lib/config");
 const DateController = DateControllerMixin(BaseController);
 const {
   createPersonalDataHeaders,
 } = require("@govuk-one-login/frontend-passthrough-headers");
+const {
+  generateHTMLofAddress,
+  titleCaseAddresses,
+} = require("../../../presenters/addressPresenter");
 
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
@@ -96,7 +100,6 @@ class CheckDetailsController extends DateController {
       let idHasExpiryDate;
       let expiryDate;
       let address;
-      const pdfPreference = "EMAIL_ONLY";
 
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
@@ -162,7 +165,6 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("idHasExpiryDate", idHasExpiryDate);
       req.sessionModel.set("expiryDate", expiryDate);
       req.sessionModel.set("addressCheck", address);
-      req.sessionModel.set("pdfPreference", pdfPreference);
 
       //Confirmation display values
       const idChoice = req.sessionModel.get("photoIdChoice");
@@ -173,22 +175,34 @@ class CheckDetailsController extends DateController {
       const language = req.lng;
 
       // Values for PCL
-      if (req.sessionModel.get("postalAddress") !== undefined) {
-        const displayAddress = formatAddress(req.sessionModel.get("postalAddress"))
-        locals.addressLine1 = displayAddress.line1
-        locals.addressLine2 = displayAddress.line2
-        locals.addressLine3 = displayAddress.line3
-        locals.addressPostcode = displayAddress.postcode
+      if (
+        req.sessionModel.get("postalAddress") !== undefined &&
+        req.sessionModel.get("customerLetterCheckAddress") ===
+          "differentAddress"
+      ) {
+        const displayAddress = generateHTMLofAddress(
+          titleCaseAddresses(req.sessionModel.get("postalAddress"))
+        );
+        locals.addressLine = displayAddress;
       } else {
-        locals.addressLine1 = req.sessionModel.get("addressLine1")
-        locals.addressLine2 = req.sessionModel.get("addressLine2")
-        locals.addressLine3 = req.sessionModel.get("townCity")
-        locals.addressPostcode = req.sessionModel.get("postalCode")
+        locals.addressLine = req.sessionModel.get(
+          "fullParsedSharedClaimsAddress"
+        );
       }
 
-      locals.pdfPreferenceText = "By email only"
-      if (req.sessionModel.get("postOfficeCustomerLetterChoice") == "post") {
-        locals.pdfPreferenceText = "By email and post"
+      // Assign values for display text and API payload
+      req.sessionModel.set("pdfPreference", "EMAIL_ONLY");
+      if (req.sessionModel.get("postOfficeCustomerLetterChoice") === "email") {
+        locals.pdfPreferenceText = res.locals.translate(
+          "checkDetails.pdfPreferenceTextEmail"
+        );
+      } else if (
+        req.sessionModel.get("postOfficeCustomerLetterChoice") === "post"
+      ) {
+        locals.pdfPreferenceText = res.locals.translate(
+          "checkDetails.pdfPreferenceTextPcl"
+        );
+        req.sessionModel.set("pdfPreference", "PRINTED_LETTER");
       }
 
       locals.formattedExpiryDate = formatDate(expiryDate, format, language);

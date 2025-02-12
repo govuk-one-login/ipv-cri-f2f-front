@@ -56,5 +56,11 @@ describe("RootController", () => {
 
       expect(postcode).to.equal(undefined);
     });
+
+    it("should call getAddressInfo info correctly", async () => {});
+
+    it("should call getDecryptKey info correctly", async () => {});
+
+    it("should call parseAndDecryptAddress info correctly", async () => {}); ///?
   });
 });
