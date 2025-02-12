@@ -1,4 +1,4 @@
-FROM --platform="linux/arm64" arm64v8/node:20.18.2-alpine3.21@sha256:ca79c9f7be0fd2d07a479d71b38e9bcbae1458151f29003af33f6f61fb2113bf AS builder
+FROM --platform="linux/arm64" arm64v8/node:23.7.0-alpine3.21@sha256:8a502b07f02e858ff7d4e6c6a3c7cebf7e8e0c688542e5b474f27a049b410de5 AS builder
 
 WORKDIR /app
 
@@ -15,7 +15,7 @@ RUN yarn build
 RUN [ "rm", "-rf", "node_modules" ]
 RUN yarn install --production --frozen-lockfile
 
-FROM --platform="linux/arm64" arm64v8/node:20.18.2-alpine3.21@sha256:ca79c9f7be0fd2d07a479d71b38e9bcbae1458151f29003af33f6f61fb2113bf AS final
+FROM --platform="linux/arm64" arm64v8/node:23.7.0-alpine3.21@sha256:8a502b07f02e858ff7d4e6c6a3c7cebf7e8e0c688542e5b474f27a049b410de5 AS final
 
 RUN ["apk", "--no-cache", "upgrade"]
 RUN ["apk", "add", "--no-cache", "tini"]
