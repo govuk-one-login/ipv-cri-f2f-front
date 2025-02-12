@@ -79,9 +79,9 @@ module.exports = class TestHarness {
     try {
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
         "/getRecordBySessionId/" +
-        process.env["SESSION_TABLE"] +
-        "/" +
-        sessionId
+          process.env["SESSION_TABLE"] +
+          "/" +
+          sessionId
       );
       return unmarshall(getItemResponse.data.Item);
     } catch (error) {

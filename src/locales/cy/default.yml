@@ -73,10 +73,11 @@ common:
   postoffice:
     service: "Nid yw pob Swyddfa Bost yn cynnig y gwasanaeth hwn. Gallwch"
     postofficeLink: "Swyddfa Bost sy'n cynnig dilysu mewn canghennau (agor mewn tab newydd)."
-    pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service#bf-full-width"
+    pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service#bfSearchLabel"
   photoIdSelection:
     noPhotoId: "Nid oes gennyf unrhyw un o'r dogfennau hyn"
     linkToNoPhotoId: "https://signin.account.gov.uk/no-photo-id"
 
 links:
   changePostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/find-post-office-prove-identity?edit=true" id="changePostcode" data-id="changePostcode" class="govuk-link"> Newid <span class="govuk-visually-hidden">eich cod post cyfredol</span></a>
+  changeLetterPostcode: <p>Cod post <br> <span class="govuk-body govuk-!-font-size-24" data-id="changeLetterPostcodeValue"><b id="letterPostcode">{{letterPostcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/post-office-customer-letter-find-address?edit=true" id="changeLetterPostcode" data-id="changeLetterPostcode" class="govuk-link"> Newid <span class="govuk-visually-hidden">eich cod post cyfredol</span></a></p>

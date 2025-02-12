@@ -2,7 +2,6 @@ buttons:
   next: Continue
   cancel: Cancel
   continue: Continue
-  useThisAddress: Use this address
 
 govuk:
   serviceName: ""
@@ -74,7 +73,7 @@ common:
     postoffice:
       service: "Not all Post Offices offer this service. You can "
       postofficeLink: "Post Office that offers in-branch verification (opens in new tab)."
-      pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service#bf-full-width"
+      pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service#bfSearchLabel"
     photoIdSelection:
       noPhotoId: "I do not have any of these documents"
       linkToNoPhotoId: "https://signin.account.gov.uk/no-photo-id"
@@ -82,4 +81,4 @@ common:
 
 links:
   changePostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/find-post-office-prove-identity?edit=true" id="changePostcode" data-id="changePostcode" class="govuk-link"> Change <span class="govuk-visually-hidden">your current postcode</span></a>
-  changeLetterPostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changeLetterPostcodeValue"><b id="letterPostcode">{{letterPostcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/post-office-customer-letter-find-address?edit=true" id="changeLetterPostcode" data-id="changeLetterPostcode" class="govuk-link"> Change <span class="govuk-visually-hidden">your current postcode</span></a>
+  changeLetterPostcode: <p>Postcode <br><span class="govuk-body govuk-!-font-size-24" data-id="changeLetterPostcodeValue"><b id="letterPostcode">{{letterPostcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/post-office-customer-letter-find-address?edit=true" id="changeLetterPostcode" data-id="changeLetterPostcode" class="govuk-link"> Change <span class="govuk-visually-hidden">your current postcode</span></a></p>
