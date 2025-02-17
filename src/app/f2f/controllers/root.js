@@ -54,18 +54,22 @@ class RootController extends BaseController {
   }
 
   async getAddressInfo(axios, req) {
-    const tokenId = req.session.tokenId;
+    if (req.session) {
+      const tokenId = req.session.tokenId;
 
-    if (tokenId) {
-      const headers = {
-        "x-govuk-signin-session-id": tokenId,
-      };
-      const res = await axios.get(`${API.PATHS.PERSON_INFO}`, {
-        headers,
-      });
-      return res.data;
+      if (tokenId) {
+        const headers = {
+          "x-govuk-signin-session-id": tokenId,
+        };
+        const res = await axios.get(`${API.PATHS.PERSON_INFO}`, {
+          headers,
+        });
+        return res.data;
+      } else {
+        throw new Error("Missing sessionID", error);
+      }
     } else {
-      logger.error("Missing sessionID");
+      throw new Error("Missing session", error);
     }
   }
 
