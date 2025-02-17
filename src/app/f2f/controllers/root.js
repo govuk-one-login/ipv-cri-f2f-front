@@ -37,10 +37,6 @@ class RootController extends BaseController {
           fullParsedSharedClaimsAddress
         );
 
-        // req.sessionModel.set("addressLine1", parsedAddress["address_line1"]);
-        // req.sessionModel.set("addressLine2", parsedAddress["address_line2"]);
-        // req.sessionModel.set("townCity", parsedAddress["town_city"]);
-        // req.sessionModel.set("postalCode", parsedAddress["postal_code"]);
         req.sessionModel.set("addressProcessed", true);
       } catch (error) {
         logger.error("Error calling /person-info", error);
@@ -58,13 +54,23 @@ class RootController extends BaseController {
   }
 
   async getAddressInfo(axios, req) {
-    const headers = {
-      "x-govuk-signin-session-id": req.session.tokenId,
-    };
-    const res = await axios.get(`${API.PATHS.PERSON_INFO}`, {
-      headers,
-    });
-    return res.data;
+    if (req.session) {
+      const tokenId = req.session.tokenId;
+
+      if (tokenId) {
+        const headers = {
+          "x-govuk-signin-session-id": tokenId,
+        };
+        const res = await axios.get(`${API.PATHS.PERSON_INFO}`, {
+          headers,
+        });
+        return res.data;
+      } else {
+        throw new Error("Missing sessionID", error);
+      }
+    } else {
+      throw new Error("Missing session", error);
+    }
   }
 
   async getDecryptKey(axios) {
