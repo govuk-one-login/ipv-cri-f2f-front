@@ -2,9 +2,6 @@ const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API } = require("../../../lib/config");
 const NodeRSA = require("node-rsa");
 const logger = require("hmpo-logger").get();
-// const {
-//   createPersonalDataHeaders,
-// } = require("@govuk-one-login/frontend-passthrough-headers");
 
 class RootController extends BaseController {
   async saveValues(req, res, next) {
@@ -66,10 +63,10 @@ class RootController extends BaseController {
         });
         return res.data;
       } else {
-        throw new Error("Missing sessionID", error);
+        throw new Error("Missing sessionID");
       }
     } else {
-      throw new Error("Missing session", error);
+      throw new Error("Missing session");
     }
   }
 

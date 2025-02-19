@@ -15,10 +15,14 @@ class LandingPageController extends BaseController {
       }
       if (configData) {
         // Save the printed customer letter enabled flag
-        req.sessionModel.set(
-          "pclEnabled",
-          !!(configData.pcl_enabled === "true")
-        );
+        const pclFeatureSet = req.session.featureSet === "pcl";
+        const pclEnabledInConfig = configData.pcl_enabled === "true";
+
+        const pclEnabled = pclEnabledInConfig && pclFeatureSet;
+        logger.info("PCL feature enabled " + pclFeatureSet + " PCL config enabled " + pclEnabledInConfig);
+        logger.info("show pcl " + pclEnabled);
+        
+        req.sessionModel.set("pclEnabled", pclEnabled);
       }
 
       super.saveValues(req, res, next);

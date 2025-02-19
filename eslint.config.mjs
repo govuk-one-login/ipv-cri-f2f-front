@@ -13,7 +13,7 @@ const compat = new FlatCompat({
 });
 
 export default [{
-    ignores: ["**/node_modules", "**/dist"],
+    ignores: ["**/node_modules", "**/dist", "**/test/reports"],
 }, ...compat.extends("eslint:recommended", "prettier"), {
     languageOptions: {
         globals: {
