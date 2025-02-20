@@ -33,15 +33,15 @@ module.exports = class PlaywrightDevPage {
   }
 
   async sameAddress() {
-    await this.page.locator(".govuk-radios__item").first().click();
+    await this.page.click("#euPhotocardDlAddressCheck");
   }
 
   async differentAddress() {
-    await this.page.locator(".govuk-radios__item").nth(1).click();
+    await this.page.click("#euPhotocardDlAddressCheck-previous");
   }
 
   async noAddress() {
-    await this.page.locator(".govuk-radios__item").last().click();
+    await this.page.click("#euPhotocardDlAddressCheck-euDlNoAddress");
   }
 
   async checkRedirectionErrorText() {

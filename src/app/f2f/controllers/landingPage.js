@@ -19,9 +19,15 @@ class LandingPageController extends BaseController {
         const pclEnabledInConfig = configData.pcl_enabled === "true";
 
         const pclEnabled = pclEnabledInConfig && pclFeatureSet;
-        logger.info("PCL feature enabled " + pclFeatureSet + " PCL config enabled " + pclEnabledInConfig);
+
+        logger.info(
+          "PCL feature enabled " +
+            pclFeatureSet +
+            " PCL config enabled " +
+            pclEnabledInConfig
+        );
         logger.info("show pcl " + pclEnabled);
-        
+
         req.sessionModel.set("pclEnabled", pclEnabled);
       }
 

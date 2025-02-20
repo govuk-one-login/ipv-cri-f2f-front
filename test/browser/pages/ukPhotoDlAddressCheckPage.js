@@ -22,11 +22,11 @@ module.exports = class PlaywrightDevPage {
   }
 
   async addressYes() {
-    await this.page.locator(".govuk-radios__item").first().click();
+    await this.page.click("#ukPhotocardDlAddressCheck");
   }
 
   async addressNo() {
-    await this.page.locator(".govuk-radios__item").last().click();
+    await this.page.click("#ukPhotocardDlAddressCheck-previous-label");
   }
 
   async changeAddressLink() {

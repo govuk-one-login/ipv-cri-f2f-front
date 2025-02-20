@@ -35,6 +35,7 @@ Background:
 
     Given a Post Office branch is selected
     When the user clicks continue
+    When the user selects an Email only Post Office Letter
     Then the user is navigated to the next step in the journey - Confirm Answer
 
     Scenario: NIC EEA Successful redirect from CMA screen back to address check then back to CMA screen
