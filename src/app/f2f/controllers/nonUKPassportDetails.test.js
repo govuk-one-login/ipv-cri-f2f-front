@@ -15,7 +15,10 @@ describe("NonUKPassportDetailsController", () => {
     var value = "30";
     var offset = 0;
 
-    var finalYear = await nonUKPassportDetailsController._padYear(value, offset);
+    var finalYear = await nonUKPassportDetailsController._padYear(
+      value,
+      offset
+    );
 
     expect(finalYear).to.equal("30");
   });

@@ -10,6 +10,7 @@ const {
   generateHTMLofAddress,
   titleCaseAddresses,
 } = require("../../../presenters/addressPresenter");
+const p = require("proxyquire");
 
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
@@ -175,13 +176,14 @@ class CheckDetailsController extends DateController {
       const language = req.lng;
 
       // Values for PCL
+      const postalAddress = req.sessionModel.get("postalAddress");
       if (
-        req.sessionModel.get("postalAddress") !== undefined &&
+        postalAddress !== undefined &&
         req.sessionModel.get("customerLetterCheckAddress") ===
           "differentAddress"
       ) {
         const displayAddress = generateHTMLofAddress(
-          titleCaseAddresses(req.sessionModel.get("postalAddress"))
+          titleCaseAddresses(postalAddress)
         );
         locals.addressLine = displayAddress;
       } else {
@@ -229,6 +231,7 @@ class CheckDetailsController extends DateController {
     return "/done";
   }
   async saveValues(req, res, callback) {
+    const postal_address = req.sessionModel.get("postalAddress");
     try {
       const f2fData = {
         document_selection: {
@@ -247,8 +250,21 @@ class CheckDetailsController extends DateController {
           fad_code: req.sessionModel.get("postOfficeFadCode"),
         },
         pdf_preference: req.sessionModel.get("pdfPreference"),
+        postal_address: postal_address
+          ? {
+              departmentName: postal_address.department_name,
+              organisationName: postal_address.organisation_name,
+              subBuildingName: postal_address.sub_building_name,
+              buildingName: postal_address.building_name,
+              buildingNumber: postal_address.building_number,
+              dependentStreetName: postal_address.dependent_street_name,
+              thoroughfareName: postal_address.thoroughfare_name,
+              addressLocality: postal_address.dependent_locality,
+              postalCode: postal_address.postcode,
+              preferredAddress: true,
+            }
+          : undefined,
       };
-
       await this.saveF2fData(req.axios, f2fData, req, res);
       callback();
     } catch (error) {
