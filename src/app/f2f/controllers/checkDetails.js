@@ -10,7 +10,6 @@ const {
   generateHTMLofAddress,
   titleCaseAddresses,
 } = require("../../../presenters/addressPresenter");
-const p = require("proxyquire");
 
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
