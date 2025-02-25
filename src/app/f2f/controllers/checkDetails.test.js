@@ -67,15 +67,9 @@ describe("CheckDetails controller", () => {
         building_name: "test_building_name",
         dependent_street_name: "test_dependent_street_name",
         addressLocality: "test_dependent_locality",
-        uprn: "11111",
-        udprn: "1111111",
-        address: "34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
         building_number: "34",
         thoroughfare_name: "MOCK ROAD",
-        dependent_locality: "PLACEHOLDER PARK",
-        post_town: "FAKESVILLE",
         postcode: "FS6 5AQ",
-        preferredAddress: true,
       };
 
       req.sessionModel.set("postalAddress", testAddress);
@@ -297,6 +291,7 @@ describe("CheckDetails controller", () => {
             fad_code: req.sessionModel.get("postOfficeFadCode"),
           },
           pdf_preference: req.sessionModel.get("pdfPreference"),
+          postal_address: req.sessionModel.get("postalAddress"),
         };
 
         await checkDetailsController.saveValues(req, res, next);
