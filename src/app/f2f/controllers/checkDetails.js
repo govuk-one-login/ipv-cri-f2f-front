@@ -251,14 +251,15 @@ class CheckDetailsController extends DateController {
         pdf_preference: req.sessionModel.get("pdfPreference"),
         postal_address: postal_address
           ? {
+              uprn: postal_address.uprn,
               departmentName: postal_address.department_name,
               organisationName: postal_address.organisation_name,
               subBuildingName: postal_address.sub_building_name,
               buildingName: postal_address.building_name,
               buildingNumber: postal_address.building_number,
-              dependentStreetName: postal_address.dependent_street_name,
               thoroughfareName: postal_address.thoroughfare_name,
               addressLocality: postal_address.dependent_locality,
+              doubleLocality: postal_address.double_dependent_locality,
               postalCode: postal_address.postcode,
               preferredAddress: true,
             }

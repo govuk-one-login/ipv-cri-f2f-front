@@ -65,7 +65,6 @@ describe("CheckDetails controller", () => {
         organisation_name: "test_organisation_name",
         sub_building_name: "test_sub_building_name",
         building_name: "test_building_name",
-        dependent_street_name: "test_dependent_street_name",
         addressLocality: "test_dependent_locality",
         building_number: "34",
         thoroughfare_name: "MOCK ROAD",
