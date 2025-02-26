@@ -67,7 +67,7 @@ describe("CheckDetails controller", () => {
         building_name: "test_building_name",
         addressLocality: "test_dependent_locality",
         building_number: "34",
-        thoroughfare_name: "MOCK ROAD",
+        street_name: "MOCK ROAD",
         postcode: "FS6 5AQ",
       };
 

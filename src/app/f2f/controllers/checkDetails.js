@@ -257,7 +257,7 @@ class CheckDetailsController extends DateController {
               subBuildingName: postal_address.sub_building_name,
               buildingName: postal_address.building_name,
               buildingNumber: postal_address.building_number,
-              thoroughfareName: postal_address.thoroughfare_name,
+              streetName: postal_address.thoroughfare_name,
               addressLocality: postal_address.dependent_locality,
               doubleLocality: postal_address.double_dependent_locality,
               postalCode: postal_address.postcode,
