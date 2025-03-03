@@ -61,13 +61,13 @@ describe("CheckDetails controller", () => {
       };
 
       const testAddress = {
-        uprn: "11111",
-        udprn: "1111111",
-        address: "34, MOCK ROAD, PLACEHOLDER PARK, FAKESVILLE, FS6 5AQ",
+        department_name: "test_department_name",
+        organisation_name: "test_organisation_name",
+        sub_building_name: "test_sub_building_name",
+        building_name: "test_building_name",
+        addressLocality: "test_dependent_locality",
         building_number: "34",
-        thoroughfare_name: "MOCK ROAD",
-        dependent_locality: "PLACEHOLDER PARK",
-        post_town: "FAKESVILLE",
+        street_name: "MOCK ROAD",
         postcode: "FS6 5AQ",
       };
 
@@ -256,7 +256,6 @@ describe("CheckDetails controller", () => {
       req.form.values.idHasExpiryDate = true;
       req.form.values.eeaIdentityCardCountrySelector = "DEU";
       req.form.values.eeaIdentityCardAddressCheck = true;
-
       await checkDetailsController.locals(req, res, next);
 
       expect(req.sessionModel.get("countryCode")).to.equal("DEU");
@@ -291,6 +290,7 @@ describe("CheckDetails controller", () => {
             fad_code: req.sessionModel.get("postOfficeFadCode"),
           },
           pdf_preference: req.sessionModel.get("pdfPreference"),
+          postal_address: req.sessionModel.get("postalAddress"),
         };
 
         await checkDetailsController.saveValues(req, res, next);
