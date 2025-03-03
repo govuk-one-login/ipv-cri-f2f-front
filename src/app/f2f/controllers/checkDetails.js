@@ -261,6 +261,8 @@ class CheckDetailsController extends DateController {
               addressLocality: postal_address.dependent_locality,
               doubleLocality: postal_address.double_dependent_locality,
               postalCode: postal_address.postcode,
+              // Hard coded as only UK addresses have a postcode required for this functionality
+              addressCountry: "GB",
               preferredAddress: true,
             }
           : undefined,
