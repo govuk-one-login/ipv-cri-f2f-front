@@ -26,7 +26,7 @@ const {
 } = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next");
 
 const {
-  frontendVitalSignsInitFromApp
+  frontendVitalSignsInitFromApp,
 } = require("@govuk-one-login/frontend-vital-signs");
 
 const {
@@ -103,7 +103,7 @@ const { app, router } = setup({
         "avgResponseTime",
         "maxConcurrentConnections",
         "eventLoopDelay",
-        "eventLoopUtilization"
+        "eventLoopUtilization",
       ],
       staticPaths: [
         /^\/assets\/.*/,
@@ -111,8 +111,8 @@ const { app, router } = setup({
         "/javascript",
         "/javascripts",
         "/images",
-        "/stylesheets"
-      ]
+        "/stylesheets",
+      ],
     });
     app.use(setHeaders);
   },
@@ -165,7 +165,7 @@ setGTM({
   ga4FormChangeEnabled: APP.GTM.GA4_FORM_CHANGE_ENABLED,
   ga4NavigationEnabled: APP.GTM.GA4_NAVIGATION_ENABLED,
   ga4SelectContentEnabled: APP.GTM.GA4_SELECT_CONTENT_ENABLED,
-  analyticsDataSensitive: APP.GTM.ANALYTICS_DATA_SENSITIVE
+  analyticsDataSensitive: APP.GTM.ANALYTICS_DATA_SENSITIVE,
 });
 
 // Common express relies on 0/1 strings
