@@ -249,31 +249,60 @@ class CheckDetailsController extends DateController {
           fad_code: req.sessionModel.get("postOfficeFadCode"),
         },
         pdf_preference: req.sessionModel.get("pdfPreference"),
-        postal_address: postal_address
-          ? {
-              uprn: postal_address.uprn,
-              departmentName: postal_address.department_name,
-              organisationName: postal_address.organisation_name,
-              subBuildingName: postal_address.sub_building_name,
-              buildingName: postal_address.building_name,
-              buildingNumber: postal_address.building_number,
-              streetName: postal_address.thoroughfare_name,
-              addressLocality: postal_address.post_town,
-              dependentAddressLocality: postal_address.dependent_locality,
-              doubleDependentAddressLocality: postal_address.doubleDependentAddressLocality,
-              postalCode: postal_address.postcode,
-              // Hard coded as only UK addresses have a postcode required for this functionality
-              addressCountry: "GB",
-              preferredAddress: true,
-            }
-          : undefined,
       };
+      const mappedAddress = await this.mapPostalAddressFromOS(postal_address);
+      if (mappedAddress) {
+        f2fData.postal_address = mappedAddress;
+      }
       await this.saveF2fData(req.axios, f2fData, req, res);
       callback();
     } catch (error) {
       callback(error);
     }
   }
+
+  async mapPostalAddressFromOS(postal_address) {
+    if (!postal_address) {
+      return undefined;
+    } else {
+      let mappedAddress = {};
+      if (postal_address.uprn) {
+        mappedAddress.uprn = postal_address.uprn;
+      }
+      if (postal_address.department_name) {
+        mappedAddress.departmentName = postal_address.department_name;
+      }
+      if (postal_address.organisation_name) {
+        mappedAddress.organisationName = postal_address.organisation_name;
+      }
+      if (postal_address.sub_building_name) {
+        mappedAddress.subBuildingName = postal_address.sub_building_name;
+      }
+      if (postal_address.building_name) {
+        mappedAddress.buildingName = postal_address.building_name;
+      }
+      if (postal_address.building_number) {
+        mappedAddress.buildingNumber = postal_address.building_number;
+      }
+      if (postal_address.thoroughfare_name) {
+        mappedAddress.streetName = postal_address.thoroughfare_name;
+      }
+      if (postal_address.dependent_locality) {
+        mappedAddress.addressLocality = postal_address.dependent_locality;
+      }
+      if (postal_address.double_dependent_locality) {
+        mappedAddress.doubleLocality = postal_address.double_dependent_locality;
+      }
+      if (postal_address.postcode) {
+        mappedAddress.postalCode = postal_address.postcode;
+      }
+      // Hard coded as only UK addresses have a postcode required for this functionality
+      mappedAddress.addressCountry = "GB";
+      mappedAddress.preferredAddress = true;
+      return mappedAddress;
+    }
+  }
+
   async saveF2fData(axios, f2fData, req, res) {
     const tokenId = req.session.tokenId;
 
@@ -294,5 +323,7 @@ class CheckDetailsController extends DateController {
       res.redirect("/error");
     }
   }
+  
 }
+
 module.exports = CheckDetailsController;
