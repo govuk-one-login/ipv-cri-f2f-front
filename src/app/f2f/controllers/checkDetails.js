@@ -267,7 +267,7 @@ class CheckDetailsController extends DateController {
     } else {
       let mappedAddress = {};
       if (postal_address.uprn) {
-        mappedAddress.uprn = postal_address.uprn;
+        mappedAddress.uprn = Number(postal_address.uprn);
       }
       if (postal_address.department_name) {
         mappedAddress.departmentName = postal_address.department_name;
@@ -287,11 +287,14 @@ class CheckDetailsController extends DateController {
       if (postal_address.thoroughfare_name) {
         mappedAddress.streetName = postal_address.thoroughfare_name;
       }
-      if (postal_address.dependent_locality) {
-        mappedAddress.addressLocality = postal_address.dependent_locality;
+      if (postal_address.post_town) {
+        mappedAddress.addressLocality = postal_address.post_town;
       }
-      if (postal_address.double_dependent_locality) {
-        mappedAddress.doubleLocality = postal_address.double_dependent_locality;
+      if (postal_address.dependent_locality) {
+        mappedAddress.dependentAddressLocality = postal_address.dependent_locality;
+      }
+      if (postal_address.dependent_locality) {
+        mappedAddress.doubleDependentAddressLocality = postal_address.double_dependent_locality;
       }
       if (postal_address.postcode) {
         mappedAddress.postalCode = postal_address.postcode;
