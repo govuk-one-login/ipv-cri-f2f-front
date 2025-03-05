@@ -258,8 +258,9 @@ class CheckDetailsController extends DateController {
               buildingName: postal_address.building_name,
               buildingNumber: postal_address.building_number,
               streetName: postal_address.thoroughfare_name,
-              addressLocality: postal_address.dependent_locality,
-              doubleLocality: postal_address.double_dependent_locality,
+              addressLocality: postal_address.post_town,
+              dependentAddressLocality: postal_address.dependent_locality,
+              doubleDependentAddressLocality: postal_address.doubleDependentAddressLocality,
               postalCode: postal_address.postcode,
               // Hard coded as only UK addresses have a postcode required for this functionality
               addressCountry: "GB",
