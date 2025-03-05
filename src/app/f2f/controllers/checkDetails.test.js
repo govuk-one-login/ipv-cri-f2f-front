@@ -61,13 +61,18 @@ describe("CheckDetails controller", () => {
       };
 
       const testAddress = {
-        department_name: "test_department_name",
+        uprn: "1234",
         organisation_name: "test_organisation_name",
+        department_name: "test_department_name",
         sub_building_name: "test_sub_building_name",
-        building_name: "test_building_name",
-        addressLocality: "test_dependent_locality",
         building_number: "34",
-        street_name: "MOCK ROAD",
+        building_name: "test_building_name",
+        po_box_number: "35",
+        dependent_thoroughfare_name: "test_dependent_thoroughfare_name",
+        thoroughfare_name: "test_thoroughfare_name",
+        double_dependent_locality: "test_double_dependent_locality",
+        dependent_locality: "test_dependent_locality",
+        post_town: "test_post_town",
         postcode: "FS6 5AQ",
       };
 

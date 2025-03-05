@@ -252,14 +252,17 @@ class CheckDetailsController extends DateController {
         postal_address: postal_address
           ? {
               uprn: postal_address.uprn,
-              departmentName: postal_address.department_name,
               organisationName: postal_address.organisation_name,
+              departmentName: postal_address.department_name,
               subBuildingName: postal_address.sub_building_name,
-              buildingName: postal_address.building_name,
               buildingNumber: postal_address.building_number,
+              buildingName: postal_address.building_name,
+              poBoxNumber: postal_address.po_box_number,
+              dependentStreetName: postal_address.dependent_thoroughfare_name,
               streetName: postal_address.thoroughfare_name,
-              addressLocality: postal_address.dependent_locality,
-              doubleLocality: postal_address.double_dependent_locality,
+              doubleDependentAddressLocality: postal_address.double_dependent_locality,
+              dependentAddressLocality: postal_address.dependent_locality,
+              addressLocality: postal_address.post_town,
               postalCode: postal_address.postcode,
               // Hard coded as only UK addresses have a postcode required for this functionality
               addressCountry: "GB",
