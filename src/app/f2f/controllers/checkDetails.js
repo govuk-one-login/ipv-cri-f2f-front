@@ -293,7 +293,7 @@ class CheckDetailsController extends DateController {
       if (postal_address.dependent_locality) {
         mappedAddress.dependentAddressLocality = postal_address.dependent_locality;
       }
-      if (postal_address.dependent_locality) {
+      if (postal_address.double_dependent_locality) {
         mappedAddress.doubleDependentAddressLocality = postal_address.double_dependent_locality;
       }
       if (postal_address.postcode) {
