@@ -35,11 +35,11 @@ Then("they should be redirected to the Landing Page", async function () {
 });
 
 Then(
-  "the user should see they have 10 days to visit the Post Office",
+  "the user should see they have 15 days to visit the Post Office",
   async function () {
     const landingPage = new LandingPage(await this.page);
 
-    expect(await landingPage.getPostOfficeNumberOfDays()).to.contain("10 days");
+    expect(await landingPage.getPostOfficeNumberOfDays()).to.contain("15 days");
   }
 );
 
