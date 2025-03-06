@@ -5,7 +5,7 @@ Feature: Change Postcode - Unhappy Path
         Given A UK Drivers Licence User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
-        And the user should see they have 10 days to visit the Post Office
+        And the user should see they have 15 days to visit the Post Office
 
         Given the user wants to progress to the next step of the journey
         When the user clicks the continue button on the Landing Page

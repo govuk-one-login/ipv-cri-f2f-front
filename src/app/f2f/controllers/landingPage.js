@@ -15,7 +15,7 @@ class LandingPageController extends BaseController {
       }
       if (configData) {
         // Save the printed customer letter enabled flag
-        const pclFeatureSet = req.session.featureSet === "pcl";
+        const pclFeatureSet = true;
         const pclEnabledInConfig = configData.pcl_enabled === "true";
 
         const pclEnabled = pclEnabledInConfig && pclFeatureSet;
