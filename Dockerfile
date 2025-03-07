@@ -39,6 +39,6 @@ HEALTHCHECK --interval=5s --timeout=2s --retries=10 \
 
 EXPOSE $PORT
 
-ENTRYPOINT ["tini", "--"]
+ENTRYPOINT ["sh", "-c", "export DT_HOST_ID=CORE-FRONT-$RANDOM && tini npm start"]
 
 CMD ["yarn", "start"]
