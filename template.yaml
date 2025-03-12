@@ -407,7 +407,11 @@ Resources:
           - ECS
       DesiredCount: !Ref MinContainerCount
       EnableECSManagedTags: false
-      HealthCheckGracePeriodSeconds: 60
+      HealthCheckGracePeriodSeconds: !If
+        - UseCanaryDeployment
+        - !Ref AWS::NoValue
+        - 60
+      # HealthCheckGracePeriodSeconds: 60
       LaunchType: FARGATE
       LoadBalancers: !If
         - UseCanaryDeployment
@@ -568,7 +572,7 @@ Resources:
         - MetricValue: $.maxConcurrentConnections
           MetricName: MaxConcurrentConnections
           MetricNamespace: !Sub ${AWS::StackName}/LogMessages
-          Unit: Count            
+          Unit: Count
 
   # Fargate tasks
 
