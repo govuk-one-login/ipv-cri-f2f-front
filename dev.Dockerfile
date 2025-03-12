@@ -16,7 +16,7 @@ RUN yarn install --production --frozen-lockfile
 FROM --platform=linux/arm64 node:20.18.1-alpine3.19@sha256:1cc9088b0fbcb2009a8fc2cb57916cd129cd5e32b3c75fb12bb24bac76917a96 AS final
 
 RUN ["apk", "--no-cache", "upgrade"]
-RUN ["apk", "add", "--no-cache", "tini"]
+RUN ["apk", "add", "--no-cache", "tini", "curl"]
 
 WORKDIR /app
 
@@ -34,8 +34,12 @@ COPY --from=builder /app/src ./src
 
 
 ENV PORT 8080
+
+HEALTHCHECK --interval=5s --timeout=2s --retries=10 \
+  CMD curl -f http://localhost:8080/healthcheck || exit 1
+
 EXPOSE $PORT
 
-ENTRYPOINT ["tini", "--"]
+ENTRYPOINT ["sh", "-c", "export DT_HOST_ID=F2F-FRONT-$RANDOM && tini npm start"]
 
 CMD ["yarn", "start"]
