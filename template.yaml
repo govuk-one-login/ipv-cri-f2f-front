@@ -1054,11 +1054,9 @@ Resources:
       AlarmDescription: !Sub "Trigger the warning alarm for Frontend 5XX Error ${SupportManualURL}"
       ActionsEnabled: true
       OKActions:
-        - !ImportValue platform-alarm-pagerduty-alert-topic
-        - !ImportValue platform-alarm-topic-critical-alert
+        - !ImportValue platform-alarm-topic-slack-warning-alert
       AlarmActions:
-        - !ImportValue platform-alarm-pagerduty-alert-topic
-        - !ImportValue platform-alarm-topic-critical-alert
+        - !ImportValue platform-alarm-topic-slack-warning-alert
       InsufficientDataActions: []
       Dimensions: []
       EvaluationPeriods: 5
