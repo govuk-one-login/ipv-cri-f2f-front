@@ -30,6 +30,7 @@ const {
 } = require("@govuk-one-login/frontend-vital-signs");
 
 const {
+  PACKAGE_NAME,
   API,
   APP,
   PORT,
@@ -194,7 +195,7 @@ router.use(wizard(steps, fields, wizardOptions));
 
 router.use((err, req, res, next) => {
   logger
-    .get()
+    .get(PACKAGE_NAME)
     .error(
       "Error caught by Express handler - redirecting to Callback with server_error",
       { err }
