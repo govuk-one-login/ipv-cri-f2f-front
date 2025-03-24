@@ -16,7 +16,8 @@
         id: "postcode"
     })}}
 
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/choose-post-office-prove-identity"}
+}) }}
 
     {% endcall %}
 {% endblock %}

@@ -26,7 +26,8 @@
 
   <p><a href="/choose-photo-id-post-office">{{ translate("nonUkPassportCountrySelector.link") }}</a></p>
 
-     {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
+     {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/find-post-office-prove-identity"}
+    }) }}
 
     {% endcall %}
 

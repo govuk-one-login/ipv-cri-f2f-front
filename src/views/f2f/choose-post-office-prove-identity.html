@@ -32,7 +32,8 @@
     %}
 
         {{ hmpoRadios(ctx, fullBranch, {id: "branches"}) }}
-        {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
+        {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/post-office-customer-letter"}
+    }) }}
     {% endcall %}
 
 
