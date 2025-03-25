@@ -1259,7 +1259,7 @@ Resources:
       Dimensions: []
       EvaluationPeriods: 1
       DatapointsToAlarm: 1
-      Threshold: 1
+      Threshold: 0
       ComparisonOperator: LessThanOrEqualToThreshold
       TreatMissingData: breaching
       Metrics:
@@ -1293,7 +1293,7 @@ Resources:
       Dimensions: []
       EvaluationPeriods: 5
       DatapointsToAlarm: 5
-      Threshold: [EnvironmentVariables, !Ref Environment, maxECSCount]
+      Threshold: 12
       ComparisonOperator: GreaterThanOrEqualToThreshold
       TreatMissingData: notBreaching
       Metrics:
