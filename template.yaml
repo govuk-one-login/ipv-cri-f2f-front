@@ -55,7 +55,7 @@ Parameters:
   DeployAlarmsInDev:
     Description: "Set to the string value `true` to deploy alarms in a DEV environment"
     Type: String
-    Default: false
+    Default: true
   DeploymentStrategy:
     Description: "Predefined deployment configuration for ECS application"
     Type: String
@@ -1102,7 +1102,7 @@ Resources:
 
   FE5XXErrorCriticalAlarm:
     Type: AWS::CloudWatch::Alarm
-    Condition: IsNotDevelopment
+    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FE5XXErrorCriticalAlarm"
       AlarmDescription: >
