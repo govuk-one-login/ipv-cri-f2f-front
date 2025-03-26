@@ -55,7 +55,7 @@ Parameters:
   DeployAlarmsInDev:
     Description: "Set to the string value `true` to deploy alarms in a DEV environment"
     Type: String
-    Default: true
+    Default: false
   DeploymentStrategy:
     Description: "Predefined deployment configuration for ECS application"
     Type: String
@@ -1102,7 +1102,6 @@ Resources:
 
   FE5XXErrorCriticalAlarm:
     Type: AWS::CloudWatch::Alarm
-    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FE5XXErrorCriticalAlarm"
       AlarmDescription: >
@@ -1605,3 +1604,6 @@ Outputs:
     Description: "Backend Custom Domain for use by Test Harness"
     Value:
       Fn::ImportValue: "f2f-cri-api-F2FBackendURL"
+  DeployAlarmsCheck:
+    Description: "???"
+    Value: !If [DeployAlarms, "TRUE", "FALSE"]
