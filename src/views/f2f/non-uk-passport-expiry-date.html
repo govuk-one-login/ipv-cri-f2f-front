@@ -25,7 +25,8 @@
                 }
             }) }}
 
-    {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
+    {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
+}) }}
   
     {% endcall %}
 

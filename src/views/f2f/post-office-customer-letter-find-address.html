@@ -18,7 +18,8 @@
         id: "letterPostcode"
     })}}
 
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/post-office-customer-letter-choose-address"}
+}) }}
 
 
     {% endcall %}
