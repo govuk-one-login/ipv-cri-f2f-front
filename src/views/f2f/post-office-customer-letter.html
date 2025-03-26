@@ -30,7 +30,8 @@
             }
         })}}
 
-        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.continue")}) }}
+        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.continue"), attributes: {"data-nav": true,"data-link": "/undefined"}
+    }) }}
     {% endcall %}
 
 {% endblock %}
