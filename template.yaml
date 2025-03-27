@@ -1109,10 +1109,10 @@ Resources:
         and a minimum of 2 errors in 5 out of the last 5 minutes
       ActionsEnabled: true
       OKActions:
-        - !ImportValue platform-alarm-pagerduty-alert-topic
+        # - !ImportValue platform-alarm-pagerduty-alert-topic
         - !ImportValue platform-alarm-topic-critical-alert
       AlarmActions:
-        - !ImportValue platform-alarm-pagerduty-alert-topic
+        # - !ImportValue platform-alarm-pagerduty-alert-topic
         - !ImportValue platform-alarm-topic-critical-alert
       EvaluationPeriods: 5
       DatapointsToAlarm: 2
@@ -1604,6 +1604,3 @@ Outputs:
     Description: "Backend Custom Domain for use by Test Harness"
     Value:
       Fn::ImportValue: "f2f-cri-api-F2FBackendURL"
-  DeployAlarmsCheck:
-    Description: "???"
-    Value: !If [DeployAlarms, "TRUE", "FALSE"]
