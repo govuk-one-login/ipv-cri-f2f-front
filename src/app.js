@@ -15,6 +15,7 @@ const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
 const setAxiosDefaults = commonExpress.lib.axios;
 const { setGTM, setLanguageToggle } = commonExpress.lib.settings;
 const { getGTM, getLanguageToggle } = commonExpress.lib.locals;
+const overloadProtectionConfigService = require("./lib/overload-protection-config.js");
 
 const addLanguageParam = require("@govuk-one-login/frontend-language-toggle/build/cjs/language-param-setter.cjs");
 
@@ -67,6 +68,8 @@ const sessionConfig = {
   ...(SESSION_TABLE_NAME && { sessionStore: dynamoDBSessionStore }),
 };
 
+const overloadProtectionConfig = overloadProtectionConfigService.init();
+
 const helmetConfig = require("./lib/helmet.js");
 
 const { app, router } = setup({
@@ -117,6 +120,7 @@ const { app, router } = setup({
     });
     app.use(setHeaders);
   },
+  overloadProtection: overloadProtectionConfig,
   dev: true,
 });
 
