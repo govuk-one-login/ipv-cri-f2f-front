@@ -407,7 +407,6 @@ Resources:
           - UseCanaryDeployment
           - CODE_DEPLOY
           - ECS
-      DesiredCount: !FindInMap [EnvironmentVariables, !Ref Environment, minECSCount]
       EnableECSManagedTags: false
       HealthCheckGracePeriodSeconds: 60
       LaunchType: FARGATE
@@ -570,7 +569,7 @@ Resources:
         - MetricValue: $.maxConcurrentConnections
           MetricName: MaxConcurrentConnections
           MetricNamespace: !Sub ${AWS::StackName}/LogMessages
-          Unit: Count            
+          Unit: Count
 
   # Fargate tasks
 
@@ -895,6 +894,7 @@ Resources:
   # Scaling down will occur after 15 minutes of 90% utilization of the configured CPU utilization.
 
   ECSAutoScalingTarget:
+    Condition: EnableScaling
     Type: AWS::ApplicationAutoScaling::ScalableTarget
     Properties:
       MinCapacity:
@@ -911,6 +911,7 @@ Resources:
       ServiceNamespace: ecs
 
   EcsStepScaleOutPolicy:
+    Condition: EnableScaling
     DependsOn: ECSAutoScalingTarget
     Type: AWS::ApplicationAutoScaling::ScalingPolicy
     Properties:
@@ -952,6 +953,7 @@ Resources:
             # on Fargate, so leave the upper bound open
 
   EcsStepScaleInPolicy:
+    Condition: EnableScaling
     DependsOn: ECSAutoScalingTarget
     Type: AWS::ApplicationAutoScaling::ScalingPolicy
     Properties:
@@ -983,6 +985,7 @@ Resources:
             # with <20% utilisation
 
   EcsStepScaleOutAlarm:
+    Condition: EnableScaling
     DependsOn: ECSAutoScalingTarget
     Type: AWS::CloudWatch::Alarm
     Properties:
@@ -1006,6 +1009,7 @@ Resources:
       Threshold: "60"
 
   EcsStepScaleInAlarm:
+    Condition: EnableScaling
     DependsOn: ECSAutoScalingTarget
     Type: AWS::CloudWatch::Alarm
     Properties:
