@@ -147,6 +147,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       minECSCount: 1
       maxECSCount: 4
+      DEVICEINTELLIGENCEENABLED: true
     build:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
       DNSSUFFIX: "review-o.build.account.gov.uk"
@@ -161,6 +162,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       minECSCount: 6
       maxECSCount: 60
+      DEVICEINTELLIGENCEENABLED: true
     staging:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
@@ -175,6 +177,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       minECSCount: 2
       maxECSCount: 4
+      DEVICEINTELLIGENCEENABLED: true
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
@@ -189,6 +192,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       minECSCount: 2
       maxECSCount: 4
+      DEVICEINTELLIGENCEENABLED: false
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
@@ -203,6 +207,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       minECSCount: 6
       maxECSCount: 60
+      DEVICEINTELLIGENCEENABLED: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -593,7 +598,7 @@ Resources:
               Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDGA4 ]
             - Name: GA4_ENABLED
               Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GA4ENABLED ]
-            - Name: ANALYTICS_DOMAIN
+            - Name: FRONTEND_DOMAIN
               Value:
                 !If [
                   IsProduction,
@@ -606,6 +611,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
             - Name: LANGUAGE_TOGGLE_DISABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LANGUAGETOGGLEDISABLED ]
+            - Name: DEVICE_INTELLIGENCE_ENABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, DEVICEINTELLIGENCEENABLED ]
 
           Secrets:
             - Name: DT_TENANT

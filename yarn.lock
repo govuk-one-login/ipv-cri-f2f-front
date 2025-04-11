@@ -937,10 +937,10 @@
     "@eslint/core" "^0.10.0"
     levn "^0.4.1"
 
-"@govuk-one-login/di-ipv-cri-common-express@10.3.0":
-  version "10.3.0"
-  resolved "https://registry.npmjs.org/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-10.3.0.tgz"
-  integrity sha512-sxZKnKo8pyuga3a+v1FkPkNh0kqFXWEG2hsy2unWNH97g8Og+pkzLJILQU/pVw5EI640OjbunejiBi/FNNcdNw==
+"@govuk-one-login/di-ipv-cri-common-express@10.7.0":
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-10.7.0.tgz#e6b79ba90611f18dc400ffbe9e56b44c46683767"
+  integrity sha512-BjkXKhI0+z2/Vww1t90j1n6xasHzXq4dwHswrq3ltLOU1g27PnVZe8ladgQ0cXWUKlwL3F0vY8ClC+0SGU+HnA==
   dependencies:
     async "^3.2.6"
     compression "^1.7.5"
@@ -956,6 +956,7 @@
     lodash.differencewith "4.5.0"
     lodash.frompairs "4.0.1"
     nocache "^3.0.4"
+    overload-protection "1.2.3"
     redis "^4.7.0"
 
 "@govuk-one-login/frontend-analytics@3.1.0":
@@ -965,6 +966,11 @@
   dependencies:
     copy-webpack-plugin "^12.0.2"
     loglevel "^1.9.1"
+
+"@govuk-one-login/frontend-device-intelligence@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-device-intelligence/-/frontend-device-intelligence-1.1.0.tgz#46986297b4bc18331a520a7ca7750ec2696ff081"
+  integrity sha512-d17WVKllVZeHTVU40n95bvVIXXeNdNI6shn8xg15xDtwqV6VZ+SEr6l5pvoWxjiPHbbfbpZ8IjUldjhvwm2ASw==
 
 "@govuk-one-login/frontend-language-toggle@^1.1.0":
   version "1.1.0"
@@ -5440,6 +5446,13 @@ lolex@^5.0.1:
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+loopbench@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/loopbench/-/loopbench-1.2.0.tgz#7601b73f57097c73f426a05ebf781ab7ea4917ff"
+  integrity sha512-ft2PmuZnDw+DJQfT5mpEWudEBRzlpImh7mU7OcPGmefsKlW8Ck0U6nrCCdcwYF+z9zc0SVBzGZA1F1gUfHZuJw==
+  dependencies:
+    xtend "^4.0.1"
+
 loupe@^2.3.1:
   version "2.3.7"
   resolved "https://registry.npmjs.org/loupe/-/loupe-2.3.7.tgz"
@@ -5998,6 +6011,13 @@ optionator@^0.9.3:
     prelude-ls "^1.2.1"
     type-check "^0.4.0"
     word-wrap "^1.2.5"
+
+overload-protection@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/overload-protection/-/overload-protection-1.2.3.tgz#a0e75845a1ccbc9ec9c6039936454ba35500b1ad"
+  integrity sha512-b7XZbmhujnqNoK0Z6NPzA/nhfQnE08ZTHSzzjTMwegb5N9oBAAApx3f9u2R/f3VGaACTQj6QJnGUfX1oFttqfg==
+  dependencies:
+    loopbench "^1.2.0"
 
 p-cancelable@^2.0.0:
   version "2.1.1"
@@ -7825,9 +7845,9 @@ xmlbuilder@~11.0.0:
   resolved "https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-11.0.1.tgz"
   integrity sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==
 
-xtend@~4.0.1:
+xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.2"
-  resolved "https://registry.npmjs.org/xtend/-/xtend-4.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
 y18n@^4.0.0:
