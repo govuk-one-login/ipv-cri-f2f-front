@@ -9,6 +9,9 @@ const {
 
 const { expect } = require("chai");
 
+const { injectAxe } = require("axe-playwright");
+
+
 Given(
   /^([^"]*) is using the system$/,
   { timeout: 2 * 5000 },
@@ -33,6 +36,20 @@ Then("they should be redirected to the Landing Page", async function () {
 
   expect(await landingPage.isCurrentPage()).to.be.true;
 });
+
+Then(
+  "the page should conform to WCAG 2.2 AA guidelines",
+  async function () {
+    await injectAxe(this.page);
+    // Run Axe for WCAG 2.2 AA rules
+    const wcagResults = await this.page.evaluate(() => {
+      return axe.run({
+        runOnly: ["wcag2aa"]
+      });
+    });
+    expect(wcagResults.violations, "WCAG 2.2 AAA violations found").to.be.empty;
+  },
+);
 
 Then(
   "the user should see they have 15 days to visit the Post Office",
