@@ -2278,6 +2278,29 @@ aws4@^1.12.0:
   resolved "https://registry.npmjs.org/aws4/-/aws4-1.12.0.tgz"
   integrity sha512-NmWvPnx0F1SfrQbYwOi7OeaNGokp9XhzNioJ/CSBs8Qa4vxug81mhJEAVZwxXuBmYB5KDRfMq/F3RR0BIU7sWg==
 
+axe-core@^4.10.1:
+  version "4.10.3"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.10.3.tgz#04145965ac7894faddbac30861e5d8f11bfd14fc"
+  integrity sha512-Xm7bpRXnDSX2YE2YFfBk2FnF0ep6tmG7xPh8iHee8MIcrgq762Nkce856dYtJYLkuIoYZvGfTs/PbZhideTcEg==
+
+axe-html-reporter@2.2.11:
+  version "2.2.11"
+  resolved "https://registry.yarnpkg.com/axe-html-reporter/-/axe-html-reporter-2.2.11.tgz#749a4d5836f6aebb6780049933c2f6030e06c7d0"
+  integrity sha512-WlF+xlNVgNVWiM6IdVrsh+N0Cw7qupe5HT9N6Uyi+aN7f6SSi92RDomiP1noW8OWIV85V6x404m5oKMeqRV3tQ==
+  dependencies:
+    mustache "^4.0.1"
+
+axe-playwright@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/axe-playwright/-/axe-playwright-2.1.0.tgz#1391d65acc72c79ca9268d15ccecce095df376bb"
+  integrity sha512-tY48SX56XaAp16oHPyD4DXpybz8Jxdz9P7exTjF/4AV70EGUavk+1fUPWirM0OYBR+YyDx6hUeDvuHVA6fB9YA==
+  dependencies:
+    "@types/junit-report-builder" "^3.0.2"
+    axe-core "^4.10.1"
+    axe-html-reporter "2.2.11"
+    junit-report-builder "^5.1.1"
+    picocolors "^1.1.1"
+
 axios@1.7.0:
   version "1.7.0"
   resolved "https://registry.npmjs.org/axios/-/axios-1.7.0.tgz"
@@ -5515,9 +5538,9 @@ luxon@^3.4.4:
   resolved "https://registry.npmjs.org/luxon/-/luxon-3.5.0.tgz"
   integrity sha512-rh+Zjr6DNfUYR3bPwJEnuwDdqMbxZW7LOQfUN4B54+Cl+0o5zaU9RJ6bcidfDtC1cWCZXQ+nvX8bf6bAji37QQ==
 
-make-dir@^3.0.0, make-dir@^3.0.2:
+make-dir@^3.0.0, make-dir@^3.0.2, make-dir@^3.1.0:
   version "3.1.0"
-  resolved "https://registry.npmjs.org/make-dir/-/make-dir-3.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-3.1.0.tgz#415e967046b3a7f1d185277d84aa58203726a13f"
   integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
   dependencies:
     semver "^6.0.0"
