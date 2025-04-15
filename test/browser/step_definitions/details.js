@@ -11,6 +11,9 @@ const { expect } = require("chai");
 
 const { injectAxe } = require("axe-playwright");
 
+const axe = require('axe-core');
+
+
 
 Given(
   /^([^"]*) is using the system$/,
