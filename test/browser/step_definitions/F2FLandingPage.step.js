@@ -31,7 +31,7 @@ Then(
   }
 );
 
-Then(
+When(
   /^the user selects I do not have any of these documents$/,
   async function () {
     const photoIdPage = new PhotoIdSelectionPage(await this.page);
