@@ -209,6 +209,12 @@ Mappings:
       maxECSCount: 60
       DEVICEINTELLIGENCEENABLED: false
 
+Metadata:
+  cfn-lint:
+    config:
+      ignore_checks:
+        - W6001 # Output value is an import from another output - this is required for the test harness
+
 Resources:
   # Security Groups for the ECS service and load balancer
   LoadBalancerSG:
@@ -416,7 +422,10 @@ Resources:
           - CODE_DEPLOY
           - ECS
       EnableECSManagedTags: false
-      HealthCheckGracePeriodSeconds: 60
+      HealthCheckGracePeriodSeconds: !If
+        - UseCanaryDeployment
+        - !Ref AWS::NoValue
+        - 60
       LaunchType: FARGATE
       LoadBalancers: !If
         - UseCanaryDeployment
@@ -1173,7 +1182,6 @@ Resources:
         - !ImportValue platform-alarm-topic-slack-warning-alert
       # Invocation count to be reviewed
       InsufficientDataActions: []
-      Dimensions: []
       EvaluationPeriods: 5
       DatapointsToAlarm: 5
       Threshold: 1
@@ -1275,7 +1283,6 @@ Resources:
       AlarmActions:
         - !ImportValue platform-alarm-topic-slack-warning-alert
       InsufficientDataActions: [ ]
-      Dimensions: [ ]
       EvaluationPeriods: 5
       DatapointsToAlarm: 2
       Threshold: 5
@@ -1325,7 +1332,6 @@ Resources:
       AlarmActions:
         - !ImportValue platform-alarm-topic-slack-warning-alert
       InsufficientDataActions: [ ]
-      Dimensions: [ ]
       EvaluationPeriods: 5
       DatapointsToAlarm: 2
       Threshold: 1000
@@ -1371,7 +1377,6 @@ Resources:
       AlarmActions:
         - !ImportValue platform-alarm-topic-slack-warning-alert
       InsufficientDataActions: [ ]
-      Dimensions: [ ]
       EvaluationPeriods: 5
       DatapointsToAlarm: 2
       Threshold: 2500
@@ -1406,8 +1411,6 @@ Resources:
             Stat: p99
 
   FELowContainerTaskCountAlarm:
-    DependsOn:
-      - F2FFrontEcsCluster
     Type: AWS::CloudWatch::Alarm
     Condition: "DeployAlarms"
     Properties:
@@ -1417,7 +1420,6 @@ Resources:
       AlarmActions:
         - !ImportValue platform-alarm-topic-critical-alert
       InsufficientDataActions: []
-      Dimensions: []
       EvaluationPeriods: 1
       DatapointsToAlarm: 1
       Threshold: 0
@@ -1437,9 +1439,6 @@ Resources:
             Stat: Minimum
 
   FEHighContainerTaskCountWarning:
-    DependsOn:
-      - F2FFrontEcsService
-      - F2FFrontEcsCluster
     Type: AWS::CloudWatch::Alarm
     Condition: "DeployAlarms"
     Properties:
@@ -1451,7 +1450,6 @@ Resources:
       AlarmActions:
         - !ImportValue platform-alarm-topic-slack-warning-alert
       InsufficientDataActions: []
-      Dimensions: []
       EvaluationPeriods: 5
       DatapointsToAlarm: 5
       Threshold: 12
@@ -1473,8 +1471,6 @@ Resources:
             Stat: Minimum
 
   FELowContainerTaskCountCriticalAlarm:
-    DependsOn:
-      - F2FFrontEcsCluster
     Type: AWS::CloudWatch::Alarm
     Condition: "DeployAlarms"
     Properties:
@@ -1484,7 +1480,6 @@ Resources:
       AlarmActions:
         - !ImportValue platform-alarm-topic-critical-alert
       InsufficientDataActions: []
-      Dimensions: []
       EvaluationPeriods: 1
       DatapointsToAlarm: 1
       Threshold: 0
