@@ -45,6 +45,16 @@ jobs:
           LANGUAGE_TOGGLE_DISABLED: false
           PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
           F2F_FE_BASE_URL: http:/localhost:5030
+          DEVICE_INTELLIGENCE_ENABLED: true
+      - name: Run negative path cookie tests
+        run: npm run test:browser:no_di:ci
+        env: 
+          IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
+          CUSTOM_FE_URL: http:/localhost:5030
+          LANGUAGE_TOGGLE_DISABLED: false
+          PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
+          F2F_FE_BASE_URL: http:/localhost:5030
+          DEVICE_INTELLIGENCE_ENABLED: false
       - name: Archive browser tests results
         uses: actions/upload-artifact@v4
         with:
