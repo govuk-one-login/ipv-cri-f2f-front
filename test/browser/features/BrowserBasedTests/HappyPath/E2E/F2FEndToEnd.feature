@@ -2,7 +2,7 @@
 
 Feature: F2F Journey - E2E
 
-    Scenario: F2F Journey - E2E Happy Path and DB Validation - UK Drivers Licence
+    Scenario: F2F Journey - E2E Happy Path (Email + Posted Letter Original Address) and DB Validation - UK Drivers Licence
         Given A UK Drivers Licence User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
@@ -47,7 +47,7 @@ Feature: F2F Journey - E2E
         And the "F2F_YOTI_RESPONSE_RECEIVED" event matches the "F2F_YOTI_RESPONSE_RECEIVED_SCHEMA" Schema
         And the "F2F_CRI_VC_ISSUED" event matches the "F2F_CRI_VC_ISSUED_SCHEMA_UK_DL" Schema
 
-    Scenario: F2F Journey - E2E Happy Path and DB Validation UK Passport
+    Scenario: F2F Journey - E2E Happy Path (Email + Posted Letter Different Address) and DB Validation UK Passport
         Given A UK Passport User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page

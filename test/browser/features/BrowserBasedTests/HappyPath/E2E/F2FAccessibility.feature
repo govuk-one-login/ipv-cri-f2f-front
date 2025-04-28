@@ -2,7 +2,7 @@
 
 Feature: F2F Journey - Accessibility
 
-    Scenario: F2F Journey - Accessibility Validation - UK Drivers Licence
+    Scenario: F2F Journey (Email + Posted Letter Original Address) - Accessibility Validation - UK Drivers Licence
         Given A UK Drivers Licence User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
@@ -42,7 +42,7 @@ Feature: F2F Journey - Accessibility
         Then the user is navigated to the next step in the journey - Confirm Answer
         Then the page should conform to WCAG 2.2 AA guidelines
 
-    Scenario: F2F Journey - Accessibility Validation UK Passport
+    Scenario: F2F Journey (Email + Posted Letter Different Address) - Accessibility Validation UK Passport
         Given A UK Passport User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
