@@ -11,7 +11,7 @@ remove_quotes () {
 # Github actions set to true for tests to run in headless mode
 export GITHUB_ACTIONS=true
 # shellcheck disable=SC2154
-export IPV_STUB_URL=$(remove_quotes $CFN_F2FIPVStubExecuteURL)start
+export IPV_STUB_URL=$(remove_quotes $CFN_F2FIPVStubExecuteURL)
 export F2F_FE_BASE_URL=https://$(remove_quotes $CFN_F2FCustomDomain)
 export TEST_HARNESS_URL=$(remove_quotes $CFN_F2FTestHarnessURL)
 export SESSION_TABLE=$(remove_quotes $CFN_BackendSessionTableName)
