@@ -177,7 +177,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       minECSCount: 2
       maxECSCount: 4
-      DEVICEINTELLIGENCEENABLED: true
+      DEVICEINTELLIGENCEENABLED: false
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
