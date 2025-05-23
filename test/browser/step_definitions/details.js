@@ -38,6 +38,7 @@ Then("they should be redirected to the Landing Page", async function () {
   const landingPage = new LandingPage(await this.page);
 
   expect(await landingPage.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 });
 
 Then(
