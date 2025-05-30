@@ -2,7 +2,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
-const { LandingPage, PhotoIdSelectionPage, CheckDetails } = require("../pages");
+const { LandingPage, PhotoIdSelectionPage, CheckDetails, ThinFilePage } = require("../pages");
 
 Given(
   /^the user wants to progress to the next step of the journey$/,
@@ -28,6 +28,15 @@ Then(
     const photoIdPage = new PhotoIdSelectionPage(await this.page);
 
     expect(await photoIdPage.isCurrentPage()).to.be.true;
+  }
+);
+
+Then(
+  /^the user is routed to the next screen in the journey Thin File Page$/,
+  async function () {
+    const thinFilePage = new ThinFilePage(await this.page);
+
+    expect(await thinFilePage.isCurrentPage()).to.be.true;
   }
 );
 
