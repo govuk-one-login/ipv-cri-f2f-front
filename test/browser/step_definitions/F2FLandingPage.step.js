@@ -32,7 +32,7 @@ Then(
 );
 
 Then(
-  /^the user is routed to the next screen in the journey Thin File Page$/,
+  /^the user is routed to the next screen in the Thin File journey - Do You Have UK Passport$/,
   async function () {
     const thinFilePage = new ThinFilePage(await this.page);
 

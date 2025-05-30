@@ -22,7 +22,7 @@ When(/^the user clicks the Thin File continue button$/, async function () {
 });
 
 Then(
-  /^the user is routed to the next screen in the Thin File journey Passport Details$/,
+  /^the user is routed to the next screen in the Thin File journey - Passport Details$/,
   async function () {
     const passportDetailsPage = new PassportDetailsPageValid(await this.page);
 

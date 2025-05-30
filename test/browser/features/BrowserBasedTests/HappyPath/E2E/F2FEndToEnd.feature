@@ -257,17 +257,17 @@ Feature: F2F Journey - E2E
         And the "F2F_CRI_SESSION_ABORTED" event matches the "F2F_CRI_SESSION_ABORTED_SCHEMA" Schema
 
     Scenario: F2F Journey - E2E Happy Path Thin File (Email + Posted Letter Original Address) and DB Validation
-        Given A Thin File User is using the system
+        Given A user with evidence requested - strength score 4 is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
 
         Given the user wants to progress to the next step of the journey
         When the user clicks the continue button on the Landing Page
-        Then the user is routed to the next screen in the journey Thin File Page
+        Then the user is routed to the next screen in the Thin File journey - Do You Have UK Passport
 
         Given the Thin File UK passport option is selected
         When the user clicks the Thin File continue button
-        Then the user is routed to the next screen in the Thin File journey Passport Details
+        Then the user is routed to the next screen in the Thin File journey - Passport Details
 
         Given the date entered is within accepted UK Passport expiration window
         When the user clicks the continue button on the UKPassportPage
