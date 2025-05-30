@@ -1,4 +1,4 @@
-@success
+@success @e2e
 
 Feature: Claimed Identity Credential Issuer Device Intelligence Cookie
 
