@@ -293,12 +293,12 @@ Feature: F2F Journey - E2E
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
         Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
-        And the "F2F_YOTI_START" event matches the "F2F_YOTI_START_UK_DL" Schema
+        And the "F2F_YOTI_START" event matches the "F2F_YOTI_START_UK_PP" Schema
         And the "F2F_CRI_AUTH_CODE_ISSUED" event matches the "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA" Schema
         And the "F2F_CRI_END" event matches the "F2F_CRI_END_SCHEMA" Schema
         And the "F2F_YOTI_PDF_EMAILED" event matches the "F2F_YOTI_PDF_EMAILED_SCHEMA" Schema
         And the "F2F_YOTI_RESPONSE_RECEIVED" event matches the "F2F_YOTI_RESPONSE_RECEIVED_SCHEMA" Schema
-        And the "F2F_CRI_VC_ISSUED" event matches the "F2F_CRI_VC_ISSUED_SCHEMA_UK_DL" Schema
+        And the "F2F_CRI_VC_ISSUED" event matches the "F2F_CRI_VC_ISSUED_SCHEMA_UK_PP" Schema
 
 
 
