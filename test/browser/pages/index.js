@@ -43,4 +43,5 @@ module.exports = {
   EuDrivingLicenceCountrySelector: require("./euDrivingLicenceCountrySelectorPage"),
   EuDrivingLicenceAddressCheck: require("./euDrivingLicenceAddressCheck"),
   EuDrivingLicenceHasExpiryDatePage: require("./euDrivingLicenceHasExpiryDatePage"),
+  DoYouHaveAUkPassport: require("./doYouHaveAUkPassport.js"),
 };

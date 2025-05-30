@@ -100,14 +100,6 @@ Feature: F2F Journey - E2E
         When the user clicks the continue button on the Landing Page
         Then the user is routed to the next screen in the journey PhotoId Selection
 
-        Given A Non UK Passport User is using the system
-        When they have provided their details
-        Then they should be redirected to the Landing Page
-
-        Given the user wants to progress to the next step of the journey
-        When the user clicks the continue button on the Landing Page
-        Then the user is routed to the next screen in the journey PhotoId Selection
-
         Given the Other passport option is selected
         When the user clicks the continue button with Non UK passport selected
         Then the user is routed to the next screen - Non-UKPassportHasExpiryDate
@@ -263,5 +255,50 @@ Feature: F2F Journey - E2E
         When I get 2 TxMA events from Test Harness
         Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
         And the "F2F_CRI_SESSION_ABORTED" event matches the "F2F_CRI_SESSION_ABORTED_SCHEMA" Schema
+
+    Scenario: F2F Journey - E2E Happy Path Thin File (Email + Posted Letter Original Address) and DB Validation
+        Given A user with evidence requested - strength score 4 is using the system
+        When they have provided their details
+        Then they should be redirected to the Landing Page
+
+        Given the user wants to progress to the next step of the journey
+        When the user clicks the continue button on the Landing Page
+        Then the user is routed to the next screen in the Thin File journey - Do You Have UK Passport
+
+        Given the Thin File UK passport option is selected
+        When the user clicks the continue button on the Do You Have UK Passport page
+        Then the user is routed to the next screen in the Thin File journey - Passport Details
+
+        Given the date entered is within accepted UK Passport expiration window
+        When the user clicks the continue button on the UKPassportPage
+        Then the user is routed to the next screen in the journey Branch Finder Screen
+        Then the user enters a valid postcode
+
+        Given the postcode entered is valid
+        When the user clicks the continue button on the find Post Office branch page
+        Then the user is routed to the Select Location page showing 5 nearest POs
+
+        Given a Post Office branch is selected
+        When the user clicks continue
+        When the user selects an Email and Post Office Letter
+        When the user selects that they want to send the letter to a different address
+        When the user enters the postcode for the different address
+        And the user selects an address from the dropdown list
+        Then the user is navigated to the next step in the journey - Confirm Answer
+        When the user clicks the Check My Answers Submit button
+
+        Given I have retrieved the sessionTable data for my F2F session using "authCode"
+        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
+        When I sent the request to the callback endpoint
+        Then the Verifiable Credential is stored as expected
+        When I get 7 TxMA events from Test Harness
+        Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
+        And the "F2F_YOTI_START" event matches the "F2F_YOTI_START_UK_DL" Schema
+        And the "F2F_CRI_AUTH_CODE_ISSUED" event matches the "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA" Schema
+        And the "F2F_CRI_END" event matches the "F2F_CRI_END_SCHEMA" Schema
+        And the "F2F_YOTI_PDF_EMAILED" event matches the "F2F_YOTI_PDF_EMAILED_SCHEMA" Schema
+        And the "F2F_YOTI_RESPONSE_RECEIVED" event matches the "F2F_YOTI_RESPONSE_RECEIVED_SCHEMA" Schema
+        And the "F2F_CRI_VC_ISSUED" event matches the "F2F_CRI_VC_ISSUED_SCHEMA_UK_DL" Schema
+
 
 
