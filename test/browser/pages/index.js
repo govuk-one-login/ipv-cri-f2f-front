@@ -43,5 +43,5 @@ module.exports = {
   EuDrivingLicenceCountrySelector: require("./euDrivingLicenceCountrySelectorPage"),
   EuDrivingLicenceAddressCheck: require("./euDrivingLicenceAddressCheck"),
   EuDrivingLicenceHasExpiryDatePage: require("./euDrivingLicenceHasExpiryDatePage"),
-  ThinFilePage: require("./doYouHaveAUkPassport.js"),
+  DoYouHaveAUkPassport: require("./doYouHaveAUkPassport.js"),
 };

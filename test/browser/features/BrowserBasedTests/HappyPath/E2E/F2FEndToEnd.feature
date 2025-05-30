@@ -266,7 +266,7 @@ Feature: F2F Journey - E2E
         Then the user is routed to the next screen in the Thin File journey - Do You Have UK Passport
 
         Given the Thin File UK passport option is selected
-        When the user clicks the Thin File continue button
+        When the user clicks the continue button on the Do You Have UK Passport page
         Then the user is routed to the next screen in the Thin File journey - Passport Details
 
         Given the date entered is within accepted UK Passport expiration window

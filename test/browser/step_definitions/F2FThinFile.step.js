@@ -3,22 +3,22 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 const { expect } = require("chai");
 
 const {
-  ThinFilePage,
+  DoYouHaveAUkPassport,
   PassportDetailsPageValid,
 } = require("../pages");
 
 Given(/^the Thin File UK passport option is selected$/, async function () {
-  const thinFilePage = new ThinFilePage(await this.page);
+  const doYouHaveAUkPassport = new DoYouHaveAUkPassport(await this.page);
 
-  await thinFilePage.ukPassportChoiceTrue();
+  await doYouHaveAUkPassport.ukPassportChoiceTrue();
 
-  expect(await thinFilePage.isCurrentPage()).to.be.true;
+  expect(await doYouHaveAUkPassport.isCurrentPage()).to.be.true;
 });
 
-When(/^the user clicks the Thin File continue button$/, async function () {
-  const thinFilePage = new ThinFilePage(await this.page);
+When(/^the user clicks the continue button on the Do You Have UK Passport page$/, async function () {
+  const doYouHaveAUkPassport = new DoYouHaveAUkPassport(await this.page);
 
-  await thinFilePage.continue();
+  await doYouHaveAUkPassport.continue();
 });
 
 Then(
