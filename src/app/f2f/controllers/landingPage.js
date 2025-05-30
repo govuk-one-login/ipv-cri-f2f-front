@@ -10,9 +10,11 @@ class LandingPageController extends BaseController {
     try {
       const configData = await this.getSessionConfig(req, res);
       if (configData && configData.evidence_requested?.strengthScore === 4) {
+        console.log("Here we are");
         // Show thin file user screen
         req.sessionModel.set("isThinFileUser", true);
       }
+      console.log("Here we are", req.sessionModel.get("isThinFileUser"));
       if (configData) {
         // Save the printed customer letter enabled flag
         const pclFeatureSet = true;
