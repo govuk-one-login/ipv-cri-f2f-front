@@ -180,7 +180,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       minECSCount: 2
       maxECSCount: 4
-      DEVICEINTELLIGENCEENABLED: false
+      DEVICEINTELLIGENCEENABLED: true
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
@@ -196,7 +196,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       minECSCount: 2
       maxECSCount: 4
-      DEVICEINTELLIGENCEENABLED: false
+      DEVICEINTELLIGENCEENABLED: true
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
@@ -212,7 +212,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       minECSCount: 6
       maxECSCount: 60
-      DEVICEINTELLIGENCEENABLED: false
+      DEVICEINTELLIGENCEENABLED: true
 
 Resources:
   # Security Groups for the ECS service and load balancer
