@@ -9,6 +9,7 @@ const wizard = require("hmpo-form-wizard");
 const logger = require("hmpo-logger");
 
 const commonExpress = require("@govuk-one-login/di-ipv-cri-common-express");
+const frontendUi = require("@govuk-one-login/frontend-ui");
 
 const setHeaders = commonExpress.lib.headers;
 const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
@@ -238,6 +239,7 @@ app.get("nunjucks").addGlobal("addLanguageParam", addLanguageParam);
 router.use(getGTM);
 router.use(getLanguageToggle);
 router.use(getDeviceIntelligence);
+router.use(frontendUi.frontendUiMiddlewareIdentityBypass);
 
 router.use(setScenarioHeaders);
 router.use(setAxiosDefaults);
