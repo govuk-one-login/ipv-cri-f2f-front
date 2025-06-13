@@ -234,11 +234,13 @@ process.on("SIGTERM", () => {
 const showLanguageToggle = APP.LANGUAGE_TOGGLE_DISABLED == "true" ? "0" : "1";
 setLanguageToggle({ app, showLanguageToggle: showLanguageToggle });
 
-app.get("nunjucks").addGlobal("addLanguageParam", addLanguageParam);
+app.get("nunjucks").addGlobal("addLanguageParam", frontendUi.addLanguageParam);
+app.get("nunjucks").addGlobal("contactUsUrl", frontendUi.contactUsUrl);
 
 router.use(getGTM);
 router.use(getLanguageToggle);
 router.use(getDeviceIntelligence);
+
 router.use(frontendUi.frontendUiMiddlewareIdentityBypass);
 
 router.use(setScenarioHeaders);
