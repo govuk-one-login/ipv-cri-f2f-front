@@ -166,7 +166,7 @@ Mappings:
       minECSCount: 6
       maxECSCount: 60
       DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: false
+      MAY2025REBRANDENABLED: true
     staging:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
@@ -183,7 +183,7 @@ Mappings:
       minECSCount: 2
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: false
+      MAY2025REBRANDENABLED: true
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
