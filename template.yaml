@@ -149,6 +149,7 @@ Mappings:
       minECSCount: 1
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
+      MAY2025REBRANDENABLED: true
     build:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
       DNSSUFFIX: "review-o.build.account.gov.uk"
@@ -165,6 +166,7 @@ Mappings:
       minECSCount: 6
       maxECSCount: 60
       DEVICEINTELLIGENCEENABLED: true
+      MAY2025REBRANDENABLED: false
     staging:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
@@ -181,6 +183,7 @@ Mappings:
       minECSCount: 2
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
+      MAY2025REBRANDENABLED: false
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
@@ -197,6 +200,7 @@ Mappings:
       minECSCount: 2
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
+      MAY2025REBRANDENABLED: false
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
@@ -213,6 +217,7 @@ Mappings:
       minECSCount: 6
       maxECSCount: 60
       DEVICEINTELLIGENCEENABLED: true
+      MAY2025REBRANDENABLED: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -623,6 +628,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LANGUAGETOGGLEDISABLED ]
             - Name: DEVICE_INTELLIGENCE_ENABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, DEVICEINTELLIGENCEENABLED ]
+            - Name: MAY_2025_REBRAND_ENABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, MAY2025REBRANDENABLED ]
 
           Secrets:
             - Name: DT_TENANT
