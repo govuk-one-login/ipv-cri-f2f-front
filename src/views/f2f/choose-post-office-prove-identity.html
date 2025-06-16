@@ -40,12 +40,7 @@
 
     {% include "common/confirmIdentityAnotherWay.html" %}
 
-{% endblock %}
 
-  {% set footerNavItems = translate("govuk.footerNavItems") %}
-
-  {% block footer %}
-      {{ govukFooter( footerNavItems ) }}
       <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
         window.addEventListener('load', function () {
             window
