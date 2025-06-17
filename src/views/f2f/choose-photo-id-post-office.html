@@ -33,6 +33,11 @@
           {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
         }) }}
       {% endcall %}
+    
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
     <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
         window.addEventListener('load', function () {
             window
@@ -51,4 +56,3 @@
         });
     </script>
 {% endblock %}
-

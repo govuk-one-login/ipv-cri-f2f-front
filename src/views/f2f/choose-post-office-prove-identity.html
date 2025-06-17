@@ -40,7 +40,11 @@
 
     {% include "common/confirmIdentityAnotherWay.html" %}
 
+{% endblock %}
 
+
+  {% block footer %}
+      {{ super() }}
       <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
         window.addEventListener('load', function () {
             window

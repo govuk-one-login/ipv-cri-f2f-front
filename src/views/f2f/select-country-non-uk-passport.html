@@ -33,8 +33,6 @@
 
 {% endblock %}
 
-{# generate the specific footer items required for the PYI flows #}
-
 {% block footer %}
     {{ super() }}
     <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
