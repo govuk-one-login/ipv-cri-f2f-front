@@ -14,7 +14,7 @@ Feature: Handle Incomplete Data from Post Office API
         When the user clicks the PhotoId continue button
         Then the user is routed to the next screen in the journey Passport Details
 
-        Given the date entered is within accepted UK Passport expiration window
+        Given the date entered is in the future
         When the user clicks the continue button on the UKPassportPage
         Then the user is routed to the next screen in the journey Branch Finder Screen
         When the user enters a postcode that returns incomplete data
