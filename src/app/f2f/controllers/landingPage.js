@@ -5,30 +5,13 @@ const logger = require("hmpo-logger").get();
 class LandingPageController extends BaseController {
   async saveValues(req, res, next) {
     req.sessionModel.set("isThinFileUser", false);
-    req.sessionModel.set("pclEnabled", false);
+    req.sessionModel.set("pclEnabled", true);
 
     try {
       const configData = await this.getSessionConfig(req, res);
       if (configData && configData.evidence_requested?.strengthScore === 4) {
         // Show thin file user screen
         req.sessionModel.set("isThinFileUser", true);
-      }
-      if (configData) {
-        // Save the printed customer letter enabled flag
-        const pclFeatureSet = true;
-        const pclEnabledInConfig = configData.pcl_enabled === "true";
-
-        const pclEnabled = pclEnabledInConfig && pclFeatureSet;
-
-        logger.info(
-          "PCL feature enabled " +
-            pclFeatureSet +
-            " PCL config enabled " +
-            pclEnabledInConfig
-        );
-        logger.info("show pcl " + pclEnabled);
-
-        req.sessionModel.set("pclEnabled", pclEnabled);
       }
 
       super.saveValues(req, res, next);
