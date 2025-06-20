@@ -68,9 +68,9 @@
       {% include "../components/euSummaryList.njk" %}
 
     {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "no" and values.pclEnabled == true and values.postOfficeCustomerLetterChoice == "post") %}
-      {% include "../components/pclLetterEuSummaryListNoExpiry.njk" %}
+      {% include "../components/pclEuSummaryListNoExpiry.njk" %}
     {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "no" and values.pclEnabled == true and values.postOfficeCustomerLetterChoice == "email") %}
-      {% include "../components/pclEmailEuSummaryListNoExpiry.njk" %}
+      {% include "../components/pclEuSummaryListNoExpiry.njk" %}
     {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "no" and values.pclEnabled == false) %}
       {% include "../components/euSummaryListNoExpiry.njk" %}
 
