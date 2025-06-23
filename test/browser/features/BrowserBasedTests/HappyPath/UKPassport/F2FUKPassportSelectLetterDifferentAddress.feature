@@ -1,5 +1,6 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: UK Passport Find Nearest PO Branch - Happy Path
+Feature: UK Passport E2E Journey. Post Office letter to a different address (Happy Path)
+
 
     Background:
         Given A UK Passport User is using the system

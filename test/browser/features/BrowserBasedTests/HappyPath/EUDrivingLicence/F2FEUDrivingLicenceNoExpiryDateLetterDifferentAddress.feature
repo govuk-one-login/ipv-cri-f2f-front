@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Document Selection - EU Driving Licence E2E Journey (Happy Path)
+Feature: EU Driving Licence E2E Journey. No expiry date, ID address that matches the user's current address and a posted Post Office letter to a different address (Happy Path)
 
     Background:
         Given An EU Drivers Licence User is using the system

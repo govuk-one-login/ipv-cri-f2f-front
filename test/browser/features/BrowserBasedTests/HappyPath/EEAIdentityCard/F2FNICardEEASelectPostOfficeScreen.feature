@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Document Selection - National Identity Card EEA E2E Journey (Happy Path)
+Feature: National Identity Card EEA E2E Journey. Has an expiry date, ID address that matches the user's current address and an email only Post Office letter (Happy Path)
 
     Background:
         Given An EEA Identity Card User is using the system
