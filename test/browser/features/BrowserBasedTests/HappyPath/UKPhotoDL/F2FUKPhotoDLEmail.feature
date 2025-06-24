@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Change Expiry Date - UnHappy Path
+Feature: UK Photo Driving Licence Find Nearest PO Branch - Happy Path
 
     Background:
         Given A UK Drivers Licence User is using the system
@@ -10,27 +10,25 @@ Feature: Change Expiry Date - UnHappy Path
         When the user clicks the continue button on the Landing Page
         Then the user is routed to the next screen in the journey PhotoId Selection
 
-        Given the UK passport option is selected
-        When the user clicks the PhotoId continue button
-        Then the user is routed to the next screen in the journey Passport Details
+        Given the UK photocard driving licence option is selected
+        When the user clicks the UK DL continue button
+        Then the user is routed to the next screen in the journey UKPhotoDL Expiry Date
 
-        Given the date entered is in the future
-        When the user clicks the continue button on the UKPassportPage
-        Then the user is routed to the next screen in the journey Branch Finder Screen
-        Then the user enters a valid postcode
+        Given the date entered is within accepted UKPhotoDL expiration window
+        When the user clicks the continue button on the UKPhotoDL Page
+        Then the user is successfully routed to the UK DL Address Check screen
+
+        Given the user has selected the 'Yes' option
+        When the Continue button is clicked on the UK Photo DL Address page
+        Then the user is routed to the next screen in the UKPhotoDL journey - Branch Finder
 
         Given the postcode entered is valid
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
+    Scenario: Find Nearest PO Branch - UK Photo DL (Happy path)
         Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email only Post Office Letter
         Then the user is navigated to the next step in the journey - Confirm Answer
-
-    Scenario: Successful redirect from CMA screen back to expiry date entry then back to CMA screen
-        Given the user has navigated to the Check My Answers Page
-        When the user clicks the ExpiryDate Change button
-        Then the user is navigated back to the Expiry Date Page
-        Then the user changes the Expiry Date
-        Then the user continues to the CMA page
+        

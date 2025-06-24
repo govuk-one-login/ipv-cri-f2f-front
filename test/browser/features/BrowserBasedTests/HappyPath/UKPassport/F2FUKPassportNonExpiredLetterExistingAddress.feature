@@ -1,8 +1,8 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Change Expiry Date - UnHappy Path
+Feature: UK Passport Find Nearest PO Branch - Happy Path
 
     Background:
-        Given A UK Drivers Licence User is using the system
+        Given A UK Passport User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
 
@@ -23,14 +23,9 @@ Feature: Change Expiry Date - UnHappy Path
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
+    Scenario: Find Nearest PO Branch - UK Passport (Happy path)
         Given a Post Office branch is selected
         When the user clicks continue
-        When the user selects an Email only Post Office Letter
+        When the user selects an Email and Post Office Letter
+        When the user selects that they want to send the letter to the original address
         Then the user is navigated to the next step in the journey - Confirm Answer
-
-    Scenario: Successful redirect from CMA screen back to expiry date entry then back to CMA screen
-        Given the user has navigated to the Check My Answers Page
-        When the user clicks the ExpiryDate Change button
-        Then the user is navigated back to the Expiry Date Page
-        Then the user changes the Expiry Date
-        Then the user continues to the CMA page

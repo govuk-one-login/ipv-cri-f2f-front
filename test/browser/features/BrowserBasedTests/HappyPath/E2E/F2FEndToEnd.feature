@@ -60,7 +60,7 @@ Feature: F2F Journey - E2E
         When the user clicks the PhotoId continue button
         Then the user is routed to the next screen in the journey Passport Details
 
-        Given the date entered is within accepted UK Passport expiration window
+        Given the date entered is in the future
         When the user clicks the continue button on the UKPassportPage
         Then the user is routed to the next screen in the journey Branch Finder Screen
         Then the user enters a valid postcode
@@ -269,7 +269,7 @@ Feature: F2F Journey - E2E
         When the user clicks the continue button on the Do You Have UK Passport page
         Then the user is routed to the next screen in the Thin File journey - Passport Details
 
-        Given the date entered is within accepted UK Passport expiration window
+        Given the date entered is in the future
         When the user clicks the continue button on the UKPassportPage
         Then the user is routed to the next screen in the journey Branch Finder Screen
         Then the user enters a valid postcode

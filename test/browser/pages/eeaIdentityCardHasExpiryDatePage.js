@@ -32,7 +32,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async no() {
-    await this.page.click("#idHasExpiryDate-No");
+    await this.page.click("#idHasExpiryDate-no");
   }
 
   async checkErrorText() {

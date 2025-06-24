@@ -58,7 +58,7 @@ Feature: F2F Journey - Accessibility
         Then the user is routed to the next screen in the journey Passport Details
         Then the page should conform to WCAG 2.2 AA guidelines
 
-        Given the date entered is within accepted UK Passport expiration window
+        Given the date entered is in the future
         When the user clicks the continue button on the UKPassportPage
         Then the user is routed to the next screen in the journey Branch Finder Screen
         Then the page should conform to WCAG 2.2 AA guidelines

@@ -14,7 +14,7 @@ Feature: UK Passport Find Nearest PO Branch - Happy Path
         When the user clicks the PhotoId continue button
         Then the user is routed to the next screen in the journey Passport Details
 
-        Given the date entered is within accepted UK Passport expiration window
+        Given the date entered is within the last 18 months
         When the user clicks the continue button on the UKPassportPage
         Then the user is routed to the next screen in the journey Branch Finder Screen
         Then the user enters a valid postcode
@@ -27,9 +27,5 @@ Feature: UK Passport Find Nearest PO Branch - Happy Path
         Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email and Post Office Letter
-        When the user selects that they want to send the letter to a different address
-        And the user enters the postcode for the different address
-        And the user selects an address from the dropdown list
+        When the user selects that they want to send the letter to the original address
         Then the user is navigated to the next step in the journey - Confirm Answer
-        And Does your photo ID have an expiry date option is not displayed
-        And Expiry date is not displayed
