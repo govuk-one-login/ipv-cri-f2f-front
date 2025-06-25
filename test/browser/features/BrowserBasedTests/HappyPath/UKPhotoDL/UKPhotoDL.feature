@@ -1,5 +1,6 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: UK Photo Driving Licence Find Nearest PO Branch - Happy Path
+Feature: UK Photo Driving Licence E2E Journey. Email only Post Office letter (Happy Path)
+
 
     Background:
         Given A UK Drivers Licence User is using the system
