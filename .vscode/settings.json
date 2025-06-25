@@ -9,5 +9,25 @@
     "cucumberautocomplete.stepsInvariants": true,
     "cucumberautocomplete.pages": {
         "pages": "test/browser/pages/*.js"
-    }
+    },
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#6069f7",
+        "activityBar.background": "#6069f7",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#980810",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#6069f7",
+        "statusBar.background": "#2f3bf5",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#6069f7",
+        "statusBarItem.remoteBackground": "#2f3bf5",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#2f3bf5",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#2f3bf599",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#2f3bf5"
 }
