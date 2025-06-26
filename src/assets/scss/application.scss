@@ -324,3 +324,5 @@ main p,
   @include govuk-responsive-margin(3, "top");
   @include govuk-responsive-margin(5, "bottom");
 }
+
+@import "../../../node_modules/@govuk-one-login/frontend-ui/build/all";
