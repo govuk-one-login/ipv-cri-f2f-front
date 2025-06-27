@@ -7,11 +7,11 @@ class LandingPageController extends BaseController {
     req.sessionModel.set("isThinFileUser", false);
 
     try {
-      // const configData = await this.getSessionConfig(req, res);
-      // if (configData && configData.evidence_requested?.strengthScore === 4) {
-      //   // Show thin file user screen
-      //   req.sessionModel.set("isThinFileUser", true);
-      // }
+      const configData = await this.getSessionConfig(req, res);
+      if (configData && configData.evidence_requested?.strengthScore === 4) {
+        // Show thin file user screen
+        req.sessionModel.set("isThinFileUser", true);
+      }
 
       super.saveValues(req, res, next);
     } catch (err) {

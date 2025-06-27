@@ -9,30 +9,30 @@ class RootController extends BaseController {
 
     if (!req.sessionModel.get("addressProcessed")) {
       try {
-        // const encryptedJSON = await this.getAddressInfo(req.axios, req);
-        // const key = await this.getDecryptKey(req.axios, req);
-        // const decryptKey = new NodeRSA(key);
-        // const userAddress = decryptKey.decrypt(encryptedJSON, "utf8");
-        // const parsedAddress = JSON.parse(userAddress);
+        const encryptedJSON = await this.getAddressInfo(req.axios, req);
+        const key = await this.getDecryptKey(req.axios, req);
+        const decryptKey = new NodeRSA(key);
+        const userAddress = decryptKey.decrypt(encryptedJSON, "utf8");
+        const parsedAddress = JSON.parse(userAddress);
 
-        // let addressParts = [];
-        // if (parsedAddress["address_line1"]) {
-        //   addressParts.push(parsedAddress["address_line1"]);
-        // }
-        // if (parsedAddress["address_line2"]) {
-        //   addressParts.push(parsedAddress["address_line2"]);
-        // }
-        // if (parsedAddress["town_city"]) {
-        //   addressParts.push(parsedAddress["town_city"]);
-        // }
-        // if (parsedAddress["postal_code"]) {
-        //   addressParts.push(parsedAddress["postal_code"]);
-        // }
-        // const fullParsedSharedClaimsAddress = addressParts.join("<br>");
-        // req.sessionModel.set(
-        //   "fullParsedSharedClaimsAddress",
-        //   fullParsedSharedClaimsAddress
-        // );
+        let addressParts = [];
+        if (parsedAddress["address_line1"]) {
+          addressParts.push(parsedAddress["address_line1"]);
+        }
+        if (parsedAddress["address_line2"]) {
+          addressParts.push(parsedAddress["address_line2"]);
+        }
+        if (parsedAddress["town_city"]) {
+          addressParts.push(parsedAddress["town_city"]);
+        }
+        if (parsedAddress["postal_code"]) {
+          addressParts.push(parsedAddress["postal_code"]);
+        }
+        const fullParsedSharedClaimsAddress = addressParts.join("<br>");
+        req.sessionModel.set(
+          "fullParsedSharedClaimsAddress",
+          fullParsedSharedClaimsAddress
+        );
 
         req.sessionModel.set("addressProcessed", true);
       } catch (error) {
