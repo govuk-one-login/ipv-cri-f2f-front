@@ -68,9 +68,9 @@
     {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "no" and values.postOfficeCustomerLetterChoice == "email") %}
       {% include "../components/emailEeaSummaryListNoExpiry.njk" %}
       
-    {% elif (values.enabled == true and values.postOfficeCustomerLetterChoice == "post") %}
+    {% elif (values.postOfficeCustomerLetterChoice == "post") %}
         {% include "../components/letterSummaryList.njk" %}
-    {% elif (values.enabled == true and values.postOfficeCustomerLetterChoice == "email") %}
+    {% elif (values.postOfficeCustomerLetterChoice == "email") %}
         {% include "../components/emailSummaryList.njk" %}
     {% else %}
         {% include "../components/summaryList.njk" %}
