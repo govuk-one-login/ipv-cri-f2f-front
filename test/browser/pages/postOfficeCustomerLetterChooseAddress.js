@@ -5,7 +5,7 @@ module.exports = class PlaywrightDevPage {
   constructor(page) {
     this.page = page;
     this.baseURL = process.env.F2F_FE_BASE_URL;
-    this.path = "/post-office-customer-letter-find-address";
+    this.path = "/post-office-customer-letter-choose-address";
   }
 
   async goTo() {
@@ -21,7 +21,9 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#continue");
   }
 
-  async enterPostcode() {
-    await this.page.locator("#letterPostcode").fill("BA2 5AA");
+  async selectAddress() {
+    await this.page.locator("#addressResults").selectOption({
+      value: "1 HADLEY ROAD, BATH, BA2 5AA",
+    });
   }
 };

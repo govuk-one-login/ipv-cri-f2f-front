@@ -28,7 +28,7 @@ When(
     );
 
     expect(await nationalIdentityCardEEA.isCurrentPage()).to.be.true;
-
+    await this.page.waitForLoadState("networkidle");
     await nationalIdentityCardEEA.continue();
   }
 );
@@ -39,6 +39,7 @@ Then(
     const photoIdExpPg = new PhotoIdExpiryPage(await this.page);
 
     expect(await photoIdExpPg.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -62,7 +63,7 @@ When(
     );
 
     expect(await nationalIdentityCardEEA.isCurrentPage()).to.be.true;
-
+    await this.page.waitForLoadState("networkidle");
     await nationalIdentityCardEEA.continue();
   }
 );

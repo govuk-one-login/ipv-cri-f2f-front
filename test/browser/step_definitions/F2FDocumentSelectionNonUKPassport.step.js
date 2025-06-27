@@ -35,6 +35,7 @@ Then(
     );
 
     expect(await nonUKPassportDetails.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -46,6 +47,7 @@ Then(
     );
 
     expect(await nonUkPassportHasExpiryDatePage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -57,6 +59,7 @@ Then(
     );
 
     expect(await nonUkPassportHasExpiryDatePage.isCurrentEditPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -104,6 +107,7 @@ When(
     );
 
     expect(await nonUKPassportDetails.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     await nonUKPassportDetails.continue();
   }
@@ -115,6 +119,7 @@ Then(
     const ctrySelector = new NonUKPassportCountrySelector(await this.page);
 
     expect(await ctrySelector.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
