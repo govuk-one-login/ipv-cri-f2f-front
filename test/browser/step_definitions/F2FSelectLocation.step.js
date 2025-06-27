@@ -14,7 +14,7 @@ When(/^the user clicks continue$/, async function () {
   const poLocations = new PostOfficeLocations(await this.page);
 
   expect(await poLocations.isCurrentPage()).to.be.true;
-
+  await this.page.waitForLoadState("networkidle");
   await poLocations.continue();
 });
 
@@ -24,6 +24,7 @@ Then(
     const confirmAnswers = new CheckDetails(await this.page);
 
     expect(await confirmAnswers.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -84,6 +85,7 @@ When(/^the user clicks Continue$/, async function () {
   const poLocations = new PostOfficeLocations(await this.page);
 
   expect(await poLocations.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 
   await poLocations.continue();
 });

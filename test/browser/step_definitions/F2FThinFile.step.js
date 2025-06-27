@@ -27,5 +27,6 @@ Then(
     const passportDetailsPage = new PassportDetailsPageValid(await this.page);
 
     expect(await passportDetailsPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );

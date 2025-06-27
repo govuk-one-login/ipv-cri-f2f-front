@@ -28,6 +28,7 @@ Then(
     const passportDetailsPage = new PassportDetailsPageValid(await this.page);
 
     expect(await passportDetailsPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -47,7 +48,7 @@ When(
     const passportDetailsPage = new PassportDetailsPageValid(await this.page);
 
     expect(await passportDetailsPage.isCurrentPage()).to.be.true;
-
+    await this.page.waitForLoadState("networkidle");
     await passportDetailsPage.continue();
   }
 );
@@ -58,6 +59,7 @@ Then(
     const branchFinderPage = new FindBranch(await this.page);
 
     expect(await branchFinderPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 

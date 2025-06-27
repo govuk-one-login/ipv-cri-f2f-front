@@ -1,4 +1,5 @@
 const { Given, When } = require("@cucumber/cucumber");
+const { expect } = require("chai");
 
 const { PostOfficeCustomerLetterCheckAddress } = require("../pages");
 
@@ -16,6 +17,10 @@ When(
   async function () {
     const postOfficeCustomerLetterCheckAddressPage =
       new PostOfficeCustomerLetterCheckAddress(this.page);
+
+    expect(await postOfficeCustomerLetterCheckAddressPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
+
     await postOfficeCustomerLetterCheckAddressPage.sendToOriginalAddress();
     await postOfficeCustomerLetterCheckAddressPage.continue();
   }
@@ -26,6 +31,10 @@ When(
   async function () {
     const postOfficeCustomerLetterCheckAddressPage =
       new PostOfficeCustomerLetterCheckAddress(this.page);
+
+    expect(await postOfficeCustomerLetterCheckAddressPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
+
     await postOfficeCustomerLetterCheckAddressPage.sendToDifferentAddress();
     await postOfficeCustomerLetterCheckAddressPage.continue();
   }

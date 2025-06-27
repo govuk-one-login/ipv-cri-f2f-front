@@ -1,4 +1,5 @@
 const { Given, When } = require("@cucumber/cucumber");
+const { expect } = require("chai");
 
 const { PostOfficeCustomerLetterFindAddress } = require("../pages");
 
@@ -16,14 +17,11 @@ When(
   async function () {
     const postOfficeCustomerLetterFindAddressPage =
       new PostOfficeCustomerLetterFindAddress(this.page);
+
+    expect(await postOfficeCustomerLetterFindAddressPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
+
     await postOfficeCustomerLetterFindAddressPage.enterPostcode();
     await postOfficeCustomerLetterFindAddressPage.continue();
   }
 );
-
-When(/^the user selects an address from the dropdown list/, async function () {
-  const postOfficeCustomerLetterFindAddressPage =
-    new PostOfficeCustomerLetterFindAddress(this.page);
-  await postOfficeCustomerLetterFindAddressPage.selectAddress();
-  await postOfficeCustomerLetterFindAddressPage.continue();
-});

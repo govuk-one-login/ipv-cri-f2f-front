@@ -21,6 +21,7 @@ When(
     const ukPassport = new PassportDetailsPageInvalidFuture(await this.page);
 
     expect(await ukPassport.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     await ukPassport.continue();
   }
@@ -57,6 +58,7 @@ When(
     const ukPassport = new PassportDetailsPageInvalidPast(await this.page);
 
     expect(await ukPassport.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     await ukPassport.continue();
   }
@@ -68,6 +70,7 @@ Then(
     const photoIdExpPg = new PhotoIdExpiryPage(await this.page);
 
     expect(await photoIdExpPg.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 

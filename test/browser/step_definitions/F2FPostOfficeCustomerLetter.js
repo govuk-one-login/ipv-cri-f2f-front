@@ -15,6 +15,8 @@ Given(
 );
 
 When(/^the user selects an Email only Post Office Letter$/, async function () {
+  await this.page.waitForLoadState("networkidle");
+  
   const postOfficeCustomerLetterPage = new PostOfficeCustomerLetter(this.page);
   await postOfficeCustomerLetterPage.emailOnly();
   await postOfficeCustomerLetterPage.continue();
@@ -22,6 +24,10 @@ When(/^the user selects an Email only Post Office Letter$/, async function () {
 
 When(/^the user selects an Email and Post Office Letter$/, async function () {
   const postOfficeCustomerLetterPage = new PostOfficeCustomerLetter(this.page);
+  
+  expect(await postOfficeCustomerLetterPage.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
+  
   await postOfficeCustomerLetterPage.emailAndPost();
   await postOfficeCustomerLetterPage.continue();
 });
@@ -34,5 +40,6 @@ Then(
     );
 
     expect(await postOfficeCustomerLetterPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );

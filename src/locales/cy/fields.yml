@@ -189,12 +189,14 @@ eeaIdentityCardAddressCheck:
 postcode:
   label: "Rhowch god post yn y DU"
   hint: "Er enghraifft, SW1A 2AA"
+  prefix: ""
   validation:
     default: "Rhowch god post gwirioneddol yn y DU"
 
 letterPostcode:
   label: Rhowch god post yn y DU
   hint: Er enghraifft, SW1A 2AA
+  prefix: ""
   validation:
     default: "Rhowch god post llawn yn y DU"
 
@@ -204,6 +206,7 @@ branches:
     default: "Dewiswch Swyddfa Bost lle gallwch brofi eich hunaniaeth"
 
 addressResults:
+  prefix: ""
   validation:
     default: "Dewiswch gyfeiriad o'r rhestr"
 
@@ -233,17 +236,20 @@ photoIdExpiryChoice:
 
 eeaIdentityCardCountrySelector:
   label: "Dewiswch wlad"
+  prefix: ""
   validation:
     equal: "Dewiswch y wlad y mae eich cerdyn adnabod cenedlaethol yn dod ohoni"
 
 euDrivingLicenceCountrySelector:
   label: "Dewiswch wlad"
   hint: ""
+  prefix: ""
   validation:
     equal: "Dewiswch y wlad y mae eich trwydded yrru yn dod ohoni"
 
 nonUkPassportCountrySelector:
   label: "Dewiswch wlad"
+  prefix: ""
   validation:
     equal: "Dewiswch y wlad y mae eich pasbort yn dod ohoni"
 

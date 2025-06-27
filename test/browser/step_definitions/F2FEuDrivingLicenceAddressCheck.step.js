@@ -7,6 +7,8 @@ const {
   EuDrivingLicenceCountrySelector,
   PhotoIdSelectionPage,
   EuDrivingLicenceDetailsPageValid,
+  EuDrivingLicenceAddressCheckEdit,
+  EuDrivingLicenceCountrySelectorEdit,
 } = require("../pages");
 
 Given(
@@ -42,6 +44,7 @@ Given(
     const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);
 
     expect(await addressCheck.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -49,6 +52,14 @@ Given(/^the user is on the EU DL address check page$/, async function () {
   const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);
 
   expect(await addressCheck.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
+});
+
+Given(/^the user is on the EU DL address check page editing$/, async function () {
+  const addressCheck = new EuDrivingLicenceAddressCheckEdit(await this.page);
+
+  expect(await addressCheck.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 });
 
 When(
@@ -72,6 +83,17 @@ Then(
     const countryCodes = new EuDrivingLicenceCountrySelector(await this.page);
 
     expect(await countryCodes.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
+  }
+);
+
+Then(
+  /^they are routed to the edit country code selection screen$/,
+  async function () {
+    const countryCodes = new EuDrivingLicenceCountrySelectorEdit(await this.page);
+
+    expect(await countryCodes.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -81,6 +103,7 @@ Then(
     const documentSelection = new PhotoIdSelectionPage(await this.page);
 
     expect(await documentSelection.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -88,6 +111,7 @@ Then(/^they are routed back to the EU DL expiry date page$/, async function () {
   const euDlDetails = new EuDrivingLicenceDetailsPageValid(await this.page);
 
   expect(await euDlDetails.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 });
 
 Then(
@@ -100,5 +124,6 @@ Then(
     expect(await addressCheck.checkErrorText()).to.contain(
       "There is a problem"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 );

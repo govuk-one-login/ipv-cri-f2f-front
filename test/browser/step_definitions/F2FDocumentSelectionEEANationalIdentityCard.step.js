@@ -33,6 +33,7 @@ Then(
     );
 
     expect(await nationalIdentityCardEEA.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -43,6 +44,7 @@ Then(
       new EeaIdentityCardHasExpiryDatePage(await this.page);
 
     expect(await eeaIdentityCardHasExpiryDatePage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -54,6 +56,7 @@ Then(
 
     expect(await eeaIdentityCardHasExpiryDatePage.isCurrentEditPage()).to.be
       .true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -178,6 +181,7 @@ Then(
     const branchFinderPage = new FindBranch(await this.page);
 
     expect(await branchFinderPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -187,6 +191,7 @@ Then(
     const addressCheck = new EEAIdentityCardAddressCheck(await this.page);
 
     expect(await addressCheck.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -196,6 +201,7 @@ Then(
     const photoIdPage = new PhotoIdSelectionPage(await this.page);
 
     expect(await photoIdPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -205,6 +211,7 @@ Then(
     const countryCode = new EEAIdentityCardCountrySelectorPage(await this.page);
 
     expect(await countryCode.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 

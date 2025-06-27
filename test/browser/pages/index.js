@@ -7,6 +7,7 @@ module.exports = {
   PostOfficeCustomerLetter: require("./postOfficeCustomerLetter"),
   PostOfficeCustomerLetterCheckAddress: require("./postOfficeCustomerLetterCheckAddress"),
   PostOfficeCustomerLetterFindAddress: require("./postOfficeCustomerLetterFindAddress"),
+  PostOfficeCustomerLetterChooseAddress: require("./postOfficeCustomerLetterChooseAddress"),
   LandingPage: require("./landingPage"),
   RelyingPartyPage: require("./relying-party"),
   OrchestratorStubPage: require("./orchestratorStub.js"),
@@ -41,7 +42,9 @@ module.exports = {
   EuDrivingLicenceDetailsPageInvalidFuture: require("./euDrivingLicenceDetailsPageInvalidFuture"),
   EuDrivingLicenceDetailsPageInvalidPast: require("./euDrivingLicenceDetailsPageInvalidPast"),
   EuDrivingLicenceCountrySelector: require("./euDrivingLicenceCountrySelectorPage"),
+  EuDrivingLicenceCountrySelectorEdit: require("./euDrivingLicenceCountrySelectorPageEdit"),
   EuDrivingLicenceAddressCheck: require("./euDrivingLicenceAddressCheck"),
+  EuDrivingLicenceAddressCheckEdit: require("./euDrivingLicenceAddressCheckEdit"),
   EuDrivingLicenceHasExpiryDatePage: require("./euDrivingLicenceHasExpiryDatePage"),
   DoYouHaveAUkPassport: require("./doYouHaveAUkPassport.js"),
 };

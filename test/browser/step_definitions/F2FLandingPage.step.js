@@ -28,6 +28,7 @@ Then(
     const photoIdPage = new PhotoIdSelectionPage(await this.page);
 
     expect(await photoIdPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -37,6 +38,7 @@ Then(
     const doYouHaveAUkPassport = new DoYouHaveAUkPassport(await this.page);
 
     expect(await doYouHaveAUkPassport.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 

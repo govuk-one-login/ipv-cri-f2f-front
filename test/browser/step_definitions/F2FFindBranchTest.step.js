@@ -26,6 +26,7 @@ When(
     const findBranchValid = new FindBranch(await this.page);
 
     expect(await findBranchValid.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     await findBranchValid.continue();
   }
@@ -39,6 +40,7 @@ Then(
     const locationCount = await poLocations.numberOfLocations();
 
     expect(await poLocations.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     expect(await poLocations.numberOfLocations()).to.equal(locationCount);
   }
@@ -68,6 +70,7 @@ When(
     const findBranchEmpty = new FindBranch(await this.page);
 
     expect(await findBranchEmpty.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     await findBranchEmpty.continue();
   }
@@ -99,6 +102,7 @@ When(
     const findBranchInvalid = new FindBranch(await this.page);
 
     expect(await findBranchInvalid.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     await findBranchInvalid.continue();
   }
@@ -130,6 +134,7 @@ When(
     const findBranchPartial = new FindBranch(await this.page);
 
     expect(await findBranchPartial.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     await findBranchPartial.continue();
   }

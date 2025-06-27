@@ -28,6 +28,10 @@
     }) }}
 
     {% endcall %}
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
     <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
         window.addEventListener('load', function () {
             window
@@ -46,6 +50,3 @@
         });
     </script>
 {% endblock %}
-
-{# generate the specific footer items required for the PYI flows #}
-{% set footerNavItems = translate("govuk.footerNavItems") %}

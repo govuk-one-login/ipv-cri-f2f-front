@@ -32,6 +32,7 @@ Then(
       new EuDrivingLicenceHasExpiryDatePage(await this.page);
 
     expect(await euDrivingLicenceHasExpiryDatePage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -43,6 +44,7 @@ Then(
 
     expect(await euDrivingLicenceHasExpiryDatePage.isCurrentEditPage()).to.be
       .true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -76,6 +78,7 @@ Then(
     );
 
     expect(await euDrivingLicenceDetailsPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -114,6 +117,7 @@ Then(
     const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);
 
     expect(await addressCheck.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -146,5 +150,6 @@ Then(
     const branchFinder = new FindBranch(await this.page);
 
     expect(await branchFinder.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
