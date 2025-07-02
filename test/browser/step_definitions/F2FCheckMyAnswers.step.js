@@ -19,6 +19,7 @@ Given(
     const cma = new CheckDetails(await this.page);
 
     expect(await cma.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -79,6 +80,7 @@ Then(
     const poLocations = new PostOfficeLocations(await this.page);
 
     expect(await poLocations.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -88,7 +90,8 @@ When(/^the user clicks the PhotoIdChange button$/, async function () {
   const cma = new CheckDetails(await this.page);
 
   expect(await cma.isCurrentPage()).to.be.true;
-
+  await this.page.waitForLoadState("networkidle");
+  
   await cma.changePhotoIDLink();
 });
 
@@ -98,6 +101,7 @@ Then(
     const pIDEditPage = new PhotoIdSelectionPageEdit(await this.page);
 
     expect(await pIDEditPage.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -105,7 +109,8 @@ Then(/^the user selects a new PhotoId Document$/, async function () {
   const pIDEditPage = new PhotoIdSelectionPageEdit(await this.page);
 
   expect(await pIDEditPage.isCurrentPage()).to.be.true;
-
+  await this.page.waitForLoadState("networkidle");
+  
   await pIDEditPage.euDrivingLicenceChoice();
 
   await pIDEditPage.continue();
@@ -115,15 +120,17 @@ Then(/^the user enters the PhotoId Expiry Date page$/, async function () {
   const euDLVld = new EuDrivingLicenceDetailsPageValidEdit(await this.page);
 
   expect(await euDLVld.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 
   await euDLVld.expiryDate();
 });
 
-Then(/^the user returns to the CMA page$/, async function () {
+Then(/^the user clicks continue on the PhotoId Expiry Date page$/, async function () {
   const euDLVld = new EuDrivingLicenceDetailsPageValidEdit(await this.page);
 
   expect(await euDLVld.isCurrentPage()).to.be.true;
-
+  await this.page.waitForLoadState("networkidle");
+  
   await euDLVld.continue();
 });
 
@@ -134,7 +141,8 @@ When(/^the user clicks the ExpiryDate Change button$/, async function () {
   const cma = new CheckDetails(await this.page);
 
   expect(await cma.isCurrentPage()).to.be.true;
-
+  await this.page.waitForLoadState("networkidle");
+  
   await cma.changeExpiryDate();
 });
 
@@ -143,6 +151,7 @@ Then(/^the user is navigated back to the Expiry Date Page$/, async function () {
   const ppDEditPage = new PassportDetailsPageValidEdit(await this.page);
 
   expect(await ppDEditPage.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 });
 
 /** 3. Make the change and return to the CMA page*/
@@ -150,6 +159,7 @@ Then(/^the user changes the Expiry Date$/, async function () {
   const ppDEditPage = new PassportDetailsPageValidEdit(await this.page);
 
   expect(await ppDEditPage.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 
   await ppDEditPage.expiryDate();
 });
@@ -159,6 +169,7 @@ Then(/^the user continues to the CMA page$/, async function () {
   const ppDEditPage = new PassportDetailsPageValidEdit(await this.page);
 
   expect(await ppDEditPage.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 
   await ppDEditPage.continue();
 });
@@ -167,6 +178,7 @@ When(/^the user clicks the IDHASExpiryDate Change button$/, async function () {
   const cma = new CheckDetails(await this.page);
 
   expect(await cma.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 
   await cma.changeIDHASExpiryDate();
 });
@@ -175,6 +187,7 @@ When(/^the user clicks the EEAHASExpiryDate Change button$/, async function () {
   const cma = new CheckDetails(await this.page);
 
   expect(await cma.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 
   await cma.changeEEAHASExpiryDate();
 });
@@ -185,6 +198,7 @@ When(
     const cma = new CheckDetails(await this.page);
 
     expect(await cma.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     await cma.changeEUDLHASExpiryDate();
   }
@@ -197,6 +211,7 @@ When(/^the user clicks the PO Location Change button$/, async function () {
   const cma = new CheckDetails(await this.page);
 
   expect(await cma.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 
   await cma.changePOLocation();
 });
@@ -208,6 +223,7 @@ Then(
     const findBranchEdit = new FindBranchValidEdit(await this.page);
 
     expect(await findBranchEdit.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -222,6 +238,7 @@ Then(
     await findBranchEdit.continue();
 
     expect(await poLocations.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -232,6 +249,7 @@ Then(
     const poLocations = new PostOfficeLocations(await this.page);
 
     expect(await poLocations.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     await poLocations.continue();
   }
@@ -244,6 +262,7 @@ When(/^the user clicks the Address Check Change button$/, async function () {
   const cma = new CheckDetails(await this.page);
 
   expect(await cma.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 
   await cma.changeAddressCheckLocation();
 });
@@ -257,6 +276,7 @@ Then(
     );
 
     expect(await addressCheckEdit.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -286,6 +306,7 @@ Then(
     await addressCheckEdit.continue();
 
     expect(await checkDetails.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -296,6 +317,7 @@ When(/^the user clicks the Country Change button$/, async function () {
   const cma = new CheckDetails(await this.page);
 
   expect(await cma.isCurrentPage()).to.be.true;
+  await this.page.waitForLoadState("networkidle");
 
   await cma.changeCountry();
 });
@@ -309,6 +331,7 @@ Then(
     );
 
     expect(await countrySelector.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -335,5 +358,6 @@ Then(
     await countrySelector.continue();
 
     expect(await checkDetails.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );

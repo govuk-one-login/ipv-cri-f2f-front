@@ -40,6 +40,14 @@ Feature: Change PhotoId - UnHappy Path
         When the user clicks the PhotoIdChange button
         Then the user is navigated back to the PhotoIdSelection page
         Then the user selects a new PhotoId Document 
-        And the user selects yes on the passport expiry date page
+        Then the user is routed to the EU DL edit Has Expiry Entry Screen
+        When the user selects yes on the eu driving licence expiry date page
         Then the user enters the PhotoId Expiry Date page 
-        Then the user returns to the CMA page
+        Then the user clicks continue on the PhotoId Expiry Date page
+        Then the user is on the EU DL address check page editing
+        When the user selects Yes, it has my current address on it
+        Then the user clicks continue on the EU Driving Licence address check page
+        Then they are routed to the edit country code selection screen
+        Then the user selects a country from the drop down menu
+        When the user clicks the continue button on the EU country code page
+        Then the user is navigated to the next step in the journey - Confirm Answer
