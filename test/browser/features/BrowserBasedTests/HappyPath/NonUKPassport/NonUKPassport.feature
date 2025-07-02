@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Document Selection - NonUK Passport E2E Journey (Happy Path)
+Feature: NonUK Passport E2E Journey. Email only Post Office letter (Happy Path)
 
     Background:
         Given A Non UK Passport User is using the system

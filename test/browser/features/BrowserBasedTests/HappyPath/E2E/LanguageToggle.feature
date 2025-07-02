@@ -48,4 +48,3 @@ Feature: F2F Language Toggle
         When the user switches language to "English"
         Then The HTML Language Attribute is set to "en"
         And the language toggle updates the "English" hyperlink
-

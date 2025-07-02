@@ -234,6 +234,3 @@ Feature: F2F Journey - Accessibility
         Then the user is routed to the next screen in the journey PhotoId Selection
         When the user selects I do not have any of these documents
         Then the page should conform to WCAG 2.2 AA guidelines
-
-
-

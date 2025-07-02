@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: UK Photo Driving Licence Find Nearest PO Branch - Happy Path
+Feature: UK Photo Driving Licence E2E Journey. Email only Post Office letter (Happy Path)
 
     Background:
         Given A UK Drivers Licence User is using the system
@@ -31,4 +31,5 @@ Feature: UK Photo Driving Licence Find Nearest PO Branch - Happy Path
         When the user clicks continue
         When the user selects an Email only Post Office Letter
         Then the user is navigated to the next step in the journey - Confirm Answer
-        
+        And Does your photo ID have an expiry date option is not displayed
+        And Expiry date is not displayed
