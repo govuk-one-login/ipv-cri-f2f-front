@@ -34,11 +34,20 @@ Then(
 
 //PassportDetails
 Given(
-  /^the date entered is within accepted UK Passport expiration window$/,
+  /^the date entered is in the future$/,
   async function () {
     const passportDetailsPage = new PassportDetailsPageValid(await this.page);
 
-    await passportDetailsPage.expiryDate();
+    await passportDetailsPage.expiryDateFuture();
+  }
+);
+
+Given(
+  /^the date entered is within the last 18 months$/,
+  async function () {
+    const passportDetailsPage = new PassportDetailsPageValid(await this.page);
+
+    await passportDetailsPage.expiryDatePast();
   }
 );
 
