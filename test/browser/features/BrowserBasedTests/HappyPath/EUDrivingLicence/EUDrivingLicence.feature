@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Document Selection - EU Driving Licence E2E Journey (Happy Path)
+Feature: EU Driving Licence E2E Journey. Has expiry date, ID address that matches the user's current address and an email only Post Office letter (Happy Path)
 
     Background:
         Given An EU Drivers Licence User is using the system
@@ -33,7 +33,7 @@ Feature: Document Selection - EU Driving Licence E2E Journey (Happy Path)
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
-    Scenario: EU DL - E2E Journey (Happy Path)
+    Scenario: EU Driving Licence E2E Journey. Has expiry date, ID address that matches the user's current address and an email only Post Office letter (Happy Path)
         Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email only Post Office Letter

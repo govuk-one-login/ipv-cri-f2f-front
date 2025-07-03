@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Document Selection - NonUK Passport E2E Journey (Happy Path)
+Feature: Non UK Passport E2E Journey. Has expiry date and a posted Post Office letter to a different address (Happy Path)
 
     Background:
         Given A Non UK Passport User is using the system
@@ -30,7 +30,7 @@ Feature: Document Selection - NonUK Passport E2E Journey (Happy Path)
         Then the user is routed to the Select Location page showing 5 nearest POs
 
 
-    Scenario: NonUK Passport - E2E Journey (Happy Path)
+    Scenario: Non UK Passport E2E Journey. Has expiry date and a posted Post Office letter to a different address (Happy Path)
         Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email and Post Office Letter

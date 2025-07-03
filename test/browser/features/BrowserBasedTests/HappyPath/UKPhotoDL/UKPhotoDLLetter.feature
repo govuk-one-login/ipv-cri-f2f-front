@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: UK Photo Driving Licence Find Nearest PO Branch - Happy Path
+Feature: UK Photo Driving Licence E2E Journey. Post Office letter to an existing address (Happy Path)
 
     Background:
         Given A UK Drivers Licence User is using the system
@@ -26,10 +26,9 @@ Feature: UK Photo Driving Licence Find Nearest PO Branch - Happy Path
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
-    Scenario: Find Nearest PO Branch - UK Photo DL (Happy path)
+    Scenario: UK Photo Driving Licence E2E Journey. Post Office letter to an existing address (Happy Path)
         Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email and Post Office Letter
         When the user selects that they want to send the letter to the original address
         Then the user is navigated to the next step in the journey - Confirm Answer
-        

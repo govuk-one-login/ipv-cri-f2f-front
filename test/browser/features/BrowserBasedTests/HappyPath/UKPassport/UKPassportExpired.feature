@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: UK Passport Find Nearest PO Branch - Happy Path
+Feature: Expired within last 18 months UK Passport E2E Journey. Email only Post Office letter (Happy Path)
 
     Background:
         Given A UK Passport User is using the system
@@ -23,7 +23,7 @@ Feature: UK Passport Find Nearest PO Branch - Happy Path
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
-    Scenario: Find Nearest PO Branch - UK Passport (Happy path)
+    Scenario: Expired within last 18 months UK Passport E2E Journey. Email only Post Office letter (Happy Path)
         Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email only Post Office Letter
