@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: UK Photo Driving Licence E2E Journey. Email only Post Office letter 
+Feature: UK Photo Driving Licence E2E Journey. Post Office letter to a different address 
 
     Background:
         Given A UK Drivers Licence User is using the system
@@ -26,8 +26,12 @@ Feature: UK Photo Driving Licence E2E Journey. Email only Post Office letter
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
-    Scenario: UK Photo Driving Licence E2E Journey. Email only Post Office letter 
+    Scenario: UK Photo Driving Licence E2E Journey. Post Office letter to a different address 
         Given a Post Office branch is selected
         When the user clicks continue
-        When the user selects an Email only Post Office Letter
+        When the user selects an Email and Post Office Letter
+        When the user selects that they want to send the letter to a different address
+        And the user enters the postcode for the different address
+        And the user selects an address from the dropdown list
         Then the user is navigated to the next step in the journey - Confirm Answer
+        

@@ -1,9 +1,8 @@
 @mock-api:f2f-f2f-success @success @browser
-
-Feature: Enter NonUK Passport Details  - Happy Path
+Feature: Non UK Passport E2E Journey. Has expiry date and a posted Post Office letter to an existing address 
 
     Background:
-        Given A UK Drivers Licence User is using the system
+        Given A Non UK Passport User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
 
@@ -22,8 +21,18 @@ Feature: Enter NonUK Passport Details  - Happy Path
         When the user clicks the continue button on the Non UK passport page
         Then the user is routed to the Country of Issue Selector screen
 
-    
-    Scenario: NonUK passport not expired 
         Given the user is on the Country Code Selection screen
-        When the user clicks continue without selecting a country
-        Then an inline error message is displayed
+        When the user selects a country
+        Then they are routed to the NonUKPassport Branch Finder screen
+
+        Given the postcode entered is valid
+        When the user clicks the continue button on the find Post Office branch page
+        Then the user is routed to the Select Location page showing 5 nearest POs
+
+
+    Scenario: Non UK Passport E2E Journey. Has expiry date and a posted Post Office letter to an existing address 
+        Given a Post Office branch is selected
+        When the user clicks continue
+        When the user selects an Email and Post Office Letter
+        When the user selects that they want to send the letter to the original address
+        Then the user is navigated to the next step in the journey - Confirm Answer

@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Non UK Passport E2E Journey. Has expiry date and an email only Post Office letter 
+Feature: Non UK Passport E2E Journey. Has expiry date and a posted Post Office letter to a different address 
 
     Background:
         Given A Non UK Passport User is using the system
@@ -30,8 +30,11 @@ Feature: Non UK Passport E2E Journey. Has expiry date and an email only Post Off
         Then the user is routed to the Select Location page showing 5 nearest POs
 
 
-    Scenario: Non UK Passport E2E Journey. Has expiry date and an email only Post Office letter 
+    Scenario: Non UK Passport E2E Journey. Has expiry date and a posted Post Office letter to a different address 
         Given a Post Office branch is selected
         When the user clicks continue
-        When the user selects an Email only Post Office Letter
+        When the user selects an Email and Post Office Letter
+        When the user selects that they want to send the letter to a different address
+        And the user enters the postcode for the different address
+        And the user selects an address from the dropdown list
         Then the user is navigated to the next step in the journey - Confirm Answer

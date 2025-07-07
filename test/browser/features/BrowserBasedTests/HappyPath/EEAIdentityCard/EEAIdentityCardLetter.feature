@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: National Identity Card EEA E2E Journey. No expiry date, ID address that matches the user's current address and a posted Post Office letter to their existing address 
+Feature: National Identity Card EEA E2E Journey. Has an expiry date, ID address that matches the user's current address and a posted Post Office letter to their existing address 
 
     Background:
         Given An EEA Identity Card User is using the system
@@ -14,7 +14,11 @@ Feature: National Identity Card EEA E2E Journey. No expiry date, ID address that
         When the user clicks the PhotoId continue button with EEA National Identity Card selected
         Then the user is routed to the EEA Has Expiry Entry Screen
 
-        When the user selects no on the EEA identity expiry date page
+        When the user selects yes on the EEA identity expiry date page
+        Then the user is routed to the next screen in the EEA National Identity journey - EEA National Identity Card details
+
+        Given the date entered is within accepted National Identity Card EEA expiration window
+        When the user clicks the continue button on the National Identity Card EEA Page
         Then the user is routed from NI Card EEA Details to the address check page
 
         Given the user selects Yes, it has my current address on it for EEA ID
@@ -29,7 +33,7 @@ Feature: National Identity Card EEA E2E Journey. No expiry date, ID address that
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
-    Scenario: National Identity Card EEA E2E Journey. No expiry date, ID address that matches the user's current address and a posted Post Office letter to their existing address 
+    Scenario: National Identity Card EEA E2E Journey. Has an expiry date, ID address that matches the user's current address and a posted Post Office letter to their existing address 
         Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email and Post Office Letter

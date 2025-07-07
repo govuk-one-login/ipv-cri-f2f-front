@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: EU Driving Licence E2E Journey. Has expiry date, ID address that matches the user's current address and a posted Post Office letter to an existing address 
+Feature: EU Driving Licence E2E Journey. Has expiry date, ID address that matches the user's current address and an email only Post Office letter 
 
     Background:
         Given An EU Drivers Licence User is using the system
@@ -33,9 +33,8 @@ Feature: EU Driving Licence E2E Journey. Has expiry date, ID address that matche
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
-    Scenario: EU Driving Licence E2E Journey. Has expiry date, ID address that matches the user's current address and a posted Post Office letter to an existing address 
+    Scenario: EU Driving Licence E2E Journey. Has expiry date, ID address that matches the user's current address and an email only Post Office letter 
         Given a Post Office branch is selected
         When the user clicks continue
-        When the user selects an Email and Post Office Letter
-        When the user selects that they want to send the letter to the original address
+        When the user selects an Email only Post Office Letter
         Then the user is navigated to the next step in the journey - Confirm Answer

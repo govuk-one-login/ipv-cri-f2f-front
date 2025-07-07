@@ -1,8 +1,8 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Change Expiry Date - UnHappy Path
+Feature: Expired within last 18 months UK Passport E2E Journey. Email only Post Office letter 
 
     Background:
-        Given A UK Drivers Licence User is using the system
+        Given A UK Passport User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
 
@@ -14,7 +14,7 @@ Feature: Change Expiry Date - UnHappy Path
         When the user clicks the PhotoId continue button
         Then the user is routed to the next screen in the journey Passport Details
 
-        Given the date entered is in the future
+        Given the date entered is within the last 18 months
         When the user clicks the continue button on the UKPassportPage
         Then the user is routed to the next screen in the journey Branch Finder Screen
         Then the user enters a valid postcode
@@ -23,14 +23,8 @@ Feature: Change Expiry Date - UnHappy Path
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
+    Scenario: Expired within last 18 months UK Passport E2E Journey. Email only Post Office letter 
         Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email only Post Office Letter
         Then the user is navigated to the next step in the journey - Confirm Answer
-
-    Scenario: Successful redirect from CMA screen back to expiry date entry then back to CMA screen
-        Given the user has navigated to the Check My Answers Page
-        When the user clicks the ExpiryDate Change button
-        Then the user is navigated back to the Expiry Date Page
-        Then the user changes the Expiry Date
-        Then the user continues to the CMA page

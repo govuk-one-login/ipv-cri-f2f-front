@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: EU Driving Licence E2E Journey. Has expiry date, ID address that matches the user's current address and a posted Post Office letter to an existing address 
+Feature: EU Driving Licence E2E Journey. Has expiry date, no address on the ID and a posted Post Office letter to an existing address 
 
     Background:
         Given An EU Drivers Licence User is using the system
@@ -21,7 +21,7 @@ Feature: EU Driving Licence E2E Journey. Has expiry date, ID address that matche
         When the user clicks the continue button on the EU Driving Licence details page
         Then the user is routed from EU DL Details to the address check page
 
-        Given the user selects Yes, it has my current address on it
+        Given the user selects My driving licence does not have my address on it
         When the user clicks continue on the EU Driving Licence address check page
         Then they are routed to the country code selection screen
 
