@@ -23,7 +23,7 @@ Feature: Enter NonUK Passport Details  - Happy Path
         Then the user is routed to the Country of Issue Selector screen
 
     
-    Scenario: NonUK passport not expired (Happy path)
+    Scenario: NonUK passport not expired 
         Given the user is on the Country Code Selection screen
         When the user clicks continue without selecting a country
         Then an inline error message is displayed

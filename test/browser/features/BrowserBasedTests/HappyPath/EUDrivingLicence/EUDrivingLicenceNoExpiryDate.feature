@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: EU Driving Licence E2E Journey. No expiry date, ID address that matches the user's current address and an email only Post Office letter (Happy Path)
+Feature: EU Driving Licence E2E Journey. No expiry date, ID address that matches the user's current address and an email only Post Office letter 
 
     Background:
         Given An EU Drivers Licence User is using the system
@@ -29,7 +29,7 @@ Feature: EU Driving Licence E2E Journey. No expiry date, ID address that matches
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
-    Scenario: EU Driving Licence E2E Journey. No expiry date, ID address that matches the user's current address and an email only Post Office letter (Happy Path)
+    Scenario: EU Driving Licence E2E Journey. No expiry date, ID address that matches the user's current address and an email only Post Office letter 
         Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email only Post Office Letter

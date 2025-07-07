@@ -24,9 +24,9 @@ module.exports = class PlaywrightDevPage {
 
   async expiryDateFuture() {
     const expDay = new Date().getDate().toString();
-    const currentMonth = new Date().getMonth() + 1;
-    const expMonth = currentMonth.toString();
-    const expYear = new Date().getFullYear().toString();
+    const expMonth = new Date().getMonth().toString();
+    const nextYear = new Date().getFullYear() + 1;
+    const expYear = nextYear.toString();
     await this.page.locator("#ukPassportExpiryDate-day").fill(expDay);
     await this.page.locator("#ukPassportExpiryDate-month").fill(expMonth);
     await this.page.locator("#ukPassportExpiryDate-year").fill(expYear);
@@ -35,8 +35,8 @@ module.exports = class PlaywrightDevPage {
   async expiryDatePast() {
     const expDay = new Date().getDate().toString();
     const expMonth = new Date().getMonth().toString();
-    const currentYear = new Date().getFullYear() - 1;
-    const expYear = currentYear.toString();
+    const previousYear = new Date().getFullYear() - 1;
+    const expYear = previousYear.toString();
     await this.page.locator("#ukPassportExpiryDate-day").fill(expDay);
     await this.page.locator("#ukPassportExpiryDate-month").fill(expMonth);
     await this.page.locator("#ukPassportExpiryDate-year").fill(expYear);

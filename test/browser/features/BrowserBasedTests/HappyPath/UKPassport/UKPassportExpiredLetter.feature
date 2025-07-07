@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Expired within last 18 months UK Passport E2E Journey. Post Office letter to the same address (Happy Path)
+Feature: Expired within last 18 months UK Passport E2E Journey. Post Office letter to the same address 
 
     Background:
         Given A UK Passport User is using the system
@@ -23,7 +23,7 @@ Feature: Expired within last 18 months UK Passport E2E Journey. Post Office lett
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
-    Scenario: Expired within last 18 months UK Passport E2E Journey. Post Office letter to the same address (Happy Path)
+    Scenario: Expired within last 18 months UK Passport E2E Journey. Post Office letter to the same address 
         Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email and Post Office Letter

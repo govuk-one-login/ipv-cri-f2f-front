@@ -1,5 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser
-Feature: Non UK Passport E2E Journey. No expiry date, no address on ID and a posted Post Office letter to an existing address (Happy Path)
+Feature: Non UK Passport E2E Journey. No expiry date and an email only Post Office letter
 
     Background:
         Given A Non UK Passport User is using the system
@@ -26,7 +26,7 @@ Feature: Non UK Passport E2E Journey. No expiry date, no address on ID and a pos
         Then the user is routed to the Select Location page showing 5 nearest POs
 
 
-    Scenario: Non UK Passport E2E Journey. No expiry date, no address on ID and a posted Post Office letter to an existing address (Happy Path)
+    Scenario: Non UK Passport E2E Journey. No expiry date and an email only Post Office letter
         Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email only Post Office Letter
