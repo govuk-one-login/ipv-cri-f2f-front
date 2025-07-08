@@ -72,7 +72,7 @@
     "sass": "1.63.6",
     "sinon": "15.2.0",
     "sinon-chai": "3.7.0",
-    "uglify-js": "3.17.4",
+    "uglify-js": "3.19.3",
     "wait-on": "7.2.0"
   },
   "dependencies": {
