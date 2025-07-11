@@ -200,7 +200,7 @@ Mappings:
       minECSCount: 2
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: false
+      MAY2025REBRANDENABLED: true
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
