@@ -4120,10 +4120,10 @@ got@<12:
     p-cancelable "^2.0.0"
     responselike "^2.0.0"
 
-govuk-frontend@4.10.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-4.10.0.tgz#520b30e1778ee05de4bdf52866b9cfa4574b9d71"
-  integrity sha512-oHwHdpycGZ7H6Skual1teBWN+0b+PYirifJkX8tQz1m7UWZb4JapppuOaVzcLD+11Q1hqqUJgR3gXDCosO9d4w==
+govuk-frontend@4.10.1:
+  version "4.10.1"
+  resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-4.10.1.tgz#a67a680f34339c210d59ed0f6c473af29c975744"
+  integrity sha512-k7wKjPpLovQlfOiBt0A3RHQCpNagOR8xpfMgvTEQkX6Id5njYNzQTsBvpArDKAxI2174csv2uzn02py02zTVLA==
 
 graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.9:
   version "4.2.11"
