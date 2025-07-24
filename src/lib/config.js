@@ -21,7 +21,7 @@ module.exports = {
     BASE_URL: process.env.PROXYURL,
     PATHS: {
       POST_OFFICE: "/postoffice/v1/locations/search",
-      ORDNANCE_SURVEY: "https://api.os.uk/search/places/v1/postcode?",
+      ORDNANCE_SURVEY: "https://zilsfhaczg.execute-api.eu-west-2.amazonaws.com/dev/search/places/v1/postcode?",
     },
   },
   APP: {
