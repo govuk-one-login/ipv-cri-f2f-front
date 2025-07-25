@@ -9,13 +9,19 @@ class PostcodeSearchController extends BaseController {
       }
       try {
         const userPostcode = req.sessionModel.get("postcode");
-        const { data: postOfficeData } = await req.axios.post(
+        const { data:postOfficeDataFull } = await req.axios.post(
           `https://${PROXY_API.BASE_URL}${PROXY_API.PATHS.POST_OFFICE}`,
           {
             searchString: userPostcode,
             productFilter: ["50321"],
           }
         );
+        if (!Array.isArray(postOfficeDataFull) || postOfficeDataFull.length === 0){
+          throw new Error("No post office branches found");
+        }
+      
+        // Selects 5 branches if more branches are found
+        const postOfficeData = postOfficeDataFull.slice(0, 5);
 
         // Values used for radio display
         locals.branch = {
@@ -24,158 +30,41 @@ class PostcodeSearchController extends BaseController {
           label: "",
           legend: "",
           hint: "",
-          items: [
-            {
-              value: "1",
-              conditional: {
-                html: "",
-              },
-              text: postOfficeData[0].name,
-              hint: {
-                text:
-                  postOfficeData[0].address.address1 +
-                  ", " +
-                  postOfficeData[0].address.address4 +
-                  ", " +
-                  postOfficeData[0].address.address5 +
-                  ", " +
-                  postOfficeData[0].address.postcode,
-              },
+          items: postOfficeData.map((branch, index) => ({
+            value: String(index + 1),
+            conditional: {
+              html: "",
             },
-            {
-              value: "2",
-              conditional: {
-                html: "",
-              },
-              text: postOfficeData[1].name,
-              hint: {
-                text:
-                  postOfficeData[1].address.address1 +
-                  ", " +
-                  postOfficeData[1].address.address4 +
-                  ", " +
-                  postOfficeData[1].address.address5 +
-                  ", " +
-                  postOfficeData[1].address.postcode,
-              },
+            text: branch.name,
+            hint: {
+              text:
+                branch.address.address1 +
+                ", " +
+                branch.address.address4 +
+                ", " +
+                branch.address.address5 +
+                ", " +
+                branch.address.postcode,
             },
-            {
-              value: "3",
-              conditional: {
-                html: "",
-              },
-              text: postOfficeData[2].name,
-              hint: {
-                text:
-                  postOfficeData[2].address.address1 +
-                  ", " +
-                  postOfficeData[2].address.address4 +
-                  ", " +
-                  postOfficeData[2].address.address5 +
-                  ", " +
-                  postOfficeData[2].address.postcode,
-              },
-            },
-            {
-              value: "4",
-              conditional: {
-                html: "",
-              },
-              text: postOfficeData[3].name,
-              hint: {
-                text:
-                  postOfficeData[3].address.address1 +
-                  ", " +
-                  postOfficeData[3].address.address4 +
-                  ", " +
-                  postOfficeData[3].address.address5 +
-                  ", " +
-                  postOfficeData[3].address.postcode,
-              },
-            },
-            {
-              value: "5",
-              conditional: {
-                html: "",
-              },
-              text: postOfficeData[4].name,
-              hint: {
-                text:
-                  postOfficeData[4].address.address1 +
-                  ", " +
-                  postOfficeData[4].address.address4 +
-                  ", " +
-                  postOfficeData[4].address.address5 +
-                  ", " +
-                  postOfficeData[4].address.postcode,
-              },
-            },
-          ],
+          })),
         };
 
         //Additional values for /documentSelection payload
-        locals.payLoadValues = {
-          location0: {
+        locals.payLoadValues = {};
+        postOfficeData.forEach((branch, index) => {
+          locals.payLoadValues[`location${index}`] = {
             addressWithoutPostCode:
-              postOfficeData[0].address.address1 +
+              branch.address.address1 +
               ", " +
-              postOfficeData[0].address.address4 +
+              branch.address.address4 +
               ", " +
-              postOfficeData[0].address.address5,
-            postcode: postOfficeData[0].address.postcode,
-            latitude: postOfficeData[0].address.latitude,
-            longitude: postOfficeData[0].address.longitude,
-            fadCode: postOfficeData[0].locationBusinessId,
-          },
-          location1: {
-            addressWithoutPostCode:
-              postOfficeData[1].address.address1 +
-              ", " +
-              postOfficeData[1].address.address4 +
-              ", " +
-              postOfficeData[1].address.address5,
-            postcode: postOfficeData[1].address.postcode,
-            latitude: postOfficeData[1].address.latitude,
-            longitude: postOfficeData[1].address.longitude,
-            fadCode: postOfficeData[1].locationBusinessId,
-          },
-          location2: {
-            addressWithoutPostCode:
-              postOfficeData[2].address.address1 +
-              ", " +
-              postOfficeData[2].address.address4 +
-              ", " +
-              postOfficeData[2].address.address5,
-            postcode: postOfficeData[2].address.postcode,
-            latitude: postOfficeData[2].address.latitude,
-            longitude: postOfficeData[2].address.longitude,
-            fadCode: postOfficeData[2].locationBusinessId,
-          },
-          location3: {
-            addressWithoutPostCode:
-              postOfficeData[3].address.address1 +
-              ", " +
-              postOfficeData[3].address.address4 +
-              ", " +
-              postOfficeData[3].address.address5,
-            postcode: postOfficeData[3].address.postcode,
-            latitude: postOfficeData[3].address.latitude,
-            longitude: postOfficeData[3].address.longitude,
-            fadCode: postOfficeData[3].locationBusinessId,
-          },
-          location4: {
-            addressWithoutPostCode:
-              postOfficeData[4].address.address1 +
-              ", " +
-              postOfficeData[4].address.address4 +
-              ", " +
-              postOfficeData[4].address.address5,
-            postcode: postOfficeData[4].address.postcode,
-            latitude: postOfficeData[4].address.latitude,
-            longitude: postOfficeData[4].address.longitude,
-            fadCode: postOfficeData[4].locationBusinessId,
-          },
-        };
+              branch.address.address5,
+            postcode: branch.address.postcode,
+            latitude: branch.address.latitude,
+            longitude: branch.address.longitude,
+            fadCode: branch.locationBusinessId,
+          };
+        });
 
         req.sessionModel.set("postOfficeDetails", locals.branch.items);
         req.sessionModel.set("payLoadValues", locals.payLoadValues);
