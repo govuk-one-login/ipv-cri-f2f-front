@@ -23,7 +23,7 @@ module.exports = class PlaywrightDevPage {
 
   async selectAddress() {
     await this.page.locator("#addressResults").selectOption({
-      value: "1 HADLEY ROAD, BATH, BA2 5AA",
+      value: "6 HADLEY ROAD, BATH, BA2 5AA",
     });
   }
 };
