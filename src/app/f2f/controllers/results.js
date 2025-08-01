@@ -17,7 +17,8 @@ class PostcodeSearchController extends BaseController {
           }
         );
         if (!Array.isArray(postOfficeDataFull) || postOfficeDataFull.length === 0){
-          throw new Error("No post office branches found");
+          console.error("No post office branches found, redirecting to /error");
+          res.redirect("/error");
         }
       
         // Selects 5 branches if more branches are found
