@@ -331,6 +331,11 @@ describe("Postcode Search Controller", () => {
 
       beforeEach(() => {
         req.axios.post = sinon.fake.resolves({ data: postOfficeData });
+        sinon.stub(console, "error");
+      });
+
+      afterEach(() => {
+        console.error.restore();
       });
 
       it("post office details are set correctly when less than 5 branches are found", async () => {
@@ -400,18 +405,17 @@ describe("Postcode Search Controller", () => {
         });
       });
 
-      it("throw error when no branches are returned", async () => {
+      it("should redirect to /error if no branch is returned", async () => {
         req.axios.post = sinon.fake.resolves({ data: [] });
-        const nextSpy = sinon.spy();
-      
-        await postcodeSearch.locals(req, res, nextSpy);
-      
-        expect(nextSpy.calledOnce).to.be.true;
-       
-        const errorArg = nextSpy.firstCall.args[0];
-        expect(errorArg).to.be.an("error");
-        expect(errorArg.message).to.equal("No post office branches found");
-      });     
+
+        await postcodeSearch.locals(req, res, next);
+
+        expect(res.redirect).to.have.been.calledOnceWith("/error");
+        sinon.assert.calledWith(
+          console.error,
+          "No post office branches found, redirecting to /error"
+        );
+      });    
     });
   });
 });
