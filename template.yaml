@@ -217,7 +217,7 @@ Mappings:
       minECSCount: 6
       maxECSCount: 60
       DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: false
+      MAY2025REBRANDENABLED: true
 
 Resources:
   # Security Groups for the ECS service and load balancer
