@@ -43,7 +43,7 @@ Parameters:
   SupportManualURL:
     Description: "Link to the F2F support manual"
     Type: String
-    Default: 'https://govukverify.atlassian.net/wiki/spaces/FTFCRI/pages/3623649281/F2F+FE+Metrics+Alerts'
+    Default: 'https://govukverify.atlassian.net/wiki/spaces/Kiwi/pages/4372169068/6.4+F2F+Support+Documentation'
   IPVStubStackName:
     Type: String
     Default: "f2f-ipv-stub"
