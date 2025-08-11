@@ -1,5 +1,5 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-const { PROXY_API } = require("../../../../src/lib/config");
+const { PROXY_API, APP } = require("../../../../src/lib/config");
 
 class PostcodeSearchController extends BaseController {
   locals(req, res, callback) {
