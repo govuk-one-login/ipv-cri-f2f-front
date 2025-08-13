@@ -11,7 +11,7 @@ permissions:
   id-token: write
   contents: read
 
-env: # Only adding the variables in that are required for 
+env: # Only adding the variables in that are required for
   AWS_REGION: eu-west-2
 
 jobs:
@@ -29,6 +29,9 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       # ... Build and validate SAM application ...
+
+      - name: SAM Validate
+        run: sam validate --region eu-west-2 -t template.yaml --lint
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -50,4 +53,4 @@ jobs:
           docker push $ECR_REGISTRY/$BUILD_TEST_ECR_REPOSITORY:$IMAGE_TAG
           cosign sign --key awskms:///${BUILD_CONTAINER_SIGN_KMS_KEY} $ECR_REGISTRY/$BUILD_TEST_ECR_REPOSITORY:$IMAGE_TAG
 
-      # ... Push build artefacts to S3 ...
+      # ... Push build artifacts to S3 ...
