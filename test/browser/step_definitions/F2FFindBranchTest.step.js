@@ -46,6 +46,58 @@ Then(
   }
 );
 
+// To return 2 PO branches
+Given(/^the user is on the "Enter a UK postcode" page$/, async function () {
+  const findBranch = new FindBranch(await this.page);
+  expect(await findBranch.isCurrentPage()).to.be.true;
+});
+
+When(
+  /^they enter the postcode "KW15 1DD" and click Continue$/,
+  async function () {
+    const findBranch = new FindBranch(await this.page);
+    await findBranch.enterPostCode("KW15 1DD");
+    await findBranch.continue();
+  }
+);
+
+Then(
+  /^they are taken to the "Choose a Post Office where you can prove your identity" page$/,
+  async function () {
+    const poLocations = new PostOfficeLocations(await this.page);
+    expect(await poLocations.isCurrentPage()).to.be.true;
+  }
+);
+
+Then(
+  /^they see exactly 2 Post Office branches to choose from$/,
+  async function () {
+    const poLocations = new PostOfficeLocations(await this.page);
+    const count = await poLocations.numberOfLocations();
+    expect(count).to.equal(2);
+  }
+);
+
+// to return zero results
+When(
+  /^they enter the postcode "IM1 1AD" and click Continue$/,
+  async function () {
+    const findBranch = new FindBranch(await this.page);
+    await findBranch.enterPostCode("IM1 1AD");
+    await findBranch.continue();
+  }
+);
+
+Then(
+  /^the PO API returns zero results$/,
+  async function () {
+    const poLocations = new PostOfficeLocations(await this.page);
+    const count = await poLocations.numberOfLocations();
+    expect(count).to.equal(0);
+  }
+);
+
+
 Then(
   /^the user is navigated back to the UK DL Address Check screen$/,
   async function () {
