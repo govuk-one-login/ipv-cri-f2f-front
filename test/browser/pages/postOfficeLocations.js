@@ -45,8 +45,8 @@ module.exports = class PlaywrightDevPage {
     //  const count = await this.page.locator(".govuk-radios__item").count();
     //  return await count;
 
-    await this.page.locator(".govuk-radios").first().waitFor();
-    return await this.page.locator(".govuk-radios").count();
+    await this.page.locator(".govuk-radios__input").first().waitFor();
+    return await this.page.locator(".govuk-radios__input").count();
   }
 
   async checkRedirectionErrorText() {
