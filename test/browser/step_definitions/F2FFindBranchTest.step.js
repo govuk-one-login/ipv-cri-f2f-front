@@ -64,16 +64,6 @@ Then(
   }
 );
 
-// to return zero results
-When(
-  /^they enter the postcode "IM1 1AD" and click Continue$/,
-  async function () {
-    const findBranch = new FindBranch(await this.page);
-    await findBranch.enterPostCode("IM1 1AD");
-    await findBranch.continue();
-  }
-);
-
 Then(
   /^the user is navigated back to the UK DL Address Check screen$/,
   async function () {
@@ -178,5 +168,16 @@ Then(
     expect(await findBranchPartial.checkErrorText()).to.contain(
       "There is a problem"
     );
+  }
+);
+
+//Post code correspond to empty return from PO stub
+
+When(
+  /^they enter the postcode "IM1 1AD" and click Continue$/,
+  async function () {
+    const findBranch = new FindBranch(await this.page);
+    await findBranch.enterPostCode("IM1 1AD");
+    await findBranch.continue();
   }
 );

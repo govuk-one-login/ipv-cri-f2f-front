@@ -20,6 +20,7 @@ Feature: F2F Journey
 
         Then the user is routed to the next screen in the journey Branch Finder Screen
         When they enter the postcode "KW15 1DD" and click Continue
+        And they see exactly 2 Post Office branches to choose from
         
         When the user clicks the Back button
         When they enter the postcode "IM1 1AD" and click Continue
