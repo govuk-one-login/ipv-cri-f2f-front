@@ -1,14 +1,8 @@
 @success @e2e
 
-<<<<<<< HEAD
-Feature: F2F Language Toggle
-
-    Scenario: F2F Journey - Language Toggle Validation
-=======
 Feature: F2F Journey 
 
     Scenario: F2F - Post Office Address Look Up
->>>>>>> 3728d87 (Update browser test for 2355)
         Given A UK Drivers Licence User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
@@ -23,16 +17,10 @@ Feature: F2F Journey
 
         Given the date entered is in the future
         When the user clicks the continue button on the UKPassportPage
+
         Then the user is routed to the next screen in the journey Branch Finder Screen
-<<<<<<< HEAD
-    
         When they enter the postcode "KW15 1DD" and click Continue
-        And they see exactly 2 Post Office branches to choose from
         
-=======
-        When they enter the postcode "KW15 1DD" and click Continue
-        And they see exactly 2 Post Office branches to choose from
->>>>>>> 3728d87 (Update browser test for 2355)
         When the user clicks the Back button
         When they enter the postcode "IM1 1AD" and click Continue
         Then they should see the unrecoverable error page
