@@ -29,6 +29,11 @@ module.exports = class PlaywrightDevPage {
     await this.page.locator("#postcode").fill("SW1A1AA");
   }
 
+  async enterPostCode(postcode) {
+  await this.page.locator("#postcode").fill(postcode);
+}
+
+
   async postCodeIncompleteData() {
     await this.page.locator("#postcode").fill("SW1A1MNE");
   }
