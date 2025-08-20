@@ -46,6 +46,24 @@ Then(
   }
 );
 
+When(
+  /^they enter the postcode "KW15 1DD" and click Continue$/,
+  async function () {
+    const findBranch = new FindBranch(await this.page);
+    await findBranch.enterPostCode("KW15 1DD");
+    await findBranch.continue();
+  }
+);
+
+Then(
+  /^they see exactly 2 Post Office branches to choose from$/,
+  async function () {
+    const poLocations = new PostOfficeLocations(await this.page);
+    const count = await poLocations.numberOfLocations();
+    expect(count).to.equal(2);
+  }
+);
+
 Then(
   /^the user is navigated back to the UK DL Address Check screen$/,
   async function () {
@@ -150,5 +168,16 @@ Then(
     expect(await findBranchPartial.checkErrorText()).to.contain(
       "There is a problem"
     );
+  }
+);
+
+//Post code correspond to empty return from PO stub
+
+When(
+  /^they enter the postcode "IM1 1AD" and click Continue$/,
+  async function () {
+    const findBranch = new FindBranch(await this.page);
+    await findBranch.enterPostCode("IM1 1AD");
+    await findBranch.continue();
   }
 );
