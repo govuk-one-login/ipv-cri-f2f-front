@@ -1282,9 +1282,8 @@ Resources:
           ReturnData: false
           Expression: (error/invocations)*100
 
-  FE4XXErrorAlarm:
+  FE4XXErrorAlarmSKTest:
     Type: AWS::CloudWatch::Alarm
-    Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FE4XXErrorAlarm"
       AlarmDescription: !Sub 
