@@ -6,6 +6,10 @@
 {% set contentId = "c8d7801e-90c3-4551-87ee-6124276e5a2f" %}
 {% set isPageDataSensitive = false %}
 {% set taxonomyLevel2 = "f2f" %}
+{% set statusCode = "200" %}
+{% set englishPageTitle = "{{translate("findBranch.title")}}" %}
+{% set loggedInStatus = true %}
+{% set dynamic = false %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 
@@ -28,21 +32,4 @@
 
 {% block footer %}
     {{ super() }}
-    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window
-                .DI
-                .analyticsGa4
-                .pageViewTracker
-                .trackOnPageLoad({
-                    statusCode: '200', // Access status code
-                    englishPageTitle: '{{translate("findBranch.title")}}',
-                    taxonomy_level1: 'web cri', // Access taxonomy level 1
-                    taxonomy_level2: 'f2f', // Access taxonomy level 2
-                    content_id: '001',
-                    logged_in_status: true,
-                    dynamic: false,
-                });
-        });
-    </script>
 {% endblock %}

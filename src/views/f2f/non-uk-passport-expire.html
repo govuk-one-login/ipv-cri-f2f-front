@@ -6,6 +6,10 @@
 {% set contentId = "3d5ef4ad-2b40-4adc-a46a-7e8775d20b58" %}
 {% set isPageDataSensitive = false %}
 {% set taxonomyLevel2 = "f2f" %}
+{% set statusCode = "200" %}
+{% set englishPageTitle = "{{translate("nonUKPassport.title")}}" %}
+{% set loggedInStatus = true %}
+{% set dynamic = false %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
@@ -43,21 +47,4 @@
 
 {% block footer %}
   {{ super() }}
-  <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-      window.addEventListener('load', function () {
-          window
-              .DI
-              .analyticsGa4
-              .pageViewTracker
-              .trackOnPageLoad({
-                  statusCode: '200', // Access status code
-                  englishPageTitle: '{{translate("nonUKPassport.title")}}',
-                  taxonomy_level1: 'web cri', // Access taxonomy level 1
-                  taxonomy_level2: 'f2f', // Access taxonomy level 2
-                  content_id: '001',
-                  logged_in_status: true,
-                  dynamic: false
-              });
-      });
-  </script>
 {% endblock %}

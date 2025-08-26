@@ -6,6 +6,10 @@
 {% set contentId = "0c7f3517-a8d5-4cad-a0d3-df7ece7483f3" %}
 {% set isPageDataSensitive = false %}
 {% set taxonomyLevel2 = "f2f" %}
+{% set statusCode = "200" %}
+{% set englishPageTitle = "{{translate("nationalIdentityCardHasExpiryDate.title")}}" %}
+{% set loggedInStatus = true %}
+{% set dynamic = false %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
@@ -39,21 +43,4 @@
 
 {% block footer %}
     {{ super() }}
-    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window
-                .DI
-                .analyticsGa4
-                .pageViewTracker
-                .trackOnPageLoad({
-                    statusCode: '200', // Access status code
-                    englishPageTitle: '{{translate("nationalIdentityCardHasExpiryDate.title")}}',
-                    taxonomy_level1: 'web cri', // Access taxonomy level 1
-                    taxonomy_level2: 'f2f', // Access taxonomy level 2
-                    content_id: '001',
-                    logged_in_status: true,
-                    dynamic: false
-                });
-        });
-    </script>
 {% endblock %}

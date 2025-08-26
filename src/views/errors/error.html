@@ -7,6 +7,10 @@
 {% set contentId = "3e8b784d-6c7e-4ca2-a39d-da2c2290a147" %}
 {% set isPageDataSensitive = false %}
 {% set taxonomyLevel2 = "f2f" %}
+{% set statusCode = "500" %}
+{% set englishPageTitle = "{{translate("error.unrecoverable.title")}}" %}
+{% set loggedInStatus = true %}
+{% set dynamic = false%}
 
 {% block mainContent %}
   <h1 data-id="error-title">{{ translate("error.unrecoverable.title") }}</h1>
@@ -27,18 +31,5 @@
   <div>
       <p><a href="https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-o.account.gov.uk/prove-identity-post-office\" class="govuk-link" rel="noreferrer noopener" target="_blank">{{ translate("error.unrecoverable.contactMeLink") }}</a></p>
   </div>
-  <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-    window.addEventListener('load', function () {
-      window.DI.analyticsGa4.pageViewTracker.trackOnPageLoad({
-        statusCode: '500', // Access status code
-        englishPageTitle: '{{translate("error.unrecoverable.title")}}',
-        taxonomy_level1: 'web cri', // Access taxonomy level 1
-        taxonomy_level2: 'f2f', // Access taxonomy level 2
-        content_id: '001',
-        logged_in_status: true,
-        dynamic: false,
-      });
-    });
-  </script>
 
 {% endblock %}

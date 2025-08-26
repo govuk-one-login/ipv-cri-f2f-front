@@ -9,7 +9,10 @@
 {% set contentId = "e8a154cf-8d00-47f4-87e1-5f9847010933" %}
 {% set isPageDataSensitive = false %}
 {% set taxonomyLevel2 = "f2f" %}
-
+{% set statusCode = "200" %}
+{% set englishPageTitle = "{{translate("photoIdSelection.title")}}" %}
+{% set loggedInStatus = true %}
+{% set dynamic = false %}
 
 {% block mainContent %}
 
@@ -42,21 +45,4 @@
 
 {% block footer %}
     {{ super() }}
-    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window
-                .DI
-                .analyticsGa4
-                .pageViewTracker
-                .trackOnPageLoad({
-                    statusCode: '200', // Access status code
-                    englishPageTitle: '{{translate("photoIdSelection.title")}}',
-                    taxonomy_level1: 'web cri', // Access taxonomy level 1
-                    taxonomy_level2: 'f2f', // Access taxonomy level 2
-                    content_id: '001',
-                    logged_in_status: true,
-                    dynamic: false
-                });
-        });
-    </script>
 {% endblock %}
