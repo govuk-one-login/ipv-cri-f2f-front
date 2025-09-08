@@ -3,11 +3,16 @@
 {% set hmpoPageKey = "nonUKPassport" %}
 {% set gtmJourney = "f2f - nonUKPassportDetails" %}
 
+
+{% if query.edit == "true" %}
+  {% set contentID = "8dd56c68-185e-4ffb-9d3f-f8f4ed889747" %}
+{% else %}
 {% set contentID = "3d5ef4ad-2b40-4adc-a46a-7e8775d20b58" %}
+{% endif %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
 {% set statusCode = "200" %}
-{% set pageKeyTitle = "{{translate("nonUKPassport.title")}}" %}
+{% set pageKeyTitle = "pages.nonUKPassport.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 

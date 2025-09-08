@@ -6,11 +6,15 @@
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% set isPageHeading = true %}
 
+{% if query.edit == "true" %}
+  {% set contentID = "068be5e2-c0c0-490e-9580-44a6e1f2f228" %}
+{% else %}
 {% set contentID = "e8a154cf-8d00-47f4-87e1-5f9847010933" %}
+{% endif %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
 {% set statusCode = "200" %}
-{% set pageTitleKey = "{{translate("photoIdSelection.title")}}" %}
+{% set pageTitleKey = "pages.photoIdSelection.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 

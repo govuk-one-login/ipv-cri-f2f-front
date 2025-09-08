@@ -8,11 +8,16 @@
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
+
+{% if query.edit == "true" %}
+  {% set contentID = "929d1951-ab38-4439-b78c-61a8bd60bbea" %}
+{% else %}
 {% set contentID = "e045bc6a-663a-4f15-a91b-ddbdd5ba547d" %}
+{% endif %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
 {% set statusCode = "200" %}
-{% set pageKeyTitle = "{{translate("nonUKPassportHasExpiryDate.title")}}" %}
+{% set pageKeyTitle = "pages.nonUKPassportHasExpiryDate.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 

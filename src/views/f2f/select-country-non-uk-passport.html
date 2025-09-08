@@ -3,11 +3,16 @@
 {% set hmpoPageKey = "nonUkPassportCountrySelector" %}
 {% set gtmJourney = "f2f - nonUkPassportCountrySelector" %}
 
+
+{% if query.edit == "true" %}
+  {% set contentID = "34cb8965-9149-4fea-9c55-8fdb3415da7f" %}
+{% else %}
 {% set contentID = "c266d23e-39cb-419c-88f1-ba9d6ea5a06f" %}
+{% endif %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
 {% set statusCode = "200" %}
-{% set pageKeyTitle = "translate("nonUkPassportCountrySelector.title")" %}
+{% set pageKeyTitle = "pages.nonUkPassportCountrySelector.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 

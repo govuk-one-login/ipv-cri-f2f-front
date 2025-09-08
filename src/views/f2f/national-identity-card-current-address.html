@@ -3,11 +3,16 @@
 {% set hmpoPageKey = "eeaIdentityCardAddressCheck" %}
 {% set gtmJourney = "f2f - eeaNationalIdAddressCheck" %}
 
-{% set contentID = "f3826d0c-476d-4b68-bf65-35e079bce706" %}
+
+{% if query.edit == "true" %}
+  {% set contentID = "dd83a52c-d4f0-4990-a79e-0f753f894e9a" %}
+{% else %}
+{% set contentID = "f3826d0c-476d-4b68-bf65-35e079bce706" %}    
+{% endif %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
 {% set statusCode = "200" %}
-{% set pageKeyTitle = "{{translate("eeaIdentityCardAddressCheck.title")}}" %}
+{% set pageKeyTitle = "pages.eeaIdentityCardAddressCheck.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 

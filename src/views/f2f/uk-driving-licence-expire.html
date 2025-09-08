@@ -3,11 +3,16 @@
 {% set hmpoPageKey = "ukPhotocardDl" %}
 {% set gtmJourney = "f2f - ukPhotocardDlDetails" %}
 
+
+{% if query.edit == "true" %}
+  {% set contentID = "3605b8af-a2ba-489a-8c7d-70992757190a" %}
+{% else %}
 {% set contentID = "3fe55247-5f95-4793-bdc2-f6c1b0fb1a66" %}
+{% endif %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
 {% set statusCode = "200" %}
-{% set pageKeyTitle = "{{translate("ukPhotocardDl.title")}}" %}
+{% set pageKeyTitle = "pages.ukPhotocardDl.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 

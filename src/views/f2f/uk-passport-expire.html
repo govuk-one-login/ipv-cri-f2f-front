@@ -3,11 +3,15 @@
 {% set hmpoPageKey = "ukPassport" %}
 {% set gtmJourney = "f2f - ukPassportDetails" %}
 
+{% if query.edit == "true" %}
+  {% set contentID = "22c57cf0-70d0-422b-994b-04bdbbcba3f0" %}
+{% else %}
 {% set contentID = "7c3b060d-ab30-4a3f-abcb-a5ea61646f57" %}
+{% endif %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
 {% set statusCode = "200" %}
-{% set pageKeyTitle = "{{translate("ukPassport.title")}}" %}
+{% set pageKeyTitle = "pages.ukPassport.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 

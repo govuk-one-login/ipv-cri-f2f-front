@@ -3,11 +3,15 @@
 {% set hmpoPageKey = "findBranch" %}
 {% set gtmJourney = "f2f - findBranch" %}
 
+{% if query.edit == "true" %}
+  {% set contentID = "bdc73e3b-5520-4d58-9d56-55852ef201ec" %}
+{% else %}
 {% set contentID = "c8d7801e-90c3-4551-87ee-6124276e5a2f" %}
+{% endif %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
 {% set statusCode = "200" %}
-{% set pageKeyTitle = "{{translate("findBranch.title")}}" %}
+{% set pageKeyTitle = "pages.findBranch.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 

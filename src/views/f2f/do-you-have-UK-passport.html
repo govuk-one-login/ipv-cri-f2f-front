@@ -5,11 +5,15 @@
 {% set isPageHeading = true %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 
+{% if query.edit == "true" %}
+  {% set contentID = "8d406f37-e21f-4e2c-b4a1-19ba67a60bc0" %}
+{% else %}
 {% set contentID = "4c5af1dd-9555-42f8-bb4a-924a28577189" %}
+{% endif %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
 {% set statusCode = "200" %}
-{% set pageKeyTitle = "{{translate("error.unrecoverable.title")}}" %}
+{% set pageKeyTitle = "pages.error.unrecoverable.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 
