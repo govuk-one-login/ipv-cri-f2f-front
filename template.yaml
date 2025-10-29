@@ -93,6 +93,10 @@ Conditions:
 # DO WE NEED TO CHANGE THE ARN?
   UseCanaryDeployment: !Not
     - !Equals [!Ref DeploymentStrategy, "None"]
+  IsDevOrBuildOrStaging: !Or
+    - !Equals [ !Ref Environment, dev ]
+    - !Equals [ !Ref Environment, build ]
+    - !Equals [ !Ref Environment, staging ]
 
 
 Mappings:
@@ -334,7 +338,9 @@ Resources:
         - !Ref AWS::NoValue
       Tags:
         - Key: FMSRegionalPolicy
-          Value: false
+          Value: !If [IsDevOrBuildOrStaging, "false", "none"]
+        - Key: CustomPolicy
+          Value: !If [IsDevOrBuildOrStaging, "true", "none"]
 
   LoadBalancerListenerTargetGroupECS:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
