@@ -169,7 +169,7 @@ Mappings:
       maxECSCount: 60
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
-      # Hardcoded variables used to generate stack outputs for tests in Build. Referenced in Outputs section of template.
+      # Hardcoded variables used to generate stack outputs for tests in Build. Referenced in Outputs section of this template file. Only present in Dev + Build
       IPVSTUBURL: "https://ipvstub.review-o.build.account.gov.uk/"
       TESTHARNESSURL: "https://testharness.review-o.build.account.gov.uk/"
       BACKENDSESSIONTABLE: "session-f2f-cri-ddb"
