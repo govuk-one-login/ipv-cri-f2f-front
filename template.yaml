@@ -149,6 +149,10 @@ Mappings:
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
+      IPVSTUBURL: "https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/"
+      TESTHARNESSURL: "https://f2f-test-harness-testharness.review-o.dev.account.gov.uk/"
+      BACKENDURL: "https://api-f2f-cri-api.review-o.dev.account.gov.uk"
+      BACKENDSESSIONTABLE: "session-f2f-cri-ddb"
     build:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
       DNSSUFFIX: "review-o.build.account.gov.uk"
@@ -166,6 +170,10 @@ Mappings:
       maxECSCount: 60
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
+      IPVSTUBURL: "https://ipvstub.review-o.build.account.gov.uk/"
+      TESTHARNESSURL: "https://testharness.review-o.build.account.gov.uk/"
+      BACKENDURL: "https://api.review-o.build.account.gov.uk"
+      BACKENDSESSIONTABLE: "session-f2f-cri-ddb"
     staging:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
       DNSSUFFIX: "review-o.staging.account.gov.uk"
@@ -183,6 +191,10 @@ Mappings:
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
+      IPVSTUBURL: ""
+      TESTHARNESSURL: ""
+      BACKENDURL: ""
+      BACKENDSESSIONTABLE: ""
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
@@ -200,6 +212,10 @@ Mappings:
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
+      IPVSTUBURL: ""
+      TESTHARNESSURL: ""
+      BACKENDURL: ""
+      BACKENDSESSIONTABLE: ""
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
@@ -217,6 +233,10 @@ Mappings:
       maxECSCount: 60
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
+      IPVSTUBURL: ""
+      TESTHARNESSURL: ""
+      BACKENDURL: ""
+      BACKENDSESSIONTABLE: ""
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -1727,23 +1747,20 @@ Outputs:
   F2FCustomDomain:
     Description: F2F Custom Domain API Gateway ID
     Value: !Ref F2FFrontCustomDomain
+  # Below outputs are only used for E2E tests - hardcoded to always point to relevant main stacks
   F2FIPVStubExecuteURL:
     Condition: IsNotProdLikeEnvironment
     Description: "F2F IPV Stub"
-    Value:
-      Fn::ImportValue: !Sub '${IPVStubStackName}-IPVStubExecuteUrl'
+    Value: !FindInMap [EnvironmentVariables, !Ref Environment, IPVSTUBURL]
   F2FTestHarnessURL:
     Condition: IsNotProdLikeEnvironment
     Description: "F2F Test Harness"
-    Value:
-      Fn::ImportValue: !Sub '${TestHarnessStackName}-TestHarnessExecuteUrl'
-  BackendSessionTableName:
+    Value: !FindInMap [EnvironmentVariables, !Ref Environment, TESTHARNESSURL]
+  F2FBackendSessionTableName:
     Condition: IsNotProdLikeEnvironment
-    Description: "Backend Session Table name for use by Test Harness"
-    Value:
-      Fn::ImportValue: "f2f-cri-api-SessionTable-name"
+    Description: "F2F Test Harness"
+    Value: !FindInMap [EnvironmentVariables, !Ref Environment, BACKENDSESSIONTABLE]
   F2FBackendURL:
     Condition: IsNotProdLikeEnvironment
-    Description: "Backend Custom Domain for use by Test Harness"
-    Value:
-      Fn::ImportValue: "f2f-cri-api-F2FBackendURL"
+    Description: "F2F Back End"
+    Value: !FindInMap [EnvironmentVariables, !Ref Environment, BACKENDURL]
