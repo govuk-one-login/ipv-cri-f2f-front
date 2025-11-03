@@ -37,7 +37,6 @@ docker_vars.env
 deploy/.aws-sam/
 deploy/samconfig.toml
 wafv2/
-package-lock.json
 test/reports/f2f-reports/
 test/reports/cucumber_report.json
 .vscode/launch.json
