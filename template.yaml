@@ -148,10 +148,9 @@ Mappings:
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
-      # Hardcoded variables used to generate stack outputs for tests in Dev. Referenced in Outputs section of this template file.
+      # Hardcoded variables used to generate stack outputs for tests in Dev. Referenced in Outputs section of this template file. Only present in Dev + Build
       IPVSTUBURL: "https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/"
       TESTHARNESSURL: "https://f2f-test-harness-testharness.review-o.dev.account.gov.uk/"
-      BACKENDURL: "https://api-f2f-cri-api.review-o.dev.account.gov.uk"
       BACKENDSESSIONTABLE: "session-f2f-cri-ddb"
     build:
       APIBASEURL: "https://api.review-o.build.account.gov.uk"
@@ -173,7 +172,6 @@ Mappings:
       # Hardcoded variables used to generate stack outputs for tests in Build. Referenced in Outputs section of template.
       IPVSTUBURL: "https://ipvstub.review-o.build.account.gov.uk/"
       TESTHARNESSURL: "https://testharness.review-o.build.account.gov.uk/"
-      BACKENDURL: "https://api.review-o.build.account.gov.uk"
       BACKENDSESSIONTABLE: "session-f2f-cri-ddb"
     staging:
       APIBASEURL: "https://api.review-o.staging.account.gov.uk"
@@ -1752,4 +1750,4 @@ Outputs:
   F2FBackendURL:
     Condition: IsNotProdLikeEnvironment
     Description: "F2F Back End"
-    Value: !FindInMap [EnvironmentVariables, !Ref Environment, BACKENDURL]
+    Value: !FindInMap [EnvironmentVariables, !Ref Environment, APIBASEURL]
