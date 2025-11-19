@@ -37,6 +37,8 @@ jobs:
         run: yarn build
       - name: Run test and write coverage
         run: yarn test:coverage
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
       - name: Run browser tests
         run: npm run test:browser:ci
         env: 
