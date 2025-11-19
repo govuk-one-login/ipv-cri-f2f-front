@@ -48,7 +48,7 @@ jobs:
           PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
           F2F_FE_BASE_URL: http://localhost:5030
       - name: Archive browser tests results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: browser-tests-report
           path: test/reports/f2f-reports/
