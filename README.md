@@ -11,7 +11,7 @@ This is the home for the front end user interface for Face to Face journey as pa
 Clone this repository and then run:
 
 ```bash
-yarn install
+yarn install --frozen-lockfile
 yarn build
 ```
 
