@@ -30,15 +30,17 @@ jobs:
           node-version: 22
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: Run lint
         run: yarn lint
       - name: Run build
         run: yarn build
       - name: Run test and write coverage
         run: yarn test:coverage
+      - name: Install Playwright browsers
+        run: yarn playwright install --with-deps
       - name: Run browser tests
-        run: npm run test:browser:ci
+        run: yarn run test:browser:ci
         env: 
           IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
           CUSTOM_FE_URL: http://localhost:5030
@@ -60,7 +62,7 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn test:coverage
       - name: Run SonarCloud Scan
