@@ -41,7 +41,10 @@ jobs:
           extra_args: "detect-secrets --all-files"
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
+      
+      - name: Install Playwright browsers
+        run: yarn playwright install --with-deps
 
       - name: Run lint
         run: yarn lint
@@ -59,7 +62,7 @@ jobs:
       - name: Build Test F2F Front Image
         uses: borales/actions-yarn@v4
         with:
-          cmd: install # will run `yarn install` command
+          cmd: install --frozen-lockfile # will run `yarn install` command
         env:
           NODE_AUTH_TOKEN: ${{ secrets.SH_F2F_ACCESS_TOKEN }} # if needed
 

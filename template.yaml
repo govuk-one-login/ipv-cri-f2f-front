@@ -314,6 +314,16 @@ Resources:
               - s3:PutObject
             Resource:
               - !Sub arn:aws:s3:::${AccessLogsBucket}/f2f-front-${Environment}/AWSLogs/${AWS::AccountId}/*
+          - Effect: Deny
+            Resource:
+              - !GetAtt AccessLogsBucket.Arn
+              - !Sub "${AccessLogsBucket.Arn}/*"
+            Principal: "*"
+            Action:
+              - "s3:*"
+            Condition:
+              Bool:
+                "aws:SecureTransport": false
 
   # Private Application Load Balancer
   LoadBalancer:
@@ -408,7 +418,7 @@ Resources:
         - Key: Name
           Value: !Sub "${AWS::StackName}-ECSCluster"
         - Key: Product
-          Value: "GOV.UK sign in"
+          Value: "GOV.UK One login"
         - Key: System
           Value: "F2F"
         - Key: Environment
@@ -460,7 +470,7 @@ Resources:
         - Key: Name
           Value: !Sub "${AWS::StackName}-ECS"
         - Key: Product
-          Value: "GOV.UK sign in"
+          Value: "GOV.UK One login"
         - Key: System
           Value: "F2F"
         - Key: Environment
@@ -606,6 +616,7 @@ Resources:
         - Essential: true
           Image: CONTAINER-IMAGE-PLACEHOLDER
           Name: app
+          ReadonlyRootFilesystem: true
           Environment:
             - Name: API_BASE_URL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, APIBASEURL ]
@@ -685,7 +696,7 @@ Resources:
         - Key: Name
           Value: !Sub "${AWS::StackName}-TaskDefinition"
         - Key: Product
-          Value: "GOV.UK sign in"
+          Value: "GOV.UK One login"
         - Key: System
           Value: "F2F"
         - Key: Environment
