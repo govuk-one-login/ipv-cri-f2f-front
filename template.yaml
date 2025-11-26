@@ -418,7 +418,7 @@ Resources:
         - Key: Name
           Value: !Sub "${AWS::StackName}-ECSCluster"
         - Key: Product
-          Value: "GOV.UK sign in"
+          Value: "GOV.UK One login"
         - Key: System
           Value: "F2F"
         - Key: Environment
@@ -470,7 +470,7 @@ Resources:
         - Key: Name
           Value: !Sub "${AWS::StackName}-ECS"
         - Key: Product
-          Value: "GOV.UK sign in"
+          Value: "GOV.UK One login"
         - Key: System
           Value: "F2F"
         - Key: Environment
@@ -696,7 +696,7 @@ Resources:
         - Key: Name
           Value: !Sub "${AWS::StackName}-TaskDefinition"
         - Key: Product
-          Value: "GOV.UK sign in"
+          Value: "GOV.UK One login"
         - Key: System
           Value: "F2F"
         - Key: Environment
