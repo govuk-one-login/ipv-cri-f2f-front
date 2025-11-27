@@ -295,7 +295,7 @@ Resources:
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
+              SSEAlgorithm: aws:kms
 
   F2FFrontAccessLogsBucketPolicy:
     Condition: IsNotDevelopment
