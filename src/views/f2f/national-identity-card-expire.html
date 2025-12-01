@@ -3,6 +3,14 @@
 {% set hmpoPageKey = "eeaIdentityCard" %}
 {% set gtmJourney = "f2f - eeaIdCard" %}
 
+{% set contentID = "819bc37e-0274-4916-91b1-bb1c39e742eb" %}
+{% set isPageDataSensitive = false %}
+{% set taxLevel2 = "f2f" %}
+{% set statusCode = "200" %}
+{% set pageKeyTitle = "pages.eeaIdentityCard.title" %}
+{% set loggedInStatus = true %}
+{% set isPageDynamic = false %}
+
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "hmpo-date/macro.njk" import hmpoDate %}
@@ -39,21 +47,4 @@
 
 {% block footer %}
     {{ super() }}
-    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window
-                .DI
-                .analyticsGa4
-                .pageViewTracker
-                .trackOnPageLoad({
-                    statusCode: '200', // Access status code
-                    englishPageTitle: '{{translate("eeaIdentityCard.title")}}',
-                    taxonomy_level1: 'web cri', // Access taxonomy level 1
-                    taxonomy_level2: 'f2f', // Access taxonomy level 2
-                    content_id: '001',
-                    logged_in_status: true,
-                    dynamic: false
-                });
-        });
-    </script>
 {% endblock %}

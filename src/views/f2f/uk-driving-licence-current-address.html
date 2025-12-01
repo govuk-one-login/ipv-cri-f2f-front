@@ -9,6 +9,18 @@
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
 
+{% if query.edit == "true" %}
+  {% set contentID = "75a8fc5c-73bb-42ee-a92a-24a1a82fb4f3" %}
+{% else %}
+{% set contentID = "e714e470-0111-4b6d-bdc6-bb723ce308fe" %}
+{% endif %}
+{% set isPageDataSensitive = false %}
+{% set taxLevel2 = "f2f" %}
+{% set statusCode = "200" %}
+{% set pageKeyTitle = "pages.ukPhotocardDlAddressCheck.title" %}
+{% set loggedInStatus = true %}
+{% set isPageDynamic = false %}
+
 {% block mainContent %}
 
 {% set title = translate("ukPhotocardDlAddressCheck.title") %}
@@ -46,21 +58,4 @@
 
 {% block footer %}
     {{ super() }}
-    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window
-                .DI
-                .analyticsGa4
-                .pageViewTracker
-                .trackOnPageLoad({
-                    statusCode: '200', // Access status code
-                    englishPageTitle: '{{translate("ukPhotocardDlAddressCheck.title")}}',
-                    taxonomy_level1: 'web cri', // Access taxonomy level 1
-                    taxonomy_level2: 'f2f', // Access taxonomy level 2
-                    content_id: '001',
-                    logged_in_status: true,
-                    dynamic: false
-                });
-        });
-    </script>
 {% endblock %}
