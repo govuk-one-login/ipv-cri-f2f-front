@@ -85,7 +85,7 @@ jobs:
           path: gh-pages
 
       - name: Cucumber HTML Report action
-        uses: PavanMudigonda/html-reporter-github-pages@v1.3
+        uses: PavanMudigonda/html-reporter-github-pages@v1.5
         id: test-report
         if: always()
         with:
