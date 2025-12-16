@@ -27,6 +27,8 @@ photoIdSelection:
   title: "Dewiswch pa ID gyda llun y gallwch fynd i'r Swyddfa Bost"
   content: "Ni allwch ddefnyddio llungopi neu gopi digidol o'ch ID gyda llun."
   expiryWarning: "Mae'n rhaid bod cyfnod eich ID gyda llun heb fod wedi dod i ben."
+  addressWarning: "Os oes cyfeiriad ar eich ID gyda llun, rhaid iddo fod eich cyfeiriad presennol."
+  subtitle: "Pa ID gyda llun ydych chi am fynd i Swyddfa'r Post?"
 
 dateOfBirth:
   title: "Rhowch eich dyddiad geni"

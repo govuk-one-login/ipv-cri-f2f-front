@@ -27,6 +27,8 @@ photoIdSelection:
   title: "Choose which photo ID you can take to a Post Office"
   content: "You cannot use a photocopy or digital copy of your photo ID."
   expiryWarning: "Your photo ID must not have expired."
+  addressWarning: "If your photo ID has your address on it, it must be your current address."
+  subtitle: "Which photo ID do you want to take to a Post Office?"
 
 dateOfBirth:
   title: "Enter your date of birth"

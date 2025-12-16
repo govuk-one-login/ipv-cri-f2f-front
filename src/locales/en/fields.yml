@@ -16,11 +16,11 @@ photoIdChoice:
       reveal: ""
     euPhotocardDl:
       label: European Union (EU) photocard driving licence
-      hint: This must be a plastic photocard, not a paper or handwritten licence. If it has your address on it, it must be your current address.
+      hint: This must be a plastic photocard, not a paper or handwritten licence.
       reveal: ""
     eeaIdentityCard:
-      label: National identity card from a European Economic Area (EEA) country
-      hint: This must be a plastic photocard, not a paper or handwritten card. If it has your address on it, it must be your current address.
+      label: National identity card from the EU, Norway, Iceland or Liechtenstein
+      hint: This must be a plastic photocard, not a paper or handwritten card.
       reveal: ""
     noPhotoId:
       label: I do not have any of these documents
