@@ -3,7 +3,7 @@ landingPage:
   firstCircle: "1"
   firstStepTitle: "Cael eich llythyr cwsmer Swyddfa Bost gan GOV.UK"
   secondCircle: "2"
-  secondStepTitle: "Ewch i'r Swyddfa Bost"
+  secondStepTitle: "Ewch i Swyddfa'r Post"
   thirdCircle: "3"
   thirdStepTitle: "Arhoswch am eich canlyniad"
   instructions:
@@ -98,7 +98,7 @@ checkDetails:
   postOffice: "Cyfeiriad Swyddfa Bost"
   changeLink: "Newid"
   buttonText: "Cadarnhau ac anfon"
-  ukDlAddress: "A yw'r cyfeiriad ar eich trwydded yrru yr un fath â'ch cyfeiriad presennol?"
+  ukDlAddress: "A oes gan eich trwydded yrru eich cyfeiriad presennol arno?"
   euDlAddress: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
   idCardAddress: "A oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad cyfredol arno?"
   country: "Gwlad"
