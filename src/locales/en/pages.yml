@@ -98,7 +98,7 @@ checkDetails:
   postOffice: "Post Office address"
   changeLink: "Change"
   buttonText: "Confirm and submit"
-  ukDlAddress: Is the address on your driving licence the same as your current address?
+  ukDlAddress: Does your driving licence have your current address on it?
   euDlAddress: Does your driving licence have your current address on it?
   idCardAddress: Does your national identity card have your current address on it?
   country: Country
