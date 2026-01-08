@@ -114,7 +114,7 @@ ukPhotocardDlAddressCheck:
   title: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
   context: "Os oes gan eich trwydded yrru eich cyfeiriad blaenorol arno, bydd angen i chi ddewis math arall o ID gyda llun."
   change-how: "Sut ydw i'n newid y cyfeiriad ar fy nhrwydded yrru?"
-  change-link: "<p>Rhaid i chi ddiweddaru eich trwydded yrru pan fyddwch yn symud.</p><p>Os ydych yn byw yng Nghymru, Lloegr neu'r Alban, <a href=\"https://www.gov.uk/tell-dvla-changed-address\" target=\"_blank\" class=\"govuk-link\">dywedwch wrth DVLA eich bod wedi newid cyfeiriad (agor mewn tab newydd)</a></p><p>Os ydych yn byw yng Ngogledd Iwerddon, <a href=\"https://www.gov.uk/tell-dvla-changed-address\" target=\"_blank\" class=\"govuk-link\">dywedwch wrth DVA eich bod wedi newid cyfeiriad (agor mewn tab newydd)</a></p>"
+  change-link: "<p>Rhaid i chi ddiweddaru eich trwydded yrru pan fyddwch yn symud.</p><p>Os ydych yn byw yng Nghymru, Lloegr neu'r Alban, <a href=\"https://www.gov.uk/tell-dvla-changed-address\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"govuk-link\">dywedwch wrth DVLA eich bod wedi newid cyfeiriad (agor mewn tab newydd)</a></p><p>Os ydych yn byw yng Ngogledd Iwerddon, <a href=\"https://www.gov.uk/tell-dvla-changed-address\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"govuk-link\">dywedwch wrth DVA eich bod wedi newid cyfeiriad (agor mewn tab newydd)</a></p>"
 
 euPhotocardDlAddressCheck:
   title: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
