@@ -27,6 +27,8 @@ photoIdSelection:
   title: "Choose which photo ID you can take to a Post Office"
   content: "You cannot use a photocopy or digital copy of your photo ID."
   expiryWarning: "Your photo ID must not have expired."
+  addressWarning: "If your photo ID has your address on it, it must be your current address."
+  subtitle: "Which photo ID do you want to take to a Post Office?"
 
 dateOfBirth:
   title: "Enter your date of birth"
@@ -112,7 +114,7 @@ ukPhotocardDlAddressCheck:
   title: "Does your driving licence have your current address on it?"
   context: If your driving licence has your previous address on it, you'll need to choose another type of photo ID.
   change-how: "How do I change the address on my driving licence?"
-  change-link: <p>You must update your driving licence when you move. <a href="https://www.gov.uk/tell-dvla-changed-address" target="_blank" class="govuk-link">Tell DVLA you've changed address (opens in a new tab)</a></p>
+  change-link: <p>You must update your driving licence when you move.</p><p>If you live in England, Scotland or Wales, <a href="https://www.gov.uk/tell-dvla-changed-address" target="_blank" rel="noreferrer noopener" class="govuk-link">tell DVLA you've changed address (opens in a new tab)</a></p><p>If you live in Northern Ireland, <a href="https://www.nidirect.gov.uk/services/change-address-your-driving-licence-online" target="_blank" rel="noreferrer noopener" class="govuk-link">tell DVA you've changed address (opens in a new tab)</a></p>
 
 euPhotocardDlAddressCheck:
   title: "Does your driving licence have your current address on it?"
