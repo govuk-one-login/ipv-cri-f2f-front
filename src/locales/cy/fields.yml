@@ -16,11 +16,11 @@ photoIdChoice:
       reveal: ""
     euPhotocardDl:
       label: Trwydded yrru cerdyn gyda llun yr Undeb Ewropeaidd (UE)
-      hint: Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen. Os oes ganddo eich cyfeiriad arno, rhaid iddo fod eich cyfeiriad presennol.
+      hint: Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen.
       reveal: ""
     eeaIdentityCard:
-      label: Cerdyn hunaniaeth genedlaethol o wlad Ardal Economaidd Ewropeaidd (AEE)
-      hint: Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen. Os oes ganddo eich cyfeiriad arno, rhaid iddo fod eich cyfeiriad presennol.
+      label: Cerdyn adnabod cenedlaethol o'r UE, Norwy, Gwlad yr Iâ neu Liechtenstein
+      hint: Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen.
       reveal: ""
     noPhotoId:
       label: Nid oes gennyf unrhyw un o'r dogfennau hyn
