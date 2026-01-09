@@ -2,6 +2,14 @@
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "addressResults" %}
 {% set gtmJourney = "f2f - addressResults" %}
+
+{% set contentID = "47449344-85c0-4ec5-a210-be0b57e01ef2" %}
+{% set isPageDataSensitive = false %}
+{% set taxLevel2 = "f2f" %}
+{% set pageKeyTitle = "pages.locations.title" %}
+{% set loggedInStatus = true %}
+{% set isPageDynamic = false %}
+
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
@@ -39,21 +47,4 @@
 
   {% block footer %}
       {{ super() }}
-      <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window
-                .DI
-                .analyticsGa4
-                .pageViewTracker
-                .trackOnPageLoad({
-                    statusCode: '200', // Access status code
-                    englishPageTitle: '{{translate("locations.title")}}',
-                    taxonomy_level1: 'web cri', // Access taxonomy level 1
-                    taxonomy_level2: 'f2f', // Access taxonomy level 2
-                    content_id: '001',
-                    logged_in_status: true,
-                    dynamic: false
-                });
-        });
-    </script>
   {% endblock %}

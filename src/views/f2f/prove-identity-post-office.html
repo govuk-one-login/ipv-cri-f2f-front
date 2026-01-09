@@ -7,6 +7,14 @@
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
 
+{% set contentID = "6941238f-fb03-4265-9b27-28eccc56e1a0" %}
+{% set isPageDataSensitive = false %}
+{% set taxLevel2 = "f2f" %}
+{% set statusCode = "200" %}
+{% set pageTitleKey = "pages.landingPage.title" %}
+{% set loggedInStatus = true %}
+{% set isPageDynamic = false %}
+
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -60,21 +68,4 @@
 
 {% block footer %}
     {{ super() }}
-    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window
-                .DI
-                .analyticsGa4
-                .pageViewTracker
-                .trackOnPageLoad({
-                    statusCode: '200', // Access status code
-                    englishPageTitle: '{{translate("landingPage.title")}}',
-                    taxonomy_level1: 'web cri', // Access taxonomy level 1
-                    taxonomy_level2: 'f2f', // Access taxonomy level 2
-                    content_id: '001',
-                    logged_in_status: true,
-                    dynamic: false
-                });
-        });
-    </script>
 {% endblock %}

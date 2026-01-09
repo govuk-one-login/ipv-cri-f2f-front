@@ -3,6 +3,19 @@
 {% set hmpoPageKey = "ukPhotocardDl" %}
 {% set gtmJourney = "f2f - ukPhotocardDlDetails" %}
 
+
+{% if query.edit == "true" %}
+  {% set contentID = "3605b8af-a2ba-489a-8c7d-70992757190a" %}
+{% else %}
+{% set contentID = "3fe55247-5f95-4793-bdc2-f6c1b0fb1a66" %}
+{% endif %}
+{% set isPageDataSensitive = false %}
+{% set taxLevel2 = "f2f" %}
+{% set statusCode = "200" %}
+{% set pageKeyTitle = "pages.ukPhotocardDl.title" %}
+{% set loggedInStatus = true %}
+{% set isPageDynamic = false %}
+
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "hmpo-date/macro.njk" import hmpoDate %}
@@ -40,22 +53,5 @@
 
 {% block footer %}
     {{ super() }}
-    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window
-                .DI
-                .analyticsGa4
-                .pageViewTracker
-                .trackOnPageLoad({
-                    statusCode: '200', // Access status code
-                    englishPageTitle: '{{translate("ukPhotocardDl.title")}}',
-                    taxonomy_level1: 'web cri', // Access taxonomy level 1
-                    taxonomy_level2: 'f2f', // Access taxonomy level 2
-                    content_id: '001',
-                    logged_in_status: true,
-                    dynamic: false
-                });
-        });
-    </script>
 {% endblock %}
 
