@@ -3,7 +3,7 @@ landingPage:
   firstCircle: "1"
   firstStepTitle: "Cael eich llythyr cwsmer Swyddfa Bost gan GOV.UK"
   secondCircle: "2"
-  secondStepTitle: "Ewch i'r Swyddfa Bost"
+  secondStepTitle: "Ewch i Swyddfa'r Post"
   thirdCircle: "3"
   thirdStepTitle: "Arhoswch am eich canlyniad"
   instructions:
@@ -27,6 +27,8 @@ photoIdSelection:
   title: "Dewiswch pa ID gyda llun y gallwch fynd i'r Swyddfa Bost"
   content: "Ni allwch ddefnyddio llungopi neu gopi digidol o'ch ID gyda llun."
   expiryWarning: "Mae'n rhaid bod cyfnod eich ID gyda llun heb fod wedi dod i ben."
+  addressWarning: "Os oes cyfeiriad ar eich ID gyda llun, rhaid iddo fod eich cyfeiriad presennol."
+  subtitle: "Pa ID gyda llun ydych chi am fynd i Swyddfa'r Post?"
 
 dateOfBirth:
   title: "Rhowch eich dyddiad geni"
@@ -98,7 +100,7 @@ checkDetails:
   postOffice: "Cyfeiriad Swyddfa Bost"
   changeLink: "Newid"
   buttonText: "Cadarnhau ac anfon"
-  ukDlAddress: "A yw'r cyfeiriad ar eich trwydded yrru yr un fath â'ch cyfeiriad presennol?"
+  ukDlAddress: "A oes gan eich trwydded yrru eich cyfeiriad presennol arno?"
   euDlAddress: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
   idCardAddress: "A oes gan eich cerdyn adnabod cenedlaethol eich cyfeiriad cyfredol arno?"
   country: "Gwlad"
@@ -112,7 +114,7 @@ ukPhotocardDlAddressCheck:
   title: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
   context: "Os oes gan eich trwydded yrru eich cyfeiriad blaenorol arno, bydd angen i chi ddewis math arall o ID gyda llun."
   change-how: "Sut ydw i'n newid y cyfeiriad ar fy nhrwydded yrru?"
-  change-link: "<p>Mae'n rhaid i chi ddiweddaru eich trwydded yrru pan fyddwch yn symud. <a href=\"https://www.gov.uk/tell-dvla-changed-address\" target=\"_blank\" class=\"govuk-link\">Dywedwch wrth DVLA eich bod wedi newid cyfeiriad (agor mewn tab newydd)</a></p>"
+  change-link: "<p>Rhaid i chi ddiweddaru eich trwydded yrru pan fyddwch yn symud.</p><p>Os ydych yn byw yng Nghymru, Lloegr neu'r Alban, <a href=\"https://www.gov.uk/tell-dvla-changed-address\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"govuk-link\">dywedwch wrth DVLA eich bod wedi newid cyfeiriad (agor mewn tab newydd)</a></p><p>Os ydych yn byw yng Ngogledd Iwerddon, <a href=\"https://www.gov.uk/tell-dvla-changed-address\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"govuk-link\">dywedwch wrth DVA eich bod wedi newid cyfeiriad (agor mewn tab newydd)</a></p>"
 
 euPhotocardDlAddressCheck:
   title: "A oes gan eich trwydded yrru eich cyfeiriad cyfredol arno?"
