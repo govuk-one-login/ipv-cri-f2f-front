@@ -19,6 +19,7 @@ jobs:
     permissions:
       contents: write
       packages: write
+      pages: write
     continue-on-error: true
 
 
@@ -101,6 +102,6 @@ jobs:
         id: test-report
         if: always()
         with:
-          test_results: ${{ github.workspace }}/test/reports/f2f-reports
+          test_results: .report/cucumber-html-report
           gh_pages: gh-pages
           results_history: results-history
