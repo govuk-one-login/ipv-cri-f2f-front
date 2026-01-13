@@ -84,11 +84,17 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
+      - name: Debug workspace
+        run: |
+          echo "Workspace: $GITHUB_WORKSPACE"
+          pwd
+          ls
+    
       - name: Cucumber HTML Report action
         uses: PavanMudigonda/html-reporter-github-pages@v1.5
         id: test-report
         if: always()
         with:
-          test_results: cucumber-html-report
+          test_results: ${{ github.workspace }}/report/cucumber-html-report
           gh_pages: gh-pages
           results_history: results-history
