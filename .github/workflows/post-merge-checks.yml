@@ -76,6 +76,12 @@ jobs:
         with:
           cmd: test:browser:ci # will run `yarn test:browser:ci` command
 
+      - name: Locate cucumber report output
+        run: |
+          echo "Searching for cucumber reports..."
+          find $GITHUB_WORKSPACE -type d -name "*cucumber*" || true
+          find $GITHUB_WORKSPACE -type f -name "index.html" | grep cucumber || true
+
       - name: Get Test Results history
         uses: actions/checkout@v6
         if: always()
