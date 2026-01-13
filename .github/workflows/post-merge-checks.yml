@@ -101,6 +101,6 @@ jobs:
         id: test-report
         if: always()
         with:
-          test_results: ${{ github.workspace }}/report/cucumber-html-report
+          test_results: ${{ github.workspace }}/test/reports/f2f-reports
           gh_pages: gh-pages
           results_history: results-history
