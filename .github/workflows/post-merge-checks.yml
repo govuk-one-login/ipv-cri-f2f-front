@@ -77,12 +77,6 @@ jobs:
         with:
           cmd: test:browser:ci # will run `yarn test:browser:ci` command
 
-      - name: Locate cucumber report output
-        run: |
-          echo "Searching for cucumber reports..."
-          find $GITHUB_WORKSPACE -type d -name "*cucumber*" || true
-          find $GITHUB_WORKSPACE -type f -name "index.html" | grep cucumber || true
-
       - name: Get Test Results history
         uses: actions/checkout@v6
         if: always()
@@ -90,18 +84,12 @@ jobs:
         with:
           ref: gh-pages
           path: gh-pages
-
-      - name: Debug workspace
-        run: |
-          echo "Workspace: $GITHUB_WORKSPACE"
-          pwd
-          ls
     
       - name: Cucumber HTML Report action
         uses: PavanMudigonda/html-reporter-github-pages@v1.5
         id: test-report
         if: always()
         with:
-          test_results: .report/cucumber-html-report
+          test_results: ./report/cucumber-html-report
           gh_pages: gh-pages
           results_history: results-history
