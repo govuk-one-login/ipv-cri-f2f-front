@@ -19,7 +19,6 @@ jobs:
     permissions:
       contents: write
       packages: write
-      pages: write
     continue-on-error: true
 
 
