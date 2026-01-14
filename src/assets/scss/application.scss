@@ -1,6 +1,9 @@
 $govuk-assets-path: "/public/";
 @import "../../../node_modules/govuk-frontend/govuk/all";
 @import "../../../node_modules/hmpo-components/all";
+@import "../../../node_modules/@govuk-one-login/frontend-language-toggle/stylesheet/styles";
+
+@import "components/button-spinner";
 
 .govuk-date-input__label {
   @include govuk-responsive-margin(2, "bottom");
@@ -62,10 +65,6 @@ main p,
   @include govuk-responsive-margin(0, "bottom");
 }
 
-.govuk-error-summary {
-  width: 66.6666%;
-}
-
 #landingPageTitle {
   @include govuk-responsive-margin(5, "bottom");
 }
@@ -83,11 +82,6 @@ main p,
   @include govuk-responsive-margin(5, "bottom");
 }
 
-#details-btn {
-  @include govuk-responsive-margin(0, "top");
-  @include govuk-responsive-padding(0, "top");
-}
-
 .instruction {
   @include govuk-responsive-margin(5, "bottom");
 }
@@ -95,7 +89,6 @@ main p,
 #branches-1-label, #branches-2-label, #branches-3-label, #branches-4-label, #branches-5-label  {
   font-weight: bold;
 }
-
 
 .govuk-main-wrapper {
   @include govuk-responsive-padding(3, "top");
@@ -121,7 +114,6 @@ main p,
   @include govuk-responsive-margin(6, "bottom");
 }
 
-
 #confirmIdentityAnotherWay {
   font-size: 19px;
 }
@@ -139,12 +131,6 @@ main p,
   text-align: center;
   text-indent: -16%;
   margin-right: 6px;
-}
-
-#postcode-label {
-  font-weight: bold;
-  font-size: 23px;
-  @include govuk-responsive-margin(3, "bottom");
 }
 
 #landingPageContinue {
@@ -168,16 +154,14 @@ main p,
 }
 
 .govuk-cookie-banner h2, .govuk-cookie-banner p {
-  margin-top:0; 
+  margin-top:0;
   margin-bottom:20px;
 }
 
 .govuk-cookie-banner .govuk-button {
-  margin-top:0; 
+  margin-top:0;
   margin-bottom:20px;
 }
-
-////////////////////////
 
 #photoIdChoice-hint {
   @include govuk-responsive-margin(4, "top");
@@ -189,7 +173,7 @@ main p,
   @include govuk-responsive-margin(6, "bottom");
 }
 
-.idHasExpiryDate-radios { 
+.idHasExpiryDate-radios {
   @include govuk-responsive-margin(5, "bottom");
 }
 
@@ -220,7 +204,7 @@ main p,
   @include govuk-responsive-margin(4, "bottom");
 }
 
-.govuk-summary-list .govuk-summary-list__key { 
+.govuk-summary-list .govuk-summary-list__key {
   font-weight: bold;
   color: govuk-colour("black");
 }
@@ -265,7 +249,23 @@ main p,
   @include govuk-responsive-margin(0, "bottom");
 }
 
+#postcode-label {
+  font-weight: bold;
+  font-size: 23px;
+  @include govuk-responsive-margin(3, "bottom");
+}
+
 #postcode-hint {
+  @include govuk-responsive-margin(4, "bottom");
+}
+
+#letterPostcode-label {
+  font-weight: bold;
+  font-size: 23px;
+  @include govuk-responsive-margin(3, "bottom");
+}
+
+#letterPostcode-hint {
   @include govuk-responsive-margin(4, "bottom");
 }
 
@@ -277,3 +277,52 @@ main p,
 .govuk-warning-text {
   @include govuk-responsive-margin(4, "bottom");
 }
+
+
+#addressResultsPrompt {
+  @include govuk-responsive-margin(3, "top");
+}
+
+.addressCheckPrompt {
+  color: govuk-colour("black");
+  font-size: 24px;
+  font-weight: bold;
+  @include govuk-responsive-margin(6, "top");
+  @include govuk-responsive-margin(3, "bottom");
+}
+
+#findAddressContent {
+  @include govuk-responsive-margin(5, "bottom");
+}
+
+.postOfficeLetterPrompt {
+  color: govuk-colour("black");
+  font-size: 24px;
+  font-weight: bold;
+  @include govuk-responsive-margin(6, "top");
+  @include govuk-responsive-margin(3, "bottom");
+}
+
+.addressCheckContent {
+  @include govuk-responsive-margin(5, "top");
+}
+
+#postOfficeCustomerLetterChoice-fieldset {
+  @include govuk-responsive-margin(4, "top");
+}
+
+#contentLine1 {
+  @include govuk-responsive-margin(5, "top");
+}
+
+#contentLine2 {
+  @include govuk-responsive-margin(6, "top");
+}
+
+#branchesInformation {
+  color: govuk-colour("black");
+  @include govuk-responsive-margin(3, "top");
+  @include govuk-responsive-margin(5, "bottom");
+}
+
+@import "../../../node_modules/@govuk-one-login/frontend-ui/build/all";

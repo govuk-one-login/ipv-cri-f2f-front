@@ -37,17 +37,15 @@
           html: translate("ukPhotocardDlAddressCheck.change-link")
         }) }}
 
-        {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
+        {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
+    }) }}
     
       {% endcall %}
 
 {% endblock %}
 
-{# generate the specific footer items required for the PYI flows #}
-{% set footerNavItems = translate("govuk.footerNavItems") %}
-
 {% block footer %}
-    {{ govukFooter( footerNavItems ) }}
+    {{ super() }}
     <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
         window.addEventListener('load', function () {
             window

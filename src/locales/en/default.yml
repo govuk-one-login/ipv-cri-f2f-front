@@ -10,46 +10,6 @@ govuk:
   error: Error
   warning: Warning
   skipLink: Skip to main content
-  cookie:
-    cookieBanner:
-      title: "Cookies on GOV.UK One Login"
-      heading: "Cookies on GOV.UK One Login"
-      paragraph1: "We use some essential cookies to make this service work."
-      paragraph2: "We'd like to set additional cookies so we can remember your settings, understand how people use the service and make improvements."
-      buttonAcceptText: "Accept analytics cookies"
-      buttonRejectText: "Reject analytics cookies"
-      linkViewCookiesText: "View cookies"
-      cookieBannerHideLink: "Hide this message"
-      cookieBannerAccept:
-        paragraph1: "You’ve accepted additional cookies. You can "
-        paragraph2: " at any time."
-      cookieBannerReject:
-        paragraph1: "You’ve rejected additional cookies. You can "
-        paragraph2: " at any time."
-      changeCookiePreferencesLink: "change your cookie settings"
-    cookieText: "GOV.UK uses cookies to make the site simpler."
-    cookieLink: "#"
-    cookieLinkText: "Find out more about cookies"
-  phaseBanner:
-    tag: beta
-    content: This is a new service – your <a href="https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-o.account.gov.uk/prove-identity-post-office" class="govuk-link" rel="noopener" target="_blank">feedback (opens in new tab)</a> will help us to improve it.
-  footerNavItems:
-    meta:
-      items:
-        - href: https://signin.account.gov.uk/accessibility-statement
-          text: Accessibility statement
-        - href: https://signin.account.gov.uk/cookies
-          text: Cookies
-        - href: https://signin.account.gov.uk/terms-and-conditions
-          text: Terms and conditions
-        - href: https://signin.account.gov.uk/privacy-notice
-          text: Privacy notice
-        - href: https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-o.account.gov.uk/prove-identity-post-office
-          text: Support
-  copyright:
-    text: "© Crown copyright"
-  contentLicence:
-    html: "All content is available under the <a class=\"govuk-footer__link\" href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\" rel=\"licence\">Open Government Licence v3.0</a>, except where otherwise stated"
 
 error:
   unrecoverable:
@@ -67,11 +27,12 @@ common:
     postoffice:
       service: "Not all Post Offices offer this service. You can "
       postofficeLink: "Post Office that offers in-branch verification (opens in new tab)."
-      pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service#bf-full-width"
+      pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service#bfSearchLabel"
     photoIdSelection:
       noPhotoId: "I do not have any of these documents"
       linkToNoPhotoId: "https://signin.account.gov.uk/no-photo-id"
 
 
 links:
-  changePostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/find-post-office-prove-identity" id="changePostcode" data-id="changePostcode" class="govuk-link"> Change <span class="govuk-visually-hidden">your current postcode</span></a>
+  changePostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/find-post-office-prove-identity?edit=true" id="changePostcode" data-id="changePostcode" class="govuk-link"> Change <span class="govuk-visually-hidden">your current postcode</span></a>
+  changeLetterPostcode: <p>Postcode <br><span class="govuk-body govuk-!-font-size-24" data-id="changeLetterPostcodeValue"><b id="letterPostcode">{{letterPostcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/post-office-customer-letter-find-address?edit=true" id="changeLetterPostcode" data-id="changeLetterPostcode" class="govuk-link"> Change <span class="govuk-visually-hidden">your current postcode</span></a></p>

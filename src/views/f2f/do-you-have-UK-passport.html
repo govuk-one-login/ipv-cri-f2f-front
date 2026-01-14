@@ -1,0 +1,55 @@
+{% extends "base-form.njk" %}
+{% set gtmJourney = "f2f - photoIdSelectionThinFile" %}
+{% set hmpoTitle = photoIdSelectionThinFile.label %}
+{% set hmpoPageKey = "photoIdSelectionThinFile" %}
+{% set isPageHeading = true %}
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+
+{% block mainContent %}
+
+    {% set title = translate("photoIdSelectionThinFile.title") %}
+    {% set content = translate("photoIdSelectionThinFile.content") %}
+    {% set hint = translate("photoIdSelectionThinFile.hint") %}
+    {% set formInstructions = "<br><p>" + content + "</p><br><p>" + hint + "</p>" %}
+
+    {% call hmpoForm(ctx) %}
+    {{ hmpoRadios(ctx, {
+        id: "photoIdChoiceThinFile",
+        namePrefix: "photoIdChoiceThinFile",
+        fieldset: {
+            legend: {
+                text: title,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        hint: {
+            html: formInstructions
+        }
+    }) }}
+    
+    {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"} }) }}
+
+    {% endcall %}
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+        window.addEventListener('load', function () {
+            window
+                .DI
+                .analyticsGa4
+                .pageViewTracker
+                .trackOnPageLoad({
+                    statusCode: '200', // Access status code
+                    englishPageTitle: '{{translate("error.unrecoverable.title")}}',
+                    taxonomy_level1: 'web cri', // Access taxonomy level 1
+                    taxonomy_level2: 'f2f', // Access taxonomy level 2
+                    content_id: '001',
+                    logged_in_status: true,
+                    dynamic: false
+                });
+        });
+    </script>
+{% endblock %}

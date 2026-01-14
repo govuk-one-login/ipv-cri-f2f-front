@@ -9,14 +9,20 @@ const {
 
 const { expect } = require("chai");
 
+const { injectAxe } = require("axe-playwright");
+
+const axe = require('axe-core');
+
+
+
 Given(
-  /^([A-Za-z ])+is using the system$/,
-  { timeout: 2 * 50000 },
+  /^([^"]*) is using the system$/,
+  { timeout: 2 * 5000 },
   async function (name) {
-    this.user = this.allUsers[name];
+    const claim = this.allUserClaims[name];
     const rpPage = new RelyingPartyPage(this.page);
 
-    await rpPage.goto();
+    await rpPage.goto(claim);
   }
 );
 
@@ -33,6 +39,29 @@ Then("they should be redirected to the Landing Page", async function () {
 
   expect(await landingPage.isCurrentPage()).to.be.true;
 });
+
+Then(
+  "the page should conform to WCAG 2.2 AA guidelines",
+  async function () {
+    await injectAxe(this.page);
+    // Run Axe for WCAG 2.2 AA rules
+    const wcagResults = await this.page.evaluate(() => {
+      return axe.run({
+        runOnly: ["wcag2aa"]
+      });
+    });
+    expect(wcagResults.violations, "WCAG 2.2 AAA violations found").to.be.empty;
+  },
+);
+
+Then(
+  "the user should see they have 15 days to visit the Post Office",
+  async function () {
+    const landingPage = new LandingPage(await this.page);
+
+    expect(await landingPage.getPostOfficeNumberOfDays()).to.contain("15 days");
+  }
+);
 
 Then("they should be redirected to the Find a Branch page", async function () {
   const findBranchValid = new FindBranch(await this.page);
@@ -55,4 +84,38 @@ When(/^the user clicks the Check My Answers Submit button$/, async function () {
 
   this.state = await cmPage.setSessionState();
   this.authCode = await cmPage.setAuthCode();
+});
+
+Then("the language toggle is present on the screen", async function () {
+  const landingPage = new LandingPage(await this.page);
+  await landingPage.languageTogglePresent();
+});
+
+Then(
+  "The HTML Language Attribute is set to {string}",
+  async function (languageAttribute) {
+    const landingPage = new LandingPage(await this.page);
+    expect(await landingPage.returnLanguageAttribute()).to.equal(
+      languageAttribute
+    );
+  }
+);
+
+When("the user switches language to {string}", async function (language) {
+  const landingPage = new LandingPage(await this.page);
+  await landingPage.selectLanguageToggle(language);
+});
+
+When(
+  "the language toggle updates the {string} hyperlink",
+  async function (language) {
+    const landingPage = new LandingPage(await this.page);
+    expect(await landingPage.returnLanguageToggleHref(language)).to.be.null;
+  }
+);
+
+Then("the {string} cookie has been set", async function(cookieName) {
+  const cookies = await this.page.context().cookies();
+  const expectedCookie = cookies.find(cookie => cookie.name === cookieName);
+  expect(expectedCookie).to.exist;
 });

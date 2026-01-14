@@ -1,19 +1,12 @@
-name: Post-merge Build, Test and Report
+name: Post merge checks
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - ready_for_review
-      - synchronize
+  workflow_dispatch:
   push:
     branches:
       - main
-
-  workflow_dispatch:
 
 env: # Only adding the variables in that are required for E2E tests
   IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
@@ -32,18 +25,44 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v4
-
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v4
+        uses: actions/checkout@v6
         with:
-          node-version: 18
+          fetch-depth: '0'
+
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
           cache: 'yarn'
+
+      - name: Checks if commiting secrets to repo
+        uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: "detect-secrets --all-files"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      
+      - name: Install Playwright browsers
+        run: yarn playwright install --with-deps
+
+      - name: Run lint
+        run: yarn lint
+
+      - name: Run test and write coverage
+        run: yarn test:coverage
+        
+      - name: "Run SonarCloud Scan"
+        if: ${{ success() && github.actor != 'dependabot[bot]' }}
+        uses: SonarSource/sonarqube-scan-action@v5.3.1
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Test F2F Front Image
         uses: borales/actions-yarn@v4
         with:
-          cmd: install # will run `yarn install` command
+          cmd: install --frozen-lockfile # will run `yarn install` command
         env:
           NODE_AUTH_TOKEN: ${{ secrets.SH_F2F_ACCESS_TOKEN }} # if needed
 
@@ -58,7 +77,7 @@ jobs:
           cmd: test:browser:ci # will run `yarn test:browser:ci` command
 
       - name: Get Test Results history
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         if: always()
         continue-on-error: true
         with:
@@ -66,7 +85,7 @@ jobs:
           path: gh-pages
 
       - name: Cucumber HTML Report action
-        uses: PavanMudigonda/html-reporter-github-pages@v1.1
+        uses: PavanMudigonda/html-reporter-github-pages@v1.5
         id: test-report
         if: always()
         with:

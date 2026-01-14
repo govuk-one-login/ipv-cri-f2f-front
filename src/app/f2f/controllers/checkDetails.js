@@ -3,6 +3,14 @@ const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils");
 const { APP, API } = require("../../../lib/config");
 const DateController = DateControllerMixin(BaseController);
+const {
+  createPersonalDataHeaders,
+} = require("@govuk-one-login/frontend-passthrough-headers");
+const {
+  generateHTMLofAddress,
+  titleCaseAddresses,
+} = require("../../../presenters/addressPresenter");
+
 class CheckDetailsController extends DateController {
   locals(req, res, callback) {
     super.locals(req, res, (err, locals) => {
@@ -92,14 +100,10 @@ class CheckDetailsController extends DateController {
       let idHasExpiryDate;
       let expiryDate;
       let address;
+
       switch (req.form.values.photoIdChoice) {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           expiryDate = req.form.values.ukPassportExpiryDate;
-          req.sessionModel.set("countryCode", "GBR");
-          break;
-        }
-        case APP.PHOTO_ID_OPTIONS.BRP: {
-          expiryDate = req.form.values.brpExpiryDate;
           req.sessionModel.set("countryCode", "GBR");
           break;
         }
@@ -170,6 +174,38 @@ class CheckDetailsController extends DateController {
       const format = "YYYY-MM-DD";
       const language = req.lng;
 
+      // Values for PCL
+      const postalAddress = req.sessionModel.get("postalAddress");
+      if (
+        postalAddress !== undefined &&
+        req.sessionModel.get("customerLetterCheckAddress") ===
+          "differentAddress"
+      ) {
+        const displayAddress = generateHTMLofAddress(
+          titleCaseAddresses(postalAddress)
+        );
+        locals.addressLine = displayAddress;
+      } else {
+        locals.addressLine = req.sessionModel.get(
+          "fullParsedSharedClaimsAddress"
+        );
+      }
+
+      // Assign values for display text and API payload
+      req.sessionModel.set("pdfPreference", "EMAIL_ONLY");
+      if (req.sessionModel.get("postOfficeCustomerLetterChoice") === "email") {
+        locals.pdfPreferenceText = res.locals.translate(
+          "checkDetails.pdfPreferenceTextEmail"
+        );
+      } else if (
+        req.sessionModel.get("postOfficeCustomerLetterChoice") === "post"
+      ) {
+        locals.pdfPreferenceText = res.locals.translate(
+          "checkDetails.pdfPreferenceTextPcl"
+        );
+        req.sessionModel.set("pdfPreference", "PRINTED_LETTER");
+      }
+
       locals.formattedExpiryDate = formatDate(expiryDate, format, language);
       locals.idTranslatedString = res.locals.translate(
         `photoIdChoice.items.${idChoice}.label`
@@ -186,6 +222,7 @@ class CheckDetailsController extends DateController {
       locals.hasExpiryDate = hasExpiryDate;
       locals.postOfficeAddress = postOfficeAddress.split(", ");
       locals.postOfficeName = postOfficeName;
+
       callback(err, locals);
     });
   }
@@ -193,6 +230,7 @@ class CheckDetailsController extends DateController {
     return "/done";
   }
   async saveValues(req, res, callback) {
+    const postal_address = req.sessionModel.get("postalAddress");
     try {
       const f2fData = {
         document_selection: {
@@ -210,22 +248,85 @@ class CheckDetailsController extends DateController {
           post_code: req.sessionModel.get("postOfficePostcode"),
           fad_code: req.sessionModel.get("postOfficeFadCode"),
         },
+        pdf_preference: req.sessionModel.get("pdfPreference"),
       };
-
-      await this.saveF2fData(req.axios, f2fData, req);
+      const mappedAddress = await this.mapPostalAddressFromOS(postal_address);
+      if (mappedAddress) {
+        f2fData.postal_address = mappedAddress;
+      }
+      await this.saveF2fData(req.axios, f2fData, req, res);
       callback();
     } catch (error) {
       callback(error);
     }
   }
-  async saveF2fData(axios, f2fData, req) {
-    const headers = {
-      "x-govuk-signin-session-id": req.session.tokenId,
-    };
-    const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
-      headers,
-    });
-    return resp.data;
+
+  async mapPostalAddressFromOS(postal_address) {
+    if (!postal_address) {
+      return undefined;
+    } else {
+      let mappedAddress = {};
+      if (postal_address.uprn) {
+        mappedAddress.uprn = Number(postal_address.uprn);
+      }
+      if (postal_address.department_name) {
+        mappedAddress.departmentName = postal_address.department_name;
+      }
+      if (postal_address.organisation_name) {
+        mappedAddress.organisationName = postal_address.organisation_name;
+      }
+      if (postal_address.sub_building_name) {
+        mappedAddress.subBuildingName = postal_address.sub_building_name;
+      }
+      if (postal_address.building_name) {
+        mappedAddress.buildingName = postal_address.building_name;
+      }
+      if (postal_address.building_number) {
+        mappedAddress.buildingNumber = postal_address.building_number;
+      }
+      if (postal_address.thoroughfare_name) {
+        mappedAddress.streetName = postal_address.thoroughfare_name;
+      }
+      if (postal_address.post_town) {
+        mappedAddress.addressLocality = postal_address.post_town;
+      }
+      if (postal_address.dependent_locality) {
+        mappedAddress.dependentAddressLocality = postal_address.dependent_locality;
+      }
+      if (postal_address.double_dependent_locality) {
+        mappedAddress.doubleDependentAddressLocality = postal_address.double_dependent_locality;
+      }
+      if (postal_address.postcode) {
+        mappedAddress.postalCode = postal_address.postcode;
+      }
+      // Hard coded as only UK addresses have a postcode required for this functionality
+      mappedAddress.addressCountry = "GB";
+      mappedAddress.preferredAddress = true;
+      return mappedAddress;
+    }
   }
+
+  async saveF2fData(axios, f2fData, req, res) {
+    const tokenId = req.session.tokenId;
+
+    if (tokenId) {
+      const headers = {
+        "x-govuk-signin-session-id": tokenId,
+        ...createPersonalDataHeaders(
+          `${API.BASE_URL}${API.PATHS.SAVE_F2FDATA}`,
+          req
+        ),
+      };
+      const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
+        headers,
+      });
+      return resp.data;
+    } else {
+      console.error("Missing sessionID, redirecting to /error");
+      res.redirect("/error");
+    }
+  }
+  
 }
+
 module.exports = CheckDetailsController;

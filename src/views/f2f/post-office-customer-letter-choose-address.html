@@ -1,0 +1,59 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoPageKey = "addressResults" %}
+{% set gtmJourney = "f2f - addressResults" %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-select/macro.njk" import hmpoSelect %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{% block mainContent %}
+
+    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">{{ translate("addressResults.title") }}</h1>
+
+    {{hmpoHtml(translate("links.changeLetterPostcode"))}}
+
+    {% call hmpoForm(ctx) %}
+
+        {{ hmpoSelect(ctx, {
+            id: "addressResults",
+            label: translate("addressResults.label"),
+            hint: "",
+            items: addressResults
+        }) }}
+
+
+
+        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/check-details"}
+    }) }}
+    {% endcall %}
+
+    {{ govukDetails({
+        summaryText: translate("addressResults.noAddress-summary"),
+        html: translate("addressResults.noAddress-link")
+    }) }}
+
+
+{% endblock %}
+
+  {% block footer %}
+      {{ super() }}
+      <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+        window.addEventListener('load', function () {
+            window
+                .DI
+                .analyticsGa4
+                .pageViewTracker
+                .trackOnPageLoad({
+                    statusCode: '200', // Access status code
+                    englishPageTitle: '{{translate("locations.title")}}',
+                    taxonomy_level1: 'web cri', // Access taxonomy level 1
+                    taxonomy_level2: 'f2f', // Access taxonomy level 2
+                    content_id: '001',
+                    logged_in_status: true,
+                    dynamic: false
+                });
+        });
+    </script>
+  {% endblock %}

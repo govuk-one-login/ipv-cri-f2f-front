@@ -1,4 +1,4 @@
-const { Given, When, Then, And } = require("@cucumber/cucumber");
+const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { expect } = require("chai");
 
@@ -25,6 +25,7 @@ When(
     const ukPhotoDl = new PhotoDlDetailsPageInvalidPast(await this.page);
 
     expect(await ukPhotoDl.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     await ukPhotoDl.continue();
   }
@@ -36,6 +37,7 @@ Then(
     const photoIdExpPg = new PhotoIdExpiryPage(await this.page);
 
     expect(await photoIdExpPg.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
   }
 );
 
@@ -55,6 +57,7 @@ When(
     const ukPhotoDl = new PhotoDlDetailsPageInvalidFuture(await this.page);
 
     expect(await ukPhotoDl.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
 
     await ukPhotoDl.continue();
   }

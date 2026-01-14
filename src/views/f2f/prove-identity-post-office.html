@@ -49,29 +49,32 @@
     </ol>
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
     {% block submitButton %}
-      {{ hmpoSubmit(ctx, {id: "landingPageContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/choose-photo-id-post-office"}
+      {{ hmpoSubmit(ctx, {id: "landingPageContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
       }) }}
     {% endblock %}
     {% endcall %}
   </div>
 </div>
+  {% include "common/confirmIdentityAnotherWay.html" %}
+{% endblock %}
 
-{% include "common/confirmIdentityAnotherWay.html" %}
-<script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-    window.addEventListener('load', function () {
-        window
-            .DI
-            .analyticsGa4
-            .pageViewTracker
-            .trackOnPageLoad({
-                statusCode: '200', // Access status code
-                englishPageTitle: '{{translate("landingPage.title")}}',
-                taxonomy_level1: 'web cri', // Access taxonomy level 1
-                taxonomy_level2: 'f2f', // Access taxonomy level 2
-                content_id: '001',
-                logged_in_status: true,
-                dynamic: false
-            });
-    });
-</script>
+{% block footer %}
+    {{ super() }}
+    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+        window.addEventListener('load', function () {
+            window
+                .DI
+                .analyticsGa4
+                .pageViewTracker
+                .trackOnPageLoad({
+                    statusCode: '200', // Access status code
+                    englishPageTitle: '{{translate("landingPage.title")}}',
+                    taxonomy_level1: 'web cri', // Access taxonomy level 1
+                    taxonomy_level2: 'f2f', // Access taxonomy level 2
+                    content_id: '001',
+                    logged_in_status: true,
+                    dynamic: false
+                });
+        });
+    </script>
 {% endblock %}

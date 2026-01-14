@@ -21,6 +21,11 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#landingPageContinue");
   }
 
+  async getPostOfficeNumberOfDays() {
+    const numberOfDaysText = await this.page.textContent(".govuk-inset-text");
+    return numberOfDaysText.trim();
+  }
+
   get poLink() {
     return this.page.locator(
       '[href*="https://www.postoffice.co.uk/identity/in-branch-verification-service"]'
@@ -37,5 +42,23 @@ module.exports = class PlaywrightDevPage {
       '[data-id="error-title"]'
     );
     return errorRedirectionText.trim();
+  }
+
+  async returnLanguageAttribute() {
+    const htmlElement = await this.page.locator("html");
+    return await htmlElement.getAttribute("lang");
+  }
+
+  async selectLanguageToggle(language) {
+    await this.page.getByText(language).click();
+  }
+
+  async returnLanguageToggleHref(language) {
+    const htmlElement = await this.page.getByText(language);
+    return await htmlElement.getAttribute("href");
+  }
+
+  async languageTogglePresent() {
+    await this.page.locator("div.govuk-width-container > nav").isVisible();
   }
 };

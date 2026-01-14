@@ -3,7 +3,6 @@ const resultsController = require("./controllers/results");
 const ukPassportDetails = require("./controllers/ukPassportDetails");
 const ukPhotocardDlDetails = require("./controllers/ukPhotocardDl");
 const photoIdSelectThinFile = require("./controllers/photoIdSelectionThinFile");
-const brpDetails = require("./controllers/brpDetails");
 const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
 const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
 const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
@@ -12,7 +11,9 @@ const abort = require("./controllers/abort");
 const photoIdExpiry = require("./controllers/photoIdExpiry");
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
+const addressResults = require("./controllers/addressResults");
 const { APP } = require("../../lib/config");
+const checkAddressController = require("./controllers/checkAddress");
 
 module.exports = {
   [`${APP.PATHS.F2F}`]: {
@@ -40,12 +41,13 @@ module.exports = {
   },
   [`${APP.PATHS.PHOTO_ID_SELECTION}`]: {
     controller: photoIdSelect,
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     fields: ["photoIdChoice"],
     invalidates: [
       "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",
       "ukPhotocardDlExpiryDate",
-      "brpExpiryDate",
       "eeaIdCardExpiryDate",
       "euPhotocardDlExpiryDate",
       "photoIdExpiryChoice",
@@ -55,11 +57,6 @@ module.exports = {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
         next: APP.PATHS.UK_PASSPORT_DETAILS,
-      },
-      {
-        field: "photoIdChoice",
-        value: APP.PHOTO_ID_OPTIONS.BRP,
-        next: APP.PATHS.BRP_DETAILS,
       },
       {
         field: "photoIdChoice",
@@ -90,12 +87,13 @@ module.exports = {
   },
   [`${APP.PATHS.PHOTO_ID_SELECTION_THIN_FILE}`]: {
     controller: photoIdSelectThinFile,
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
     fields: ["photoIdChoiceThinFile"],
     invalidates: [
       "ukPassportExpiryDate",
       "nonUKPassportExpiryDate",
       "ukPhotocardDlExpiryDate",
-      "brpExpiryDate",
       "eeaIdCardExpiryDate",
       "euPhotocardDlExpiryDate",
       "photoIdExpiryChoice",
@@ -105,11 +103,6 @@ module.exports = {
         field: "photoIdChoice",
         value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT,
         next: APP.PATHS.UK_PASSPORT_DETAILS,
-      },
-      {
-        field: "photoIdChoice",
-        value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT,
-        next: APP.PATHS.NON_UK_PASSPORT_HAS_EXPIRY_DATE,
       },
       {
         field: "photoIdChoice",
@@ -178,21 +171,6 @@ module.exports = {
         next: APP.PATHS.EXPIRED_ID,
       },
       APP.PATHS.UK_PHOTOCARD_DL_ADDRESS_CHECK,
-    ],
-  },
-  [`${APP.PATHS.BRP_DETAILS}`]: {
-    fields: ["brpExpiryDate"],
-    controller: brpDetails,
-    editable: true,
-    editBackStep: APP.PATHS.CHECK_DETAILS,
-    next: [
-      {
-        field: "brpExpiryDate",
-        op: "before",
-        value: "today",
-        next: APP.PATHS.EXPIRED_ID,
-      },
-      APP.PATHS.FIND_POST_OFFICE,
     ],
   },
   [`${APP.PATHS.EU_PHOTOCARD_DL_DETAILS}`]: {
@@ -318,11 +296,6 @@ module.exports = {
           },
           {
             field: "photoIdChoice",
-            value: APP.PHOTO_ID_OPTIONS.BRP,
-            next: APP.PATHS.BRP_DETAILS,
-          },
-          {
-            field: "photoIdChoice",
             value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
             next: APP.PATHS.UK_PHOTOCARD_DL_DETAILS,
           },
@@ -400,6 +373,50 @@ module.exports = {
     controller: resultsController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
+    next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER
+  },
+  [`${APP.PATHS.POST_OFFICE_CUSTOMER_LETTER}`]: {
+    fields: ["postOfficeCustomerLetterChoice"],
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: [
+      {
+        field: "postOfficeCustomerLetterChoice",
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL,
+        next: APP.PATHS.CHECK_DETAILS,
+      },
+      {
+        field: "postOfficeCustomerLetterChoice",
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
+        next: APP.PATHS.CHECK_ADDRESS,
+      },
+    ],
+  },
+  [`${APP.PATHS.CHECK_ADDRESS}`]: {
+    fields: ["customerLetterCheckAddress"],
+    controller: checkAddressController,
+    next: [
+      {
+        field: "customerLetterCheckAddress",
+        value: APP.CHECK_ADDRESS.EXISTING_ADDRESS,
+        next: APP.PATHS.CHECK_DETAILS,
+      },
+      {
+        field: "customerLetterCheckAddress",
+        value: APP.CHECK_ADDRESS.DIFFERENT_ADDRESS,
+        next: APP.PATHS.FIND_ADDRESS,
+      },
+    ],
+  },
+  [`${APP.PATHS.FIND_ADDRESS}`]: {
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    fields: ["letterPostcode"],
+    next: APP.PATHS.CHOOSE_ADDRESS,
+  },
+  [`${APP.PATHS.CHOOSE_ADDRESS}`]: {
+    controller: addressResults,
+    fields: ["addressResults"],
     next: APP.PATHS.CHECK_DETAILS,
   },
   [`${APP.PATHS.CHECK_DETAILS}`]: {

@@ -1,8 +1,8 @@
-@mock-api:f2f-f2f-success @browser
+@mock-api:f2f-f2f-success @browser @check1
 Feature: Change Postcode - Unhappy Path
 
   Background:
-    Given Authenticatable Anita is using the system
+    Given A UK Drivers Licence User is using the system
     When they have provided their details
     Then they should be redirected to the Landing Page
 
@@ -28,10 +28,11 @@ Feature: Change Postcode - Unhappy Path
 
     Given a Post Office branch is selected
     When the user clicks continue
+    When the user selects an Email only Post Office Letter
     Then the user is navigated to the next step in the journey - Confirm Answer
 
   Scenario: Successful redirect from CMA screen back to PO Finder screen
     Given the user has navigated to the Check My Answers Page
     When the user clicks the CMA Back button
-    Then the user is navigated back to the PO Locations page
+    Then the user is navigated back to the PO Customer Letter page
 

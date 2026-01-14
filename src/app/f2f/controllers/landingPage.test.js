@@ -19,12 +19,15 @@ describe("LandingPage", () => {
     });
 
     landingPageController = new LandingPageController({ route: "/test" });
+    req.session.tokenId = 123456;
 
     sinon.stub(console, "log");
+    sinon.stub(console, "error");
   });
 
   afterEach(() => {
     console.log.restore();
+    console.error.restore();
   });
 
   it("should be an instance of BaseController", () => {
@@ -74,6 +77,18 @@ describe("LandingPage", () => {
       const saveValuesStub = sinon.stub(BaseController.prototype, "saveValues");
       await landingPageController.saveValues(req, res, next);
       expect(saveValuesStub).to.have.been.calledWith(req, res, next);
+    });
+
+    it("should redirect to /error if session token is missing", async () => {
+      req.session.tokenId = null;
+
+      await landingPageController.saveValues(req, res, next);
+
+      expect(res.redirect).to.have.been.calledOnceWith("/error");
+      sinon.assert.calledWith(
+        console.error,
+        "Missing sessionID, redirecting to /error"
+      );
     });
   });
 });

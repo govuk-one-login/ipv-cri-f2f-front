@@ -10,46 +10,6 @@ govuk:
   error: Gwall
   warning: Rhybudd
   skipLink: Neidio i'r prif gynnwys
-  cookie:
-    cookieBanner:
-      title: "Cwcis ar GOV.UK One Login"
-      heading: "Cwcis ar GOV.UK One Login"
-      paragraph1: "Rydym yn defnyddio rhai cwcis hanfodol i wneud i'r gwasanaeth hwn weithio."
-      paragraph2: "Hoffem osod cwcis ychwanegol er mwyn i ni allu cofio eich gosodiadau, deall sut mae pobl yn defnyddio'r gwasanaeth a gwneud gwelliannau."
-      buttonAcceptText: "Derbyn cwcis dadansoddi"
-      buttonRejectText: "Gwrthod cwcis dadansoddi"
-      linkViewCookiesText: "Gweld cwcis"
-      cookieBannerHideLink: "Cuddio'r neges yma"
-      cookieBannerAccept:
-        paragraph1: "Rydych wedi derbyn cwcis ychwanegol. Gallwch "
-        paragraph2: " unrhyw bryd."
-      cookieBannerReject:
-        paragraph1: "Rydych wedi gwrthod cwcis ychwanegol. Gallwch "
-        paragraph2: " unrhyw bryd."
-      changeCookiePreferencesLink: "newid eich gosodiadau cwcis"
-    cookieText: "Mae GOV.UK yn defnyddio cwcis i wneud y safle'n symlach."
-    cookieLink: "#"
-    cookieLinkText: "Darganfyddwch fwy am gwcis"
-  phaseBanner:
-    tag: beta
-    content: Mae hwn yn wasanaeth newydd – bydd eich <a href="https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-o.account.gov.uk/prove-identity-post-office" class="govuk-link" rel="noopener" target="_blank">adborth (agor mewn tab newydd)</a> yn ein helpu i'w wella.
-  footerNavItems:
-    meta:
-      items:
-        - href: https://signin.account.gov.uk/accessibility-statement
-          text: Datganiad hygyrchedd
-        - href: https://signin.account.gov.uk/cookies
-          text: Cwcis
-        - href: https://signin.account.gov.uk/terms-and-conditions
-          text: Telerau ac amodau
-        - href: https://signin.account.gov.uk/privacy-notice
-          text: Hysbysiad preifatrwydd
-        - href: https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-o.account.gov.uk/prove-identity-post-office
-          text: Cymorth
-  copyright:
-    text: "© Hawlfraint y Goron"
-  contentLicence:
-    html: Mae'r holl gynnwys ar gael o dan <a class="govuk-footer__link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="licence">Drwydded Llywodraeth Agored v3.0</a>, ac eithrio lle nodir yn wahanol
 
 error:
   unrecoverable:
@@ -67,10 +27,11 @@ common:
   postoffice:
     service: "Nid yw pob Swyddfa Bost yn cynnig y gwasanaeth hwn. Gallwch"
     postofficeLink: "Swyddfa Bost sy'n cynnig dilysu mewn canghennau (agor mewn tab newydd)."
-    pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service#bf-full-width"
+    pathToPoBranchSearch: "https://www.postoffice.co.uk/identity/in-branch-verification-service#bfSearchLabel"
   photoIdSelection:
     noPhotoId: "Nid oes gennyf unrhyw un o'r dogfennau hyn"
     linkToNoPhotoId: "https://signin.account.gov.uk/no-photo-id"
 
 links:
-  changePostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/find-post-office-prove-identity" id="changePostcode" data-id="changePostcode" class="govuk-link"> Newid <span class="govuk-visually-hidden">eich cod post cyfredol</span></a>
+  changePostcode: <span class="govuk-body govuk-!-font-size-24" data-id="changePostcodeValue"><b id="postcode">{{values.postcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/find-post-office-prove-identity?edit=true" id="changePostcode" data-id="changePostcode" class="govuk-link"> Newid <span class="govuk-visually-hidden">eich cod post cyfredol</span></a>
+  changeLetterPostcode: <p>Cod post <br> <span class="govuk-body govuk-!-font-size-24" data-id="changeLetterPostcodeValue"><b id="letterPostcode">{{letterPostcode}}</b></span> &nbsp;&nbsp;&nbsp; <a href="/post-office-customer-letter-find-address?edit=true" id="changeLetterPostcode" data-id="changeLetterPostcode" class="govuk-link"> Newid <span class="govuk-visually-hidden">eich cod post cyfredol</span></a></p>

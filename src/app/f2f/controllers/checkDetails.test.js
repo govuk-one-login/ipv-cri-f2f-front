@@ -21,6 +21,14 @@ describe("CheckDetails controller", () => {
     next = setup.next;
 
     checkDetailsController = new CheckDetailsController({ route: "/test" });
+    req.session.tokenId = 123456;
+    sinon.stub(console, "log");
+    sinon.stub(console, "error");
+  });
+
+  afterEach(() => {
+    console.log.restore();
+    console.error.restore();
   });
 
   it("should be an instance of BaseController", () => {
@@ -51,6 +59,19 @@ describe("CheckDetails controller", () => {
         key: "value",
         translate: (key) => key,
       };
+
+      const testAddress = {
+        department_name: "test_department_name",
+        organisation_name: "test_organisation_name",
+        sub_building_name: "test_sub_building_name",
+        building_name: "test_building_name",
+        addressLocality: "test_dependent_locality",
+        building_number: "34",
+        street_name: "MOCK ROAD",
+        postcode: "FS6 5AQ",
+      };
+
+      req.sessionModel.set("postalAddress", testAddress);
 
       req.form.values.postOfficeDetails = [
         {
@@ -175,7 +196,6 @@ describe("CheckDetails controller", () => {
         photoIdChoice: PHOTO_ID_OPTIONS.UK_PASSPORT,
         expiryDateKey: "ukPassportExpiryDate",
       },
-      { photoIdChoice: PHOTO_ID_OPTIONS.BRP, expiryDateKey: "brpExpiryDate" },
       {
         photoIdChoice: PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL,
         expiryDateKey: "ukPhotocardDlExpiryDate",
@@ -236,7 +256,6 @@ describe("CheckDetails controller", () => {
       req.form.values.idHasExpiryDate = true;
       req.form.values.eeaIdentityCardCountrySelector = "DEU";
       req.form.values.eeaIdentityCardAddressCheck = true;
-
       await checkDetailsController.locals(req, res, next);
 
       expect(req.sessionModel.get("countryCode")).to.equal("DEU");
@@ -254,6 +273,19 @@ describe("CheckDetails controller", () => {
           data: {},
         });
 
+        const testAddress = {
+          department_name: "test_department_name",
+          organisation_name: "test_organisation_name",
+          sub_building_name: "test_sub_building_name",
+          building_name: "test_building_name",
+          addressLocality: "test_dependent_locality",
+          building_number: "34",
+          street_name: "MOCK ROAD",
+          postcode: "FS6 5AQ",
+        };
+  
+        req.sessionModel.set("postalAddress", testAddress);
+
         const f2fData = {
           document_selection: {
             document_selected: req.sessionModel.get("photoIdChoice"),
@@ -270,6 +302,17 @@ describe("CheckDetails controller", () => {
             post_code: req.sessionModel.get("postOfficePostcode"),
             fad_code: req.sessionModel.get("postOfficeFadCode"),
           },
+          pdf_preference: req.sessionModel.get("pdfPreference"),
+          postal_address: {
+            departmentName: 'test_department_name',
+            organisationName: 'test_organisation_name',
+            subBuildingName: 'test_sub_building_name',
+            buildingName: 'test_building_name',
+            buildingNumber: '34',
+            postalCode: 'FS6 5AQ',
+            addressCountry: 'GB',
+            preferredAddress: true
+          },
         };
 
         await checkDetailsController.saveValues(req, res, next);
@@ -279,6 +322,60 @@ describe("CheckDetails controller", () => {
           f2fData,
           {
             headers: {
+              "txma-audit-encoded": "dummy-txma-header",
+              "x-govuk-signin-session-id": req.session.tokenId,
+            },
+          }
+        );
+      });
+
+      it("should call documentSelection endpoint and exclude unset fields in postal address", async () => {
+        req.axios.post = sinon.fake.resolves({
+          data: {},
+        });
+
+        const testAddress = {
+          sub_building_name: "test_sub_building_name",
+          building_number: "34",
+          street_name: "MOCK ROAD",
+          postcode: "FS6 5AQ",
+        };
+        req.sessionModel.set("postalAddress", testAddress);
+
+        const f2fData = {
+          document_selection: {
+            document_selected: req.sessionModel.get("photoIdChoice"),
+            date_of_expiry: req.sessionModel.get("expiryDate"),
+            country_code: req.sessionModel.get("countryCode"),
+          },
+          post_office_selection: {
+            name: req.sessionModel.get("postOfficeName"),
+            address: req.sessionModel.get("postOfficeAddressWithoutPostCode"),
+            location: {
+              latitude: req.sessionModel.get("postOfficeLatitude"),
+              longitude: req.sessionModel.get("postOfficeLongitude"),
+            },
+            post_code: req.sessionModel.get("postOfficePostcode"),
+            fad_code: req.sessionModel.get("postOfficeFadCode"),
+          },
+          pdf_preference: req.sessionModel.get("pdfPreference"),
+          postal_address: {
+            subBuildingName: testAddress.sub_building_name,
+            buildingNumber: testAddress.building_number,
+            postalCode: testAddress.postcode,
+            addressCountry: "GB",
+            preferredAddress: true,
+          }
+        };
+
+        await checkDetailsController.saveValues(req, res, next);
+        expect(next).to.have.been.calledOnce;
+        expect(req.axios.post).to.have.been.calledWithExactly(
+          SAVE_F2FDATA,
+          f2fData,
+          {
+            headers: {
+              "txma-audit-encoded": "dummy-txma-header",
               "x-govuk-signin-session-id": req.session.tokenId,
             },
           }
@@ -290,6 +387,18 @@ describe("CheckDetails controller", () => {
         req.axios.post = sinon.fake.rejects(error);
         await checkDetailsController.saveValues(req, res, next);
         expect(next).to.have.been.calledWith(error);
+      });
+
+      it("should redirect to /error if session token is missing", async () => {
+        req.session.tokenId = null;
+
+        await checkDetailsController.saveValues(req, res, next);
+
+        expect(res.redirect).to.have.been.calledOnceWith("/error");
+        sinon.assert.calledWith(
+          console.error,
+          "Missing sessionID, redirecting to /error"
+        );
       });
     });
   });

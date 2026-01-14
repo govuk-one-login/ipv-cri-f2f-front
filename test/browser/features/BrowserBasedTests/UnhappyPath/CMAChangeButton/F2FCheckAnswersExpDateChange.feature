@@ -2,7 +2,7 @@
 Feature: Change Expiry Date - UnHappy Path
 
     Background:
-        Given Authenticatable Anita is using the system
+        Given A UK Drivers Licence User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
 
@@ -14,7 +14,7 @@ Feature: Change Expiry Date - UnHappy Path
         When the user clicks the PhotoId continue button
         Then the user is routed to the next screen in the journey Passport Details
 
-        Given the date entered is within accepted UK Passport expiration window
+        Given the date entered is in the future
         When the user clicks the continue button on the UKPassportPage
         Then the user is routed to the next screen in the journey Branch Finder Screen
         Then the user enters a valid postcode
@@ -25,6 +25,7 @@ Feature: Change Expiry Date - UnHappy Path
 
         Given a Post Office branch is selected
         When the user clicks continue
+        When the user selects an Email only Post Office Letter
         Then the user is navigated to the next step in the journey - Confirm Answer
 
     Scenario: Successful redirect from CMA screen back to expiry date entry then back to CMA screen

@@ -3,32 +3,32 @@ landingPage:
   firstCircle: "1"
   firstStepTitle: "Get your Post Office customer letter from GOV.UK"
   secondCircle: "2"
-  secondStepTitle: "Go to the Post Office"
+  secondStepTitle: "Go to a Post Office"
   thirdCircle: "3"
   thirdStepTitle: "Wait for your result"
   instructions:
     firstStep:
       one: "Enter the details from your photo ID on GOV.UK."
       two: "Then select which Post Office you want to take your photo ID to."
-      three: "We'll send you a confirmation email with a link to download your Post Office customer letter."
+      three: "We’ll send you a confirmation email with a link to download your Post Office customer letter. We can also send your customer letter to you by post."
     secondStep:
-      one: "Take your Post Office customer letter and photo ID to your chosen Post Office. Or go to any "
+      one: "Take your Post Office customer letter and photo ID to a "
       two: "A member of Post Office staff will scan your photo ID and take a photo of you. "
-      three: "You must go to the Post Office within 10 days of getting your confirmation email."
+      three: "You must go to the Post Office within 15 days of getting your confirmation email."
     thirdStep:
       one: "You'll get an email about the result of your identity check - usually within a day of going to the Post Office."
 
 photoIdSelectionThinFile:
-  title: "Choose which photo ID you can take to a Post Office"
-  content: "Based on what you've told us and the checks we've done, you’ll need a UK passport or a non-UK passport with a biometric chip to prove your identity at a Post Office."
-  biometricHint: "To check if your non-UK passport has a biometric chip, look for the rectangular biometric chip symbol on the front cover."
-  biometricChipPhoto: <img src="public/images/biometricChipPhoto.png" alt="Biometric Chip Photo" width="150" height="100">
-  photocopyWarning: "You cannot use a photocopy or digital copy of your passport."
+  title: "Do you have a UK passport?"
+  content: "If your UK passport has expired, you can still use it to prove your identity up to 18 months after its expiry date."
+  hint: "You cannot use a photocopy or digital copy of your passport. "
 
 photoIdSelection:
   title: "Choose which photo ID you can take to a Post Office"
   content: "You cannot use a photocopy or digital copy of your photo ID."
   expiryWarning: "Your photo ID must not have expired."
+  addressWarning: "If your photo ID has your address on it, it must be your current address."
+  subtitle: "Which photo ID do you want to take to a Post Office?"
 
 dateOfBirth:
   title: "Enter your date of birth"
@@ -48,11 +48,6 @@ nonUKPassport:
 ukPhotocardDl:
   title: "When does your driving licence expire?"
   photocardDlInformationContext: "We need this information to check your photo ID is valid."
-  hintText: "For example, 31 3 2025"
-
-brp:
-  title: "When does your biometric residence permit (BRP) expire?"
-  brpInformationContext: "We need this information to check your photo ID is valid."
   hintText: "For example, 31 3 2025"
 
 euPhotocardDl:
@@ -80,7 +75,18 @@ findBranch:
 
 locations:
   title: "Choose a Post Office where you can prove your identity"
+  content: "Your chosen Post Office will be shown on your customer letter. You can go to a different Post Office as long as it offers in-branch verification."
   body: "Postcode"
+
+findAddress:
+  title: "Find an address"
+  content: "Enter the UK postcode of where you want to have your Post Office customer letter sent."
+
+addressResults:
+  title: "Choose an address"
+  label: "Choose an address from the list"
+  noAddress-summary: "I cannot find my address on the list"
+  noAddress-link: <p>If you cannot find your address in the list, you can <a href="/post-office-customer-letter" class="govuk-link">get your Post Office customer letter by email only</a></p>
 
 photoIdExpiry:
   title: "Your photo ID has expired"
@@ -93,18 +99,22 @@ checkDetails:
   expiryDate: "Expiry date"
   postOffice: "Post Office address"
   changeLink: "Change"
-  buttonText: "Confirm and send"
-  ukDlAddress: Is the address on your driving licence the same as your current address?
+  buttonText: "Confirm and submit"
+  ukDlAddress: Does your driving licence have your current address on it?
   euDlAddress: Does your driving licence have your current address on it?
   idCardAddress: Does your national identity card have your current address on it?
   country: Country
   hasExpiryDate: Does your photo ID have an expiry date?
+  pdfPreference: How do you want to get your Post Office customer letter?
+  pdfChosenAddress: Where your Post Office customer letter will be sent
+  pdfPreferenceTextEmail: "By email only"
+  pdfPreferenceTextPcl: "By email and post"
 
 ukPhotocardDlAddressCheck:
   title: "Does your driving licence have your current address on it?"
   context: If your driving licence has your previous address on it, you'll need to choose another type of photo ID.
   change-how: "How do I change the address on my driving licence?"
-  change-link: <p>You must update your driving licence when you move. <a href="https://www.gov.uk/tell-dvla-changed-address" target="_blank" class="govuk-link">Tell DVLA you've changed address (opens in a new tab)</a></p>
+  change-link: <p>You must update your driving licence when you move.</p><p>If you live in England, Scotland or Wales, <a href="https://www.gov.uk/tell-dvla-changed-address" target="_blank" rel="noreferrer noopener" class="govuk-link">tell DVLA you've changed address (opens in a new tab)</a></p><p>If you live in Northern Ireland, <a href="https://www.nidirect.gov.uk/services/change-address-your-driving-licence-online" target="_blank" rel="noreferrer noopener" class="govuk-link">tell DVA you've changed address (opens in a new tab)</a></p>
 
 euPhotocardDlAddressCheck:
   title: "Does your driving licence have your current address on it?"
@@ -128,3 +138,15 @@ nonUkPassportCountrySelector:
   title: "Select which country your passport is from"
   content: "If the country your passport is from is not on the list, you'll need to choose another type of photo ID."
   link: "The country my passport is from is not on the list"
+
+customerLetterCheckAddress:
+  title: "Check your address"
+  content: "You gave the following address as your current home address."
+  prompt: "Do you want your Post Office customer letter to be sent to this address?"
+
+postOfficeCustomerLetterChoice:
+  title: "Your Post Office customer letter"
+  content1: "We’ll send you a confirmation email with a link to download your Post Office customer letter."
+  content2: "We can also send your customer letter to you by post."
+  prompt: "How do you want to get your Post Office customer letter?"
+

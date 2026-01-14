@@ -11,7 +11,6 @@ module.exports = {
       { value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT },
       { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
       { value: APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL },
-      { value: APP.PHOTO_ID_OPTIONS.BRP },
       { value: APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL },
       { value: APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD },
       { divider: "or" },
@@ -27,8 +26,6 @@ module.exports = {
     hint: "",
     items: [
       { value: APP.PHOTO_ID_OPTIONS.UK_PASSPORT },
-      { value: APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT },
-      { divider: "or" },
       { value: APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID },
     ],
     validate: ["required"],
@@ -90,18 +87,6 @@ module.exports = {
         type: "beforeNow",
         fn: utils.beforeNow,
         arguments: [10, "years"],
-      },
-    ],
-  },
-  brpExpiryDate: {
-    type: "date",
-    journeyKey: "brpExpiryDate",
-    validate: [
-      "required",
-      "date",
-      {
-        type: "before",
-        arguments: ["2033-01-01"],
       },
     ],
   },
@@ -167,7 +152,7 @@ module.exports = {
   },
   eeaIdCardExpiryDate: {
     type: "date",
-    journeyKey: "euIdCardExpiryDate",
+    journeyKey: "eeaIdCardExpiryDate",
     validate: [
       "required",
       "date",
@@ -228,8 +213,39 @@ module.exports = {
     ],
     classes: "govuk-input--width-10",
   },
+  letterPostcode: {
+    type: "text",
+    journeyKey: "letterPostcode",
+    validate: [
+      "required",
+      { type: "maxlength", arguments: [8] },
+      { type: "minlength", arguments: [5] },
+      {
+        type: "regexPostcodeSymbol",
+        fn: (value) => value.match(/^[A-Za-z0-9 ]+$/),
+      },
+      { type: "regexPostcodeAlpha", fn: (value) => value.match(/[A-Za-z]+/) },
+      { type: "regexPostcodeNumeric", fn: (value) => value.match(/[0-9]+/) },
+      {
+        type: "regexPostcodeUK",
+        fn: (value) =>
+          value.match(
+            /([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})/
+          ),
+      },
+    ],
+    classes: "govuk-input--width-10",
+  },
   branches: {
     validate: ["required"],
+  },
+  addressResults: {
+    type: "list",
+    validate: [
+      {
+        type: "required",
+      },
+    ],
   },
   photoIdExpiryChoice: {
     type: "radios",
@@ -241,6 +257,26 @@ module.exports = {
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID },
       { divider: "or" },
       { value: APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY },
+    ],
+    validate: ["required"],
+  },
+  customerLetterCheckAddress: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: APP.CHECK_ADDRESS.EXISTING_ADDRESS,
+        conditional: {
+          html: "",
+        },
+      },
+      {
+        value: APP.CHECK_ADDRESS.DIFFERENT_ADDRESS,
+        conditional: {
+          html: "",
+        },
+      },
     ],
     validate: ["required"],
   },
@@ -530,5 +566,25 @@ module.exports = {
       "required",
       { type: "equal", fn: (value) => !value.match(/Select/) },
     ],
+  },
+  postOfficeCustomerLetterChoice: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL,
+        conditional: {
+          html: "",
+        },
+      },
+      {
+        value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
+        conditional: {
+          html: "",
+        },
+      },
+    ],
+    validate: ["required"],
   },
 };

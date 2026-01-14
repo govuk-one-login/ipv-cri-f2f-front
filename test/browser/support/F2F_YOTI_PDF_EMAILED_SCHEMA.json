@@ -31,10 +31,10 @@
                 "govuk_signin_journey_id"
             ]
         },
-        "client_id": {
-            "type": "string"
-        },
         "timestamp": {
+            "type": "integer"
+        },
+        "event_timestamp_ms": {
             "type": "integer"
         },
         "component_id": {
@@ -68,9 +68,10 @@
     "required": [
         "event_name",
         "user",
-        "client_id",
         "timestamp",
+        "event_timestamp_ms",
         "component_id",
         "extensions"
-    ]
+    ],
+    "additionalProperties": false
 }

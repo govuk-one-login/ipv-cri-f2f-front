@@ -10,21 +10,17 @@ photoIdChoice:
       label: Trwydded yrru gyda llun y DU
       hint: Rhaid i'r cyfeiriad ar eich trwydded yrru fod yr un fath â'ch cyfeiriad presennol.
       reveal: ""
-    brp:
-      label: Trwydded breswylio biometrig y DU (BRP)
-      hint: Efallai y bydd gennych BRP os oes gennych fisa am fwy na 6 mis neu ganiatâd amhenodol i aros. Ni allwch ddefnyddio Trwydded Gweithwyr Ffiniol y DU (FWP) na cherdyn preswylio biometrig y DU (BRC), a elwir hefyd yn gerdyn preswylio yn y DU.
-      reveal: ""
     nonUkPassport:
       label: Pasbort o'r tu allan i'r DU
       hint: ""
       reveal: ""
     euPhotocardDl:
       label: Trwydded yrru cerdyn gyda llun yr Undeb Ewropeaidd (UE)
-      hint: Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen. Os oes ganddo eich cyfeiriad arno, rhaid iddo fod eich cyfeiriad presennol.
+      hint: Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen.
       reveal: ""
     eeaIdentityCard:
-      label: Cerdyn hunaniaeth genedlaethol o wlad Ardal Economaidd Ewropeaidd (AEE)
-      hint: Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen. Os oes ganddo eich cyfeiriad arno, rhaid iddo fod eich cyfeiriad presennol.
+      label: Cerdyn adnabod cenedlaethol o'r UE, Norwy, Gwlad yr Iâ neu Liechtenstein
+      hint: Rhaid i hwn fod yn gerdyn-llun plastig, nid trwydded bapur neu lawysgrifen.
       reveal: ""
     noPhotoId:
       label: Nid oes gennyf unrhyw un o'r dogfennau hyn
@@ -33,18 +29,14 @@ photoIdChoice:
 
 photoIdChoiceThinFile:
   validation:
-    required: Dewiswch ID gyda llun y gallwch fynd i'r Swyddfa Bost
+    required: Dewiswch oes os oes gennych basbort y DU
   items:
     ukPassport:
-      label: Pasbort y DU
-      hint: Os yw'ch pasbort y DU wedi dod i ben, gallwch barhau i’w ddefnyddio i brofi pwy ydych chi hyd at 18 mis ar ôl ei ddyddiad dod i ben.
-      reveal: ""
-    nonUkPassport:
-      label: Pasbort o'r tu allan i'r DU gyda sglodyn biometrig
-      hint: Ni ddylai'ch pasbort fod wedi dod i ben.
+      label: Oes, mae gen i basbort y Deyrnas Unedig
+      hint: ""
       reveal: ""
     noPhotoId:
-      label: Nid oes gennyf yr un o'r rhain
+      label: Na, nid oes gennyf basbort y Deyrnas Unedig
       reveal: ""
 
 "date-day":
@@ -118,22 +110,6 @@ nonUKPassportExpiryDate:
     "required-month": "Rhowch y dyddiad dod i ben yn llawn"
     "required-year": "Rhowch y dyddiad dod i ben yn llawn"
 
-brpExpiryDate:
-  legend: ""
-  label: ""
-  hint: "Er enghraifft, 31 3 2025"
-  validation:
-    default: "Rhowch y dyddiad dod i ben yn llawn"
-    before: "Rhowch ddyddiad dod i ben dilys"
-    "numeric-day": "Mae'n rhaid i'r dyddiad dod i ben gynnwys diwrnod sy'n cynnwys rhifau yn unig"
-    "numeric-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n cynnwys rhifau yn unig"
-    "numeric-year": "Mae'n rhaid i'r dyddiad dod i ben gynnwys blwyddyn sy'n cynnwys rhifau yn unig"
-    "date-day": "Rhowch ddyddiad dod i ben dilys"
-    "date-month": "Mae'n rhaid i'r dyddiad dod i ben gynnwys mis sy'n rhif rhwng 1 a 12"
-    "required-day": "Rhowch y dyddiad dod i ben yn llawn"
-    "required-month": "Rhowch y dyddiad dod i ben yn llawn"
-    "required-year": "Rhowch y dyddiad dod i ben yn llawn"
-
 euPhotocardDlExpiryDate:
   legend: ""
   label: ""
@@ -184,11 +160,11 @@ idHasExpiryDate:
   validation:
     required: "Dewiswch os oes gan eich ID gyda llun ddyddiad dod i ben"
   items:
-    yes: 
+    yes:
       label: "Oes"
       hint: ""
       reveal: ""
-    no: 
+    no:
       label: "Na"
       hint: ""
       reveal: ""
@@ -213,13 +189,26 @@ eeaIdentityCardAddressCheck:
 postcode:
   label: "Rhowch god post yn y DU"
   hint: "Er enghraifft, SW1A 2AA"
+  prefix: ""
   validation:
     default: "Rhowch god post gwirioneddol yn y DU"
+
+letterPostcode:
+  label: Rhowch god post yn y DU
+  hint: Er enghraifft, SW1A 2AA
+  prefix: ""
+  validation:
+    default: "Rhowch god post llawn yn y DU"
 
 branches:
   label: "Cod post"
   validation:
     default: "Dewiswch Swyddfa Bost lle gallwch brofi eich hunaniaeth"
+
+addressResults:
+  prefix: ""
+  validation:
+    default: "Dewiswch gyfeiriad o'r rhestr"
 
 checkDetails:
   label: ""
@@ -247,17 +236,20 @@ photoIdExpiryChoice:
 
 eeaIdentityCardCountrySelector:
   label: "Dewiswch wlad"
+  prefix: ""
   validation:
     equal: "Dewiswch y wlad y mae eich cerdyn adnabod cenedlaethol yn dod ohoni"
 
 euDrivingLicenceCountrySelector:
   label: "Dewiswch wlad"
   hint: ""
+  prefix: ""
   validation:
     equal: "Dewiswch y wlad y mae eich trwydded yrru yn dod ohoni"
 
 nonUkPassportCountrySelector:
   label: "Dewiswch wlad"
+  prefix: ""
   validation:
     equal: "Dewiswch y wlad y mae eich pasbort yn dod ohoni"
 
@@ -356,7 +348,7 @@ countries:
     XXK: "Kosovo"
     KWT: "Kuwait"
     KGZ: "Kyrgyzstan"
-    LAO: "Laos"    
+    LAO: "Laos"
     LVA: "Latvia"
     LBN: "Lebanon"
     LSO: "Lesotho"
@@ -401,7 +393,7 @@ countries:
     PNG: "Papua New Guinea"
     PRY: "Paraguay"
     PER: "Peru"
-    PHL: "Philippines"  
+    PHL: "Philippines"
     POL: "Gwlad Pwyl"
     PRT: "Portiwgal"
     QAT: "Qatar"
@@ -456,3 +448,30 @@ countries:
     YEM: "Yemen"
     ZMB: "Zambia"
     ZWE: "Zimbabwe"
+
+customerLetterCheckAddress:
+  validation:
+    required: "Dewiswch os ydych chi eisiau i’ch llythyr cwsmer Swyddfa'r Post gael ei anfon i'r cyfeiriad hwn "
+  items:
+    existingAddress:
+      label: "Ydw, Rwyf eisiau i'm llythyr cwsmer gael ei anfon i'r cyfeiriad hwn"
+      hint: ""
+      reveal: ""
+    differentAddress:
+      label: "Na, Rwyf eisiau i'm llythyr cwsmer gael ei anfon i gyfeiriad gwahanol"
+      hint: ""
+      reveal: ""
+
+postOfficeCustomerLetterChoice:
+  validation:
+    required: Dewiswch sut ydych chi eisiau cael eich llythyr cwsmer Swyddfa'r Post
+  content: ""
+  items:
+    email:
+      label: E-bost yn unig
+      hint: "Gallwch ddangos eich llythyr ar eich ffôn neu dabled, neu fynd â chopi wedi’i argraffu gyda chi."
+      reveal: ""
+    post:
+      label: Post ac e-bost
+      hint: "Gall gymryd hyd at 6 diwrnod gwaith i gael eich llythyr drwy'r post."
+      reveal: ""

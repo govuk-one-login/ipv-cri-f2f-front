@@ -1,8 +1,8 @@
-@success @browser @e2e2
+@success @browser 
 Feature: Enter UK driving licence   - Happy Path
 
     Background:
-        Given Authenticatable Anita is using the system
+        Given A UK Drivers Licence User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
 
@@ -18,6 +18,6 @@ Feature: Enter UK driving licence   - Happy Path
         When the user clicks the continue button on the UKPhotoDL Page
         Then the user is successfully routed to the UK DL Address Check screen
 
-    Scenario: User routed to Post Office Finder screen when “Yes” selected (Happy path)
+    Scenario: User routed to Post Office Finder screen when “Yes” selected 
         When the Back button is clicked on the UK Photo DL Address page
         Then the user is navigated back to the UK Photo Dl Expiry page

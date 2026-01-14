@@ -12,7 +12,9 @@
 {% set title = translate("photoIdSelection.title") %}
 {% set content = translate("photoIdSelection.content") %}
 {% set expiryWarning = translate("photoIdSelection.expiryWarning") %}
-{% set formInstructions = "<p>"+content+"</p><br><p>"+expiryWarning+"</p>" %}
+{% set addressWarning = translate("photoIdSelection.addressWarning") %}
+{% set formInstructions = "<p>"+content+"</p><br><p>"+expiryWarning+"</p><br><p>"+addressWarning+"</p><br>" %}
+{% set subtitle = translate("photoIdSelection.subtitle") %}
       
       {% call hmpoForm(ctx) %}
           {{ hmpoRadios(ctx, {
@@ -26,12 +28,18 @@
                 }
             },
             hint: {
-                html: formInstructions
+                html: formInstructions + "<h2 class='govuk-heading-m'>" + subtitle + "</h2>"
             }
         }) }}
 
-          {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
+          {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
+        }) }}
       {% endcall %}
+    
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
     <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
         window.addEventListener('load', function () {
             window
@@ -50,4 +58,3 @@
         });
     </script>
 {% endblock %}
-

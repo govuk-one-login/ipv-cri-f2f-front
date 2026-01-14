@@ -1,0 +1,47 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoPageKey = "findAddress" %}
+{% set gtmJourney = "f2f - findAddress" %}
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+
+{% block mainContent %}
+    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+        {{ translate("findAddress.title") }}
+    </h1>
+    
+    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+
+    <p id="branchesInformation">{{ translate("findAddress.content") }}</p>
+
+    {{ hmpoText(ctx, {
+        id: "letterPostcode"
+    })}}
+
+    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/post-office-customer-letter-choose-address"}
+}) }}
+
+
+    {% endcall %}
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+        window.addEventListener('load', function () {
+            window
+                .DI
+                .analyticsGa4
+                .pageViewTracker
+                .trackOnPageLoad({
+                    statusCode: '200', // Access status code
+                    englishPageTitle: '{{translate("findAddress.title")}}',
+                    taxonomy_level1: 'web cri', // Access taxonomy level 1
+                    taxonomy_level2: 'f2f', // Access taxonomy level 2
+                    content_id: '001',
+                    logged_in_status: true,
+                    dynamic: false
+                });
+        });
+    </script>
+{% endblock %}

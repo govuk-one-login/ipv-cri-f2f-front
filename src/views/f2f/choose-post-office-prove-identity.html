@@ -8,6 +8,7 @@
 
 {% block mainContent %}
 
+{% set information = translate("locations.content") %}
 {% set userPostCodeLabel = translate("locations.body") %}
 {% set userPostCodeControl = hmpoHtml(translate("links.changePostcode")) %}
 {% set title = translate("locations.title") %}
@@ -24,14 +25,15 @@
           }
     },
     hint: {
-        html: "<p class=\"govuk-body\" id=\"userPostCodeLabel\">" + userPostCodeLabel + "</p>" + userPostCodeControl
+        html: "<p class=\"govuk-body\" id=\"branchesInformation\">" + information + "</p>" + "<p class=\"govuk-body\" id=\"userPostCodeLabel\">" + userPostCodeLabel + "</p>" + userPostCodeControl
     },
     items: branch.items
     }
     %}
 
         {{ hmpoRadios(ctx, fullBranch, {id: "branches"}) }}
-        {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next")}) }}
+        {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/post-office-customer-letter"}
+    }) }}
     {% endcall %}
 
 
@@ -40,10 +42,9 @@
 
 {% endblock %}
 
-  {% set footerNavItems = translate("govuk.footerNavItems") %}
 
   {% block footer %}
-      {{ govukFooter( footerNavItems ) }}
+      {{ super() }}
       <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
         window.addEventListener('load', function () {
             window

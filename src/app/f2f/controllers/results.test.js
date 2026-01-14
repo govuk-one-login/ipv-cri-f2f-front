@@ -131,7 +131,7 @@ describe("Postcode Search Controller", () => {
         req.axios.post = sinon.fake.resolves({ data: postOfficeData });
       });
 
-      it("calls port office endpoint with correct data", async () => {
+      it("calls post office endpoint with correct data", async () => {
         const postCode = "SW1A 2AA";
         req.sessionModel.set("postcode", postCode);
 
@@ -299,6 +299,123 @@ describe("Postcode Search Controller", () => {
           },
         });
       });
+    });
+
+    context("postOfficeData fetched less than 5 branches", () => {
+      const postOfficeData = [
+        {
+          name: "Broadway",
+          locationBusinessId: "0100110",
+          address: {
+            address1: "1 Broadway",
+            address4: "London",
+            address5: "Greater London",
+            postcode: "SW1H 0AX",
+            latitude: 51.49865,
+            longitude: -0.13392,
+          },
+        },
+        {
+          name: "Regent Street St. James's",
+          locationBusinessId: "0540110",
+          address: {
+            address1: "11 Regent Street St. James's",
+            address4: "London",
+            address5: "Greater London",
+            postcode: "SW1Y 4LR",
+            latitude: 51.50841,
+            longitude: -0.1341,
+          },
+        },
+      ];
+
+      beforeEach(() => {
+        req.axios.post = sinon.fake.resolves({ data: postOfficeData });
+        sinon.stub(console, "error");
+      });
+
+      afterEach(() => {
+        console.error.restore();
+      });
+
+      it("post office details are set correctly when less than 5 branches are found", async () => {
+        await postcodeSearch.locals(req, res, next);
+
+        expect(req.sessionModel.get("postOfficeDetails")).to.eql([
+          {
+            value: "1",
+            conditional: {
+              html: "",
+            },
+            text: postOfficeData[0].name,
+            hint: {
+              text:
+                postOfficeData[0].address.address1 +
+                ", " +
+                postOfficeData[0].address.address4 +
+                ", " +
+                postOfficeData[0].address.address5 +
+                ", " +
+                postOfficeData[0].address.postcode,
+            },
+          },
+          {
+            value: "2",
+            conditional: {
+              html: "",
+            },
+            text: postOfficeData[1].name,
+            hint: {
+              text:
+                postOfficeData[1].address.address1 +
+                ", " +
+                postOfficeData[1].address.address4 +
+                ", " +
+                postOfficeData[1].address.address5 +
+                ", " +
+                postOfficeData[1].address.postcode,
+            },
+          },
+        ]);
+        expect(req.sessionModel.get("payLoadValues")).to.eql({
+          location0: {
+            addressWithoutPostCode:
+              postOfficeData[0].address.address1 +
+              ", " +
+              postOfficeData[0].address.address4 +
+              ", " +
+              postOfficeData[0].address.address5,
+            postcode: postOfficeData[0].address.postcode,
+            latitude: postOfficeData[0].address.latitude,
+            longitude: postOfficeData[0].address.longitude,
+            fadCode: postOfficeData[0].locationBusinessId,
+          },
+          location1: {
+            addressWithoutPostCode:
+              postOfficeData[1].address.address1 +
+              ", " +
+              postOfficeData[1].address.address4 +
+              ", " +
+              postOfficeData[1].address.address5,
+            postcode: postOfficeData[1].address.postcode,
+            latitude: postOfficeData[1].address.latitude,
+            longitude: postOfficeData[1].address.longitude,
+            fadCode: postOfficeData[1].locationBusinessId,
+          },
+        });
+      });
+
+      it("should redirect to /error if no branch is returned", async () => {
+        req.axios.post = sinon.fake.resolves({ data: [] });
+
+        await postcodeSearch.locals(req, res, next);
+
+        expect(res.redirect).to.have.been.calledOnceWith("/error");
+        sinon.assert.calledWith(
+          console.error,
+          "No post office branches found, redirecting to /error"
+        );
+      });    
     });
   });
 });

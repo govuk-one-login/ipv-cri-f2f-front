@@ -6,11 +6,17 @@ module.exports = class PlaywrightDevPage {
     this.page = page;
   }
 
-  async goto() {
+  async goto(claim) {
     const axios = require("axios");
-    const claim = require("../support/shared_claim");
-    const postRequest = await axios.post(process.env.IPV_STUB_URL, claim);
+    if (process.env.CUSTOM_FE_URL)
+      claim.frontendURL = process.env.CUSTOM_FE_URL;
+    const postRequest = await axios.post(process.env.IPV_STUB_URL + "start", claim);
     await this.page.goto(postRequest.data.AuthorizeLocation);
+    const currentUrl = this.page.url();
+    const stringToAppend = "?featureSet=pcl";
+    const url = new URL(currentUrl);
+    url.search = url.search + stringToAppend;
+    await this.page.goto(url.toString());
   }
 
   isRelyingPartyServer() {

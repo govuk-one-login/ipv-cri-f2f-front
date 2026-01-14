@@ -1,0 +1,58 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoPageKey = "postOfficeCustomerLetterChoice" %}
+{% set gtmJourney = "f2f - postOfficeCustomerLetter" %}
+
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+
+{% block mainContent %}
+
+{% set title = translate("postOfficeCustomerLetterChoice.title") %}
+{% set content1 = translate("postOfficeCustomerLetterChoice.content1") %}
+{% set content2 = translate("postOfficeCustomerLetterChoice.content2") %}
+{% set prompt = translate("postOfficeCustomerLetterChoice.prompt") %}
+
+    <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+      {{ title }}
+    </h1>
+
+{% call hmpoForm(ctx) %}
+    <div id="branches-hint">
+      <p id="branchesInformation">{{ content1 }}</p>
+      <p>{{ content2 }}</p>
+    </div>
+
+        {{ hmpoRadios(ctx, {
+            id: "postOfficeCustomerLetterChoice",
+            legend: {
+                text: prompt,
+                classes: "govuk-fieldset__legend--m"
+            }
+        })}}
+
+        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.continue"), attributes: {"data-nav": true,"data-link": "/undefined"}
+    }) }}
+    {% endcall %}
+
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+        window.addEventListener('load', function () {
+            window
+                .DI
+                .analyticsGa4
+                .pageViewTracker
+                .trackOnPageLoad({
+                    statusCode: '200', // Access status code
+                    englishPageTitle: '{{translate("euDrivingLicenceHasExpiryDate.title")}}',
+                    taxonomy_level1: 'web cri', // Access taxonomy level 1
+                    taxonomy_level2: 'f2f', // Access taxonomy level 2
+                    content_id: '001',
+                    logged_in_status: true,
+                    dynamic: false
+                });
+        });
+    </script>
+{% endblock %}

@@ -17,32 +17,65 @@
       iconFallbackText: "Warning"
     }) }}
 
-    {% if (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == false) %}
-      {% include "../components/countrySummaryList.njk" %}
-    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == false) %}
-      {% include "../components/countrySummaryListNoExpiry.njk" %}
-    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == true) %}
-      {% include "../components/countryThinFileSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == true) %}
-      {% include "../components/countrySummaryListThinFileNoExpiry.njk" %}
-    {% elif (values.photoIdChoice == "ukPassport" and values.isThinFileUser == true) %}
-      {% include "../components/ukPassportThinFileSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "ukPhotocardDl") %}
-      {% include "../components/ukDlSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "yes") %}
-      {% include "../components/euSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "no") %}
-      {% include "../components/euSummaryListNoExpiry.njk" %}
-    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "yes") %}
-      {% include "../components/eeaSummaryList.njk" %}
-    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "no") %}
-      {% include "../components/eeaSummaryListNoExpiry.njk" %}
-    {% else %}
-      {% include "../components/summaryList.njk" %}
+
+    {% if (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == false and values.postOfficeCustomerLetterChoice == "post") %}
+      {% include "../components/letterCountrySummaryList.njk" %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == false and values.postOfficeCustomerLetterChoice == "email") %}
+      {% include "../components/emailCountrySummaryList.njk" %}
+
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == false and values.postOfficeCustomerLetterChoice == "post") %}
+      {% include "../components/letterCountrySummaryListNoExpiry.njk" %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == false and values.postOfficeCustomerLetterChoice == "email") %}
+      {% include "../components/emailCountrySummaryListNoExpiry.njk" %}
+
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == "post") %}
+      {% include "../components/letterCountryThinFileSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "yes" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == "email") %}
+      {% include "../components/emailCountryThinFileSummaryList.njk" %}
+
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == "post") %}
+      {% include "../components/letterCountrySummaryListThinFileNoExpiry.njk" %}
+    {% elif (values.photoIdChoice == "nonUkPassport" and values.idHasExpiryDate == "no" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == "email") %}
+      {% include "../components/emailCountrySummaryListThinFileNoExpiry.njk" %}
+
+    {% elif (values.photoIdChoice == "ukPassport" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == "post") %}
+      {% include "../components/letterUkPassportThinFileSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "ukPassport" and values.isThinFileUser == true and values.postOfficeCustomerLetterChoice == "email") %}
+      {% include "../components/emailUkPassportThinFileSummaryList.njk" %}
+
+    {% elif (values.photoIdChoice == "ukPhotocardDl" == true and values.postOfficeCustomerLetterChoice == "post") %}
+      {% include "../components/letterUkDlSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "ukPhotocardDl" == true and values.postOfficeCustomerLetterChoice == "email") %}
+      {% include "../components/emailUkDlSummaryList.njk" %}
+
+    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "yes" and values.postOfficeCustomerLetterChoice == "post") %}
+      {% include "../components/letterEuSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "yes" and values.postOfficeCustomerLetterChoice == "email") %}
+      {% include "../components/emailEuSummaryList.njk" %}
+
+    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "no" and values.postOfficeCustomerLetterChoice == "post") %}
+      {% include "../components/letterEuSummaryListNoExpiry.njk" %}
+    {% elif (values.photoIdChoice == "euPhotocardDl" and values.idHasExpiryDate == "no" and values.postOfficeCustomerLetterChoice == "email") %}
+      {% include "../components/emailEuSummaryListNoExpiry.njk" %}
+
+    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "yes" and values.postOfficeCustomerLetterChoice == "post") %}
+      {% include "../components/letterEeaSummaryList.njk" %}
+    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "yes" and values.postOfficeCustomerLetterChoice == "email") %}
+      {% include "../components/emailEeaSummaryList.njk" %}
+
+    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "no" and values.postOfficeCustomerLetterChoice == "post") %}
+      {% include "../components/letterEeaSummaryListNoExpiry.njk" %}
+    {% elif (values.photoIdChoice == "eeaIdentityCard" and values.idHasExpiryDate == "no" and values.postOfficeCustomerLetterChoice == "email") %}
+      {% include "../components/emailEeaSummaryListNoExpiry.njk" %}
+      
+    {% elif (values.postOfficeCustomerLetterChoice == "post") %}
+        {% include "../components/letterSummaryList.njk" %}
+    {% elif (values.postOfficeCustomerLetterChoice == "email") %}
+        {% include "../components/emailSummaryList.njk" %}
     {% endif %}
 
     {% call hmpoForm(ctx) %}
-      {{ hmpoSubmit(ctx, {id: "continue", text: translate("checkDetails.buttonText"), attributes: {"data-nav": true,"data-link": "/undefined"}
+      {{ hmpoSubmit(ctx, {id: "continue", text: translate("checkDetails.buttonText"), attributes: {"data-nav": true,"data-link": "/oauth2/callback", "data-testid": "confirm-details-continue-btn"}
       }) }}
     {% endcall %}
     </div>
@@ -51,12 +84,35 @@
 
 {% endblock %}
 
-{# generate the specific footer items required for the PYI flows #}
-{% set footerNavItems = translate("govuk.footerNavItems") %}
-
 {% block footer %}
-    {{ govukFooter( footerNavItems ) }}
-    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+    {{ super() }}
+    <script nonce="{{ cspNonce }}">
+
+
+    var formSubmitted = false;
+
+      submitSpinner()
+
+      function delayDisableButton(button) {
+        button.className += ' button--spinner'
+        setTimeout(function () {
+          button.setAttribute('disabled', true)
+        }, 200);
+      }
+
+      function submitSpinner() {
+        var select = document.getElementById('continue')
+
+        select.addEventListener('click', function (event) {
+          if (!formSubmitted) {
+            formSubmitted = true;
+
+            delayDisableButton(event.target);
+          } else {
+            event.preventDefault()
+          }
+        })
+      }
         window.addEventListener('load', function () {
         window.DI.analyticsGa4.pageViewTracker.trackOnPageLoad({
             statusCode: '200', // Access status code

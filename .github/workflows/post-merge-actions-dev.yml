@@ -1,11 +1,11 @@
-name: Development Node server build and deploy
+name: Frontend Build and Deploy - Dev
 
 on:
   workflow_dispatch:
   push:
     branches:
       - main
-      
+
 defaults:
   run:
     shell: bash
@@ -21,9 +21,11 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: '0'
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
 
       - name: Set up AWS creds
         uses: aws-actions/configure-aws-credentials@v4.0.1
@@ -43,12 +45,14 @@ jobs:
           password: ${{ secrets.DYNATRACE_PAAS_TOKEN }}
 
       - name: Deploy SAM app to ECR
-        uses: govuk-one-login/devplatform-upload-action-ecr@1.2.0
+        uses: govuk-one-login/devplatform-upload-action-ecr@v1.5.0
         with:
           artifact-bucket-name: ${{ secrets.DEV_ARTIFACT_BUCKET }}
           container-sign-kms-key-arn: ${{ secrets.DEV_CONTAINER_SIGN_KMS_KEY }}
           working-directory: .
           docker-build-path: .
           template-file: template.yaml
+          dockerfile: dev.Dockerfile
+          docker-platform: linux/arm64
           role-to-assume-arn: ${{ secrets.DEV_ROLE_TO_ASSUME }}
           ecr-repo-name: ${{ secrets.DEV_ECR_REPOSITORY }}
