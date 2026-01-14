@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @browser
+@mock-api:f2f-f2f-success @browser @QualityGateIntegrationTest @QualityGateRegressionTest   
 Feature: Find Post Office Branch - Unhappy Path
 
     Background:

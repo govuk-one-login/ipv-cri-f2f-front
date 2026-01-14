@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @browser
+@mock-api:f2f-f2f-success @browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Handle Incomplete Data from Post Office API
 
     Scenario: User is successfully shown an error page when PO API returns incomplete data
