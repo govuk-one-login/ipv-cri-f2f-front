@@ -1,4 +1,4 @@
-@success @browser @QualityGateAccessibilityTest @QualityGateIntegrationTest @QualityGateRegressionTest @QualityGateStackTest
+@success @browser @QualityGateAccessibilityTest @QualityGateIntegrationTest @QualityGateRegressionTest
 
 Feature: F2F Journey - Accessibility
 
