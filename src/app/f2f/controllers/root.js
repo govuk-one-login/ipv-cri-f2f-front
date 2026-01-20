@@ -1,7 +1,10 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
-const { API } = require("../../../lib/config");
+const { API, PACKAGE_NAME } = require("../../../lib/config");
 const NodeRSA = require("node-rsa");
-const logger = require("hmpo-logger").get();
+const logger =
+  require("@govuk-one-login/di-ipv-cri-common-express/src/bootstrap/lib/logger").get(
+    PACKAGE_NAME,
+  );
 
 class RootController extends BaseController {
   async saveValues(req, res, next) {
@@ -31,7 +34,7 @@ class RootController extends BaseController {
         const fullParsedSharedClaimsAddress = addressParts.join("<br>");
         req.sessionModel.set(
           "fullParsedSharedClaimsAddress",
-          fullParsedSharedClaimsAddress
+          fullParsedSharedClaimsAddress,
         );
 
         req.sessionModel.set("addressProcessed", true);

@@ -6,7 +6,6 @@ const session = require("express-session");
 const AWS = require("aws-sdk");
 const DynamoDBStore = require("connect-dynamodb")(session);
 const wizard = require("hmpo-form-wizard");
-const logger = require("hmpo-logger");
 
 const commonExpress = require("@govuk-one-login/di-ipv-cri-common-express");
 const frontendUi = require("@govuk-one-login/frontend-ui");
@@ -30,7 +29,7 @@ const {
 } = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next");
 
 const {
-  frontendVitalSignsInitFromApp
+  frontendVitalSignsInitFromApp,
 } = require("@govuk-one-login/frontend-vital-signs");
 
 const {
@@ -43,6 +42,10 @@ const {
   SESSION_TTL,
   PROXY_API,
 } = require("./lib/config");
+const logger =
+  require("@govuk-one-login/di-ipv-cri-common-express/src/bootstrap/lib/logger").get(
+    PACKAGE_NAME,
+  );
 
 const { setup } =
   require("@govuk-one-login/di-ipv-cri-common-express").bootstrap;
@@ -89,9 +92,9 @@ const { app, router } = setup({
   views: [
     path.resolve(
       path.dirname(
-        require.resolve("@govuk-one-login/di-ipv-cri-common-express")
+        require.resolve("@govuk-one-login/di-ipv-cri-common-express"),
       ),
-      "components"
+      "components",
     ),
     path.resolve("node_modules/@govuk-one-login/"),
     "views",
@@ -110,7 +113,7 @@ const { app, router } = setup({
         "avgResponseTime",
         "maxConcurrentConnections",
         "eventLoopDelay",
-        "eventLoopUtilization"
+        "eventLoopUtilization",
       ],
       staticPaths: [
         /^\/assets\/.*/,
@@ -118,8 +121,8 @@ const { app, router } = setup({
         "/javascript",
         "/javascripts",
         "/images",
-        "/stylesheets"
-      ]
+        "/stylesheets",
+      ],
     });
     app.use(setHeaders);
     app.use((req, res, next) => {
@@ -177,7 +180,7 @@ setGTM({
   ga4FormChangeEnabled: APP.GTM.GA4_FORM_CHANGE_ENABLED,
   ga4NavigationEnabled: APP.GTM.GA4_NAVIGATION_ENABLED,
   ga4SelectContentEnabled: APP.GTM.GA4_SELECT_CONTENT_ENABLED,
-  analyticsDataSensitive: APP.GTM.ANALYTICS_DATA_SENSITIVE
+  analyticsDataSensitive: APP.GTM.ANALYTICS_DATA_SENSITIVE,
 });
 
 setDeviceIntelligence({
@@ -211,7 +214,7 @@ process.on("SIGTERM", () => {
   server.close((err) => {
     if (err) {
       console.log(
-        `Error while calling server.close() occurred: ${err.message}`
+        `Error while calling server.close() occurred: ${err.message}`,
       );
 
       exitCode = 1;
@@ -260,12 +263,11 @@ const wizardOptions = {
 router.use(wizard(steps, fields, wizardOptions));
 
 router.use((err, req, res, next) => {
-  logger
-    .get(PACKAGE_NAME)
-    .error(
-      "Error caught by Express handler - redirecting to Callback with server_error",
-      { err }
-    );
+  logger.info({ err });
+  logger.error(
+    "Error caught by Express handler - redirecting to Callback with server_error",
+    { err },
+  );
   const REDIRECT_URI = req.session?.authParams?.redirect_uri;
   if (REDIRECT_URI) {
     router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);

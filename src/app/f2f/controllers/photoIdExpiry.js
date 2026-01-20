@@ -1,6 +1,9 @@
-const { APP } = require("../../../lib/config");
+const { APP, PACKAGE_NAME } = require("../../../lib/config");
 const BaseController = require("hmpo-form-wizard").Controller;
-const logger = require("hmpo-logger").get();
+const logger =
+  require("@govuk-one-login/di-ipv-cri-common-express/src/bootstrap/lib/logger").get(
+    PACKAGE_NAME,
+  );
 
 class PhotoIdExpiryController extends BaseController {
   async saveValues(req, res, next) {
@@ -12,15 +15,15 @@ class PhotoIdExpiryController extends BaseController {
       req.sessionModel.set("redirect_url", undefined);
       req.sessionModel.set(
         APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS,
-        undefined
+        undefined,
       );
       req.sessionModel.set(
         APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID,
-        undefined
+        undefined,
       );
       req.sessionModel.set(
         APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY,
-        undefined
+        undefined,
       );
 
       const action = req.form.values.photoIdExpiryChoice;
@@ -30,33 +33,33 @@ class PhotoIdExpiryController extends BaseController {
         case APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS: {
           logger.info(
             "photo-id-expiry: user has chosen to re-enter details - redirecting to previous data entry page",
-            { req, res }
+            { req, res },
           );
           req.sessionModel.set(
             APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS,
-            true
+            true,
           );
           return next();
         }
         case APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID: {
           logger.info(
             "photo-id-expiry: user has to choose different photo ID - redirecting to photo ID selection",
-            { req, res }
+            { req, res },
           );
           req.sessionModel.set(
             APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID,
-            true
+            true,
           );
           return next();
         }
         case APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY: {
           logger.info(
             "photo-id-expiry: user has selected prove identity another way - redirecting to prove identity another way",
-            { req, res }
+            { req, res },
           );
           req.sessionModel.set(
             APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY,
-            true
+            true,
           );
           return next();
         }

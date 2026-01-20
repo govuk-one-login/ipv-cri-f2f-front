@@ -1,6 +1,9 @@
-const { APP } = require("../../../lib/config");
+const { APP, PACKAGE_NAME } = require("../../../lib/config");
 const BaseController = require("hmpo-form-wizard").Controller;
-const logger = require("hmpo-logger").get();
+const logger =
+  require("@govuk-one-login/di-ipv-cri-common-express/src/bootstrap/lib/logger").get(
+    PACKAGE_NAME,
+  );
 
 class PhotoIdSelectionController extends BaseController {
   async saveValues(req, res, next) {
@@ -21,7 +24,7 @@ class PhotoIdSelectionController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           logger.info(
             "photo-id-selection: user has selected UK passport - redirecting to passport details page",
-            { req, res }
+            { req, res },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, true);
           req.sessionModel.set("changeUrl", "uk-passport-expire");
@@ -30,7 +33,7 @@ class PhotoIdSelectionController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
           logger.info(
             "photo-id-selection: user has selected UK DL - redirecting to driving license details page",
-            { req, res }
+            { req, res },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, true);
           req.sessionModel.set("changeUrl", "uk-driving-licence-expire");
@@ -39,7 +42,7 @@ class PhotoIdSelectionController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           logger.info(
             "photo-id-selection: user has selected other passport - redirecting to other passport details page",
-            { req, res }
+            { req, res },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, true);
           req.sessionModel.set("changeUrl", "non-uk-passport-expire");
@@ -49,7 +52,7 @@ class PhotoIdSelectionController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           logger.info(
             "photo-id-selection: user has selected EU photocard driving licence - redirecting to driving license details page",
-            { req, res }
+            { req, res },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL, true);
           req.sessionModel.set("changeUrl", "eu-driving-licence-expire");
@@ -58,7 +61,7 @@ class PhotoIdSelectionController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD: {
           logger.info(
             "photo-id-selection: user has selected EU ID Card - redirecting to EU ID Card details page",
-            { req, res }
+            { req, res },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EEA_IDENTITY_CARD, true);
           req.sessionModel.set("changeUrl", "national-identity-card-expire");
@@ -67,7 +70,7 @@ class PhotoIdSelectionController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID: {
           logger.info(
             "photo-id-selection: user has selected No ID - aborting journey",
-            { req, res }
+            { req, res },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID, true);
           return next();
