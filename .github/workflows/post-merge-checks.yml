@@ -83,11 +83,11 @@ jobs:
         with:
           ref: gh-pages
           path: gh-pages
-
+    
       - name: Cucumber HTML Report action
-        uses: PavanMudigonda/html-reporter-github-pages@v1.5
+        uses: PavanMudigonda/html-reporter-github-pages@v1.4
         id: test-report
-        if: always()
+        if: false
         with:
           test_results: ./report/cucumber-html-report
           gh_pages: gh-pages
