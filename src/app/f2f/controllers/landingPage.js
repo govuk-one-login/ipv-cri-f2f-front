@@ -1,6 +1,6 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API } = require("../../../lib/config");
-const logger = require("hmpo-logger").get();
+const logger = require("../../../lib/logger").get();
 
 class LandingPageController extends BaseController {
   async saveValues(req, res, next) {

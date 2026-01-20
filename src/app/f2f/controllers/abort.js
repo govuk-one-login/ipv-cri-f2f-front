@@ -1,6 +1,6 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config");
-const logger = require("hmpo-logger").get();
+const logger = require("../../../lib/logger").get();
 const {
   createPersonalDataHeaders,
 } = require("@govuk-one-login/frontend-passthrough-headers");

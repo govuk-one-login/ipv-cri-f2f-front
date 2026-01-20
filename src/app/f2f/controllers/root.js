@@ -1,7 +1,7 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API } = require("../../../lib/config");
 const NodeRSA = require("node-rsa");
-const logger = require("hmpo-logger").get();
+const logger = require("../../../lib/logger").get();
 
 class RootController extends BaseController {
   async saveValues(req, res, next) {
