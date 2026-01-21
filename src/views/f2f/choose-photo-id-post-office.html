@@ -23,7 +23,9 @@
 {% set title = translate("photoIdSelection.title") %}
 {% set content = translate("photoIdSelection.content") %}
 {% set expiryWarning = translate("photoIdSelection.expiryWarning") %}
-{% set formInstructions = "<p>"+content+"</p><br><p>"+expiryWarning+"</p>" %}
+{% set addressWarning = translate("photoIdSelection.addressWarning") %}
+{% set formInstructions = "<p>"+content+"</p><br><p>"+expiryWarning+"</p><br><p>"+addressWarning+"</p><br>" %}
+{% set subtitle = translate("photoIdSelection.subtitle") %}
       
       {% call hmpoForm(ctx) %}
           {{ hmpoRadios(ctx, {
@@ -37,7 +39,7 @@
                 }
             },
             hint: {
-                html: formInstructions
+                html: formInstructions + "<h2 class='govuk-heading-m'>" + subtitle + "</h2>"
             }
         }) }}
 
