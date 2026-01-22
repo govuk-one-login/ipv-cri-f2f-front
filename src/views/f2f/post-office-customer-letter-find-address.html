@@ -15,8 +15,11 @@
     <p id="branchesInformation">{{ translate("findAddress.content") }}</p>
 
     {{ hmpoText(ctx, {
-        id: "letterPostcode"
-    })}}
+        id: "letterPostcode",
+        attributes: {
+            autocomplete: "postal-code"
+        }
+      }) }}
 
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/post-office-customer-letter-choose-address"}
 }) }}
