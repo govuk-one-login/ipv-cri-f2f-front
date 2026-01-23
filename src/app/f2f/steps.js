@@ -15,7 +15,7 @@ const addressResults = require("./controllers/addressResults");
 const { APP } = require("../../lib/config");
 const checkAddressController = require("./controllers/checkAddress");
 
-const steps = {
+module.exports = {
   [`${APP.PATHS.F2F}`]: {
     resetJourney: true,
     reset: true,
@@ -388,9 +388,15 @@ const steps = {
       {
         field: "postOfficeCustomerLetterChoice",
         value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
-        next: APP.PCL_LANGUAGE_CHOICE_ENABLED ? APP.PATHS.POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE : APP.PATHS.CHECK_ADDRESS,
+        next: APP.LETTER_LANGUAGE_CHOICE_ENABLED ? APP.PATHS.POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE : APP.PATHS.CHECK_ADDRESS,
       },
     ],
+  },
+  [`${APP.PATHS.POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE}`]: {
+    fields: ["postOfficeCustomerLetterLanguageChoice"],
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: APP.PATHS.CHECK_ADDRESS,
   },
   [`${APP.PATHS.CHECK_ADDRESS}`]: {
     fields: ["customerLetterCheckAddress"],
@@ -437,14 +443,3 @@ const steps = {
     entryPoint: true,
   },
 };
-
-if (APP.PCL_LANGUAGE_CHOICE_ENABLED) {
-  steps[`${APP.PATHS.POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE}`] = {
-    fields: ["postOfficeCustomerLetterLanguageChoice"],
-    editable: true,
-    editBackStep: APP.PATHS.CHECK_DETAILS,
-    next: APP.PATHS.CHECK_ADDRESS,
-  };
-}
-
-module.exports = steps;
