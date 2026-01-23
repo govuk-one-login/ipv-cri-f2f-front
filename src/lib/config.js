@@ -57,6 +57,7 @@ module.exports = {
       CHOOSE_ADDRESS: "/post-office-customer-letter-choose-address",
       FIND_ADDRESS: "/post-office-customer-letter-find-address",
       POST_OFFICE_CUSTOMER_LETTER: "/post-office-customer-letter",
+      POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE: "/post-office-customer-letter-choose-language.html",
       CHECK_DETAILS: "/check-details",
       DONE: "/done",
       ERROR: "/error",
@@ -83,6 +84,11 @@ module.exports = {
     POST_OFFICE_CUSTOMER_LETTER: {
       EMAIL: "email",
       POST: "post",
+    },
+    POST_OFFICE_CUSTOMER_LETTER_LANGUAGE_OPTIONS: {
+      ENGLISH: "english",
+      WELSH: "welsh",
+      BOTH: "both",
     },
     PHOTO_ID_EXPIRY_OPTIONS: {
       RE_ENTER_DETAILS: "reEnterDetails",

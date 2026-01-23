@@ -587,4 +587,30 @@ module.exports = {
     ],
     validate: ["required"],
   },
+  postOfficeCustomerLetterLanguageChoice: {
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: APP.POST_OFFICE_CUSTOMER_LETTER_LANGUAGE_OPTIONS.ENGLISH,
+        conditional: {
+          html: "",
+        },
+      },
+      {
+        value: APP.POST_OFFICE_CUSTOMER_LETTER_LANGUAGE_OPTIONS.WELSH,
+        conditional: {
+          html: "",
+        },
+      },
+      {
+        value: APP.POST_OFFICE_CUSTOMER_LETTER_LANGUAGE_OPTIONS.BOTH,
+        conditional: {
+          html: "",
+        },
+      },
+    ],
+    validate: ["required"],
+  },
 };
