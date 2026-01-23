@@ -57,7 +57,7 @@ module.exports = {
       CHOOSE_ADDRESS: "/post-office-customer-letter-choose-address",
       FIND_ADDRESS: "/post-office-customer-letter-find-address",
       POST_OFFICE_CUSTOMER_LETTER: "/post-office-customer-letter",
-      POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE: "/post-office-customer-letter-choose-language.html",
+      POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE: "/post-office-customer-letter-choose-language",
       CHECK_DETAILS: "/check-details",
       DONE: "/done",
       ERROR: "/error",
