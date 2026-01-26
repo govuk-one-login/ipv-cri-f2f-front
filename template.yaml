@@ -149,6 +149,7 @@ Mappings:
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: true
+      ANALYTICSDATASENSITIVE: false
       # Hardcoded variables used to generate stack outputs for tests in Dev. Referenced in Outputs section of this template file. Only present in Dev + Build
       IPVSTUBURL: "https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/"
       TESTHARNESSURL: "https://f2f-test-harness-testharness.review-o.dev.account.gov.uk/"
@@ -171,6 +172,7 @@ Mappings:
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: false
+      ANALYTICSDATASENSITIVE: false
       # Hardcoded variables used to generate stack outputs for tests in Build. Referenced in Outputs section of this template file. Only present in Dev + Build
       IPVSTUBURL: "https://ipvstub.review-o.build.account.gov.uk/"
       TESTHARNESSURL: "https://testharness.review-o.build.account.gov.uk/"
@@ -193,6 +195,7 @@ Mappings:
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: false
+      ANALYTICSDATASENSITIVE: false
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
@@ -211,6 +214,7 @@ Mappings:
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: false
+      ANALYTICSDATASENSITIVE: true
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
@@ -229,6 +233,7 @@ Mappings:
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: false
+      ANALYTICSDATASENSITIVE: true
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -656,6 +661,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, MAY2025REBRANDENABLED ]
             - Name: LETTER_LANGUAGE_CHOICE_ENABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LETTERLANGUAGECHOICEENABLED ]
+            - Name: ANALYTICS_DATA_SENSITIVE
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDATASENSITIVE ]
 
           Secrets:
             - Name: DT_TENANT
