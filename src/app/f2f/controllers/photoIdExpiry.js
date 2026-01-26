@@ -1,6 +1,6 @@
 const { APP } = require("../../../lib/config");
 const BaseController = require("hmpo-form-wizard").Controller;
-const logger = require("hmpo-logger").get();
+const logger = require("../../../lib/logger").get();
 
 class PhotoIdExpiryController extends BaseController {
   async saveValues(req, res, next) {

@@ -2,7 +2,7 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
 
 const DateController = DateControllerMixin(BaseController);
-const logger = require("hmpo-logger").get();
+const logger = require("../../../lib/logger").get();
 
 class NonUKPassportDetailsController extends DateController {
   _padYear(value, offset) {

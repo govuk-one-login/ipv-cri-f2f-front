@@ -6,7 +6,6 @@ const session = require("express-session");
 const AWS = require("aws-sdk");
 const DynamoDBStore = require("connect-dynamodb")(session);
 const wizard = require("hmpo-form-wizard");
-const logger = require("hmpo-logger");
 
 const commonExpress = require("@govuk-one-login/di-ipv-cri-common-express");
 const frontendUi = require("@govuk-one-login/frontend-ui");
@@ -43,6 +42,7 @@ const {
   SESSION_TTL,
   PROXY_API,
 } = require("./lib/config");
+const logger = require("./lib/logger").get(PACKAGE_NAME);
 
 const { setup } =
   require("@govuk-one-login/di-ipv-cri-common-express").bootstrap;
@@ -256,12 +256,11 @@ const wizardOptions = {
 router.use(wizard(steps, fields, wizardOptions));
 
 router.use((err, req, res, next) => {
-  logger
-    .get(PACKAGE_NAME)
-    .error(
-      "Error caught by Express handler - redirecting to Callback with server_error",
-      { err }
-    );
+  logger.info({ err });
+  logger.error(
+    "Error caught by Express handler - redirecting to Callback with server_error",
+    { err },
+  );
   const REDIRECT_URI = req.session?.authParams?.redirect_uri;
   if (REDIRECT_URI) {
     router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
