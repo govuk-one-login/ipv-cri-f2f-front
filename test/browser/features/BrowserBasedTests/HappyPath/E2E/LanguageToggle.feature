@@ -1,4 +1,4 @@
-@success @e2e
+@success @e2e @QualityGateIntegrationTest @QualityGateRegressionTest
 
 Feature: F2F Language Toggle
 
