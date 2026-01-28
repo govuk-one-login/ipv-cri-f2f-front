@@ -4,12 +4,6 @@ const { setDefaultTimeout } = require("@cucumber/cucumber");
 
 setDefaultTimeout(10 * 1000);
 
-Before({ tags: "@language-choice-feature" }, function () {
-  if (process.env.LETTER_LANGUAGE_CHOICE_ENABLED !== "true") {
-    return "skipped";
-  }
-});
-
 BeforeAll(async function () {
   require("dotenv").config();
   // Browsers are expensive in Playwright so only create 1

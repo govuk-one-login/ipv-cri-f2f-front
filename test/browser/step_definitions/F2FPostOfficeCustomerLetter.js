@@ -30,18 +30,6 @@ When(/^the user selects an Email and Post Office Letter$/, async function () {
   
   await postOfficeCustomerLetterPage.emailAndPost();
   await postOfficeCustomerLetterPage.continue();
-
-  const isLanguageSelectionEnabled =
-    process.env.LETTER_LANGUAGE_CHOICE_ENABLED === "true";
-
-  if (isLanguageSelectionEnabled) {
-    const languageChoicePage = new PostOfficeCustomerLetterLanguageChoice(this.page);
-    expect(await languageChoicePage.isCurrentPage()).to.be.true;
-    await this.page.waitForLoadState("networkidle");
-    // await languageChoicePage.selectEnglish(); 
-    // await languageChoicePage.continue();
-    return;
-  }
 });
 
 Then(
