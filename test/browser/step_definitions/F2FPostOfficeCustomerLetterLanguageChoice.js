@@ -3,14 +3,6 @@ const { PostOfficeCustomerLetterLanguageChoice } = require("../pages");
 const { expect } = require("chai");
 
 
-Given(/^the letter language choice feature is enabled$/, function () {
-  const enabled = process.env.LETTER_LANGUAGE_CHOICE_ENABLED === "true";
-  if (!enabled) {
-    throw new Error("Expected letter language choice feature to be enabled, but it is not.");
-  }
-  this.featureFlags = { letterLanguageChoiceEnabled: true };
-});
-
 Given(/^the user navigates directly to post-office-customer-letter-choose-language$/, async function () {
   const languageChoicePage = new PostOfficeCustomerLetterLanguageChoice(this.page);
   await languageChoicePage.goTo();

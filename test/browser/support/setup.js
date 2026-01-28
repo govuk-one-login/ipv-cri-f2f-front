@@ -36,10 +36,6 @@ Before(async function () {
 
 // Cleanup after each scenario
 After(async function () {
-  if (this.page) {
-    await this.page.close();
-  }
-  if (this.context) {
-    await this.context.close();
-  }
+  await this.page.close();
+  await this.context.close();
 });

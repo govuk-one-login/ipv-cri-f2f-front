@@ -5,7 +5,7 @@ Feature: Post Office Customer Letter Language Choice
         Given A UK Passport User is using the system
         When they have provided their details
         Then they should be redirected to the Landing Page
-        When featureSet letterLanguageChoice is set new functionality is enabled
+        When featureSet "letterLanguageChoice" is set new functionality is enabled
 
         Given the user wants to progress to the next step of the journey
         When the user clicks the continue button on the Landing Page
@@ -24,8 +24,7 @@ Feature: Post Office Customer Letter Language Choice
         When the user clicks the continue button on the find Post Office branch page
         Then the user is routed to the Select Location page showing 5 nearest POs
 
-        Given the letter language choice feature is enabled
-        And a Post Office branch is selected
+        Given a Post Office branch is selected
         When the user clicks continue
         When the user selects an Email and Post Office Letter
         Then the user is on the language selection page
