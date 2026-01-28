@@ -35,6 +35,7 @@ All the required Environment Variables are inside the .env.sample file. Copy the
 - `GA4_NAVIGATION_ENABLED`- Feature flag to enable GA4 navigation tracking, defaulted to `"true"`
 - `GA4_SELECT_CONTENT_ENABLED`- Feature flag to enable GA4 select content tracking, defaulted to `"true"`
 - `LANGUAGE_TOGGLE_DISABLED` - Feature flag to disable Language Toggle, defaulted to `true`
+- `LETTER_LANGUAGE_CHOICE_ENABLED` - Feature flag to enable posted letter language choice page, defaulted to `false`
 
 ## Run front-end locally against deployed back-end
 

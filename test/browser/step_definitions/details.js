@@ -40,6 +40,13 @@ Then("they should be redirected to the Landing Page", async function () {
   expect(await landingPage.isCurrentPage()).to.be.true;
 });
 
+When("featureSet {string} is set new functionality is enabled", async function (featureSet) {
+  const landingPage = new LandingPage(await this.page);
+  landingPage.goToWithFeatureSet(featureSet);
+
+  expect(await landingPage.isCurrentPage()).to.be.true;
+});
+
 Then(
   "the page should conform to WCAG 2.2 AA guidelines",
   async function () {

@@ -12,8 +12,13 @@ module.exports = class PlaywrightDevPage {
     await this.page.goto(this.baseURL + this.path);
   }
 
+  async goToWithFeatureSet(featureSet) {
+    await this.page.goto(this.baseURL + this.path + "?featureSet=" + featureSet );
+  }
+
   async isCurrentPage() {
     const { pathname } = new URL(await this.page.url());
+    await this.page.waitForLoadState("networkidle");
     return pathname === this.path;
   }
 

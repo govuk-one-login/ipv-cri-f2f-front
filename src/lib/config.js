@@ -57,6 +57,7 @@ module.exports = {
       CHOOSE_ADDRESS: "/post-office-customer-letter-choose-address",
       FIND_ADDRESS: "/post-office-customer-letter-find-address",
       POST_OFFICE_CUSTOMER_LETTER: "/post-office-customer-letter",
+      POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE: "/post-office-customer-letter-choose-language",
       CHECK_DETAILS: "/check-details",
       DONE: "/done",
       ERROR: "/error",
@@ -84,6 +85,11 @@ module.exports = {
       EMAIL: "email",
       POST: "post",
     },
+    POST_OFFICE_CUSTOMER_LETTER_LANGUAGE_OPTIONS: {
+      ENGLISH: "english",
+      WELSH: "welsh",
+      BOTH: "both",
+    },
     PHOTO_ID_EXPIRY_OPTIONS: {
       RE_ENTER_DETAILS: "reEnterDetails",
       CHOOSE_DIFFERENT_PHOTO_ID: "chooseDifferentPhotoId",
@@ -110,6 +116,7 @@ module.exports = {
     LANGUAGE_TOGGLE_DISABLED: process.env.LANGUAGE_TOGGLE_DISABLED || true,
     DEVICE_INTELLIGENCE_ENABLED: process.env.DEVICE_INTELLIGENCE_ENABLED || false,
     DEVICE_INTELLIGENCE_DOMAIN: process.env.DEVICE_INTELLIGENCE_DOMAIN || "localhost",
+    LETTER_LANGUAGE_CHOICE_ENABLED: process.env.LETTER_LANGUAGE_CHOICE_ENABLED === "true",
   },
   PORT: process.env.PORT || 5030,
   SESSION_SECRET: process.env.SESSION_SECRET,
