@@ -1,6 +1,6 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
-const { PostOfficeCustomerLetter, PostOfficeCustomerLetterLanguageChoice } = require("../pages");
+const { PostOfficeCustomerLetter } = require("../pages");
 
 const { expect } = require("chai");
 
