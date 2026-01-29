@@ -388,9 +388,22 @@ module.exports = {
       {
         field: "postOfficeCustomerLetterChoice",
         value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
-        next: APP.PATHS.CHECK_ADDRESS,
+        next: (req) => {
+          if (APP.LETTER_LANGUAGE_CHOICE_ENABLED === true
+              && req.session.featureSet === "letterLanguageChoice") {
+            return APP.PATHS.POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE;
+          } else {
+            return APP.PATHS.CHECK_ADDRESS;
+          }
+        }
       },
     ],
+  },
+  [`${APP.PATHS.POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE}`]: {
+    fields: ["postOfficeCustomerLetterLanguageChoice"],
+    editable: true,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: APP.PATHS.CHECK_ADDRESS,
   },
   [`${APP.PATHS.CHECK_ADDRESS}`]: {
     fields: ["customerLetterCheckAddress"],

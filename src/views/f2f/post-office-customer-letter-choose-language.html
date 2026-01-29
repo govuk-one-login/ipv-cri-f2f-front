@@ -1,0 +1,30 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/pages.yml #}
+{% set hmpoPageKey = "postOfficeCustomerLetterLanguageChoice" %}
+{% set gtmJourney = "f2f - postOfficeCustomerLetterLanguageChoice" %}
+
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+
+{% block mainContent %}
+
+{% set title = translate("postOfficeCustomerLetterLanguageChoice.title") %}
+
+{% call hmpoForm(ctx) %}
+
+        {{ hmpoRadios(ctx, {
+            id: "postOfficeCustomerLetterLanguageChoice",
+            legend: {
+                text: title,
+                classes: "govuk-fieldset__legend--l"
+            }
+        })}}
+
+        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.continue"), attributes: {"data-nav": true,"data-link": "/undefined"}
+    }) }}
+    {% endcall %}
+
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
