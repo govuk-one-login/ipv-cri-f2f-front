@@ -1,4 +1,4 @@
-@browser
+@browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Directly navigating EU Driving Licence pages in journey- unhappy path
 
     Scenario: Direct Navigation to EUDrivingLicenceAddressPage

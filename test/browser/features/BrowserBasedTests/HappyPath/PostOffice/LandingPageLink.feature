@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @browser
+@mock-api:f2f-f2f-success @success @browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Navigate to Post Office Website - Happy Path
 
  E2E journey for Face-to-Face path Landing Page start

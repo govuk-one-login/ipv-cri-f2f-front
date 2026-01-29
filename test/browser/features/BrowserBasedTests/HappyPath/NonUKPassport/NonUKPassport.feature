@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @browser
+@mock-api:f2f-f2f-success @success @browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Non UK Passport E2E Journey. Has expiry date and an email only Post Office letter 
 
     Background:
