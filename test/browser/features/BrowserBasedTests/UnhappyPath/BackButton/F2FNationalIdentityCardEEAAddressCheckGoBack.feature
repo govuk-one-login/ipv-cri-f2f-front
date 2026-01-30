@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @ukPass @browser
+@mock-api:f2f-f2f-success @success @ukPass @browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Enter National Identity Card EEA Details - Unhappy Path
 
 Background:

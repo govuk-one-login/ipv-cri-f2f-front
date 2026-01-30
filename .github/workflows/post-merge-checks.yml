@@ -30,7 +30,7 @@ jobs:
           fetch-depth: '0'
 
       - name: Use Node.js 22.x
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: 'yarn'
@@ -54,7 +54,7 @@ jobs:
         
       - name: "Run SonarCloud Scan"
         if: ${{ success() && github.actor != 'dependabot[bot]' }}
-        uses: SonarSource/sonarqube-scan-action@v6.0.0
+        uses: SonarSource/sonarqube-scan-action@v7.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

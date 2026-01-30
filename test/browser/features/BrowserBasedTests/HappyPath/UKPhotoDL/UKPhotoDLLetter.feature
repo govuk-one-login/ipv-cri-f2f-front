@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @browser
+@mock-api:f2f-f2f-success @success @browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: UK Photo Driving Licence E2E Journey. Post Office letter to an existing address 
 
     Background:

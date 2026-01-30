@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @browser
+@mock-api:f2f-f2f-success @browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Navigate Back from Find Branch screen - Unhappy Path
 
     Background:

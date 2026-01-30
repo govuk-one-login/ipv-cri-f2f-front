@@ -3,6 +3,14 @@
 {% set hmpoPageKey = "findAddress" %}
 {% set gtmJourney = "f2f - findAddress" %}
 
+{% set contentID = "922f0538-3f98-4370-a50d-54cf73316f0e" %}
+{% set isPageDataSensitive = false %}
+{% set taxLevel2 = "f2f" %}
+{% set statusCode = "200" %}
+{% set pageKeyTitle = "pages.findAddress.title"%}
+{% set loggedInStatus = true %}
+{% set isPageDynamic = false %}
+
 {% from "hmpo-text/macro.njk" import hmpoText %}
 
 {% block mainContent %}
@@ -30,21 +38,4 @@
 
 {% block footer %}
     {{ super() }}
-    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window
-                .DI
-                .analyticsGa4
-                .pageViewTracker
-                .trackOnPageLoad({
-                    statusCode: '200', // Access status code
-                    englishPageTitle: '{{translate("findAddress.title")}}',
-                    taxonomy_level1: 'web cri', // Access taxonomy level 1
-                    taxonomy_level2: 'f2f', // Access taxonomy level 2
-                    content_id: '001',
-                    logged_in_status: true,
-                    dynamic: false
-                });
-        });
-    </script>
 {% endblock %}

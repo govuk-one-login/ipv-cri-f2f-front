@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @browser @check1
+@mock-api:f2f-f2f-success @browser @check1 @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Change Postcode - Unhappy Path
 
   Background:

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+@QualityGateSensitiveDataScanning
+
 test_data="./test/browser/support/shared_claim.json"
 firstName=$(jq -r '.shared_claims.name[0].nameParts[0].value' "$test_data")
 firstName1=$(jq -r '.shared_claims.name[0].nameParts[1].value' "$test_data")

@@ -1,4 +1,4 @@
-@success @browser 
+@success @browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Enter UK driving licence   - Happy Path
 
     Background:
