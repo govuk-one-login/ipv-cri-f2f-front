@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @ukPass @browser
+@mock-api:f2f-f2f-success @success @ukPass @browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature:  Navigate Back from PhotoID Expiry Details screen - Unhappy Path
 
 Background:
