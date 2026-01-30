@@ -1,148 +1,201 @@
-# Digital Identity Face To Face (F2F)
-
 # di-ipv-cri-f2f-front
 
-Frontend for the F2F journey.
+Frontend for the Face to Face (F2F) journey within GOV.UK One Login IPV.
 
-This is the home for the front end user interface for Face to Face journey as part of the Identity Proofing and Verification (IPV) system within the GDS digital identity platform. Other repositories are used for core services or other credential issuers.
+> [!IMPORTANT]
+> This repository is **public**. Do **not** commit secrets, credentials, internal URLs, account identifiers, template IDs, or sensitive configuration values.
+> Document **names** and **purposes** only and use placeholders in examples. Localhost examples are permitted.
 
-# Installation
+---
 
-Clone this repository and then run:
+## Table of contents
+- [Quick links](#quick-links)
+- [What this service does](#what-this-service-does)
+- [Getting started](#getting-started)
+- [Environment file (.env)](#environment-file-env)
+- [Running locally against a deployed back end](#running-locally-against-a-deployed-back-end)
+- [Browser tests](#browser-tests)
+- [Containerised tests against a deployed stack](#containerised-tests-against-a-deployed-stack)
+- [Deployment](#deployment)
+  - [Deploying a personal stack (exceptional)](#deploying-a-personal-stack-exceptional)
+  - [Custom FE image build and push (debugging only)](#custom-fe-image-build-and-push-debugging-only)
+- [Code owners](#code-owners)
+- [Pre-commit checks](#pre-commit-checks)
+- [Licence](#licence)
 
-```bash
+---
+
+## Quick links
+- **Environment sample:** `.env.sample`
+- **App source:** `src/`
+- **Infra template:** `template.yaml`
+- **Code owners:** `CODEOWNERS` (if present)
+- **Local test runner:** `./run-tests-locally.sh <stack-name>`
+
+---
+
+## What this service does
+This service provides the user interface for the Face to Face (F2F) journey. It:
+- Integrates with the corresponding backend API (`di-ipv-cri-f2f-api`) using `API_BASE_URL`.
+- Supports browser-based end-to-end testing by starting journeys via an IPV stub (configured via `IPV_STUB_URL`).
+- Uses a test harness in some environments (configured via `TEST_HARNESS_URL`).
+
+---
+
+## Getting started
+
+### Prerequisites
+- Node.js version per `package.json` / repo tooling
+- yarn
+
+### Install and build
+```sh
 yarn install --frozen-lockfile
 yarn build
 ```
 
-## Environment Variables
+---
 
-All the required Environment Variables are inside the .env.sample file. Copy the contents on this file to a .env file in the same location, using the API locations specific for the envrionment you wish to test against.
+## Environment file (.env)
+All required environment variables are listed in `.env.sample` (this is the source of truth). Copy it to `.env` and set values for the environment you are testing against.
 
-- `CUSTOM_FE_URL` only needs to be populated if you would like to test against a custom deployed FE stack or if you wish to run browser-test against your local stack in which case set the value to be `http://localhost:5030`
-- `API_BASE_URL` - URL to the ipv-cri-f2f-api F2F back-end.
-- `PORT` - Default port to run webserver on. (Default to `5030`)
-- `SESSION_SECRET` - Secret used when configuring the HMPO session.
-- `GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID` - Container ID for GA4 tracking.
-- `UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID` - Container ID for UA tracking.
-- `GA4_ENABLED` - Feature flag to enable GA4, defaulted to `"true"`
-- `UA_ENABLED` - Feature flag to enable UA, defaulted to `"false"`
-- `ANALYTICS_DATA_SENSITIVE` - Redacts all form response data, defaulted to `"true"`. Only to be set to `"false"` if a journey section contains no PII in none text based form controls
-- `GA4_PAGE_VIEW_ENABLED`- Feature flag to enable GA4 page view tracking, defaulted to `"true"`
-- `GA4_FORM_RESPONSE_ENABLED`- Feature flag to enable GA4 form response tracking, defaulted to `"true"`
-- `GA4_FORM_ERROR_ENABLED`- Feature flag to enable GA4 form error tracking, defaulted to `"true"`
-- `GA4_FORM_CHANGE_ENABLED`- Feature flag to enable GA4 form change tracking, defaulted to `"true"`
-- `GA4_NAVIGATION_ENABLED`- Feature flag to enable GA4 navigation tracking, defaulted to `"true"`
-- `GA4_SELECT_CONTENT_ENABLED`- Feature flag to enable GA4 select content tracking, defaulted to `"true"`
-- `LANGUAGE_TOGGLE_DISABLED` - Feature flag to disable Language Toggle, defaulted to `true`
-
-## Run front-end locally against deployed back-end
-
-- Setup `.env` file as mentioned above
-- Run `yarn build` followed by `yarn start`
-- Make a `POST` call to the IPV_STUB_URL with the following body payload
-
+```sh
+cp .env.sample .env
 ```
+
+> [!IMPORTANT]
+> Do not commit `.env` and do not add real environment hostnames, tokens, or secret values to this README.
+
+Common variables (see `.env.sample` for the full list):
+- `PORT` – local port (default 5030)
+- `SESSION_SECRET` – session secret (treat as sensitive; do not commit)
+- `API_BASE_URL` – base URL for the F2F backend API
+- `IPV_STUB_URL` – IPV stub URL used to start test journeys
+- `F2F_FE_BASE_URL` – base URL for the FE when testing against a deployed environment
+- `TEST_HARNESS_URL` – test harness endpoint used by automated journeys/tests (where applicable)
+- `SESSION_TABLE` – session table identifier used in test contexts (where applicable)
+- `CUSTOM_FE_URL` – optional; set to `http://localhost:5030` to run browser tests against local FE changes
+- `PROXYURL` – proxy configuration used in some environments (where applicable)
+
+---
+
+## Running locally against a deployed back end
+Set up your `.env` based on `.env.sample` (at minimum set `API_BASE_URL` and `IPV_STUB_URL` for manual journeys).
+
+Build and start the app:
+```sh
+yarn build
+yarn start
+```
+
+Start a journey via the IPV stub:
+1) Make a POST call to `IPV_STUB_URL` with the following payload:
+```json
 {
-"frontendURL": "http://localhost:5030"
+  "frontendURL": "http://localhost:5030"
 }
 ```
+2) Navigate to the `AuthorizeLocation` returned in the stub response.
 
-- Start the journey from the but navigating to the `AuthorizeLocation` in the Stub response
+> [!NOTE]
+> `AuthorizeLocation` is returned by the IPV stub service, which is implemented/owned in the API repository (not this frontend repo).
+> Use your team’s internal documentation for environment-specific URLs and stub behaviour.
 
-# Browser tests
+---
 
-Browser based tests can be run against a deployed API stack using the CIC-IPV Stub. To run the tests make sure you have urls pointing to the relevant envrionment filled out in your .env file and run `npm run test:browser`
+## Browser tests
+Browser-based tests can be run against a deployed backend API stack, starting the journey using an IPV stub.
 
-Adding `CUSTOM_FE_URL=http://localhost:5030` will run browser tets against your local changes
+Ensure `.env` points at the environment you are testing against (do not commit values).
 
-These tests are written using [Cucumber](https://cucumber.io/docs/installation/javascript/) as the test runner and [Playwright](https://playwright.dev/) as the automation tool. They also follow the [Page Object Model](https://playwright.dev/docs/test-pom) for separation of concerns.
-
-### Code Owners
-
-This repo has a `CODEOWNERS` file in the root and is configured to require PRs to reviewed by Code Owners.
-
-## Create and upload a custom image to ECR
-
-Execute the following commands to create a custom image locally and push it up to ECR.
-You need to have AWS credentials in your shell via `aws-vault` or `gds-cli` or similar.
-`YOUR_REPO` needs to refer to an existing repo in ECR, you can create one in console if you don't have one already.
-
-```shell
-aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 440208678480.dkr.ecr.eu-west-2.amazonaws.com
-docker build -t di-ipv-cri-f2f-front --platform linux/amd64 .
-docker tag di-ipv-cri-f2f-front:latest 440208678480.dkr.ecr.eu-west-2.amazonaws.com/YOUR_REPO:YOUR_TAG
-docker push 440208678480.dkr.ecr.eu-west-2.amazonaws.com/YOUR_REPO:YOUR_TAG
+Run:
+```sh
+yarn test:browser
 ```
 
-Then to use this new image update the `Image:` tag in the template.yaml and redeploy your template locally in to your own stack in DEV.
-
-## Pre-Commit Checking / Verification
-
-Completely optional, there is a `.pre-commit-config.yaml` configuration setup in this repo, this uses [pre-commit](https://pre-commit.com/) to verify your commit before actually commiting, it runs the following checks:
-
-- Check Json files for formatting issues
-- Fixes end of file issues (it will auto correct if it spots an issue - you will need to run the git commit again after it has fixed the issue)
-- It automatically removes trailing whitespaces (again will need to run commit again after it detects and fixes the issue)
-- Detects aws credentials or private keys accidentally added to the repo
-- runs cloud formation linter and detects issues
-- runs checkov and checks for any issues.
-
-### Dependency Installation
-
-To use this locally you will first need to install the dependencies, this can be done in 2 ways:
-
-#### Method 1 - Python pip
-
-Run the following in a terminal:
-
-```
-sudo -H pip3 install checkov pre-commit cfn-lint
+To run browser tests against local FE changes, set:
+```sh
+CUSTOM_FE_URL=http://localhost:5030
 ```
 
-this should work across platforms
+Tests use:
+- Cucumber as the test runner
+- Playwright for browser automation
+- A Page Object Model approach
 
-#### Method 2 - Brew
+If you use npm rather than yarn in your environment, you can run `npm run test:browser` instead.
 
-If you have brew installed please run the following:
+---
 
+## Containerised tests against a deployed stack
+This repo includes a Docker-based runner to execute tests against a deployed stack:
+- `run-tests-locally.sh`
+- `Dockerfile.test`
+
+Run:
+```sh
+./run-tests-locally.sh <stack-name>
 ```
-brew install pre-commit ;\
-brew install cfn-lint ;\
-brew install checkov
+
+> [!CAUTION]
+> The test runner writes CloudFormation outputs and may write temporary env files for Docker, and passes through AWS credentials from your environment.
+> Ensure generated files (for example `docker_vars.env`, `cf-output.txt`, `reports/`) are not committed.
+
+---
+
+## Deployment
+The standard deployment route is via the CI/CD pipeline for this repository. Use local deployments only when explicitly required by your team/process.
+
+### Deploying a personal stack (exceptional)
+If you must deploy an isolated FE stack (for example for testing an infra change), use a custom stack name (include your initials) to avoid overwriting shared stacks.
+
+> [!IMPORTANT]
+> Do not document environment-specific parameter values, account identifiers, or internal hostnames in this public repository.
+> Use your organisation’s internal runbooks for those details.
+
+### Custom FE image build and push (debugging only)
+This section is expressly for debugging and exceptional scenarios where your team supports testing a custom FE image.
+Normal frontend deployments should be via the pipeline.
+
+You need AWS credentials in your shell (for example, via aws-vault or equivalent tooling).
+
+```sh
+aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <aws-account-id>.dkr.ecr.<region>.amazonaws.com
+
+docker build --platform linux/amd64 -t di-ipv-cri-f2f-front:<image-tag> .
+
+docker tag di-ipv-cri-f2f-front:<image-tag> <aws-account-id>.dkr.ecr.<region>.amazonaws.com/<ecr-repo>:<image-tag>
+
+docker push <aws-account-id>.dkr.ecr.<region>.amazonaws.com/<ecr-repo>:<image-tag>
 ```
 
-### Post Installation Configuration
+If deploying a custom image, update the `Image:` reference in `template.yaml` and deploy via your team-approved approach.
 
-once installed run:
+---
 
-```
+## Code owners
+If a `CODEOWNERS` file is present at the repo root, PRs require review by code owners.
+
+---
+
+## Pre-commit checks
+If this repo includes `.pre-commit-config.yaml`, you can enable hooks locally:
+
+```sh
 pre-commit install
 ```
 
-To update the various versions of the pre-commit plugins, this can be done by running:
+Run hooks manually (optional):
 
-```
-pre-commit autoupdate && pre-commit install
+```sh
+pre-commit run --all-files
 ```
 
-This will install / configure the pre-commit git hooks, if it detects an issue while committing it will produce an output like the following:
+---
 
-```
- git commit -a
-check json...........................................(no files to check)Skipped
-fix end of files.........................................................Passed
-trim trailing whitespace.................................................Passed
-detect aws credentials...................................................Passed
-detect private key.......................................................Passed
-AWS CloudFormation Linter................................................Failed
-- hook id: cfn-python-lint
-- exit code: 4
-W3011 Both UpdateReplacePolicy and DeletionPolicy are needed to protect Resources/PublicHostedZone from deletion
-core/deploy/dns-zones/template.yaml:20:3
-Checkov..............................................(no files to check)Skipped
-- hook id: checkov
-```
+## Licence
+This repository does not currently publish a LICENSE/LICENCE file. If you need reuse/distribution terms, consult the owning organisation’s guidance before redistributing.
+
 ### Quality Gate Tags
 
 All browser tests should be tagged with `@QualityGateIntegrationTest`. If a test runs in our pipelines (ie in Build), and tests live features, we should tag them with `@QualityGateRegressionTest`.
