@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @browser
+@mock-api:f2f-f2f-success @success @browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Expired within last 18 months UK Passport E2E Journey. Email only Post Office letter 
 
     Background:

@@ -1,5 +1,4 @@
-@mock-api:f2f-f2f-success @success @browser
-
+@mock-api:f2f-f2f-success @success @browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: EEAIdentityCard Page - Expiry Selection Inline Validation
 
     Background:

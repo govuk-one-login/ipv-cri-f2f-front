@@ -1,4 +1,4 @@
-@mock-api:f2f-f2f-success @success @browser
+@mock-api:f2f-f2f-success @success @browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: EU Driving Licence E2E Journey. Has expiry date, no address on the ID and a posted Post Office letter to a different address 
 
     Background:

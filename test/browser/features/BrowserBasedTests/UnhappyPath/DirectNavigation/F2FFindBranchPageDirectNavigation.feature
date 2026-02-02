@@ -1,4 +1,4 @@
-@browser
+@browser @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Directly navigating findBranch page in journey- unhappy path
 
     Scenario: Direct Navigation to findBranchPage
