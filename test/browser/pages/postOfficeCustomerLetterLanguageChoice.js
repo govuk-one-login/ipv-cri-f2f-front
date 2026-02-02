@@ -8,10 +8,6 @@ module.exports = class PlaywrightDevPage {
     this.path = "/post-office-customer-letter-choose-language";
   }
 
-  async goTo() {
-    await this.page.goto(this.baseURL + this.path);
-  }
-
   async isCurrentPage() {
     const { pathname } = new URL(await this.page.url());
     return pathname === this.path;
