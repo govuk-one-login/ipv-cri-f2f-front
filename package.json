@@ -46,7 +46,7 @@
   "packageManager": "yarn@1.22.22",
   "devDependencies": {
     "@aws-sdk/util-dynamodb": "3.868.0",
-    "@cucumber/cucumber": "10.7.0",
+    "@cucumber/cucumber": "12.6.0",
     "ajv": "8.17.1",
     "ajv-formats": "2.1.1",
     "aws4-axios": "3.4.0",
