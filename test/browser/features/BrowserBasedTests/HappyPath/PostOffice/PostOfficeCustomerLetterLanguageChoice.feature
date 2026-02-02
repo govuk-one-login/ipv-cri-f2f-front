@@ -1,4 +1,5 @@
 @mock-api:f2f-f2f-success @success @browser @language-choice-feature
+@QualityGateNewFeatureTest
 Feature: Post Office Customer Letter Language Choice
 
     Background:

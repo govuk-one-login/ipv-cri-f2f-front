@@ -1,13 +1,6 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+const { When, Then } = require("@cucumber/cucumber");
 const { PostOfficeCustomerLetterLanguageChoice } = require("../pages");
 const { expect } = require("chai");
-
-
-Given(/^the user navigates directly to post-office-customer-letter-choose-language$/, async function () {
-  const languageChoicePage = new PostOfficeCustomerLetterLanguageChoice(this.page);
-  await languageChoicePage.goTo();
-  expect(await languageChoicePage.isCurrentPage()).to.be.true;
-});
 
 When(/^the user selects English language$/, async function () {
   const page = new PostOfficeCustomerLetterLanguageChoice(this.page);
