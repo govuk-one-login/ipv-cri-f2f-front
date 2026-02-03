@@ -12,7 +12,7 @@ env: # Only adding the variables in that are required for E2E tests
   IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
   F2F_FE_BASE_URL: ${{ secrets.F2F_FE_BASE_URL }}
   PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
-
+  LETTER_LANGUAGE_CHOICE_ENABLED: true
 jobs:
   run-tests:
     runs-on: ubuntu-latest
