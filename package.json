@@ -46,7 +46,7 @@
   "packageManager": "yarn@1.22.22",
   "devDependencies": {
     "@aws-sdk/util-dynamodb": "3.868.0",
-    "@cucumber/cucumber": "10.9.0",
+    "@cucumber/cucumber": "12.6.0",
     "ajv": "8.17.1",
     "ajv-formats": "2.1.1",
     "aws4-axios": "3.4.0",
@@ -77,7 +77,7 @@
   },
   "dependencies": {
     "@aws-sdk/credential-providers": "3.864.0",
-    "@govuk-one-login/di-ipv-cri-common-express": "12.0.1",
+    "@govuk-one-login/di-ipv-cri-common-express": "12.0.2",
     "@govuk-one-login/frontend-analytics": "4.0.5",
     "@govuk-one-login/frontend-device-intelligence": "1.2.0",
     "@govuk-one-login/frontend-language-toggle": "1.1.0",
