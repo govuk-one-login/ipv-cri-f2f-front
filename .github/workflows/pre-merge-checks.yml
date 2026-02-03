@@ -35,6 +35,7 @@ jobs:
           LANGUAGE_TOGGLE_DISABLED: false
           PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
           F2F_FE_BASE_URL: http://localhost:5030
+          LETTER_LANGUAGE_CHOICE_ENABLED: true
       - name: Archive browser tests results
         uses: actions/upload-artifact@v6
         with:

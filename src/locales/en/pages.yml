@@ -150,3 +150,5 @@ postOfficeCustomerLetterChoice:
   content2: "We can also send your customer letter to you by post."
   prompt: "How do you want to get your Post Office customer letter?"
 
+postOfficeCustomerLetterLanguageChoice:
+  title: "What language do you want your posted letters in?"

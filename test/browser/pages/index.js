@@ -5,6 +5,7 @@ module.exports = {
   PhotoIdSelectionPageEdit: require("./photoIdSelectionPageEdit"),
   PostOfficeLocations: require("./postOfficeLocations"),
   PostOfficeCustomerLetter: require("./postOfficeCustomerLetter"),
+  PostOfficeCustomerLetterLanguageChoice: require("./postOfficeCustomerLetterLanguageChoice"),
   PostOfficeCustomerLetterCheckAddress: require("./postOfficeCustomerLetterCheckAddress"),
   PostOfficeCustomerLetterFindAddress: require("./postOfficeCustomerLetterFindAddress"),
   PostOfficeCustomerLetterChooseAddress: require("./postOfficeCustomerLetterChooseAddress"),
