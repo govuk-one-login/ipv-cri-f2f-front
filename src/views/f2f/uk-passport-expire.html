@@ -3,6 +3,15 @@
 {% set hmpoPageKey = "ukPassport" %}
 {% set gtmJourney = "f2f - ukPassportDetails" %}
 
+
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "hmpo-date/macro.njk" import hmpoDate %}
+
+
+{% block mainContent %}
+
 {% if query.edit == "true" %}
   {% set contentID = "22c57cf0-70d0-422b-994b-04bdbbcba3f0" %}
 {% else %}
@@ -15,12 +24,6 @@
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-date/macro.njk" import hmpoDate %}
-
-
-{% block mainContent %}
 
 
 {% set title = translate("ukPassport.title") %}

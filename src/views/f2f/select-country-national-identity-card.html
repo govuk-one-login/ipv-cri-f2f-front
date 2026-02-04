@@ -3,6 +3,14 @@
 {% set hmpoPageKey = "eeaIdentityCardCountrySelector" %}
 {% set gtmJourney = "f2f - eeaIdentityCardCountrySelector" %}
 
+
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "hmpo-select/macro.njk" import hmpoSelect %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block mainContent %}
+
+
 {% set contentID = "72ddb915-6efa-4bb5-8828-5f0a31a86bd9" %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
@@ -11,11 +19,6 @@
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-select/macro.njk" import hmpoSelect %}
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-
-{% block mainContent %}
 <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
         {{ translate("eeaIdentityCardCountrySelector.title") }}
     </h1>

@@ -4,6 +4,15 @@
 {% set gtmJourney = "f2f - ukPhotocardDlDetails" %}
 
 
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "hmpo-date/macro.njk" import hmpoDate %}
+
+
+{% block mainContent %}
+
+
 {% if query.edit == "true" %}
   {% set contentID = "3605b8af-a2ba-489a-8c7d-70992757190a" %}
 {% else %}
@@ -15,13 +24,6 @@
 {% set pageKeyTitle = "pages.ukPhotocardDl.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
-
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-date/macro.njk" import hmpoDate %}
-
-
-{% block mainContent %}
 
 {% set title = translate("ukPhotocardDl.title") %}
 {% set context = translate("ukPhotocardDl.photocardDlInformationContext") %}

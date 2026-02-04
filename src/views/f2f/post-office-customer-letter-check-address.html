@@ -3,6 +3,13 @@
 {% set hmpoPageKey = "customerLetterCheckAddress" %}
 {% set gtmJourney = "f2f - customerLetterCheckAddress" %}
 
+
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+
+{% block mainContent %}
+
 {% set contentId = "14d71790-90a3-4706-9c06-e8f9ff51f4db2" %}
 {% set isPageDataSensitive = false %}
 {% set taxonomyLevel2 = "f2f" %}
@@ -10,11 +17,6 @@
 {% set englishPageTitle = "pages.euDrivingLicenceHasExpiryDate.title" %}
 {% set loggedInStatus = true %}
 {% set dynamic = false %}
-
-{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
-
-{% block mainContent %}
 
 {% set title = translate("customerLetterCheckAddress.title") %}
 {% set content = translate("customerLetterCheckAddress.content") %}

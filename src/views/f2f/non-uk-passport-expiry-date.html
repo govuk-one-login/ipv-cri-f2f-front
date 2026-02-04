@@ -9,6 +9,10 @@
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
 
+
+
+{% block mainContent %}
+
 {% if query.edit == "true" %}
   {% set contentID = "929d1951-ab38-4439-b78c-61a8bd60bbea" %}
 {% else %}
@@ -20,8 +24,6 @@
 {% set pageKeyTitle = "pages.nonUKPassportHasExpiryDate.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
-
-{% block mainContent %}
 
 {% set title = translate("nonUKPassportHasExpiryDate.title") %}
       

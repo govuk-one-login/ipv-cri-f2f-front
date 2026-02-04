@@ -4,6 +4,16 @@
 {% set gtmJourney = "f2f - nonUkPassportCountrySelector" %}
 
 
+
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "hmpo-select/macro.njk" import hmpoSelect %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+
+{% block mainContent %}
+
 {% if query.edit == "true" %}
   {% set contentID = "34cb8965-9149-4fea-9c55-8fdb3415da7f" %}
 {% else %}
@@ -16,13 +26,6 @@
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-select/macro.njk" import hmpoSelect %}
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-
-
-{% block mainContent %}
 <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
         {{ translate("nonUkPassportCountrySelector.title") }}
     </h1>
