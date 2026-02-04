@@ -479,3 +479,21 @@ postOfficeCustomerLetterChoice:
       hint: "It can take up to 6 working days to get your letter by post."
       reveal: ""
 
+postOfficeCustomerLetterLanguageChoice:
+  validation:
+    required: Select the language you want your posted letters in
+  content: ""
+  items:
+    english:
+      label: English
+      hint: ""
+      reveal: ""
+    welsh:
+      label: Welsh
+      hint: "We will send your confirmation in Welsh. Your Post Office customer letter can only be in English."
+      reveal: ""
+    both:
+      label: Both English and Welsh
+      hint: "We will send your confirmation in Welsh and English. Your Post Office customer letter can only be in English."
+      reveal: ""
+

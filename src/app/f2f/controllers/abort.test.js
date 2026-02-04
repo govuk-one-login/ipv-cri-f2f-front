@@ -38,8 +38,6 @@ describe("AbortController", () => {
   describe("#abortJourney", () => {
     context("when journey is aborted", () => {
       it("should call abort endpoint successfully", async () => {
-        req.axios.post = sinon.fake.resolves();
-
         await abortController.saveValues(req, res, next);
         expect(next).to.have.been.calledOnce;
         expect(req.axios.post).to.have.been.calledWithExactly(
