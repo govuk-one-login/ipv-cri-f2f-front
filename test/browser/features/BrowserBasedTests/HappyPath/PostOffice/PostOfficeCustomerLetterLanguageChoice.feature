@@ -9,7 +9,7 @@ Feature: Post Office Customer Letter Language Choice
         When featureSet "letterLanguageChoice" is set new functionality is enabled
 
         Given the user wants to progress to the next step of the journey
-        When the user clicks the continue button on the Landing Page # FAILING STEP
+        When the user clicks the continue button on the Landing Page
         Then the user is routed to the next screen in the journey PhotoId Selection
 
         Given the UK passport option is selected
