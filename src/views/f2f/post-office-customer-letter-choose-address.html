@@ -3,12 +3,7 @@
 {% set hmpoPageKey = "addressResults" %}
 {% set gtmJourney = "f2f - addressResults" %}
 
-{% set contentID = "47449344-85c0-4ec5-a210-be0b57e01ef2" %}
-{% set isPageDataSensitive = false %}
-{% set taxLevel2 = "f2f" %}
-{% set pageKeyTitle = "pages.locations.title" %}
-{% set loggedInStatus = true %}
-{% set isPageDynamic = false %}
+
 
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 
@@ -16,7 +11,15 @@
 {% from "hmpo-select/macro.njk" import hmpoSelect %}
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 
+{% set contentID = "47449344-85c0-4ec5-a210-be0b57e01ef2" %}
+{% set isPageDataSensitive = false %}
+{% set taxLevel2 = "f2f" %}
+{% set pageKeyTitle = "pages.locations.title" %}
+{% set loggedInStatus = true %}
+{% set isPageDynamic = false %}
+
 {% block mainContent %}
+
 
     <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">{{ translate("addressResults.title") }}</h1>
 
