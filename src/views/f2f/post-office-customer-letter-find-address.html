@@ -3,6 +3,11 @@
 {% set hmpoPageKey = "findAddress" %}
 {% set gtmJourney = "f2f - findAddress" %}
 
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+
+{% block mainContent %}
+
 {% set contentID = "922f0538-3f98-4370-a50d-54cf73316f0e" %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
@@ -11,9 +16,6 @@
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-
-{% block mainContent %}
     <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
         {{ translate("findAddress.title") }}
     </h1>

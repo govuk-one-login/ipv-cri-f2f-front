@@ -6,6 +6,10 @@
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% set isPageHeading = true %}
 
+
+
+{% block mainContent %}
+
 {% if query.edit == "true" %}
   {% set contentID = "068be5e2-c0c0-490e-9580-44a6e1f2f228" %}
 {% else %}
@@ -17,8 +21,6 @@
 {% set pageTitleKey = "pages.photoIdSelection.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
-
-{% block mainContent %}
 
 {% set title = translate("photoIdSelection.title") %}
 {% set content = translate("photoIdSelection.content") %}

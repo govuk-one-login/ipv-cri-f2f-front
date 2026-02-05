@@ -3,6 +3,14 @@
 {% set gtmJourney = "f2f - euPhotocardDlAddressCheck" %}
 {% set hmpoPageKey = "euPhotocardDlAddressCheck" %}
 
+
+
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block mainContent %}
+
 {% set contentID = "2e4a2f68-e677-4872-ae42-46044227aedc" %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
@@ -10,12 +18,6 @@
 {% set pageKeyTitle = "pages.euPhotocardDlAddressCheck.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
-
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-
-{% block mainContent %}
 
 {% set title = translate("euPhotocardDlAddressCheck.title") %}
 {% set context = translate("euPhotocardDlAddressCheck.context") %}

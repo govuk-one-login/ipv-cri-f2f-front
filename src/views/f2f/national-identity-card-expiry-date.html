@@ -3,13 +3,7 @@
 {% set hmpoPageKey = "nationalIdentityCardHasExpiryDate" %}
 {% set gtmJourney = "f2f - nationalIdentityCardHasExpiryDate" %}
 
-{% set contentID = "0c7f3517-a8d5-4cad-a0d3-df7ece7483f3" %}
-{% set isPageDataSensitive = false %}
-{% set taxLevel2 = "f2f" %}
-{% set statusCode = "200" %}
-{% set pageKeyTitle = "pages.nationalIdentityCardHasExpiryDate.title" %}
-{% set loggedInStatus = true %}
-{% set isPageDynamic = false %}
+
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
@@ -18,6 +12,14 @@
 
 
 {% block mainContent %}
+
+{% set contentID = "0c7f3517-a8d5-4cad-a0d3-df7ece7483f3" %}
+{% set isPageDataSensitive = false %}
+{% set taxLevel2 = "f2f" %}
+{% set statusCode = "200" %}
+{% set pageKeyTitle = "pages.nationalIdentityCardHasExpiryDate.title" %}
+{% set loggedInStatus = true %}
+{% set isPageDynamic = false %}
 
 {% set title = translate("nationalIdentityCardHasExpiryDate.title") %}
       

@@ -3,6 +3,13 @@
 {% set gtmJourney = "f2f - photoIdExpiry" %}
 {% set hmpoPageKey = "photoIdExpiry" %}
 
+
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+
+{% block mainContent %}
+
+
 {% set contentID = "20b2c956-6411-444f-9d0b-465b871d848f" %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
@@ -10,11 +17,6 @@
 {% set pageKeyTitle = "pages.photoIdExpiry.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
-
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-
-{% block mainContent %}
 
 {% set title = translate("photoIdExpiry.title") %}
 {% set content = translate("photoIdExpiry.content") %}

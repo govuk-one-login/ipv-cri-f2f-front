@@ -3,6 +3,14 @@
 {% set hmpoPageKey = "eeaIdentityCard" %}
 {% set gtmJourney = "f2f - eeaIdCard" %}
 
+
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "hmpo-date/macro.njk" import hmpoDate %}
+
+{% block mainContent %}
+
 {% set contentID = "819bc37e-0274-4916-91b1-bb1c39e742eb" %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
@@ -10,12 +18,6 @@
 {% set pageKeyTitle = "pages.eeaIdentityCard.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
-
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-date/macro.njk" import hmpoDate %}
-
-{% block mainContent %}
 
 {% set title = translate("eeaIdentityCard.title") %}
 {% set context = translate("eeaIdentityCard.eeaIdentityCardInformationContext") %}

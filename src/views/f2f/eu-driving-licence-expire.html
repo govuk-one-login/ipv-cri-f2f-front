@@ -3,13 +3,7 @@
 {% set hmpoPageKey = "euPhotocardDl" %}
 {% set gtmJourney = "f2f - euPhotocardDlDetails" %}
 
-{% set contentID = "d06093a8-8188-4f1a-a8b3-af897e92f0ed" %}
-{% set isPageDataSensitive = false %}
-{% set taxLevel2 = "f2f" %}
-{% set statusCode = "200" %}
-{% set pageKeyTitle = "pages.euPhotocardDl.title" %}
-{% set loggedInStatus = true %}
-{% set isPageDynamic = false %}
+
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
@@ -18,6 +12,14 @@
 
 
 {% block mainContent %}
+
+{% set contentID = "d06093a8-8188-4f1a-a8b3-af897e92f0ed" %}
+{% set isPageDataSensitive = false %}
+{% set taxLevel2 = "f2f" %}
+{% set statusCode = "200" %}
+{% set pageKeyTitle = "pages.euPhotocardDl.title" %}
+{% set loggedInStatus = true %}
+{% set isPageDynamic = false %}
 
 {% set title = translate("euPhotocardDl.title") %}
 {% set context = translate("euPhotocardDl.euPhotocardDlInformationContext") %}
