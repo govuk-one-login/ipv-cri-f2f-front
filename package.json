@@ -51,7 +51,7 @@
     "ajv": "8.17.1",
     "ajv-formats": "2.1.1",
     "aws4-axios": "3.4.0",
-    "axe-core": "4.10.3",
+    "axe-core": "4.11.1",
     "axe-playwright": "2.1.0",
     "chai": "4.3.7",
     "chai-as-promised": "7.1.1",
