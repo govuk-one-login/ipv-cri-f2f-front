@@ -10,9 +10,6 @@
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
-
-{% block mainContent %}
-
 {% set contentID = "0c7f3517-a8d5-4cad-a0d3-df7ece7483f3" %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
@@ -20,6 +17,10 @@
 {% set pageKeyTitle = "pages.nationalIdentityCardHasExpiryDate.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
+
+{% block mainContent %}
+
+{% set isPageDataSensitive = false %}
 
 {% set title = translate("nationalIdentityCardHasExpiryDate.title") %}
       
