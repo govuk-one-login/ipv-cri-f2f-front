@@ -5,10 +5,6 @@
 {% set isPageHeading = true %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 
-
-
-{% block mainContent %}
-
 {% if query.edit == "true" %}
   {% set contentID = "8d406f37-e21f-4e2c-b4a1-19ba67a60bc0" %}
 {% else %}
@@ -20,6 +16,10 @@
 {% set pageKeyTitle = "pages.error.unrecoverable.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
+
+{% block mainContent %}
+
+{% set isPageDataSensitive = false %}
 
     {% set title = translate("photoIdSelectionThinFile.title") %}
     {% set content = translate("photoIdSelectionThinFile.content") %}

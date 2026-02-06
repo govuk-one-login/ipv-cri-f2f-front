@@ -9,9 +9,6 @@
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "hmpo-date/macro.njk" import hmpoDate %}
 
-
-{% block mainContent %}
-
 {% if query.edit == "true" %}
   {% set contentID = "22c57cf0-70d0-422b-994b-04bdbbcba3f0" %}
 {% else %}
@@ -24,7 +21,9 @@
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 
+{% block mainContent %}
 
+{% set isPageDataSensitive = false %}
 
 {% set title = translate("ukPassport.title") %}
 {% set context = translate("ukPassport.passportInformationContext") %}
