@@ -30,8 +30,11 @@
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     {{ hmpoText(ctx, {
-        id: "postcode"
-    })}}
+        id: "postcode",
+        attributes: {
+            autocomplete: "postal-code"
+        }
+      }) }}
 
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/choose-post-office-prove-identity"}
 }) }}
