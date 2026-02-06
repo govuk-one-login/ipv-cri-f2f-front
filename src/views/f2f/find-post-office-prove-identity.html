@@ -7,8 +7,6 @@
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 
-{% block mainContent %}
-
 {% if query.edit == "true" %}
   {% set contentID = "bdc73e3b-5520-4d58-9d56-55852ef201ec" %}
 {% else %}
@@ -20,6 +18,10 @@
 {% set pageKeyTitle = "pages.findBranch.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
+
+{% block mainContent %}
+
+{% set isPageDataSensitive = false %}
 
     <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
         {{ translate("findBranch.title") }}
