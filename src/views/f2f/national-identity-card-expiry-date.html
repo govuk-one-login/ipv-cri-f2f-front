@@ -20,6 +20,8 @@
 
 {% block mainContent %}
 
+{% set isPageDataSensitive = false %}
+
 {% set title = translate("nationalIdentityCardHasExpiryDate.title") %}
       
       {% call hmpoForm(ctx) %}
