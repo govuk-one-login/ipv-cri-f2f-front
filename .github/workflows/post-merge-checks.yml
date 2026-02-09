@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: write
       packages: write
-    continue-on-error: true
+    continue-on-error: false
 
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -49,6 +49,9 @@ jobs:
       - name: Run lint
         run: yarn lint
 
+      - name: Run build
+        run: yarn build
+
       - name: Run test and write coverage
         run: yarn test:coverage
         
@@ -59,22 +62,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Test F2F Front Image
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install --frozen-lockfile # will run `yarn install` command
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.SH_F2F_ACCESS_TOKEN }} # if needed
-
-      - name: Build production bundle
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build # will run `yarn build` command
-
-      - name: Test the app
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: test:browser:ci # will run `yarn test:browser:ci` command
+      - name: Run browser AC tests
+        run: yarn run test:browser:ci 
 
       - name: Get Test Results history
         uses: actions/checkout@v6

@@ -40,3 +40,5 @@ wafv2/
 test/reports/f2f-reports/
 test/reports/cucumber_report.json
 .vscode/launch.json
+./reports/*
+reports/*

@@ -13,17 +13,18 @@ module.exports = class PlaywrightDevPage {
   }
 
   async goToWithFeatureSet(featureSet) {
+    console.log("Going to page " + this.baseURL + this.path + "?featureSet=" + featureSet)
     await this.page.goto(this.baseURL + this.path + "?featureSet=" + featureSet );
   }
 
   async isCurrentPage() {
     const { pathname } = new URL(await this.page.url());
-    await this.page.waitForLoadState("networkidle");
-    return pathname === this.path;
+    return pathname.includes(this.path);
   }
 
   async continue() {
-    await this.page.click("#landingPageContinue");
+    const button = this.page.locator("#landingPageContinue")
+    await button.click();
   }
 
   async getPostOfficeNumberOfDays() {

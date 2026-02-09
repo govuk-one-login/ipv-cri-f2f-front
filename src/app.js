@@ -48,7 +48,7 @@ const { setup } =
   require("@govuk-one-login/di-ipv-cri-common-express").bootstrap;
 
 const loggerConfig = {
-  console: true,
+  console: false,
   consoleLevel: process.env.LOG_LEVEL || "warn",
   consoleJSON: true,
   app: false,
