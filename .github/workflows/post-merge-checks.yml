@@ -19,7 +19,6 @@ jobs:
     permissions:
       contents: write
       packages: write
-    continue-on-error: true
 
 
     # Steps represent a sequence of tasks that will be executed as part of the job
