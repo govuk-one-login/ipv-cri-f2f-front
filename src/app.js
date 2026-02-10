@@ -58,7 +58,7 @@ const dynamodb = new DynamoDBClient({
   region: process.env.AWS_REGION,
 });
 
-const store = new DynamoDBStore({
+const dynamoDBSessionStore = new DynamoDBStore({
   client: dynamodb,
   table: SESSION_TABLE_NAME,
 });
