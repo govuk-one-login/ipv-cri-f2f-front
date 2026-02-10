@@ -4,6 +4,12 @@
 {% set gtmJourney = "f2f - nonUKPassportDetails" %}
 
 
+
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "hmpo-date/macro.njk" import hmpoDate %}
+
 {% if query.edit == "true" %}
   {% set contentID = "8dd56c68-185e-4ffb-9d3f-f8f4ed889747" %}
 {% else %}
@@ -16,11 +22,9 @@
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-date/macro.njk" import hmpoDate %}
-
 {% block mainContent %}
+
+{% set isPageDataSensitive = false %}
 
 {% set title = translate("nonUKPassport.title") %}
 {% set context = translate("nonUKPassport.passportInformationContext") %}
