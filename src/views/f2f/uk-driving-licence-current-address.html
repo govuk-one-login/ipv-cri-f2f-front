@@ -8,11 +8,6 @@
 {% from "hmpo-details/macro.njk" import hmpoDetails %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
-
-
-{% block mainContent %}
-
-
 {% if query.edit == "true" %}
   {% set contentID = "75a8fc5c-73bb-42ee-a92a-24a1a82fb4f3" %}
 {% else %}
@@ -24,6 +19,10 @@
 {% set pageKeyTitle = "pages.ukPhotocardDlAddressCheck.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
+
+{% block mainContent %}
+
+{% set isPageDataSensitive = false %}
 
 {% set title = translate("ukPhotocardDlAddressCheck.title") %}
 {% set context = translate("ukPhotocardDlAddressCheck.context") %}

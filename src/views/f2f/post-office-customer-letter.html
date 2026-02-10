@@ -7,8 +7,6 @@
 
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 
-{% block mainContent %}
-
 {% set contentID = "e10eea5a-7ac8-4857-b880-95c925ea1912" %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
@@ -16,6 +14,10 @@
 {% set pageKeyTitle = "pages.euDrivingLicenceHasExpiryDate.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
+
+{% block mainContent %}
+
+{% set isPageDataSensitive = false %}
 
 {% set title = translate("postOfficeCustomerLetterChoice.title") %}
 {% set content1 = translate("postOfficeCustomerLetterChoice.content1") %}

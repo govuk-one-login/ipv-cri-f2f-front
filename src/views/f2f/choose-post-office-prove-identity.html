@@ -6,13 +6,6 @@
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 
-{% block mainContent %}
-
-{% set information = translate("locations.content") %}
-{% set userPostCodeLabel = translate("locations.body") %}
-{% set userPostCodeControl = hmpoHtml(translate("links.changePostcode")) %}
-{% set title = translate("locations.title") %}
-
 {% set contentID = "36e028d3-01f6-4555-91d0-9f3a8c4df80e" %}
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
@@ -20,6 +13,15 @@
 {% set pageTitleKey = "pages.locations.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
+
+{% block mainContent %}
+
+{% set information = translate("locations.content") %}
+{% set userPostCodeLabel = translate("locations.body") %}
+{% set userPostCodeControl = hmpoHtml(translate("links.changePostcode")) %}
+{% set title = translate("locations.title") %}
+
+{% set isPageDataSensitive = false %}
 
 {% call hmpoForm(ctx) %}
 
