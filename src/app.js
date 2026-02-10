@@ -3,7 +3,7 @@ require("express-async-errors");
 
 const path = require("path");
 const session = require("express-session");
-const AWS = require("aws-sdk");
+const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const DynamoDBStore = require("connect-dynamodb")(session);
 const wizard = require("hmpo-form-wizard");
 const logger = require("hmpo-logger");
@@ -54,12 +54,11 @@ const loggerConfig = {
   app: false,
 };
 
-AWS.config.update({
-  region: "eu-west-2",
+const dynamodb = new DynamoDBClient({
+  region: process.env.AWS_REGION,
 });
-const dynamodb = new AWS.DynamoDB();
 
-const dynamoDBSessionStore = new DynamoDBStore({
+const store = new DynamoDBStore({
   client: dynamodb,
   table: SESSION_TABLE_NAME,
 });
