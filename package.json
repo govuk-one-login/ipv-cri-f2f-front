@@ -76,7 +76,6 @@
     "wait-on": "7.2.0"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "3.986.0",
     "@govuk-one-login/di-ipv-cri-common-express": "12.0.2",
     "@govuk-one-login/frontend-analytics": "4.0.5",
     "@govuk-one-login/frontend-device-intelligence": "1.2.0",
