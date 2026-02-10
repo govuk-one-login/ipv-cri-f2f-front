@@ -4,6 +4,12 @@
 {% set gtmJourney = "f2f - eeaNationalIdAddressCheck" %}
 
 
+
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+
 {% if query.edit == "true" %}
   {% set contentID = "dd83a52c-d4f0-4990-a79e-0f753f894e9a" %}
 {% else %}
@@ -16,11 +22,9 @@
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
-
 {% block mainContent %}
+
+{% set isPageDataSensitive = false %}
 
 {% set title = translate("eeaIdentityCardAddressCheck.title") %}
 {% set context = translate("eeaIdentityCardAddressCheck.context") %}
