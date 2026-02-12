@@ -2,6 +2,7 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const DateControllerMixin = require("hmpo-components").mixins.Date;
 const { formatDate } = require("../utils");
 const { APP, API } = require("../../../lib/config");
+const { buildCheckDetailsRows } = require("../../../presenters/checkDetailsRowsPresenter");
 const DateController = DateControllerMixin(BaseController);
 const {
   createPersonalDataHeaders,
@@ -191,21 +192,34 @@ class CheckDetailsController extends DateController {
         );
       }
 
+      const postOfficeCustomerLetterChoice = req.sessionModel.get("postOfficeCustomerLetterChoice");
+      const chosePost = postOfficeCustomerLetterChoice === APP.POST_OFFICE_CUSTOMER_LETTER.POST;
+
       // Assign values for display text and API payload
       req.sessionModel.set("pdfPreference", "EMAIL_ONLY");
-      if (req.sessionModel.get("postOfficeCustomerLetterChoice") === "email") {
-        locals.pdfPreferenceText = res.locals.translate(
-          "checkDetails.pdfPreferenceTextEmail"
-        );
-      } else if (
-        req.sessionModel.get("postOfficeCustomerLetterChoice") === "post"
-      ) {
-        locals.pdfPreferenceText = res.locals.translate(
-          "checkDetails.pdfPreferenceTextPcl"
-        );
+
+      if (postOfficeCustomerLetterChoice === APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL) {
+        locals.pdfPreferenceText = res.locals.translate("checkDetails.pdfPreferenceTextEmail");
+      } else if (chosePost) {
+        locals.pdfPreferenceText = res.locals.translate("checkDetails.pdfPreferenceTextPcl");
         req.sessionModel.set("pdfPreference", "PRINTED_LETTER");
       }
+      const letterLanguageChoiceEnabled =
+        APP.LETTER_LANGUAGE_CHOICE_ENABLED === true &&
+        req.session.featureSet === "letterLanguageChoice";
 
+      const langChoice = req.sessionModel.get(
+        "postOfficeCustomerLetterLanguageChoice"
+      );
+
+      locals.showLetterLanguagePreferenceRow =
+        chosePost && letterLanguageChoiceEnabled && !!langChoice;
+
+      if (locals.showLetterLanguagePreferenceRow) {
+        locals.letterLanguagePreferenceText = res.locals.translate(
+          `postOfficeCustomerLetterLanguageChoice.items.${langChoice}.label`
+        );
+      }
       locals.formattedExpiryDate = formatDate(expiryDate, format, language);
       locals.idTranslatedString = res.locals.translate(
         `photoIdChoice.items.${idChoice}.label`
@@ -220,8 +234,9 @@ class CheckDetailsController extends DateController {
 
       locals.changeUrl = `/${changeUrl}`;
       locals.hasExpiryDate = hasExpiryDate;
-      locals.postOfficeAddress = postOfficeAddress.split(", ");
+      locals.postOfficeAddress = (postOfficeAddress || "").split(", ");
       locals.postOfficeName = postOfficeName;
+      locals.summaryRows = buildCheckDetailsRows(req, res, locals);
 
       callback(err, locals);
     });
