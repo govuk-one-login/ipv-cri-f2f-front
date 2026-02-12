@@ -5,7 +5,7 @@ Feature: Directly navigating EU Driving Licence pages in journey- unhappy path
         Given the user navigates directly to eu-driving-licence-current-address page
         Then they should see the unrecoverable error page
 
-    Scenario: Direct Navigatißon to EUDrivingLicenceCountrySelectPage
+    Scenario: Direct Navigation to EUDrivingLicenceCountrySelectPage
         Given the user navigates directly to select-country-eu-driving-licence page
         Then they should see the unrecoverable error page
 
