@@ -36,8 +36,9 @@ When(
 
 Then("they should be redirected to the Landing Page", async function () {
   const landingPage = new LandingPage(await this.page);
-
+    
   expect(await landingPage.isCurrentPage()).to.be.true;
+  this.page.waitForLoadState("networkidle");
 });
 
 When("featureSet {string} is set new functionality is enabled", async function (featureSet) {
@@ -45,6 +46,7 @@ When("featureSet {string} is set new functionality is enabled", async function (
   landingPage.goToWithFeatureSet(featureSet);
 
   expect(await landingPage.isCurrentPage()).to.be.true;
+  this.page.waitForLoadState("networkidle");
 });
 
 Then(

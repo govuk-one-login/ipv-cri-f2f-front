@@ -19,7 +19,7 @@ module.exports = class PlaywrightDevPage {
   async isCurrentPage() {
     const { pathname } = new URL(await this.page.url());
     await this.page.waitForLoadState("networkidle");
-    return pathname === this.path;
+    return pathname.includes(this.path);
   }
 
   async continue() {
