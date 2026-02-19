@@ -58,7 +58,7 @@
     "eslint": "9.31.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.2.1",
-    "fast-xml-parser": "5.3.4",
+    "fast-xml-parser": "5.3.6",
     "jest": "29.7.0",
     "lint-staged": "13.2.3",
     "mocha": "10.8.2",
