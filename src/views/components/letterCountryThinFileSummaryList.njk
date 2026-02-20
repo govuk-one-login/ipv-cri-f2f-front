@@ -103,6 +103,23 @@
               ]
             }
           },
+          {
+            key: {
+              text: translate("checkDetails.letterLanguagePreference")
+            },
+            value: {
+              html: translate("{{ letterLanguagePreferenceText }}")
+            },
+            actions: {
+              items: [
+                {
+                  href: "/<LANGUAGE_PREFERENCE_ROUTE>/edit?edit=true",
+                  text: translate("checkDetails.changeLink"),
+                  visuallyHiddenText: translate("checkDetails.letterLanguagePreference")
+                }
+              ]
+            }
+          },
                     {
             key: {
               text: translate("checkDetails.pdfChosenAddress")

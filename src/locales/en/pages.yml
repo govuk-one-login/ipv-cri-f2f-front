@@ -106,6 +106,7 @@ checkDetails:
   country: Country
   hasExpiryDate: Does your photo ID have an expiry date?
   pdfPreference: How do you want to get your Post Office customer letter?
+  letterLanguagePreference: What language do you want your posted letters in?
   pdfChosenAddress: Where your Post Office customer letter will be sent
   pdfPreferenceTextEmail: "By email only"
   pdfPreferenceTextPcl: "By email and post"
