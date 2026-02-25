@@ -22,8 +22,9 @@ AfterAll(async function () {
 });
 
 // Create a new test context and page per scenario
-Before(async function () {
+Before(async function (scenario) {
   this.context = await global.browser.newContext({});
+  console.log(`SCENARIO: ${scenario.pickle.name}`);
 
   if (this.SCENARIO_ID_HEADER) {
     await this.context.setExtraHTTPHeaders({
