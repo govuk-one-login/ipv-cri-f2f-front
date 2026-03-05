@@ -27,7 +27,6 @@ export default [{
 
     rules: {
         "no-console": "off",
-
         "padding-line-between-statements": ["error", {
             blankLine: "any",
             prev: "*",
