@@ -138,7 +138,7 @@ function buildCheckDetailsRows(req, res, locals) {
       href: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER,
     }),
 
-    // Ticket KIWI-2368: PCL language preference row (only when feature gated + asserted)
+    // PCL language preference row (only when feature enabled + asserted)
     ...rowsIf(!!locals.showLetterLanguagePreferenceRow, () =>
       summaryRow(translate, {
         keyTextKey: "checkDetails.letterLanguagePreference",

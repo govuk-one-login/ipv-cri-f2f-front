@@ -213,7 +213,7 @@ class CheckDetailsController extends DateController {
       );
 
       locals.showLetterLanguagePreferenceRow =
-        chosePost && letterLanguageChoiceEnabled && !!langChoice;
+        chosePost && letterLanguageChoiceEnabled;
 
       if (locals.showLetterLanguagePreferenceRow) {
         locals.letterLanguagePreferenceText = res.locals.translate(
