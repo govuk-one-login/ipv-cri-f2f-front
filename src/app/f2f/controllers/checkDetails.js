@@ -193,14 +193,15 @@ class CheckDetailsController extends DateController {
       }
 
       const postOfficeCustomerLetterChoice = req.sessionModel.get("postOfficeCustomerLetterChoice");
-      const chosePost = postOfficeCustomerLetterChoice === APP.POST_OFFICE_CUSTOMER_LETTER.POST;
+      const choseEmail = postOfficeCustomerLetterChoice === APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL;
+      const choseLetter = postOfficeCustomerLetterChoice === APP.POST_OFFICE_CUSTOMER_LETTER.POST;
 
       // Assign values for display text and API payload
       req.sessionModel.set("pdfPreference", "EMAIL_ONLY");
 
-      if (postOfficeCustomerLetterChoice === APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL) {
+      if (choseEmail) {
         locals.pdfPreferenceText = res.locals.translate("checkDetails.pdfPreferenceTextEmail");
-      } else if (chosePost) {
+      } else if (choseLetter) {
         locals.pdfPreferenceText = res.locals.translate("checkDetails.pdfPreferenceTextPcl");
         req.sessionModel.set("pdfPreference", "PRINTED_LETTER");
       }
@@ -213,7 +214,7 @@ class CheckDetailsController extends DateController {
       );
 
       locals.showLetterLanguagePreferenceRow =
-        chosePost && letterLanguageChoiceEnabled;
+        choseLetter && letterLanguageChoiceEnabled;
 
       if (locals.showLetterLanguagePreferenceRow) {
         locals.letterLanguagePreferenceText = res.locals.translate(
