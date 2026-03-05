@@ -361,3 +361,34 @@ Then(
     await this.page.waitForLoadState("networkidle");
   }
 );
+
+Then(
+  /^the letter language preference row is displayed with value "(.*)"$/,
+  async function (expected) {
+    const cma = new CheckDetails(await this.page);
+
+    expect(await cma.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
+
+    expect(await cma.isLetterLanguageChoiceDisplayed()).to.be.true;
+    expect(await cma.getLetterLanguageChoiceValue()).to.equal(expected);
+  }
+);
+
+Then(
+  /^the user can change the letter language preference from the CMA page$/,
+  async function () {
+    const cma = new CheckDetails(await this.page);
+
+    expect(await cma.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
+
+    await cma.changeLetterLanguageChoice();
+
+    // Assert we land back on the language choice page
+    // (Use the existing page object you already have for that page)
+    const { PostOfficeCustomerLetterLanguageChoice } = require("../pages");
+    const langPage = new PostOfficeCustomerLetterLanguageChoice(await this.page);
+    expect(await langPage.isCurrentPage()).to.be.true;
+  }
+);
