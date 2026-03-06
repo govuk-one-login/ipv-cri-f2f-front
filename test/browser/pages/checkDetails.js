@@ -41,6 +41,29 @@ module.exports = class PlaywrightDevPage {
     await this.page.click('[href*="eu-driving-licence-expiry-date/edit"]');
   }
 
+  async changeLetterLanguageChoice() {
+    await this.page.click(
+      '[href*="/post-office-customer-letter-choose-language/edit"]'
+    );
+  }
+
+  async getLetterLanguageChoiceValue() {
+    const row = this.page.locator(".govuk-summary-list__row", {
+      has: this.page.locator(".govuk-summary-list__key", {
+        hasText: "What language do you want your posted letters in?",
+      }),
+    });
+
+    const value = await row.locator(".govuk-summary-list__value").textContent();
+    return value.trim();
+  }
+
+  async hasLetterLanguageChoiceChangeLink() {
+    return await this.page.isVisible(
+      '[href*="/post-office-customer-letter-choose-language/edit"]'
+    );
+  }
+
   async getChangeIDHASExpiryDateSelection() {
     const optionSelected = await this.page
       .locator(".govuk-summary-list__value")
@@ -76,6 +99,12 @@ module.exports = class PlaywrightDevPage {
   async changeCountry() {
     await this.page.click(
       '[href*="select-country-national-identity-card/edit"]'
+    );
+  }
+
+  async isLetterLanguageChoiceDisplayed() {
+    return await this.page.isVisible(
+      "text= What language do you want your posted letters in?"
     );
   }
 
