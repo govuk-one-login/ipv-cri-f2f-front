@@ -167,7 +167,7 @@ Mappings:
       PROXYURL: "proxy.review-o.build.account.gov.uk"
       LOGLEVEL: "warn"
       LANGUAGETOGGLEDISABLED: false
-      minECSCount: 6
+      minECSCount: 3
       maxECSCount: 60
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
@@ -522,7 +522,7 @@ Resources:
     Condition: IsNotDevelopment
     Properties:
       AlarmName: !Sub "${AWS::StackName}-ECSFatalErrorAlarm"
-      AlarmDescription: !Sub 
+      AlarmDescription: !Sub
         - "Trigger an alarm when Fatal Error occurs ${RunbookUrl}"
         - RunbookUrl: !FindInMap [StaticVariables, urls, F2FSupportManual]
       ActionsEnabled: true
@@ -926,7 +926,7 @@ Resources:
     Condition: IsNotDevelopment
     Properties:
       AlarmName: !Sub "${AWS::StackName}-APIGWFatalErrorAlarm"
-      AlarmDescription: !Sub 
+      AlarmDescription: !Sub
         - "Trigger an alarm when Fatal Error occurs ${RunbookUrl}"
         - RunbookUrl: !FindInMap [StaticVariables, urls, F2FSupportManual]
       ActionsEnabled: true
@@ -1214,7 +1214,7 @@ Resources:
     Condition: IsNotDevelopment
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FE5XXErrorAlarm"
-      AlarmDescription: !Sub 
+      AlarmDescription: !Sub
         - "Trigger the warning alarm for Frontend 5XX Error ${RunbookUrl}"
         - RunbookUrl: !FindInMap [StaticVariables, urls, F2FSupportManual]
       ActionsEnabled: true
@@ -1319,7 +1319,7 @@ Resources:
     Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FE4XXErrorAlarm"
-      AlarmDescription: !Sub 
+      AlarmDescription: !Sub
         - "Trigger the warning alarm for Frontend 4xx Alarm ${RunbookUrl}"
         - RunbookUrl: !FindInMap [StaticVariables, urls, F2FSupportManual]
       ActionsEnabled: true
@@ -1371,7 +1371,7 @@ Resources:
     Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELatencyAlarmP95"
-      AlarmDescription: !Sub 
+      AlarmDescription: !Sub
         - "Trigger the warning alarm for Frontend P95 Latency ${RunbookUrl}"
         - RunbookUrl: !FindInMap [StaticVariables, urls, F2FSupportManual]
       ActionsEnabled: false
@@ -1419,7 +1419,7 @@ Resources:
     Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELatencyAlarmP99"
-      AlarmDescription: !Sub 
+      AlarmDescription: !Sub
         - "Trigger the warning alarm for Frontend P99 Latency ${RunbookUrl}"
         - RunbookUrl: !FindInMap [StaticVariables, urls, F2FSupportManual]
       ActionsEnabled: false
@@ -1469,7 +1469,7 @@ Resources:
     Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELowContainerTaskCountAlarm"
-      AlarmDescription: !Sub 
+      AlarmDescription: !Sub
         - "Trigger a warning if the running container task count drops below 2 ${RunbookUrl}"
         - RunbookUrl: !FindInMap [StaticVariables, urls, F2FSupportManual]
       ActionsEnabled: true
@@ -1503,7 +1503,7 @@ Resources:
     Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FEHighContainerTaskCountWarning"
-      AlarmDescription: !Sub 
+      AlarmDescription: !Sub
         - "Trigger a warning if the running container task count reaches the auto-scaling maximum for 5 minutes ${RunbookUrl}"
         - RunbookUrl: !FindInMap [StaticVariables, urls, F2FSupportManual]
       ActionsEnabled: true
@@ -1540,7 +1540,7 @@ Resources:
     Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELowContainerTaskCountCriticalAlarm"
-      AlarmDescription: !Sub 
+      AlarmDescription: !Sub
         - "Trigger a critical alert if the running container task count drops below 1 ${RunbookUrl}"
         - RunbookUrl: !FindInMap [StaticVariables, urls, F2FSupportManual]
       ActionsEnabled: false  # to be enabled once proved stable in production
