@@ -5,6 +5,21 @@
 
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 
+
+{% if query.edit == "true" %}
+  {% set contentID = "7abc50b2-8a1f-4afb-9336-f7088039649c" %}
+{% else %}
+{% set contentID = "49ddfb8c-bf6d-431f-abc3-3a4cdbbebc42" %}
+{% endif %}
+
+
+{% set isPageDataSensitive = false %}
+{% set taxLevel2 = "f2f" %}
+{% set statusCode = "200" %}
+{% set pageTitleKey = "pages.postOfficeCustomerLetterLanguageChoice.title" %}
+{% set loggedInStatus = true %}
+{% set isPageDynamic = false %}
+
 {% block mainContent %}
 
 {% set title = translate("postOfficeCustomerLetterLanguageChoice.title") %}

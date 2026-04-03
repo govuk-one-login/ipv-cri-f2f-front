@@ -8,11 +8,18 @@
 {% from "hmpo-select/macro.njk" import hmpoSelect %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
+
+{% if query.edit == "true" %}
+  {% set contentID = "77af6e57-7a2d-4e6f-b154-1cd58437289f" %}
+{% else %}
 {% set contentID = "72ddb915-6efa-4bb5-8828-5f0a31a86bd9" %}
-{% set isPageDataSensitive = false %}
+{% endif %}
+
+
+{% set isPageDataSensitive = true %}
 {% set taxLevel2 = "f2f" %}
 {% set statusCode = "200" %}
-{% set pageKeyTitle = "pages.eeaIdentityCardCountrySelector.title" %}
+{% set pageTitleKey = "pages.eeaIdentityCardCountrySelector.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 
