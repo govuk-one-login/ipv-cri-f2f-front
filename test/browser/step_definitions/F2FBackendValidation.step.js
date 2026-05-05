@@ -37,7 +37,7 @@ Then(
 
 When(
   /^I sent the request to the callback endpoint$/,
-  { timeout: 2 * 50000 },
+  { timeout: 6 * 50000 },
   async function () {
     const testHarness = new TestHarness();
     const f2fSession = await testHarness.getSession(this.sessionId);
@@ -45,14 +45,30 @@ When(
     this.subject = f2fSession.subject;
     console.log(this.yotiSessionId);
     const axios = require("axios");
-    const postRequest = await axios.post(
+    const postRequest1 = await axios.post(
+      `${process.env.API_BASE_URL}/callback`,
+      {
+        session_id: this.yotiSessionId,
+        topic: "first_branch_visit",
+      }
+    );
+    console.log(postRequest1.status);
+    const postRequest2 = await axios.post(
+      `${process.env.API_BASE_URL}/callback`,
+      {
+        session_id: this.yotiSessionId,
+        topic: "thank_you_email_requested",
+      }
+    );
+    console.log(postRequest2.status);
+    const postRequest3 = await axios.post(
       `${process.env.API_BASE_URL}/callback`,
       {
         session_id: this.yotiSessionId,
         topic: "session_completion",
       }
     );
-    console.log(postRequest.status);
+    console.log(postRequest3.status);
   }
 );
 
