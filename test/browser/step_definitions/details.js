@@ -19,14 +19,9 @@ Given(
   /^([^"]*) is using the system$/,
   { timeout: 2 * 5000 },
   async function (name) {
-    console.log("FROG!")
     const claim = this.allUserClaims[name];
-    console.log("DOG!")
     const rpPage = new RelyingPartyPage(this.page);
-    console.log("BEAR!")
-    await rpPage.goto(claim);
-    console.log("GOOSE!")
-    
+    await rpPage.goto(claim);    
   }
 );
 

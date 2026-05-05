@@ -91,11 +91,9 @@ module.exports = class TestHarness {
 
   async getSessionByAuthCode(authCode) {
     try {
-      console.log("CHERRY!", authCode)
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
-        "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + "cbd3a28e-6833-4a00-9cb2-a33c3cd86998"
+        "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + authCode
       );
-      console.log("PUDDING!", getItemResponse)
       return unmarshall(getItemResponse.data.Items[0]);
     } catch (error) {
       return error;
@@ -104,11 +102,9 @@ module.exports = class TestHarness {
 
   async getSessionByState(state) {
     try {
-      console.log("LEMON!", state)
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
         "/getSessionByState/" + process.env["SESSION_TABLE"] + "/" + state
       );
-      console.log("BANANA!", getItemResponse)
       return unmarshall(getItemResponse.data.Items[0]);
     } catch (error) {
       return error;

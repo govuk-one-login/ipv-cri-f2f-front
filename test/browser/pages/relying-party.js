@@ -7,20 +7,13 @@ module.exports = class PlaywrightDevPage {
   }
 
   async goto(claim) {
-    console.log("DUCK!")
     const axios = require("axios");
-    console.log("HEN!")
     if (process.env.CUSTOM_FE_URL) {
-      console.log("CROC!")
       claim.frontendURL = process.env.CUSTOM_FE_URL;
-      console.log("SHARK!")
     }
     const postRequest = await axios.post(process.env.IPV_STUB_URL + "start", claim);
-    console.log("SNAKE!", postRequest.data.AuthorizeLocation)
     await this.page.goto(postRequest.data.AuthorizeLocation);
-    console.log("APE!")
     await this.page.waitForLoadState("networkidle");
-    console.log("TIGER!")
   }
 
   isRelyingPartyServer() {
