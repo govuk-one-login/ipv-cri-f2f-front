@@ -475,3 +475,21 @@ postOfficeCustomerLetterChoice:
       label: Post ac e-bost
       hint: "Gall gymryd hyd at 6 diwrnod gwaith i gael eich llythyr drwy'r post."
       reveal: ""
+
+postOfficeCustomerLetterLanguageChoice:
+  validation:
+    required: Dewiswch yr iaith rydych am i'ch llythyrau gael eu hanfon ynddi
+  content: ""
+  items:
+    english:
+      label: Saesneg
+      hint: ""
+      reveal: ""
+    welsh:
+      label: Cymraeg
+      hint: "Byddwn yn anfon eich cadarnhad yn Gymraeg. Gall eich llythyr cwsmer Swyddfa'r Post fod yn Saesneg yn unig."
+      reveal: ""
+    both:
+      label: Cymraeg a Saesneg
+      hint: "Byddwn yn anfon eich cadarnhad yn Gymraeg a Saesneg. Gall eich llythyr cwsmer Swyddfa'r Post fod yn Saesneg yn unig."
+      reveal: ""

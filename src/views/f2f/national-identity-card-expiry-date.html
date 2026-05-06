@@ -10,11 +10,18 @@
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
+
+{% if query.edit == "true" %}
+  {% set contentID = "ebc104a4-d1a2-40da-bcf4-d273f66c3e6a" %}
+{% else %}
 {% set contentID = "0c7f3517-a8d5-4cad-a0d3-df7ece7483f3" %}
+{% endif %}
+
+
 {% set isPageDataSensitive = false %}
 {% set taxLevel2 = "f2f" %}
 {% set statusCode = "200" %}
-{% set pageKeyTitle = "pages.nationalIdentityCardHasExpiryDate.title" %}
+{% set pageTitleKey = "pages.nationalIdentityCardHasExpiryDate.title" %}
 {% set loggedInStatus = true %}
 {% set isPageDynamic = false %}
 
