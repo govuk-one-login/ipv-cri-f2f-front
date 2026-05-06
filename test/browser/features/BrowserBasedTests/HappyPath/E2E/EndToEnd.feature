@@ -1,4 +1,4 @@
-@success @e2e @QualityGateIntegrationTest @QualityGateRegressionTest @QualityGateStackTest
+@success @e2e @QualityGateIntegrationTest @QualityGateRegressionTest @QualityGateStackTest @test
 
 Feature: F2F Journey - E2E
 
