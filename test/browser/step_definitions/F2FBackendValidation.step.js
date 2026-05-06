@@ -6,6 +6,8 @@ const TestHarness = require("../support/TestHarness");
 
 const vcResponseData = require("../support/vcValidationData.json");
 
+const { sleep } = require("../../utils/sleep")
+
 Given(
   "I have retrieved the sessionTable data for my F2F session using {string}",
   { timeout: 2 * 50000 },
@@ -45,30 +47,35 @@ When(
     this.subject = f2fSession.subject;
     console.log(this.yotiSessionId);
     const axios = require("axios");
-    const postRequest1 = await axios.post(
+    const firstBranchVisit = await axios.post(
       `${process.env.API_BASE_URL}/callback`,
       {
         session_id: this.yotiSessionId,
         topic: "first_branch_visit",
       }
     );
-    console.log(postRequest1.status);
-    const postRequest2 = await axios.post(
+    console.log(firstBranchVisit.status);
+    await sleep(5000)
+
+    const thankYouEmailRequested = await axios.post(
       `${process.env.API_BASE_URL}/callback`,
       {
         session_id: this.yotiSessionId,
         topic: "thank_you_email_requested",
       }
     );
-    console.log(postRequest2.status);
-    const postRequest3 = await axios.post(
+    console.log(thankYouEmailRequested.status);
+    await sleep(5000)
+
+    const sessionCompletion = await axios.post(
       `${process.env.API_BASE_URL}/callback`,
       {
         session_id: this.yotiSessionId,
         topic: "session_completion",
       }
     );
-    console.log(postRequest3.status);
+    console.log(sessionCompletion.status);
+    await sleep(5000)
   }
 );
 
