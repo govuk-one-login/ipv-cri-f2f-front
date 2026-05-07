@@ -21,8 +21,8 @@ Given(
   async function (name) {
     const claim = this.allUserClaims[name];
     const rpPage = new RelyingPartyPage(this.page);
-    
-    await rpPage.goto(claim);    
+
+    await rpPage.goto(claim);
   }
 );
 
