@@ -39,7 +39,7 @@ Then(
 
 When(
   /^I sent the request to the callback endpoint$/,
-  { timeout: 6 * 50000 },
+  { timeout: 2 * 50000 },
   async function () {
     const testHarness = new TestHarness();
     const f2fSession = await testHarness.getSession(this.sessionId);
