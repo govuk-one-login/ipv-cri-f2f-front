@@ -8,8 +8,9 @@ module.exports = class PlaywrightDevPage {
 
   async goto(claim) {
     const axios = require("axios");
-    if (process.env.CUSTOM_FE_URL)
+    if (process.env.CUSTOM_FE_URL) {
       claim.frontendURL = process.env.CUSTOM_FE_URL;
+    }
     const postRequest = await axios.post(process.env.IPV_STUB_URL + "start", claim);
     await this.page.goto(postRequest.data.AuthorizeLocation);
     await this.page.waitForLoadState("networkidle");

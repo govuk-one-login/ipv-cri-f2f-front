@@ -223,7 +223,7 @@ process.on("SIGTERM", () => {
   // Give remaining active connections some time to compelte
   // Then exit, this also closes any connection with keep-alive set
   setTimeout(() => {
-    console.log(`Waiting ${MAX_EXIT_WAIT}ms for before exiting fully`);
+    console.log(`Waiting ${MAX_EXIT_WAIT}ms before exiting fully`);
 
     // Close any active connections that have not closed (KeepAlives/Idle etc)
     server.closeAllConnections();
