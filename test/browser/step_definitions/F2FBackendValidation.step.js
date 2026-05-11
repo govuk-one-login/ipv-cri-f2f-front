@@ -22,6 +22,7 @@ Given(
     } else {
       throw new Error(`Invalid query field: ${queryField}`);
     }
+    console.log("SESSION DATA!", sessionData)
     this.sessionId = sessionData.sessionId;
     this.authSessionState = sessionData.authSessionState;
   }
@@ -31,6 +32,8 @@ Then(
   "the authSessionState is correctly recorded as {string}",
   { timeout: 2 * 50000 },
   async function (authSessionState) {
+    console.log("SESSION ID!", this.sessionId)
+    console.log("AUTH SESSION STATE!", this.authSessionState)
     expect(this.sessionId).to.not.be.null;
     expect(this.authSessionState).to.equal(authSessionState);
   }
