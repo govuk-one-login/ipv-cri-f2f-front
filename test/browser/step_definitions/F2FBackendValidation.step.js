@@ -74,7 +74,7 @@ When(
       }
     );
     console.log(sessionCompletion.status);
-    await sleep(20000)
+    await sleep(10000)
   }
 );
 
