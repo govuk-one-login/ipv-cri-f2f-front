@@ -13,21 +13,15 @@ Given(
   { timeout: 2 * 50000 },
   async function (queryField) {
     await new Promise((r) => setTimeout(r, 10000));
-    console.log("AWAITED PROMISE")
     const testHarness = new TestHarness();
-    console.log("TEST HARNESS INITIALISED")
     let sessionData;
     if (queryField === "authCode") {
-      console.log("IN AUTHCODE IF")
       sessionData = await testHarness.getSessionByAuthCode(this.authCode);
     } else if (queryField === "state") {
-      console.log("IN STATE IF")
       sessionData = await testHarness.getSessionByState(this.state);
     } else {
-      console.log("IN ERROR")
       throw new Error(`Invalid query field: ${queryField}`);
     }
-    console.log("SESSION DATA!", sessionData)
     this.sessionId = sessionData.sessionId;
     this.authSessionState = sessionData.authSessionState;
   }
@@ -37,8 +31,6 @@ Then(
   "the authSessionState is correctly recorded as {string}",
   { timeout: 2 * 50000 },
   async function (authSessionState) {
-    console.log("SESSION ID!", this.sessionId)
-    console.log("AUTH SESSION STATE!", this.authSessionState)
     expect(this.sessionId).to.not.be.null;
     expect(this.authSessionState).to.equal(authSessionState);
   }
@@ -82,7 +74,7 @@ When(
       }
     );
     console.log(sessionCompletion.status);
-    await sleep(5000)
+    await sleep(20000)
   }
 );
 

@@ -27,18 +27,15 @@ jobs:
         run: yarn test:coverage
       - name: Install Playwright browsers
         run: yarn playwright install --with-deps
-      - name: Run browser & e2e tests
-        run: yarn run test:e2e:cd
+      - name: Run browser tests
+        run: yarn run test:browser:ci
         env: 
           IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
-          CUSTOM_FE_URL: https://f2f-cri-front.review-o.dev.account.gov.uk
+          CUSTOM_FE_URL: http://localhost:5030
           LANGUAGE_TOGGLE_DISABLED: false
           PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
-          F2F_FE_BASE_URL: https://f2f-cri-front.review-o.dev.account.gov.uk
-          API_BASE_URL: https://api-f2f-cri-api.review-o.dev.account.gov.uk
-          TEST_HARNESS_URL: https://f2f-test-harness-testharness.review-o.dev.account.gov.uk
+          F2F_FE_BASE_URL: http://localhost:5030
           LETTER_LANGUAGE_CHOICE_ENABLED: true
-          SESSION_TABLE: session-f2f-cri-ddb
       - name: Archive browser tests results
         uses: actions/upload-artifact@v6
         with:
