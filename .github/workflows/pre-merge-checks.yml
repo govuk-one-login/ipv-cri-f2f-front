@@ -28,7 +28,7 @@ jobs:
       - name: Install Playwright browsers
         run: yarn playwright install --with-deps
       - name: Run browser & e2e tests
-        run: yarn run test:e2e:ci
+        run: yarn run test:e2e:cd
         env: 
           IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
           CUSTOM_FE_URL: https://f2f-cri-front.review-o.dev.account.gov.uk
