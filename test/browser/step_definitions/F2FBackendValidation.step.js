@@ -23,8 +23,7 @@ Given(
       throw new Error(`Invalid query field: ${queryField}`);
     }
     this.sessionId = sessionData.sessionId;
-    const session = await testHarness.getSession(this.sessionId);
-    this.authSessionState = session.authSessionState;
+    this.authSessionState = sessionData.authSessionState;
   }
 );
 
