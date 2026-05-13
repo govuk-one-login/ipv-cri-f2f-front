@@ -1000,7 +1000,7 @@ Resources:
             MetricIntervalUpperBound: 15
             ScalingAdjustment: 200 # Scale by 200% of containers if the metric is breached
             # with 80-90% utilisation
-          - MetricIntervalLowerBound: 15 # 90%
+          - MetricIntervalLowerBound: 15
 #            MetricIntervalUpperBound: 35 # 95%
 #            ScalingAdjustment: 300 # Scale by 300% of containers if the metric is breached
 #            # with 90-95% utilisation
