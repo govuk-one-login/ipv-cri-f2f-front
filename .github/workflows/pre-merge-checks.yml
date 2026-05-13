@@ -37,7 +37,7 @@ jobs:
           F2F_FE_BASE_URL: http://localhost:5030
           LETTER_LANGUAGE_CHOICE_ENABLED: true
       - name: Archive browser tests results
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: browser-tests-report
           path: test/reports/f2f-reports/
