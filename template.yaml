@@ -214,7 +214,7 @@ Mappings:
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: false
-      ANALYTICSDATASENSITIVE: true
+      ANALYTICSDATASENSITIVE: false
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
@@ -233,7 +233,7 @@ Mappings:
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: false
-      ANALYTICSDATASENSITIVE: true
+      ANALYTICSDATASENSITIVE: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
