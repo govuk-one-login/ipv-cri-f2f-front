@@ -24,7 +24,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: '0'
 
@@ -67,7 +67,7 @@ jobs:
           LETTER_LANGUAGE_CHOICE_ENABLED: true
 
       - name: Get Test Results history
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         if: always()
         continue-on-error: true
         with:
