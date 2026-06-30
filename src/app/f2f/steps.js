@@ -14,6 +14,7 @@ const landingPage = require("./controllers/landingPage");
 const addressResults = require("./controllers/addressResults");
 const { APP } = require("../../lib/config");
 const checkAddressController = require("./controllers/checkAddress");
+const postOfficeCustomerLetter = require("./controllers/postOfficeCustomerLetter");
 
 module.exports = {
   [`${APP.PATHS.F2F}`]: {
@@ -376,6 +377,7 @@ module.exports = {
     next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER
   },
   [`${APP.PATHS.POST_OFFICE_CUSTOMER_LETTER}`]: {
+    controller: postOfficeCustomerLetter,
     fields: ["postOfficeCustomerLetterChoice"],
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
