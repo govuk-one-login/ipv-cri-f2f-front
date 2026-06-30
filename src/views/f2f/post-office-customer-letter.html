@@ -21,7 +21,7 @@
 
 {% set title = translate("postOfficeCustomerLetterChoice.title") %}
 {% set content1 = translate("postOfficeCustomerLetterChoice.content1") %}
-{% set content1 = translate("postOfficeCustomerLetterChoice.content1") %}
+{% set content2 = translate("postOfficeCustomerLetterChoice.content2") %}
 {% set newContent1 = translate("postOfficeCustomerLetterChoice.newContent1") %}
 {% set bullet1 = translate("postOfficeCustomerLetterChoice.bullet1") %}
 {% set bullet2 = translate("postOfficeCustomerLetterChoice.bullet2") %}
@@ -32,7 +32,7 @@
       {{ title }}
     </h1>
 {% call hmpoForm(ctx) %}
-    {% if (letterLanguageChoiceEnabled) %}
+    {% if (letterLanguageChoiceEnabled == "true") %}
     <div id="branches-hint">
         <p id="contentLine1">{{ newContent1 }}</p>
         <ul class="govuk-list govuk-list--bullet">
