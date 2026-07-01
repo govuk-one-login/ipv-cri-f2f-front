@@ -1127,12 +1127,11 @@
     "@eslint/core" "^1.1.1"
     levn "^0.4.1"
 
-"@govuk-one-login/di-ipv-cri-common-express@14.0.2":
-  version "14.0.2"
-  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-14.0.2.tgz#44b978b4145cbdc08a748c3869ed7e343e69d4a0"
-  integrity sha512-97wnsdwVuMknAvoFJKyWUTnLcxw2CmGBBh/QSStJ7pPa+6Buor7p/G5xG0ylkcBgpSivlgqON6ZxzNeRlijIUQ==
+"@govuk-one-login/di-ipv-cri-common-express@15.0.2":
+  version "15.0.2"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-15.0.2.tgz#007b5140d6a8be42f5cf16fc3d9e2560d6641cf4"
+  integrity sha512-jE9HeM2nYukESu2UHRayzQ31aoy3ECa1tmHBnzH9yVO7pb8+AEKcdwAg9XQkw2MLLyJP4n19a1mS8Gmr8jBvkA==
   dependencies:
-    "@govuk-one-login/frontend-ui" "5.0.0"
     async "3.2.6"
     body-parser "1.20.4"
     compression "1.8.1"
@@ -1192,16 +1191,6 @@
     "@types/aws-lambda" "^8.10.159"
     forwarded-parse "^2.1.2"
     pino "^10.1.0"
-
-"@govuk-one-login/frontend-ui@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-ui/-/frontend-ui-5.0.0.tgz#9e6fab0b96c3011f8a260124e2ed8c0785075b6f"
-  integrity sha512-ztxstiC19zSxWv2eotwSQgw8oMe+XBPtCJ2OGrXBVaiRwBl0KzX6nmZlMLJCrtGnNJF1ywlrYty/Zn8GzkiHng==
-  dependencies:
-    pino "^10.1.0"
-  optionalDependencies:
-    "@govuk-one-login/frontend-analytics" "^4.0.7"
-    hmpo-components "^7.1.0"
 
 "@govuk-one-login/frontend-ui@5.0.1":
   version "5.0.1"
@@ -4035,18 +4024,6 @@ hmpo-components@8.0.6:
   version "8.0.6"
   resolved "https://registry.yarnpkg.com/hmpo-components/-/hmpo-components-8.0.6.tgz#dde11629d593eebbfb0841fa045c9c3dbb4b5b23"
   integrity sha512-wSGcJ8cw+TGFrHvx3y8hSJ1cY5d6/sBpHL+keAu33vgweozxknMEW+lV3DsiAtkPbdUjyadgTULY/11j3BAcJA==
-  dependencies:
-    bytes "^3.1.2"
-    deep-clone-merge "^1.5.5"
-    moment "^2.30.1"
-    underscore "^1.13.7"
-  optionalDependencies:
-    fsevents "~2.3.3"
-
-hmpo-components@^7.1.0:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/hmpo-components/-/hmpo-components-7.1.1.tgz#d8e53fcf673e30c293f30b66fbe823bce93f5453"
-  integrity sha512-aZiW4hqCF0NT0mdgC4iEy7+xkqArUbybEXtwzT5l/pVatiSUIpSeJw3/dEFR29UoqpE3jmkHqxqr8AV4DAP6uA==
   dependencies:
     bytes "^3.1.2"
     deep-clone-merge "^1.5.5"
