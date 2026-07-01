@@ -1127,14 +1127,13 @@
     "@eslint/core" "^1.1.1"
     levn "^0.4.1"
 
-"@govuk-one-login/di-ipv-cri-common-express@14.0.2":
-  version "14.0.2"
-  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-14.0.2.tgz#44b978b4145cbdc08a748c3869ed7e343e69d4a0"
-  integrity sha512-97wnsdwVuMknAvoFJKyWUTnLcxw2CmGBBh/QSStJ7pPa+6Buor7p/G5xG0ylkcBgpSivlgqON6ZxzNeRlijIUQ==
+"@govuk-one-login/di-ipv-cri-common-express@16.0.3":
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-16.0.3.tgz#4df27c0cd385bf3bf781ea2ea736f014ea3cb5a4"
+  integrity sha512-y5qPkAokEtBws41mzm8G/eEKSQ5kObOYfQBNBysLbFXnXbwjEarV6PJzR+iEn4SxLsWwEBzPgBHYw65fZNZ4LA==
   dependencies:
-    "@govuk-one-login/frontend-ui" "5.0.0"
     async "3.2.6"
-    body-parser "1.20.4"
+    body-parser "1.20.5"
     compression "1.8.1"
     connect-redis "6.1.3"
     cookie-parser "1.4.7"
@@ -1148,8 +1147,8 @@
     hmpo-i18n "7.0.1"
     hmpo-logger "7.0.1"
     i18next "23.8.1"
-    i18next-fs-backend "2.6.5"
-    i18next-http-middleware "3.9.6"
+    i18next-fs-backend "2.6.6"
+    i18next-http-middleware "3.9.7"
     lodash.differencewith "4.5.0"
     nocache "3.0.4"
     on-finished "2.4.1"
@@ -1192,16 +1191,6 @@
     "@types/aws-lambda" "^8.10.159"
     forwarded-parse "^2.1.2"
     pino "^10.1.0"
-
-"@govuk-one-login/frontend-ui@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-ui/-/frontend-ui-5.0.0.tgz#9e6fab0b96c3011f8a260124e2ed8c0785075b6f"
-  integrity sha512-ztxstiC19zSxWv2eotwSQgw8oMe+XBPtCJ2OGrXBVaiRwBl0KzX6nmZlMLJCrtGnNJF1ywlrYty/Zn8GzkiHng==
-  dependencies:
-    pino "^10.1.0"
-  optionalDependencies:
-    "@govuk-one-login/frontend-analytics" "^4.0.7"
-    hmpo-components "^7.1.0"
 
 "@govuk-one-login/frontend-ui@5.0.1":
   version "5.0.1"
@@ -2562,25 +2551,7 @@ binary-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.3.0.tgz#f6e14a97858d327252200242d4ccfe522c445522"
   integrity sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==
 
-body-parser@1.20.4:
-  version "1.20.4"
-  resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.20.4.tgz#f8e20f4d06ca8a50a71ed329c15dccad1cdc547f"
-  integrity sha512-ZTgYYLMOXY9qKU/57FAo8F+HA2dGX7bqGc71txDRC1rS4frdFI5R7NhluHxH6M0YItAP0sHB4uqAOcYKxO6uGA==
-  dependencies:
-    bytes "~3.1.2"
-    content-type "~1.0.5"
-    debug "2.6.9"
-    depd "2.0.0"
-    destroy "~1.2.0"
-    http-errors "~2.0.1"
-    iconv-lite "~0.4.24"
-    on-finished "~2.4.1"
-    qs "~6.14.0"
-    raw-body "~2.5.3"
-    type-is "~1.6.18"
-    unpipe "~1.0.0"
-
-body-parser@^1.20.3, body-parser@~1.20.3:
+body-parser@1.20.5, body-parser@^1.20.3, body-parser@~1.20.3:
   version "1.20.5"
   resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.20.5.tgz#303c8c34423d1d6fa799bc764e93c1e4dc6ebf64"
   integrity sha512-3grm+/2tUOvu2cjJkvsIxrv/wVpfXQW4PsQHYm7yk4vfpu7Ekl6nEsYBoJUL6qDwZUx8wUhQ8tR2qz+ad9c9OA==
@@ -4043,18 +4014,6 @@ hmpo-components@8.0.6:
   optionalDependencies:
     fsevents "~2.3.3"
 
-hmpo-components@^7.1.0:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/hmpo-components/-/hmpo-components-7.1.1.tgz#d8e53fcf673e30c293f30b66fbe823bce93f5453"
-  integrity sha512-aZiW4hqCF0NT0mdgC4iEy7+xkqArUbybEXtwzT5l/pVatiSUIpSeJw3/dEFR29UoqpE3jmkHqxqr8AV4DAP6uA==
-  dependencies:
-    bytes "^3.1.2"
-    deep-clone-merge "^1.5.5"
-    moment "^2.30.1"
-    underscore "^1.13.7"
-  optionalDependencies:
-    fsevents "~2.3.3"
-
 hmpo-config@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/hmpo-config/-/hmpo-config-4.0.0.tgz#3bbf113167b6f2f6ba3d4bcfd57cd4b78294cdbb"
@@ -4203,15 +4162,15 @@ human-signals@^4.3.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-4.3.1.tgz#ab7f811e851fca97ffbd2c1fe9a958964de321b2"
   integrity sha512-nZXjEF2nbo7lIw3mgYjItAfgQXog3OjJogSbKa2CQIIvSGWcKgeJnQlNXip6NglNzYH45nSRiEVimMvYL8DDqQ==
 
-i18next-fs-backend@2.6.5:
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-2.6.5.tgz#3bedb795fb289c1463adca6254fee2b05f90312d"
-  integrity sha512-+7HBrlaj3UFnNC9HqiXaIlNkwNINYkgQ2PS4h7qW/WGHC9/+OU9Xi0/tdvjjXATw3YCcpmNV7S3zDD9e10pTWg==
+i18next-fs-backend@2.6.6:
+  version "2.6.6"
+  resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-2.6.6.tgz#d7a0b4595cc3d504c9d0b267e527d2b4926d9418"
+  integrity sha512-mYGu6Nt8RIp3X/U8Y+Gej1wo5xmYWmGKLqBGMCC2OCAou5rW5epeHgHmVcw20mJs9Z9+DAPHIxQPNCgFyPRMeg==
 
-i18next-http-middleware@3.9.6:
-  version "3.9.6"
-  resolved "https://registry.yarnpkg.com/i18next-http-middleware/-/i18next-http-middleware-3.9.6.tgz#23144e0f039dabf934fd3760542298840d745815"
-  integrity sha512-zKOft9iNCbOM4cWxThpq9gikpCuftCFh9s7V+vXPoB0+AJw13mXZe/O2VCfZO0AKNHplFTDYkJASoK+J3iWFeQ==
+i18next-http-middleware@3.9.7:
+  version "3.9.7"
+  resolved "https://registry.yarnpkg.com/i18next-http-middleware/-/i18next-http-middleware-3.9.7.tgz#2cc8973e8c210767ae45e141ee54878b527dd0d3"
+  integrity sha512-k4Aa39thnQXGox5ZeKvlOwbDsFz+iGxtPJITWm6xmmErNZOeGMXIoH9XwK3ITUq7lqHaywnIH9gLwOraU4jJvQ==
 
 i18next@23.8.1:
   version "23.8.1"
