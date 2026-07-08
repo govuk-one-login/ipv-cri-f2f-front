@@ -147,12 +147,10 @@ customerLetterCheckAddress:
 
 postOfficeCustomerLetterChoice:
   title: "Your Post Office customer letter"
-  content1: "We’ll send you a confirmation email with a link to download your Post Office customer letter."
-  content2: "We can also send your customer letter to you by post."
-  newContent1: "We’ll send you a confirmation email with:"
+  content1: "We’ll send you a confirmation email with:"
   bullet1: "a link to download your Post Office customer letter"
   bullet2: "details of what you need to do next"
-  newContent2: "We can also send your confirmation and Post Office customer letter by post."
+  content2: "We can also send your confirmation and Post Office customer letter by post."
   prompt: "How do you want to get your Post Office customer letter?"
 
 postOfficeCustomerLetterLanguageChoice:
