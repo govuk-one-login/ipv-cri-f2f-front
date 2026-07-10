@@ -147,8 +147,10 @@ customerLetterCheckAddress:
 
 postOfficeCustomerLetterChoice:
   title: "Eich llythyr cwsmer Swyddfa'r Post"
-  content1: "Byddwn yn anfon e-bost cadarnhau atoch gyda dolen i lawrlwytho eich llythyr cwsmer Swyddfa'r Post."
-  content2: "Gallwn hefyd anfon eich llythyr cwsmer atoch drwy'r post."
+  content1: "Byddwn yn anfon e-bost cadarnhau atoch gyda:"
+  bullet1: "dolen i lawrlwytho eich llythyr cwsmer Swyddfa'r Post"
+  bullet2: "manylion beth sydd angen i chi ei wneud nesaf"
+  content2: "Gallwn hefyd anfon eich cadarnhad a llythyr cwsmer Swyddfa'r Post drwy'r post."
   prompt: "Sut ydych chi eisiau cael eich llythyr cwsmer Swyddfa'r Post?"
 
 postOfficeCustomerLetterLanguageChoice:

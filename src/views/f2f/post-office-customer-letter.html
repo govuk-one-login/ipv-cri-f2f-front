@@ -17,21 +17,24 @@
 
 {% block mainContent %}
 
-{% set isPageDataSensitive = false %}
-
 {% set title = translate("postOfficeCustomerLetterChoice.title") %}
 {% set content1 = translate("postOfficeCustomerLetterChoice.content1") %}
 {% set content2 = translate("postOfficeCustomerLetterChoice.content2") %}
+{% set bullet1 = translate("postOfficeCustomerLetterChoice.bullet1") %}
+{% set bullet2 = translate("postOfficeCustomerLetterChoice.bullet2") %}
 {% set prompt = translate("postOfficeCustomerLetterChoice.prompt") %}
 
     <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
       {{ title }}
     </h1>
-
 {% call hmpoForm(ctx) %}
     <div id="branches-hint">
-      <p id="branchesInformation">{{ content1 }}</p>
-      <p>{{ content2 }}</p>
+        <p id="contentLine1">{{ content1 }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>{{ bullet1 }}</li>
+            <li>{{ bullet2 }}</li>
+        </ul>
+      <p id="contentLine2">{{ content2 }}</p> 
     </div>
 
         {{ hmpoRadios(ctx, {
