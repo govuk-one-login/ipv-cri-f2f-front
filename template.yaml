@@ -136,20 +136,14 @@ Mappings:
       DNSSUFFIX: "review-o.dev.account.gov.uk"
       CLOUDFRONTDOMAIN: "d3o29uantyvgzg.cloudfront.net"
       SESSIONTABLENAME: "f2f-front-sessions-dev"
-      GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
-      GA4ENABLED: "true"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
       LOGLEVEL: "debug"
-      LANGUAGETOGGLEDISABLED: false
       minECSCount: 1
       maxECSCount: 4
-      DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: true
-      ANALYTICSDATASENSITIVE: false
       # Hardcoded variables used to generate stack outputs for tests in Dev. Referenced in Outputs section of this template file. Only present in Dev + Build
       IPVSTUBURL: "https://f2f-ipv-stub-ipvstub.review-o.dev.account.gov.uk/"
       TESTHARNESSURL: "https://f2f-test-harness-testharness.review-o.dev.account.gov.uk/"
@@ -159,20 +153,14 @@ Mappings:
       DNSSUFFIX: "review-o.build.account.gov.uk"
       CLOUDFRONTDOMAIN: "d2qciy1us75oe5.cloudfront.net"
       SESSIONTABLENAME: "f2f-front-sessions-build"
-      GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
-      GA4ENABLED: "true"
       ANALYTICSDOMAIN: "build.account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.build.account.gov.uk"
       LOGLEVEL: "warn"
-      LANGUAGETOGGLEDISABLED: false
       minECSCount: 6
       maxECSCount: 60
-      DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: true
-      ANALYTICSDATASENSITIVE: false
       # Hardcoded variables used to generate stack outputs for tests in Build. Referenced in Outputs section of this template file. Only present in Dev + Build
       IPVSTUBURL: "https://ipvstub.review-o.build.account.gov.uk/"
       TESTHARNESSURL: "https://testharness.review-o.build.account.gov.uk/"
@@ -182,58 +170,40 @@ Mappings:
       DNSSUFFIX: "review-o.staging.account.gov.uk"
       CLOUDFRONTDOMAIN: "d205d1cygtnceq.cloudfront.net"
       SESSIONTABLENAME: "f2f-front-sessions-staging"
-      GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
-      GA4ENABLED: "true"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.staging.account.gov.uk"
       LOGLEVEL: "warn"
-      LANGUAGETOGGLEDISABLED: false
       minECSCount: 2
       maxECSCount: 4
-      DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: true
-      ANALYTICSDATASENSITIVE: false
     integration:
       APIBASEURL: "https://api.review-o.integration.account.gov.uk"
       DNSSUFFIX: "review-o.integration.account.gov.uk"
       CLOUDFRONTDOMAIN: "d1isez0gflcoql.cloudfront.net"
       SESSIONTABLENAME: "f2f-front-sessions-integration"
-      GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
-      GA4ENABLED: "true"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.integration.account.gov.uk"
       LOGLEVEL: "warn"
-      LANGUAGETOGGLEDISABLED: false
       minECSCount: 2
       maxECSCount: 4
-      DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: false
-      ANALYTICSDATASENSITIVE: false
     production:
       APIBASEURL: "https://api.review-o.account.gov.uk"
       DNSSUFFIX: "review-o.account.gov.uk"
       CLOUDFRONTDOMAIN: "d6q0qtykvm2qx.cloudfront.net"
       SESSIONTABLENAME: "f2f-front-sessions-production"
-      GTMIDUA: "GTM-TT5HDKV"
       GTMIDGA4: "GTM-K4PBJH3"
-      GA4ENABLED: "true"
       ANALYTICSDOMAIN: "account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.account.gov.uk"
       LOGLEVEL: "warn"
-      LANGUAGETOGGLEDISABLED: false
       minECSCount: 6
       maxECSCount: 60
-      DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: true
       LETTERLANGUAGECHOICEENABLED: false
-      ANALYTICSDATASENSITIVE: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -634,12 +604,8 @@ Resources:
               Value: !Ref F2FFrontCustomDomain
             - Name: SESSION_TABLE_NAME
               Value: !Ref F2fFrontSessionsTable
-            - Name: UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID
-              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDUA ]
             - Name: GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID
               Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDGA4 ]
-            - Name: GA4_ENABLED
-              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GA4ENABLED ]
             - Name: FRONTEND_DOMAIN
               Value:
                 !If [
@@ -653,16 +619,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, PROXYURL ]
             - Name: LOG_LEVEL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
-            - Name: LANGUAGE_TOGGLE_DISABLED
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, LANGUAGETOGGLEDISABLED ]
-            - Name: DEVICE_INTELLIGENCE_ENABLED
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, DEVICEINTELLIGENCEENABLED ]
-            - Name: MAY_2025_REBRAND_ENABLED
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, MAY2025REBRANDENABLED ]
             - Name: LETTER_LANGUAGE_CHOICE_ENABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LETTERLANGUAGECHOICEENABLED ]
-            - Name: ANALYTICS_DATA_SENSITIVE
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDATASENSITIVE ]
 
           Secrets:
             - Name: DT_TENANT
