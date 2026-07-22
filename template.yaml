@@ -619,6 +619,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, PROXYURL ]
             - Name: LOG_LEVEL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
+            - Name: USE_PINO_LOGGER
+              Value: true
             - Name: MAY_2025_REBRAND_ENABLED
               Value: true
             - Name: LETTER_LANGUAGE_CHOICE_ENABLED
