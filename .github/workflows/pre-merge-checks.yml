@@ -25,11 +25,14 @@ jobs:
         run: yarn build
       - name: Run test and write coverage
         run: yarn test:coverage
+        env:
+          USE_PINO_LOGGER: "true"
       - name: Install Playwright browsers
         run: yarn playwright install --with-deps
       - name: Run browser tests
         run: yarn run test:browser:ci
         env: 
+          USE_PINO_LOGGER: "true"
           IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
           CUSTOM_FE_URL: http://localhost:5030
           PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
@@ -53,6 +56,8 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn test:coverage
+        env:
+          USE_PINO_LOGGER: "true"
       - name: Run SonarCloud Scan
         if: success() && github.actor != 'dependabot[bot]'
         uses: SonarSource/sonarqube-scan-action@v8.1.0

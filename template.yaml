@@ -141,6 +141,7 @@ Mappings:
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
       LOGLEVEL: "debug"
+      USEPINOLOGGER: "true"
       minECSCount: 1
       maxECSCount: 4
       LETTERLANGUAGECHOICEENABLED: true
@@ -158,6 +159,7 @@ Mappings:
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.build.account.gov.uk"
       LOGLEVEL: "warn"
+      USEPINOLOGGER: "true"
       minECSCount: 6
       maxECSCount: 60
       LETTERLANGUAGECHOICEENABLED: true
@@ -175,6 +177,7 @@ Mappings:
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.staging.account.gov.uk"
       LOGLEVEL: "warn"
+      USEPINOLOGGER: "false"
       minECSCount: 2
       maxECSCount: 4
       LETTERLANGUAGECHOICEENABLED: true
@@ -188,6 +191,7 @@ Mappings:
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.integration.account.gov.uk"
       LOGLEVEL: "warn"
+      USEPINOLOGGER: "false"
       minECSCount: 2
       maxECSCount: 4
       LETTERLANGUAGECHOICEENABLED: false
@@ -201,6 +205,7 @@ Mappings:
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       PROXYURL: "proxy.review-o.account.gov.uk"
       LOGLEVEL: "warn"
+      USEPINOLOGGER: "false"
       minECSCount: 6
       maxECSCount: 60
       LETTERLANGUAGECHOICEENABLED: false
@@ -619,6 +624,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, PROXYURL ]
             - Name: LOG_LEVEL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
+            - Name: USE_PINO_LOGGER
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, USEPINOLOGGER ]
             - Name: MAY_2025_REBRAND_ENABLED
               Value: true
             - Name: LETTER_LANGUAGE_CHOICE_ENABLED

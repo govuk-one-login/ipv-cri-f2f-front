@@ -53,6 +53,8 @@ jobs:
 
       - name: Run test and write coverage
         run: yarn test:coverage
+        env:
+          USE_PINO_LOGGER: "true"
         
       - name: "Run SonarCloud Scan"
         if: ${{ success() && github.actor != 'dependabot[bot]' }}
@@ -64,6 +66,7 @@ jobs:
       - name: Run test and write coverage
         run: yarn run test:browser:ci
         env:
+          USE_PINO_LOGGER: "true"
           LETTER_LANGUAGE_CHOICE_ENABLED: true
 
       - name: Get Test Results history
