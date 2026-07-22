@@ -1,7 +1,7 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
-const { API } = require("../../../lib/config");
+const { API, PACKAGE_NAME } = require("../../../lib/config");
 const NodeRSA = require("node-rsa");
-const logger = require("hmpo-logger").get();
+const logger = require("../../../lib/logger").get(PACKAGE_NAME);
 
 class RootController extends BaseController {
   async saveValues(req, res, next) {
@@ -31,12 +31,12 @@ class RootController extends BaseController {
         const fullParsedSharedClaimsAddress = addressParts.join("<br>");
         req.sessionModel.set(
           "fullParsedSharedClaimsAddress",
-          fullParsedSharedClaimsAddress
+          fullParsedSharedClaimsAddress,
         );
 
         req.sessionModel.set("addressProcessed", true);
       } catch (error) {
-        logger.error("Error calling /person-info", error);
+        logger.error({ err: error }, "Error calling /person-info");
         res.redirect("/error");
       }
     }

@@ -23,8 +23,14 @@ jobs:
         run: yarn lint
       - name: Run build
         run: yarn build
-      - name: Run test and write coverage
+      - name: Run test and write coverage - Pino Logger
         run: yarn test:coverage
+        env: 
+          USE_PINO_LOGGER: true
+      - name: Run test and write coverage - HMPO-logger 
+        run: yarn test:coverage
+        env: 
+          USE_PINO_LOGGER: false
       - name: Install Playwright browsers
         run: yarn playwright install --with-deps
       - name: Run browser tests
@@ -35,6 +41,7 @@ jobs:
           PROXYURL: f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk
           F2F_FE_BASE_URL: http://localhost:5030
           LETTER_LANGUAGE_CHOICE_ENABLED: true
+          USE_PINO_LOGGER: true
       - name: Archive browser tests results
         uses: actions/upload-artifact@v7
         with:
