@@ -24,18 +24,38 @@
           "provider": "GitHub",
           "config": {
             "file": ".github/workflows/pre-merge-checks.yml",
-            "path": "$.jobs.run-checks"
+            "path": "$.jobs.run-checks.steps[?@.name=='Run lint']"
           },
           "checks": [
             {
               "name": "code style and linting"
-            },
+            }
+          ]
+        },
+        {
+          "phase": "pre-merge",
+          "provider": "GitHub",
+          "config": {
+            "file": ".github/workflows/pre-merge-checks.yml",
+            "path": "$.jobs.run-checks.steps[?@.name=='Run test and write coverage']"
+          },
+          "checks": [
             {
               "name": "unit"
             },
             {
               "name": "unit test coverage"
-            },
+            }
+          ]
+        },
+        {
+          "phase": "pre-merge",
+          "provider": "GitHub",
+          "config": {
+            "file": ".github/workflows/pre-merge-checks.yml",
+            "path": "$.jobs.run-checks.steps[?@.name=='Run browser tests']"
+          },
+          "checks": [
             {
               "name": "accessibility"
             },
@@ -44,9 +64,6 @@
             },
             {
               "name": "regression"
-            },
-            {
-              "name": "visual regression"
             }
           ]
         },
