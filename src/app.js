@@ -42,7 +42,10 @@ const {
   SESSION_TTL,
   PROXY_API,
 } = require("./lib/config");
-const logger = require("./lib/logger").get(PACKAGE_NAME);
+const logger =
+  require("@govuk-one-login/di-ipv-cri-common-express/src/bootstrap/lib/logger").get(
+    PACKAGE_NAME,
+  );
 
 const { setup } =
   require("@govuk-one-login/di-ipv-cri-common-express").bootstrap;
