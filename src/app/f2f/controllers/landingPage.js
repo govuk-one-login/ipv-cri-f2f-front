@@ -1,6 +1,9 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API, PACKAGE_NAME } = require("../../../lib/config");
-const logger = require("../../../lib/logger").get(PACKAGE_NAME);
+const logger =
+  require("@govuk-one-login/di-ipv-cri-common-express/src/bootstrap/lib/logger").get(
+    PACKAGE_NAME,
+  );
 
 class LandingPageController extends BaseController {
   async saveValues(req, res, next) {
