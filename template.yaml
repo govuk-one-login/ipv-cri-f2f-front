@@ -175,7 +175,7 @@ Mappings:
       GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
-      USEPINOLOGGER: false
+      USEPINOLOGGER: true
       PROXYURL: "proxy.review-o.staging.account.gov.uk"
       LOGLEVEL: "warn"
       minECSCount: 2
@@ -189,7 +189,7 @@ Mappings:
       GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
-      USEPINOLOGGER: false
+      USEPINOLOGGER: true
       PROXYURL: "proxy.review-o.integration.account.gov.uk"
       LOGLEVEL: "warn"
       minECSCount: 2
@@ -203,7 +203,7 @@ Mappings:
       GTMIDGA4: "GTM-K4PBJH3"
       ANALYTICSDOMAIN: "account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
-      USEPINOLOGGER: false
+      USEPINOLOGGER: true
       PROXYURL: "proxy.review-o.account.gov.uk"
       LOGLEVEL: "warn"
       minECSCount: 6
