@@ -54,7 +54,7 @@
     "axe-core": "4.11.4",
     "axe-playwright": "2.1.0",
     "chai": "4.3.7",
-    "chai-as-promised": "7.1.1",
+    "chai-as-promised": "8.0.2",
     "fast-xml-parser": "5.5.7",
     "jest": "30.4.2",
     "lint-staged": "13.2.3",
