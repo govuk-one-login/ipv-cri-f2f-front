@@ -190,15 +190,19 @@ module.exports = class TestHarness {
     const currentEventBody = allTxmaEventBodies[eventName];
 
     if (currentEventBody?.event_name) {
+      var validate;
       try {
-        const validate = ajv.getSchema(schemaName);
+        validate = ajv.getSchema(schemaName);
         if (validate) {
-          expect(validate(currentEventBody)).to.be.true;
+          const isValid = validate(currentEventBody);
+          expect(isValid).to.be.true;
         } else {
           throw new Error(`Could not find schema ${schemaName}`);
         }
       } catch (error) {
         console.error(`Error validating ${eventName} event`, error);
+        console.error(`Errors:`, validate.errors);
+
         throw error;
       }
     } else {
