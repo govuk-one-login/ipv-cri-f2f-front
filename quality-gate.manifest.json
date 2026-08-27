@@ -40,7 +40,7 @@
             }
           ],
           "file": ".github/workflows/pre-merge-checks.yml",
-          "path": "$.jobs.run-checks.steps[?@.name=='Run test and write coverage']"
+          "path": "$.jobs.run-checks.steps[?@.name=='Run test and write coverage - Pino Logger']"
         },
         {
           "phase": "pre-merge",
