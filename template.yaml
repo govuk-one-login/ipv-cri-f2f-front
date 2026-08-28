@@ -139,6 +139,7 @@ Mappings:
       GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
+      USEPINOLOGGER: true
       PROXYURL: "f2f-cri-outbound-proxy-proxy.review-o.dev.account.gov.uk"
       LOGLEVEL: "debug"
       minECSCount: 1
@@ -156,6 +157,7 @@ Mappings:
       GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "build.account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
+      USEPINOLOGGER: true
       PROXYURL: "proxy.review-o.build.account.gov.uk"
       LOGLEVEL: "warn"
       minECSCount: 6
@@ -173,6 +175,7 @@ Mappings:
       GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
+      USEPINOLOGGER: true
       PROXYURL: "proxy.review-o.staging.account.gov.uk"
       LOGLEVEL: "warn"
       minECSCount: 2
@@ -186,6 +189,7 @@ Mappings:
       GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
+      USEPINOLOGGER: true
       PROXYURL: "proxy.review-o.integration.account.gov.uk"
       LOGLEVEL: "warn"
       minECSCount: 2
@@ -199,6 +203,7 @@ Mappings:
       GTMIDGA4: "GTM-K4PBJH3"
       ANALYTICSDOMAIN: "account.gov.uk"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
+      USEPINOLOGGER: true
       PROXYURL: "proxy.review-o.account.gov.uk"
       LOGLEVEL: "warn"
       minECSCount: 6
@@ -619,6 +624,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, PROXYURL ]
             - Name: LOG_LEVEL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
+            - Name: USE_PINO_LOGGER
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, USEPINOLOGGER ]
             - Name: MAY_2025_REBRAND_ENABLED
               Value: true
             - Name: LETTER_LANGUAGE_CHOICE_ENABLED

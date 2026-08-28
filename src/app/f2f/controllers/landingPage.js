@@ -1,6 +1,6 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
-const { API } = require("../../../lib/config");
-const logger = require("hmpo-logger").get();
+const { API, PACKAGE_NAME } = require("../../../lib/config");
+const logger = require("../../../lib/logger").get(PACKAGE_NAME);
 
 class LandingPageController extends BaseController {
   async saveValues(req, res, next) {
@@ -33,7 +33,7 @@ class LandingPageController extends BaseController {
         return data;
       } catch (error) {
         console.log("Error calling /sessionConfiguration");
-        logger.error("Error calling /sessionConfiguration", error);
+        logger.error({ err: error }, "Error calling /sessionConfiguration");
       }
     } else {
       console.error("Missing sessionID, redirecting to /error");
