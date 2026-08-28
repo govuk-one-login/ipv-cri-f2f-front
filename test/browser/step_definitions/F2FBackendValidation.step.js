@@ -1,5 +1,7 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
+const { expect } = require("chai");
+
 const TestHarness = require("../support/TestHarness");
 
 const vcResponseData = require("../support/vcValidationData.json");
@@ -22,6 +24,15 @@ Given(
     }
     this.sessionId = sessionData.sessionId;
     this.authSessionState = sessionData.authSessionState;
+  }
+);
+
+Then(
+  "the authSessionState is correctly recorded as {string}",
+  { timeout: 2 * 50000 },
+  async function (authSessionState) {
+    expect(this.sessionId).to.not.be.null;
+    expect(this.authSessionState).to.equal(authSessionState);
   }
 );
 
