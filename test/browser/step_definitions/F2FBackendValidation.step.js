@@ -1,7 +1,5 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
-const { expect } = require("chai");
-
 const TestHarness = require("../support/TestHarness");
 
 const vcResponseData = require("../support/vcValidationData.json");
