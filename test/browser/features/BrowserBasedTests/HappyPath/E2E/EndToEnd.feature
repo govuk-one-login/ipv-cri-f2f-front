@@ -34,8 +34,8 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session using "authCode"
-        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
+        Given I have retrieved the sessionTable data for my F2F session using "state"
+        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
@@ -78,8 +78,8 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session using "authCode"
-        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
+        Given I have retrieved the sessionTable data for my F2F session using "state"
+        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
@@ -125,8 +125,8 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session using "authCode"
-        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
+        Given I have retrieved the sessionTable data for my F2F session using "state"
+        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
@@ -176,8 +176,8 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session using "authCode"
-        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
+        Given I have retrieved the sessionTable data for my F2F session using "state"
+        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
@@ -227,8 +227,8 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session using "authCode"
-        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
+        Given I have retrieved the sessionTable data for my F2F session using "state"
+        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
@@ -287,8 +287,8 @@ Feature: F2F Journey - E2E
         Then the user is navigated to the next step in the journey - Confirm Answer
         When the user clicks the Check My Answers Submit button
 
-        Given I have retrieved the sessionTable data for my F2F session using "authCode"
-        Then the authSessionState is correctly recorded as "F2F_AUTH_CODE_ISSUED"
+        Given I have retrieved the sessionTable data for my F2F session using "state"
+        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
