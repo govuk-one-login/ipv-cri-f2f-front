@@ -172,8 +172,7 @@
             },
             "required": [
                 "name",
-                "passport",
-                "device_information"
+                "passport"
             ]
         }
     },

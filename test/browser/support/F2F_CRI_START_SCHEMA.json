@@ -61,8 +61,7 @@
         "user",
         "timestamp",
         "event_timestamp_ms",
-        "component_id",
-        "restricted"
+        "component_id"
     ],
     "additionalProperties": false
 }

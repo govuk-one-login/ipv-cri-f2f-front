@@ -172,8 +172,7 @@
             },
             "required": [
                 "name",
-                "drivingPermit",
-                "device_information"
+                "drivingPermit"
             ]
         }
     },
