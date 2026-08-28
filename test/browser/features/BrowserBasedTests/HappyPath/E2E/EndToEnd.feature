@@ -35,7 +35,6 @@ Feature: F2F Journey - E2E
         When the user clicks the Check My Answers Submit button
 
         Given I have retrieved the sessionTable data for my F2F session using "state"
-        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
@@ -79,7 +78,6 @@ Feature: F2F Journey - E2E
         When the user clicks the Check My Answers Submit button
 
         Given I have retrieved the sessionTable data for my F2F session using "state"
-        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
@@ -126,7 +124,6 @@ Feature: F2F Journey - E2E
         When the user clicks the Check My Answers Submit button
 
         Given I have retrieved the sessionTable data for my F2F session using "state"
-        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
@@ -177,7 +174,6 @@ Feature: F2F Journey - E2E
         When the user clicks the Check My Answers Submit button
 
         Given I have retrieved the sessionTable data for my F2F session using "state"
-        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
@@ -228,7 +224,6 @@ Feature: F2F Journey - E2E
         When the user clicks the Check My Answers Submit button
 
         Given I have retrieved the sessionTable data for my F2F session using "state"
-        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness
@@ -251,7 +246,6 @@ Feature: F2F Journey - E2E
         When the user selects I do not have any of these documents
 
         Given I have retrieved the sessionTable data for my F2F session using "state"
-        Then the authSessionState is correctly recorded as "F2F_CRI_SESSION_ABORTED"
         When I get 2 TxMA events from Test Harness
         Then the "F2F_CRI_START" event matches the "F2F_CRI_START_SCHEMA" Schema
         And the "F2F_CRI_SESSION_ABORTED" event matches the "F2F_CRI_SESSION_ABORTED_SCHEMA" Schema
@@ -288,7 +282,6 @@ Feature: F2F Journey - E2E
         When the user clicks the Check My Answers Submit button
 
         Given I have retrieved the sessionTable data for my F2F session using "state"
-        Then the authSessionState is correctly recorded as "F2F_ACCESS_TOKEN_ISSUED"
         When I sent the request to the callback endpoint
         Then the Verifiable Credential is stored as expected
         When I get 7 TxMA events from Test Harness

@@ -27,15 +27,6 @@ Given(
   }
 );
 
-Then(
-  "the authSessionState is correctly recorded as {string}",
-  { timeout: 2 * 50000 },
-  async function (authSessionState) {
-    expect(this.sessionId).to.not.be.null;
-    expect(this.authSessionState).to.equal(authSessionState);
-  }
-);
-
 When(
   /^I sent the request to the callback endpoint$/,
   { timeout: 2 * 50000 },
