@@ -93,7 +93,6 @@ When(/^the user clicks the Check My Answers Submit button$/, async function () {
 
   this.state = await cmPage.setSessionState();
   this.authCode = await cmPage.setAuthCode();
-  console.log("FRONTEND AUTH CODE", this.authCode)
 });
 
 Then("the language toggle is present on the screen", async function () {
