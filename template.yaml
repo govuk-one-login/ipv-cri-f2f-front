@@ -467,7 +467,7 @@ Resources:
     Type: AWS::Logs::LogGroup
     Properties:
       LogGroupName: !Sub /aws/ecs/${AWS::StackName}-F2FFront-ECS
-      RetentionInDays: 30
+      RetentionInDays: 365
 
   CSLSECSAccessSubscriptionFilter:
     Type: AWS::Logs::SubscriptionFilter
@@ -863,7 +863,7 @@ Resources:
     Type: AWS::Logs::LogGroup
     Properties:
       LogGroupName: !Sub /aws/apigateway/${AWS::StackName}-F2FFront-API-GW-AccessLogs
-      RetentionInDays: 30
+      RetentionInDays: 365
 
   CSLSAPIGWAccessSubscriptionFilter:
     Type: AWS::Logs::SubscriptionFilter
