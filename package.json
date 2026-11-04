@@ -52,7 +52,7 @@
     "ajv-formats": "3.0.1",
     "aws4-axios": "3.4.0",
     "axe-core": "4.11.4",
-    "axe-playwright": "2.1.0",
+    "axe-playwright": "2.2.2",
     "chai": "4.3.7",
     "chai-as-promised": "7.1.1",
     "fast-xml-parser": "5.11.0",
