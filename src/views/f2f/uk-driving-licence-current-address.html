@@ -1,11 +1,12 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "ukPhotocardDlAddressCheck" %}
 {% set gtmJourney = "f2f - ukPhotocardDlAddressCheck" %}
 
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-details/macro.njk" import hmpoDetails %}
+{% from "frontend-ui/build/components/radios/macro.njk" import radios %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/details/macro.njk" import details %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
 {% if query.edit == "true" %}
@@ -28,8 +29,8 @@
 {% set context = translate("ukPhotocardDlAddressCheck.context") %}
 {% set formInstructions = "<p>"+context+"</p>"%}
       
-      {% call hmpoForm(ctx) %}
-              {{ hmpoRadios(ctx, {
+      {% call form(ctx) %}
+              {{ radios(ctx, {
                 id: "ukPhotocardDlAddressCheck",
                 namePrefix: "ukPhotocardDlAddressCheck",
                 fieldset: {
@@ -44,13 +45,13 @@
             }
             }) }}
 
-        {{ hmpoDetails({
+        {{ details({
           id: "ukPhotocardDlAddressCheckChange",
           summaryText: translate("ukPhotocardDlAddressCheck.change-how"),
           html: translate("ukPhotocardDlAddressCheck.change-link")
         }) }}
 
-        {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
+        {{ submit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
     }) }}
     
       {% endcall %}

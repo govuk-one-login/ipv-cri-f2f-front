@@ -1,11 +1,13 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "postOfficeCustomerLetterChoice" %}
 {% set gtmJourney = "f2f - postOfficeCustomerLetter" %}
 
 
 
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "frontend-ui/build/components/radios/macro.njk" import radios %}
 
 {% set contentID = "e10eea5a-7ac8-4857-b880-95c925ea1912" %}
 {% set isPageDataSensitive = false %}
@@ -27,7 +29,7 @@
     <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
       {{ title }}
     </h1>
-{% call hmpoForm(ctx) %}
+{% call form(ctx) %}
     <div id="branches-hint">
         <p id="contentLine1">{{ content1 }}</p>
         <ul class="govuk-list govuk-list--bullet">
@@ -37,7 +39,7 @@
       <p id="contentLine2">{{ content2 }}</p> 
     </div>
 
-        {{ hmpoRadios(ctx, {
+        {{ radios(ctx, {
             id: "postOfficeCustomerLetterChoice",
             legend: {
                 text: prompt,
@@ -45,7 +47,7 @@
             }
         })}}
 
-        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.continue"), attributes: {"data-nav": true,"data-link": "/undefined"}
+        {{ submit(ctx, {id: "continue", text: translate("buttons.continue"), attributes: {"data-nav": true,"data-link": "/undefined"}
     }) }}
     {% endcall %}
 
