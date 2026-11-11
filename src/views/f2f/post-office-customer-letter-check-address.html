@@ -1,4 +1,6 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "customerLetterCheckAddress" %}
 {% set gtmJourney = "f2f - customerLetterCheckAddress" %}
@@ -6,7 +8,7 @@
 
 
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "frontend-ui/build/components/radios/macro.njk" import radios %}
 
 {% set contentID = "14d71790-90a3-4706-9c06-e8f9ff51f4db" %}
 {% set isPageDataSensitive = false %}
@@ -29,14 +31,14 @@
         {{ title }}
     </h1>
 
-    {% call hmpoForm(ctx) %}
+    {% call form(ctx) %}
         <p class="addressCheckContent">{{ content }}</p>
 
         {{ govukInsetText({
             html: "<p>" + addressLine + "</p>"
         }) }}
 
-        {{ hmpoRadios(ctx, {
+        {{ radios(ctx, {
             id: "customerLetterCheckAddress",
                 legend: {
                     text: prompt,
@@ -44,7 +46,7 @@
                 }
         })}}
 
-        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.continue"), attributes: {"data-nav": true,"data-link": "/undefined"}
+        {{ submit(ctx, {id: "continue", text: translate("buttons.continue"), attributes: {"data-nav": true,"data-link": "/undefined"}
     }) }}
     {% endcall %}
 {% endblock %}

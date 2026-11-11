@@ -1,9 +1,11 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/pages.yml #}
 {% set hmpoPageKey = "postOfficeCustomerLetterLanguageChoice" %}
 {% set gtmJourney = "f2f - postOfficeCustomerLetterLanguageChoice" %}
 
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "frontend-ui/build/components/radios/macro.njk" import radios %}
 
 
 {% if query.edit == "true" %}
@@ -24,9 +26,9 @@
 
 {% set title = translate("postOfficeCustomerLetterLanguageChoice.title") %}
 
-{% call hmpoForm(ctx) %}
+{% call form(ctx) %}
 
-        {{ hmpoRadios(ctx, {
+        {{ radios(ctx, {
             id: "postOfficeCustomerLetterLanguageChoice",
             legend: {
                 text: title,
@@ -34,7 +36,7 @@
             }
         })}}
 
-        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.continue"), attributes: {"data-nav": true,"data-link": "/undefined"}
+        {{ submit(ctx, {id: "continue", text: translate("buttons.continue"), attributes: {"data-nav": true,"data-link": "/undefined"}
     }) }}
     {% endcall %}
 

@@ -1,14 +1,16 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/html/macro.njk" import html %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "addressResults" %}
 {% set gtmJourney = "f2f - addressResults" %}
 
 
 
-{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-select/macro.njk" import hmpoSelect %}
+{% from "frontend-ui/build/components/text/macro.njk" import text %}
+{% from "frontend-ui/build/components/select/macro.njk" import select %}
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 
 {% set contentID = "47449344-85c0-4ec5-a210-be0b57e01ef2" %}
@@ -23,11 +25,11 @@
 
     <h1 id="header" data-page="{{hmpoPageKey}}" class="govuk-heading-l">{{ translate("addressResults.title") }}</h1>
 
-    {{hmpoHtml(translate("links.changeLetterPostcode"))}}
+    {{html(translate("links.changeLetterPostcode"))}}
 
-    {% call hmpoForm(ctx) %}
+    {% call form(ctx) %}
 
-        {{ hmpoSelect(ctx, {
+        {{ select(ctx, {
             id: "addressResults",
             label: translate("addressResults.label"),
             hint: "",
@@ -36,7 +38,7 @@
 
 
 
-        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/check-details"}
+        {{ submit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/check-details"}
     }) }}
     {% endcall %}
 

@@ -50,8 +50,8 @@ photoIdChoiceThinFile:
   label: Year
 
 ukPassportExpiryDate:
-  legend: ""
-  label: ""
+  legend: Expiry date
+  label: Expiry date
   hint: "For example, 31 3 2025"
   validation:
     default: "Enter the full expiry date"
@@ -66,8 +66,8 @@ ukPassportExpiryDate:
     "required-year": "Enter the full expiry date"
 
 ukPhotocardDlExpiryDate:
-  legend: ""
-  label: ""
+  legend: Expiry date
+  label: Expiry date
   hint: "For example, 31 3 2025"
   validation:
     default: "Enter the full expiry date"
@@ -82,8 +82,8 @@ ukPhotocardDlExpiryDate:
     "required-year": "Enter the full expiry date"
 
 nonUKPassportExpiryDate:
-  legend: ""
-  label: ""
+  legend: Expiry date
+  label: Expiry date
   hint: "For example, 31 3 2025"
   validation:
     default: "Enter the full expiry date"
@@ -98,8 +98,8 @@ nonUKPassportExpiryDate:
     "required-year": "Enter the full expiry date"
 
 euPhotocardDlExpiryDate:
-  legend: ""
-  label: ""
+  legend: Expiry date
+  label: Expiry date
   hint: "For example, 31 3 2025"
   validation:
     default: "Enter the full expiry date"
@@ -114,8 +114,8 @@ euPhotocardDlExpiryDate:
     "required-year": "Enter the full expiry date"
 
 eeaIdCardExpiryDate:
-  label: ""
-  legend: ""
+  label: Expiry date
+  legend: Expiry date
   hint: "For example, 31 3 2025"
   validation:
     default: "Enter the full expiry date"
@@ -214,8 +214,8 @@ addressResults:
     default: "Choose an address from the list"
 
 checkDetails:
-  label: ""
-  legend: ""
+  label: Check your details
+  legend: Check your details
   validation:
     default: "Make sure your answers are correct before you continue."
 

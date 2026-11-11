@@ -49,7 +49,7 @@ photoIdChoiceThinFile:
   label: Blwyddyn
 
 ukPhotocardDlAddressCheck:
-  legend: ""
+  legend: Gwirio cyfeiriad trwydded yrru
   validation:
     default: "Dewiswch os oes gan eich trwydded yrru eich cyfeiriad cyfredol arno"
   items:
@@ -63,8 +63,8 @@ ukPhotocardDlAddressCheck:
       reveal: ""
 
 ukPassportExpiryDate:
-  legend: ""
-  label: ""
+  legend: Dyddiad dod i ben
+  label: Dyddiad dod i ben
   hint: "Er enghraifft, 31 3 2025"
   validation:
     default: "Rhowch y dyddiad dod i ben yn llawn"
@@ -79,8 +79,8 @@ ukPassportExpiryDate:
     "required-year": "Rhowch y dyddiad dod i ben yn llawn"
 
 ukPhotocardDlExpiryDate:
-  legend: ""
-  label: ""
+  legend: Dyddiad dod i ben
+  label: Dyddiad dod i ben
   hint: "Er enghraifft, 31 3 2025"
   validation:
     default: "Rhowch y dyddiad dod i ben yn llawn"
@@ -95,8 +95,8 @@ ukPhotocardDlExpiryDate:
     "required-year": "Rhowch y dyddiad dod i ben yn llawn"
 
 nonUKPassportExpiryDate:
-  legend: ""
-  label: ""
+  legend: Dyddiad dod i ben
+  label: Dyddiad dod i ben
   hint: "Er enghraifft, 31 3 2025"
   validation:
     default: "Rhowch y dyddiad dod i ben yn llawn"
@@ -111,8 +111,8 @@ nonUKPassportExpiryDate:
     "required-year": "Rhowch y dyddiad dod i ben yn llawn"
 
 euPhotocardDlExpiryDate:
-  legend: ""
-  label: ""
+  legend: Dyddiad dod i ben
+  label: Dyddiad dod i ben
   hint: "Er enghraifft, 31 3 2025"
   validation:
     default: "Rhowch y dyddiad dod i ben yn llawn"
@@ -141,8 +141,8 @@ euPhotocardDlAddressCheck:
       hint: ""
 
 eeaIdCardExpiryDate:
-  label: ""
-  legend: ""
+  label: Dyddiad dod i ben
+  legend: Dyddiad dod i ben
   hint: "Er enghraifft, 31 3 2025"
   validation:
     default: "Rhowch y dyddiad dod i ben yn llawn"
@@ -211,8 +211,8 @@ addressResults:
     default: "Dewiswch gyfeiriad o'r rhestr"
 
 checkDetails:
-  label: ""
-  legend: ""
+  label: Gwiriwch eich manylion
+  legend: Gwiriwch eich manylion
   validation:
     default: "Gwnewch yn siwr bod eich atebion yn gywir cyn i chi barhau."
 

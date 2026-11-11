@@ -1,10 +1,12 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "findAddress" %}
 {% set gtmJourney = "f2f - findAddress" %}
 
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "frontend-ui/build/components/text/macro.njk" import text %}
 
 {% set contentID = "922f0538-3f98-4370-a50d-54cf73316f0e" %}
 {% set isPageDataSensitive = false %}
@@ -20,18 +22,18 @@
         {{ translate("findAddress.title") }}
     </h1>
     
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+    {% call form(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     <p id="branchesInformation">{{ translate("findAddress.content") }}</p>
 
-    {{ hmpoText(ctx, {
+    {{ text(ctx, {
         id: "letterPostcode",
         attributes: {
             autocomplete: "postal-code"
         }
       }) }}
 
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/post-office-customer-letter-choose-address"}
+    {{ submit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/post-office-customer-letter-choose-address"}
 }) }}
 
 
