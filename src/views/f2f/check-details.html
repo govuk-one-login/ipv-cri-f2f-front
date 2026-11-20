@@ -1,4 +1,6 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "checkDetails" %}
 {% set gtmJourney = "f2f - checkYourDetails" %}
@@ -33,8 +35,8 @@
       rows: summaryRows
     }) }}
 
-    {% call hmpoForm(ctx) %}
-      {{ hmpoSubmit(ctx, {
+    {% call form(ctx) %}
+      {{ submit(ctx, {
         id: "continue",
         text: translate("checkDetails.buttonText"),
         attributes: {

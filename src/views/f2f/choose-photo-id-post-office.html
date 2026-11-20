@@ -1,9 +1,11 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {% set gtmJourney = "f2f - photoIdSelection" %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% set hmpoTitle = photoIdSelection.label %}
 {% set hmpoPageKey = "photoIdSelection" %}
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "frontend-ui/build/components/radios/macro.njk" import radios %}
 {% set isPageHeading = true %}
 
 {% if query.edit == "true" %}
@@ -29,8 +31,8 @@
 {% set formInstructions = "<p>"+content+"</p><br><p>"+expiryWarning+"</p><br><p>"+addressWarning+"</p><br>" %}
 {% set subtitle = translate("photoIdSelection.subtitle") %}
       
-      {% call hmpoForm(ctx) %}
-          {{ hmpoRadios(ctx, {
+      {% call form(ctx) %}
+          {{ radios(ctx, {
             id: "photoIdChoice",
             namePrefix: "photoIdChoice",
             fieldset: {
@@ -45,7 +47,7 @@
             }
         }) }}
 
-          {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
+          {{ submit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
         }) }}
       {% endcall %}
     

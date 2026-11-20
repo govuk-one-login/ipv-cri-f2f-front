@@ -1,11 +1,13 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "findBranch" %}
 {% set gtmJourney = "f2f - findBranch" %}
 
 
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "frontend-ui/build/components/text/macro.njk" import text %}
 
 {% if query.edit == "true" %}
   {% set contentID = "bdc73e3b-5520-4d58-9d56-55852ef201ec" %}
@@ -25,16 +27,16 @@
         {{ translate("findBranch.title") }}
     </h1>
     
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+    {% call form(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
-    {{ hmpoText(ctx, {
+    {{ text(ctx, {
         id: "postcode",
         attributes: {
             autocomplete: "postal-code"
         }
       }) }}
 
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/choose-post-office-prove-identity"}
+    {{ submit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/choose-post-office-prove-identity"}
 }) }}
 
     {% endcall %}

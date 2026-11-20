@@ -1,10 +1,13 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/html/macro.njk" import html %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "locations" %}
 {% set gtmJourney = "f2f - locations" %}
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "frontend-ui/build/components/text/macro.njk" import text %}
+{% from "frontend-ui/build/components/radios/macro.njk" import radios %}
 
 {% set contentID = "36e028d3-01f6-4555-91d0-9f3a8c4df80e" %}
 {% set isPageDataSensitive = true %}
@@ -18,10 +21,10 @@
 
 {% set information = translate("locations.content") %}
 {% set userPostCodeLabel = translate("locations.body") %}
-{% set userPostCodeControl = hmpoHtml(translate("links.changePostcode")) %}
+{% set userPostCodeControl = html(translate("links.changePostcode")) %}
 {% set title = translate("locations.title") %}
 
-{% call hmpoForm(ctx) %}
+{% call form(ctx) %}
 
     {%
     set fullBranch = {
@@ -39,8 +42,8 @@
     }
     %}
 
-        {{ hmpoRadios(ctx, fullBranch, {id: "branches"}) }}
-        {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/post-office-customer-letter"}
+        {{ radios(ctx, fullBranch, {id: "branches"}) }}
+        {{ submit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/post-office-customer-letter"}
     }) }}
     {% endcall %}
 
