@@ -1,13 +1,14 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "euPhotocardDl" %}
 {% set gtmJourney = "f2f - euPhotocardDlDetails" %}
 
 
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-date/macro.njk" import hmpoDate %}
+{% from "frontend-ui/build/components/text/macro.njk" import text %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/date/macro.njk" import date %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
 {% set contentID = "d06093a8-8188-4f1a-a8b3-af897e92f0ed" %}
@@ -27,8 +28,8 @@
 {% set hintText = translate("euPhotocardDl.hintText") %}
 {% set formInstructions = "<p class=\"idExpiryContext\">"+context+"</p><p class=\"govuk-hint\">"+hintText+"</p>" %}
     
-    {% call hmpoForm(ctx) %}
-          {{ hmpoDate(ctx, {
+    {% call form(ctx) %}
+          {{ date(ctx, {
             id: "euPhotocardDlExpiryDate",
             namePrefix: "euPhotocardDlExpiryDate",
             fieldset: {
@@ -43,7 +44,7 @@
             }
         }) }}
 
-     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
+     {{ submit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
     }) }}
 
     {% endcall %}

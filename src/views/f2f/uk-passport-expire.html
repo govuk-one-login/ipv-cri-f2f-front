@@ -1,13 +1,14 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "ukPassport" %}
 {% set gtmJourney = "f2f - ukPassportDetails" %}
 
 
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-date/macro.njk" import hmpoDate %}
+{% from "frontend-ui/build/components/text/macro.njk" import text %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/date/macro.njk" import date %}
 
 {% if query.edit == "true" %}
   {% set contentID = "22c57cf0-70d0-422b-994b-04bdbbcba3f0" %}
@@ -28,8 +29,8 @@
 {% set hintText = translate("ukPassport.hintText") %}
 {% set formInstructions = "<p class=\"idExpiryContext\">"+context+"</p><p class=\"govuk-hint\">"+hintText+"</p>" %}
 
-  {% call hmpoForm(ctx) %}
-          {{ hmpoDate(ctx, {
+  {% call form(ctx) %}
+          {{ date(ctx, {
             id: "ukPassportExpiryDate",
             namePrefix: "ukPassportExpiryDate",
             fieldset: {
@@ -45,7 +46,7 @@
         }) }}
 
 
-      {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
+      {{ submit(ctx, {id: "continue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
     }) }}
 
       {% endcall %}

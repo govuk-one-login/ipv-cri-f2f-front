@@ -1,9 +1,11 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {% set gtmJourney = "f2f - photoIdSelectionThinFile" %}
 {% set hmpoTitle = photoIdSelectionThinFile.label %}
 {% set hmpoPageKey = "photoIdSelectionThinFile" %}
 {% set isPageHeading = true %}
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "frontend-ui/build/components/radios/macro.njk" import radios %}
 
 {% if query.edit == "true" %}
   {% set contentID = "8d406f37-e21f-4e2c-b4a1-19ba67a60bc0" %}
@@ -26,8 +28,8 @@
     {% set hint = translate("photoIdSelectionThinFile.hint") %}
     {% set formInstructions = "<br><p>" + content + "</p><br><p>" + hint + "</p>" %}
 
-    {% call hmpoForm(ctx) %}
-    {{ hmpoRadios(ctx, {
+    {% call form(ctx) %}
+    {{ radios(ctx, {
         id: "photoIdChoiceThinFile",
         namePrefix: "photoIdChoiceThinFile",
         fieldset: {
@@ -42,7 +44,7 @@
         }
     }) }}
     
-    {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"} }) }}
+    {{ submit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"} }) }}
 
     {% endcall %}
 {% endblock %}
