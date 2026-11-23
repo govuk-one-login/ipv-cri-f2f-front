@@ -1,4 +1,6 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoTitle = landingPage.pageTitle %}
@@ -56,9 +58,9 @@
         <p class="instruction" id="thirdStepOne">{{ "landingPage.instructions.thirdStep.one" | translate }}</p>
       </li>
     </ol>
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+    {% call form(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
     {% block submitButton %}
-      {{ hmpoSubmit(ctx, {id: "landingPageContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
+      {{ submit(ctx, {id: "landingPageContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
       }) }}
     {% endblock %}
     {% endcall %}

@@ -1,12 +1,13 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "euDrivingLicenceCountrySelector" %}
 {% set gtmJourney = "f2f - euDrivingLicenceCountrySelector" %}
 
 
 
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-select/macro.njk" import hmpoSelect %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/select/macro.njk" import select %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
 
@@ -29,10 +30,10 @@
     </h1>
     <p> {{ translate("euDrivingLicenceCountrySelector.content") }} </p>
 
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+    {% call form(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
     <div class="hint-with-margin">
-    {{ hmpoSelect(ctx, {
+    {{ select(ctx, {
         id: "euDrivingLicenceCountrySelector",
         label: translate("fields.euDrivingLicenceCountrySelector.label")
     }) }}
@@ -40,7 +41,7 @@
 
   <p><a href="/choose-photo-id-post-office">{{ translate("euDrivingLicenceCountrySelector.link") }}</a></p>
 
-     {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/find-post-office-prove-identity"}
+     {{ submit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/find-post-office-prove-identity"}
     }) }}
 
     {% endcall %}

@@ -1,4 +1,5 @@
 {% extends "base-form.njk" %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoPageKey = "eeaIdentityCardAddressCheck" %}
 {% set gtmJourney = "f2f - eeaNationalIdAddressCheck" %}
@@ -6,9 +7,9 @@
 
 
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "frontend-ui/build/components/text/macro.njk" import text %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/radios/macro.njk" import radios %}
 
 {% if query.edit == "true" %}
   {% set contentID = "dd83a52c-d4f0-4990-a79e-0f753f894e9a" %}
@@ -30,8 +31,8 @@
 {% set context = translate("eeaIdentityCardAddressCheck.context") %}
 {% set formInstructions = "<p>"+context+"</p>"%}
       
-      {% call hmpoForm(ctx) %}
-              {{ hmpoRadios(ctx, {
+      {% call form(ctx) %}
+              {{ radios(ctx, {
                 id: "eeaIdentityCardAddressCheck",
                 namePrefix: "eeaIdentityCardAddressCheck",
                 fieldset: {
@@ -46,7 +47,7 @@
             }
             }) }}
   
-    {{ hmpoSubmit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
+    {{ submit(ctx, {id: "continue", classes: "radioButtonsContinue", text: translate("buttons.next"), attributes: {"data-nav": true,"data-link": "/undefined"}
 }) }}
     
     {% endcall %}
