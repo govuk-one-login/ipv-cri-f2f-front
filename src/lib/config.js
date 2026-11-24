@@ -1,8 +1,8 @@
-require("dotenv").config();
+import "dotenv/config.js";
 
-module.exports = {
-  PACKAGE_NAME: "di-ipv-cri-f2f-front",
-  API: {
+export const PACKAGE_NAME = "di-ipv-cri-f2f-front";
+
+export const API = {
     BASE_URL:
       process.env.API_BASE_URL ||
       "https://api-f2f-cri-api.review-o.dev.account.gov.uk",
@@ -16,15 +16,16 @@ module.exports = {
       PERSON_INFO_KEY: "/person-info-key",
       ADDRESS_LOCATIONS: "/addressLocations",
     },
-  },
-  PROXY_API: {
+  };
+
+export const PROXY_API = {
     BASE_URL: process.env.PROXYURL,
     PATHS: {
       POST_OFFICE: "/postoffice/v1/locations/search",
       ORDNANCE_SURVEY: "https://api.os.uk/search/places/v1/postcode?",
     },
-  },
-  APP: {
+  };
+export const APP = {
     BASE_URL: process.env.EXTERNAL_WEBSITE_HOST || "http://localhost:8000",
     PATHS: {
       F2F: "/",
@@ -111,13 +112,13 @@ module.exports = {
     },
     DEVICE_INTELLIGENCE_DOMAIN: process.env.DEVICE_INTELLIGENCE_DOMAIN || "localhost",
     LETTER_LANGUAGE_CHOICE_ENABLED: process.env.LETTER_LANGUAGE_CHOICE_ENABLED === "true",
-  },
-  PORT: process.env.PORT || 5030,
-  SESSION_SECRET: process.env.SESSION_SECRET,
-  SESSION_TABLE_NAME: process.env.SESSION_TABLE_NAME,
-  SESSION_TTL: process.env.SESSION_TTL || 7200000, // two hours in ms
-  REDIS: {
+  };
+
+export const PORT = process.env.PORT || 5030;
+export const SESSION_SECRET = process.env.SESSION_SECRET;
+export const SESSION_TABLE_NAME = process.env.SESSION_TABLE_NAME;
+export const SESSION_TTL = process.env.SESSION_TTL || 7200000; // two hours in ms
+export const REDIS = {
     SESSION_URL: process.env.REDIS_SESSION_URL,
     PORT: process.env.REDIS_PORT || 6379,
-  },
-};
+  };

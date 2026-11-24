@@ -1,8 +1,8 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { APP } = require("../../../lib/config");
-const { expect } = require("chai");
-const { afterEach } = require("mocha");
-const PhotoIdSelectionController = require("./photoIdSelection");
+import wizard from "hmpo-form-wizard";
+import { APP } from "../../../lib/config.js";
+import { expect } from "chai";
+import { afterEach } from "mocha";
+import { PhotoIdSelectionController } from "./photoIdSelection.js";
 
 describe("PhotoIdSelectionController", () => {
   const photoIdSelectionController = new PhotoIdSelectionController({
@@ -26,7 +26,7 @@ describe("PhotoIdSelectionController", () => {
   });
 
   it("should be an instance of BaseController", () => {
-    expect(photoIdSelectionController).to.be.an.instanceOf(BaseController);
+    expect(photoIdSelectionController).to.be.an.instanceOf(wizard.Controller);
   });
 
   describe("saveValues", () => {

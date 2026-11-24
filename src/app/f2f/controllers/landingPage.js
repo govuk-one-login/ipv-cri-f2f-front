@@ -1,8 +1,9 @@
-const { Controller: BaseController } = require("hmpo-form-wizard");
-const { API, PACKAGE_NAME } = require("../../../lib/config");
-const logger = require("../../../lib/logger").get(PACKAGE_NAME);
+import wizard from "hmpo-form-wizard";
+import { API, PACKAGE_NAME } from "../../../lib/config.js";
+import { get as getLogger } from "../../../lib/logger.js";
+const logger = getLogger(PACKAGE_NAME);
 
-class LandingPageController extends BaseController {
+export class LandingPageController extends wizard.Controller {
   async saveValues(req, res, next) {
     req.sessionModel.set("isThinFileUser", false);
 
@@ -41,5 +42,3 @@ class LandingPageController extends BaseController {
     }
   }
 }
-
-module.exports = LandingPageController;

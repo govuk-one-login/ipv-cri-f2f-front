@@ -1,6 +1,6 @@
 const { When, Then } = require("@cucumber/cucumber");
 
-const { expect } = require("chai");
+import { expect } from "chai";
 
 const { ErrorPage, IpvErrorPage } = require("../pages");
 

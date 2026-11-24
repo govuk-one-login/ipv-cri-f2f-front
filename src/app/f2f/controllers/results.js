@@ -1,7 +1,7 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { PROXY_API, APP } = require("../../../../src/lib/config");
+import wizard from "hmpo-form-wizard";
+import { PROXY_API, APP } from "../../../../src/lib/config.js";
 
-class PostcodeSearchController extends BaseController {
+export class PostcodeSearchController extends wizard.Controller {
   locals(req, res, callback) {
     super.locals(req, res, async (err, locals) => {
       if (err) {
@@ -77,5 +77,3 @@ class PostcodeSearchController extends BaseController {
     });
   }
 }
-
-module.exports = PostcodeSearchController;

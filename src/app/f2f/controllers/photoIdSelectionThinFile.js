@@ -1,8 +1,9 @@
-const { APP, PACKAGE_NAME } = require("../../../lib/config");
-const BaseController = require("hmpo-form-wizard").Controller;
-const logger = require("../../../lib/logger").get(PACKAGE_NAME);
+import { APP, PACKAGE_NAME } from "../../../lib/config.js";
+import wizard from "hmpo-form-wizard";
+import { get as getLogger } from "../../../lib/logger.js";
+const logger = getLogger(PACKAGE_NAME);
 
-class PhotoIdSelectionThinFileController extends BaseController {
+export class PhotoIdSelectionThinFileController extends wizard.Controller {
   async saveValues(req, res, next) {
     try {
       req.sessionModel.set("redirect_url", undefined);
@@ -51,5 +52,3 @@ class PhotoIdSelectionThinFileController extends BaseController {
     }
   }
 }
-
-module.exports = PhotoIdSelectionThinFileController;

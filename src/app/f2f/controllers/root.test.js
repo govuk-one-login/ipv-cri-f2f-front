@@ -1,7 +1,7 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { expect } = require("chai");
-const { afterEach } = require("mocha");
-const RootController = require("./root.js");
+import wizard from "hmpo-form-wizard";
+import { expect } from "chai";
+import { afterEach } from "mocha";
+import { RootController } from "./root.js";
 
 describe("RootController", () => {
   const rootController = new RootController({ route: "/test" });
@@ -23,7 +23,7 @@ describe("RootController", () => {
   });
 
   it("should be an instance of BaseController", () => {
-    expect(rootController).to.be.an.instanceOf(BaseController);
+    expect(rootController).to.be.an.instanceOf(wizard.Controller);
   });
 
   describe("saveValues", () => {

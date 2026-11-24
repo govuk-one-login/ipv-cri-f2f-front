@@ -1,6 +1,6 @@
-const { formatDate, beforeNow, convertKeysToLowerCase } = require("./utils");
-const { expect } = require("chai");
-const moment = require("moment");
+import { formatDate, beforeNow, convertKeysToLowerCase } from "./utils.js";
+import { expect } from "chai";
+import moment from "moment";
 
 describe("formatDate", () => {
   it("returns a YYYY-MM-DD date with language set to en as DD Month(English) YYYY", () => {

@@ -1,9 +1,10 @@
-const { expect } = require("chai");
+import { expect } from "chai";
+import { addressPresenter } from "./addressPresenter.js";
 const {
   generateSearchResultString,
   generateHTMLofAddress,
   titleCaseAddresses,
-} = require("./addressPresenter");
+} = addressPresenter
 
 const userSelectedAddress = {
   organisation_name: "A COMPANY",

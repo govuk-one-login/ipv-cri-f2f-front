@@ -1,9 +1,9 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { API } = require("../../../lib/config");
-const presenters = require("../../../presenters");
-const { convertKeysToLowerCase } = require("../utils");
+import wizard from "hmpo-form-wizard";
+import { API } from "../../../lib/config.js";
+import { addressesToSelectItems, addressPresenter } from "../../../presenters/index.js";
+import { convertKeysToLowerCase } from "../utils.js";
 
-class AddressResultsController extends BaseController {
+export class AddressResultsController extends wizard.Controller {
   locals(req, res, callback) {
     super.locals(req, res, async (err, locals) => {
       if (err) {
@@ -20,13 +20,13 @@ class AddressResultsController extends BaseController {
           );
           const searchResults = convertKeysToLowerCase(osData);
           const formattedResults = searchResults.map((item) => item.dpa);
-          addressResults = presenters.addressesToSelectItems({
+          addressResults = addressesToSelectItems({
             addresses: formattedResults,
           });
           req.sessionModel.set("searchResults", formattedResults);
           req.sessionModel.set("searchedPostcode", letterPostcode);
         } else {
-          addressResults = presenters.addressesToSelectItems({
+          addressResults = addressesToSelectItems({
             addresses: req.sessionModel.get("searchResults"),
           });
         }
@@ -58,7 +58,7 @@ class AddressResultsController extends BaseController {
       {},
       searchResults.find(
         (address) =>
-          presenters.addressPresenter.generateSearchResultString(address) ===
+          addressPresenter.generateSearchResultString(address) ===
           selectedAddress
       )
     );
@@ -90,5 +90,3 @@ class AddressResultsController extends BaseController {
     }
   }
 }
-
-module.exports = AddressResultsController;

@@ -1,5 +1,5 @@
 const { Given, When } = require("@cucumber/cucumber");
-const { expect } = require("chai");
+import { expect } from "chai";
 
 const { PostOfficeCustomerLetterChooseAddress } = require("../pages");
 

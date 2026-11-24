@@ -1,6 +1,6 @@
-const { generateSearchResultString } = require("./addressPresenter");
+import { addressPresenter } from "./addressPresenter.js";
 
-module.exports = ({ addresses }) => {
+export const addressesToSelectItems = ({ addresses }) => {
   const addressesLength = addresses.length;
   const defaultMessage = {
     text:
@@ -15,7 +15,7 @@ module.exports = ({ addresses }) => {
   }
 
   const addressesAsItems = addresses.map((address) => {
-    const textView = generateSearchResultString(address);
+    const textView = addressPresenter.generateSearchResultString(address);
 
     return { ...address, text: textView, value: textView };
   });

@@ -1,13 +1,13 @@
-const { expect } = require("chai");
-const addressesToSelectItems = require("./addressesToSelectItems");
-
-const addressPresenter = require("./addressPresenter");
+import { expect } from "chai";
+import { addressesToSelectItems } from "./addressesToSelectItems.js";
+import { addressPresenter } from "./addressPresenter.js";
 
 describe("Addresses to SelectItems Presenter", () => {
   beforeEach(() => {
     sinon
       .stub(addressPresenter, "generateSearchResultString")
-      .returns("SEARCH_RESULT");
+      .onFirstCall().returns("SEARCH_RESULT_1")
+      .onSecondCall().returns("SEARCH_RESULT_2");
   });
 
   afterEach(() => {
@@ -44,10 +44,10 @@ describe("Addresses to SelectItems Presenter", () => {
 
     expect(items[0].text).to.deep.equal("2 addresses found");
     expect(items[1].value).to.deep.equal(
-      "34 MOCK ROAD, PLACEHOLDER PARK FAKESVILLE, FS6 5AQ"
+      "SEARCH_RESULT_1"
     );
     expect(items[2].value).to.deep.equal(
-      "BASEMENT FLAT 36 MOCK ROAD, PLACEHOLDER PARK FAKESVILLE, FS6 5AQ"
+      "SEARCH_RESULT_2"
     );
   });
 });

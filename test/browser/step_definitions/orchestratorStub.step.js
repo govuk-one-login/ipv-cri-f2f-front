@@ -4,7 +4,7 @@ const { OrchestratorStubPage } = require("../pages");
 
 const { v4 } = require("uuid");
 
-const { expect } = require("chai");
+import { expect } from "chai";
 
 Given(
   "the user navigates to the Orchestrator Stub Page",

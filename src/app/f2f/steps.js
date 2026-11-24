@@ -1,31 +1,31 @@
-const photoIdSelect = require("./controllers/photoIdSelection");
-const resultsController = require("./controllers/results");
-const ukPassportDetails = require("./controllers/ukPassportDetails");
-const ukPhotocardDlDetails = require("./controllers/ukPhotocardDl");
-const photoIdSelectThinFile = require("./controllers/photoIdSelectionThinFile");
-const nonUKPassportDetails = require("./controllers/nonUKPassportDetails");
-const eeaIdentityCardDetails = require("./controllers/eeaIdentityCardDetails");
-const euPhotocardDlDetails = require("./controllers/euPhotocardDlDetails");
-const checkDetails = require("./controllers/checkDetails");
-const abort = require("./controllers/abort");
-const photoIdExpiry = require("./controllers/photoIdExpiry");
-const root = require("./controllers/root");
-const landingPage = require("./controllers/landingPage");
-const addressResults = require("./controllers/addressResults");
-const { APP } = require("../../lib/config");
-const checkAddressController = require("./controllers/checkAddress");
+import { APP } from "../../lib/config.js";
+import { PhotoIdSelectionController } from "./controllers/photoIdSelection.js";
+import { PostcodeSearchController } from "./controllers/results.js";
+import { PassportDetailsController } from "./controllers/ukPassportDetails.js";
+import { PhotocardDlController } from "./controllers/ukPhotocardDl.js";
+import { PhotoIdSelectionThinFileController } from "./controllers/photoIdSelectionThinFile.js";
+import { NonUKPassportDetailsController } from "./controllers/nonUKPassportDetails.js";
+import { EeaIdentityCardDetailsController } from "./controllers/eeaIdentityCardDetails.js";
+import { EuPhotocardDlController } from "./controllers/euPhotocardDlDetails.js";
+import { CheckDetailsController } from "./controllers/checkDetails.js";
+import { AbortController } from "./controllers/abort.js";
+import { PhotoIdExpiryController } from "./controllers/photoIdExpiry.js";
+import { RootController } from "./controllers/root.js";
+import { LandingPageController } from "./controllers/landingPage.js";
+import { AddressResultsController } from "./controllers/addressResults.js";
+import { CheckAddressController } from "./controllers/checkAddress.js";
 
-module.exports = {
+export const steps = {
   [`${APP.PATHS.F2F}`]: {
     resetJourney: true,
     reset: true,
     entryPoint: true,
     skip: true,
-    controller: root,
+    controller: RootController,
     next: APP.PATHS.LANDING_PAGE,
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
-    controller: landingPage,
+    controller: LandingPageController,
     next: [
       {
         field: "isThinFileUser",
@@ -40,7 +40,7 @@ module.exports = {
     ],
   },
   [`${APP.PATHS.PHOTO_ID_SELECTION}`]: {
-    controller: photoIdSelect,
+    controller: PhotoIdSelectionController,
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     fields: ["photoIdChoice"],
@@ -86,7 +86,7 @@ module.exports = {
     ],
   },
   [`${APP.PATHS.PHOTO_ID_SELECTION_THIN_FILE}`]: {
-    controller: photoIdSelectThinFile,
+    controller: PhotoIdSelectionThinFileController,
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     fields: ["photoIdChoiceThinFile"],
@@ -113,7 +113,7 @@ module.exports = {
   },
   [`${APP.PATHS.UK_PASSPORT_DETAILS}`]: {
     fields: ["ukPassportExpiryDate"],
-    controller: ukPassportDetails,
+    controller: PassportDetailsController,
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
@@ -128,7 +128,7 @@ module.exports = {
   },
   [`${APP.PATHS.NON_UK_PASSPORT_DETAILS}`]: {
     fields: ["nonUKPassportExpiryDate"],
-    controller: nonUKPassportDetails,
+    controller: NonUKPassportDetailsController,
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
@@ -160,7 +160,7 @@ module.exports = {
   },
   [`${APP.PATHS.UK_PHOTOCARD_DL_DETAILS}`]: {
     fields: ["ukPhotocardDlExpiryDate"],
-    controller: ukPhotocardDlDetails,
+    controller: PhotocardDlController,
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
@@ -175,7 +175,7 @@ module.exports = {
   },
   [`${APP.PATHS.EU_PHOTOCARD_DL_DETAILS}`]: {
     fields: ["euPhotocardDlExpiryDate"],
-    controller: euPhotocardDlDetails,
+    controller: EuPhotocardDlController,
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
@@ -229,7 +229,7 @@ module.exports = {
   },
   [`${APP.PATHS.EEA_IDENTITY_CARD_DETAILS}`]: {
     fields: ["eeaIdCardExpiryDate"],
-    controller: eeaIdentityCardDetails,
+    controller: EeaIdentityCardDetailsController,
     editable: true,
     editBackStep: APP.PATHS.CHECK_DETAILS,
     next: [
@@ -282,7 +282,7 @@ module.exports = {
     ],
   },
   [`${APP.PATHS.EXPIRED_ID}`]: {
-    controller: photoIdExpiry,
+    controller: PhotoIdExpiryController,
     fields: ["photoIdExpiryChoice"],
     next: [
       {
@@ -370,7 +370,7 @@ module.exports = {
     next: APP.PATHS.CHOOSE_POST_OFFICE,
   },
   [`${APP.PATHS.CHOOSE_POST_OFFICE}`]: {
-    controller: resultsController,
+    controller: PostcodeSearchController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
     next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER
@@ -407,7 +407,7 @@ module.exports = {
   },
   [`${APP.PATHS.CHECK_ADDRESS}`]: {
     fields: ["customerLetterCheckAddress"],
-    controller: checkAddressController,
+    controller: CheckAddressController,
     next: [
       {
         field: "customerLetterCheckAddress",
@@ -428,18 +428,18 @@ module.exports = {
     next: APP.PATHS.CHOOSE_ADDRESS,
   },
   [`${APP.PATHS.CHOOSE_ADDRESS}`]: {
-    controller: addressResults,
+    controller: AddressResultsController,
     fields: ["addressResults"],
     next: APP.PATHS.CHECK_DETAILS,
   },
   [`${APP.PATHS.CHECK_DETAILS}`]: {
-    controller: checkDetails,
+    controller: CheckDetailsController,
     next: APP.PATHS.DONE,
   },
   [`${APP.PATHS.ABORT}`]: {
     entryPoint: true,
     skip: true,
-    controller: abort,
+    controller: AbortController,
   },
   [`${APP.PATHS.DONE}`]: {
     skip: true,

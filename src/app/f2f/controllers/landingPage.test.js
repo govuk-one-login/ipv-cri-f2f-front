@@ -1,6 +1,8 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { expect } = require("chai");
-const LandingPageController = require("./landingPage");
+import wizard from "hmpo-form-wizard";
+import { expect } from "chai";
+import { LandingPageController } from "./landingPage.js";
+
+const BaseController = wizard.Controller;
 
 describe("LandingPage", () => {
   let landingPageController;

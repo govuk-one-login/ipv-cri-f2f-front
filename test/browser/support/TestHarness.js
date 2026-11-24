@@ -19,7 +19,7 @@ const aws4Interceptor = require("aws4-axios").aws4Interceptor;
 const { unmarshall } = require("@aws-sdk/util-dynamodb");
 const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
 const { XMLParser } = require("fast-xml-parser");
-const { expect } = require("chai");
+import { expect } from "chai";
 const Ajv = require("ajv").default;
 const AjvFormats = require("ajv-formats");
 const ajv = new Ajv({ strictTuples: false });

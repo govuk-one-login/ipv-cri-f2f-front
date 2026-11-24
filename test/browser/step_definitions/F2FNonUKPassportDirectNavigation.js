@@ -9,7 +9,7 @@ const {
   NonUkPassportHasExpiryDatePage,
   ErrorPage,
 } = require("../pages");
-const { expect } = require("chai");
+import { expect } from "chai";
 
 Given(
   /^the user navigates directly to select-country-non-uk-passport page$/,

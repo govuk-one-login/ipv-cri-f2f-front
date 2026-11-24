@@ -2,7 +2,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 
 const { PostOfficeCustomerLetter } = require("../pages");
 
-const { expect } = require("chai");
+import { expect } from "chai";
 
 Given(
   /^the user navigates directly to post-office-customer-letter$/,

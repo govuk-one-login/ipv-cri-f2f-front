@@ -1,4 +1,4 @@
-const commonLogger = require("@govuk-one-login/di-ipv-cri-common-express/src/bootstrap/lib/logger");
+import commonLogger from "@govuk-one-login/di-ipv-cri-common-express/src/bootstrap/lib/logger.js";
 
 const levels = ["debug", "info", "warn", "error"];
 
@@ -22,7 +22,7 @@ const normaliseForHmpo = (logger) => {
   return wrappedLogger;
 };
 
-const get = (...args) => {
+export const get = (...args) => {
   const logger = commonLogger.get(...args);
   if (process.env.USE_PINO_LOGGER === "true") {
     return logger;
@@ -31,7 +31,7 @@ const get = (...args) => {
   return normaliseForHmpo(logger);
 };
 
-module.exports = {
+export const logger = {
   ...commonLogger,
   get,
 };

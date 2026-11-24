@@ -1,8 +1,8 @@
-require("express");
-require("express-async-errors");
+import "express";
+import "express-async-errors";
 
-const path = require("path");
-const session = require("express-session");
+import path from "path";
+import session from "express-session";
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const DynamoDBStore = require("connect-dynamodb")(session);
 const wizard = require("hmpo-form-wizard");
@@ -138,8 +138,8 @@ const { app, router } = setup({
 // see https://expressjs.com/en/guide/behind-proxies.html
 app.set("trust proxy", "loopback, linklocal, uniquelocal");
 
-const steps = require("./app/f2f/steps");
-const fields = require("./app/f2f/fields");
+import { steps } from "./app/f2f/steps.js";
+import { fields } from "./app/f2f/fields";
 
 setI18n({
   router,

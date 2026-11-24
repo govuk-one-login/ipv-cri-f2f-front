@@ -1,7 +1,7 @@
 const { Given, Then } = require("@cucumber/cucumber");
 
 const { CheckDetails, ErrorPage } = require("../pages");
-const { expect } = require("chai");
+import { expect } from "chai";
 Given(/^the user navigates directly to check-details page$/, async function () {
   const checkDetails = new CheckDetails(this.page);
   await checkDetails.goTo();

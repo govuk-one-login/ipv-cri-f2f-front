@@ -1,7 +1,7 @@
 const { Then } = require("@cucumber/cucumber");
 
 const { RelyingPartyPage } = require("../pages");
-const { expect } = require("chai");
+import { expect } from "chai";
 
 Then("they should be redirected as a success", function () {
   const rpPage = new RelyingPartyPage(this.page);

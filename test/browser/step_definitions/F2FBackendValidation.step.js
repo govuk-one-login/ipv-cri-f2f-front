@@ -1,6 +1,6 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
-const { expect } = require("chai");
+import { expect } from "chai";
 
 const TestHarness = require("../support/TestHarness");
 

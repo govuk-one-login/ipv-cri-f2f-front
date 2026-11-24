@@ -1,15 +1,14 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const DateControllerMixin = require("@govuk-one-login/frontend-ui").mixins.Date;
+import wizard from "hmpo-form-wizard";
+import { mixins } from "@govuk-one-login/frontend-ui";
+import { PACKAGE_NAME } from "../../../lib/config.js";
+import { get as getLogger } from "../../../lib/logger.js";
 
-const DateController = DateControllerMixin(BaseController);
-const { PACKAGE_NAME } = require("../../../lib/config");
-const logger = require("../../../lib/logger").get(PACKAGE_NAME);
+const logger = getLogger(PACKAGE_NAME);
+const DateController = mixins.Date(wizard.Controller);
 
-class NonUKPassportDetailsController extends DateController {
+export class NonUKPassportDetailsController extends DateController {
   _padYear(value, offset) {
     logger.info({ offset }, "offset value ignored as no padding is applied");
     return value;
   }
 }
-
-module.exports = NonUKPassportDetailsController;

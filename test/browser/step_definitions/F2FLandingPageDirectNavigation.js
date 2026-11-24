@@ -1,7 +1,7 @@
 const { Given, Then } = require("@cucumber/cucumber");
 
 const { LandingPage, ErrorPage } = require("../pages");
-const { expect } = require("chai");
+import { expect } from "chai";
 Given(
   /^the user navigates directly to prove-identity-post-office page$/,
   async function () {

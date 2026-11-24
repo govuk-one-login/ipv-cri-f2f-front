@@ -1,4 +1,4 @@
-module.exports = {
+export const addressPresenter = {
   generateSearchResultString: function (address) {
     const { buildingNames, streetNames, localityNames } =
       extractAddressFields(address);

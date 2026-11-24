@@ -6,7 +6,7 @@ const {
   PhotoIdExpiryPage,
   ErrorPage,
 } = require("../pages");
-const { expect } = require("chai");
+import { expect } from "chai";
 
 Given(
   /^the user navigates directly to photoID- expiry page$/,

@@ -1,12 +1,14 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { expect } = require("chai");
-const CheckDetailsController = require("./checkDetails");
+import wizard from "hmpo-form-wizard";
+import { expect } from "chai";
+import { CheckDetailsController } from "./checkDetails.js";
+import { API, APP } from "../../../lib/config.js";
+const BaseController = wizard.Controller;
 const {
   API: {
     PATHS: { SAVE_F2FDATA },
   },
   APP: { PHOTO_ID_OPTIONS },
-} = require("../../../lib/config");
+} = { API, APP};
 
 describe("CheckDetails controller", () => {
   let checkDetailsController;

@@ -1,7 +1,7 @@
-const moment = require("moment");
-const { validators } = require("hmpo-form-wizard/lib/validation");
+import moment from "moment";
+import { validators } from "hmpo-form-wizard/lib/validation/index.js";
 
-function formatDate(date, format, language) {
+export function formatDate(date, format, language) {
   const isValid = moment(date, format, true).isValid();
 
   if (isValid) {
@@ -20,7 +20,7 @@ function formatDate(date, format, language) {
   }
 }
 
-function beforeNow(_value, timePeriod, timeUnit) {
+export function beforeNow(_value, timePeriod, timeUnit) {
   let dateFormat = "YYYY-MM-DD";
   let test = moment(_value, dateFormat);
   let comparator;
@@ -35,7 +35,7 @@ function beforeNow(_value, timePeriod, timeUnit) {
   );
 }
 
-function convertKeysToLowerCase(obj) {
+export function convertKeysToLowerCase(obj) {
   if (Array.isArray(obj)) {
     return obj.map((item) => convertKeysToLowerCase(item));
   } else if (obj !== null && obj.constructor === Object) {
@@ -46,9 +46,3 @@ function convertKeysToLowerCase(obj) {
   }
   return obj;
 }
-
-module.exports = {
-  formatDate,
-  beforeNow,
-  convertKeysToLowerCase,
-};

@@ -1,11 +1,13 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { API, PACKAGE_NAME } = require("../../../lib/config");
-const logger = require("../../../lib/logger").get(PACKAGE_NAME);
-const {
+import wizard from "hmpo-form-wizard";
+import { API, PACKAGE_NAME } from "../../../lib/config.js";
+import { get as getLogger } from "../../../lib/logger.js";
+import {
   createPersonalDataHeaders,
-} = require("@govuk-one-login/frontend-passthrough-headers");
+} from "@govuk-one-login/frontend-passthrough-headers";
 
-class AbortController extends BaseController {
+const logger = getLogger(PACKAGE_NAME);
+
+export class AbortController extends wizard.Controller {
   async saveValues(req, res, callback) {
     try {
       await this.abortJourney(req, res);
@@ -49,5 +51,3 @@ class AbortController extends BaseController {
     }
   }
 }
-
-module.exports = AbortController;

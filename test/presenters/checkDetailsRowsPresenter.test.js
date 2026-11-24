@@ -1,7 +1,7 @@
-const { expect } = require("chai");
+import { expect } from "chai";
 
-const { buildCheckDetailsRows } = require("../../src/presenters/checkDetailsRowsPresenter");
-const { APP } = require("../../src/lib/config");
+import { buildCheckDetailsRows } from "../../src/presenters/checkDetailsRowsPresenter.js";
+import { APP } from "../../src/lib/config.js";
 
 const makeReq = (sessionValues = {}) => ({
   sessionModel: { get: (k) => sessionValues[k] },

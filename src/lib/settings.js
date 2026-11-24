@@ -1,5 +1,4 @@
-module.exports = {
-  setAPIConfig: ({
+export const setAPIConfig = ({
     app,
     baseUrl,
     sessionPath,
@@ -12,13 +11,12 @@ module.exports = {
     app.set("API.PATHS.AUTHORIZATION", authorizationPath);
     app.set("PROXY_API.BASE_URL", proxyUrl);
     app.set("PROXY_API.PATHS.POST_OFFICE", postOfficeProxyUrl);
-  },
+  };
 
-  setProxyAPIConfig: ({ app, postOfficeProxyUrl }) => {
+export const setProxyAPIConfig = ({ app, postOfficeProxyUrl }) => {
     app.set("PROXY_API.PATHS.POST_OFFICE", postOfficeProxyUrl);
-  },
+  };
 
-  setOAuthPaths: ({ app, entryPointPath }) => {
+export const setOAuthPaths = ({ app, entryPointPath }) => {
     app.set("APP.PATHS.ENTRYPOINT", entryPointPath);
-  },
-};
+  };

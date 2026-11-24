@@ -1,4 +1,4 @@
-const { APP } = require("../lib/config");
+import { APP } from "../lib/config.js";
 
 const editHref = (path) => `${path}/edit?edit=true`;
 
@@ -66,7 +66,7 @@ const countryConfig = (photoIdChoice) => {
   }
 };
 
-function buildCheckDetailsRows(req, res, locals) {
+export function buildCheckDetailsRows(req, res, locals) {
   const translate = res.locals.translate;
 
   const photoIdChoice = req.sessionModel.get("photoIdChoice");
@@ -159,5 +159,3 @@ function buildCheckDetailsRows(req, res, locals) {
     ),
   ];
 }
-
-module.exports = { buildCheckDetailsRows };

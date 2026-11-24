@@ -1,7 +1,9 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const PostcodeSearchController = require("./results");
-const { PROXY_API } = require("../../../../src/lib/config");
-const { expect } = require("chai");
+import wizard from "hmpo-form-wizard";
+import { PostcodeSearchController } from "./results.js";
+import { PROXY_API } from "../../../../src/lib/config.js";
+import { expect } from "chai";
+
+const BaseController = wizard.Controller;
 
 describe("Postcode Search Controller", () => {
   let postcodeSearch;

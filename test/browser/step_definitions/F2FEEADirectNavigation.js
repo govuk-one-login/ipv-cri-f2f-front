@@ -11,7 +11,7 @@ const {
   EEAIdentityCardCountrySelectorPageEdit,
   ErrorPage,
 } = require("../pages");
-const { expect } = require("chai");
+import { expect } from "chai";
 
 Given(
   /^the user navigates directly to national-identity-card-expiry-date page$/,

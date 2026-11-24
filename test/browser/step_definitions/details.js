@@ -7,7 +7,7 @@ const {
   CheckDetails,
 } = require("../pages");
 
-const { expect } = require("chai");
+import { expect } from "chai";
 
 const { injectAxe } = require("axe-playwright");
 

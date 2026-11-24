@@ -1,18 +1,17 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const DateControllerMixin = require("@govuk-one-login/frontend-ui").mixins.Date;
-const { formatDate } = require("../utils");
-const { APP, API } = require("../../../lib/config");
-const { buildCheckDetailsRows } = require("../../../presenters/checkDetailsRowsPresenter");
-const DateController = DateControllerMixin(BaseController);
-const {
+import wizard from "hmpo-form-wizard";
+import { mixins } from "@govuk-one-login/frontend-ui";
+import { formatDate } from "../utils.js";
+import { APP, API } from "../../../lib/config.js";
+import {
   createPersonalDataHeaders,
-} = require("@govuk-one-login/frontend-passthrough-headers");
-const {
-  generateHTMLofAddress,
-  titleCaseAddresses,
-} = require("../../../presenters/addressPresenter");
+} from "@govuk-one-login/frontend-passthrough-headers";
+import { addressPresenter } from "../../../presenters/index.js";
+import { buildCheckDetailsRows } from "../../../presenters/checkDetailsRowsPresenter.js";
 
-class CheckDetailsController extends DateController {
+const DateController = mixins.Date(wizard.Controller);
+
+
+export class CheckDetailsController extends DateController {
   locals(req, res, callback) {
     super.locals(req, res, (err, locals) => {
       if (err) {
@@ -182,8 +181,8 @@ class CheckDetailsController extends DateController {
         req.sessionModel.get("customerLetterCheckAddress") ===
           "differentAddress"
       ) {
-        const displayAddress = generateHTMLofAddress(
-          titleCaseAddresses(postalAddress)
+        const displayAddress = addressPresenter.generateHTMLofAddress(
+          addressPresenter.titleCaseAddresses(postalAddress)
         );
         locals.addressLine = displayAddress;
       } else {
@@ -344,5 +343,3 @@ class CheckDetailsController extends DateController {
   }
   
 }
-
-module.exports = CheckDetailsController;

@@ -1,8 +1,9 @@
-const { APP, PACKAGE_NAME } = require("../../../lib/config");
-const BaseController = require("hmpo-form-wizard").Controller;
-const logger = require("../../../lib/logger").get(PACKAGE_NAME);
+import { APP, PACKAGE_NAME } from "../../../lib/config.js";
+import wizard from "hmpo-form-wizard";
+import { get as getLogger } from "../../../lib/logger.js";
+const logger = getLogger(PACKAGE_NAME);
 
-class PhotoIdSelectionController extends BaseController {
+export class PhotoIdSelectionController extends wizard.Controller {
   async saveValues(req, res, next) {
     try {
       logger.info("user submitting photo Id choice", { req });
@@ -80,5 +81,3 @@ class PhotoIdSelectionController extends BaseController {
     }
   }
 }
-
-module.exports = PhotoIdSelectionController;

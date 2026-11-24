@@ -10,7 +10,7 @@ const {
   EuDrivingLicenceHasExpiryDatePage,
   ErrorPage,
 } = require("../pages");
-const { expect } = require("chai");
+import { expect } from "chai";
 Given(
   /^the user navigates directly to eu-driving-licence-current-address page$/,
   async function () {

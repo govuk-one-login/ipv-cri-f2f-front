@@ -1,7 +1,7 @@
 const { Given, Then } = require("@cucumber/cucumber");
 
 const { FindBranch, FindBranchValidEdit, ErrorPage } = require("../pages");
-const { expect } = require("chai");
+import { expect } from "chai";
 Given(/^the user navigates directly to find-branch page$/, async function () {
   const findBranch = new FindBranch(this.page);
   await findBranch.goTo();

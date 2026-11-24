@@ -1,7 +1,7 @@
-const { APP } = require("../../lib/config");
-const utils = require("./utils");
+import { APP } from "../../lib/config.js";
+import { beforeNow } from "./utils.js";
 
-module.exports = {
+export const fields = {
   photoIdChoice: {
     type: "radios",
     legend: "",
@@ -38,7 +38,7 @@ module.exports = {
       "date",
       {
         type: "beforeNow",
-        fn: utils.beforeNow,
+        fn: beforeNow,
         arguments: [10, "years"],
       },
     ],
@@ -51,7 +51,7 @@ module.exports = {
       "date",
       {
         type: "beforeNow",
-        fn: utils.beforeNow,
+        fn: beforeNow,
         arguments: [75, "years"],
       },
     ],
@@ -85,7 +85,7 @@ module.exports = {
       "date",
       {
         type: "beforeNow",
-        fn: utils.beforeNow,
+        fn: beforeNow,
         arguments: [10, "years"],
       },
     ],
@@ -98,7 +98,7 @@ module.exports = {
       "date",
       {
         type: "beforeNow",
-        fn: utils.beforeNow,
+        fn: beforeNow,
         arguments: [75, "years"],
       },
     ],
@@ -158,7 +158,7 @@ module.exports = {
       "date",
       {
         type: "beforeNow",
-        fn: utils.beforeNow,
+        fn: beforeNow,
         arguments: [75, "years"],
       },
     ],

@@ -1,5 +1,4 @@
-//Extracted from common-express and modified
-
+import helmet from 
 module.exports = {
   contentSecurityPolicy: {
     directives: {
