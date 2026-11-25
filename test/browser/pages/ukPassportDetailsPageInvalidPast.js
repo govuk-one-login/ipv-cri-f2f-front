@@ -1,4 +1,4 @@
-module.exports = class PlaywrightDevPage {
+export default class PlaywrightDevPage {
   /**
    * @param {import('@playwright/test').Page} page
    */
@@ -25,7 +25,7 @@ module.exports = class PlaywrightDevPage {
     const lowerUTC = new Date(
       new Date().getFullYear(),
       new Date().getMonth() - 18,
-      new Date().getDate() - 5
+      new Date().getDate() - 5,
     ).toISOString();
     const fullDate = lowerUTC.split("T")[0];
     const expDay = fullDate.split("-")[2];
@@ -38,8 +38,8 @@ module.exports = class PlaywrightDevPage {
 
   async checkRedirectionErrorText() {
     const errorRedirectionText = await this.page.textContent(
-      '[data-id="error-title"]'
+      '[data-id="error-title"]',
     );
     return errorRedirectionText.trim();
   }
-};
+}

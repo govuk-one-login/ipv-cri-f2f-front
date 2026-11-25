@@ -1,6 +1,8 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { expect } = require("chai");
-const LandingPageController = require("./landingPage");
+import wizard from "hmpo-form-wizard";
+import { expect } from "chai";
+import { LandingPageController } from "./landingPage.js";
+
+const BaseController = wizard.Controller;
 
 describe("LandingPage", () => {
   let landingPageController;
@@ -40,7 +42,7 @@ describe("LandingPage", () => {
       await landingPageController.saveValues(req, res, next);
       expect(req.sessionModel.set).to.have.been.calledWith(
         "isThinFileUser",
-        false
+        false,
       );
     });
 
@@ -57,7 +59,7 @@ describe("LandingPage", () => {
       req.axios.get = sinon.fake.rejects("Error fetching");
       await landingPageController.saveValues(req, res, next);
       expect(console.log).to.have.been.calledWith(
-        "Error calling /sessionConfiguration"
+        "Error calling /sessionConfiguration",
       );
     });
 
@@ -69,7 +71,7 @@ describe("LandingPage", () => {
       await landingPageController.saveValues(req, res, next);
       expect(req.sessionModel.set).to.have.been.calledWith(
         "isThinFileUser",
-        true
+        true,
       );
     });
 
@@ -87,7 +89,7 @@ describe("LandingPage", () => {
       expect(res.redirect).to.have.been.calledOnceWith("/error");
       sinon.assert.calledWith(
         console.error,
-        "Missing sessionID, redirecting to /error"
+        "Missing sessionID, redirecting to /error",
       );
     });
   });

@@ -1,7 +1,7 @@
-const { APP } = require("../../lib/config");
-const utils = require("./utils");
+import { APP } from "../../lib/config.js";
+import { beforeNow } from "./utils.js";
 
-module.exports = {
+export const fields = {
   photoIdChoice: {
     type: "radios",
     legend: "",
@@ -38,7 +38,7 @@ module.exports = {
       "date",
       {
         type: "beforeNow",
-        fn: utils.beforeNow,
+        fn: beforeNow,
         arguments: [10, "years"],
       },
     ],
@@ -51,7 +51,7 @@ module.exports = {
       "date",
       {
         type: "beforeNow",
-        fn: utils.beforeNow,
+        fn: beforeNow,
         arguments: [75, "years"],
       },
     ],
@@ -85,7 +85,7 @@ module.exports = {
       "date",
       {
         type: "beforeNow",
-        fn: utils.beforeNow,
+        fn: beforeNow,
         arguments: [10, "years"],
       },
     ],
@@ -98,7 +98,7 @@ module.exports = {
       "date",
       {
         type: "beforeNow",
-        fn: utils.beforeNow,
+        fn: beforeNow,
         arguments: [75, "years"],
       },
     ],
@@ -158,7 +158,7 @@ module.exports = {
       "date",
       {
         type: "beforeNow",
-        fn: utils.beforeNow,
+        fn: beforeNow,
         arguments: [75, "years"],
       },
     ],
@@ -207,7 +207,7 @@ module.exports = {
         type: "regexPostcodeUK",
         fn: (value) =>
           value.match(
-            /([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})/
+            /([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})/,
           ),
       },
     ],
@@ -230,7 +230,7 @@ module.exports = {
         type: "regexPostcodeUK",
         fn: (value) =>
           value.match(
-            /([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})/
+            /([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})/,
           ),
       },
     ],

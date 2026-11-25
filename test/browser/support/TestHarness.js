@@ -1,31 +1,32 @@
-const F2F_CRI_AUTH_CODE_ISSUED_SCHEMA = require("../support/F2F_CRI_AUTH_CODE_ISSUED_SCHEMA.json");
-const F2F_CRI_END_SCHEMA = require("../support/F2F_CRI_END_SCHEMA.json");
-const F2F_CRI_START_SCHEMA = require("../support/F2F_CRI_START_SCHEMA.json");
-const F2F_CRI_VC_ISSUED_SCHEMA_00 = require("../support/F2F_CRI_VC_ISSUED_00_SCHEMA.json");
-const F2F_CRI_VC_ISSUED_SCHEMA_01 = require("../support/F2F_CRI_VC_ISSUED_01_SCHEMA.json");
-const F2F_CRI_VC_ISSUED_SCHEMA_02 = require("../support/F2F_CRI_VC_ISSUED_02_SCHEMA.json");
-const F2F_CRI_VC_ISSUED_SCHEMA_04 = require("../support/F2F_CRI_VC_ISSUED_04_SCHEMA.json");
-const F2F_CRI_VC_ISSUED_SCHEMA_05 = require("../support/F2F_CRI_VC_ISSUED_05_SCHEMA.json");
-const F2F_YOTI_PDF_EMAILED_SCHEMA = require("../support/F2F_YOTI_PDF_EMAILED_SCHEMA.json");
-const F2F_YOTI_RESPONSE_RECEIVED_SCHEMA = require("../support/F2F_YOTI_RESPONSE_RECEIVED_SCHEMA.json");
-const F2F_YOTI_START_SCHEMA_00 = require("../support/F2F_YOTI_START_00_SCHEMA.json");
-const F2F_YOTI_START_SCHEMA_01 = require("../support/F2F_YOTI_START_01_SCHEMA.json");
-const F2F_YOTI_START_SCHEMA_02 = require("../support/F2F_YOTI_START_02_SCHEMA.json");
-const F2F_YOTI_START_SCHEMA_04 = require("../support/F2F_YOTI_START_04_SCHEMA.json");
-const F2F_YOTI_START_SCHEMA_05 = require("../support/F2F_YOTI_START_05_SCHEMA.json");
-const F2F_CRI_SESSION_ABORTED_SCHEMA = require("../support/F2F_CRI_SESSION_ABORTED_SCHEMA.json");
-const axios = require("axios");
-const aws4Interceptor = require("aws4-axios").aws4Interceptor;
-const { unmarshall } = require("@aws-sdk/util-dynamodb");
-const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
-const { XMLParser } = require("fast-xml-parser");
-const { expect } = require("chai");
-const Ajv = require("ajv").default;
-const AjvFormats = require("ajv-formats");
+import F2F_CRI_AUTH_CODE_ISSUED_SCHEMA from "./F2F_CRI_AUTH_CODE_ISSUED_SCHEMA.json" with { type: "json" };
+import F2F_CRI_END_SCHEMA from "./F2F_CRI_END_SCHEMA.json" with { type: "json" };
+import F2F_CRI_START_SCHEMA from "./F2F_CRI_START_SCHEMA.json" with { type: "json" };
+import F2F_CRI_VC_ISSUED_SCHEMA_00 from "./F2F_CRI_VC_ISSUED_00_SCHEMA.json" with { type: "json" };
+import F2F_CRI_VC_ISSUED_SCHEMA_01 from "./F2F_CRI_VC_ISSUED_01_SCHEMA.json" with { type: "json" };
+import F2F_CRI_VC_ISSUED_SCHEMA_02 from "./F2F_CRI_VC_ISSUED_02_SCHEMA.json" with { type: "json" };
+import F2F_CRI_VC_ISSUED_SCHEMA_04 from "./F2F_CRI_VC_ISSUED_04_SCHEMA.json" with { type: "json" };
+import F2F_CRI_VC_ISSUED_SCHEMA_05 from "./F2F_CRI_VC_ISSUED_05_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_PDF_EMAILED_SCHEMA from "./F2F_YOTI_PDF_EMAILED_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_RESPONSE_RECEIVED_SCHEMA from "./F2F_YOTI_RESPONSE_RECEIVED_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_START_SCHEMA_00 from "./F2F_YOTI_START_00_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_START_SCHEMA_01 from "./F2F_YOTI_START_01_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_START_SCHEMA_02 from "./F2F_YOTI_START_02_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_START_SCHEMA_04 from "./F2F_YOTI_START_04_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_START_SCHEMA_05 from "./F2F_YOTI_START_05_SCHEMA.json" with { type: "json" };
+import F2F_CRI_SESSION_ABORTED_SCHEMA from "./F2F_CRI_SESSION_ABORTED_SCHEMA.json" with { type: "json" };
+import axios from "axios";
+import aws4Axios from "aws4-axios";
+import { unmarshall } from "@aws-sdk/util-dynamodb";
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
+import { XMLParser } from "fast-xml-parser";
+import { expect } from "chai";
+import Ajv from "ajv";
+import AjvFormats from "ajv-formats";
+
 const ajv = new Ajv({ strictTuples: false });
 ajv.addSchema(
   F2F_CRI_AUTH_CODE_ISSUED_SCHEMA,
-  "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA"
+  "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA",
 );
 ajv.addSchema(F2F_CRI_END_SCHEMA, "F2F_CRI_END_SCHEMA");
 ajv.addSchema(F2F_CRI_START_SCHEMA, "F2F_CRI_START_SCHEMA");
@@ -33,17 +34,17 @@ ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_00, "F2F_CRI_VC_ISSUED_SCHEMA_UK_DL");
 ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_01, "F2F_CRI_VC_ISSUED_SCHEMA_UK_PP");
 ajv.addSchema(
   F2F_CRI_VC_ISSUED_SCHEMA_02,
-  "F2F_CRI_VC_ISSUED_SCHEMA_NON_UK_PP"
+  "F2F_CRI_VC_ISSUED_SCHEMA_NON_UK_PP",
 );
 ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_04, "F2F_CRI_VC_ISSUED_SCHEMA_EU_DL");
 ajv.addSchema(
   F2F_CRI_VC_ISSUED_SCHEMA_05,
-  "F2F_CRI_VC_ISSUED_SCHEMA_EEA_ID_CARD"
+  "F2F_CRI_VC_ISSUED_SCHEMA_EEA_ID_CARD",
 );
 ajv.addSchema(F2F_YOTI_PDF_EMAILED_SCHEMA, "F2F_YOTI_PDF_EMAILED_SCHEMA");
 ajv.addSchema(
   F2F_YOTI_RESPONSE_RECEIVED_SCHEMA,
-  "F2F_YOTI_RESPONSE_RECEIVED_SCHEMA"
+  "F2F_YOTI_RESPONSE_RECEIVED_SCHEMA",
 );
 ajv.addSchema(F2F_YOTI_START_SCHEMA_00, "F2F_YOTI_START_UK_DL");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_01, "F2F_YOTI_START_UK_PP");
@@ -53,7 +54,9 @@ ajv.addSchema(F2F_YOTI_START_SCHEMA_05, "F2F_YOTI_START_EEA_ID_CARD");
 ajv.addSchema(F2F_CRI_SESSION_ABORTED_SCHEMA, "F2F_CRI_SESSION_ABORTED_SCHEMA");
 AjvFormats(ajv);
 
-module.exports = class TestHarness {
+const { aws4Interceptor } = aws4Axios;
+
+export class TestHarness {
   constructor() {
     this.HARNESS_API_INSTANCE = axios.create({
       baseURL: process.env["TEST_HARNESS_URL"],
@@ -81,7 +84,7 @@ module.exports = class TestHarness {
         "/getRecordBySessionId/" +
           process.env["SESSION_TABLE"] +
           "/" +
-          sessionId
+          sessionId,
       );
       return unmarshall(getItemResponse.data.Item);
     } catch (error) {
@@ -92,7 +95,10 @@ module.exports = class TestHarness {
   async getSessionByAuthCode(authCode) {
     try {
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
-        "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + authCode
+        "/getSessionByAuthCode/" +
+          process.env["SESSION_TABLE"] +
+          "/" +
+          authCode,
       );
       return unmarshall(getItemResponse.data.Items[0]);
     } catch (error) {
@@ -103,7 +109,7 @@ module.exports = class TestHarness {
   async getSessionByState(state) {
     try {
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
-        "/getSessionByState/" + process.env["SESSION_TABLE"] + "/" + state
+        "/getSessionByState/" + process.env["SESSION_TABLE"] + "/" + state,
       );
       return unmarshall(getItemResponse.data.Items[0]);
     } catch (error) {
@@ -118,7 +124,7 @@ module.exports = class TestHarness {
         params: {
           prefix: "ipv-core/" + prefix,
         },
-      }
+      },
     );
     const xmlParser = new XMLParser();
     const listObjectsParsedResponse = xmlParser.parse(listObjectsResponse.data);
@@ -134,7 +140,7 @@ module.exports = class TestHarness {
 
     const getObjectResponse = await this.HARNESS_API_INSTANCE.get(
       "/object/" + key,
-      {}
+      {},
     );
     return getObjectResponse.data;
   }
@@ -150,11 +156,11 @@ module.exports = class TestHarness {
           params: {
             prefix: folder + prefix,
           },
-        }
+        },
       );
       const xmlParser = new XMLParser();
       const listObjectsParsedResponse = xmlParser.parse(
-        listObjectsResponse.data
+        listObjectsResponse.data,
       );
       if (!listObjectsParsedResponse?.ListBucketResult?.Contents) {
         return undefined;
@@ -164,7 +170,7 @@ module.exports = class TestHarness {
       keyList = [];
       for (i = 0; i < keys.length; i++) {
         keyList.push(
-          listObjectsParsedResponse?.ListBucketResult?.Contents.at(i).Key
+          listObjectsParsedResponse?.ListBucketResult?.Contents.at(i).Key,
         );
       }
     } while (keys.length < txmaEventSize);
@@ -178,7 +184,7 @@ module.exports = class TestHarness {
     for (i = 0; i < keyList.length; i++) {
       const txmaEventBody = await this.HARNESS_API_INSTANCE.get(
         "/object/" + keyList[i],
-        {}
+        {},
       );
       const eventName = txmaEventBody.data.event_name;
       obj[eventName] = txmaEventBody.data;
@@ -207,7 +213,7 @@ module.exports = class TestHarness {
       }
     } else {
       throw new Error(
-        `No event found in the test harness for ${eventName} event`
+        `No event found in the test harness for ${eventName} event`,
       );
     }
   }
@@ -216,16 +222,16 @@ module.exports = class TestHarness {
     decodedBody,
     yotiMockIdId,
     expecedValue,
-    vcAttribute
+    vcAttribute,
   ) {
     try {
       expect(decodedBody.vc.evidence[0][vcAttribute]).to.equal(expecedValue);
     } catch (error) {
       console.log(
         `Error validating ${vcAttribute} for yotiMockId: ${yotiMockIdId}`,
-        error
+        error,
       );
       return error;
     }
   }
-};
+}

@@ -1,8 +1,9 @@
-const { APP, PACKAGE_NAME } = require("../../../lib/config");
-const BaseController = require("hmpo-form-wizard").Controller;
-const logger = require("../../../lib/logger").get(PACKAGE_NAME);
+import { APP, PACKAGE_NAME } from "../../../lib/config.js";
+import wizard from "hmpo-form-wizard";
+import { get as getLogger } from "../../../lib/logger.js";
+const logger = getLogger(PACKAGE_NAME);
 
-class PhotoIdSelectionThinFileController extends BaseController {
+export class PhotoIdSelectionThinFileController extends wizard.Controller {
   async saveValues(req, res, next) {
     try {
       req.sessionModel.set("redirect_url", undefined);
@@ -19,7 +20,7 @@ class PhotoIdSelectionThinFileController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           logger.info(
             "photo-id-selection: user has selected UK passport - redirecting to passport details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, true);
           req.sessionModel.set("changeUrl", "uk-passport-expire");
@@ -28,7 +29,7 @@ class PhotoIdSelectionThinFileController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           logger.info(
             "photo-id-selection: user has selected other passport - redirecting to other passport details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, true);
           req.sessionModel.set("changeUrl", "non-uk-passport-expire");
@@ -37,7 +38,7 @@ class PhotoIdSelectionThinFileController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID: {
           logger.info(
             "photo-id-selection: user has selected No ID - aborting journey",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID, true);
           return next();
@@ -51,5 +52,3 @@ class PhotoIdSelectionThinFileController extends BaseController {
     }
   }
 }
-
-module.exports = PhotoIdSelectionThinFileController;

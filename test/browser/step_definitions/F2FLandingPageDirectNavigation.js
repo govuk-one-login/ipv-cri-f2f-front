@@ -1,13 +1,13 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const { LandingPage, ErrorPage } = require("../pages");
-const { expect } = require("chai");
+import { LandingPage, ErrorPage } from "../pages/index.js";
+import { expect } from "chai";
 Given(
   /^the user navigates directly to prove-identity-post-office page$/,
   async function () {
     const landingPage = new LandingPage(this.page);
     await landingPage.goTo();
-  }
+  },
 );
 
 Then(
@@ -18,5 +18,5 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );

@@ -1,12 +1,9 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
-
-const { expect } = require("chai");
-
-const TestHarness = require("../support/TestHarness");
-
-const vcResponseData = require("../support/vcValidationData.json");
-
-const { sleep } = require("../../utils/sleep")
+import axios from "axios";
+import { Given, When, Then } from "@cucumber/cucumber";
+import { expect } from "chai";
+import { TestHarness } from "../support/TestHarness.js";
+import { sleep } from "../../utils/sleep.js";
+import vcResponseData from "../support/vcValidationData.json" with { type: "json" };
 
 Given(
   "I have retrieved the sessionTable data for my F2F session using {string}",
@@ -24,7 +21,7 @@ Given(
     }
     this.sessionId = sessionData.sessionId;
     this.authSessionState = sessionData.authSessionState;
-  }
+  },
 );
 
 Then(
@@ -33,7 +30,7 @@ Then(
   async function (authSessionState) {
     expect(this.sessionId).to.not.be.null;
     expect(this.authSessionState).to.equal(authSessionState);
-  }
+  },
 );
 
 When(
@@ -45,37 +42,36 @@ When(
     this.yotiSessionId = f2fSession.yotiSessionId;
     this.subject = f2fSession.subject;
     console.log(this.yotiSessionId);
-    const axios = require("axios");
     const firstBranchVisit = await axios.post(
       `${process.env.API_BASE_URL}/callback`,
       {
         session_id: this.yotiSessionId,
         topic: "first_branch_visit",
-      }
+      },
     );
     console.log(firstBranchVisit.status);
-    await sleep(5000)
+    await sleep(5000);
 
     const thankYouEmailRequested = await axios.post(
       `${process.env.API_BASE_URL}/callback`,
       {
         session_id: this.yotiSessionId,
         topic: "thank_you_email_requested",
-      }
+      },
     );
     console.log(thankYouEmailRequested.status);
-    await sleep(5000)
+    await sleep(5000);
 
     const sessionCompletion = await axios.post(
       `${process.env.API_BASE_URL}/callback`,
       {
         session_id: this.yotiSessionId,
         topic: "session_completion",
-      }
+      },
     );
     console.log(sessionCompletion.status);
-    await sleep(5000)
-  }
+    await sleep(5000);
+  },
 );
 
 Then(
@@ -91,10 +87,10 @@ Then(
       sqsMessage["https://vocab.account.gov.uk/v1/credentialJWT"][0];
     const rawBody = jwtToken.split(".")[1];
     const decodedBody = JSON.parse(
-      Buffer.from(rawBody.replace(/\W/g, ""), "base64url").toString()
+      Buffer.from(rawBody.replace(/\W/g, ""), "base64url").toString(),
     );
     const yotiMockIdId = this.yotiSessionId.substr(
-      this.yotiSessionId.length - 4
+      this.yotiSessionId.length - 4,
     );
     // Strength Score
     const expectedStrengthScore =
@@ -103,7 +99,7 @@ Then(
       decodedBody,
       yotiMockIdId,
       expectedStrengthScore,
-      "strengthScore"
+      "strengthScore",
     );
     // Validity Score
     const epxectedValidityScore =
@@ -112,7 +108,7 @@ Then(
       decodedBody,
       yotiMockIdId,
       epxectedValidityScore,
-      "validityScore"
+      "validityScore",
     );
     // Verification Score
     const epxectedVerificationScore =
@@ -121,9 +117,9 @@ Then(
       decodedBody,
       yotiMockIdId,
       epxectedVerificationScore,
-      "verificationScore"
+      "verificationScore",
     );
-  }
+  },
 );
 
 Then(
@@ -136,12 +132,12 @@ Then(
       sqsMessage = await testHarness.getSqsEventList(
         "txma/",
         this.sessionId,
-        7
+        7,
       );
     } while (!sqsMessage);
 
     testHarness.validateTxMAEventData(sqsMessage);
-  }
+  },
 );
 
 When(
@@ -154,12 +150,12 @@ When(
       sqsMessage = await testHarness.getSqsEventList(
         "txma/",
         this.sessionId,
-        txmaEventCount
+        txmaEventCount,
       );
     } while (!sqsMessage);
 
     this.allTxmaEventBodies = await testHarness.getTxMAEventData(sqsMessage);
-  }
+  },
 );
 
 Then(
@@ -170,7 +166,7 @@ Then(
     await testHarness.validateTxMAEventData(
       this.allTxmaEventBodies,
       eventName,
-      schemaName
+      schemaName,
     );
-  }
+  },
 );

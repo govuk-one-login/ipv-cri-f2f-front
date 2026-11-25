@@ -1,4 +1,4 @@
-const FeatureSets = require("./featureSets");
+import { featureSets } from "./featureSets.js";
 
 describe("feature sets", () => {
   let req;
@@ -27,25 +27,25 @@ describe("feature sets", () => {
 
     it("should call next if featureSet is valid", async () => {
       req.query.featureSet = "F01";
-      await FeatureSets(req, res, next);
+      await featureSets(req, res, next);
       expect(req.session.featureSet).to.equal("F01");
       expect(next).to.have.been.calledOnce;
     });
 
     it("should throw an error if featureSet is invalid", async () => {
       req.query.featureSet = "invalid-featureset";
-      await FeatureSets(req, res, next);
+      await featureSets(req, res, next);
       expect(next).to.have.been.calledWith(
         sinon.match
           .instanceOf(Error)
-          .and(sinon.match.has("message", "Invalid feature set ID"))
+          .and(sinon.match.has("message", "Invalid feature set ID")),
       );
       expect(req.session.featureSet).to.be.undefined;
     });
 
     it("should throw an error if featureSet is blank", async () => {
       req.query.featureSet = undefined;
-      await FeatureSets(req, res, next);
+      await featureSets(req, res, next);
       expect(req.session.featureSet).to.be.undefined;
     });
   });

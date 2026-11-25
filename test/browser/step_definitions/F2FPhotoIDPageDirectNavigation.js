@@ -1,19 +1,19 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const {
+import {
   PhotoIdSelectionPage,
   PhotoIdSelectionPageEdit,
   PhotoIdExpiryPage,
   ErrorPage,
-} = require("../pages");
-const { expect } = require("chai");
+} from "../pages/index.js";
+import { expect } from "chai";
 
 Given(
   /^the user navigates directly to photoID- expiry page$/,
   async function () {
     const photoIDExpiry = new PhotoIdExpiryPage(this.page);
     await photoIDExpiry.goTo();
-  }
+  },
 );
 
 Then(
@@ -24,7 +24,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -32,7 +32,7 @@ Given(
   async function () {
     const photoIDSelection = new PhotoIdSelectionPage(this.page);
     await photoIDSelection.goTo();
-  }
+  },
 );
 
 Then(
@@ -43,7 +43,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -51,7 +51,7 @@ Given(
   async function () {
     const photoIDSelectionEdit = new PhotoIdSelectionPageEdit(this.page);
     await photoIDSelectionEdit.goTo();
-  }
+  },
 );
 
 Then(
@@ -62,5 +62,5 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );

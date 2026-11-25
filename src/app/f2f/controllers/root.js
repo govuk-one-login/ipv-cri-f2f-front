@@ -1,9 +1,10 @@
-const { Controller: BaseController } = require("hmpo-form-wizard");
-const { API, PACKAGE_NAME } = require("../../../lib/config");
-const NodeRSA = require("node-rsa");
-const logger = require("../../../lib/logger").get(PACKAGE_NAME);
+import wizard from "hmpo-form-wizard";
+import { API, PACKAGE_NAME } from "../../../lib/config.js";
+import NodeRSA from "node-rsa";
+import { get as getLogger } from "../../../lib/logger.js";
+const logger = getLogger(PACKAGE_NAME);
 
-class RootController extends BaseController {
+export class RootController extends wizard.Controller {
   async saveValues(req, res, next) {
     const sharedClaims = req.session?.shared_claims;
 
@@ -75,5 +76,3 @@ class RootController extends BaseController {
     return res.data.key;
   }
 }
-
-module.exports = RootController;

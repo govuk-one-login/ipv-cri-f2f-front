@@ -1,13 +1,12 @@
-const { Controller: BaseController } = require("hmpo-form-wizard");
+import wizard from "hmpo-form-wizard";
 
-class CheckAddressController extends BaseController {
+export class CheckAddressController extends wizard.Controller {
   locals(req, res, callback) {
     super.locals(req, res, (err, locals) => {
       locals.addressLine = req.sessionModel.get(
-        "fullParsedSharedClaimsAddress"
+        "fullParsedSharedClaimsAddress",
       );
       callback(err, locals);
     });
   }
 }
-module.exports = CheckAddressController;

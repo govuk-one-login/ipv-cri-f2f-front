@@ -1,13 +1,13 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
-const { expect } = require("chai");
+import { expect } from "chai";
 
-const {
+import {
   PhotoIdSelectionPage,
   PhotoDlDetailsPageValid,
   FindBranch,
   PhotoDlAddressCheckPage,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(
   /^the UK photocard driving licence option is selected$/,
@@ -17,7 +17,7 @@ Given(
     await photoIdPage.drivingLicenceChoice();
 
     expect(await photoIdPage.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 When(/^the user clicks the UK DL continue button$/, async function () {
@@ -33,7 +33,7 @@ Then(
 
     expect(await photoDLPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Given(
@@ -42,7 +42,7 @@ Given(
     const ukPhotoDl = new PhotoDlDetailsPageValid(await this.page);
 
     await ukPhotoDl.expiryDate();
-  }
+  },
 );
 
 When(
@@ -53,7 +53,7 @@ When(
     expect(await ukPhotoDl.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
     await ukPhotoDl.continue();
-  }
+  },
 );
 
 Then(
@@ -63,7 +63,7 @@ Then(
 
     expect(await dlAddressPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 //UKPhotoDLDetails
@@ -85,7 +85,7 @@ When(
     await this.page.waitForLoadState("networkidle");
 
     await dlAddressPage.continue();
-  }
+  },
 );
 
 Then(
@@ -95,7 +95,7 @@ Then(
 
     expect(await branchFinderPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Given(/^the user has selected the 'No' option$/, async function () {
@@ -116,7 +116,7 @@ When(
     await this.page.waitForLoadState("networkidle");
 
     await dlAddressPage.continue();
-  }
+  },
 );
 
 Then(
@@ -126,7 +126,7 @@ Then(
 
     expect(await photoIdPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Given(
@@ -138,7 +138,7 @@ Given(
     await this.page.waitForLoadState("networkidle");
 
     await dlAddressPage.changeAddressLink();
-  }
+  },
 );
 
 Then(
@@ -150,7 +150,7 @@ Then(
     await this.page.waitForLoadState("networkidle");
 
     await dlAddressPage.tellDvlaLink();
-  }
+  },
 );
 
 Given(
@@ -160,7 +160,7 @@ Given(
 
     expect(await dlAddressPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 When(
@@ -169,7 +169,7 @@ When(
     const dlAddressPage = new PhotoDlAddressCheckPage(await this.page);
 
     await dlAddressPage.continue();
-  }
+  },
 );
 
 Then(
@@ -180,10 +180,10 @@ Then(
     expect(await dlAddressPage.isCurrentPage()).to.be.true;
 
     expect(await dlAddressPage.checkErrorText()).to.contain(
-      "There is a problem"
+      "There is a problem",
     );
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 When(
@@ -192,7 +192,7 @@ When(
     const dlAddressPage = new PhotoDlAddressCheckPage(await this.page);
 
     await dlAddressPage.back();
-  }
+  },
 );
 
 Then(
@@ -202,5 +202,5 @@ Then(
 
     expect(await ukPhotoDl.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );

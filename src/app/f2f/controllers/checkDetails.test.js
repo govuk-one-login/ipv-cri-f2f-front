@@ -1,12 +1,14 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { expect } = require("chai");
-const CheckDetailsController = require("./checkDetails");
+import wizard from "hmpo-form-wizard";
+import { expect } from "chai";
+import { CheckDetailsController } from "./checkDetails.js";
+import { API, APP } from "../../../lib/config.js";
+const BaseController = wizard.Controller;
 const {
   API: {
     PATHS: { SAVE_F2FDATA },
   },
   APP: { PHOTO_ID_OPTIONS },
-} = require("../../../lib/config");
+} = { API, APP };
 
 describe("CheckDetails controller", () => {
   let checkDetailsController;
@@ -168,25 +170,25 @@ describe("CheckDetails controller", () => {
         await checkDetailsController.locals(req, res, next);
 
         expect(req.sessionModel.get("postOfficeName")).to.equal(
-          postOfficeDetails.text
+          postOfficeDetails.text,
         );
         expect(req.sessionModel.get("postOfficeAddress")).to.equal(
-          postOfficeDetails.hint.text
+          postOfficeDetails.hint.text,
         );
         expect(req.sessionModel.get("postOfficePostcode")).to.equal(
-          payLoadValues.postcode
+          payLoadValues.postcode,
         );
         expect(
-          req.sessionModel.get("postOfficeAddressWithoutPostCode")
+          req.sessionModel.get("postOfficeAddressWithoutPostCode"),
         ).to.equal(payLoadValues.addressWithoutPostCode);
         expect(req.sessionModel.get("postOfficeLatitude")).to.equal(
-          payLoadValues.latitude
+          payLoadValues.latitude,
         );
         expect(req.sessionModel.get("postOfficeLongitude")).to.equal(
-          payLoadValues.longitude
+          payLoadValues.longitude,
         );
         expect(req.sessionModel.get("postOfficeFadCode")).to.equal(
-          payLoadValues.fadCode
+          payLoadValues.fadCode,
         );
       });
     });
@@ -283,7 +285,7 @@ describe("CheckDetails controller", () => {
           street_name: "MOCK ROAD",
           postcode: "FS6 5AQ",
         };
-  
+
         req.sessionModel.set("postalAddress", testAddress);
 
         const f2fData = {
@@ -304,14 +306,14 @@ describe("CheckDetails controller", () => {
           },
           pdf_preference: req.sessionModel.get("pdfPreference"),
           postal_address: {
-            departmentName: 'test_department_name',
-            organisationName: 'test_organisation_name',
-            subBuildingName: 'test_sub_building_name',
-            buildingName: 'test_building_name',
-            buildingNumber: '34',
-            postalCode: 'FS6 5AQ',
-            addressCountry: 'GB',
-            preferredAddress: true
+            departmentName: "test_department_name",
+            organisationName: "test_organisation_name",
+            subBuildingName: "test_sub_building_name",
+            buildingName: "test_building_name",
+            buildingNumber: "34",
+            postalCode: "FS6 5AQ",
+            addressCountry: "GB",
+            preferredAddress: true,
           },
         };
 
@@ -325,7 +327,7 @@ describe("CheckDetails controller", () => {
               "txma-audit-encoded": "dummy-txma-header",
               "x-govuk-signin-session-id": req.session.tokenId,
             },
-          }
+          },
         );
       });
 
@@ -365,7 +367,7 @@ describe("CheckDetails controller", () => {
             postalCode: testAddress.postcode,
             addressCountry: "GB",
             preferredAddress: true,
-          }
+          },
         };
 
         await checkDetailsController.saveValues(req, res, next);
@@ -378,7 +380,7 @@ describe("CheckDetails controller", () => {
               "txma-audit-encoded": "dummy-txma-header",
               "x-govuk-signin-session-id": req.session.tokenId,
             },
-          }
+          },
         );
       });
 
@@ -397,7 +399,7 @@ describe("CheckDetails controller", () => {
         expect(res.redirect).to.have.been.calledOnceWith("/error");
         sinon.assert.calledWith(
           console.error,
-          "Missing sessionID, redirecting to /error"
+          "Missing sessionID, redirecting to /error",
         );
       });
     });

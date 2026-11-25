@@ -1,9 +1,10 @@
-const { expect } = require("chai");
+import { expect } from "chai";
+import { addressPresenter } from "./addressPresenter.js";
 const {
   generateSearchResultString,
   generateHTMLofAddress,
   titleCaseAddresses,
-} = require("./addressPresenter");
+} = addressPresenter;
 
 const userSelectedAddress = {
   organisation_name: "A COMPANY",
@@ -58,7 +59,7 @@ describe("Generate search result string", () => {
 
   it("should generate search result string without street name", () => {
     expect(generateSearchResultString(titleCasedAddress)).to.equal(
-      [streetText, localityText, titleCasedAddress.postcode].join(", ")
+      [streetText, localityText, titleCasedAddress.postcode].join(", "),
     );
   });
 
@@ -68,7 +69,7 @@ describe("Generate search result string", () => {
         [streetText, titleCasedAddressWithStreet.thoroughfare_name].join(" "),
         localityText,
         titleCasedAddress.postcode,
-      ].join(", ")
+      ].join(", "),
     );
   });
 });
@@ -86,7 +87,7 @@ describe("Generate HTML of address", () => {
         ].join("<br>"),
         localityText,
         titleCasedAddress.postcode,
-      ].join("<br>")
+      ].join("<br>"),
     );
   });
 
@@ -103,7 +104,7 @@ describe("Generate HTML of address", () => {
         ].join("<br>"),
         localityText,
         titleCasedAddress.postcode,
-      ].join("<br>")
+      ].join("<br>"),
     );
   });
 });
@@ -111,7 +112,7 @@ describe("Generate HTML of address", () => {
 describe("titleCaseAddresses", () => {
   it("should title case addresses", () => {
     expect(titleCaseAddresses(userSelectedAddress)).to.deep.equal(
-      titleCasedAddress
+      titleCasedAddress,
     );
   });
 
@@ -126,7 +127,7 @@ describe("titleCaseAddresses", () => {
       userSelectedAddress.postcode = testCase.postCodeValue;
       titleCasedAddress.postcode = testCase.postCodeValue;
       expect(titleCaseAddresses(userSelectedAddress)).to.deep.equal(
-        titleCasedAddress
+        titleCasedAddress,
       );
     });
   });

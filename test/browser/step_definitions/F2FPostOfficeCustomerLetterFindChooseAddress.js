@@ -1,7 +1,7 @@
-const { Given, When } = require("@cucumber/cucumber");
-const { expect } = require("chai");
+import { Given, When } from "@cucumber/cucumber";
+import { expect } from "chai";
 
-const { PostOfficeCustomerLetterChooseAddress } = require("../pages");
+import { PostOfficeCustomerLetterChooseAddress } from "../pages/index.js";
 
 Given(
   /^the user navigates directly to post-office-customer-letter choose address$/,
@@ -9,14 +9,15 @@ Given(
     const postOfficeCustomerLetterChooseAddress =
       new PostOfficeCustomerLetterChooseAddress(this.page);
     await postOfficeCustomerLetterChooseAddress.goTo();
-  }
+  },
 );
 
 When(/^the user selects an address from the dropdown list/, async function () {
   const postOfficeCustomerLetterChooseAddress =
     new PostOfficeCustomerLetterChooseAddress(this.page);
 
-  expect(await postOfficeCustomerLetterChooseAddress.isCurrentPage()).to.be.true;
+  expect(await postOfficeCustomerLetterChooseAddress.isCurrentPage()).to.be
+    .true;
   await this.page.waitForLoadState("networkidle");
 
   await postOfficeCustomerLetterChooseAddress.selectAddress();

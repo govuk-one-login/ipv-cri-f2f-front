@@ -1,4 +1,4 @@
-module.exports = class PlaywrightDevPage {
+export default class PlaywrightDevPage {
   /**
    * @param {import('@playwright/test').Page} page
    */
@@ -26,4 +26,4 @@ module.exports = class PlaywrightDevPage {
       value: "6 HADLEY ROAD, BATH, BA2 5AA",
     });
   }
-};
+}

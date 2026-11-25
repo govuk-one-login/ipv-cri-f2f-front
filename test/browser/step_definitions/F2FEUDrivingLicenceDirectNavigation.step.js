@@ -1,6 +1,6 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const {
+import {
   EuDrivingLicenceAddressCheck,
   EuDrivingLicenceDetailsPageValid,
   EuDrivingLicenceDetailsPageValidEdit,
@@ -9,14 +9,14 @@ const {
   EuDrivingLicenceCountrySelector,
   EuDrivingLicenceHasExpiryDatePage,
   ErrorPage,
-} = require("../pages");
-const { expect } = require("chai");
+} from "../pages/index.js";
+import { expect } from "chai";
 Given(
   /^the user navigates directly to eu-driving-licence-current-address page$/,
   async function () {
     const euDrivingLicenceAddress = new EuDrivingLicenceAddressCheck(this.page);
     await euDrivingLicenceAddress.goTo();
-  }
+  },
 );
 
 Then(
@@ -27,17 +27,17 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
   /^the user navigates directly to select-country-eu-driving-licence page$/,
   async function () {
     const euDrivingLicenceCountrySelector = new EuDrivingLicenceCountrySelector(
-      this.page
+      this.page,
     );
     await euDrivingLicenceCountrySelector.goTo();
-  }
+  },
 );
 
 Then(
@@ -48,7 +48,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -57,7 +57,7 @@ Given(
     const euDrivingLicenceInvalidPast =
       new EuDrivingLicenceDetailsPageInvalidPast(this.page);
     await euDrivingLicenceInvalidPast.goTo();
-  }
+  },
 );
 
 Then(
@@ -68,7 +68,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -77,7 +77,7 @@ Given(
     const euDrivingLicenceInvalidFuture =
       new EuDrivingLicenceDetailsPageInvalidFuture(this.page);
     await euDrivingLicenceInvalidFuture.goTo();
-  }
+  },
 );
 
 Then(
@@ -88,17 +88,17 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
   /^the user navigates directly to eu-driving-licence-expire page$/,
   async function () {
     const euDrivingLicenceValid = new EuDrivingLicenceDetailsPageValid(
-      this.page
+      this.page,
     );
     await euDrivingLicenceValid.goTo();
-  }
+  },
 );
 
 Then(
@@ -109,17 +109,17 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
   /^the user navigates directly to eu-driving-licence-expire-edit page$/,
   async function () {
     const euDrivingLicenceValidEdit = new EuDrivingLicenceDetailsPageValidEdit(
-      this.page
+      this.page,
     );
     await euDrivingLicenceValidEdit.goTo();
-  }
+  },
 );
 
 Then(
@@ -130,17 +130,17 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
   /^the user navigates directly to eu-driving-licence-expiry-date page$/,
   async function () {
     const euDrivingLicenceHasExpiryPage = new EuDrivingLicenceHasExpiryDatePage(
-      this.page
+      this.page,
     );
     await euDrivingLicenceHasExpiryPage.goTo();
-  }
+  },
 );
 
 Then(
@@ -151,5 +151,5 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );

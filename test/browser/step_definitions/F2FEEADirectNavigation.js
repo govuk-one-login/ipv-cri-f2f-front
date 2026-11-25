@@ -1,6 +1,6 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const {
+import {
   EeaIdentityCardHasExpiryDatePage,
   EEAIdentityCardAddressCheck,
   EEAIdentityCardCountrySelectorPage,
@@ -10,15 +10,15 @@ const {
   EEAIdentityCardAddressCheckEdit,
   EEAIdentityCardCountrySelectorPageEdit,
   ErrorPage,
-} = require("../pages");
-const { expect } = require("chai");
+} from "../pages/index.js";
+import { expect } from "chai";
 
 Given(
   /^the user navigates directly to national-identity-card-expiry-date page$/,
   async function () {
     const eeaExpiryDatePage = new EeaIdentityCardHasExpiryDatePage(this.page);
     await eeaExpiryDatePage.goTo();
-  }
+  },
 );
 
 Then(
@@ -29,17 +29,17 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
   /^the user navigates directly to select-country-national-identity-card page$/,
   async function () {
     const eeaCountrySelectPage = new EEAIdentityCardCountrySelectorPage(
-      this.page
+      this.page,
     );
     await eeaCountrySelectPage.goTo();
-  }
+  },
 );
 
 Then(
@@ -50,7 +50,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -58,7 +58,7 @@ Given(
   async function () {
     const eeaAddressCheckPage = new EEAIdentityCardAddressCheck(this.page);
     await eeaAddressCheckPage.goTo();
-  }
+  },
 );
 
 Then(
@@ -69,17 +69,17 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
   /^the user navigates directly to national-identity-card-expire-invalidpast page$/,
   async function () {
     const eeaCardDetailsInvalidPast = new EEAIdentityCardDetailsPageInvalidPast(
-      this.page
+      this.page,
     );
     await eeaCardDetailsInvalidPast.goTo();
-  }
+  },
 );
 
 Then(
@@ -90,7 +90,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -99,7 +99,7 @@ Given(
     const eeaCardDetailsInvalidFuture =
       new EEAIdentityCardDetailsPageInvalidFuture(this.page);
     await eeaCardDetailsInvalidFuture.goTo();
-  }
+  },
 );
 
 Then(
@@ -110,7 +110,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -118,7 +118,7 @@ Given(
   async function () {
     const eeaCardDetailsValid = new EEAIdentityCardDetailsPageValid(this.page);
     await eeaCardDetailsValid.goTo();
-  }
+  },
 );
 
 Then(
@@ -129,17 +129,17 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
   /^the user navigates directly to eu-driving-licence-current-address-edit page$/,
   async function () {
     const eeaAddressCheckEditPage = new EEAIdentityCardAddressCheckEdit(
-      this.page
+      this.page,
     );
     await eeaAddressCheckEditPage.goTo();
-  }
+  },
 );
 
 Then(
@@ -150,7 +150,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -159,7 +159,7 @@ Given(
     const eeaCountrySelectorEditPage =
       new EEAIdentityCardCountrySelectorPageEdit(this.page);
     await eeaCountrySelectorEditPage.goTo();
-  }
+  },
 );
 
 Then(
@@ -170,5 +170,5 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );

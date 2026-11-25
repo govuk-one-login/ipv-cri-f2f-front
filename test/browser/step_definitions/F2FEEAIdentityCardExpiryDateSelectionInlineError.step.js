@@ -1,8 +1,8 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const { expect } = require("chai");
+import { expect } from "chai";
 
-const { EeaIdentityCardHasExpiryDatePage } = require("../pages");
+import { EeaIdentityCardHasExpiryDatePage } from "../pages/index.js";
 
 Given(
   /^the user clicks the continue button only on the EEAIdentityCardHasExpiryDatePage$/,
@@ -11,7 +11,7 @@ Given(
       new EeaIdentityCardHasExpiryDatePage(await this.page);
 
     await eeaIdentityCardHasExpiryDatePage.continue();
-  }
+  },
 );
 
 Then(
@@ -39,7 +39,7 @@ Then(
       await eeaIdentityCardHasExpiryDatePage.checkErrorAboveRadioButtonText();
 
     expect(await errorBodyAboveRadioOptions).to.equal(
-      "Error: Select if your photo ID has an expiry date"
+      "Error: Select if your photo ID has an expiry date",
     );
-  }
+  },
 );

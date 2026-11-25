@@ -1,7 +1,7 @@
-const { Given, When } = require("@cucumber/cucumber");
-const { expect } = require("chai");
+import { Given, When } from "@cucumber/cucumber";
+import { expect } from "chai";
 
-const { PostOfficeCustomerLetterFindAddress } = require("../pages");
+import { PostOfficeCustomerLetterFindAddress } from "../pages/index.js";
 
 Given(
   /^the user navigates directly to post-office-customer-letter$/,
@@ -9,7 +9,7 @@ Given(
     const postOfficeCustomerLetterFindAddressPage =
       new PostOfficeCustomerLetterFindAddress(this.page);
     await postOfficeCustomerLetterFindAddressPage.goTo();
-  }
+  },
 );
 
 When(
@@ -18,10 +18,11 @@ When(
     const postOfficeCustomerLetterFindAddressPage =
       new PostOfficeCustomerLetterFindAddress(this.page);
 
-    expect(await postOfficeCustomerLetterFindAddressPage.isCurrentPage()).to.be.true;
+    expect(await postOfficeCustomerLetterFindAddressPage.isCurrentPage()).to.be
+      .true;
     await this.page.waitForLoadState("networkidle");
 
     await postOfficeCustomerLetterFindAddressPage.enterPostcode();
     await postOfficeCustomerLetterFindAddressPage.continue();
-  }
+  },
 );

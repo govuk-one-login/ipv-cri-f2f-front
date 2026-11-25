@@ -1,20 +1,20 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const {
+import {
   PassportDetailsPageValid,
   PassportDetailsPageValidEdit,
   PassportDetailsPageInvalidFuture,
   PassportDetailsPageInvalidPast,
   ErrorPage,
-} = require("../pages");
-const { expect } = require("chai");
+} from "../pages/index.js";
+import { expect } from "chai";
 
 Given(
   /^the user navigates directly to uk-passport-expire page$/,
   async function () {
     const passportDetailsPageValid = new PassportDetailsPageValid(this.page);
     await passportDetailsPageValid.goTo();
-  }
+  },
 );
 
 Then(
@@ -25,17 +25,17 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
   /^the user navigates directly to uk-passport-expire-invalidpast page$/,
   async function () {
     const passportDetailsPageInvalidPast = new PassportDetailsPageInvalidPast(
-      this.page
+      this.page,
     );
     await passportDetailsPageInvalidPast.goTo();
-  }
+  },
 );
 
 Then(
@@ -46,7 +46,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -55,7 +55,7 @@ Given(
     const passportDetailsPageInvalidFuture =
       new PassportDetailsPageInvalidFuture(this.page);
     await passportDetailsPageInvalidFuture.goTo();
-  }
+  },
 );
 
 Then(
@@ -66,17 +66,17 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
   /^the user navigates directly to uk-passport-expire-edit page$/,
   async function () {
     const passportDetailsPageValidEdit = new PassportDetailsPageValidEdit(
-      this.page
+      this.page,
     );
     await passportDetailsPageValidEdit.goTo();
-  }
+  },
 );
 
 Then(
@@ -87,5 +87,5 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );

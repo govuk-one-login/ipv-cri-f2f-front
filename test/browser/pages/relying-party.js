@@ -1,4 +1,6 @@
-module.exports = class PlaywrightDevPage {
+import axios from "axios";
+
+export default class PlaywrightDevPage {
   /**
    * @param {import('@playwright/test').Page} page
    */
@@ -7,11 +9,13 @@ module.exports = class PlaywrightDevPage {
   }
 
   async goto(claim) {
-    const axios = require("axios");
     if (process.env.CUSTOM_FE_URL) {
       claim.frontendURL = process.env.CUSTOM_FE_URL;
     }
-    const postRequest = await axios.post(process.env.IPV_STUB_URL + "start", claim);
+    const postRequest = await axios.post(
+      process.env.IPV_STUB_URL + "start",
+      claim,
+    );
     await this.page.goto(postRequest.data.AuthorizeLocation);
     await this.page.waitForLoadState("networkidle");
   }
@@ -38,4 +42,4 @@ module.exports = class PlaywrightDevPage {
       searchParams.get("error_description") === "gateway"
     );
   }
-};
+}

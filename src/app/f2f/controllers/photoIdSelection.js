@@ -1,8 +1,9 @@
-const { APP, PACKAGE_NAME } = require("../../../lib/config");
-const BaseController = require("hmpo-form-wizard").Controller;
-const logger = require("../../../lib/logger").get(PACKAGE_NAME);
+import { APP, PACKAGE_NAME } from "../../../lib/config.js";
+import wizard from "hmpo-form-wizard";
+import { get as getLogger } from "../../../lib/logger.js";
+const logger = getLogger(PACKAGE_NAME);
 
-class PhotoIdSelectionController extends BaseController {
+export class PhotoIdSelectionController extends wizard.Controller {
   async saveValues(req, res, next) {
     try {
       logger.info("user submitting photo Id choice", { req });
@@ -21,7 +22,7 @@ class PhotoIdSelectionController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           logger.info(
             "photo-id-selection: user has selected UK passport - redirecting to passport details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, true);
           req.sessionModel.set("changeUrl", "uk-passport-expire");
@@ -30,7 +31,7 @@ class PhotoIdSelectionController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
           logger.info(
             "photo-id-selection: user has selected UK DL - redirecting to driving license details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, true);
           req.sessionModel.set("changeUrl", "uk-driving-licence-expire");
@@ -39,7 +40,7 @@ class PhotoIdSelectionController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           logger.info(
             "photo-id-selection: user has selected other passport - redirecting to other passport details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, true);
           req.sessionModel.set("changeUrl", "non-uk-passport-expire");
@@ -49,7 +50,7 @@ class PhotoIdSelectionController extends BaseController {
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           logger.info(
             "photo-id-selection: user has selected EU photocard driving licence - redirecting to driving license details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL, true);
           req.sessionModel.set("changeUrl", "eu-driving-licence-expire");
@@ -80,5 +81,3 @@ class PhotoIdSelectionController extends BaseController {
     }
   }
 }
-
-module.exports = PhotoIdSelectionController;

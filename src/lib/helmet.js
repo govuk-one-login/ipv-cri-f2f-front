@@ -1,6 +1,6 @@
-//Extracted from common-express and modified
+// modified from "@govuk-one-login/di-ipv-cri-common-express/src/lib/helmet.js"
 
-module.exports = {
+export default {
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],

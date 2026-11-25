@@ -1,18 +1,14 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const DateControllerMixin = require("@govuk-one-login/frontend-ui").mixins.Date;
-const { formatDate } = require("../utils");
-const { APP, API } = require("../../../lib/config");
-const { buildCheckDetailsRows } = require("../../../presenters/checkDetailsRowsPresenter");
-const DateController = DateControllerMixin(BaseController);
-const {
-  createPersonalDataHeaders,
-} = require("@govuk-one-login/frontend-passthrough-headers");
-const {
-  generateHTMLofAddress,
-  titleCaseAddresses,
-} = require("../../../presenters/addressPresenter");
+import wizard from "hmpo-form-wizard";
+import { mixins } from "@govuk-one-login/frontend-ui";
+import { formatDate } from "../utils.js";
+import { APP, API } from "../../../lib/config.js";
+import { createPersonalDataHeaders } from "@govuk-one-login/frontend-passthrough-headers";
+import { addressPresenter } from "../../../presenters/index.js";
+import { buildCheckDetailsRows } from "../../../presenters/checkDetailsRowsPresenter.js";
 
-class CheckDetailsController extends DateController {
+const DateController = mixins.Date(wizard.Controller);
+
+export class CheckDetailsController extends DateController {
   locals(req, res, callback) {
     super.locals(req, res, (err, locals) => {
       if (err) {
@@ -90,7 +86,7 @@ class CheckDetailsController extends DateController {
       req.sessionModel.set("postOfficeAddress", postOfficeAddress);
       req.sessionModel.set(
         "postOfficeAddressWithoutPostCode",
-        postOfficeAddressWithoutPostCode
+        postOfficeAddressWithoutPostCode,
       );
       req.sessionModel.set("postOfficePostcode", postOfficePostcode);
       req.sessionModel.set("postOfficeLatitude", postOfficeLatitude);
@@ -119,13 +115,13 @@ class CheckDetailsController extends DateController {
           expiryDate = req.form.values.nonUKPassportExpiryDate;
           req.sessionModel.set(
             "countryCode",
-            req.form.values.nonUkPassportCountrySelector
+            req.form.values.nonUkPassportCountrySelector,
           );
           req.sessionModel.set(
             "country",
             res.locals.translate(
-              `countries.${req.form.values.nonUkPassportCountrySelector}`
-            )
+              `countries.${req.form.values.nonUkPassportCountrySelector}`,
+            ),
           );
           break;
         }
@@ -135,13 +131,13 @@ class CheckDetailsController extends DateController {
           address = req.form.values.euPhotocardDlAddressCheck;
           req.sessionModel.set(
             "countryCode",
-            req.form.values.euDrivingLicenceCountrySelector
+            req.form.values.euDrivingLicenceCountrySelector,
           );
           req.sessionModel.set(
             "country",
             res.locals.translate(
-              `countries.${req.form.values.euDrivingLicenceCountrySelector}`
-            )
+              `countries.${req.form.values.euDrivingLicenceCountrySelector}`,
+            ),
           );
           break;
         }
@@ -151,13 +147,13 @@ class CheckDetailsController extends DateController {
           address = req.form.values.eeaIdentityCardAddressCheck;
           req.sessionModel.set(
             "countryCode",
-            req.form.values.eeaIdentityCardCountrySelector
+            req.form.values.eeaIdentityCardCountrySelector,
           );
           req.sessionModel.set(
             "country",
             res.locals.translate(
-              `countries.${req.form.values.eeaIdentityCardCountrySelector}`
-            )
+              `countries.${req.form.values.eeaIdentityCardCountrySelector}`,
+            ),
           );
           break;
         }
@@ -182,27 +178,36 @@ class CheckDetailsController extends DateController {
         req.sessionModel.get("customerLetterCheckAddress") ===
           "differentAddress"
       ) {
-        const displayAddress = generateHTMLofAddress(
-          titleCaseAddresses(postalAddress)
+        const displayAddress = addressPresenter.generateHTMLofAddress(
+          addressPresenter.titleCaseAddresses(postalAddress),
         );
         locals.addressLine = displayAddress;
       } else {
         locals.addressLine = req.sessionModel.get(
-          "fullParsedSharedClaimsAddress"
+          "fullParsedSharedClaimsAddress",
         );
       }
 
-      const postOfficeCustomerLetterChoice = req.sessionModel.get("postOfficeCustomerLetterChoice");
-      const choseEmail = postOfficeCustomerLetterChoice === APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL;
-      const choseLetter = postOfficeCustomerLetterChoice === APP.POST_OFFICE_CUSTOMER_LETTER.POST;
+      const postOfficeCustomerLetterChoice = req.sessionModel.get(
+        "postOfficeCustomerLetterChoice",
+      );
+      const choseEmail =
+        postOfficeCustomerLetterChoice ===
+        APP.POST_OFFICE_CUSTOMER_LETTER.EMAIL;
+      const choseLetter =
+        postOfficeCustomerLetterChoice === APP.POST_OFFICE_CUSTOMER_LETTER.POST;
 
       // Assign values for display text and API payload
       req.sessionModel.set("pdfPreference", "EMAIL_ONLY");
 
       if (choseEmail) {
-        locals.pdfPreferenceText = res.locals.translate("checkDetails.pdfPreferenceTextEmail");
+        locals.pdfPreferenceText = res.locals.translate(
+          "checkDetails.pdfPreferenceTextEmail",
+        );
       } else if (choseLetter) {
-        locals.pdfPreferenceText = res.locals.translate("checkDetails.pdfPreferenceTextPcl");
+        locals.pdfPreferenceText = res.locals.translate(
+          "checkDetails.pdfPreferenceTextPcl",
+        );
         req.sessionModel.set("pdfPreference", "PRINTED_LETTER");
       }
       const letterLanguageChoiceEnabled =
@@ -210,7 +215,7 @@ class CheckDetailsController extends DateController {
         req.session.featureSet === "letterLanguageChoice";
 
       const langChoice = req.sessionModel.get(
-        "postOfficeCustomerLetterLanguageChoice"
+        "postOfficeCustomerLetterLanguageChoice",
       );
 
       locals.showLetterLanguagePreferenceRow =
@@ -218,18 +223,18 @@ class CheckDetailsController extends DateController {
 
       if (locals.showLetterLanguagePreferenceRow) {
         locals.letterLanguagePreferenceText = res.locals.translate(
-          `postOfficeCustomerLetterLanguageChoice.items.${langChoice}.label`
+          `postOfficeCustomerLetterLanguageChoice.items.${langChoice}.label`,
         );
       }
       locals.formattedExpiryDate = formatDate(expiryDate, format, language);
       locals.idTranslatedString = res.locals.translate(
-        `photoIdChoice.items.${idChoice}.label`
+        `photoIdChoice.items.${idChoice}.label`,
       );
       locals.addressCheckTranslatedString = res.locals.translate(
-        `${idChoice}AddressCheck.items.${addressCheck}.label`
+        `${idChoice}AddressCheck.items.${addressCheck}.label`,
       );
       locals.hasExpiryDateTranslatedString = res.locals.translate(
-        `idHasExpiryDate.items.${hasExpiryDate}.label`
+        `idHasExpiryDate.items.${hasExpiryDate}.label`,
       );
       locals.countryTranslatedString = req.sessionModel.get("country");
 
@@ -307,10 +312,12 @@ class CheckDetailsController extends DateController {
         mappedAddress.addressLocality = postal_address.post_town;
       }
       if (postal_address.dependent_locality) {
-        mappedAddress.dependentAddressLocality = postal_address.dependent_locality;
+        mappedAddress.dependentAddressLocality =
+          postal_address.dependent_locality;
       }
       if (postal_address.double_dependent_locality) {
-        mappedAddress.doubleDependentAddressLocality = postal_address.double_dependent_locality;
+        mappedAddress.doubleDependentAddressLocality =
+          postal_address.double_dependent_locality;
       }
       if (postal_address.postcode) {
         mappedAddress.postalCode = postal_address.postcode;
@@ -330,7 +337,7 @@ class CheckDetailsController extends DateController {
         "x-govuk-signin-session-id": tokenId,
         ...createPersonalDataHeaders(
           `${API.BASE_URL}${API.PATHS.SAVE_F2FDATA}`,
-          req
+          req,
         ),
       };
       const resp = await axios.post(`${API.PATHS.SAVE_F2FDATA}`, f2fData, {
@@ -342,7 +349,4 @@ class CheckDetailsController extends DateController {
       res.redirect("/error");
     }
   }
-  
 }
-
-module.exports = CheckDetailsController;

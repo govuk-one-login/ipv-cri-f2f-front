@@ -1,4 +1,4 @@
-module.exports = class PlaywrightDevPage {
+export default class PlaywrightDevPage {
   /**
    * @param {import('@playwright/test').Page} page
    */
@@ -43,7 +43,7 @@ module.exports = class PlaywrightDevPage {
 
   async changeLetterLanguageChoice() {
     await this.page.click(
-      '[href*="/post-office-customer-letter-choose-language/edit"]'
+      '[href*="/post-office-customer-letter-choose-language/edit"]',
     );
   }
 
@@ -60,7 +60,7 @@ module.exports = class PlaywrightDevPage {
 
   async hasLetterLanguageChoiceChangeLink() {
     return await this.page.isVisible(
-      '[href*="/post-office-customer-letter-choose-language/edit"]'
+      '[href*="/post-office-customer-letter-choose-language/edit"]',
     );
   }
 
@@ -74,7 +74,7 @@ module.exports = class PlaywrightDevPage {
 
   async isExpiryDateSelectionDisplayed() {
     return await this.page.isVisible(
-      "text= Does your photo ID have an expiry date"
+      "text= Does your photo ID have an expiry date",
     );
   }
 
@@ -92,19 +92,19 @@ module.exports = class PlaywrightDevPage {
 
   async changeAddressCheckLocation() {
     await this.page.click(
-      '[href*="national-identity-card-current-address/edit"]'
+      '[href*="national-identity-card-current-address/edit"]',
     );
   }
 
   async changeCountry() {
     await this.page.click(
-      '[href*="select-country-national-identity-card/edit"]'
+      '[href*="select-country-national-identity-card/edit"]',
     );
   }
 
   async isLetterLanguageChoiceDisplayed() {
     return await this.page.isVisible(
-      "text= What language do you want your posted letters in?"
+      "text= What language do you want your posted letters in?",
     );
   }
 
@@ -124,8 +124,8 @@ module.exports = class PlaywrightDevPage {
 
   async checkRedirectionErrorText() {
     const errorRedirectionText = await this.page.textContent(
-      '[data-id="error-title"]'
+      '[data-id="error-title"]',
     );
     return errorRedirectionText.trim();
   }
-};
+}

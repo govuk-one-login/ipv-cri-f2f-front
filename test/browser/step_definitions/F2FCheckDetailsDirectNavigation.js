@@ -1,7 +1,7 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const { CheckDetails, ErrorPage } = require("../pages");
-const { expect } = require("chai");
+import { CheckDetails, ErrorPage } from "../pages/index.js";
+import { expect } from "chai";
 Given(/^the user navigates directly to check-details page$/, async function () {
   const checkDetails = new CheckDetails(this.page);
   await checkDetails.goTo();
@@ -15,5 +15,5 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );

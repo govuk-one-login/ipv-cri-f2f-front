@@ -1,14 +1,14 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
-const { expect } = require("chai");
+import { expect } from "chai";
 
-const {
+import {
   PhotoDlDetailsPageValid,
   PhotoDlDetailsPageInvalidPast,
   PhotoDlDetailsPageInvalidFuture,
   PhotoIdExpiryPage,
   PhotoIdSelectionPage,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(
   /^the date entered is before the accepted UKPhotoDLExpiry expiration window$/,
@@ -16,7 +16,7 @@ Given(
     const ukPhotoDl = new PhotoDlDetailsPageInvalidPast(await this.page);
 
     await ukPhotoDl.expiryDate();
-  }
+  },
 );
 
 When(
@@ -28,7 +28,7 @@ When(
     await this.page.waitForLoadState("networkidle");
 
     await ukPhotoDl.continue();
-  }
+  },
 );
 
 Then(
@@ -38,7 +38,7 @@ Then(
 
     expect(await photoIdExpPg.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 //UK Driving Licence Future Date Validation
@@ -48,7 +48,7 @@ Given(
     const ukPhotoDl = new PhotoDlDetailsPageInvalidFuture(await this.page);
 
     await ukPhotoDl.expiryDate();
-  }
+  },
 );
 
 When(
@@ -60,7 +60,7 @@ When(
     await this.page.waitForLoadState("networkidle");
 
     await ukPhotoDl.continue();
-  }
+  },
 );
 
 Then(
@@ -75,7 +75,7 @@ Then(
     const error = await ukDL.checkErrorText();
 
     expect(await error).to.equal(inlineError);
-  }
+  },
 );
 
 //UK Driving Licence Past Date Validation Re-enter
@@ -93,18 +93,18 @@ When(
     const photoExpiryPage = new PhotoIdExpiryPage(await this.page);
 
     await photoExpiryPage.continue();
-  }
+  },
 );
 
 Then(
   /^the user is routed back to the UKPhotoDL Expiry Date screen$/,
   async function () {
     const photoDlDetailsPageValid = new PhotoDlDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     expect(await photoDlDetailsPageValid.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 //UKDL Expired Date Choose Another ID
@@ -122,7 +122,7 @@ When(
     const photoExpiryPage = new PhotoIdExpiryPage(await this.page);
 
     await photoExpiryPage.continue();
-  }
+  },
 );
 
 Then(
@@ -131,5 +131,5 @@ Then(
     const photoIdSelectionPage = new PhotoIdSelectionPage(await this.page);
 
     expect(await photoIdSelectionPage.isCurrentPage()).to.be.true;
-  }
+  },
 );

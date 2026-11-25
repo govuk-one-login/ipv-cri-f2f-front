@@ -1,7 +1,7 @@
-const { expect } = require("chai");
+import { expect } from "chai";
 
-const { buildCheckDetailsRows } = require("../../src/presenters/checkDetailsRowsPresenter");
-const { APP } = require("../../src/lib/config");
+import { buildCheckDetailsRows } from "../../src/presenters/checkDetailsRowsPresenter.js";
+import { APP } from "../../src/lib/config.js";
 
 const makeReq = (sessionValues = {}) => ({
   sessionModel: { get: (k) => sessionValues[k] },
@@ -51,11 +51,13 @@ describe("checkDetailsRowsPresenter", () => {
     });
 
     const rows = buildCheckDetailsRows(req, makeRes(), localsBase());
-    const addrRow = rows.find((r) => r.key.text === "checkDetails.pdfChosenAddress");
+    const addrRow = rows.find(
+      (r) => r.key.text === "checkDetails.pdfChosenAddress",
+    );
 
     expect(addrRow).to.exist;
     expect(addrRow.actions.items[0].href).to.equal(
-      `${APP.PATHS.CHECK_ADDRESS}/edit?edit=true`
+      `${APP.PATHS.CHECK_ADDRESS}/edit?edit=true`,
     );
   });
 
@@ -71,12 +73,14 @@ describe("checkDetailsRowsPresenter", () => {
     locals.letterLanguagePreferenceText = "English";
 
     const rows = buildCheckDetailsRows(req, makeRes(), locals);
-    const langRow = rows.find((r) => r.key.text === "checkDetails.letterLanguagePreference");
+    const langRow = rows.find(
+      (r) => r.key.text === "checkDetails.letterLanguagePreference",
+    );
 
     expect(langRow).to.exist;
     expect(langRow.value.text).to.equal("English");
     expect(langRow.actions.items[0].href).to.equal(
-      `${APP.PATHS.POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE}/edit?edit=true`
+      `${APP.PATHS.POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE}/edit?edit=true`,
     );
   });
 
@@ -92,7 +96,7 @@ describe("checkDetailsRowsPresenter", () => {
 
     expect(row).to.exist;
     expect(row.actions.items[0].href).to.equal(
-      `${APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK}/edit?edit=true`
+      `${APP.PATHS.EU_DRIVING_LICENCE_ADDRESS_CHECK}/edit?edit=true`,
     );
   });
 

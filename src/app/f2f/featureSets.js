@@ -1,7 +1,8 @@
-const { PACKAGE_NAME } = require("../../lib/config");
-const logger = require("../../lib/logger").get(PACKAGE_NAME);
+import { PACKAGE_NAME } from "../../lib/config.js";
+import { get as getLogger } from "../../lib/logger.js";
+const logger = getLogger(PACKAGE_NAME);
 
-module.exports = function (req, res, next) {
+export function featureSets(req, res, next) {
   try {
     const featureSet = req.query.featureSet;
     const isValidFeatureSet = /^\w{1,32}$/.test(featureSet);
@@ -17,4 +18,4 @@ module.exports = function (req, res, next) {
   } catch (error) {
     return next(error);
   }
-};
+}

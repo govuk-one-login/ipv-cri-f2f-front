@@ -1,12 +1,10 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { expect } = require("chai");
-const sinon = require("sinon");
-const AbortController = require("./abort");
-const {
-  API: {
-    PATHS: { ABORT },
-  },
-} = require("../../../lib/config");
+import wizard from "hmpo-form-wizard";
+import { expect } from "chai";
+import sinon from "sinon";
+import { AbortController } from "./abort.js";
+import { API } from "../../../lib/config.js";
+
+const ABORT = API.PATHS.ABORT;
 
 describe("AbortController", () => {
   let abortController;
@@ -32,7 +30,7 @@ describe("AbortController", () => {
   });
 
   it("should be an instance of BaseController", () => {
-    expect(abortController).to.be.an.instanceOf(BaseController);
+    expect(abortController).to.be.an.instanceOf(wizard.Controller);
   });
 
   describe("#abortJourney", () => {
@@ -48,7 +46,7 @@ describe("AbortController", () => {
               "txma-audit-encoded": "dummy-txma-header",
               "x-govuk-signin-session-id": req.session.tokenId,
             },
-          }
+          },
         );
       });
 
@@ -68,7 +66,7 @@ describe("AbortController", () => {
         expect(res.redirect).to.have.been.calledOnceWith("/error");
         sinon.assert.calledWith(
           console.error,
-          "Missing sessionID, redirecting to /error"
+          "Missing sessionID, redirecting to /error",
         );
       });
     });

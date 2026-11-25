@@ -1,11 +1,11 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
-const { expect } = require("chai");
+import { expect } from "chai";
 
-const {
+import {
   DoYouHaveAUkPassport,
   PassportDetailsPageValid,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(/^the Thin File UK passport option is selected$/, async function () {
   const doYouHaveAUkPassport = new DoYouHaveAUkPassport(await this.page);
@@ -15,11 +15,14 @@ Given(/^the Thin File UK passport option is selected$/, async function () {
   expect(await doYouHaveAUkPassport.isCurrentPage()).to.be.true;
 });
 
-When(/^the user clicks the continue button on the Do You Have UK Passport page$/, async function () {
-  const doYouHaveAUkPassport = new DoYouHaveAUkPassport(await this.page);
+When(
+  /^the user clicks the continue button on the Do You Have UK Passport page$/,
+  async function () {
+    const doYouHaveAUkPassport = new DoYouHaveAUkPassport(await this.page);
 
-  await doYouHaveAUkPassport.continue();
-});
+    await doYouHaveAUkPassport.continue();
+  },
+);
 
 Then(
   /^the user is routed to the next screen in the Thin File journey - Passport Details$/,
@@ -28,5 +31,5 @@ Then(
 
     expect(await passportDetailsPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );

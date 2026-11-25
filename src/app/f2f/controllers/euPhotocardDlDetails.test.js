@@ -1,6 +1,6 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { expect } = require("chai");
-const EuPhotocardDlController = require("./euPhotocardDlDetails");
+import wizard from "hmpo-form-wizard";
+import { expect } from "chai";
+import { EuPhotocardDlController } from "./euPhotocardDlDetails.js";
 
 describe("EuPhotocardDlController", () => {
   const euPhotocardDlController = new EuPhotocardDlController({
@@ -8,7 +8,7 @@ describe("EuPhotocardDlController", () => {
   });
 
   it("should be an instance of BaseController", () => {
-    expect(euPhotocardDlController).to.be.an.instanceOf(BaseController);
+    expect(euPhotocardDlController).to.be.an.instanceOf(wizard.Controller);
   });
 
   it("should not pad the year field", async () => {

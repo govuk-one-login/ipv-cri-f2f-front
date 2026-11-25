@@ -1,4 +1,4 @@
-module.exports = class PlaywrightDevPage {
+export default class PlaywrightDevPage {
   /**
    * @param {import('@playwright/test').Page} page
    */
@@ -27,4 +27,4 @@ module.exports = class PlaywrightDevPage {
     const { pathname } = new URL(this.page.url());
     return pathname === this.path;
   }
-};
+}

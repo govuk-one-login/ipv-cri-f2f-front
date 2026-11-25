@@ -1,4 +1,4 @@
-module.exports = class PlaywrightDevPage {
+export default class PlaywrightDevPage {
   /**
    * @param {import('@playwright/test').Page} page
    */
@@ -30,9 +30,8 @@ module.exports = class PlaywrightDevPage {
   }
 
   async enterPostCode(postcode) {
-  await this.page.locator("#postcode").fill(postcode);
-}
-
+    await this.page.locator("#postcode").fill(postcode);
+  }
 
   async postCodeIncompleteData() {
     await this.page.locator("#postcode").fill("SW1A1MNE");
@@ -59,8 +58,8 @@ module.exports = class PlaywrightDevPage {
 
   async checkRedirectionErrorText() {
     const errorRedirectionText = await this.page.textContent(
-      '[data-id="error-title"]'
+      '[data-id="error-title"]',
     );
     return errorRedirectionText.trim();
   }
-};
+}

@@ -1,7 +1,7 @@
-const { Given, When } = require("@cucumber/cucumber");
-const { expect } = require("chai");
+import { Given, When } from "@cucumber/cucumber";
+import { expect } from "chai";
 
-const { PostOfficeCustomerLetterCheckAddress } = require("../pages");
+import { PostOfficeCustomerLetterCheckAddress } from "../pages/index.js";
 
 Given(
   /^the user navigates directly to post-office-customer-letter$/,
@@ -9,7 +9,7 @@ Given(
     const postOfficeCustomerLetterCheckAddressPage =
       new PostOfficeCustomerLetterCheckAddress(this.page);
     await postOfficeCustomerLetterCheckAddressPage.goTo();
-  }
+  },
 );
 
 When(
@@ -18,12 +18,13 @@ When(
     const postOfficeCustomerLetterCheckAddressPage =
       new PostOfficeCustomerLetterCheckAddress(this.page);
 
-    expect(await postOfficeCustomerLetterCheckAddressPage.isCurrentPage()).to.be.true;
+    expect(await postOfficeCustomerLetterCheckAddressPage.isCurrentPage()).to.be
+      .true;
     await this.page.waitForLoadState("networkidle");
 
     await postOfficeCustomerLetterCheckAddressPage.sendToOriginalAddress();
     await postOfficeCustomerLetterCheckAddressPage.continue();
-  }
+  },
 );
 
 When(
@@ -32,10 +33,11 @@ When(
     const postOfficeCustomerLetterCheckAddressPage =
       new PostOfficeCustomerLetterCheckAddress(this.page);
 
-    expect(await postOfficeCustomerLetterCheckAddressPage.isCurrentPage()).to.be.true;
+    expect(await postOfficeCustomerLetterCheckAddressPage.isCurrentPage()).to.be
+      .true;
     await this.page.waitForLoadState("networkidle");
 
     await postOfficeCustomerLetterCheckAddressPage.sendToDifferentAddress();
     await postOfficeCustomerLetterCheckAddressPage.continue();
-  }
+  },
 );

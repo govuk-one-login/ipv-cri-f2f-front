@@ -1,8 +1,8 @@
-const BaseController = require("hmpo-form-wizard").Controller;
-const { APP } = require("../../../lib/config");
-const { expect } = require("chai");
-const { afterEach } = require("mocha");
-const PhotoIdSelectionThinFileController = require("./photoIdSelectionThinFile");
+import wizard from "hmpo-form-wizard";
+import { APP } from "../../../lib/config.js";
+import { expect } from "chai";
+import { afterEach } from "mocha";
+import { PhotoIdSelectionThinFileController } from "./photoIdSelectionThinFile.js";
 
 describe("PhotoIdSelectionThinFileController", () => {
   const photoIdSelectionThinFileController =
@@ -26,7 +26,7 @@ describe("PhotoIdSelectionThinFileController", () => {
 
   it("should be an instance of BaseController", () => {
     expect(photoIdSelectionThinFileController).to.be.an.instanceOf(
-      BaseController
+      wizard.Controller,
     );
   });
 

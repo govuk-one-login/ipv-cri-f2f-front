@@ -1,37 +1,37 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
-const { expect } = require("chai");
+import { expect } from "chai";
 
-const {
+import {
   EuDrivingLicenceDetailsPageValid,
   EuDrivingLicenceDetailsPageInvalidPast,
   EuDrivingLicenceDetailsPageInvalidFuture,
   PhotoIdExpiryPage,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(
   /^the date entered is before the accepted EU driving licence expiration window$/,
   async function () {
     const euDrivingLicence = new EuDrivingLicenceDetailsPageInvalidPast(
-      await this.page
+      await this.page,
     );
 
     await euDrivingLicence.expiryDate();
-  }
+  },
 );
 
 When(
   /^the user clicks the continue button on the EU Driving Licence Past page$/,
   async function () {
     const euDrivingLicence = new EuDrivingLicenceDetailsPageInvalidPast(
-      await this.page
+      await this.page,
     );
 
     expect(await euDrivingLicence.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
 
     await euDrivingLicence.continue();
-  }
+  },
 );
 
 Then(
@@ -41,35 +41,33 @@ Then(
 
     expect(await photoIdExpPg.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 //EUDL Date Validation Future
 Given(
   /^the date entered is beyond the accepted EU driving licence expiration window$/,
   async function () {
-    const { EuDrivingLicenceDetailsPageInvalidFuture } = require("../pages");
-
     const euDrivingLicence = new EuDrivingLicenceDetailsPageInvalidFuture(
-      await this.page
+      await this.page,
     );
 
     await euDrivingLicence.expiryDate();
-  }
+  },
 );
 
 When(
   /^the user clicks the continue button on the EU driving licence Future page$/,
   async function () {
     const euDrivingLicence = new EuDrivingLicenceDetailsPageInvalidFuture(
-      await this.page
+      await this.page,
     );
 
     expect(await euDrivingLicence.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
 
     await euDrivingLicence.continue();
-  }
+  },
 );
 
 Then(
@@ -84,7 +82,7 @@ Then(
     const error = await euDL.checkErrorText();
 
     expect(await error).to.equal(inlineError);
-  }
+  },
 );
 
 //EUDL Date Validation Past Re-enter
@@ -102,7 +100,7 @@ When(
     const photoExpiryPage = new PhotoIdExpiryPage(await this.page);
 
     await photoExpiryPage.continue();
-  }
+  },
 );
 
 Then(
@@ -112,5 +110,5 @@ Then(
       new EuDrivingLicenceDetailsPageValid(await this.page);
 
     expect(await euDrivingLicenceDetailsPageValid.isCurrentPage()).to.be.true;
-  }
+  },
 );

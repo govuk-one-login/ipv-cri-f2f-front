@@ -1,13 +1,13 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
-const { expect } = require("chai");
+import { expect } from "chai";
 
-const {
+import {
   PassportDetailsPageValid,
   PassportDetailsPageInvalidFuture,
   PassportDetailsPageInvalidPast,
   PhotoIdExpiryPage,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(/^the date entered is more than 10 years from today$/, async function () {
   const ukPassport = new PassportDetailsPageInvalidFuture(await this.page);
@@ -24,7 +24,7 @@ When(
     await this.page.waitForLoadState("networkidle");
 
     await ukPassport.continue();
-  }
+  },
 );
 
 Then(
@@ -39,7 +39,7 @@ Then(
     const error = await ukPassport.checkErrorText();
 
     expect(await error).to.equal(inlineError);
-  }
+  },
 );
 
 //************Invalid Date Past
@@ -49,7 +49,7 @@ Given(
     const ukPassport = new PassportDetailsPageInvalidPast(await this.page);
 
     await ukPassport.expiryDate();
-  }
+  },
 );
 
 When(
@@ -61,7 +61,7 @@ When(
     await this.page.waitForLoadState("networkidle");
 
     await ukPassport.continue();
-  }
+  },
 );
 
 Then(
@@ -71,7 +71,7 @@ Then(
 
     expect(await photoIdExpPg.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 //************ Re-enter Invalid Date Past
@@ -89,16 +89,16 @@ When(
     const photoExpiryPage = new PhotoIdExpiryPage(await this.page);
 
     await photoExpiryPage.continue();
-  }
+  },
 );
 
 Then(
   /^the user is routed back to the UK passport Expiry Date screen$/,
   async function () {
     const passportDetailsPageValid = new PassportDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     expect(await passportDetailsPageValid.isCurrentPage()).to.be.true;
-  }
+  },
 );
