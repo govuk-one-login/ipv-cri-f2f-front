@@ -1,8 +1,8 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const { PhotoIdSelectionPage, LandingPage } = require("../pages");
+import { PhotoIdSelectionPage, LandingPage } from "../pages/index.js";
 
 Given(
   /^the user has navigated to the Document Selection page$/,

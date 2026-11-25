@@ -1,8 +1,8 @@
-const { When, Then } = require("@cucumber/cucumber");
+import { When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const { ErrorPage, IpvErrorPage } = require("../pages");
+import { ErrorPage, IpvErrorPage } from "../pages/index.js";
 
 When("there is an immediate error", () => {});
 

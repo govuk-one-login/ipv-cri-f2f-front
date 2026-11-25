@@ -1,27 +1,28 @@
-const F2F_CRI_AUTH_CODE_ISSUED_SCHEMA = require("../support/F2F_CRI_AUTH_CODE_ISSUED_SCHEMA.json");
-const F2F_CRI_END_SCHEMA = require("../support/F2F_CRI_END_SCHEMA.json");
-const F2F_CRI_START_SCHEMA = require("../support/F2F_CRI_START_SCHEMA.json");
-const F2F_CRI_VC_ISSUED_SCHEMA_00 = require("../support/F2F_CRI_VC_ISSUED_00_SCHEMA.json");
-const F2F_CRI_VC_ISSUED_SCHEMA_01 = require("../support/F2F_CRI_VC_ISSUED_01_SCHEMA.json");
-const F2F_CRI_VC_ISSUED_SCHEMA_02 = require("../support/F2F_CRI_VC_ISSUED_02_SCHEMA.json");
-const F2F_CRI_VC_ISSUED_SCHEMA_04 = require("../support/F2F_CRI_VC_ISSUED_04_SCHEMA.json");
-const F2F_CRI_VC_ISSUED_SCHEMA_05 = require("../support/F2F_CRI_VC_ISSUED_05_SCHEMA.json");
-const F2F_YOTI_PDF_EMAILED_SCHEMA = require("../support/F2F_YOTI_PDF_EMAILED_SCHEMA.json");
-const F2F_YOTI_RESPONSE_RECEIVED_SCHEMA = require("../support/F2F_YOTI_RESPONSE_RECEIVED_SCHEMA.json");
-const F2F_YOTI_START_SCHEMA_00 = require("../support/F2F_YOTI_START_00_SCHEMA.json");
-const F2F_YOTI_START_SCHEMA_01 = require("../support/F2F_YOTI_START_01_SCHEMA.json");
-const F2F_YOTI_START_SCHEMA_02 = require("../support/F2F_YOTI_START_02_SCHEMA.json");
-const F2F_YOTI_START_SCHEMA_04 = require("../support/F2F_YOTI_START_04_SCHEMA.json");
-const F2F_YOTI_START_SCHEMA_05 = require("../support/F2F_YOTI_START_05_SCHEMA.json");
-const F2F_CRI_SESSION_ABORTED_SCHEMA = require("../support/F2F_CRI_SESSION_ABORTED_SCHEMA.json");
-const axios = require("axios");
-const aws4Interceptor = require("aws4-axios").aws4Interceptor;
-const { unmarshall } = require("@aws-sdk/util-dynamodb");
-const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
-const { XMLParser } = require("fast-xml-parser");
+import F2F_CRI_AUTH_CODE_ISSUED_SCHEMA from "./F2F_CRI_AUTH_CODE_ISSUED_SCHEMA.json" with { type: "json" };
+import F2F_CRI_END_SCHEMA from "./F2F_CRI_END_SCHEMA.json" with { type: "json" };
+import F2F_CRI_START_SCHEMA from "./F2F_CRI_START_SCHEMA.json" with { type: "json" };
+import F2F_CRI_VC_ISSUED_SCHEMA_00 from "./F2F_CRI_VC_ISSUED_00_SCHEMA.json" with { type: "json" };
+import F2F_CRI_VC_ISSUED_SCHEMA_01 from "./F2F_CRI_VC_ISSUED_01_SCHEMA.json" with { type: "json" };
+import F2F_CRI_VC_ISSUED_SCHEMA_02 from "./F2F_CRI_VC_ISSUED_02_SCHEMA.json" with { type: "json" };
+import F2F_CRI_VC_ISSUED_SCHEMA_04 from "./F2F_CRI_VC_ISSUED_04_SCHEMA.json" with { type: "json" };
+import F2F_CRI_VC_ISSUED_SCHEMA_05 from "./F2F_CRI_VC_ISSUED_05_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_PDF_EMAILED_SCHEMA from "./F2F_YOTI_PDF_EMAILED_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_RESPONSE_RECEIVED_SCHEMA from "./F2F_YOTI_RESPONSE_RECEIVED_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_START_SCHEMA_00 from "./F2F_YOTI_START_00_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_START_SCHEMA_01 from "./F2F_YOTI_START_01_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_START_SCHEMA_02 from "./F2F_YOTI_START_02_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_START_SCHEMA_04 from "./F2F_YOTI_START_04_SCHEMA.json" with { type: "json" };
+import F2F_YOTI_START_SCHEMA_05 from "./F2F_YOTI_START_05_SCHEMA.json" with { type: "json" };
+import F2F_CRI_SESSION_ABORTED_SCHEMA from "./F2F_CRI_SESSION_ABORTED_SCHEMA.json" with { type: "json" };
+import axios from "axios";
+import aws4Axios from "aws4-axios";
+import { unmarshall } from "@aws-sdk/util-dynamodb";
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
+import { XMLParser } from "fast-xml-parser";
 import { expect } from "chai";
-const Ajv = require("ajv").default;
-const AjvFormats = require("ajv-formats");
+import Ajv from "ajv";
+import AjvFormats from "ajv-formats";
+
 const ajv = new Ajv({ strictTuples: false });
 ajv.addSchema(
   F2F_CRI_AUTH_CODE_ISSUED_SCHEMA,
@@ -53,7 +54,9 @@ ajv.addSchema(F2F_YOTI_START_SCHEMA_05, "F2F_YOTI_START_EEA_ID_CARD");
 ajv.addSchema(F2F_CRI_SESSION_ABORTED_SCHEMA, "F2F_CRI_SESSION_ABORTED_SCHEMA");
 AjvFormats(ajv);
 
-module.exports = class TestHarness {
+const { aws4Interceptor } = aws4Axios;
+
+export class TestHarness {
   constructor() {
     this.HARNESS_API_INSTANCE = axios.create({
       baseURL: process.env["TEST_HARNESS_URL"],

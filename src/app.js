@@ -3,10 +3,13 @@ import "express-async-errors";
 
 import path from "path";
 import session from "express-session";
-const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const DynamoDBStore = require("connect-dynamodb")(session);
-const wizard = require("hmpo-form-wizard");
-const {
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import ConnectDynamoDB from "connect-dynamodb";
+import wizard from "hmpo-form-wizard";
+import { fileURLToPath } from "node:url";
+
+const DynamoDBStore = ConnectDynamoDB(session);
+import {
   PACKAGE_NAME,
   API,
   APP,
@@ -15,12 +18,25 @@ const {
   SESSION_TABLE_NAME,
   SESSION_TTL,
   PROXY_API,
-} = require("./lib/config");
-const logger = require("./lib/logger").get(PACKAGE_NAME);
+} from "./lib/config.js";
+import { get as getLogger } from "../../lib/logger.js";
+import commonExpress from "@govuk-one-login/di-ipv-cri-common-express";
+import frontendUi from "@govuk-one-login/frontend-ui";
+import { init as initOverloadProtectionConfig } from "./lib/overload-protection-config.js";
+import addLanguageParam from "@govuk-one-login/frontend-language-toggle/build/cjs/language-param-setter.cjs";
+import { setAPIConfig, setOAuthPaths } from "./lib/settings.js";
+import { featureSets } from "./app/f2f/featureSets.js";
+import helmetConfig from "./lib/helmet.js";
 
-const commonExpress = require("@govuk-one-login/di-ipv-cri-common-express");
-const frontendUi = require("@govuk-one-login/frontend-ui");
+import {
+  setI18n,
+} from "@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next/index.js";
 
+import {
+  frontendVitalSignsInitFromApp,
+} from "@govuk-one-login/frontend-vital-signs";
+
+const logger = getLogger(PACKAGE_NAME);
 const setHeaders = commonExpress.lib.headers;
 const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
 const setAxiosDefaults = commonExpress.lib.axios;
@@ -28,23 +44,8 @@ const { setGTM, setLanguageToggle, setDeviceIntelligence } =
   commonExpress.lib.settings;
 const { getGTM, getLanguageToggle, getDeviceIntelligence } =
   commonExpress.lib.locals;
-const overloadProtectionConfigService = require("./lib/overload-protection-config.js");
 
-const addLanguageParam = require("@govuk-one-login/frontend-language-toggle/build/cjs/language-param-setter.cjs");
-
-const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
-const featureSets = require("./app/f2f/featureSets");
-
-const {
-  setI18n,
-} = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next");
-
-const {
-  frontendVitalSignsInitFromApp,
-} = require("@govuk-one-login/frontend-vital-signs");
-
-const { setup } =
-  require("@govuk-one-login/di-ipv-cri-common-express").bootstrap;
+const { setup } = commonExpress.bootstrap;
 
 const loggerConfig = {
   console: true,
@@ -69,9 +70,7 @@ const sessionConfig = {
   ...(SESSION_TABLE_NAME && { sessionStore: dynamoDBSessionStore }),
 };
 
-const overloadProtectionConfig = overloadProtectionConfigService.init();
-
-const helmetConfig = require("./lib/helmet.js");
+const overloadProtectionConfig = initOverloadProtectionConfig();
 
 const { app, router } = setup({
   config: { APP_ROOT: __dirname },
@@ -87,7 +86,9 @@ const { app, router } = setup({
   views: [
     path.resolve(
       path.dirname(
-        require.resolve("@govuk-one-login/di-ipv-cri-common-express"),
+        fileURLToPath(
+          import.meta.resolve("@govuk-one-login/di-ipv-cri-common-express")
+        ),
       ),
       "components",
     ),

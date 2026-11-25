@@ -1,8 +1,8 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const {
+import {
   CheckDetails,
   PhotoIdSelectionPageEdit,
   EuDrivingLicenceDetailsPageValidEdit,
@@ -11,7 +11,8 @@ const {
   PostOfficeLocations,
   EEAIdentityCardAddressCheckEdit,
   EEAIdentityCardCountrySelectorPageEdit,
-} = require("../pages");
+  PostOfficeCustomerLetterLanguageChoice,
+} from "../pages/index.js";
 
 Given(
   /^the user has navigated to the Check My Answers Page$/,
@@ -387,7 +388,6 @@ Then(
 
     // Assert we land back on the language choice page
     // (Use the existing page object you already have for that page)
-    const { PostOfficeCustomerLetterLanguageChoice } = require("../pages");
     const langPage = new PostOfficeCustomerLetterLanguageChoice(await this.page);
     expect(await langPage.isCurrentPage()).to.be.true;
   }

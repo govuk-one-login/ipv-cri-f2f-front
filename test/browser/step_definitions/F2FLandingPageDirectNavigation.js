@@ -1,6 +1,6 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const { LandingPage, ErrorPage } = require("../pages");
+import { LandingPage, ErrorPage } from "../pages/index.js";
 import { expect } from "chai";
 Given(
   /^the user navigates directly to prove-identity-post-office page$/,

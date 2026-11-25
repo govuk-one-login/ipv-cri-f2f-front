@@ -1,6 +1,6 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const { PostOfficeLocations, ErrorPage } = require("../pages");
+import { PostOfficeLocations, ErrorPage } from "../pages/index.js";
 import { expect } from "chai";
 
 Given(

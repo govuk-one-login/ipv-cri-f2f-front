@@ -1,15 +1,15 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const {
+import {
   EuDrivingLicenceAddressCheck,
   EuDrivingLicenceCountrySelector,
   PhotoIdSelectionPage,
   EuDrivingLicenceDetailsPageValid,
   EuDrivingLicenceAddressCheckEdit,
   EuDrivingLicenceCountrySelectorEdit,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(
   /^the user selects Yes, it has my current address on it$/,

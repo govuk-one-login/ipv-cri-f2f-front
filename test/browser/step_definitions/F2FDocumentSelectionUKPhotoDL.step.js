@@ -1,13 +1,13 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const {
+import {
   PhotoIdSelectionPage,
   PhotoDlDetailsPageValid,
   FindBranch,
   PhotoDlAddressCheckPage,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(
   /^the UK photocard driving licence option is selected$/,

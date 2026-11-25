@@ -1,11 +1,11 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const {
+import {
   PhotoIdSelectionPage,
   PhotoIdSelectionPageEdit,
   PhotoIdExpiryPage,
   ErrorPage,
-} = require("../pages");
+} from "../pages/index.js";
 import { expect } from "chai";
 
 Given(

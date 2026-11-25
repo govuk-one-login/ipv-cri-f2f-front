@@ -1,5 +1,5 @@
-const { When, Then } = require("@cucumber/cucumber");
-const { PostOfficeCustomerLetterLanguageChoice } = require("../pages");
+import { When, Then } from "@cucumber/cucumber";
+import { PostOfficeCustomerLetterLanguageChoice } from "../pages/index.js";
 import { expect } from "chai";
 
 When(/^the user selects English language$/, async function () {

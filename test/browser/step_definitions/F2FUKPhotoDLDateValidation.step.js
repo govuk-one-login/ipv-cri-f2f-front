@@ -1,14 +1,14 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const {
+import {
   PhotoDlDetailsPageValid,
   PhotoDlDetailsPageInvalidPast,
   PhotoDlDetailsPageInvalidFuture,
   PhotoIdExpiryPage,
   PhotoIdSelectionPage,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(
   /^the date entered is before the accepted UKPhotoDLExpiry expiration window$/,

@@ -1,12 +1,12 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const TestHarness = require("../support/TestHarness");
+import { TestHarness } from "../support/TestHarness.js";
 
-const vcResponseData = require("../support/vcValidationData.json");
+import vcResponseData from "../support/vcValidationData.json" with { type: "json" };
 
-const { sleep } = require("../../utils/sleep")
+import { sleep } from "../../utils/sleep.js";
 
 Given(
   "I have retrieved the sessionTable data for my F2F session using {string}",
@@ -45,7 +45,7 @@ When(
     this.yotiSessionId = f2fSession.yotiSessionId;
     this.subject = f2fSession.subject;
     console.log(this.yotiSessionId);
-    const axios = require("axios");
+    const axios = await import("axios");
     const firstBranchVisit = await axios.post(
       `${process.env.API_BASE_URL}/callback`,
       {

@@ -1,15 +1,15 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const {
+import {
   PhotoIdSelectionPage,
   EuDrivingLicenceDetailsPageValid,
   EuDrivingLicenceHasExpiryDatePage,
   EuDrivingLicenceAddressCheck,
   FindBranch,
   EuDrivingLicenceCountrySelector,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(/^the EU driving licence option is selected$/, async function () {
   const photoIdPage = new PhotoIdSelectionPage(await this.page);

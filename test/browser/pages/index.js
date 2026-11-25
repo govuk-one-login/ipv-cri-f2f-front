@@ -1,51 +1,49 @@
-module.exports = {
-  FindBranch: require("./findBranch"),
-  FindBranchValidEdit: require("./findBranchValidEdit"),
-  PhotoIdSelectionPage: require("./photoIdSelectionPage"),
-  PhotoIdSelectionPageEdit: require("./photoIdSelectionPageEdit"),
-  PostOfficeLocations: require("./postOfficeLocations"),
-  PostOfficeCustomerLetter: require("./postOfficeCustomerLetter"),
-  PostOfficeCustomerLetterLanguageChoice: require("./postOfficeCustomerLetterLanguageChoice"),
-  PostOfficeCustomerLetterCheckAddress: require("./postOfficeCustomerLetterCheckAddress"),
-  PostOfficeCustomerLetterFindAddress: require("./postOfficeCustomerLetterFindAddress"),
-  PostOfficeCustomerLetterChooseAddress: require("./postOfficeCustomerLetterChooseAddress"),
-  LandingPage: require("./landingPage"),
-  RelyingPartyPage: require("./relying-party"),
-  OrchestratorStubPage: require("./orchestratorStub.js"),
-  CheckDetails: require("./checkDetails"),
-  NonPassportDetailsPageValidEdit: require("./nonUKPassportDetailsPageValidEdit"),
-  NonUKPassportDetailsPageValid: require("./nonUKPassportDetailsPageValid"),
-  NonUKPassportDetailsPageInvalidFuture: require("./nonUKPassportDetailsPageInvalidFuture"),
-  NonUKPassportDetailsPageInvalidPast: require("./nonUKPassportDetailsPageInvalidPast"),
-  NonUKPassportCountrySelector: require("./nonUkPassportCountrySelectorPage"),
-  NonUkPassportHasExpiryDatePage: require("./nonUkPassportHasExpiryDatePage"),
-  EEAIdentityCardDetailsPageValid: require("./eeaIdentityCardDetailsPageValid"),
-  EEAIdentityCardDetailsPageInvalidPast: require("./eeaIdentityCardDetailsPageInvalidPast"),
-  EEAIdentityCardDetailsPageInvalidFuture: require("./eeaIdentityCardDetailsPageInvalidFuture"),
-  EEAIdentityCardCountrySelectorPage: require("./eeaIdentityCardCountrySelectorPage"),
-  EEAIdentityCardCountrySelectorPageEdit: require("./eeaIdentityCardCountrySelectorPageEdit"),
-  EEAIdentityCardAddressCheck: require("./eeaIdentityCardAddressCheck"),
-  EEAIdentityCardAddressCheckEdit: require("./eeaIdentityCardAddressCheckEdit"),
-  EeaIdentityCardHasExpiryDatePage: require("./eeaIdentityCardHasExpiryDatePage"),
-  PhotoDlDetailsPageValid: require("./ukPhotoDlDetailsPageValid"),
-  PhotoDlDetailsPageInvalidFuture: require("./ukPhotoDlDetailsPageInvalidFuture"),
-  PhotoDlDetailsPageInvalidPast: require("./ukPhotoDlDetailsPageInvalidPast"),
-  PhotoDlAddressCheckPage: require("./ukPhotoDlAddressCheckPage.js"),
-  PhotoIdExpiryPage: require("./photoIdExpiryPage"),
-  ErrorPage: require("./error.js"),
-  IpvErrorPage: require("./ipvError.js"),
-  PassportDetailsPageValid: require("./ukPassportDetailsPageValid"),
-  PassportDetailsPageValidEdit: require("./ukPassportDetailsPageValidEdit"),
-  PassportDetailsPageInvalidFuture: require("./ukPassportDetailsPageInvalidFuture"),
-  PassportDetailsPageInvalidPast: require("./ukPassportDetailsPageInvalidPast"),
-  EuDrivingLicenceDetailsPageValid: require("./euDrivingLicenceDetailsPageValid"),
-  EuDrivingLicenceDetailsPageValidEdit: require("./euDrivingLicenceDetailsPageValidEdit"),
-  EuDrivingLicenceDetailsPageInvalidFuture: require("./euDrivingLicenceDetailsPageInvalidFuture"),
-  EuDrivingLicenceDetailsPageInvalidPast: require("./euDrivingLicenceDetailsPageInvalidPast"),
-  EuDrivingLicenceCountrySelector: require("./euDrivingLicenceCountrySelectorPage"),
-  EuDrivingLicenceCountrySelectorEdit: require("./euDrivingLicenceCountrySelectorPageEdit"),
-  EuDrivingLicenceAddressCheck: require("./euDrivingLicenceAddressCheck"),
-  EuDrivingLicenceAddressCheckEdit: require("./euDrivingLicenceAddressCheckEdit"),
-  EuDrivingLicenceHasExpiryDatePage: require("./euDrivingLicenceHasExpiryDatePage"),
-  DoYouHaveAUkPassport: require("./doYouHaveAUkPassport.js"),
-};
+export { default as FindBranch } from "./findBranch.js";
+export { default as FindBranchValidEdit } from "./findBranchValidEdit.js";
+export { default as PhotoIdSelectionPage } from "./photoIdSelectionPage.js";
+export { default as PhotoIdSelectionPageEdit } from "./photoIdSelectionPageEdit.js";
+export { default as PostOfficeLocations } from "./postOfficeLocations.js";
+export { default as PostOfficeCustomerLetter } from "./postOfficeCustomerLetter.js";
+export { default as PostOfficeCustomerLetterLanguageChoice } from "./postOfficeCustomerLetterLanguageChoice.js";
+export { default as PostOfficeCustomerLetterCheckAddress } from "./postOfficeCustomerLetterCheckAddress.js";
+export { default as PostOfficeCustomerLetterFindAddress }  from "./postOfficeCustomerLetterFindAddress.js";
+export { default as PostOfficeCustomerLetterChooseAddress }  from "./postOfficeCustomerLetterChooseAddress.js";
+export { default as LandingPage }  from "./landingPage.js";
+export { default as RelyingPartyPage }  from "./relying-party.js";
+export { default as OrchestratorStubPage }  from "./orchestratorStub.js";
+export { default as CheckDetails }  from "./checkDetails.js";
+export { default as NonPassportDetailsPageValidEdit }  from "./nonUKPassportDetailsPageValidEdit.js";
+export { default as NonUKPassportDetailsPageValid }  from "./nonUKPassportDetailsPageValid.js";
+export { default as NonUKPassportDetailsPageInvalidFuture }  from "./nonUKPassportDetailsPageInvalidFuture.js";
+export { default as NonUKPassportDetailsPageInvalidPast }  from "./nonUKPassportDetailsPageInvalidPast.js";
+export { default as NonUKPassportCountrySelector }  from "./nonUkPassportCountrySelectorPage.js";
+export { default as NonUkPassportHasExpiryDatePage }  from "./nonUkPassportHasExpiryDatePage.js";
+export { default as EEAIdentityCardDetailsPageValid }  from "./eeaIdentityCardDetailsPageValid.js";
+export { default as EEAIdentityCardDetailsPageInvalidPast }  from "./eeaIdentityCardDetailsPageInvalidPast.js";
+export { default as EEAIdentityCardDetailsPageInvalidFuture }  from "./eeaIdentityCardDetailsPageInvalidFuture.js";
+export { default as EEAIdentityCardCountrySelectorPage } from "./eeaIdentityCardCountrySelectorPage.js";
+export { default as EEAIdentityCardCountrySelectorPageEdit } from "./eeaIdentityCardCountrySelectorPageEdit.js";
+export { default as EEAIdentityCardAddressCheck } from "./eeaIdentityCardAddressCheck.js";
+export { default as EEAIdentityCardAddressCheckEdit } from "./eeaIdentityCardAddressCheckEdit.js";
+export { default as EeaIdentityCardHasExpiryDatePage } from "./eeaIdentityCardHasExpiryDatePage.js";
+export { default as PhotoDlDetailsPageValid } from "./ukPhotoDlDetailsPageValid.js";
+export { default as PhotoDlDetailsPageInvalidFuture } from "./ukPhotoDlDetailsPageInvalidFuture.js";
+export { default as PhotoDlDetailsPageInvalidPast } from "./ukPhotoDlDetailsPageInvalidPast.js";
+export { default as PhotoDlAddressCheckPage } from "./ukPhotoDlAddressCheckPage.js";
+export { default as PhotoIdExpiryPage } from "./photoIdExpiryPage.js";
+export { default as ErrorPage } from "./error.js";
+export { default as IpvErrorPage } from "./ipvError.js";
+export { default as PassportDetailsPageValid } from "./ukPassportDetailsPageValid.js";
+export { default as PassportDetailsPageValidEdit } from "./ukPassportDetailsPageValidEdit.js";
+export { default as PassportDetailsPageInvalidFuture } from "./ukPassportDetailsPageInvalidFuture.js";
+export { default as PassportDetailsPageInvalidPast } from "./ukPassportDetailsPageInvalidPast.js";
+export { default as EuDrivingLicenceDetailsPageValid } from "./euDrivingLicenceDetailsPageValid.js";
+export { default as EuDrivingLicenceDetailsPageValidEdit } from "./euDrivingLicenceDetailsPageValidEdit.js";
+export { default as EuDrivingLicenceDetailsPageInvalidFuture } from "./euDrivingLicenceDetailsPageInvalidFuture.js";
+export { default as EuDrivingLicenceDetailsPageInvalidPast } from "./euDrivingLicenceDetailsPageInvalidPast.js";
+export { default as EuDrivingLicenceCountrySelector } from "./euDrivingLicenceCountrySelectorPage.js";
+export { default as EuDrivingLicenceCountrySelectorEdit } from "./euDrivingLicenceCountrySelectorPageEdit.js";
+export { default as EuDrivingLicenceAddressCheck } from "./euDrivingLicenceAddressCheck.js";
+export { default as EuDrivingLicenceAddressCheckEdit } from "./euDrivingLicenceAddressCheckEdit.js";
+export { default as EuDrivingLicenceHasExpiryDatePage } from "./euDrivingLicenceHasExpiryDatePage.js";
+export { default as DoYouHaveAUkPassport } from "./doYouHaveAUkPassport.js";

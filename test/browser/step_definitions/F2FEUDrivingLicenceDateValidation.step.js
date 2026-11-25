@@ -1,13 +1,13 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const {
+import {
   EuDrivingLicenceDetailsPageValid,
   EuDrivingLicenceDetailsPageInvalidPast,
   EuDrivingLicenceDetailsPageInvalidFuture,
   PhotoIdExpiryPage,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(
   /^the date entered is before the accepted EU driving licence expiration window$/,
@@ -48,8 +48,6 @@ Then(
 Given(
   /^the date entered is beyond the accepted EU driving licence expiration window$/,
   async function () {
-    const { EuDrivingLicenceDetailsPageInvalidFuture } = require("../pages");
-
     const euDrivingLicence = new EuDrivingLicenceDetailsPageInvalidFuture(
       await this.page
     );

@@ -1,8 +1,8 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const { FindBranch, PostOfficeLocations, CheckDetails } = require("../pages");
+import { FindBranch, PostOfficeLocations, CheckDetails } from "../pages/index.js";
 
 Given(/^a Post Office branch is selected$/, async function () {
   const poLocations = new PostOfficeLocations(await this.page);

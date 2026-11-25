@@ -1,13 +1,13 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const {
+import {
   PassportDetailsPageValid,
   PassportDetailsPageInvalidFuture,
   PassportDetailsPageInvalidPast,
   PhotoIdExpiryPage,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(/^the date entered is more than 10 years from today$/, async function () {
   const ukPassport = new PassportDetailsPageInvalidFuture(await this.page);

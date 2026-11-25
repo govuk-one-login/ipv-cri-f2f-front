@@ -1,11 +1,11 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const {
+import {
   DoYouHaveAUkPassport,
   PassportDetailsPageValid,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(/^the Thin File UK passport option is selected$/, async function () {
   const doYouHaveAUkPassport = new DoYouHaveAUkPassport(await this.page);

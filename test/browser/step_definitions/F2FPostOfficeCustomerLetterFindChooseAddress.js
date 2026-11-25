@@ -1,7 +1,7 @@
-const { Given, When } = require("@cucumber/cucumber");
+import { Given, When } from "@cucumber/cucumber";
 import { expect } from "chai";
 
-const { PostOfficeCustomerLetterChooseAddress } = require("../pages");
+import { PostOfficeCustomerLetterChooseAddress } from "../pages/index.js";
 
 Given(
   /^the user navigates directly to post-office-customer-letter choose address$/,

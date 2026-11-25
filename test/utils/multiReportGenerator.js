@@ -1,4 +1,4 @@
-const reporter = require("multiple-cucumber-html-reporter");
+import reporter from "multiple-cucumber-html-reporter";
 var date = new Date();
 var currentDate =
   date.getDate() +

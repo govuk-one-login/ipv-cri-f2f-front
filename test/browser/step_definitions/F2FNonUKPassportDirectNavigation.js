@@ -1,6 +1,6 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const {
+import {
   NonPassportDetailsPageValidEdit,
   NonUKPassportDetailsPageValid,
   NonUKPassportDetailsPageInvalidFuture,
@@ -8,7 +8,7 @@ const {
   NonUKPassportCountrySelector,
   NonUkPassportHasExpiryDatePage,
   ErrorPage,
-} = require("../pages");
+} from "../pages/index.js";
 import { expect } from "chai";
 
 Given(

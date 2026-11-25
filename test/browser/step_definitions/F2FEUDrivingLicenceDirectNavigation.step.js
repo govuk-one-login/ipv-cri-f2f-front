@@ -1,6 +1,6 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const {
+import {
   EuDrivingLicenceAddressCheck,
   EuDrivingLicenceDetailsPageValid,
   EuDrivingLicenceDetailsPageValidEdit,
@@ -9,7 +9,7 @@ const {
   EuDrivingLicenceCountrySelector,
   EuDrivingLicenceHasExpiryDatePage,
   ErrorPage,
-} = require("../pages");
+} from "../pages/index.js";
 import { expect } from "chai";
 Given(
   /^the user navigates directly to eu-driving-licence-current-address page$/,

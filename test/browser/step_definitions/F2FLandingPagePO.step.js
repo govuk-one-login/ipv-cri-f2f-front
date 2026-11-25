@@ -1,6 +1,6 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
-const { LandingPage } = require("../pages");
+import { LandingPage } from "../pages/index.js";
 
 Given(
   /^the user wants to view their nearest post office that offers ID verification$/,

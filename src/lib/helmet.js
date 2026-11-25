@@ -1,5 +1,6 @@
-import helmet from 
-module.exports = {
+// modified from "@govuk-one-login/di-ipv-cri-common-express/src/lib/helmet.js"
+
+export default {
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],

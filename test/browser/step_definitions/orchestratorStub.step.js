@@ -1,8 +1,8 @@
-const { Given, Then, When } = require("@cucumber/cucumber");
+import { Given, Then, When } from "@cucumber/cucumber";
 
-const { OrchestratorStubPage } = require("../pages");
+import { OrchestratorStubPage } from "../pages/index.js";
 
-const { v4 } = require("uuid");
+import { v4 } from "uuid";
 
 import { expect } from "chai";
 

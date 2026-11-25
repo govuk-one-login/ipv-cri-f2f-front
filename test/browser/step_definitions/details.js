@@ -1,17 +1,17 @@
-const { Given, Then, When } = require("@cucumber/cucumber");
+import { Given, Then, When } from "@cucumber/cucumber";
 
-const {
+import {
   RelyingPartyPage,
   FindBranch,
   LandingPage,
   CheckDetails,
-} = require("../pages");
+} from "../pages/index.js";
 
 import { expect } from "chai";
 
-const { injectAxe } = require("axe-playwright");
+import { injectAxe } from "axe-playwright";
 
-const axe = require('axe-core');
+import axe from "axe-core";
 
 
 

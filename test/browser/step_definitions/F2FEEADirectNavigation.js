@@ -1,6 +1,6 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
-const {
+import {
   EeaIdentityCardHasExpiryDatePage,
   EEAIdentityCardAddressCheck,
   EEAIdentityCardCountrySelectorPage,
@@ -10,7 +10,7 @@ const {
   EEAIdentityCardAddressCheckEdit,
   EEAIdentityCardCountrySelectorPageEdit,
   ErrorPage,
-} = require("../pages");
+} from "../pages/index.js";
 import { expect } from "chai";
 
 Given(

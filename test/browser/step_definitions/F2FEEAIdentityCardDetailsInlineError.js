@@ -1,8 +1,8 @@
-const { Given, Then } = require("@cucumber/cucumber");
+import { Given, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const { EEAIdentityCardDetailsPageValid } = require("../pages");
+import { EEAIdentityCardDetailsPageValid } from "../pages/index.js";
 
 Given(
   /^the user clicks the continue button only on the EEAPage$/,

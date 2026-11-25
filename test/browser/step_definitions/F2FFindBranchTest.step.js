@@ -1,12 +1,12 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-const {
+import {
   FindBranch,
   PostOfficeLocations,
   PhotoDlAddressCheckPage,
-} = require("../pages");
+} from "../pages/index.js";
 
 Given(/^the postcode entered is valid$/, async function () {
   const findBranchValid = new FindBranch(await this.page);

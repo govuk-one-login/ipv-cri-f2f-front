@@ -1,6 +1,6 @@
-const { Then } = require("@cucumber/cucumber");
+import { Then } from "@cucumber/cucumber";
 
-const { RelyingPartyPage } = require("../pages");
+import { RelyingPartyPage } from "../pages/index.js";
 import { expect } from "chai";
 
 Then("they should be redirected as a success", function () {
