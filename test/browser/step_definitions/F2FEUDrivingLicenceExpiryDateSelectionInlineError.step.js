@@ -11,7 +11,7 @@ Given(
       new EuDrivingLicenceHasExpiryDatePage(await this.page);
 
     await euDrivingLicenceHasExpiryDatePage.continue();
-  }
+  },
 );
 
 Then(
@@ -39,7 +39,7 @@ Then(
       await euDrivingLicenceHasExpiryDatePage.checkErrorAboveRadioButtonText();
 
     expect(await errorBodyAboveRadioOptions).to.equal(
-      "Error: Select if your photo ID has an expiry date"
+      "Error: Select if your photo ID has an expiry date",
     );
-  }
+  },
 );

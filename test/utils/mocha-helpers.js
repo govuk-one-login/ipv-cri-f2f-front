@@ -38,8 +38,8 @@ global.setupDefaultMocks = () => {
     fields: {},
   });
 
-   const res = {
-    redirect: sinon.fake()
+  const res = {
+    redirect: sinon.fake(),
   };
 
   const next = sinon.fake();

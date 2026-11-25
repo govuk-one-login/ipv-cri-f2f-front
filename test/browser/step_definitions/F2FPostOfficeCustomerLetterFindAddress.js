@@ -9,7 +9,7 @@ Given(
     const postOfficeCustomerLetterFindAddressPage =
       new PostOfficeCustomerLetterFindAddress(this.page);
     await postOfficeCustomerLetterFindAddressPage.goTo();
-  }
+  },
 );
 
 When(
@@ -18,10 +18,11 @@ When(
     const postOfficeCustomerLetterFindAddressPage =
       new PostOfficeCustomerLetterFindAddress(this.page);
 
-    expect(await postOfficeCustomerLetterFindAddressPage.isCurrentPage()).to.be.true;
+    expect(await postOfficeCustomerLetterFindAddressPage.isCurrentPage()).to.be
+      .true;
     await this.page.waitForLoadState("networkidle");
 
     await postOfficeCustomerLetterFindAddressPage.enterPostcode();
     await postOfficeCustomerLetterFindAddressPage.continue();
-  }
+  },
 );

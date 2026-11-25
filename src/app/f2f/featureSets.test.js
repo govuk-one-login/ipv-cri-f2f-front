@@ -38,7 +38,7 @@ describe("feature sets", () => {
       expect(next).to.have.been.calledWith(
         sinon.match
           .instanceOf(Error)
-          .and(sinon.match.has("message", "Invalid feature set ID"))
+          .and(sinon.match.has("message", "Invalid feature set ID")),
       );
       expect(req.session.featureSet).to.be.undefined;
     });

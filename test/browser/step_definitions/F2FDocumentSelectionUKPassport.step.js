@@ -29,27 +29,21 @@ Then(
 
     expect(await passportDetailsPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 //PassportDetails
-Given(
-  /^the date entered is in the future$/,
-  async function () {
-    const passportDetailsPage = new PassportDetailsPageValid(await this.page);
+Given(/^the date entered is in the future$/, async function () {
+  const passportDetailsPage = new PassportDetailsPageValid(await this.page);
 
-    await passportDetailsPage.expiryDateFuture();
-  }
-);
+  await passportDetailsPage.expiryDateFuture();
+});
 
-Given(
-  /^the date entered is within the last 18 months$/,
-  async function () {
-    const passportDetailsPage = new PassportDetailsPageValid(await this.page);
+Given(/^the date entered is within the last 18 months$/, async function () {
+  const passportDetailsPage = new PassportDetailsPageValid(await this.page);
 
-    await passportDetailsPage.expiryDatePast();
-  }
-);
+  await passportDetailsPage.expiryDatePast();
+});
 
 When(
   /^the user clicks the continue button on the UKPassportPage$/,
@@ -59,7 +53,7 @@ When(
     expect(await passportDetailsPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
     await passportDetailsPage.continue();
-  }
+  },
 );
 
 Then(
@@ -69,7 +63,7 @@ Then(
 
     expect(await branchFinderPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(/^the user enters a valid postcode$/, async function () {
@@ -84,5 +78,5 @@ When(
     const branchFinderPage = new FindBranch(await this.page);
 
     await branchFinderPage.postCodeIncompleteData();
-  }
+  },
 );

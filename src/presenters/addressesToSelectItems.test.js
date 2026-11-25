@@ -6,8 +6,10 @@ describe("Addresses to SelectItems Presenter", () => {
   beforeEach(() => {
     sinon
       .stub(addressPresenter, "generateSearchResultString")
-      .onFirstCall().returns("SEARCH_RESULT_1")
-      .onSecondCall().returns("SEARCH_RESULT_2");
+      .onFirstCall()
+      .returns("SEARCH_RESULT_1")
+      .onSecondCall()
+      .returns("SEARCH_RESULT_2");
   });
 
   afterEach(() => {
@@ -43,11 +45,7 @@ describe("Addresses to SelectItems Presenter", () => {
     const items = addressesToSelectItems({ addresses });
 
     expect(items[0].text).to.deep.equal("2 addresses found");
-    expect(items[1].value).to.deep.equal(
-      "SEARCH_RESULT_1"
-    );
-    expect(items[2].value).to.deep.equal(
-      "SEARCH_RESULT_2"
-    );
+    expect(items[1].value).to.deep.equal("SEARCH_RESULT_1");
+    expect(items[2].value).to.deep.equal("SEARCH_RESULT_2");
   });
 });

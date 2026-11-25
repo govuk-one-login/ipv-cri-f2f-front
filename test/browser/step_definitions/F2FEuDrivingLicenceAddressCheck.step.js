@@ -17,7 +17,7 @@ Given(
     const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);
 
     await addressCheck.sameAddress();
-  }
+  },
 );
 
 Given(
@@ -26,7 +26,7 @@ Given(
     const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);
 
     await addressCheck.noAddress();
-  }
+  },
 );
 
 Given(
@@ -35,7 +35,7 @@ Given(
     const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);
 
     await addressCheck.differentAddress();
-  }
+  },
 );
 
 Given(
@@ -45,7 +45,7 @@ Given(
 
     expect(await addressCheck.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Given(/^the user is on the EU DL address check page$/, async function () {
@@ -55,12 +55,15 @@ Given(/^the user is on the EU DL address check page$/, async function () {
   await this.page.waitForLoadState("networkidle");
 });
 
-Given(/^the user is on the EU DL address check page editing$/, async function () {
-  const addressCheck = new EuDrivingLicenceAddressCheckEdit(await this.page);
+Given(
+  /^the user is on the EU DL address check page editing$/,
+  async function () {
+    const addressCheck = new EuDrivingLicenceAddressCheckEdit(await this.page);
 
-  expect(await addressCheck.isCurrentPage()).to.be.true;
-  await this.page.waitForLoadState("networkidle");
-});
+    expect(await addressCheck.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
+  },
+);
 
 When(
   /^the user clicks continue on the EU Driving Licence address check page$/,
@@ -68,7 +71,7 @@ When(
     const addressCheck = new EuDrivingLicenceAddressCheck(await this.page);
 
     await addressCheck.continue();
-  }
+  },
 );
 
 When(/^they click the EU DL address check back button$/, async function () {
@@ -84,17 +87,19 @@ Then(
 
     expect(await countryCodes.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
   /^they are routed to the edit country code selection screen$/,
   async function () {
-    const countryCodes = new EuDrivingLicenceCountrySelectorEdit(await this.page);
+    const countryCodes = new EuDrivingLicenceCountrySelectorEdit(
+      await this.page,
+    );
 
     expect(await countryCodes.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
@@ -104,7 +109,7 @@ Then(
 
     expect(await documentSelection.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(/^they are routed back to the EU DL expiry date page$/, async function () {
@@ -122,8 +127,8 @@ Then(
     expect(await addressCheck.isCurrentPage()).to.be.true;
 
     expect(await addressCheck.checkErrorText()).to.contain(
-      "There is a problem"
+      "There is a problem",
     );
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );

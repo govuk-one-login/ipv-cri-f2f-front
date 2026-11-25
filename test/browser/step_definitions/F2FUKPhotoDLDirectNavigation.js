@@ -14,7 +14,7 @@ Given(
   async function () {
     const photoDLDetailsPageValid = new PhotoDlDetailsPageValid(this.page);
     await photoDLDetailsPageValid.goTo();
-  }
+  },
 );
 
 Then(
@@ -25,17 +25,17 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
   /^the user navigates directly to uk-driving-licence-expire-invalidpast page$/,
   async function () {
     const photoDLDetailsPageInvalidPast = new PhotoDlDetailsPageInvalidPast(
-      this.page
+      this.page,
     );
     await photoDLDetailsPageInvalidPast.goTo();
-  }
+  },
 );
 
 Then(
@@ -46,17 +46,17 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
   /^the user navigates directly to uk-driving-licence-expire-invalidfuture page$/,
   async function () {
     const photoDLDetailsPageInvalidFuture = new PhotoDlDetailsPageInvalidFuture(
-      this.page
+      this.page,
     );
     await photoDLDetailsPageInvalidFuture.goTo();
-  }
+  },
 );
 
 Then(
@@ -67,7 +67,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -75,7 +75,7 @@ Given(
   async function () {
     const photoDLAddressCheckPage = new PhotoDlAddressCheckPage(this.page);
     await photoDLAddressCheckPage.goTo();
-  }
+  },
 );
 
 Then(
@@ -86,5 +86,5 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );

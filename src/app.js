@@ -28,13 +28,9 @@ import { setAPIConfig, setOAuthPaths } from "./lib/settings.js";
 import { featureSets } from "./app/f2f/featureSets.js";
 import helmetConfig from "./lib/helmet.js";
 
-import {
-  setI18n,
-} from "@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next/index.js";
+import { setI18n } from "@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next/index.js";
 
-import {
-  frontendVitalSignsInitFromApp,
-} from "@govuk-one-login/frontend-vital-signs";
+import { frontendVitalSignsInitFromApp } from "@govuk-one-login/frontend-vital-signs";
 
 const logger = getLogger(PACKAGE_NAME);
 const setHeaders = commonExpress.lib.headers;
@@ -87,7 +83,7 @@ const { app, router } = setup({
     path.resolve(
       path.dirname(
         fileURLToPath(
-          import.meta.resolve("@govuk-one-login/di-ipv-cri-common-express")
+          import.meta.resolve("@govuk-one-login/di-ipv-cri-common-express"),
         ),
       ),
       "components",

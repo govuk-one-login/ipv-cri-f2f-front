@@ -8,7 +8,7 @@ Given(
   async function () {
     const postOfficeLocationsPage = new PostOfficeLocations(this.page);
     await postOfficeLocationsPage.goTo();
-  }
+  },
 );
 
 Then(
@@ -19,5 +19,5 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );

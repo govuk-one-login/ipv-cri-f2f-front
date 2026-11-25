@@ -373,7 +373,7 @@ export const steps = {
     controller: PostcodeSearchController,
     fields: ["branches"],
     revalidateIf: ["postcode", "branches"],
-    next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER
+    next: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER,
   },
   [`${APP.PATHS.POST_OFFICE_CUSTOMER_LETTER}`]: {
     fields: ["postOfficeCustomerLetterChoice"],
@@ -389,13 +389,15 @@ export const steps = {
         field: "postOfficeCustomerLetterChoice",
         value: APP.POST_OFFICE_CUSTOMER_LETTER.POST,
         next: (req) => {
-          if (APP.LETTER_LANGUAGE_CHOICE_ENABLED === true
-              && req.session.featureSet === "letterLanguageChoice") {
+          if (
+            APP.LETTER_LANGUAGE_CHOICE_ENABLED === true &&
+            req.session.featureSet === "letterLanguageChoice"
+          ) {
             return APP.PATHS.POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE;
           } else {
             return APP.PATHS.CHECK_ADDRESS;
           }
-        }
+        },
       },
     ],
   },

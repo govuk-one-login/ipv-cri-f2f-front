@@ -20,7 +20,7 @@ export class PhotoIdSelectionThinFileController extends wizard.Controller {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           logger.info(
             "photo-id-selection: user has selected UK passport - redirecting to passport details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, true);
           req.sessionModel.set("changeUrl", "uk-passport-expire");
@@ -29,7 +29,7 @@ export class PhotoIdSelectionThinFileController extends wizard.Controller {
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           logger.info(
             "photo-id-selection: user has selected other passport - redirecting to other passport details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, true);
           req.sessionModel.set("changeUrl", "non-uk-passport-expire");
@@ -38,7 +38,7 @@ export class PhotoIdSelectionThinFileController extends wizard.Controller {
         case APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID: {
           logger.info(
             "photo-id-selection: user has selected No ID - aborting journey",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NO_PHOTO_ID, true);
           return next();

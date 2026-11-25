@@ -2,7 +2,12 @@ import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-import { LandingPage, PhotoIdSelectionPage, CheckDetails, DoYouHaveAUkPassport } from "../pages/index.js";
+import {
+  LandingPage,
+  PhotoIdSelectionPage,
+  CheckDetails,
+  DoYouHaveAUkPassport,
+} from "../pages/index.js";
 
 Given(
   /^the user wants to progress to the next step of the journey$/,
@@ -10,7 +15,7 @@ Given(
     const landingPage = new LandingPage(await this.page);
 
     expect(await landingPage.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 When(
@@ -19,7 +24,7 @@ When(
     const landingPage = new LandingPage(await this.page);
 
     await landingPage.continue();
-  }
+  },
 );
 
 Then(
@@ -29,7 +34,7 @@ Then(
 
     expect(await photoIdPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
@@ -39,7 +44,7 @@ Then(
 
     expect(await doYouHaveAUkPassport.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 When(
@@ -52,5 +57,5 @@ When(
     await photoIdPage.continue();
 
     this.state = await cmPage.setSessionState();
-  }
+  },
 );

@@ -28,4 +28,4 @@ export default class PlaywrightDevPage {
   async emailAndPost() {
     await this.page.click("#postOfficeCustomerLetterChoice-post");
   }
-};
+}

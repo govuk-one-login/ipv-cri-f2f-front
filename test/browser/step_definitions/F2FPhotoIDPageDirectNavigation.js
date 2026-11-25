@@ -13,7 +13,7 @@ Given(
   async function () {
     const photoIDExpiry = new PhotoIdExpiryPage(this.page);
     await photoIDExpiry.goTo();
-  }
+  },
 );
 
 Then(
@@ -24,7 +24,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -32,7 +32,7 @@ Given(
   async function () {
     const photoIDSelection = new PhotoIdSelectionPage(this.page);
     await photoIDSelection.goTo();
-  }
+  },
 );
 
 Then(
@@ -43,7 +43,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -51,7 +51,7 @@ Given(
   async function () {
     const photoIDSelectionEdit = new PhotoIdSelectionPageEdit(this.page);
     await photoIDSelectionEdit.goTo();
-  }
+  },
 );
 
 Then(
@@ -62,5 +62,5 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );

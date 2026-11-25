@@ -8,7 +8,9 @@ describe("NonUKPassportDetailsController", () => {
   });
 
   it("should be an instance of BaseController", () => {
-    expect(nonUKPassportDetailsController).to.be.an.instanceOf(wizard.Controller);
+    expect(nonUKPassportDetailsController).to.be.an.instanceOf(
+      wizard.Controller,
+    );
   });
 
   it("should not pad the year field", async () => {
@@ -17,7 +19,7 @@ describe("NonUKPassportDetailsController", () => {
 
     var finalYear = await nonUKPassportDetailsController._padYear(
       value,
-      offset
+      offset,
     );
 
     expect(finalYear).to.equal("30");

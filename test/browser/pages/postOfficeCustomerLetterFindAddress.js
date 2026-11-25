@@ -24,4 +24,4 @@ export default class PlaywrightDevPage {
   async enterPostcode() {
     await this.page.locator("#letterPostcode").fill("BA2 5AA");
   }
-};
+}

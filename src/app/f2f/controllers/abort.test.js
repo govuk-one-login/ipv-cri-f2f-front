@@ -2,9 +2,7 @@ import wizard from "hmpo-form-wizard";
 import { expect } from "chai";
 import sinon from "sinon";
 import { AbortController } from "./abort.js";
-import {
-  API
-} from "../../../lib/config.js";
+import { API } from "../../../lib/config.js";
 
 const ABORT = API.PATHS.ABORT;
 
@@ -48,7 +46,7 @@ describe("AbortController", () => {
               "txma-audit-encoded": "dummy-txma-header",
               "x-govuk-signin-session-id": req.session.tokenId,
             },
-          }
+          },
         );
       });
 
@@ -68,7 +66,7 @@ describe("AbortController", () => {
         expect(res.redirect).to.have.been.calledOnceWith("/error");
         sinon.assert.calledWith(
           console.error,
-          "Missing sessionID, redirecting to /error"
+          "Missing sessionID, redirecting to /error",
         );
       });
     });

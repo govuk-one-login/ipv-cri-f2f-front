@@ -13,7 +13,9 @@ export default class PlaywrightDevPage {
   }
 
   async goToWithFeatureSet(featureSet) {
-    await this.page.goto(this.baseURL + this.path + "?featureSet=" + featureSet );
+    await this.page.goto(
+      this.baseURL + this.path + "?featureSet=" + featureSet,
+    );
   }
 
   async isCurrentPage() {
@@ -33,7 +35,7 @@ export default class PlaywrightDevPage {
 
   get poLink() {
     return this.page.locator(
-      '[href*="https://www.postoffice.co.uk/identity/in-branch-verification-service"]'
+      '[href*="https://www.postoffice.co.uk/identity/in-branch-verification-service"]',
     );
   }
 
@@ -44,7 +46,7 @@ export default class PlaywrightDevPage {
 
   async checkRedirectionErrorText() {
     const errorRedirectionText = await this.page.textContent(
-      '[data-id="error-title"]'
+      '[data-id="error-title"]',
     );
     return errorRedirectionText.trim();
   }
@@ -66,4 +68,4 @@ export default class PlaywrightDevPage {
   async languageTogglePresent() {
     await this.page.locator("div.govuk-width-container > nav").isVisible();
   }
-};
+}

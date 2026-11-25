@@ -11,7 +11,10 @@ export default class PlaywrightDevPage {
     if (process.env.CUSTOM_FE_URL) {
       claim.frontendURL = process.env.CUSTOM_FE_URL;
     }
-    const postRequest = await axios.post(process.env.IPV_STUB_URL + "start", claim);
+    const postRequest = await axios.post(
+      process.env.IPV_STUB_URL + "start",
+      claim,
+    );
     await this.page.goto(postRequest.data.AuthorizeLocation);
     await this.page.waitForLoadState("networkidle");
   }
@@ -38,4 +41,4 @@ export default class PlaywrightDevPage {
       searchParams.get("error_description") === "gateway"
     );
   }
-};
+}

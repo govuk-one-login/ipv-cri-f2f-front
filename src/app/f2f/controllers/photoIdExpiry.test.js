@@ -39,7 +39,7 @@ describe("PhotoIdExpiryController", () => {
 
       expect(next).to.have.been.calledOnce;
       expect(selectedOption).to.equal(
-        APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS
+        APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS,
       );
     });
 
@@ -52,7 +52,7 @@ describe("PhotoIdExpiryController", () => {
 
       expect(next).to.have.been.calledOnce;
       expect(selectedOption).to.equal(
-        APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID
+        APP.PHOTO_ID_EXPIRY_OPTIONS.CHOOSE_DIFFERENT_PHOTO_ID,
       );
     });
 
@@ -65,7 +65,7 @@ describe("PhotoIdExpiryController", () => {
 
       expect(next).to.have.been.calledOnce;
       expect(selectedOption).to.equal(
-        APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY
+        APP.PHOTO_ID_EXPIRY_OPTIONS.PROVE_IDENTITY_ANOTHER_WAY,
       );
     });
   });

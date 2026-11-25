@@ -1,6 +1,6 @@
 # Frontend for Face to Face (F2F) CRI service
 
-F2F is an asychronus journey on one login - which allows individuals with low digital literacy, who need to verify their identity to access Government Services online, to prove their identity to a Government assured standard at a post office. 
+F2F is an asychronus journey on one login - which allows individuals with low digital literacy, who need to verify their identity to access Government Services online, to prove their identity to a Government assured standard at a post office.
 
 > [!IMPORTANT]
 > This repository is **public**. Do **not** commit secrets, credentials, internal URLs, account identifiers, template IDs, or sensitive configuration values.
@@ -9,6 +9,7 @@ F2F is an asychronus journey on one login - which allows individuals with low di
 ---
 
 ## Table of contents
+
 - [Quick links](#quick-links)
 - [What this service does](#what-this-service-does)
 - [Getting started](#getting-started)
@@ -26,6 +27,7 @@ F2F is an asychronus journey on one login - which allows individuals with low di
 ---
 
 ## Quick links
+
 - **Environment sample:** `.env.sample`
 - **App source:** `src/`
 - **Infra template:** `template.yaml`
@@ -35,7 +37,9 @@ F2F is an asychronus journey on one login - which allows individuals with low di
 ---
 
 ## What this service does
+
 This service provides the user interface for the Face to Face (F2F) journey. It:
+
 - Integrates with the corresponding backend API (`di-ipv-cri-f2f-api`) using `API_BASE_URL`.
 - Supports browser-based end-to-end testing by starting journeys via an IPV stub (configured via `IPV_STUB_URL`).
 
@@ -44,10 +48,12 @@ This service provides the user interface for the Face to Face (F2F) journey. It:
 ## Getting started
 
 ### Prerequisites
+
 - Node.js version per `package.json` / repo tooling
 - yarn
 
 ### Install and build
+
 ```sh
 yarn install --frozen-lockfile
 yarn build
@@ -56,6 +62,7 @@ yarn build
 ---
 
 ## Environment file (.env)
+
 `src/.env.example` is the source of truth for required environment variables.  
 If a new variable is introduced, update `.env.example` accordingly.
 
@@ -67,24 +74,28 @@ cp .env.example .env
 > [!IMPORTANT]
 > Do not commit `.env` or any real secrets to this public repo.
 
-
 ## Running locally against a deployed back end
+
 Set up your `.env` based on `.env.example` (ensure `API_BASE_URL` and `IPV_STUB_URL` are set).
 
 Build and start the app:
+
 ```sh
 yarn build
 yarn start
 ```
 
 Start a journey via the IPV stub:
-1) Make a POST call to `IPV_STUB_URL` with the following payload:
+
+1. Make a POST call to `IPV_STUB_URL` with the following payload:
+
 ```json
 {
   "frontendURL": "http://localhost:5030"
 }
 ```
-2) Navigate to the `AuthorizeLocation` returned in the stub response.
+
+2. Navigate to the `AuthorizeLocation` returned in the stub response.
 
 > [!NOTE]
 > `AuthorizeLocation` is returned by the IPV stub service, which is implemented/owned in the API repository (not this frontend repo).
@@ -92,65 +103,79 @@ Start a journey via the IPV stub:
 ---
 
 ## Running tests
+
 All scripts are defined in `package.json`.
 
 ### Lint
+
 ```sh
 yarn lint
 ```
 
 ### Formatting check (Prettier)
+
 ```sh
 yarn prettier
 ```
 
 ### Unit tests
+
 ```sh
 yarn test
 ```
 
 ### Test coverage
+
 ```sh
 yarn test:coverage
 ```
 
 ### Log and PII checks
+
 ```sh
 yarn test:pii
 ```
 
 ### E2E tests
+
 ```sh
 yarn test:e2e
 ```
+
 ---
 
 ## Browser tests
+
 Browser-based tests can be run against a deployed backend API stack, starting the journey using an IPV stub.
 
 Ensure `.env` points at the environment you are testing against (do not commit values).
 
 Run:
+
 ```sh
 yarn test:browser
 ```
 
 To run browser tests against local FE changes, set:
+
 ```sh
 CUSTOM_FE_URL=http://localhost:5030
 ```
 
 Tests use:
+
 - Cucumber as the test runner
 - Playwright for browser automation
 - A Page Object Model approach
 
 ### Example Browser Test
+
 ```sh
 yarn test:browser
 ```
 
 ### Example Browser Test CI-Style
+
 ```sh
 yarn test:browser:ci
 ```
@@ -158,9 +183,11 @@ yarn test:browser:ci
 ---
 
 ## Deployment
+
 The standard deployment route is via the CI/CD pipeline for this repository. Use local deployments only when explicitly required.
 
 ### Deploying a personal stack (exceptional)
+
 If you must deploy an isolated FE stack (for example for testing an infra change), use a custom stack name (include your initials) to avoid overwriting shared stacks (for example `cic-cri-front-<initials>`).
 
 Example (dev/personal stack):
@@ -170,6 +197,7 @@ sam build --parallel
 sam deploy --resolve-s3 --stack-name "di-ipv-cic-cri-front-xy" --capabilities CAPABILITY_IAM --confirm-changeset --parameter-overrides \
 "Environment=\"<environment>\" PermissionsBoundary=\"<permissions-boundary>\" VpcStackName=\"<vpc-stack-name>\" EnableScalingInDev=0"
 ```
+
 > (Use initials + placeholders, no real env values.)
 
 Autoscaling-related parameters (if supported by the template):
@@ -179,6 +207,7 @@ Autoscaling-related parameters (if supported by the template):
 - `MaxContainerCount` – default 12.
 
 ### Custom FE image build and push (debugging only)
+
 This section is expressly for debugging and exceptional scenarios where your team supports testing a custom FE image.
 Normal frontend deployments should be via the pipeline.
 
@@ -199,14 +228,17 @@ If deploying a custom image, update the `Image:` reference in `template.yaml` an
 ---
 
 ## Request properties
+
 A shared axios middleware is used for API calls; see `src/lib/axios/`. This attaches an axios instance to each request (e.g. `req.axios`) to promote consistent header use and request behaviour.
 
 ## Code owners
+
 This repo has a `CODEOWNERS` file in the root and is configured to require PRs to reviewed by Code Owners.
 
 ---
 
 ## Pre-commit checks
+
 If this repo includes `.pre-commit-config.yaml`, you can enable hooks locally:
 
 ```sh
@@ -223,6 +255,7 @@ pre-commit run --all-files
 > Tool installation methods vary by environment. Use your team’s standard developer setup guidance.
 
 ## Licence
+
 If you need reuse/distribution terms, consult the `LICENCE`file's guidance before redistributing.
 
 ### Quality Gate Tags

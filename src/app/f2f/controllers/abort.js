@@ -1,9 +1,7 @@
 import wizard from "hmpo-form-wizard";
 import { API, PACKAGE_NAME } from "../../../lib/config.js";
 import { get as getLogger } from "../../../lib/logger.js";
-import {
-  createPersonalDataHeaders,
-} from "@govuk-one-login/frontend-passthrough-headers";
+import { createPersonalDataHeaders } from "@govuk-one-login/frontend-passthrough-headers";
 
 const logger = getLogger(PACKAGE_NAME);
 

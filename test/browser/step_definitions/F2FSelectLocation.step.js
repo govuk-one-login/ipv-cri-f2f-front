@@ -2,7 +2,11 @@ import { Given, When, Then } from "@cucumber/cucumber";
 
 import { expect } from "chai";
 
-import { FindBranch, PostOfficeLocations, CheckDetails } from "../pages/index.js";
+import {
+  FindBranch,
+  PostOfficeLocations,
+  CheckDetails,
+} from "../pages/index.js";
 
 Given(/^a Post Office branch is selected$/, async function () {
   const poLocations = new PostOfficeLocations(await this.page);
@@ -25,7 +29,7 @@ Then(
 
     expect(await confirmAnswers.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 //Select Location Change Postcode
@@ -35,7 +39,7 @@ Given(
     const poLocations = new PostOfficeLocations(await this.page);
 
     expect(await poLocations.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 When(/^the user clicks the Back button$/, async function () {
@@ -71,7 +75,7 @@ Then(
     await findBranch.continue();
 
     expect(await poLocations.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 //Select Location No Post Office
@@ -98,5 +102,5 @@ Then(
     expect(await poLocations.isCurrentPage()).to.be.true;
 
     expect(await poLocations.checkErrorText()).to.contain("There is a problem");
-  }
+  },
 );

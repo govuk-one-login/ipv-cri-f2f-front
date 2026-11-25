@@ -29,5 +29,4 @@ export default class PlaywrightDevPage {
   async continue() {
     await this.page.click("#continue");
   }
-
-};
+}

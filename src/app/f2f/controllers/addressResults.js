@@ -1,6 +1,9 @@
 import wizard from "hmpo-form-wizard";
 import { API } from "../../../lib/config.js";
-import { addressesToSelectItems, addressPresenter } from "../../../presenters/index.js";
+import {
+  addressesToSelectItems,
+  addressPresenter,
+} from "../../../presenters/index.js";
 import { convertKeysToLowerCase } from "../utils.js";
 
 export class AddressResultsController extends wizard.Controller {
@@ -16,7 +19,7 @@ export class AddressResultsController extends wizard.Controller {
           const osData = await this.getOsAddresses(
             req,
             req.axios,
-            letterPostcode
+            letterPostcode,
           );
           const searchResults = convertKeysToLowerCase(osData);
           const formattedResults = searchResults.map((item) => item.dpa);
@@ -59,8 +62,8 @@ export class AddressResultsController extends wizard.Controller {
       searchResults.find(
         (address) =>
           addressPresenter.generateSearchResultString(address) ===
-          selectedAddress
-      )
+          selectedAddress,
+      ),
     );
 
     return chosenAddress;
@@ -79,7 +82,7 @@ export class AddressResultsController extends wizard.Controller {
           {},
           {
             headers,
-          }
+          },
         );
         return response.data;
       } catch (error) {

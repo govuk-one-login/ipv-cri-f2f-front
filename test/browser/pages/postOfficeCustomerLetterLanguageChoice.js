@@ -28,4 +28,4 @@ export default class PlaywrightDevPage {
   async selectBoth() {
     await this.page.click("#postOfficeCustomerLetterLanguageChoice-both");
   }
-};
+}

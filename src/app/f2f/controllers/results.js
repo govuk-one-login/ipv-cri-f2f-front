@@ -9,18 +9,21 @@ export class PostcodeSearchController extends wizard.Controller {
       }
       try {
         const userPostcode = req.sessionModel.get("postcode");
-        const { data:postOfficeDataFull } = await req.axios.post(
+        const { data: postOfficeDataFull } = await req.axios.post(
           `https://${PROXY_API.BASE_URL}${PROXY_API.PATHS.POST_OFFICE}`,
           {
             searchString: userPostcode,
             productFilter: ["50321"],
-          }
+          },
         );
-        if (!Array.isArray(postOfficeDataFull) || postOfficeDataFull.length === 0){
+        if (
+          !Array.isArray(postOfficeDataFull) ||
+          postOfficeDataFull.length === 0
+        ) {
           console.error("No post office branches found, redirecting to /error");
           return res.redirect(APP.PATHS.ERROR);
         }
-      
+
         // Selects 5 branches if more branches are found
         const postOfficeData = postOfficeDataFull.slice(0, 5);
 

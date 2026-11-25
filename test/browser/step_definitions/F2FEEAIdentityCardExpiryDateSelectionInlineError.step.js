@@ -11,7 +11,7 @@ Given(
       new EeaIdentityCardHasExpiryDatePage(await this.page);
 
     await eeaIdentityCardHasExpiryDatePage.continue();
-  }
+  },
 );
 
 Then(
@@ -39,7 +39,7 @@ Then(
       await eeaIdentityCardHasExpiryDatePage.checkErrorAboveRadioButtonText();
 
     expect(await errorBodyAboveRadioOptions).to.equal(
-      "Error: Select if your photo ID has an expiry date"
+      "Error: Select if your photo ID has an expiry date",
     );
-  }
+  },
 );

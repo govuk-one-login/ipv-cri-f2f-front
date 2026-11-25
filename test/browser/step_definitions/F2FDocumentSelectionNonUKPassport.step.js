@@ -24,67 +24,67 @@ When(
     const photoIdPage = new PhotoIdSelectionPage(await this.page);
 
     await photoIdPage.continue();
-  }
+  },
 );
 
 Then(
   /^the user is routed to the next screen - OtherPassport Details$/,
   async function () {
     const nonUKPassportDetails = new NonUKPassportDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     expect(await nonUKPassportDetails.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
   /^the user is routed to the next screen - Non-UKPassportHasExpiryDate$/,
   async function () {
     const nonUkPassportHasExpiryDatePage = new NonUkPassportHasExpiryDatePage(
-      await this.page
+      await this.page,
     );
 
     expect(await nonUkPassportHasExpiryDatePage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
   /^the user is routed to the edit screen - Non-UKPassportHasExpiryDate$/,
   async function () {
     const nonUkPassportHasExpiryDatePage = new NonUkPassportHasExpiryDatePage(
-      await this.page
+      await this.page,
     );
 
     expect(await nonUkPassportHasExpiryDatePage.isCurrentEditPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 When(
   /^the user selects yes on the passport expiry date page$/,
   async function () {
     const nonUkPassportHasExpiryDatePage = new NonUkPassportHasExpiryDatePage(
-      await this.page
+      await this.page,
     );
 
     await nonUkPassportHasExpiryDatePage.yes();
     await nonUkPassportHasExpiryDatePage.continue();
-  }
+  },
 );
 
 When(
   /^the user selects no on the passport expiry date page$/,
   async function () {
     const nonUkPassportHasExpiryDatePage = new NonUkPassportHasExpiryDatePage(
-      await this.page
+      await this.page,
     );
 
     await nonUkPassportHasExpiryDatePage.no();
     await nonUkPassportHasExpiryDatePage.continue();
-  }
+  },
 );
 
 //NonUKPassportDetails
@@ -92,25 +92,25 @@ Given(
   /^the date entered is within accepted Non UK expiration window$/,
   async function () {
     const nonUKPassportDetails = new NonUKPassportDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     await nonUKPassportDetails.expiryDate();
-  }
+  },
 );
 
 When(
   /^the user clicks the continue button on the Non UK passport page$/,
   async function () {
     const nonUKPassportDetails = new NonUKPassportDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     expect(await nonUKPassportDetails.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
 
     await nonUKPassportDetails.continue();
-  }
+  },
 );
 
 Then(
@@ -120,7 +120,7 @@ Then(
 
     expect(await ctrySelector.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 //NonUKPassportCountrySelector
@@ -146,7 +146,7 @@ Then(
     const branchFinderPage = new FindBranch(await this.page);
 
     expect(await branchFinderPage.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 When(
@@ -159,9 +159,9 @@ When(
     await ctrySelector.continue();
 
     expect(await ctrySelector.checkErrorText()).to.contain(
-      "There is a problem"
+      "There is a problem",
     );
-  }
+  },
 );
 
 Then(/^an inline error message is displayed$/, async function () {
@@ -178,16 +178,16 @@ When(
     const ctrySelector = new NonUKPassportCountrySelector(await this.page);
 
     await ctrySelector.back();
-  }
+  },
 );
 
 Then(
   /^the user is navigated back to the previous screen - the Photo ID Expiry page$/,
   async function () {
     const nonUKPassportDetails = new NonUKPassportDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     expect(await nonUKPassportDetails.isCurrentPage()).to.be.true;
-  }
+  },
 );

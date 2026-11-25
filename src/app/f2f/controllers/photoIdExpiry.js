@@ -6,13 +6,10 @@ const logger = getLogger(PACKAGE_NAME);
 export class PhotoIdExpiryController extends wizard.Controller {
   async saveValues(req, res, next) {
     try {
-      logger.info(
-        "user selecting new option after photo Id expiry",
-        {
-          req,
-          res,
-        }
-      );
+      logger.info("user selecting new option after photo Id expiry", {
+        req,
+        res,
+      });
       req.sessionModel.set("redirect_url", undefined);
       req.sessionModel.set(
         APP.PHOTO_ID_EXPIRY_OPTIONS.RE_ENTER_DETAILS,

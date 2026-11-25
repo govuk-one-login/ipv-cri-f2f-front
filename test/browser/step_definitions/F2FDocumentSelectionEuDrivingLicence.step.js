@@ -33,7 +33,7 @@ Then(
 
     expect(await euDrivingLicenceHasExpiryDatePage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
@@ -45,7 +45,7 @@ Then(
     expect(await euDrivingLicenceHasExpiryDatePage.isCurrentEditPage()).to.be
       .true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 When(
@@ -56,7 +56,7 @@ When(
 
     await euDrivingLicenceHasExpiryDatePage.yes();
     await euDrivingLicenceHasExpiryDatePage.continue();
-  }
+  },
 );
 
 When(
@@ -67,19 +67,19 @@ When(
 
     await euDrivingLicenceHasExpiryDatePage.no();
     await euDrivingLicenceHasExpiryDatePage.continue();
-  }
+  },
 );
 
 Then(
   /^the user is routed to the EU DL Expiry Entry Screen$/,
   async function () {
     const euDrivingLicenceDetailsPage = new EuDrivingLicenceDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     expect(await euDrivingLicenceDetailsPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 //EUDrivingLicenceDetails
@@ -88,27 +88,27 @@ Given(
   /^the EU Driving Licence date entered is within accepted expiration window$/,
   async function () {
     const euDrivingLicenceDetailsPage = new EuDrivingLicenceDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     await euDrivingLicenceDetailsPage.expiryDate();
-  }
+  },
 );
 
 Given(
   /^the user is on the EU Country Code Selection screen$/,
-  async function () {}
+  async function () {},
 );
 
 When(
   /^the user clicks the continue button on the EU Driving Licence details page$/,
   async function () {
     const euDrivingLicenceChoice = new EuDrivingLicenceDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     await euDrivingLicenceChoice.continue();
-  }
+  },
 );
 
 Then(
@@ -118,7 +118,7 @@ Then(
 
     expect(await addressCheck.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 //EuDrivingLicenceCountryCode
@@ -126,22 +126,22 @@ Given(
   /^the user selects a country from the drop down menu$/,
   async function () {
     const countrySelector = new EuDrivingLicenceCountrySelector(
-      await this.page
+      await this.page,
     );
 
     await countrySelector.selectCountry();
-  }
+  },
 );
 
 When(
   /^the user clicks the continue button on the EU country code page$/,
   async function () {
     const countrySelector = new EuDrivingLicenceCountrySelector(
-      await this.page
+      await this.page,
     );
 
     await countrySelector.continue();
-  }
+  },
 );
 
 Then(
@@ -151,5 +151,5 @@ Then(
 
     expect(await branchFinder.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );

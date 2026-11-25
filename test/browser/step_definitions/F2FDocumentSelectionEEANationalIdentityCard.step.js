@@ -22,19 +22,19 @@ When(
     const photoIdPage = new PhotoIdSelectionPage(await this.page);
 
     await photoIdPage.continue();
-  }
+  },
 );
 
 Then(
   /^the user is routed to the next screen in the EEA National Identity journey - EEA National Identity Card details$/,
   async function () {
     const nationalIdentityCardEEA = new EEAIdentityCardDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     expect(await nationalIdentityCardEEA.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
@@ -45,7 +45,7 @@ Then(
 
     expect(await eeaIdentityCardHasExpiryDatePage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
@@ -57,7 +57,7 @@ Then(
     expect(await eeaIdentityCardHasExpiryDatePage.isCurrentEditPage()).to.be
       .true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 When(
@@ -68,7 +68,7 @@ When(
 
     await eeaIdentityCardHasExpiryDatePage.yes();
     await eeaIdentityCardHasExpiryDatePage.continue();
-  }
+  },
 );
 
 When(
@@ -79,7 +79,7 @@ When(
 
     await eeaIdentityCardHasExpiryDatePage.no();
     await eeaIdentityCardHasExpiryDatePage.continue();
-  }
+  },
 );
 
 //EEANationalIdentityCard
@@ -87,11 +87,11 @@ Given(
   /^the date entered is within accepted National Identity Card EEA expiration window$/,
   async function () {
     const nationalIdentityCardEEA = new EEAIdentityCardDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     await nationalIdentityCardEEA.expiryDate();
-  }
+  },
 );
 
 Given(
@@ -100,7 +100,7 @@ Given(
     const addressCheck = new EEAIdentityCardAddressCheck(await this.page);
 
     await addressCheck.sameAddress();
-  }
+  },
 );
 
 Given(
@@ -109,7 +109,7 @@ Given(
     const addressCheck = new EEAIdentityCardAddressCheck(await this.page);
 
     await addressCheck.differentAddress();
-  }
+  },
 );
 
 Given(
@@ -118,7 +118,7 @@ Given(
     const addressCheck = new EEAIdentityCardAddressCheck(await this.page);
 
     await addressCheck.noAddress();
-  }
+  },
 );
 
 Given(/^the user is on the EEA ID address check page$/, async function () {
@@ -133,34 +133,34 @@ Given(
     const addressCheck = new EEAIdentityCardAddressCheck(await this.page);
 
     expect(await addressCheck.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 When(
   /^the user clicks the continue button on the National Identity Card EEA Page$/,
   async function () {
     const nationalIdentityCardEEA = new EEAIdentityCardDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     await nationalIdentityCardEEA.continue();
-  }
+  },
 );
 
 When(
   /^the user clicks the Back button on the National Identity Card EEA Page$/,
   async function () {
     const nationalIdentityCardEEA = new EEAIdentityCardAddressCheck(
-      await this.page
+      await this.page,
     );
 
     await nationalIdentityCardEEA.back();
-  }
+  },
 );
 
 When(/^they click the EEA ID address check back button$/, async function () {
   const nationalIdentityCardEEA = new EEAIdentityCardAddressCheck(
-    await this.page
+    await this.page,
   );
 
   await nationalIdentityCardEEA.back();
@@ -172,7 +172,7 @@ When(
     const addressCheck = new EEAIdentityCardAddressCheck(await this.page);
 
     await addressCheck.continue();
-  }
+  },
 );
 
 Then(
@@ -182,7 +182,7 @@ Then(
 
     expect(await branchFinderPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
@@ -192,7 +192,7 @@ Then(
 
     expect(await addressCheck.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
@@ -202,7 +202,7 @@ Then(
 
     expect(await photoIdPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
@@ -212,7 +212,7 @@ Then(
 
     expect(await countryCode.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
@@ -221,18 +221,18 @@ Then(
     const photoIdPage = new PhotoIdSelectionPage(await this.page);
 
     expect(await photoIdPage.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 Then(
   /^they are routed back to the EEA ID expiry date page$/,
   async function () {
     const nationalIdentityCardEEA = new EEAIdentityCardDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     expect(await nationalIdentityCardEEA.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 Then(
@@ -243,9 +243,9 @@ Then(
     expect(await addressCheck.isCurrentPage()).to.be.true;
 
     expect(await addressCheck.checkErrorText()).to.contain(
-      "There is a problem"
+      "There is a problem",
     );
-  }
+  },
 );
 
 //CountrySelector
@@ -253,16 +253,16 @@ Given(
   /^the user is on the NI Card EEA Country Code Selection screen$/,
   async function () {
     const ctrySelector = new EEAIdentityCardCountrySelectorPage(
-      await this.page
+      await this.page,
     );
 
     expect(await ctrySelector.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 When(/^the user selects an EEA country code$/, async function () {
   const euCtrySelector = new EEAIdentityCardCountrySelectorPage(
-    await this.page
+    await this.page,
   );
 
   expect(await euCtrySelector.isCurrentPage()).to.be.true;
@@ -280,5 +280,5 @@ Then(
     expect(await findBranchValid.isCurrentPage()).to.be.true;
 
     // await findBranchValid.continue();
-  }
+  },
 );

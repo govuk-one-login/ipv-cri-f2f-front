@@ -55,7 +55,7 @@ export const addressPresenter = {
         titleCaseAddress[key] = address[key].replace(
           /\w\S*/g,
           (text) =>
-            text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+            text.charAt(0).toUpperCase() + text.substring(1).toLowerCase(),
         );
       } else {
         titleCaseAddress[key] = address[key];

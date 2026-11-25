@@ -4,7 +4,7 @@ import { LandingPage } from "../pages/index.js";
 
 Given(
   /^the user wants to view their nearest post office that offers ID verification$/,
-  async function () {}
+  async function () {},
 );
 
 When(/^the user clicks on the hyperlink$/, async function () {
@@ -15,5 +15,5 @@ When(/^the user clicks on the hyperlink$/, async function () {
 
 Then(
   /^they are redirected to the PO's own branch checking page$/,
-  async function () {}
+  async function () {},
 );

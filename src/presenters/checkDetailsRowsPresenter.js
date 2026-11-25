@@ -92,7 +92,7 @@ export function buildCheckDetailsRows(req, res, locals) {
         keyTextKey: addrCfg.labelKey,
         value: { html: locals.addressCheckTranslatedString },
         href: addrCfg.href,
-      })
+      }),
     ),
 
     // "Has expiry date?" question (non-UK passport / EU DL / EEA ID only)
@@ -101,7 +101,7 @@ export function buildCheckDetailsRows(req, res, locals) {
         keyTextKey: "checkDetails.hasExpiryDate",
         value: { html: locals.hasExpiryDateTranslatedString },
         href: hasExpiryHref,
-      })
+      }),
     ),
 
     // Expiry date row (not shown when user said document has no expiry date)
@@ -112,7 +112,7 @@ export function buildCheckDetailsRows(req, res, locals) {
           keyTextKey: "checkDetails.expiryDate",
           value: { html: locals.formattedExpiryDate },
           href: locals.changeUrl,
-        })
+        }),
     ),
 
     // Country row (non-UK passport / EU DL / EEA ID only)
@@ -121,7 +121,7 @@ export function buildCheckDetailsRows(req, res, locals) {
         keyTextKey: "checkDetails.country",
         value: { html: locals.countryTranslatedString },
         href: countryHref,
-      })
+      }),
     ),
 
     // Always show chosen Post Office
@@ -144,18 +144,19 @@ export function buildCheckDetailsRows(req, res, locals) {
         keyTextKey: "checkDetails.letterLanguagePreference",
         value: { text: locals.letterLanguagePreferenceText },
         href: APP.PATHS.POST_OFFICE_CUSTOMER_LETTER_CHOOSE_LANGUAGE,
-      })
+      }),
     ),
 
     // Postal address row (post journeys only)
     ...rowsIf(
-      postChoice === APP.POST_OFFICE_CUSTOMER_LETTER.POST && !!locals.addressLine,
+      postChoice === APP.POST_OFFICE_CUSTOMER_LETTER.POST &&
+        !!locals.addressLine,
       () =>
         summaryRow(translate, {
           keyTextKey: "checkDetails.pdfChosenAddress",
           value: { html: locals.addressLine },
           href: APP.PATHS.CHECK_ADDRESS,
-        })
+        }),
     ),
   ];
 }

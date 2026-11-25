@@ -10,7 +10,7 @@ Given(
     const photoIdSelection = new PhotoIdSelectionPage(await this.page);
 
     expect(await photoIdSelection.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 When(
@@ -19,7 +19,7 @@ When(
     const photoIdSelection = new PhotoIdSelectionPage(await this.page);
 
     await photoIdSelection.back();
-  }
+  },
 );
 
 Then(
@@ -28,5 +28,5 @@ Then(
     const landingPage = new LandingPage(await this.page);
 
     expect(await landingPage.isCurrentPage()).to.be.true;
-  }
+  },
 );

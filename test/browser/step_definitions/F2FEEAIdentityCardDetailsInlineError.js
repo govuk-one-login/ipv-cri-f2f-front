@@ -8,18 +8,18 @@ Given(
   /^the user clicks the continue button only on the EEAPage$/,
   async function () {
     const eeaIdentityCardPage = new EEAIdentityCardDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     await eeaIdentityCardPage.continue();
-  }
+  },
 );
 
 Then(
   /^the user sees an inline error message displayed on the EEAPage$/,
   async function () {
     const eeaIdentityCardPage = new EEAIdentityCardDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     expect(await eeaIdentityCardPage.isCurrentPage()).to.be.true;
@@ -29,5 +29,5 @@ Then(
     const error = await eeaIdentityCardPage.checkErrorText();
 
     expect(await error).to.equal(inlineError);
-  }
+  },
 );

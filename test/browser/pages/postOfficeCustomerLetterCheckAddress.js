@@ -28,4 +28,4 @@ export default class PlaywrightDevPage {
   async sendToDifferentAddress() {
     await this.page.click("#customerLetterCheckAddress-differentAddress");
   }
-};
+}

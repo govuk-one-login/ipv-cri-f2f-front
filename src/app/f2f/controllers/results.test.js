@@ -144,7 +144,7 @@ describe("Postcode Search Controller", () => {
           {
             searchString: postCode,
             productFilter: ["50321"],
-          }
+          },
         );
       });
 
@@ -415,9 +415,9 @@ describe("Postcode Search Controller", () => {
         expect(res.redirect).to.have.been.calledOnceWith("/error");
         sinon.assert.calledWith(
           console.error,
-          "No post office branches found, redirecting to /error"
+          "No post office branches found, redirecting to /error",
         );
-      });    
+      });
     });
   });
 });

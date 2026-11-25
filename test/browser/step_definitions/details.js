@@ -13,8 +13,6 @@ import { injectAxe } from "axe-playwright";
 
 import axe from "axe-core";
 
-
-
 Given(
   /^([^"]*) is using the system$/,
   { timeout: 2 * 5000 },
@@ -23,7 +21,7 @@ Given(
     const rpPage = new RelyingPartyPage(this.page);
 
     await rpPage.goto(claim);
-  }
+  },
 );
 
 When(
@@ -31,37 +29,37 @@ When(
   {
     timeout: 10 * 1000,
   },
-  async function () {}
+  async function () {},
 );
 
 Then("they should be redirected to the Landing Page", async function () {
   const landingPage = new LandingPage(await this.page);
-    
-  expect(await landingPage.isCurrentPage()).to.be.true;
-  this.page.waitForLoadState("networkidle");
-});
-
-When("featureSet {string} is set new functionality is enabled", async function (featureSet) {
-  const landingPage = new LandingPage(await this.page);
-  landingPage.goToWithFeatureSet(featureSet);
 
   expect(await landingPage.isCurrentPage()).to.be.true;
   this.page.waitForLoadState("networkidle");
 });
 
-Then(
-  "the page should conform to WCAG 2.2 AA guidelines",
-  async function () {
-    await injectAxe(this.page);
-    // Run Axe for WCAG 2.2 AA rules
-    const wcagResults = await this.page.evaluate(() => {
-      return axe.run({
-        runOnly: ["wcag2aa"]
-      });
-    });
-    expect(wcagResults.violations, "WCAG 2.2 AAA violations found").to.be.empty;
+When(
+  "featureSet {string} is set new functionality is enabled",
+  async function (featureSet) {
+    const landingPage = new LandingPage(await this.page);
+    landingPage.goToWithFeatureSet(featureSet);
+
+    expect(await landingPage.isCurrentPage()).to.be.true;
+    this.page.waitForLoadState("networkidle");
   },
 );
+
+Then("the page should conform to WCAG 2.2 AA guidelines", async function () {
+  await injectAxe(this.page);
+  // Run Axe for WCAG 2.2 AA rules
+  const wcagResults = await this.page.evaluate(() => {
+    return axe.run({
+      runOnly: ["wcag2aa"],
+    });
+  });
+  expect(wcagResults.violations, "WCAG 2.2 AAA violations found").to.be.empty;
+});
 
 Then(
   "the user should see they have 15 days to visit the Post Office",
@@ -69,7 +67,7 @@ Then(
     const landingPage = new LandingPage(await this.page);
 
     expect(await landingPage.getPostOfficeNumberOfDays()).to.contain("15 days");
-  }
+  },
 );
 
 Then("they should be redirected to the Find a Branch page", async function () {
@@ -105,9 +103,9 @@ Then(
   async function (languageAttribute) {
     const landingPage = new LandingPage(await this.page);
     expect(await landingPage.returnLanguageAttribute()).to.equal(
-      languageAttribute
+      languageAttribute,
     );
-  }
+  },
 );
 
 When("the user switches language to {string}", async function (language) {
@@ -120,13 +118,13 @@ When(
   async function (language) {
     const landingPage = new LandingPage(await this.page);
     expect(await landingPage.returnLanguageToggleHref(language)).to.be.null;
-  }
+  },
 );
 
-Then("the {string} cookie has been set", async function(cookieName) {
+Then("the {string} cookie has been set", async function (cookieName) {
   // Wait for the page to fully load
   await this.page.waitForLoadState("networkidle", { timeout: 5000 });
   const cookies = await this.page.context().cookies();
-  const expectedCookie = cookies.find(cookie => cookie.name === cookieName);
+  const expectedCookie = cookies.find((cookie) => cookie.name === cookieName);
   expect(expectedCookie).to.exist;
 });

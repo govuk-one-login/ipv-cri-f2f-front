@@ -12,7 +12,7 @@ Given(
     expect(await passportDetailsPage.isCurrentPage()).to.be.true;
 
     await passportDetailsPage.continue();
-  }
+  },
 );
 
 Then(/^the user sees an inline error message displayed$/, async function () {

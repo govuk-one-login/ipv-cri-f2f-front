@@ -26,7 +26,7 @@ describe("PhotoIdSelectionThinFileController", () => {
 
   it("should be an instance of BaseController", () => {
     expect(photoIdSelectionThinFileController).to.be.an.instanceOf(
-      wizard.Controller
+      wizard.Controller,
     );
   });
 

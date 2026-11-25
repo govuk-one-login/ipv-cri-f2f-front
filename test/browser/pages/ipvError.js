@@ -21,4 +21,4 @@ export default class PlaywrightDevPage {
       searchParams.get("error_description") === "Failed"
     );
   }
-};
+}

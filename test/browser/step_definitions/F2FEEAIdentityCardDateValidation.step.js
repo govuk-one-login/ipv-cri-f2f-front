@@ -13,24 +13,24 @@ Given(
   /^the date entered is before the accepted National Identity Card EEA expiration window$/,
   async function () {
     const nationalIdentityCardEEA = new EEAIdentityCardDetailsPageInvalidPast(
-      await this.page
+      await this.page,
     );
 
     await nationalIdentityCardEEA.expiryDate();
-  }
+  },
 );
 
 When(
   /^the user clicks the continue button on the National Identity Card EEA Past details Page$/,
   async function () {
     const nationalIdentityCardEEA = new EEAIdentityCardDetailsPageInvalidPast(
-      await this.page
+      await this.page,
     );
 
     expect(await nationalIdentityCardEEA.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
     await nationalIdentityCardEEA.continue();
-  }
+  },
 );
 
 Then(
@@ -40,7 +40,7 @@ Then(
 
     expect(await photoIdExpPg.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 //NIC EEA Expiry Date Future
@@ -48,24 +48,24 @@ Given(
   /^the date entered is beyond the accepted National Identity Card EEA expiration window$/,
   async function () {
     const nationalIdentityCardEEA = new EEAIdentityCardDetailsPageInvalidFuture(
-      await this.page
+      await this.page,
     );
 
     await nationalIdentityCardEEA.expiryDate();
-  }
+  },
 );
 
 When(
   /^the user clicks the continue button on the National Identity Card EEA Future details Page$/,
   async function () {
     const nationalIdentityCardEEA = new EEAIdentityCardDetailsPageInvalidFuture(
-      await this.page
+      await this.page,
     );
 
     expect(await nationalIdentityCardEEA.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
     await nationalIdentityCardEEA.continue();
-  }
+  },
 );
 
 Then(
@@ -79,7 +79,7 @@ Then(
     const error = await niEEA.checkErrorText();
 
     expect(await error).to.equal(inlineError);
-  }
+  },
 );
 
 //NIC EEA Past date Validation Re-enter
@@ -97,16 +97,16 @@ When(
     const photoExpiryPage = new PhotoIdExpiryPage(await this.page);
 
     await photoExpiryPage.continue();
-  }
+  },
 );
 
 Then(
   /^the user is routed back to the EEAID Expiry Date screen$/,
   async function () {
     const eEAIdentityCardDetailsPageValid = new EEAIdentityCardDetailsPageValid(
-      await this.page
+      await this.page,
     );
 
     expect(await eEAIdentityCardDetailsPageValid.isCurrentPage()).to.be.true;
-  }
+  },
 );

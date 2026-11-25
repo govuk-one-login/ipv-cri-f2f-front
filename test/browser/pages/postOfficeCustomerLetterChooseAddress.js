@@ -26,4 +26,4 @@ export default class PlaywrightDevPage {
       value: "6 HADLEY ROAD, BATH, BA2 5AA",
     });
   }
-};
+}

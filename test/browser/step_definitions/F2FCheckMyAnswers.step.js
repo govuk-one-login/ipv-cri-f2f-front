@@ -21,7 +21,7 @@ Given(
 
     expect(await cma.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 When(/^the user clicks the CMA Back button$/, async function () {
@@ -36,7 +36,7 @@ Then(
     const cma = new CheckDetails(await this.page);
 
     expect(await cma.getChangeIDHASExpiryDateSelection()).equal("Yes");
-  }
+  },
 );
 
 Then(
@@ -45,7 +45,7 @@ Then(
     const cma = new CheckDetails(await this.page);
 
     expect(await cma.getChangeIDHASExpiryDateSelection()).equal("No");
-  }
+  },
 );
 
 Then(
@@ -54,7 +54,7 @@ Then(
     const cma = new CheckDetails(await this.page);
 
     expect(await cma.isExpiryDateSelectionDisplayed()).to.be.false;
-  }
+  },
 );
 
 Then(/^Expiry date is not displayed$/, async function () {
@@ -82,7 +82,7 @@ Then(
 
     expect(await poLocations.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 /**             DOCUMENT SELECTION CHANGE             */
@@ -92,7 +92,7 @@ When(/^the user clicks the PhotoIdChange button$/, async function () {
 
   expect(await cma.isCurrentPage()).to.be.true;
   await this.page.waitForLoadState("networkidle");
-  
+
   await cma.changePhotoIDLink();
 });
 
@@ -103,7 +103,7 @@ Then(
 
     expect(await pIDEditPage.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(/^the user selects a new PhotoId Document$/, async function () {
@@ -111,7 +111,7 @@ Then(/^the user selects a new PhotoId Document$/, async function () {
 
   expect(await pIDEditPage.isCurrentPage()).to.be.true;
   await this.page.waitForLoadState("networkidle");
-  
+
   await pIDEditPage.euDrivingLicenceChoice();
 
   await pIDEditPage.continue();
@@ -126,14 +126,17 @@ Then(/^the user enters the PhotoId Expiry Date page$/, async function () {
   await euDLVld.expiryDate();
 });
 
-Then(/^the user clicks continue on the PhotoId Expiry Date page$/, async function () {
-  const euDLVld = new EuDrivingLicenceDetailsPageValidEdit(await this.page);
+Then(
+  /^the user clicks continue on the PhotoId Expiry Date page$/,
+  async function () {
+    const euDLVld = new EuDrivingLicenceDetailsPageValidEdit(await this.page);
 
-  expect(await euDLVld.isCurrentPage()).to.be.true;
-  await this.page.waitForLoadState("networkidle");
-  
-  await euDLVld.continue();
-});
+    expect(await euDLVld.isCurrentPage()).to.be.true;
+    await this.page.waitForLoadState("networkidle");
+
+    await euDLVld.continue();
+  },
+);
 
 /**             EXPIRY DATE SELECTION CHANGE             */
 
@@ -143,7 +146,7 @@ When(/^the user clicks the ExpiryDate Change button$/, async function () {
 
   expect(await cma.isCurrentPage()).to.be.true;
   await this.page.waitForLoadState("networkidle");
-  
+
   await cma.changeExpiryDate();
 });
 
@@ -202,7 +205,7 @@ When(
     await this.page.waitForLoadState("networkidle");
 
     await cma.changeEUDLHASExpiryDate();
-  }
+  },
 );
 
 /**             POST OFFICE SELECTION CHANGE             */
@@ -225,7 +228,7 @@ Then(
 
     expect(await findBranchEdit.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
@@ -240,7 +243,7 @@ Then(
 
     expect(await poLocations.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 /** 4. Make the change and return to the CMA page*/
@@ -253,7 +256,7 @@ Then(
     await this.page.waitForLoadState("networkidle");
 
     await poLocations.continue();
-  }
+  },
 );
 
 /**             ADDRESS CHECK SELECTION CHANGE             */
@@ -273,12 +276,12 @@ Then(
   /^the user is navigated back to the Address Check Page$/,
   async function () {
     const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(
-      await this.page
+      await this.page,
     );
 
     expect(await addressCheckEdit.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 /** 3. Change address selction choice to "My identity card does not have my address on it" */
@@ -287,11 +290,11 @@ Then(
   /^the user changes the address selection to "My identity card does not have my address on it"$/,
   async function () {
     const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(
-      await this.page
+      await this.page,
     );
 
     await addressCheckEdit.noAddress();
-  }
+  },
 );
 
 /** 4. Return to the CMA page*/
@@ -299,7 +302,7 @@ Then(
   /^the user continues to the CMA page from the Address Check page$/,
   async function () {
     const addressCheckEdit = new EEAIdentityCardAddressCheckEdit(
-      await this.page
+      await this.page,
     );
 
     const checkDetails = new CheckDetails(await this.page);
@@ -308,7 +311,7 @@ Then(
 
     expect(await checkDetails.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 /**             COUNTRY SELECTOR CHANGE             */
@@ -328,19 +331,19 @@ Then(
   /^the user is navigated back to the Country Selector Page$/,
   async function () {
     const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(
-      await this.page
+      await this.page,
     );
 
     expect(await countrySelector.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 /** 3. Change country of issue */
 
 Then(/^the user changes the country of issue$/, async function () {
   const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(
-    await this.page
+    await this.page,
   );
 
   await countrySelector.selectCountry();
@@ -351,7 +354,7 @@ Then(
   /^the user continues to the CMA page from the Country Selector page$/,
   async function () {
     const countrySelector = new EEAIdentityCardCountrySelectorPageEdit(
-      await this.page
+      await this.page,
     );
 
     const checkDetails = new CheckDetails(await this.page);
@@ -360,7 +363,7 @@ Then(
 
     expect(await checkDetails.isCurrentPage()).to.be.true;
     await this.page.waitForLoadState("networkidle");
-  }
+  },
 );
 
 Then(
@@ -373,7 +376,7 @@ Then(
 
     expect(await cma.isLetterLanguageChoiceDisplayed()).to.be.true;
     expect(await cma.getLetterLanguageChoiceValue()).to.equal(expected);
-  }
+  },
 );
 
 Then(
@@ -388,7 +391,9 @@ Then(
 
     // Assert we land back on the language choice page
     // (Use the existing page object you already have for that page)
-    const langPage = new PostOfficeCustomerLetterLanguageChoice(await this.page);
+    const langPage = new PostOfficeCustomerLetterLanguageChoice(
+      await this.page,
+    );
     expect(await langPage.isCurrentPage()).to.be.true;
-  }
+  },
 );

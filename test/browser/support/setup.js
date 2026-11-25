@@ -1,4 +1,10 @@
-import { After, AfterAll, Before, BeforeAll, setDefaultTimeout } from "@cucumber/cucumber";
+import {
+  After,
+  AfterAll,
+  Before,
+  BeforeAll,
+  setDefaultTimeout,
+} from "@cucumber/cucumber";
 import { chromium } from "playwright";
 import "dotenv/config";
 

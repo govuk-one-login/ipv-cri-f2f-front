@@ -15,7 +15,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -23,7 +23,7 @@ Given(
   async function () {
     const findBranchEmpty = new FindBranch(this.page);
     await findBranchEmpty.goTo();
-  }
+  },
 );
 
 Then(
@@ -34,7 +34,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -42,7 +42,7 @@ Given(
   async function () {
     const findBranchInvalid = new FindBranch(this.page);
     await findBranchInvalid.goTo();
-  }
+  },
 );
 
 Then(
@@ -53,7 +53,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -61,7 +61,7 @@ Given(
   async function () {
     const findBranchValid = new FindBranch(this.page);
     await findBranchValid.goTo();
-  }
+  },
 );
 
 Then(
@@ -72,7 +72,7 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );
 
 Given(
@@ -80,7 +80,7 @@ Given(
   async function () {
     const findBranchValidEdit = new FindBranchValidEdit(this.page);
     await findBranchValidEdit.goTo();
-  }
+  },
 );
 
 Then(
@@ -91,5 +91,5 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );

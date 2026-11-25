@@ -7,7 +7,7 @@ Given(
   async function () {
     const landingPage = new LandingPage(this.page);
     await landingPage.goTo();
-  }
+  },
 );
 
 Then(
@@ -18,5 +18,5 @@ Then(
     const redirectionError = await errorPage.getSomethingWentWrongMessage();
     const error = await errorPage.getErrorTitle();
     expect(await error).to.equal(redirectionError);
-  }
+  },
 );

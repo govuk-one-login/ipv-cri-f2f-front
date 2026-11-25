@@ -22,7 +22,7 @@ export class PhotoIdSelectionController extends wizard.Controller {
         case APP.PHOTO_ID_OPTIONS.UK_PASSPORT: {
           logger.info(
             "photo-id-selection: user has selected UK passport - redirecting to passport details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PASSPORT, true);
           req.sessionModel.set("changeUrl", "uk-passport-expire");
@@ -31,7 +31,7 @@ export class PhotoIdSelectionController extends wizard.Controller {
         case APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL: {
           logger.info(
             "photo-id-selection: user has selected UK DL - redirecting to driving license details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.UK_PHOTOCARD_DL, true);
           req.sessionModel.set("changeUrl", "uk-driving-licence-expire");
@@ -40,7 +40,7 @@ export class PhotoIdSelectionController extends wizard.Controller {
         case APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT: {
           logger.info(
             "photo-id-selection: user has selected other passport - redirecting to other passport details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.NON_UK_PASSPORT, true);
           req.sessionModel.set("changeUrl", "non-uk-passport-expire");
@@ -50,7 +50,7 @@ export class PhotoIdSelectionController extends wizard.Controller {
         case APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL: {
           logger.info(
             "photo-id-selection: user has selected EU photocard driving licence - redirecting to driving license details page",
-            { req }
+            { req },
           );
           req.sessionModel.set(APP.PHOTO_ID_OPTIONS.EU_PHOTOCARD_DL, true);
           req.sessionModel.set("changeUrl", "eu-driving-licence-expire");

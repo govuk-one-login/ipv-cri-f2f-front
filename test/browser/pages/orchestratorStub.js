@@ -117,4 +117,4 @@ export default class PlaywrightDevPage {
     const { pathname } = new URL(this.page.url());
     return pathname === this.handoff_path;
   }
-};
+}

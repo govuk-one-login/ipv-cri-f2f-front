@@ -46,8 +46,8 @@ export default class PlaywrightDevPage {
 
   async checkRedirectionErrorText() {
     const errorRedirectionText = await this.page.textContent(
-      '[data-id="error-title"]'
+      '[data-id="error-title"]',
     );
     return errorRedirectionText.trim();
   }
-};
+}

@@ -26,7 +26,7 @@ import AjvFormats from "ajv-formats";
 const ajv = new Ajv({ strictTuples: false });
 ajv.addSchema(
   F2F_CRI_AUTH_CODE_ISSUED_SCHEMA,
-  "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA"
+  "F2F_CRI_AUTH_CODE_ISSUED_SCHEMA",
 );
 ajv.addSchema(F2F_CRI_END_SCHEMA, "F2F_CRI_END_SCHEMA");
 ajv.addSchema(F2F_CRI_START_SCHEMA, "F2F_CRI_START_SCHEMA");
@@ -34,17 +34,17 @@ ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_00, "F2F_CRI_VC_ISSUED_SCHEMA_UK_DL");
 ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_01, "F2F_CRI_VC_ISSUED_SCHEMA_UK_PP");
 ajv.addSchema(
   F2F_CRI_VC_ISSUED_SCHEMA_02,
-  "F2F_CRI_VC_ISSUED_SCHEMA_NON_UK_PP"
+  "F2F_CRI_VC_ISSUED_SCHEMA_NON_UK_PP",
 );
 ajv.addSchema(F2F_CRI_VC_ISSUED_SCHEMA_04, "F2F_CRI_VC_ISSUED_SCHEMA_EU_DL");
 ajv.addSchema(
   F2F_CRI_VC_ISSUED_SCHEMA_05,
-  "F2F_CRI_VC_ISSUED_SCHEMA_EEA_ID_CARD"
+  "F2F_CRI_VC_ISSUED_SCHEMA_EEA_ID_CARD",
 );
 ajv.addSchema(F2F_YOTI_PDF_EMAILED_SCHEMA, "F2F_YOTI_PDF_EMAILED_SCHEMA");
 ajv.addSchema(
   F2F_YOTI_RESPONSE_RECEIVED_SCHEMA,
-  "F2F_YOTI_RESPONSE_RECEIVED_SCHEMA"
+  "F2F_YOTI_RESPONSE_RECEIVED_SCHEMA",
 );
 ajv.addSchema(F2F_YOTI_START_SCHEMA_00, "F2F_YOTI_START_UK_DL");
 ajv.addSchema(F2F_YOTI_START_SCHEMA_01, "F2F_YOTI_START_UK_PP");
@@ -84,7 +84,7 @@ export class TestHarness {
         "/getRecordBySessionId/" +
           process.env["SESSION_TABLE"] +
           "/" +
-          sessionId
+          sessionId,
       );
       return unmarshall(getItemResponse.data.Item);
     } catch (error) {
@@ -95,7 +95,10 @@ export class TestHarness {
   async getSessionByAuthCode(authCode) {
     try {
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
-        "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + authCode
+        "/getSessionByAuthCode/" +
+          process.env["SESSION_TABLE"] +
+          "/" +
+          authCode,
       );
       return unmarshall(getItemResponse.data.Items[0]);
     } catch (error) {
@@ -106,7 +109,7 @@ export class TestHarness {
   async getSessionByState(state) {
     try {
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
-        "/getSessionByState/" + process.env["SESSION_TABLE"] + "/" + state
+        "/getSessionByState/" + process.env["SESSION_TABLE"] + "/" + state,
       );
       return unmarshall(getItemResponse.data.Items[0]);
     } catch (error) {
@@ -121,7 +124,7 @@ export class TestHarness {
         params: {
           prefix: "ipv-core/" + prefix,
         },
-      }
+      },
     );
     const xmlParser = new XMLParser();
     const listObjectsParsedResponse = xmlParser.parse(listObjectsResponse.data);
@@ -137,7 +140,7 @@ export class TestHarness {
 
     const getObjectResponse = await this.HARNESS_API_INSTANCE.get(
       "/object/" + key,
-      {}
+      {},
     );
     return getObjectResponse.data;
   }
@@ -153,11 +156,11 @@ export class TestHarness {
           params: {
             prefix: folder + prefix,
           },
-        }
+        },
       );
       const xmlParser = new XMLParser();
       const listObjectsParsedResponse = xmlParser.parse(
-        listObjectsResponse.data
+        listObjectsResponse.data,
       );
       if (!listObjectsParsedResponse?.ListBucketResult?.Contents) {
         return undefined;
@@ -167,7 +170,7 @@ export class TestHarness {
       keyList = [];
       for (i = 0; i < keys.length; i++) {
         keyList.push(
-          listObjectsParsedResponse?.ListBucketResult?.Contents.at(i).Key
+          listObjectsParsedResponse?.ListBucketResult?.Contents.at(i).Key,
         );
       }
     } while (keys.length < txmaEventSize);
@@ -181,7 +184,7 @@ export class TestHarness {
     for (i = 0; i < keyList.length; i++) {
       const txmaEventBody = await this.HARNESS_API_INSTANCE.get(
         "/object/" + keyList[i],
-        {}
+        {},
       );
       const eventName = txmaEventBody.data.event_name;
       obj[eventName] = txmaEventBody.data;
@@ -210,7 +213,7 @@ export class TestHarness {
       }
     } else {
       throw new Error(
-        `No event found in the test harness for ${eventName} event`
+        `No event found in the test harness for ${eventName} event`,
       );
     }
   }
@@ -219,16 +222,16 @@ export class TestHarness {
     decodedBody,
     yotiMockIdId,
     expecedValue,
-    vcAttribute
+    vcAttribute,
   ) {
     try {
       expect(decodedBody.vc.evidence[0][vcAttribute]).to.equal(expecedValue);
     } catch (error) {
       console.log(
         `Error validating ${vcAttribute} for yotiMockId: ${yotiMockIdId}`,
-        error
+        error,
       );
       return error;
     }
   }
-};
+}

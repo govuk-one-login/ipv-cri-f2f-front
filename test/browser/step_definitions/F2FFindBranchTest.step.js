@@ -29,7 +29,7 @@ When(
     await this.page.waitForLoadState("networkidle");
 
     await findBranchValid.continue();
-  }
+  },
 );
 
 Then(
@@ -43,7 +43,7 @@ Then(
     await this.page.waitForLoadState("networkidle");
 
     expect(await poLocations.numberOfLocations()).to.equal(locationCount);
-  }
+  },
 );
 
 When(
@@ -52,7 +52,7 @@ When(
     const findBranch = new FindBranch(await this.page);
     await findBranch.enterPostCode("KW15 1DD");
     await findBranch.continue();
-  }
+  },
 );
 
 Then(
@@ -61,7 +61,7 @@ Then(
     const poLocations = new PostOfficeLocations(await this.page);
     const count = await poLocations.numberOfLocations();
     expect(count).to.equal(2);
-  }
+  },
 );
 
 Then(
@@ -70,7 +70,7 @@ Then(
     const phototDlAddress = new PhotoDlAddressCheckPage(await this.page);
 
     expect(await phototDlAddress.isCurrentPage()).to.be.true;
-  }
+  },
 );
 
 //Invalid Checks
@@ -91,7 +91,7 @@ When(
     await this.page.waitForLoadState("networkidle");
 
     await findBranchEmpty.continue();
-  }
+  },
 );
 
 Then(
@@ -102,9 +102,9 @@ Then(
     expect(await findBranchEmpty.isCurrentPage()).to.be.true;
 
     expect(await findBranchEmpty.checkErrorText()).to.contain(
-      "There is a problem"
+      "There is a problem",
     );
-  }
+  },
 );
 
 //Find Branch Invalid
@@ -123,7 +123,7 @@ When(
     await this.page.waitForLoadState("networkidle");
 
     await findBranchInvalid.continue();
-  }
+  },
 );
 
 Then(
@@ -134,9 +134,9 @@ Then(
     expect(await findBranchInvalid.isCurrentPage()).to.be.true;
 
     expect(await findBranchInvalid.checkErrorText()).to.contain(
-      "There is a problem"
+      "There is a problem",
     );
-  }
+  },
 );
 
 //Find Branch Partial
@@ -155,7 +155,7 @@ When(
     await this.page.waitForLoadState("networkidle");
 
     await findBranchPartial.continue();
-  }
+  },
 );
 
 Then(
@@ -166,9 +166,9 @@ Then(
     expect(await findBranchPartial.isCurrentPage()).to.be.true;
 
     expect(await findBranchPartial.checkErrorText()).to.contain(
-      "There is a problem"
+      "There is a problem",
     );
-  }
+  },
 );
 
 //Post code correspond to empty return from PO stub
@@ -179,5 +179,5 @@ When(
     const findBranch = new FindBranch(await this.page);
     await findBranch.enterPostCode("IM1 1AD");
     await findBranch.continue();
-  }
+  },
 );

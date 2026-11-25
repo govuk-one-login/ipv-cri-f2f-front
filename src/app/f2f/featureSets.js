@@ -18,4 +18,4 @@ export function featureSets(req, res, next) {
   } catch (error) {
     return next(error);
   }
-};
+}
