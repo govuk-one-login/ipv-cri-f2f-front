@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export default class PlaywrightDevPage {
   /**
    * @param {import('@playwright/test').Page} page
@@ -7,7 +9,6 @@ export default class PlaywrightDevPage {
   }
 
   async goto(claim) {
-    const axios = await import("axios");
     if (process.env.CUSTOM_FE_URL) {
       claim.frontendURL = process.env.CUSTOM_FE_URL;
     }

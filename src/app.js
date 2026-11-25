@@ -19,9 +19,9 @@ import {
   SESSION_TTL,
   PROXY_API,
 } from "./lib/config.js";
-import { get as getLogger } from "../../lib/logger.js";
+import { get as getLogger } from "./lib/logger.js";
 import commonExpress from "@govuk-one-login/di-ipv-cri-common-express";
-import frontendUi from "@govuk-one-login/frontend-ui";
+import * as frontendUi from "@govuk-one-login/frontend-ui";
 import { init as initOverloadProtectionConfig } from "./lib/overload-protection-config.js";
 import addLanguageParam from "@govuk-one-login/frontend-language-toggle/build/cjs/language-param-setter.cjs";
 import { setAPIConfig, setOAuthPaths } from "./lib/settings.js";
@@ -69,7 +69,7 @@ const sessionConfig = {
 const overloadProtectionConfig = initOverloadProtectionConfig();
 
 const { app, router } = setup({
-  config: { APP_ROOT: __dirname },
+  config: { APP_ROOT: import.meta.dirname },
   port: false,
   logs: loggerConfig,
   session: sessionConfig,
@@ -136,7 +136,7 @@ const { app, router } = setup({
 app.set("trust proxy", "loopback, linklocal, uniquelocal");
 
 import { steps } from "./app/f2f/steps.js";
-import { fields } from "./app/f2f/fields";
+import { fields } from "./app/f2f/fields.js";
 
 setI18n({
   router,

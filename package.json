@@ -33,6 +33,7 @@
     "test:e2e:cd": "npm run test:e2e:cd:cucumber && npm run test:browser:report",
     "check-translation": "node node_modules/@govuk-one-login/di-ipv-cri-common-express/scripts/checkTranslations.js '../../../../src/locales'"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alphagov/di-ipv-cri-f2f-front.git"

@@ -1,12 +1,9 @@
+import axios from "axios";
 import { Given, When, Then } from "@cucumber/cucumber";
-
 import { expect } from "chai";
-
 import { TestHarness } from "../support/TestHarness.js";
-
-import vcResponseData from "../support/vcValidationData.json" with { type: "json" };
-
 import { sleep } from "../../utils/sleep.js";
+import vcResponseData from "../support/vcValidationData.json" with { type: "json" };
 
 Given(
   "I have retrieved the sessionTable data for my F2F session using {string}",
@@ -45,7 +42,6 @@ When(
     this.yotiSessionId = f2fSession.yotiSessionId;
     this.subject = f2fSession.subject;
     console.log(this.yotiSessionId);
-    const axios = await import("axios");
     const firstBranchVisit = await axios.post(
       `${process.env.API_BASE_URL}/callback`,
       {
